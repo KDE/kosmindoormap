@@ -22,8 +22,13 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KOSMIndoorMapConfigVersion.cmake"
 )
 
-find_package(Qt5 5.11 REQUIRED COMPONENTS Test Quick Widgets)
+find_package(Qt5 5.11 REQUIRED COMPONENTS Quick)
 find_package(KPublicTransport REQUIRED)
+
+if (BUILD_TESTING)
+    find_package(Qt5 5.11 REQUIRED COMPONENTS Test Widgets)
+endif()
+
 find_package(ZLIB REQUIRED)
 find_package(OsmTools)
 set_package_properties(OsmTools PROPERTIES TYPE OPTIONAL PURPOSE "Needed only for regenereating line metadata tables (ie. you most likely don't need this)")
@@ -35,8 +40,11 @@ endif()
 
 add_definitions(-DQT_NO_FOREACH)
 add_subdirectory(src)
-add_subdirectory(autotests)
-add_subdirectory(tests)
+
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+    add_subdirectory(tests)
+endif()
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
