@@ -1,4 +1,7 @@
 add_subdirectory(osm)
+if (BISON_FOUND AND FLEX_FOUND)
+    add_subdirectory(map)
+endif()
 if (NOT CROSS_COMPILING)
     add_subdirectory(tools)
 endif()
