@@ -4,3 +4,4 @@ ecm_add_test(osmtypetest.cpp LINK_LIBRARIES Qt5::Test KOSM)
 
 ecm_add_test(mapviewtest.cpp LINK_LIBRARIES Qt5::Test KOSMIndoorMap)
 ecm_add_test(mapcssparsertest.cpp LINK_LIBRARIES Qt5::Test KOSMIndoorMap)
+ecm_add_test(scenegeometrytest.cpp LINK_LIBRARIES Qt5::Test KOSMIndoorMap)
