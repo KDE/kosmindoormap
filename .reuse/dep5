@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: KOSMIndoorMap
+Upstream-Contact: Volker Krause <vkrause@kde.org>
+Source: https://invent.kde.org/libraries/kosmindoormap
+
+Files: autotests/data/*
+Copyright: none
+License: CC0-1.0
