@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2018 Volker Krause <vkrause@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
+
 add_subdirectory(osm)
 if (BISON_FOUND AND FLEX_FOUND)
     add_subdirectory(map)

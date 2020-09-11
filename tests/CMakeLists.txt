@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2018 Volker Krause <vkrause@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
+
 add_executable(overpassql-cli overpassql-cli.cpp)
 target_link_libraries(overpassql-cli KOSM)
 
