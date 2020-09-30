@@ -3,6 +3,10 @@ Upstream-Name: KOSMIndoorMap
 Upstream-Contact: Volker Krause <vkrause@kde.org>
 Source: https://invent.kde.org/libraries/kosmindoormap
 
-Files: autotests/data/departures/* autotests/data/deutschebahn/* autotests/data/efa/* autotests/data/hafas/* autotests/data/journeys/* autotests/data/navitia/* autotests/data/osminfomodel/* autotests/data/otp/*
+Files: autotests/data/osminfomodel/*
 Copyright: none
 License: CC0-1.0
+
+Files: autotests/data/platforms/*.platforms
+Copyright: OpenStreetMap contributors
+License: ODbL-1.0
