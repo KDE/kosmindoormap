@@ -28,6 +28,12 @@ add_library(KOSM STATIC
     ztile.cpp
     ${pbf_srcs}
 )
+generate_export_header(KOSM BASE_NAME KOSM)
+set_target_properties(KOSM PROPERTIES
+    VERSION ${KOSMINDOORMAP_VERSION_STRING}
+    SOVERSION ${KOSMINDOORMAP_SOVERSION}
+    EXPORT_NAME KOSM
+)
 
 target_include_directories(KOSM PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>")
 target_include_directories(KOSM PRIVATE ${Protobuf_INCLUDE_DIRS})

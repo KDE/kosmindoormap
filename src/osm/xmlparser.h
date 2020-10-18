@@ -7,6 +7,8 @@
 #ifndef OSM_XMLPARSER_H
 #define OSM_XMLPARSER_H
 
+#include <kosm_export.h>
+
 #include <QString>
 
 class QIODevice;
@@ -16,7 +18,7 @@ namespace OSM {
 
 class DataSet;
 
-class XmlParser
+class KOSM_EXPORT XmlParser
 {
 public:
     explicit XmlParser(DataSet *dataSet);

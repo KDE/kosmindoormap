@@ -7,6 +7,8 @@
 #ifndef OSM_PATHUTIL_H
 #define OSM_PATHUTIL_H
 
+#include <kosm_export.h>
+
 #include "datatypes.h"
 
 #include <vector>
@@ -30,8 +32,8 @@ static void appendNodesFromWay(const DataSet &dataSet, std::vector<const Node*> 
 }
 
 /** Assemble a continuous path into @p path from the given @p ways. */
-void assemblePath(const DataSet &dataSet, std::vector<const Way*> &&ways, std::vector<const Node*> &path);
-void assemblePath(const DataSet &dataSet, const std::vector<OSM::Element> &ways, std::vector<const Node*> &path);
+KOSM_EXPORT void assemblePath(const DataSet &dataSet, std::vector<const Way*> &&ways, std::vector<const Node*> &path);
+KOSM_EXPORT void assemblePath(const DataSet &dataSet, const std::vector<OSM::Element> &ways, std::vector<const Node*> &path);
 
 }
 

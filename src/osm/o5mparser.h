@@ -7,6 +7,8 @@
 #ifndef OSM_O5MPARSER_H
 #define OSM_O5MPARSER_H
 
+#include "kosm_export.h"
+
 #include <cstddef>
 #include <cstdint>
 #include <vector>
@@ -21,7 +23,7 @@ class DataSetMergeBuffer;
 /** Zero-copy parser of O5M binary files.
  *  @see https://wiki.openstreetmap.org/wiki/O5m
  */
-class O5mParser
+class KOSM_EXPORT O5mParser
 {
 public:
     explicit O5mParser(DataSet *dataSet);

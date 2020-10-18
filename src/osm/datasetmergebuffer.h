@@ -7,12 +7,14 @@
 #ifndef OSM_DATASETMERGEBUFFER_H
 #define OSM_DATASETMERGEBUFFER_H
 
+#include <kosm_export.h>
+
 #include "datatypes.h"
 
 namespace OSM {
 
 /** Holds OSM elements produced by a parser prior to merging into OSM::DataSet. */
-class DataSetMergeBuffer
+class KOSM_EXPORT DataSetMergeBuffer
 {
 public:
     void clear();

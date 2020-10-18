@@ -7,6 +7,8 @@
 #ifndef OSM_OVERPASSQUERYMANAGER_H
 #define OSM_OVERPASSQUERYMANAGER_H
 
+#include "kosm_export.h"
+
 #include <QObject>
 
 #include <memory>
@@ -17,7 +19,7 @@ class OverpassQuery;
 class OverpassQueryManagerPrivate;
 
 /** Executes OverpassQuery jobs. */
-class OverpassQueryManager : public QObject
+class KOSM_EXPORT OverpassQueryManager : public QObject
 {
     Q_OBJECT
 public:

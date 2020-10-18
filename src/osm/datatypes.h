@@ -7,6 +7,7 @@
 #ifndef OSM_DATATYPES_H
 #define OSM_DATATYPES_H
 
+#include "kosm_export.h"
 #include "internal.h"
 
 #include <QByteArray>
@@ -18,6 +19,7 @@
 #include <cstring>
 #include <vector>
 
+/** Low-level types and functions to work with raw OSM data as efficiently as possible. */
 namespace OSM {
 
 class DataSet;
@@ -212,7 +214,7 @@ public:
 };
 
 /** An OSM node. */
-class Node {
+class KOSM_EXPORT Node {
 public:
     constexpr inline bool operator<(const Node &other) const { return id < other.id; }
 
@@ -224,7 +226,7 @@ public:
 };
 
 /** An OSM way. */
-class Way {
+class KOSM_EXPORT Way {
 public:
     constexpr inline bool operator<(const Way &other) const { return id < other.id; }
 
@@ -289,7 +291,7 @@ private:
 };
 
 /** An OSM relation. */
-class Relation {
+class KOSM_EXPORT Relation {
 public:
     constexpr inline bool operator<(const Relation &other) const { return id < other.id; }
 
@@ -302,7 +304,7 @@ public:
 };
 
 /** A set of nodes, ways and relations. */
-class DataSet {
+class KOSM_EXPORT DataSet {
 public:
     explicit DataSet();
     DataSet(const DataSet&) = delete;
@@ -468,7 +470,7 @@ inline bool operator<(const Elem &elem, Id id)
 
 }
 
-QDebug operator<<(QDebug debug, OSM::Coordinate coord);
-QDebug operator<<(QDebug debug, OSM::BoundingBox bbox);
+KOSM_EXPORT QDebug operator<<(QDebug debug, OSM::Coordinate coord);
+KOSM_EXPORT QDebug operator<<(QDebug debug, OSM::BoundingBox bbox);
 
 #endif // OSM_DATATYPES_H

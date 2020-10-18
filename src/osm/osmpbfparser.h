@@ -7,6 +7,8 @@
 #ifndef KOSM_OSMPBFPARSER_H
 #define KOSM_OSMPBFPARSER_H
 
+#include "kosm_export.h"
+
 #include "datatypes.h"
 
 namespace OSMPBF {
@@ -19,7 +21,7 @@ namespace OSM {
 /** Parser of .osm.pbf files.
  *  @see https://wiki.openstreetmap.org/wiki/PBF_Format
  */
-class OsmPbfParser
+class KOSM_EXPORT OsmPbfParser
 {
 public:
     explicit OsmPbfParser(DataSet *dataSet);

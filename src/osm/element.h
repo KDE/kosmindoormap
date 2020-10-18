@@ -7,6 +7,8 @@
 #ifndef OSM_ELEMENT_H
 #define OSM_ELEMENT_H
 
+#include "kosm_export.h"
+
 #include "datatypes.h"
 #include "internal.h"
 
@@ -17,7 +19,7 @@ namespace OSM {
 /** A reference to any of OSM::Node/OSM::Way/OSM::Relation.
  *  Lifetime of the referenced object needs to extend beyond the lifetime of this.
  */
-class Element
+class KOSM_EXPORT Element
 {
 public:
     inline constexpr Element() : m_elem(nullptr, static_cast<uint8_t>(Type::Null)) {}
@@ -91,7 +93,7 @@ QByteArray Element::tagValue(K key, Args... args, const QLocale &locale) const
 
 
 /** A std::unique_ptr-like object for OSM element types. */
-class UniqueElement
+class KOSM_EXPORT UniqueElement
 {
 public:
     explicit inline UniqueElement() = default;

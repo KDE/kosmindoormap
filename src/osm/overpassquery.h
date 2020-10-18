@@ -7,6 +7,8 @@
 #ifndef OSM_OVERPASSQUERY_H
 #define OSM_OVERPASSQUERY_H
 
+#include "kosm_export.h"
+
 #include "datatypes.h"
 
 #include <QObject>
@@ -20,7 +22,7 @@ namespace OSM {
  *  @note Use this wrongly can cause excessive load on Overpass servers,
  *  so only use this when you know what you are doing!
  */
-class OverpassQuery : public QObject
+class KOSM_EXPORT OverpassQuery : public QObject
 {
     Q_OBJECT
 public:
