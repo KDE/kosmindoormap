@@ -13,7 +13,7 @@ endif()
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-kosm.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kosm.h)
 
-add_library(KOSM STATIC
+add_library(KOSM
     datatypes.cpp
     datasetmergebuffer.cpp
     element.cpp
@@ -39,6 +39,22 @@ target_include_directories(KOSM PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE
 target_include_directories(KOSM PRIVATE ${Protobuf_INCLUDE_DIRS})
 target_link_libraries(KOSM PUBLIC Qt5::Core PRIVATE Qt5::Network ${EXTRA_LIBS})
 
-if (NOT BUILD_SHARED_LIBS)
-    install(TARGETS KOSM EXPORT KOSMIndoorMapTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
-endif()
+ecm_generate_headers(KOSM_FORWARDING_HEADERS
+    HEADER_NAMES
+        Datatypes
+        Element
+    PREFIX KOSM
+    REQUIRED_HEADERS KOSM_HEADERS
+)
+
+install(TARGETS KOSM EXPORT KOSMIndoorMapTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES
+    ${KOSM_FORWARDING_HEADERS}
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KOSM
+)
+install(FILES
+    ${KOSM_HEADERS}
+    ${CMAKE_CURRENT_BINARY_DIR}/kosm_export.h
+    internal.h
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kosm
+)
