@@ -2,10 +2,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 add_subdirectory(osm)
-if (BISON_FOUND AND FLEX_FOUND)
-    add_subdirectory(map)
-endif()
-if (TARGET KOSMIndoorMap AND TARGET Qt5::Quick)
+add_subdirectory(map)
+if (TARGET Qt5::Quick)
     add_subdirectory(map-quick)
     add_subdirectory(map-publictransport-integration)
 endif()
