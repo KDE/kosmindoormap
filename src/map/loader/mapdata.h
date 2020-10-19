@@ -9,8 +9,8 @@
 
 #include "kosmindoormap_export.h"
 
-#include <osm/datatypes.h>
-#include <osm/element.h>
+#include <KOSM/Datatypes>
+#include <KOSM/Element>
 
 #include <QMetaType>
 

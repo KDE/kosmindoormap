@@ -11,7 +11,7 @@
 
 #include <KOSMIndoorMap/MapData>
 
-#include <osm/element.h>
+#include <KOSM/Element>
 
 #include <QAbstractListModel>
 

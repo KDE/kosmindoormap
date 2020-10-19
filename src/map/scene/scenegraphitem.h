@@ -7,7 +7,7 @@
 #ifndef KOSMINDOORMAP_SCENEGRAPHITEM_H
 #define KOSMINDOORMAP_SCENEGRAPHITEM_H
 
-#include <osm/element.h>
+#include <KOSM/Element>
 
 #include <QBrush>
 #include <QColor>

@@ -9,7 +9,7 @@
 
 #include "kosmindoormap_export.h"
 
-#include <osm/datatypes.h>
+#include <KOSM/Datatypes>
 
 #include <QObject>
 #include <QRectF>

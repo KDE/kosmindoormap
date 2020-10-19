@@ -11,7 +11,7 @@
 
 #include "scenegraphitem.h"
 
-#include <osm/element.h>
+#include <KOSM/Element>
 
 #include <QColor>
 

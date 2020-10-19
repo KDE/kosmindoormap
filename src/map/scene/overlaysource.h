@@ -9,7 +9,7 @@
 
 #include "kosmindoormap_export.h"
 
-#include <osm/element.h>
+#include <KOSM/Element>
 
 #include <QPointer>
 
