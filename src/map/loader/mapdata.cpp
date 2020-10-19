@@ -118,6 +118,8 @@ void MapData::processElements()
     const auto buildingLevelsTag = m_dataSet.tagKey("building:levels");
     const auto buildingMinLevelTag = m_dataSet.tagKey("building:min_level");
     const auto buildingLevelsUndergroundTag = m_dataSet.tagKey("building:levels:underground");
+    const auto maxLevelTag = m_dataSet.tagKey("max_level");
+    const auto minLevelTag = m_dataSet.tagKey("min_level");
 
     MapCSSParser p;
     auto filter = p.parse(QStringLiteral(":/org.kde.kosmindoormap/assets/css/input-filter.mapcss"));
@@ -158,9 +160,10 @@ void MapData::processElements()
         // multi-level building element
         // we handle this first, before level=, as level is often used instead
         // of building:min_level in combination with building:level
-        const auto buildingLevels = e.tagValue(buildingLevelsTag).toUInt();
+        const auto buildingLevels = e.tagValue(buildingLevelsTag, maxLevelTag).toInt();
         if (buildingLevels > 0) {
-            const auto startLevel = e.tagValue(buildingMinLevelTag, levelTag).toUInt();
+            const auto startLevel = e.tagValue(buildingMinLevelTag, levelTag, minLevelTag).toInt();
+            qDebug() << startLevel << buildingLevels << e.url();
             for (auto i = startLevel; i < buildingLevels; ++i) {
                 addElement(i * 10, e, true);
             }
