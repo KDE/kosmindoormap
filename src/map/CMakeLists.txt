@@ -19,7 +19,7 @@ ecm_qt_declare_logging_category(logging_srcs HEADER logging.h IDENTIFIER KOSMInd
 ecm_qt_declare_logging_category(logging_srcs HEADER render-logging.h IDENTIFIER KOSMIndoorMap::RenderLog CATEGORY_NAME org.kde.kosmindoormap.renderer)
 ecm_qt_declare_logging_category(logging_srcs HEADER reassembly-logging.h IDENTIFIER KOSMIndoorMap::ReassemblyLog CATEGORY_NAME org.kde.kosmindoormap.reassembly)
 
-add_library(KOSMIndoorMap STATIC
+add_library(KOSMIndoorMap
     ${logging_srcs}
     assets/assets.qrc
 
@@ -119,4 +119,22 @@ ecm_generate_headers(KOSMIndoorMap_Style_FORWARDING_HEADERS
     RELATIVE style
 )
 
+install(TARGETS KOSMIndoorMap EXPORT KOSMIndoorMapTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES
+    ${KOSMIndoorMap_Content_FORWARDING_HEADERS}
+    ${KOSMIndoorMap_Loader_FORWARDING_HEADERS}
+    ${KOSMIndoorMap_Renderer_FORWARDING_HEADERS}
+    ${KOSMIndoorMap_Scene_FORWARDING_HEADERS}
+    ${KOSMIndoorMap_Style_FORWARDING_HEADERS}
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KOSMIndoorMap
+)
+install(FILES
+    ${KOSMIndoorMap_Content_HEADERS}
+    ${KOSMIndoorMap_Loader_HEADERS}
+    ${KOSMIndoorMap_Renderer_HEADERS}
+    ${KOSMIndoorMap_Scene_HEADERS}
+    ${KOSMIndoorMap_Style_HEADERS}
+    ${CMAKE_CURRENT_BINARY_DIR}/kosmindoormap_export.h
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kosmindoormap
+)
 install(FILES org_kde_kosmindoormap.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
