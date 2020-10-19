@@ -5,7 +5,7 @@
 */
 
 #include "maploader.h"
-#include "boundarysearch.h"
+#include "boundarysearch_p.h"
 #include "logging.h"
 #include "mapdata.h"
 #include "marblegeometryassembler_p.h"

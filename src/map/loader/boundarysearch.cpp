@@ -4,7 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "boundarysearch.h"
+#include "boundarysearch_p.h"
 
 #include <osm/datatypes.h>
 #include <osm/element.h>
