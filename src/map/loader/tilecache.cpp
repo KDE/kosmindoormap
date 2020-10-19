@@ -172,7 +172,7 @@ void TileCache::downloadFinished(QNetworkReply* reply, Tile tile)
     const auto t = cachePath(tile);
     m_output.rename(t);
     if (tile.ttl.isValid()) {
-        updateTtl(t, tile.ttl);
+        updateTtl(t, std::max(QDateTime::currentDateTimeUtc().addDays(1), tile.ttl));
     } else {
         updateTtl(t, QDateTime::currentDateTimeUtc().addDays(DefaultCacheDays));
     }
