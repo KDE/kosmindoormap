@@ -15,9 +15,9 @@ namespace OSM {
 class DataSet;
 
 /** Serialite a OSM::DataSet into OSM XML. */
-namespace KOSM_EXPORT XmlWriter
+namespace XmlWriter
 {
-    void write(const OSM::DataSet &dataSet, QIODevice *out);
+    void KOSM_EXPORT write(const OSM::DataSet &dataSet, QIODevice *out);
 }
 
 }
