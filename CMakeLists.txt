@@ -33,6 +33,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
 )
 
 find_package(Qt5 5.11 REQUIRED COMPONENTS Quick)
+find_package(KF5 REQUIRED COMPONENTS I18n)
 find_package(KPublicTransport REQUIRED)
 
 if (BUILD_TESTING)

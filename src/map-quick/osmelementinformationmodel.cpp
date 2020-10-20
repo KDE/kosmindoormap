@@ -9,6 +9,8 @@
 #include "osmelementinformationmodel_data.cpp"
 #include "osmaddress.h"
 
+#include <KLocalizedString>
+
 #include <cctype>
 
 using namespace KOSMIndoorMap;
@@ -119,7 +121,7 @@ QVariant OSMElementInformationModel::data(const QModelIndex &index, int role) co
         case ValueRole:
             switch (info.key) {
                 case DebugKey: return debugTagValue(index.row());
-                case Wikipedia: return tr("Wikipedia");
+                case Wikipedia: return i18n("Wikipedia");
                 default: return valueForKey(info);
             }
         case ValueUrlRole:
@@ -367,12 +369,12 @@ QString OSMElementInformationModel::categoryLabel(OSMElementInformationModel::Ke
         case UnresolvedCategory:
         case Header:
         case Main:          return {};
-        case Contact:       return tr("Contact");
-        case Payment:       return tr("Payment");
-        case Toilets:       return tr("Toilets");
-        case Accessibility: return tr("Accessibility");
-        case Parking:       return tr("Parking");
-        case Operator:      return tr("Operator");
+        case Contact:       return i18n("Contact");
+        case Payment:       return i18n("Payment");
+        case Toilets:       return i18n("Toilets");
+        case Accessibility: return i18n("Accessibility");
+        case Parking:       return i18n("Parking");
+        case Operator:      return i18n("Operator");
         case DebugCategory: return QStringLiteral("Debug");
     }
     return {};
@@ -398,37 +400,37 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case NoKey:
         case Name:
         case Category: return {};
-        case OldName: return tr("Fomerly");
-        case Routes: return tr("Routes");
-        case Cuisine: return tr("Cuisine");
-        case Diet: return tr("Diet");
-        case Takeaway: return tr("Takeaway");
-        case Socket: return tr("Socket");
-        case OpeningHours: return tr("Opening hours");
-        case Fee: return tr("Fee");
-        case Authentication: return tr("Authentication");
-        case BicycleParking: return tr("Bicycle parking");
-        case Capacity: return tr("Capacity");
-        case CapacityDisabled: return tr("Disabled parking spaces");
-        case CapacityWomen: return tr("Women parking spaces");
-        case CapacityParent: return tr("Parent parking spaces");
-        case CapacityCharing: return tr("Parking spaces for charging");
-        case MaxStay: return tr("Maximum stay");
-        case DiaperChangingTable: return tr("Diaper changing table");
+        case OldName: return i18n("Fomerly");
+        case Routes: return i18n("Routes");
+        case Cuisine: return i18n("Cuisine");
+        case Diet: return i18n("Diet");
+        case Takeaway: return i18n("Takeaway");
+        case Socket: return i18n("Socket");
+        case OpeningHours: return i18n("Opening hours");
+        case Fee: return i18n("Fee");
+        case Authentication: return i18n("Authentication");
+        case BicycleParking: return i18n("Bicycle parking");
+        case Capacity: return i18n("Capacity");
+        case CapacityDisabled: return i18n("Disabled parking spaces");
+        case CapacityWomen: return i18n("Women parking spaces");
+        case CapacityParent: return i18n("Parent parking spaces");
+        case CapacityCharing: return i18n("Parking spaces for charging");
+        case MaxStay: return i18n("Maximum stay");
+        case DiaperChangingTable: return i18n("Diaper changing table");
         case Wikipedia: return {};
-        case Address: return tr("Address");
-        case Phone: return tr("Phone");
-        case Email: return tr("Email");
-        case Website: return tr("Website");
-        case PaymentCash: return tr("Cash");
-        case PaymentDigital: return tr("Digital");
-        case PaymentDebitCard: return tr("Debit cards");
-        case PaymentCreditCard: return tr("Credit cards");
-        case PaymentStoredValueCard: return tr("Stored value cards");
-        case Wheelchair: return tr("Wheelchair access");
-        case CentralKey: return tr("Central key");
+        case Address: return i18n("Address");
+        case Phone: return i18n("Phone");
+        case Email: return i18n("Email");
+        case Website: return i18n("Website");
+        case PaymentCash: return i18n("Cash");
+        case PaymentDigital: return i18n("Digital");
+        case PaymentDebitCard: return i18n("Debit cards");
+        case PaymentCreditCard: return i18n("Credit cards");
+        case PaymentStoredValueCard: return i18n("Stored value cards");
+        case Wheelchair: return i18n("Wheelchair access");
+        case CentralKey: return i18n("Central key");
         case OperatorName: return {};
-        case Network: return tr("Network", "transport network");
+        case Network: return i18nc("transport network", "Network");
         case OperatorWikipedia: return {};
         case DebugLink: return QStringLiteral("OSM");
         case DebugKey: return {};
@@ -488,13 +490,13 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             QStringList l;
             for (const auto &d : diet_type_map) {
                 const auto v = m_element.tagValue(d.keyName);
-                const auto label = QCoreApplication::translate("OSM::diet_type", d.label);
+                const auto label = i18nc("OSM::diet_type", d.label);
                 if (v == "yes") {
                     l.push_back(label);
                 } else if (v == "only") {
-                    l.push_back(tr("only %1").arg(label));
+                    l.push_back(i18n("only %1", label));
                 } else if (v == "no") {
-                    l.push_back(tr("no %1").arg(label));
+                    l.push_back(i18n("no %1", label));
                 }
             }
             return l.join(QLatin1String(", "));
@@ -509,7 +511,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                     continue;
                 }
 
-                auto s = QCoreApplication::translate("OSM::charging_station_socket", socket.label);
+                auto s = i18nc("OSM::charging_station_socket", socket.label);
 
                 QStringList details;
                 if (value != "yes") {
@@ -519,7 +521,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 const auto current = m_element.tagValue(QByteArray(socket.keyName + QByteArray(":current")).constData());
                 if (!current.isEmpty()) {
                     if (std::all_of(current.begin(), current.end(), [](char c) { return std::isdigit(c); })) {
-                        details.push_back(tr("%1 A").arg(QString::fromUtf8(current)));
+                        details.push_back(i18nc("electrical current/Ampere value", "%1 A", QString::fromUtf8(current)));
                     } else {
                         details.push_back(QString::fromUtf8(current));
                     }
@@ -527,7 +529,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 const auto output = m_element.tagValue(QByteArray(socket.keyName + QByteArray(":output")).constData());
                 if (!output.isEmpty()) {
                     if (std::all_of(output.begin(), output.end(), [](char c) { return std::isdigit(c); })) {
-                        details.push_back(tr("%1 kW").arg(QString::fromUtf8(output)));
+                        details.push_back(i18nc("electrical power/kilowatt value", "%1 kW", QString::fromUtf8(output)));
                     } else {
                         details.push_back(QString::fromUtf8(output));
                     }
@@ -567,7 +569,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 if (v.isEmpty() || v == "no") {
                     continue;
                 }
-                l.push_back(QCoreApplication::translate("OSM::charging_station_authentication", auth.label));
+                l.push_back(i18nc("OSM::charging_station_authentication", auth.label));
             }
             return QLocale().createSeparatedList(l);
         }
@@ -595,15 +597,15 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 return m_element.tagValue("payment:cash"); // TODO decode bool
             }
             if (coins == "yes" && notes == "yes") {
-                return tr("yes");
+                return i18n("yes");
             }
             if (coins == "yes") {
-                return tr("coins only");
+                return i18nc("payment option", "coins only");
             }
             if (notes == "yes") {
-                return tr("notes only");
+                return i18nc("payment option", "notes only");
             }
-            return tr("no");
+            return i18n("no");
         }
         case PaymentDigital:
         case PaymentDebitCard:
@@ -680,7 +682,7 @@ QString OSMElementInformationModel::paymentMethodList(OSMElementInformationModel
             continue;
         }
         if (m_element.tagValue(payment.keyName) == "yes") {
-            l.push_back(QCoreApplication::translate("OSM::payment_method", payment.label));
+            l.push_back(i18nc("OSM::payment_method", payment.label));
         }
     }
     std::sort(l.begin(), l.end());
@@ -729,10 +731,10 @@ QString OSMElementInformationModel::capacitryValue(const char *prop) const
 {
     const auto v = m_element.tagValue(prop);
     if (v == "yes") {
-        return tr("yes");
+        return i18n("yes");
     }
     if (v == "no") {
-        return tr("no");
+        return i18n("no");
     }
     return QString::fromUtf8(v);
 }

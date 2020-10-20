@@ -7,6 +7,8 @@
 #ifndef KOSMINDOORMAP_OSMELEMENTINFORMATIONMODEL_P_H
 #define KOSMINDOORMAP_OSMELEMENTINFORMATIONMODEL_P_H
 
+#include <KLocalizedString>
+
 #include <QCoreApplication>
 #include <QLocale>
 
@@ -44,7 +46,7 @@ inline QString translateValue(const char *keyName, const MapEntry(&map)[N], cons
         return QString::fromUtf8(keyName);
     }
 
-    return QCoreApplication::translate(context, (*it).label);
+    return i18nc(context, (*it).label);
 }
 
 template <typename MapEntry, std::size_t N>

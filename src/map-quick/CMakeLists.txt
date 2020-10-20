@@ -11,6 +11,7 @@ add_library(KOSMIndoorMapQuick STATIC
 )
 target_link_libraries(KOSMIndoorMapQuick PUBLIC
     Qt5::Quick
+    KF5::I18n
     KOSMIndoorMap
 )
 
