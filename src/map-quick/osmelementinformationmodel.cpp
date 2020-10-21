@@ -400,7 +400,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case NoKey:
         case Name:
         case Category: return {};
-        case OldName: return i18n("Fomerly");
+        case OldName: return i18n("Formerly");
         case Routes: return i18n("Routes");
         case Cuisine: return i18n("Cuisine");
         case Diet: return i18n("Diet");
