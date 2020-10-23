@@ -9,11 +9,16 @@
 
 #include <osm/element.h>
 
+// ### ugly workaround for locale-ignoring string to float conversion
+// std::from_chars offers that with C++17, but isn't actually implemented yet for floats/doubles...
+#include <private/qlocale_tools_p.h>
+
 #include <cstdlib>
 #include <limits>
 
 using namespace KOSMIndoorMap;
 
+// NOTE string to float conversion in here must be done ignoring the locale!
 void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<void(int, OSM::Element)> &callback)
 {
     int rangeBegin = std::numeric_limits<int>::max();
@@ -35,7 +40,7 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
         }
 
         if (c == ';') {
-            const auto l = std::atof(level.constData() + numStartIdx) * 10;
+            const auto l = qstrtod(level.constData() + numStartIdx, nullptr, nullptr) * 10; // ### waiting for std::from_chars
             if (rangeBegin <= l) {
                 for (int j = rangeBegin; j <= l; j += 10) {
                     callback(j, e);
@@ -52,7 +57,7 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
             if (numStartIdx < 0) {
                 numStartIdx = i;
             } else {
-                rangeBegin = std::atof(level.constData() + numStartIdx) * 10;
+                rangeBegin = qstrtod(level.constData() + numStartIdx, nullptr, nullptr) * 10; // ### waiting for std::from_chars
                 numStartIdx = -1;
             }
         }
@@ -61,7 +66,7 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
     if (numStartIdx >= level.size() || numStartIdx < 0) {
         return;
     }
-    const auto l = std::atof(level.constData() + numStartIdx) * 10;
+    const auto l = qstrtod(level.constData() + numStartIdx, nullptr, nullptr) * 10; // ### waiting for std::from_chars
     if (rangeBegin <= l) {
         for (int j = rangeBegin; j <= l; j += 10) {
             callback(j, e);

@@ -8,6 +8,10 @@
 #include "mapcssparser_p.h"
 #include "style/mapcssselector_p.h"
 
+// ### ugly workaround for locale-ignoring string to float conversion
+// std::from_chars offers that with C++17, but isn't actually implemented yet for floats/doubles...
+#include <private/qlocale_tools_p.h>
+
 extern char* unquoteString(const char *str);
 
 using namespace KOSMIndoorMap;
@@ -109,7 +113,7 @@ STRING      ["]{STRING_ELEMENT}*["]
 }
 
 {DOUBLE} {
-    yylval->doubleVal = strtod(yytext, nullptr);
+    yylval->doubleVal = qstrtod(yytext, nullptr, nullptr); // ### waiting for std::from_chars
     return T_DOUBLE;
 }
 
