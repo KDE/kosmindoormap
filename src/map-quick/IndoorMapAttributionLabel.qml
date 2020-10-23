@@ -24,7 +24,7 @@ Item {
     }
 
     QQC2.Label {
-        text: qsTr("© <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap contributors</a>");
+        text: i18n("© <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap contributors</a>");
         id: label
         font.pointSize: 7;
         anchors.centerIn: background
