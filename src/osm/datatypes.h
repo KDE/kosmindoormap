@@ -323,7 +323,7 @@ public:
      *  @returns @c nullptr if the way doesn't exist.
      */
     const Way* way(Id id) const;
-    OSM::Way* way(Id id);
+    Way* way(Id id);
 
     /** Find a relation by its id.
      *  @returns @c nullptr if the relation doesn't exist.
