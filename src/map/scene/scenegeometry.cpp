@@ -72,7 +72,6 @@ double SceneGeometry::polylineMidPointAngle(const QPolygonF &path)
         if (length + l < lineLength / 2.0) {
             length += l;
         } else {
-            const auto r = ((length + l) - lineLength / 2.0) / l;
             auto a = - std::remainder(line.angle(), 360.0);
             if (a < -90.0 || a > 90.0) {
                 a += 180.0;

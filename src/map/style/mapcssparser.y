@@ -140,7 +140,7 @@ using namespace KOSMIndoorMap;
 
 Ruleset:
   Rule
-| Ruleset Rule
+| Ruleset Rule { Q_UNUSED($2); }
 ;
 
 Rule:
