@@ -21,6 +21,8 @@ Id Element::id() const
         case Type::Relation:
             return relation()->id;
     }
+
+    Q_UNREACHABLE();
     return {};
 }
 
@@ -37,6 +39,7 @@ Coordinate Element::center() const
             return relation()->bbox.center();
     }
 
+    Q_UNREACHABLE();
     return {};
 }
 
@@ -53,6 +56,7 @@ BoundingBox Element::boundingBox() const
             return relation()->bbox;
     }
 
+    Q_UNREACHABLE();
     return {};
 }
 
@@ -69,6 +73,7 @@ QByteArray Element::tagValue(TagKey key) const
             return OSM::tagValue(*relation(), key);
     }
 
+    Q_UNREACHABLE();
     return {};
 }
 
@@ -85,6 +90,7 @@ QByteArray Element::tagValue(const char *keyName) const
             return OSM::tagValue(*relation(), keyName);
     }
 
+    Q_UNREACHABLE();
     return {};
 }
 
@@ -101,6 +107,7 @@ QByteArray Element::tagValue(const char *keyName, const QLocale &locale) const
             return OSM::tagValue(*relation(), keyName, locale);
     }
 
+    Q_UNREACHABLE();
     return {};
 }
 
@@ -147,6 +154,7 @@ QString Element::url() const
             return relation()->url();
     }
 
+    Q_UNREACHABLE();
     return {};
 }
 
@@ -187,6 +195,7 @@ std::vector<const Node*> Element::outerPath(const DataSet &dataSet) const
         }
     }
 
+    Q_UNREACHABLE();
     return {};
 }
 
