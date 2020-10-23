@@ -30,11 +30,9 @@ void XmlParser::parse(QIODevice *io)
 
         if (reader.name() == QLatin1String("node")) {
             parseNode(reader);
-        }
-        else if (reader.name() == QLatin1String("way")) {
+        } else if (reader.name() == QLatin1String("way")) {
             parseWay(reader);
-        }
-        else if (reader.name() == QLatin1String("relation")) {
+        } else if (reader.name() == QLatin1String("relation")) {
             parseRelation(reader);
         } else if (reader.name() == QLatin1String("remark")) {
             m_error = reader.readElementText();
