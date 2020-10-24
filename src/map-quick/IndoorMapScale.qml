@@ -22,7 +22,7 @@ Item {
         d /= s;
         d = Math.floor(d);
         d *= s;
-        scaleLabel.text = i18nc("length in meters", "%1 m", d)
+        scaleLabel.text = i18ndc("kosmindoormap", "length in meters", "%1 m", d)
         scale.width = map.view.mapMetersToScreen(d);
     }
 

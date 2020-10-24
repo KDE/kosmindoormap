@@ -17,7 +17,7 @@ Kirigami.ApplicationWindow {
     title: "OSM Indoor Map QML Test"
 
     globalDrawer: Kirigami.GlobalDrawer {
-        title: i18n("Indoor Map")
+        title: "Indoor Map"
         titleIcon: "map-symbolic"
         isMenu: true
         actions: [
