@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 add_library(KOSMIndoorMapQuick STATIC
-    floorlevelmodel.cpp
     floorlevelchangemodel.cpp
     mapitem.cpp
     osmaddress.cpp

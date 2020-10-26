@@ -4,6 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <KOSMIndoorMap/FloorLevelModel>
 #include <KOSMIndoorMap/HitDetector>
 #include <KOSMIndoorMap/MapCSSParser>
 #include <KOSMIndoorMap/MapCSSStyle>
@@ -174,10 +175,12 @@ int main(int argc, char **argv)
     auto layout = new QHBoxLayout(&widget);
     layout->setAlignment(Qt::AlignTop);
 
+    FloorLevelModel floorModel;
     auto levelBox = new QComboBox;
+    levelBox->setModel(&floorModel);
     layout->addWidget(levelBox);
     QObject::connect(levelBox, &QComboBox::currentTextChanged, &app, [&]() {
-        widget.m_view.setLevel(levelBox->currentData().toInt());
+        widget.m_view.setLevel(levelBox->currentData().value<MapLevel>().numericLevel());
         widget.update();
     });
 
@@ -194,12 +197,7 @@ int main(int argc, char **argv)
     MapLoader loader;
     QObject::connect(&loader, &MapLoader::done, &app, [&]() {
         widget.setMapData(loader.takeData());
-        levelBox->clear();
-        for (const auto &l : widget.m_data.m_levelMap) {
-            if (l.first.isFullLevel()) {
-                levelBox->addItem(l.first.name(), l.first.numericLevel());
-            }
-        }
+        floorModel.setMapData(&widget.m_data);
         levelBox->setCurrentText(QLatin1String("0"));
     });
 

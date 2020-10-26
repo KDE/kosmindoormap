@@ -7,6 +7,8 @@
 #ifndef KOSMINDOORMAP_FLOORLEVELMODEL_H
 #define KOSMINDOORMAP_FLOORLEVELMODEL_H
 
+#include <kosmindoormap_export.h>
+
 #include <QAbstractListModel>
 
 #include <vector>
@@ -17,7 +19,7 @@ class MapData;
 class MapLevel;
 
 /** Floor level model. */
-class FloorLevelModel : public QAbstractListModel
+class KOSMINDOORMAP_EXPORT FloorLevelModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFloorLevels READ hasFloorLevels NOTIFY contentChanged)

@@ -7,8 +7,9 @@
 #ifndef KOSMINDOORMAP_FLOORLEVELCHANGEMODEL_H
 #define KOSMINDOORMAP_FLOORLEVELCHANGEMODEL_H
 
-#include "floorlevelmodel.h"
 #include "osmelement.h"
+
+#include <KOSMIndoorMap/FloorLevelModel>
 
 #include <osm/element.h>
 

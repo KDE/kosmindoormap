@@ -7,9 +7,9 @@
 #ifndef KOSMINDOORMAP_MAPITEM_H
 #define KOSMINDOORMAP_MAPITEM_H
 
-#include "floorlevelmodel.h"
 #include "osmelement.h"
 
+#include <KOSMIndoorMap/FloorLevelModel>
 #include <KOSMIndoorMap/MapData>
 #include <KOSMIndoorMap/MapCSSStyle>
 #include <KOSMIndoorMap/MapLoader>

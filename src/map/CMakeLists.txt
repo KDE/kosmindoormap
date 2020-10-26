@@ -23,6 +23,7 @@ add_library(KOSMIndoorMap
     ${logging_srcs}
     assets/assets.qrc
 
+    content/floorlevelmodel.cpp
     content/gatemodel.cpp
     content/platform.cpp
     content/platformfinder.cpp
@@ -76,6 +77,7 @@ target_link_libraries(KOSMIndoorMap
 
 ecm_generate_headers(KOSMIndoorMap_Content_FORWARDING_HEADERS
     HEADER_NAMES
+        FloorLevelModel
         GateModel
         Platform
         PlatformModel
