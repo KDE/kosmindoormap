@@ -70,8 +70,24 @@ int MapLevel::numericLevel() const
     return m_level;
 }
 
+namespace KOSMIndoorMap {
+class MapDataPrivate {
+public:
+    OSM::DataSet m_dataSet;
+    OSM::BoundingBox m_bbox;
 
-MapData::MapData() = default;
+    OSM::TagKey m_levelRefTag;
+    OSM::TagKey m_nameTag;
+
+    std::map<MapLevel, std::vector<OSM::Element>> m_levelMap;
+    std::map<MapLevel, std::size_t> m_dependentElementCounts;
+};
+}
+
+MapData::MapData()
+    : d(new MapDataPrivate)
+{
+}
 MapData::MapData(MapData&&) = default;
 MapData::~MapData() = default;
 
@@ -79,28 +95,28 @@ MapData& MapData::operator=(MapData&&) = default;
 
 const OSM::DataSet& MapData::dataSet() const
 {
-    return m_dataSet;
+    return d->m_dataSet;
 }
 
 bool MapData::isEmpty() const
 {
-    return m_levelMap.empty();
+    return d->m_levelMap.empty();
 }
 
 OSM::DataSet& MapData::dataSet()
 {
-    return m_dataSet;
+    return d->m_dataSet;
 }
 
 void MapData::setDataSet(OSM::DataSet &&dataSet)
 {
-    m_dataSet = std::move(dataSet);
+    d->m_dataSet = std::move(dataSet);
 
-    m_levelRefTag = m_dataSet.tagKey("level:ref");
-    m_nameTag = m_dataSet.tagKey("name");
+    d->m_levelRefTag = d->m_dataSet.tagKey("level:ref");
+    d->m_nameTag = d->m_dataSet.tagKey("name");
 
-    m_levelMap.clear();
-    m_bbox = {};
+    d->m_levelMap.clear();
+    d->m_bbox = {};
 
     processElements();
     filterLevels();
@@ -108,38 +124,38 @@ void MapData::setDataSet(OSM::DataSet &&dataSet)
 
 OSM::BoundingBox MapData::boundingBox() const
 {
-    return m_bbox;
+    return d->m_bbox;
 }
 
 void MapData::setBoundingBox(OSM::BoundingBox bbox)
 {
-    m_bbox = bbox;
+    d->m_bbox = bbox;
 }
 
 const std::map<MapLevel, std::vector<OSM::Element>>& MapData::levelMap() const
 {
-    return m_levelMap;
+    return d->m_levelMap;
 }
 
 void MapData::processElements()
 {
-    const auto levelTag = m_dataSet.tagKey("level");
-    const auto repeatOnTag = m_dataSet.tagKey("repeat_on");
-    const auto buildingLevelsTag = m_dataSet.tagKey("building:levels");
-    const auto buildingMinLevelTag = m_dataSet.tagKey("building:min_level");
-    const auto buildingLevelsUndergroundTag = m_dataSet.tagKey("building:levels:underground");
-    const auto maxLevelTag = m_dataSet.tagKey("max_level");
-    const auto minLevelTag = m_dataSet.tagKey("min_level");
+    const auto levelTag = d->m_dataSet.tagKey("level");
+    const auto repeatOnTag = d->m_dataSet.tagKey("repeat_on");
+    const auto buildingLevelsTag = d->m_dataSet.tagKey("building:levels");
+    const auto buildingMinLevelTag = d->m_dataSet.tagKey("building:min_level");
+    const auto buildingLevelsUndergroundTag = d->m_dataSet.tagKey("building:levels:underground");
+    const auto maxLevelTag = d->m_dataSet.tagKey("max_level");
+    const auto minLevelTag = d->m_dataSet.tagKey("min_level");
 
     MapCSSParser p;
     auto filter = p.parse(QStringLiteral(":/org.kde.kosmindoormap/assets/css/input-filter.mapcss"));
     if (p.hasError()) {
         qWarning() << p.errorMessage();
     }
-    filter.compile(m_dataSet);
+    filter.compile(d->m_dataSet);
     MapCSSResult filterResult;
 
-    OSM::for_each(m_dataSet, [&](auto e) {
+    OSM::for_each(d->m_dataSet, [&](auto e) {
         // discard everything here that is tag-less (and thus likely part of a higher-level geometry)
         if (!e.hasTags()) {
             return;
@@ -164,8 +180,8 @@ void MapData::processElements()
         }
 
         // bbox computation
-        e.recomputeBoundingBox(m_dataSet);
-        m_bbox = OSM::unite(e.boundingBox(), m_bbox);
+        e.recomputeBoundingBox(d->m_dataSet);
+        d->m_bbox = OSM::unite(e.boundingBox(), d->m_bbox);
 
         // multi-level building element
         // we handle this first, before level=, as level is often used instead
@@ -199,9 +215,9 @@ void MapData::processElements()
         }
 
         // no level information available
-        m_levelMap[MapLevel{}].push_back(e);
+        d->m_levelMap[MapLevel{}].push_back(e);
         if (isDependentElement) {
-            m_dependentElementCounts[MapLevel{}]++;
+            d->m_dependentElementCounts[MapLevel{}]++;
         }
     });
 }
@@ -209,10 +225,10 @@ void MapData::processElements()
 void MapData::addElement(int level, OSM::Element e, bool isDependentElement)
 {
     MapLevel l(level);
-    auto it = m_levelMap.find(l);
-    if (it == m_levelMap.end()) {
+    auto it = d->m_levelMap.find(l);
+    if (it == d->m_levelMap.end()) {
         l.setName(levelName(e));
-        m_levelMap[l] = {e};
+        d->m_levelMap[l] = {e};
     } else {
         if (!(*it).first.hasName()) {
             // name does not influence op< behavior, so modifying the key here is safe
@@ -221,7 +237,7 @@ void MapData::addElement(int level, OSM::Element e, bool isDependentElement)
         (*it).second.push_back(e);
     }
     if (isDependentElement) {
-        m_dependentElementCounts[l]++;
+        d->m_dependentElementCounts[l]++;
     }
 }
 
@@ -232,7 +248,7 @@ static bool isPlausibleLevelName(const QByteArray &s)
 
 QString MapData::levelName(OSM::Element e)
 {
-    const auto n = e.tagValue(m_levelRefTag);
+    const auto n = e.tagValue(d->m_levelRefTag);
     if (isPlausibleLevelName(n)) {
         return QString::fromUtf8(n);
     }
@@ -242,7 +258,7 @@ QString MapData::levelName(OSM::Element e)
             return std::strcmp(mem.role().name(), "shell") == 0 || std::strcmp(mem.role().name(), "buildingpart") == 0;
         });
         if (isLevelRel) {
-            const auto n = e.tagValue(m_nameTag);
+            const auto n = e.tagValue(d->m_nameTag);
             if (isPlausibleLevelName(n)) {
                 return QString::fromUtf8(n);
             }
@@ -255,12 +271,12 @@ QString MapData::levelName(OSM::Element e)
 void MapData::filterLevels()
 {
     // remove all levels that don't contain something we are sure would make a meaningful output
-    for (auto it = m_levelMap.begin(); it != m_levelMap.end();) {
-        if (m_dependentElementCounts[(*it).first] == (*it).second.size()) {
-            it = m_levelMap.erase(it);
+    for (auto it = d->m_levelMap.begin(); it != d->m_levelMap.end();) {
+        if (d->m_dependentElementCounts[(*it).first] == (*it).second.size()) {
+            it = d->m_levelMap.erase(it);
         } else {
             ++it;
         }
     }
-    m_dependentElementCounts.clear();
+    d->m_dependentElementCounts.clear();
 }

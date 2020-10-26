@@ -15,6 +15,7 @@
 #include <QMetaType>
 
 #include <map>
+#include <memory>
 #include <vector>
 
 namespace KOSMIndoorMap {
@@ -49,6 +50,7 @@ private:
 Q_DECLARE_METATYPE(KOSMIndoorMap::MapLevel)
 
 namespace KOSMIndoorMap {
+class MapDataPrivate;
 
 /** Raw OSM map data, separated by levels. */
 class KOSMINDOORMAP_EXPORT MapData
@@ -79,14 +81,7 @@ private:
     QString levelName(OSM::Element e);
     void filterLevels();
 
-    OSM::DataSet m_dataSet;
-    OSM::BoundingBox m_bbox;
-
-    OSM::TagKey m_levelRefTag;
-    OSM::TagKey m_nameTag;
-
-    std::map<MapLevel, std::vector<OSM::Element>> m_levelMap;
-    std::map<MapLevel, std::size_t> m_dependentElementCounts;
+    std::unique_ptr<MapDataPrivate> d;
 };
 
 }
