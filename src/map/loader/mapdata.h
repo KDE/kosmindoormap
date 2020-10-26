@@ -62,6 +62,8 @@ public:
     MapData& operator=(const MapData&) = delete;
     MapData& operator=(MapData&&);
 
+    bool isEmpty() const;
+
     const OSM::DataSet& dataSet() const;
     OSM::DataSet& dataSet();
     void setDataSet(OSM::DataSet &&dataSet);
@@ -69,8 +71,7 @@ public:
     OSM::BoundingBox boundingBox() const;
     void setBoundingBox(OSM::BoundingBox bbox);
 
-    // TODO efficient access API for this
-    std::map<MapLevel, std::vector<OSM::Element>> m_levelMap;
+    const std::map<MapLevel, std::vector<OSM::Element>>& levelMap() const;
 
 private:
     void processElements();
@@ -84,6 +85,7 @@ private:
     OSM::TagKey m_levelRefTag;
     OSM::TagKey m_nameTag;
 
+    std::map<MapLevel, std::vector<OSM::Element>> m_levelMap;
     std::map<MapLevel, std::size_t> m_dependentElementCounts;
 };
 

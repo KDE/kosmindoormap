@@ -23,7 +23,7 @@ void FloorLevelModel::setMapData(MapData *data)
     beginResetModel();
     m_level.clear();
     if (data) {
-        for (const auto &l : data->m_levelMap) {
+        for (const auto &l : data->levelMap()) {
             if (l.first.isFullLevel()) {
                 m_level.push_back(l.first);
             }

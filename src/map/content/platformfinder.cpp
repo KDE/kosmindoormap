@@ -44,7 +44,7 @@ std::vector<Platform> PlatformFinder::find(const MapData *data)
     m_data = data;
     resolveTagKeys();
 
-    for (auto it = m_data->m_levelMap.begin(); it != m_data->m_levelMap.end(); ++it) {
+    for (auto it = m_data->levelMap().begin(); it != m_data->levelMap().end(); ++it) {
         for (const auto &e : (*it).second) {
             if (!e.hasTags()) {
                 continue;

@@ -82,6 +82,11 @@ const OSM::DataSet& MapData::dataSet() const
     return m_dataSet;
 }
 
+bool MapData::isEmpty() const
+{
+    return m_levelMap.empty();
+}
+
 OSM::DataSet& MapData::dataSet()
 {
     return m_dataSet;
@@ -109,6 +114,11 @@ OSM::BoundingBox MapData::boundingBox() const
 void MapData::setBoundingBox(OSM::BoundingBox bbox)
 {
     m_bbox = bbox;
+}
+
+const std::map<MapLevel, std::vector<OSM::Element>>& MapData::levelMap() const
+{
+    return m_levelMap;
 }
 
 void MapData::processElements()

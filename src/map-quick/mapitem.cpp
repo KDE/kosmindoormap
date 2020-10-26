@@ -190,7 +190,7 @@ QString MapItem::errorMessage() const
 
 MapData* MapItem::mapData()
 {
-    if (m_data.m_levelMap.empty()) {
+    if (m_data.isEmpty()) {
         return nullptr;
     }
     return &m_data;

@@ -104,7 +104,7 @@ void GateModel::populateModel()
         return;
     }
 
-    for (auto it = m_data->m_levelMap.begin(); it != m_data->m_levelMap.end(); ++it) {
+    for (auto it = m_data->levelMap().begin(); it != m_data->levelMap().end(); ++it) {
         for (const auto &e : (*it).second) {
             if (e.type() != OSM::Type::Node || e.tagValue(aerowayKey) != "gate") {
                 continue;

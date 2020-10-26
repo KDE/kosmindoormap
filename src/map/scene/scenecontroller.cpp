@@ -122,21 +122,21 @@ void SceneController::updateScene(SceneGraph &sg) const
     }
 
     // find all intermediate levels below or above the currently selected "full" level
-    auto it = d->m_data->m_levelMap.find(MapLevel(d->m_view->level()));
-    if (it == d->m_data->m_levelMap.end()) {
+    auto it = d->m_data->levelMap().find(MapLevel(d->m_view->level()));
+    if (it == d->m_data->levelMap().end()) {
         return;
     }
 
     auto beginIt = it;
-    if (beginIt != d->m_data->m_levelMap.begin()) {
+    if (beginIt != d->m_data->levelMap().begin()) {
         do {
             --beginIt;
-        } while (!(*beginIt).first.isFullLevel() && beginIt != d->m_data->m_levelMap.begin());
+        } while (!(*beginIt).first.isFullLevel() && beginIt != d->m_data->levelMap().begin());
         ++beginIt;
     }
 
     auto endIt = it;
-    for (++endIt; endIt != d->m_data->m_levelMap.end(); ++endIt) {
+    for (++endIt; endIt != d->m_data->levelMap().end(); ++endIt) {
         if ((*endIt).first.isFullLevel()) {
             break;
         }
