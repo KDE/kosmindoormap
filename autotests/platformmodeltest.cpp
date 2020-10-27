@@ -34,7 +34,7 @@ private Q_SLOTS:
         PlatformModel model;
         QAbstractItemModelTester modelTest(&model);
 
-        model.setMapData(&mapData);
+        model.setMapData(mapData);
         model.setArrivalPlatform(QStringLiteral("10"), Platform::Rail);
         model.setDeparturePlatform(QStringLiteral("7"), Platform::Rail);
         QCOMPARE(model.rowCount(), 12);

@@ -90,6 +90,7 @@ void MapLoader::loadFromFile(const QString &fileName)
         OSM::O5mParser p(&ds);
         p.parse(data, f.size());
     }
+    d->m_data = MapData();
     d->m_data.setDataSet(std::move(ds));
     qCDebug(Log) << "o5m loading took" << loadTime.elapsed() << "ms";
     Q_EMIT done();
@@ -108,6 +109,7 @@ void MapLoader::loadForCoordinate(double lat, double lon, const QDateTime &ttl)
     d->m_boundarySearcher.init(OSM::Coordinate(lat, lon));
     d->m_errorMessage.clear();
     d->m_marbleMerger.setDataSet(&d->m_dataSet);
+    d->m_data = MapData();
 
     auto tile = Tile::fromCoordinate(lat, lon, TileZoomLevel);
     d->m_loadedTiles = QRect(tile.x, tile.y, 1, 1);

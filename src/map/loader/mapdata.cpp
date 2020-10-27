@@ -85,12 +85,15 @@ public:
 }
 
 MapData::MapData()
-    : d(new MapDataPrivate)
+    : d(std::make_shared<MapDataPrivate>())
 {
 }
+
+MapData::MapData(const MapData&) = default;
 MapData::MapData(MapData&&) = default;
 MapData::~MapData() = default;
 
+MapData& MapData::operator=(const MapData&) = default;
 MapData& MapData::operator=(MapData&&) = default;
 
 const OSM::DataSet& MapData::dataSet() const
@@ -100,7 +103,12 @@ const OSM::DataSet& MapData::dataSet() const
 
 bool MapData::isEmpty() const
 {
-    return d->m_levelMap.empty();
+    return !d || d->m_levelMap.empty();
+}
+
+bool MapData::operator==(const MapData &other) const
+{
+    return d == other.d;
 }
 
 OSM::DataSet& MapData::dataSet()

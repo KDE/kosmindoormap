@@ -33,7 +33,7 @@ struct Gate {
 class KOSMINDOORMAP_EXPORT GateModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(KOSMIndoorMap::MapData* mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
+    Q_PROPERTY(KOSMIndoorMap::MapData mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
     Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY mapDataChanged)
 
     /** Row indexes of the matched arrival/departure gates, if found and/or set, otherwise @c -1. */
@@ -43,8 +43,8 @@ public:
     explicit GateModel(QObject *parent = nullptr);
     ~GateModel();
 
-    MapData* mapData() const;
-    void setMapData(MapData *data);
+    MapData mapData() const;
+    void setMapData(const MapData &data);
 
     bool isEmpty() const;
 
@@ -80,7 +80,7 @@ private:
     void setGateTag(int idx, OSM::TagKey key, bool enabled);
 
     std::vector<Gate> m_gates;
-    MapData *m_data = nullptr;
+    MapData m_data;
 
     struct {
         OSM::TagKey mxArrival;

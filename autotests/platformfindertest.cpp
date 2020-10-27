@@ -102,7 +102,7 @@ private Q_SLOTS:
         QVERIFY(mapData.boundingBox().width() > 0);
 
         PlatformFinder finder;
-        const auto result = finder.find(&mapData);
+        const auto result = finder.find(mapData);
         QVERIFY(!result.empty());
 
         QFile outFile(QFileInfo(expected).fileName());

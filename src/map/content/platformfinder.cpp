@@ -6,8 +6,6 @@
 
 #include "platformfinder_p.h"
 
-#include <loader/mapdata.h>
-
 #include <QRegularExpression>
 
 using namespace KOSMIndoorMap;
@@ -39,12 +37,12 @@ static QString nameFromTrack(OSM::Element track)
     return {};
 }
 
-std::vector<Platform> PlatformFinder::find(const MapData *data)
+std::vector<Platform> PlatformFinder::find(const MapData &data)
 {
     m_data = data;
     resolveTagKeys();
 
-    for (auto it = m_data->levelMap().begin(); it != m_data->levelMap().end(); ++it) {
+    for (auto it = m_data.levelMap().begin(); it != m_data.levelMap().end(); ++it) {
         for (const auto &e : (*it).second) {
             if (!e.hasTags()) {
                 continue;
@@ -79,7 +77,7 @@ std::vector<Platform> PlatformFinder::find(const MapData *data)
                     platform.setName(name);
                     platform.setLevel(levelForPlatform((*it).first, e));
                     platform.setMode(modeForElement(e));
-                    platform.setSections(sectionsForPath(e.outerPath(m_data->dataSet()), name));
+                    platform.setSections(sectionsForPath(e.outerPath(m_data.dataSet()), name));
                     // we delay merging of platforms, as those without track names would
                     // otherwise cobble together two distinct edges when merged to early
                     m_platformAreas.push_back(std::move(platform));
@@ -90,12 +88,12 @@ std::vector<Platform> PlatformFinder::find(const MapData *data)
                 platform.setEdge(e);
                 platform.setName(QString::fromUtf8(e.tagValue("local_ref", "ref")));
                 platform.setLevel(levelForPlatform((*it).first, e));
-                platform.setSections(sectionsForPath(e.outerPath(m_data->dataSet()), platform.name()));
+                platform.setSections(sectionsForPath(e.outerPath(m_data.dataSet()), platform.name()));
                 addPlatform(std::move(platform));
             }
             else if (!railway.isEmpty() && e.type() == OSM::Type::Way && railway != "disused") {
-                OSM::for_each_node(m_data->dataSet(), *e.way(), [&](const auto &node) {
-                    if (!OSM::contains(m_data->boundingBox(), node.coordinate)) {
+                OSM::for_each_node(m_data.dataSet(), *e.way(), [&](const auto &node) {
+                    if (!OSM::contains(m_data.boundingBox(), node.coordinate)) {
                         return;
                     }
                     if (OSM::tagValue(node, m_tagKeys.railway) == "buffer_stop") {
@@ -113,7 +111,7 @@ std::vector<Platform> PlatformFinder::find(const MapData *data)
                         if (platform.mode() == Platform::Unknown) {
                             platform.setMode(modeForElement(e));
                         }
-                        platform.setSections(sectionsForPath(e.outerPath(m_data->dataSet()), platform.name()));
+                        platform.setSections(sectionsForPath(e.outerPath(m_data.dataSet()), platform.name()));
 
                         addPlatform(std::move(platform));
                     }
@@ -122,7 +120,7 @@ std::vector<Platform> PlatformFinder::find(const MapData *data)
         }
     }
 
-    OSM::for_each(m_data->dataSet(), [this](OSM::Element e) {
+    OSM::for_each(m_data.dataSet(), [this](OSM::Element e) {
         const auto route = e.tagValue(m_tagKeys.route);
         if (route.isEmpty() || route == "tracks") {
             return;
@@ -142,13 +140,13 @@ std::vector<Platform> PlatformFinder::find(const MapData *data)
 
 void PlatformFinder::resolveTagKeys()
 {
-    m_tagKeys.level = m_data->dataSet().tagKey("level");
-    m_tagKeys.platform_ref = m_data->dataSet().tagKey("platform_ref");
-    m_tagKeys.platform_colon_ref = m_data->dataSet().tagKey("platform:ref");
-    m_tagKeys.public_transport = m_data->dataSet().tagKey("public_transport");
-    m_tagKeys.railway = m_data->dataSet().tagKey("railway");
-    m_tagKeys.railway_platform_section = m_data->dataSet().tagKey("railway:platform:section");
-    m_tagKeys.route = m_data->dataSet().tagKey("route");
+    m_tagKeys.level = m_data.dataSet().tagKey("level");
+    m_tagKeys.platform_ref = m_data.dataSet().tagKey("platform_ref");
+    m_tagKeys.platform_colon_ref = m_data.dataSet().tagKey("platform:ref");
+    m_tagKeys.public_transport = m_data.dataSet().tagKey("public_transport");
+    m_tagKeys.railway = m_data.dataSet().tagKey("railway");
+    m_tagKeys.railway_platform_section = m_data.dataSet().tagKey("railway:platform:section");
+    m_tagKeys.route = m_data.dataSet().tagKey("route");
 }
 
 void PlatformFinder::scanRoute(OSM::Element e, OSM::Element route)
@@ -160,12 +158,12 @@ void PlatformFinder::scanRoute(OSM::Element e, OSM::Element route)
             scanRoute(*e.node(), route);
             break;
         case OSM::Type::Way:
-            OSM::for_each_node(m_data->dataSet(), *e.way(), [this, route](const OSM::Node &node) {
+            OSM::for_each_node(m_data.dataSet(), *e.way(), [this, route](const OSM::Node &node) {
                 scanRoute(node, route);
             });
             break;
         case OSM::Type::Relation:
-            OSM::for_each_member(m_data->dataSet(), *e.relation(), [this, route](OSM::Element e) {
+            OSM::for_each_member(m_data.dataSet(), *e.relation(), [this, route](OSM::Element e) {
                 scanRoute(e, route);
             });
             break;
@@ -266,8 +264,8 @@ int PlatformFinder::levelForPlatform(const MapLevel &ml, OSM::Element e) const
 void PlatformFinder::addPlatform(Platform &&platform)
 {
     for (Platform &p : m_platforms) {
-        if (Platform::isSame(p, platform, m_data->dataSet())) {
-            p = Platform::merge(p, platform, m_data->dataSet());
+        if (Platform::isSame(p, platform, m_data.dataSet())) {
+            p = Platform::merge(p, platform, m_data.dataSet());
             return;
         }
     }
@@ -286,8 +284,8 @@ void PlatformFinder::mergePlatformAreas()
         for (auto it = m_platformAreas.begin(); it != m_platformAreas.end();) {
             bool found = false;
             for (Platform &p : m_platforms) {
-                if (Platform::isSame(p, (*it), m_data->dataSet())) {
-                    p = Platform::merge(p, (*it), m_data->dataSet());
+                if (Platform::isSame(p, (*it), m_data.dataSet())) {
+                    p = Platform::merge(p, (*it), m_data.dataSet());
                     found = true;
                 }
             }
@@ -316,8 +314,8 @@ void PlatformFinder::finalizeResult()
     // so do another merge pass over everything we have found so far
     for (auto it = m_platforms.begin(); it != std::prev(m_platforms.end()) && it != m_platforms.end(); ++it) {
         for (auto it2 = std::next(it); it2 != m_platforms.end();) {
-            if (Platform::isSame(*it, *it2, m_data->dataSet())) {
-                (*it) = Platform::merge(*it, *it2, m_data->dataSet());
+            if (Platform::isSame(*it, *it2, m_data.dataSet())) {
+                (*it) = Platform::merge(*it, *it2, m_data.dataSet());
                 it2 = m_platforms.erase(it2);
             } else {
                 ++it2;

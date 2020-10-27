@@ -7,8 +7,6 @@
 #include "platformmodel.h"
 #include "platformfinder_p.h"
 
-#include <KOSMIndoorMap/MapData>
-
 #include <QPointF>
 #include <QRegularExpression>
 
@@ -25,26 +23,29 @@ PlatformModel::PlatformModel(QObject* parent) :
 
 PlatformModel::~PlatformModel() = default;
 
-MapData* PlatformModel::mapData() const
+MapData PlatformModel::mapData() const
 {
     return m_data;
 }
 
-void PlatformModel::setMapData(MapData* data)
+void PlatformModel::setMapData(const MapData &data)
 {
-    // ### do not check for m_data != data, this does not actually change!
+    if (m_data == data) {
+        return;
+    }
+
     beginResetModel();
     m_platforms.clear();
     m_platformLabels.clear();
     m_sectionsLabels.clear();
 
     m_data = data;
-    if (m_data) {
+    if (!m_data.isEmpty()) {
         PlatformFinder finder;
         m_platforms = finder.find(m_data);
 
-        m_tagKeys.arrival = m_data->dataSet().makeTagKey("mx:arrival");
-        m_tagKeys.departure = m_data->dataSet().makeTagKey("mx:departure");
+        m_tagKeys.arrival = m_data.dataSet().makeTagKey("mx:arrival");
+        m_tagKeys.departure = m_data.dataSet().makeTagKey("mx:departure");
         createLabels();
     }
     endResetModel();
@@ -229,8 +230,8 @@ int PlatformModel::matchPlatform(const Platform &platform) const
 
 void PlatformModel::createLabels()
 {
-    const auto platformTag = m_data->dataSet().makeTagKey("mx:platform");
-    const auto sectionTag = m_data->dataSet().makeTagKey("mx:platform_section");
+    const auto platformTag = m_data.dataSet().makeTagKey("mx:platform");
+    const auto sectionTag = m_data.dataSet().makeTagKey("mx:platform_section");
 
     m_platformLabels.reserve(m_platforms.size());
     m_sectionsLabels.resize(m_platforms.size());
@@ -239,7 +240,7 @@ void PlatformModel::createLabels()
 
         // TODO using the full edge/track path here might be better for layouting
         auto node = new OSM::Node;
-        node->id = m_data->dataSet().nextInternalId();
+        node->id = m_data.dataSet().nextInternalId();
         node->coordinate = p.position();
         OSM::setTagValue(*node, platformTag, p.name().toUtf8());
         m_platformLabels.push_back(OSM::UniqueElement(node));
@@ -247,7 +248,7 @@ void PlatformModel::createLabels()
         m_sectionsLabels[i].reserve(p.sections().size());
         for (const auto &sec : p.sections()) {
             auto node = new OSM::Node;
-            node->id = m_data->dataSet().nextInternalId();
+            node->id = m_data.dataSet().nextInternalId();
             node->coordinate = sec.position.center();
             OSM::setTagValue(*node, sectionTag, sec.name.toUtf8());
             m_sectionsLabels[i].push_back(OSM::UniqueElement(node));

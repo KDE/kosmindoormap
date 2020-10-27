@@ -12,6 +12,7 @@
 #include "osmelementinformationmodel.h"
 
 #include <KOSMIndoorMap/GateModel>
+#include <KOSMIndoorMap/MapData>
 #include <KOSMIndoorMap/PlatformModel>
 
 using namespace KOSMIndoorMap;
@@ -21,9 +22,9 @@ void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
     Q_UNUSED(uri);
     qRegisterMetaType<OSMAddress>();
     qRegisterMetaType<OSMElement>();
-    qRegisterMetaType<MapData*>();
     qRegisterMetaType<Platform::Mode>();
 
+    qmlRegisterUncreatableType<MapData>("org.kde.kosmindoormap", 1, 0, "MapData", {});
     qmlRegisterUncreatableType<OSMAddress>("org.kde.kosmindoormap", 1, 0, "OSMAddress", {});
     qmlRegisterUncreatableType<OSMElement>("org.kde.kosmindoormap", 1, 0, "OSMElement", {});
     qmlRegisterUncreatableType<Platform>("org.kde.kosmindoormap", 1, 0, "Platform", {});

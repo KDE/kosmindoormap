@@ -11,11 +11,11 @@
 
 #include "platform.h"
 
+#include <KOSMIndoorMap/MapData>
+
 #include <QAbstractItemModel>
 
 namespace KOSMIndoorMap {
-
-class MapData;
 
 /** Lists all platforms/tracks and platform sections found in the current map.
  *  There's also the concept of (optional) arrival/departure platforms in here to highlight
@@ -24,7 +24,7 @@ class MapData;
 class KOSMINDOORMAP_EXPORT PlatformModel : public QAbstractItemModel
 {
     Q_OBJECT
-    Q_PROPERTY(KOSMIndoorMap::MapData* mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
+    Q_PROPERTY(KOSMIndoorMap::MapData mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
     Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY mapDataChanged)
 
     /** Row indexes of the matched arrival/departure platforms, if found and/or set, otherwise @c -1. */
@@ -34,8 +34,8 @@ public:
     explicit PlatformModel(QObject *parent = nullptr);
     ~PlatformModel();
 
-    MapData* mapData() const;
-    void setMapData(MapData *data);
+    MapData mapData() const;
+    void setMapData(const MapData &data);
 
     bool isEmpty() const;
 
@@ -75,7 +75,7 @@ private:
     void setPlatformTag(int idx, OSM::TagKey key, bool enabled);
 
     std::vector<Platform> m_platforms;
-    MapData *m_data = nullptr;
+    MapData m_data;
     struct {
         OSM::TagKey arrival;
         OSM::TagKey departure;

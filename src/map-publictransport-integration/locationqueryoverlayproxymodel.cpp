@@ -22,23 +22,26 @@ LocationQueryOverlayProxyModel::LocationQueryOverlayProxyModel(QObject *parent)
 
 LocationQueryOverlayProxyModel::~LocationQueryOverlayProxyModel() = default;
 
-MapData* LocationQueryOverlayProxyModel::mapData() const
+MapData LocationQueryOverlayProxyModel::mapData() const
 {
     return m_data;
 }
 
-void LocationQueryOverlayProxyModel::setMapData(MapData* data)
+void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
 {
-    // ### do not check for m_data != data, this does not actually change!
+    if (m_data == data) {
+        return;
+    }
+
     beginResetModel();
     m_data = data;
 
-    if (m_data) {
-        m_tagKeys.amenity = m_data->dataSet().makeTagKey("amenity");
-        m_tagKeys.capacity = m_data->dataSet().makeTagKey("capacity");
-        m_tagKeys.realtimeAvailable = m_data->dataSet().makeTagKey("mx:realtime_available");
-        m_tagKeys.network = m_data->dataSet().makeTagKey("network");
-        m_tagKeys.mxoid = m_data->dataSet().makeTagKey("mx:oid");
+    if (!m_data.isEmpty()) {
+        m_tagKeys.amenity = m_data.dataSet().makeTagKey("amenity");
+        m_tagKeys.capacity = m_data.dataSet().makeTagKey("capacity");
+        m_tagKeys.realtimeAvailable = m_data.dataSet().makeTagKey("mx:realtime_available");
+        m_tagKeys.network = m_data.dataSet().makeTagKey("network");
+        m_tagKeys.mxoid = m_data.dataSet().makeTagKey("mx:oid");
     }
 
     initialize();
@@ -67,7 +70,7 @@ void LocationQueryOverlayProxyModel::setSourceModel(QAbstractItemModel *sourceMo
         endResetModel();
     });
     connect(m_sourceModel, &QAbstractItemModel::rowsInserted, this, [this](const QModelIndex &parent, int first, int last) {
-        if (parent.isValid() || !m_data) {
+        if (parent.isValid() || m_data.isEmpty()) {
             return;
         }
         beginInsertRows({}, first, last);
@@ -77,7 +80,7 @@ void LocationQueryOverlayProxyModel::setSourceModel(QAbstractItemModel *sourceMo
         endInsertRows();
     });
     connect(m_sourceModel, &QAbstractItemModel::rowsRemoved, this, [this](const QModelIndex &parent, int first, int last) {
-        if (parent.isValid() || !m_data) {
+        if (parent.isValid() || m_data.isEmpty()) {
             return;
         }
         beginRemoveRows({}, first, last);
@@ -85,7 +88,7 @@ void LocationQueryOverlayProxyModel::setSourceModel(QAbstractItemModel *sourceMo
         endRemoveRows();
     });
     connect(m_sourceModel, &QAbstractItemModel::dataChanged, this, [this](const QModelIndex &first, const QModelIndex &last) {
-        if (first.parent().isValid() || last.parent().isValid() || !m_data) {
+        if (first.parent().isValid() || last.parent().isValid() || m_data.isEmpty()) {
             return;
         }
         for (int i = first.row(); i <= last.row(); ++i) {
@@ -132,7 +135,7 @@ QHash<int, QByteArray> LocationQueryOverlayProxyModel::roleNames() const
 
 void LocationQueryOverlayProxyModel::initialize()
 {
-    if (!m_data || !m_sourceModel) {
+    if (m_data.isEmpty() || !m_sourceModel) {
         return;
     }
 
@@ -153,7 +156,7 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
     info.overlayNode.coordinate = OSM::Coordinate(loc.latitude(), loc.longitude());
 
     // try to find a matching node in the base OSM data
-    for (const auto &n : m_data->dataSet().nodes) {
+    for (const auto &n : m_data.dataSet().nodes) {
         if (OSM::distance(n.coordinate, info.overlayNode.coordinate) < 10 && OSM::tagValue(n, m_tagKeys.amenity) == "bicycle_rental") {
             qDebug() << "found matching node, cloning that!" << n.url();
             info.sourceElement = OSM::Element(&n);
@@ -163,7 +166,7 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
         }
     }
 
-    info.overlayNode.id = m_data->dataSet().nextInternalId();
+    info.overlayNode.id = m_data.dataSet().nextInternalId();
     OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
     if (loc.rentalVehicleStation().capacity() >= 0) {
         OSM::setTagValue(info.overlayNode, m_tagKeys.capacity, QByteArray::number(loc.rentalVehicleStation().capacity()));

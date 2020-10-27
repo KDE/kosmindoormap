@@ -188,12 +188,9 @@ QString MapItem::errorMessage() const
     return m_errorMessage.isEmpty() ? m_loader->errorMessage() : m_errorMessage;
 }
 
-MapData* MapItem::mapData()
+MapData MapItem::mapData() const
 {
-    if (m_data.isEmpty()) {
-        return nullptr;
-    }
-    return &m_data;
+    return m_data;
 }
 
 QVariant MapItem::overlaySources() const

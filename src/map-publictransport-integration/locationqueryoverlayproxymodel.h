@@ -23,15 +23,15 @@ namespace KOSMIndoorMap {
 class LocationQueryOverlayProxyModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(KOSMIndoorMap::MapData* mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
+    Q_PROPERTY(KOSMIndoorMap::MapData mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
     Q_PROPERTY(QAbstractItemModel* sourceModel READ sourceModel WRITE setSourceModel NOTIFY sourceModelChanged)
 
 public:
     explicit LocationQueryOverlayProxyModel(QObject *parent = nullptr);
     ~LocationQueryOverlayProxyModel();
 
-    MapData* mapData() const;
-    void setMapData(MapData *data);
+    MapData mapData() const;
+    void setMapData(const MapData &data);
 
     QAbstractItemModel *sourceModel() const;
     void setSourceModel(QAbstractItemModel *sourceModel);
@@ -69,7 +69,7 @@ private:
     } m_tagKeys;
 
     std::vector<Info> m_nodes;
-    MapData *m_data = nullptr;
+    MapData m_data;
     QAbstractItemModel *m_sourceModel = nullptr;
 };
 

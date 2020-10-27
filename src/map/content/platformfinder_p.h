@@ -11,6 +11,8 @@
 
 #include "platform.h"
 
+#include <KOSMIndoorMap/MapData>
+
 #include <QCollator>
 
 namespace KOSMIndoorMap {
@@ -27,7 +29,7 @@ public:
     explicit PlatformFinder();
     ~PlatformFinder();
 
-    std::vector<Platform> find(const MapData *data);
+    std::vector<Platform> find(const MapData &data);
 
 private:
     void scanRoute(OSM::Element e, OSM::Element route);
@@ -38,7 +40,7 @@ private:
 
     void addPlatform(Platform &&platform);
 
-    const MapData *m_data;
+    MapData m_data;
     struct {
         OSM::TagKey level;
         OSM::TagKey platform_ref;

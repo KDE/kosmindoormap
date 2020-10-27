@@ -19,20 +19,23 @@ GateModel::GateModel(QObject *parent)
 
 GateModel::~GateModel() = default;
 
-MapData* GateModel::mapData() const
+MapData GateModel::mapData() const
 {
     return m_data;
 }
 
-void GateModel::setMapData(MapData* data)
+void GateModel::setMapData(const MapData &data)
 {
-    // ### do not check for m_data != data, this does not actually change!
+    if (m_data == data) {
+        return;
+    }
+
     beginResetModel();
     m_gates.clear();
     m_data = data;
-    if (m_data) {
-        m_tagKeys.mxArrival = m_data->dataSet().makeTagKey("mx:arrival");
-        m_tagKeys.mxDeparture = m_data->dataSet().makeTagKey("mx:departure");
+    if (!m_data.isEmpty()) {
+        m_tagKeys.mxArrival = m_data.dataSet().makeTagKey("mx:arrival");
+        m_tagKeys.mxDeparture = m_data.dataSet().makeTagKey("mx:departure");
         populateModel();
     }
     endResetModel();
@@ -95,16 +98,12 @@ QHash<int, QByteArray> GateModel::roleNames() const
 
 void GateModel::populateModel()
 {
-    if (!m_data) {
-        return;
-    }
-
-    const auto aerowayKey = m_data->dataSet().tagKey("aeroway");
+    const auto aerowayKey = m_data.dataSet().tagKey("aeroway");
     if (aerowayKey.isNull()) { // not looking at an airport at all here
         return;
     }
 
-    for (auto it = m_data->levelMap().begin(); it != m_data->levelMap().end(); ++it) {
+    for (auto it = m_data.levelMap().begin(); it != m_data.levelMap().end(); ++it) {
         for (const auto &e : (*it).second) {
             if (e.type() != OSM::Type::Node || e.tagValue(aerowayKey) != "gate") {
                 continue;
@@ -120,8 +119,8 @@ void GateModel::populateModel()
                 gate.name = QString::fromUtf8(n);
                 gate.sourceElement = e;
                 gate.node = *e.node();
-                gate.node.id = m_data->dataSet().nextInternalId();
-                OSM::setTagValue(gate.node, m_data->dataSet().tagKey("name"), "TODO");
+                gate.node.id = m_data.dataSet().nextInternalId();
+                OSM::setTagValue(gate.node, m_data.dataSet().tagKey("name"), "TODO");
                 gate.level = (*it).first.numericLevel();
                 m_gates.push_back(gate);
             }

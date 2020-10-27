@@ -55,16 +55,18 @@ class MapDataPrivate;
 /** Raw OSM map data, separated by levels. */
 class KOSMINDOORMAP_EXPORT MapData
 {
+    Q_GADGET
 public:
     explicit MapData();
-    MapData(const MapData&) = delete;
+    MapData(const MapData&);
     MapData(MapData&&);
     ~MapData();
 
-    MapData& operator=(const MapData&) = delete;
+    MapData& operator=(const MapData&);
     MapData& operator=(MapData&&);
 
     bool isEmpty() const;
+    bool operator==(const MapData &other) const;
 
     const OSM::DataSet& dataSet() const;
     OSM::DataSet& dataSet();
@@ -81,11 +83,11 @@ private:
     QString levelName(OSM::Element e);
     void filterLevels();
 
-    std::unique_ptr<MapDataPrivate> d;
+    std::shared_ptr<MapDataPrivate> d;
 };
 
 }
 
-Q_DECLARE_METATYPE(KOSMIndoorMap::MapData*)
+Q_DECLARE_METATYPE(KOSMIndoorMap::MapData)
 
 #endif // KOSMINDOORMAP_MAPDATA_H
