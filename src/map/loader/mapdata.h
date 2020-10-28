@@ -18,6 +18,8 @@
 #include <memory>
 #include <vector>
 
+class QPointF;
+
 namespace KOSMIndoorMap {
 
 /** A floor level. */
@@ -56,6 +58,12 @@ class MapDataPrivate;
 class KOSMINDOORMAP_EXPORT MapData
 {
     Q_GADGET
+    /** Center position of the bounding box for QML usage (longitude/latitude, in degree). */
+    Q_PROPERTY(QPointF center READ center)
+    /** Radius from the bounding box center encompasing the entire bounding box, in meters.
+     *  Useful for circular search queries.
+     */
+    Q_PROPERTY(float radius READ radius)
 public:
     explicit MapData();
     MapData(const MapData&);
@@ -77,6 +85,8 @@ public:
 
     const std::map<MapLevel, std::vector<OSM::Element>>& levelMap() const;
 
+    QPointF center() const;
+    float radius() const;
 private:
     void processElements();
     void addElement(int level, OSM::Element e, bool isDependentElement);

@@ -260,14 +260,21 @@ Kirigami.ApplicationWindow {
                     var lat = c[1];
                     var lon = c[2];
                     page.map.mapLoader.loadForCoordinate(lat, lon);
-                    locationQuery.request.latitude = lat;
-                    locationQuery.request.longitude = lon;
-                    locationQuery.request.maximumDistance = 1000; // TODO
-                    locationQuery.request.types = PublicTransport.Location.RentedVehicleStation;
                 }
             }
         }
 
         coordinate: Qt.point(11.08196, 49.44572);
+    }
+
+    Connections {
+        target: page.map
+        function onMapDataChanged() {
+            locationQuery.request.latitude = page.map.mapData.center.y;
+            locationQuery.request.longitude = page.map.mapData.center.x;
+            locationQuery.request.maximumDistance = page.map.mapData.radius;
+            locationQuery.request.types = PublicTransport.Location.RentedVehicleStation;
+            console.log(page.map.mapData.center.y, page.map.mapData.center.x, page.map.mapData.radius, "XXXXXXXXXXXXXXXXXX");
+        }
     }
 }

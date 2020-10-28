@@ -13,6 +13,8 @@
 #include <KOSMIndoorMap/MapCSSParser>
 #include <KOSMIndoorMap/MapCSSStyle>
 
+#include <osm/geomath.h>
+
 using namespace KOSMIndoorMap;
 
 MapLevel::MapLevel(int level)
@@ -288,3 +290,15 @@ void MapData::filterLevels()
     }
     d->m_dependentElementCounts.clear();
 }
+
+QPointF MapData::center() const
+{
+    return QPointF(d->m_bbox.center().lonF(), d->m_bbox.center().latF());
+}
+
+float MapData::radius() const
+{
+    return std::max(OSM::distance(d->m_bbox.center(), d->m_bbox.min), OSM::distance(d->m_bbox.center(), d->m_bbox.max));
+}
+
+#include "moc_mapdata.cpp"
