@@ -61,6 +61,7 @@ private:
     Info nodeForRow(int row) const;
 
     struct {
+        OSM::TagKey name;
         OSM::TagKey amenity;
         OSM::TagKey capacity;
         OSM::TagKey realtimeAvailable;

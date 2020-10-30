@@ -37,6 +37,7 @@ void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
     m_data = data;
 
     if (!m_data.isEmpty()) {
+        m_tagKeys.name = m_data.dataSet().makeTagKey("name");
         m_tagKeys.amenity = m_data.dataSet().makeTagKey("amenity");
         m_tagKeys.capacity = m_data.dataSet().makeTagKey("capacity");
         m_tagKeys.realtimeAvailable = m_data.dataSet().makeTagKey("mx:realtime_available");
@@ -171,8 +172,15 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
     if (loc.rentalVehicleStation().capacity() >= 0) {
         OSM::setTagValue(info.overlayNode, m_tagKeys.capacity, QByteArray::number(loc.rentalVehicleStation().capacity()));
     }
-    OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, QByteArray::number(loc.rentalVehicleStation().availableVehicles()));
-    if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty()) {
+
+    if (loc.rentalVehicleStation().isValid()) {
+        OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, QByteArray::number(loc.rentalVehicleStation().availableVehicles()));
+    } else { // free floating
+        OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
+        OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, "1");
+    }
+
+    if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !loc.rentalVehicleStation().network().name().isEmpty()) {
         OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicleStation().network().name().toUtf8());
     }
     return info;
