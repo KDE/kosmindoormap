@@ -49,18 +49,18 @@ void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
     emit mapDataChanged();
 }
 
-QAbstractItemModel* LocationQueryOverlayProxyModel::sourceModel() const
+QObject* LocationQueryOverlayProxyModel::sourceModel() const
 {
     return m_sourceModel;
 }
 
-void LocationQueryOverlayProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
+void LocationQueryOverlayProxyModel::setSourceModel(QObject *sourceModel)
 {
     if (m_sourceModel == sourceModel) {
         return;
     }
     beginResetModel();
-    m_sourceModel = sourceModel;
+    m_sourceModel = qobject_cast<QAbstractItemModel*>(sourceModel);
     initialize();
     endResetModel();
 

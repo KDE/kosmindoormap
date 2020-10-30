@@ -24,7 +24,7 @@ class LocationQueryOverlayProxyModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(KOSMIndoorMap::MapData mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
-    Q_PROPERTY(QAbstractItemModel* sourceModel READ sourceModel WRITE setSourceModel NOTIFY sourceModelChanged)
+    Q_PROPERTY(QObject* sourceModel READ sourceModel WRITE setSourceModel NOTIFY sourceModelChanged)
 
 public:
     explicit LocationQueryOverlayProxyModel(QObject *parent = nullptr);
@@ -33,8 +33,8 @@ public:
     MapData mapData() const;
     void setMapData(const MapData &data);
 
-    QAbstractItemModel *sourceModel() const;
-    void setSourceModel(QAbstractItemModel *sourceModel);
+    QObject *sourceModel() const;
+    void setSourceModel(QObject *sourceModel);
 
     enum Role {
         ElementRole = Qt::UserRole,
