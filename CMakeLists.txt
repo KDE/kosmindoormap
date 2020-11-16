@@ -30,6 +30,7 @@ set(CMAKE_AUTORCC ON)
 ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     VERSION_HEADER kosmindoormap_version.h
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KOSMIndoorMapConfigVersion.cmake"
+    SOVERSION 1
 )
 
 find_package(Qt5 5.11 REQUIRED COMPONENTS Quick)

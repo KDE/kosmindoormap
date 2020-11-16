@@ -94,7 +94,14 @@ STRING      ["]{STRING_ELEMENT}*["]
 }
 
 {HEXCOLOR8}  {
+    // the 32bit signed version of strtol isn't good enough for 32bit unsigned
+#if Q_PROCESSOR_WORDSIZE == 8
     yylval->uintVal = strtol(yytext + 1, nullptr, 16);
+#elif Q_PROCESSOR_WORDSIZE == 4
+    yylval->uintVal = strtoll(yytext + 1, nullptr, 16);
+#else
+#error unknown wordsize!?
+#endif
     return T_HEX_COLOR;
 }
 {HEXCOLOR6}  {
