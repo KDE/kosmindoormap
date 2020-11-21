@@ -11,7 +11,7 @@
 
 using namespace KOSMIndoorMap;
 
-enum { NodeMatchDistance = 46 }; // in 1e7th of a degree
+enum { NodeMatchDistance = 2 }; // in 1e7th of a degree, 46 for the old Marble data, very small for the new one
 
 /** Compare two coordinate while accounting for floating point noise. */
 static bool fuzzyEquals(OSM::Coordinate lhs, OSM::Coordinate rhs)
