@@ -60,7 +60,7 @@ class KOSMINDOORMAP_EXPORT MapData
     Q_GADGET
     /** Center position of the bounding box for QML usage (longitude/latitude, in degree). */
     Q_PROPERTY(QPointF center READ center)
-    /** Radius from the bounding box center encompasing the entire bounding box, in meters.
+    /** Radius from the bounding box center encompassing the entire bounding box, in meters.
      *  Useful for circular search queries.
      */
     Q_PROPERTY(float radius READ radius)

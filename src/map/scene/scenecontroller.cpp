@@ -33,7 +33,7 @@ namespace KOSMIndoorMap {
 class SceneControllerPrivate
 {
 public:
-    const MapData *m_data = nullptr;
+    MapData m_data;
     const MapCSSStyle *m_styleSheet = nullptr;
     const View *m_view = nullptr;
     std::vector<OverlaySource> m_overlaySources;
@@ -58,12 +58,12 @@ using namespace KOSMIndoorMap;
 SceneController::SceneController() : d(new SceneControllerPrivate) {}
 SceneController::~SceneController() = default;
 
-void SceneController::setDataSet(const MapData *data)
+void SceneController::setMapData(const MapData &data)
 {
     d->m_data = data;
-    if (d->m_data) {
-        d->m_layerTag = data->dataSet().tagKey("layer");
-        d->m_typeTag = data->dataSet().tagKey("type");
+    if (!d->m_data.isEmpty()) {
+        d->m_layerTag = data.dataSet().tagKey("layer");
+        d->m_typeTag = data.dataSet().tagKey("type");
     } else {
         d->m_layerTag = {};
         d->m_typeTag = {};
@@ -116,27 +116,27 @@ void SceneController::updateScene(SceneGraph &sg) const
     sg.beginSwap();
     updateCanvas(sg);
 
-    if (!d->m_data) { // if we don't have map data yet, we just need to get canvas styling here
+    if (d->m_data.isEmpty()) { // if we don't have map data yet, we just need to get canvas styling here
         sg.endSwap();
         return;
     }
 
     // find all intermediate levels below or above the currently selected "full" level
-    auto it = d->m_data->levelMap().find(MapLevel(d->m_view->level()));
-    if (it == d->m_data->levelMap().end()) {
+    auto it = d->m_data.levelMap().find(MapLevel(d->m_view->level()));
+    if (it == d->m_data.levelMap().end()) {
         return;
     }
 
     auto beginIt = it;
-    if (beginIt != d->m_data->levelMap().begin()) {
+    if (beginIt != d->m_data.levelMap().begin()) {
         do {
             --beginIt;
-        } while (!(*beginIt).first.isFullLevel() && beginIt != d->m_data->levelMap().begin());
+        } while (!(*beginIt).first.isFullLevel() && beginIt != d->m_data.levelMap().begin());
         ++beginIt;
     }
 
     auto endIt = it;
-    for (++endIt; endIt != d->m_data->levelMap().end(); ++endIt) {
+    for (++endIt; endIt != d->m_data.levelMap().end(); ++endIt) {
         if ((*endIt).first.isFullLevel()) {
             break;
         }
@@ -450,7 +450,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
 
 QPolygonF SceneController::createPolygon(OSM::Element e) const
 {
-    const auto path = e.outerPath(d->m_data->dataSet());
+    const auto path = e.outerPath(d->m_data.dataSet());
     QPolygonF poly;
     poly.reserve(path.size());
     for (auto node : path) {
@@ -472,7 +472,7 @@ QPainterPath SceneController::createPath(const OSM::Element e, QPolygonF &outerP
         if (mem.type() != OSM::Type::Way || !isInner) {
             continue;
         }
-        if (auto way = d->m_data->dataSet().way(mem.id)) {
+        if (auto way = d->m_data.dataSet().way(mem.id)) {
             const auto subPoly = createPolygon(OSM::Element(way));
             QPainterPath subPath;
             subPath.addPolygon(subPoly);

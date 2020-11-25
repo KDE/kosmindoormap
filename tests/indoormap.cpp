@@ -140,7 +140,7 @@ void MapWidget::wheelEvent(QWheelEvent *event)
 void MapWidget::setMapData(MapData &&data)
 {
     m_data = std::move(data);
-    m_controller.setDataSet(&m_data);
+    m_controller.setMapData(m_data);
     m_view.setSceneBoundingBox(m_data.boundingBox());
     m_style.compile(m_data.dataSet());
     m_controller.setStyleSheet(&m_style);

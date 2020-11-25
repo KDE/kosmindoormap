@@ -137,7 +137,7 @@ void MapItem::loaderDone()
     if (!m_loader->hasError()) {
         m_data = m_loader->takeData();
         m_view->setSceneBoundingBox(m_data.boundingBox());
-        m_controller.setDataSet(&m_data);
+        m_controller.setMapData(m_data);
         m_style.compile(m_data.dataSet());
         m_controller.setStyleSheet(&m_style);
         m_view->setLevel(0);
@@ -171,8 +171,8 @@ void MapItem::clear()
     }
 
     m_sg.clear();
-    m_controller.setDataSet(nullptr);
     m_data = MapData();
+    m_controller.setMapData(m_data);
     emit mapDataChanged();
     emit errorChanged();
     update();

@@ -38,7 +38,7 @@ public:
     explicit SceneController();
     ~SceneController();
 
-    void setDataSet(const MapData *data);
+    void setMapData(const MapData &data);
     void setStyleSheet(const MapCSSStyle *styleSheet);
     void setView(const View *view);
     void setOverlaySources(std::vector<OverlaySource> &&overlays);
