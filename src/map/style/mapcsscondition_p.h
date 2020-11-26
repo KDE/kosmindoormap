@@ -47,7 +47,9 @@ public:
         LessThan,
         GreaterThan,
         LessOrEqual,
-        GreaterOrEqual
+        GreaterOrEqual,
+        IsClosed,
+        IsNotClosed,
     };
 
     void setKey(const char *key, int len);

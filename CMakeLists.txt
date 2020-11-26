@@ -36,6 +36,8 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
 find_package(Qt5 5.11 REQUIRED COMPONENTS Quick)
 find_package(KF5 REQUIRED COMPONENTS I18n)
 find_package(KPublicTransport REQUIRED)
+find_package(KOpeningHours)
+set_package_properties(KOpeningHours PROPERTIES TYPE OPTIONAL PURPOSE "Highlight currently open amenities/shops/etc.")
 
 if (BUILD_TESTING)
     find_package(Qt5 5.11 REQUIRED COMPONENTS Test Widgets)

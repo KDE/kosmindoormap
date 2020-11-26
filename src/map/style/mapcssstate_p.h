@@ -7,6 +7,8 @@
 #ifndef KOSMINDOORMAP_MAPCSSSTATE_P_H
 #define KOSMINDOORMAP_MAPCSSSTATE_P_H
 
+#include <scene/openinghourscache_p.h>
+
 #include <osm/element.h>
 
 namespace KOSMIndoorMap {
@@ -18,6 +20,7 @@ public:
     OSM::Element element;
     double zoomLevel = 0.0;
     int floorLevel = 0;
+    OpeningHoursCache *openingHours = nullptr;
 };
 
 }

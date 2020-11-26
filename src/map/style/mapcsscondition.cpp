@@ -25,7 +25,12 @@ static double toNumber(const QByteArray &val)
 
 void MapCSSCondition::compile(const OSM::DataSet &dataSet)
 {
-    m_tagKey = dataSet.tagKey(m_key.constData());
+    if (m_key == "mx:closed") {
+        m_tagKey = dataSet.tagKey("opening_hours");
+        m_op = (m_op == KeyNotSet ? IsNotClosed : IsClosed);
+    } else {
+        m_tagKey = dataSet.tagKey(m_key.constData());
+    }
 }
 
 bool MapCSSCondition::matches(const MapCSSState &state) const
@@ -44,6 +49,15 @@ bool MapCSSCondition::matches(const MapCSSState &state) const
         case GreaterThan: return toNumber(v) > m_numericValue;
         case LessOrEqual: return toNumber(v) <= m_numericValue;
         case GreaterOrEqual: return toNumber(v) >= m_numericValue;
+        case IsClosed:
+        case IsNotClosed:
+        {
+            if (v.isEmpty() || !state.openingHours) {
+                return m_op == IsNotClosed;
+            }
+            const auto closed = state.openingHours->isClosed(state.element, v);
+            return m_op == IsClosed ? closed : !closed;
+        }
     }
     return false;
 }
@@ -57,6 +71,8 @@ bool MapCSSCondition::matchesCanvas(const MapCSSState &state) const
     switch (m_op) {
         case KeySet:
         case KeyNotSet:
+        case IsClosed:
+        case IsNotClosed:
             return false;
         case Equal: return (state.floorLevel/10) == m_numericValue;
         case NotEqual: return (state.floorLevel/10) != m_numericValue;
@@ -98,6 +114,8 @@ void MapCSSCondition::write(QIODevice *out) const
     switch (m_op) {
         case KeySet:
         case KeyNotSet:
+        case IsClosed:
+        case IsNotClosed:
             out->write("]"); return;
         case Equal: out->write("="); break;
         case NotEqual: out->write("!="); break;

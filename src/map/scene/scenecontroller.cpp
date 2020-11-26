@@ -11,6 +11,7 @@
 #include "iconloader_p.h"
 #include "penwidthutil_p.h"
 #include "scenegeometry_p.h"
+#include "openinghourscache_p.h"
 #include "../style/mapcssdeclaration_p.h"
 #include "../style/mapcssstate_p.h"
 #include "../style/mapcssresult_p.h"
@@ -44,6 +45,7 @@ public:
     QFont m_defaultFont;
     QPolygonF m_labelPlacementPath;
     IconLoader m_iconLoader;
+    OpeningHoursCache m_openingHours;
 
     OSM::TagKey m_layerTag;
     OSM::TagKey m_typeTag;
@@ -206,6 +208,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     state.element = e;
     state.zoomLevel = d->m_view->zoomLevel();
     state.floorLevel = d->m_view->level();
+    state.openingHours = &d->m_openingHours;
     d->m_styleSheet->evaluate(state, d->m_styleResult);
 
     if (d->m_styleResult.hasAreaProperties()) {
