@@ -19,6 +19,7 @@
 #include <vector>
 
 class QPointF;
+class QTimeZone;
 
 namespace KOSMIndoorMap {
 
@@ -64,6 +65,8 @@ class KOSMINDOORMAP_EXPORT MapData
      *  Useful for circular search queries.
      */
     Q_PROPERTY(float radius READ radius)
+
+    Q_PROPERTY(QString regionCode READ regionCode)
 public:
     explicit MapData();
     MapData(const MapData&);
@@ -87,6 +90,15 @@ public:
 
     QPointF center() const;
     float radius() const;
+
+    /** ISO 3166-1/2 region or country code of the area covered by this map data. */
+    QString regionCode() const;
+    void setRegionCode(const QString &regionCode);
+
+    /** Timezone the are covered by this map data is in. */
+    QTimeZone timeZone() const;
+    void setTimeZone(const QTimeZone &tz);
+
 private:
     void processElements();
     void addElement(int level, OSM::Element e, bool isDependentElement);

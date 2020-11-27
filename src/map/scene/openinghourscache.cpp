@@ -13,7 +13,21 @@
 #include <KOpeningHours/OpeningHours>
 #endif
 
+#include <QTimeZone>
+
 using namespace KOSMIndoorMap;
+
+OpeningHoursCache::OpeningHoursCache() = default;
+OpeningHoursCache::~OpeningHoursCache() = default;
+
+void OpeningHoursCache::setMapData(const MapData &mapData)
+{
+    if (m_mapData == mapData) {
+        return;
+    }
+    m_mapData = mapData;
+    m_cacheEntries.clear();
+}
 
 void OpeningHoursCache::setTimeRange(const QDateTime &begin, const QDateTime &end)
 {
@@ -45,14 +59,18 @@ bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
 
     KOpeningHours::OpeningHours expr(oh, KOpeningHours::OpeningHours::IntervalMode);
     expr.setLocation(elem.center().latF(), elem.center().lonF());
-    // TODO holiday region, timezone
+    expr.setRegion(m_mapData.regionCode());
+    expr.setTimeZone(m_mapData.timeZone());
 
     if (expr.error() != KOpeningHours::OpeningHours::NoError) {
         qCDebug(Log) << "opening hours expression error:" << expr.error() << oh;
     } else {
         auto i = expr.interval(m_begin);
-        while (i.state() == KOpeningHours::Interval::Closed && i.end().isValid() && i.end() < m_end) {
+        while (i.state() == KOpeningHours::Interval::Closed && !i.hasOpenEnd() && i.end() < m_end) {
             i = expr.nextInterval(i);
+        }
+        if (expr.error() != KOpeningHours::OpeningHours::NoError) {
+            qCDebug(Log) << "opening hours expression runtime error:" << expr.error() << oh << i;
         }
         closed = i.state() == KOpeningHours::Interval::Closed;
     }

@@ -15,6 +15,8 @@
 
 #include <osm/geomath.h>
 
+#include <QTimeZone>
+
 using namespace KOSMIndoorMap;
 
 MapLevel::MapLevel(int level)
@@ -83,6 +85,9 @@ public:
 
     std::map<MapLevel, std::vector<OSM::Element>> m_levelMap;
     std::map<MapLevel, std::size_t> m_dependentElementCounts;
+
+    QString m_regionCode;
+    QTimeZone m_timeZone;
 };
 }
 
@@ -299,6 +304,26 @@ QPointF MapData::center() const
 float MapData::radius() const
 {
     return std::max(OSM::distance(d->m_bbox.center(), d->m_bbox.min), OSM::distance(d->m_bbox.center(), d->m_bbox.max));
+}
+
+QString MapData::regionCode() const
+{
+    return d->m_regionCode;
+}
+
+void MapData::setRegionCode(const QString &regionCode)
+{
+    d->m_regionCode = regionCode;
+}
+
+QTimeZone MapData::timeZone() const
+{
+    return d->m_timeZone;
+}
+
+void MapData::setTimeZone(const QTimeZone &tz)
+{
+    d->m_timeZone = tz;
 }
 
 #include "moc_mapdata.cpp"

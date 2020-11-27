@@ -66,9 +66,11 @@ void SceneController::setMapData(const MapData &data)
     if (!d->m_data.isEmpty()) {
         d->m_layerTag = data.dataSet().tagKey("layer");
         d->m_typeTag = data.dataSet().tagKey("type");
+        d->m_openingHours.setMapData(data);
     } else {
         d->m_layerTag = {};
         d->m_typeTag = {};
+        d->m_openingHours.setMapData(MapData());
     }
     d->m_dirty = true;
 }

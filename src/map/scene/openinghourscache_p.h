@@ -7,6 +7,8 @@
 #ifndef KOSMINDOORMAP_OPENINGHOURSCACHE_P_H
 #define KOSMINDOORMAP_OPENINGHOURSCACHE_P_H
 
+#include <KOSMIndoorMap/MapData>
+
 #include <KOSM/Element>
 
 #include <QDateTime>
@@ -19,11 +21,12 @@ namespace KOSMIndoorMap {
 class OpeningHoursCache
 {
 public:
-    OpeningHoursCache() = default;
-    ~OpeningHoursCache() = default;
+    OpeningHoursCache();
+    ~OpeningHoursCache();
     OpeningHoursCache(const OpeningHoursCache&) = delete;
     OpeningHoursCache& operator=(const OpeningHoursCache&) = delete;
 
+    void setMapData(const MapData &mapData);
     void setTimeRange(const QDateTime &begin, const QDateTime &end);
 
     bool isClosed(OSM::Element elem, const QByteArray &oh);
@@ -33,10 +36,12 @@ private:
         OSM::Id key;
         bool closed;
     };
+    std::vector<Entry> m_cacheEntries;
 
     QDateTime m_begin = QDateTime::currentDateTime();
     QDateTime m_end;
-    std::vector<Entry> m_cacheEntries;
+
+    MapData m_mapData;
 };
 
 }
