@@ -188,6 +188,9 @@ struct {
     M("old_name", OldName, UnresolvedCategory),
     M("opening_hours", OpeningHours, UnresolvedCategory),
     M("operator", OperatorName, Operator),
+    M("operator:email", Email, Contact),
+    M("operator:phone", Phone, Contact),
+    M("operator:website", Website, Contact),
     M("operator:wikipedia", OperatorWikipedia, Operator),
     M("parking:fee", Fee, Parking),
     M("payment:cash", PaymentCash, Payment),
@@ -586,9 +589,9 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return QString::fromUtf8(m_element.tagValue("changing_table", "diaper"));
         case Wikipedia: return wikipediaUrl(m_element.tagValue("wikipedia", "brand:wikipedia", QLocale()));
         case Address: return QVariant::fromValue(OSMAddress(m_element));
-        case Phone: return QString::fromUtf8(m_element.tagValue("contact:phone", "phone", "telephone"));
-        case Email: return QString::fromUtf8(m_element.tagValue("contact:email", "email"));
-        case Website: return QString::fromUtf8(m_element.tagValue("website", "contact:website", "url"));
+        case Phone: return QString::fromUtf8(m_element.tagValue("contact:phone", "phone", "telephone", "operator:phone"));
+        case Email: return QString::fromUtf8(m_element.tagValue("contact:email", "email", "operator:email"));
+        case Website: return QString::fromUtf8(m_element.tagValue("website", "contact:website", "url", "operator:website"));
         case PaymentCash:
         {
             const auto coins = m_element.tagValue("payment:coins");
