@@ -6,6 +6,7 @@
 
 #include "mapcssselector_p.h"
 #include "mapcsscondition_p.h"
+#include "mapcssresult_p.h"
 #include "mapcssstate_p.h"
 
 #include <QDebug>
@@ -31,7 +32,7 @@ void MapCSSBasicSelector::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSBasicSelector::matches(const MapCSSState &state) const
+bool MapCSSBasicSelector::matches(const MapCSSState &state, const MapCSSResult &result) const
 {
     // check zoom conditions first, as this is the cheapest one and can avoid expensive tag lookups we it doesn't match
     if (m_zoomLow > 0 && state.zoomLevel < m_zoomLow) {
@@ -69,6 +70,10 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state) const
             break;
         case Canvas: return false;
         case Any: break;
+    }
+
+    if (!m_class.isEmpty() && !result.hasClass(m_class)) {
+        return false;
     }
 
     return std::all_of(conditions.begin(), conditions.end(), [&state](const auto &cond) { return cond->matches(state); });
@@ -177,9 +182,10 @@ void MapCSSChainedSelector::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSChainedSelector::matches(const MapCSSState &state) const
+bool MapCSSChainedSelector::matches(const MapCSSState &state, const MapCSSResult &result) const
 {
     Q_UNUSED(state); // TODO
+    Q_UNUSED(result);
     return false;
 }
 
@@ -210,9 +216,9 @@ void MapCSSUnionSelector::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSUnionSelector::matches(const MapCSSState &state) const
+bool MapCSSUnionSelector::matches(const MapCSSState &state, const MapCSSResult &result) const
 {
-    return std::any_of(selectors.begin(), selectors.end(), [&state](const auto &selector) { return selector->matches(state); });
+    return std::any_of(selectors.begin(), selectors.end(), [&state, &result](const auto &selector) { return selector->matches(state, result); });
 }
 
 bool MapCSSUnionSelector::matchesCanvas(const MapCSSState &state) const

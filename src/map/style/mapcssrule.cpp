@@ -27,13 +27,22 @@ void MapCSSRule::compile(const OSM::DataSet &dataSet)
 void MapCSSRule::evaluate(const MapCSSState &state, MapCSSResult &result) const
 {
     // TODO how do we deal with chained selectors here??
-    if (!m_selector->matches(state)) {
+    if (!m_selector->matches(state, result)) {
         return;
     }
 
     for (const auto &decl : m_declarations) {
-        if (decl->type() == MapCSSDeclaration::PropertyDeclaration) {
-            result.addDeclaration(decl.get());
+        switch (decl->type()) {
+            case MapCSSDeclaration::PropertyDeclaration:
+                result.addDeclaration(decl.get());
+                break;
+            case MapCSSDeclaration::ClassDeclaration:
+                result.addClass(decl->keyValue());
+                break;
+            case MapCSSDeclaration::TagDeclaration:
+                // TODO
+                qDebug() << "MapCSS tag declaration not implemented yet.";
+                break;
         }
     }
 }

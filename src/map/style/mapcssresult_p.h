@@ -36,9 +36,12 @@ public:
 
     /** @internal */
     void addDeclaration(const MapCSSDeclaration *decl);
+    void addClass(const QByteArray &cls);
+    bool hasClass(const QByteArray &cls) const;
 
 private:
     std::vector<const MapCSSDeclaration*> m_declarations;
+    std::vector<QByteArray> m_classes;
     int m_flags = 0;
 };
 
