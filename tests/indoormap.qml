@@ -212,6 +212,8 @@ Kirigami.ApplicationWindow {
         }
 
         map.overlaySources: [ gateModel, platformModel, locationModel ]
+        map.region: "DE"
+        map.timeZone: "Europe/Berlin"
 
         header: RowLayout {
             QQC2.Label { text: "Floor Level:" }

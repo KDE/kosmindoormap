@@ -44,6 +44,17 @@ class MapItem : public QQuickPaintedItem
 
     /** Sources for overlays that should be rendered on top of the map. */
     Q_PROPERTY(QVariant overlaySources READ overlaySources WRITE setOverlaySources NOTIFY overlaySourcesChanged)
+
+    /** ISO 3166-1/2 country or region code this map area is in.
+     *  Used for interpreting opening hours expressions.
+     */
+    Q_PROPERTY(QString region READ region WRITE setRegion NOTIFY regionChanged)
+
+    /** IANA timezone id of the timezone this map area is in.
+     *  Used for interpreting opening hours expressions.
+     */
+    Q_PROPERTY(QString timeZone READ timeZoneId WRITE setTimeZoneId NOTIFY timeZoneChanged)
+
 public:
     explicit MapItem(QQuickItem *parent = nullptr);
     ~MapItem();
@@ -63,12 +74,19 @@ public:
     bool hasError() const;
     QString errorMessage() const;
 
+    QString region() const;
+    void setRegion(const QString &region);
+    QString timeZoneId() const;
+    void setTimeZoneId(const QString &tz);
+
 Q_SIGNALS:
     void mapDataChanged();
     void styleSheetChanged();
     void currentFloorLevelChanged();
     void errorChanged();
     void overlaySourcesChanged();
+    void regionChanged();
+    void timeZoneChanged();
 
 protected:
     void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry) override;

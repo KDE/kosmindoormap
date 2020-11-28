@@ -16,6 +16,7 @@
 #include <QPalette>
 #include <QQuickWindow>
 #include <QStandardPaths>
+#include <QTimeZone>
 
 using namespace KOSMIndoorMap;
 
@@ -135,7 +136,10 @@ void MapItem::loaderDone()
     m_sg.clear();
 
     if (!m_loader->hasError()) {
-        m_data = m_loader->takeData();
+        auto data = m_loader->takeData();
+        data.setRegionCode(m_data.regionCode());
+        data.setTimeZone(m_data.timeZone());
+        m_data = std::move(data);
         m_view->setSceneBoundingBox(m_data.boundingBox());
         m_controller.setMapData(m_data);
         m_style.compile(m_data.dataSet());
@@ -231,4 +235,35 @@ void MapItem::addOverlaySource(std::vector<OverlaySource> &overlaySources, const
     } else {
         qWarning() << "unsupported overlay source:" << source << obj;
     }
+}
+
+QString MapItem::region() const
+{
+    return m_data.regionCode();
+}
+
+void MapItem::setRegion(const QString &region)
+{
+    if (m_data.regionCode() == region) {
+        return;
+    }
+
+    m_data.setRegionCode(region);
+    emit regionChanged();
+}
+
+QString MapItem::timeZoneId() const
+{
+    return QString::fromUtf8(m_data.timeZone().id());
+}
+
+void MapItem::setTimeZoneId(const QString &tz)
+{
+    const auto tzId = tz.toUtf8();
+    if (m_data.timeZone().id() == tzId) {
+        return;
+    }
+
+    m_data.setTimeZone(QTimeZone(tzId));
+    emit timeZoneChanged();
 }

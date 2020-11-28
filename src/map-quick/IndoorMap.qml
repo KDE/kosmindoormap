@@ -27,6 +27,10 @@ Item {
     property alias mapData: map.mapData
     /** Access to overlay sources. */
     property alias overlaySources: map.overlaySources
+    /** ISO 3166-1/2 country or region code for opening hours interpretation. */
+    property alias region: map.region
+    /** IANA timezone id for opening hours interpretation. */
+    property alias timeZone: map.timeZone
 
     /** Emitted when a map element has been picked by clicking/tapping on it. */
     signal elementPicked(var element);
