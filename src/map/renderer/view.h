@@ -11,6 +11,7 @@
 
 #include <KOSM/Datatypes>
 
+#include <QDateTime>
 #include <QObject>
 #include <QRectF>
 #include <QSize>
@@ -44,6 +45,8 @@ class KOSMINDOORMAP_EXPORT View : public QObject
     Q_PROPERTY(double panHeight READ panHeight NOTIFY transformationChanged)
     Q_PROPERTY(int floorLevel READ level WRITE setLevel NOTIFY floorLevelChanged)
     Q_PROPERTY(double zoomLevel READ zoomLevel NOTIFY transformationChanged)
+    Q_PROPERTY(QDateTime beginTime READ beginTime WRITE setBeginTime NOTIFY timeChanged)
+    Q_PROPERTY(QDateTime endTime READ endTime WRITE setEndTime NOTIFY timeChanged)
 public:
     explicit View(QObject *parent = nullptr);
     ~View();
@@ -126,9 +129,18 @@ public:
     /** Center the view on the given geo-coordinate. */
     Q_INVOKABLE void centerOnGeoCoordinate(QPointF geoCoord);
 
+    /** Time range that is displayed.
+     *  This matters for example when opening hours are considered for styling.
+     */
+    QDateTime beginTime() const;
+    void setBeginTime(const QDateTime &beginTime);
+    QDateTime endTime() const;
+    void setEndTime(const QDateTime &endTime);
+
 Q_SIGNALS:
     void transformationChanged();
     void floorLevelChanged();
+    void timeChanged();
 
 private:
     /** Ensure we stay within the bounding box with the viewport, call after viewport modification. */
@@ -139,6 +151,9 @@ private:
     QSize m_screenSize;
     QTransform m_deviceTransform = {};
     int m_level = 0;
+
+    QDateTime m_beginTime;
+    QDateTime m_endTime;
 };
 
 }

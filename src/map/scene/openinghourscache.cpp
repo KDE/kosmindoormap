@@ -66,7 +66,7 @@ bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
         qCDebug(Log) << "opening hours expression error:" << expr.error() << oh;
     } else {
         auto i = expr.interval(m_begin);
-        while (i.state() == KOpeningHours::Interval::Closed && !i.hasOpenEnd() && i.end() < m_end) {
+        while (i.state() == KOpeningHours::Interval::Closed && !i.hasOpenEnd() && (i.end() < m_end || !m_end.isValid())) {
             i = expr.nextInterval(i);
         }
         if (expr.error() != KOpeningHours::OpeningHours::NoError) {

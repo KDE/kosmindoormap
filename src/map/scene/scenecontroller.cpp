@@ -84,6 +84,7 @@ void SceneController::setStyleSheet(const MapCSSStyle *styleSheet)
 void SceneController::setView(const View *view)
 {
     d->m_view = view;
+    QObject::connect(view, &View::timeChanged, [this]() { d->m_dirty = true; });
     d->m_dirty = true;
 }
 
@@ -115,6 +116,7 @@ void SceneController::updateScene(SceneGraph &sg) const
     }
     sg.setZoomLevel(d->m_view->zoomLevel());
     sg.setCurrentFloorLevel(d->m_view->level());
+    d->m_openingHours.setTimeRange(d->m_view->beginTime(), d->m_view->endTime());
     d->m_dirty = false;
 
     sg.beginSwap();

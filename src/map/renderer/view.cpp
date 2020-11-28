@@ -19,6 +19,7 @@ static constexpr const auto MaxZoomFactor = 21; // 2^MaxZoomFactor subdivisions 
 View::View(QObject *parent)
     : QObject(parent)
 {
+    setBeginTime(QDateTime::currentDateTime());
 }
 
 View::~View() = default;
@@ -311,4 +312,34 @@ void View::centerOnGeoCoordinate(QPointF geoCoord)
     m_viewport.moveCenter(sceneCenter);
     constrainViewToScene();
     emit transformationChanged();
+}
+
+QDateTime View::beginTime() const
+{
+    return m_beginTime;
+}
+
+void View::setBeginTime(const QDateTime &beginTime)
+{
+    const auto alignedTime = QDateTime(beginTime.date(), {beginTime.time().hour(), beginTime.time().minute()});
+    if (m_beginTime == alignedTime) {
+        return;
+    }
+    m_beginTime = alignedTime;
+    emit timeChanged();
+}
+
+QDateTime View::endTime() const
+{
+    return m_endTime;
+}
+
+void View::setEndTime(const QDateTime& endTime)
+{
+    const auto alignedTime = QDateTime(endTime.date(), {endTime.time().hour(), endTime.time().minute()});
+    if (m_endTime == alignedTime) {
+        return;
+    }
+    m_endTime = alignedTime;
+    emit timeChanged();
 }

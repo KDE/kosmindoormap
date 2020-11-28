@@ -260,6 +260,8 @@ Kirigami.ApplicationWindow {
                     var lat = c[1];
                     var lon = c[2];
                     page.map.mapLoader.loadForCoordinate(lat, lon);
+                    page.map.view.beginTime = new Date();
+                    page.map.view.endTime = new Date(page.map.view.beginTime.getTime() + 3600000);
                 }
             }
         }
