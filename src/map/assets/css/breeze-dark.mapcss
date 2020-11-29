@@ -73,7 +73,7 @@ area[indoor],
 area[building],
 area[building:part=yes][!roof:shape]
 {
-    fill-color: #80bdc3c7;
+    fill-color: #8095a5a6;
 }
 
 area[indoor=area],
@@ -82,7 +82,7 @@ area[building:part=floor],
 area[stairwell],
 area[tunnel=yes]
 {
-    fill-color: #bdc3c7;
+    fill-color: #95a5a6;
 }
 
 area[stairwell] { color: #7f8c8d; width: 0; }
@@ -154,6 +154,27 @@ line[public_transport=platform]
 {
     text-halo-color: #31363b;
 }
+
+*.static { icon-color: #bdc3c7; }
+
+*.shop { icon-color: #9b59b6; }
+*.shop[mx:closed] { icon-color: #bdc3c7; }
+
+*.leisure { icon-color: #16a085; }
+*.leisure[mx:closed] { icon-color: #bdc3c7; }
+
+*.amenity { icon-color: #b0b434; }
+*.amenity[mx:closed] { icon-color: #bdc3c7; }
+
+*.food { icon-color: #fdbc4b; }
+*.food[mx:closed],
+*.food[shop=vacant]
+{
+    icon-color: #bdc3c7;
+}
+
+*.health { icon-color: #ed1515; }
+*.health[mx:closed] { icon-color: #bdc3c7; }
 
 /** Specific elements */
 area[amenity=toilets],

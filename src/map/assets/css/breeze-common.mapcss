@@ -361,13 +361,13 @@ node|z20- [amenity=waste_basket],
 *|z20- [amenity=waste_disposal]
 {
     icon-image: amenity;
-    icon-color: #4d4d4d;
+    set .static;
 }
 
 node|z19- [barrier=lift_gate]
 {
     icon-image: barrier;
-    icon-color: #4d4d4d;
+    set .static;
 }
 
 node|z20- [information=board],
@@ -376,7 +376,7 @@ node|z20- [information=map],
 node|z20- [information=terminal]
 {
     icon-image: information;
-    icon-color: #4d4d4d;
+    set .static;
 }
 // hide information boards as their names clutter the vie
 // showing an icon instead would be better, but we don't have one yet
@@ -389,26 +389,26 @@ node[information] { text: ""; }
 *|z19- [historic=monument]
 {
     icon-image: historic;
-    icon-color: #4d4d4d;
+    set .static;
 }
 *|z20- [memorial=statue]
 {
     icon-image: memorial;
-    icon-color: #4d4d4d;
+    set .static;
 }
 
 *|z20- [tourism=artwork]
 {
     icon-image: tourism;
-    icon-color: #4d4d4d;
+    set .static;
 }
 *|z20- [tourism=artwork][artwork_type=statue]
 {
     icon-image: artwork_type;
-    icon-color: #4d4d4d;
+    set .static;
 }
 
-*|z20- [man_made] { icon-color: #4d4d4d; }
+*|z20- [man_made] { set .static; }
 *|z20- [man_made=lighthouse],
 *|z20- [man_made=storage_tank],
 *|z20- [man_made=water_tower],
@@ -422,7 +422,7 @@ node[information] { text: ""; }
 *|z21- [advertising=column ]
 {
     icon-image: "advertising_column";
-    icon-color: #4d4d4d;
+    set .static;
 }
 
 /** Specific amenities/shops/etc */
@@ -549,11 +549,11 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
 *|z19- [amenity=restaurant]
 {
     icon-image: amenity;
-    icon-color: #fdbc4b;
+    set .food;
 }
 
 // shops
-* [shop] { icon-color: #9b59b6; }
+* [shop] { set .shop; }
 
 *|z19- [shop=alcohol],
 *|z20- [shop=art],
@@ -640,7 +640,7 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
 *|z18- [amenity=marketplace]
 {
     icon-image: amenity;
-    icon-color: #9b59b6;
+    set .shop;
 }
 
 // health
@@ -651,11 +651,11 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
 *|z20- [amenity=veterinary]
 {
     icon-image: amenity;
-    icon-color: #ed1515;
+    set .health;
 }
 
 // leisure elements
-*|z18- [leisure] { icon-color: #16a085; }
+*|z18- [leisure] { set .leisure; }
 *|z19- [leisure=bowling_alley],
 *|z19- [leisure=fitness_centre],
 *|z18- [leisure=golf_course],
@@ -672,12 +672,12 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
 *|z20- [shop=massage]
 {
     icon-image: shop;
-    icon-color: #16a085;
+    set .leisure;
 }
 *|z20- [tourism=picnic_site]
 {
     icon-image: tourism;
-    icon-color: #16a085;
+    set .leisure;
 }
 
 // other amenities
@@ -711,38 +711,38 @@ node|z20- [amenity=telephone],
 *|z19- [amenity=vehicle_inspection]
 {
     icon-image: amenity;
-    icon-color: #7d8025;
+    set .amenity;
 }
 *|z19- [shop=bank]
 {
     icon-image: shop;
-    icon-color: #7d8025;
+    set .amenity;
 }
 node|z19- [vending=parking_tickets]
 {
     icon-image: vending;
-    icon-color: #7d8025;
+    set .amenity;
 }
 *|z19- [tourism=museum],
 *|z20- [tourism=viewpoint]
 {
     icon-image: tourism;
-    icon-color: #7d8025;
+    set .amenity;
 }
 node|z20- [emergency=phone]
 {
     icon-image: "emergency_phone";
-    icon-color: #7d8025;
+    set .amenity;
 }
 node|z20- [leisure=firepit]
 {
     icon-image: leisure;
-    icon-color: #7d8025;
+    set .amenity;
 }
 *|z19- [office=diplomatic][embassy]
 {
     icon-image: "embassy";
-    icon-color: #7d8025;
+    set .amenity;
 }
 
 node|z19- [amenity=atm],

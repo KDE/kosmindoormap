@@ -157,6 +157,27 @@ line[public_transport=platform]
     text-halo-color: #fcfcfc;
 }
 
+*.static { icon-color: #4d4d4d; }
+
+*.shop { icon-color: #9b59b6; }
+*.shop[mx:closed] { icon-color: #7f8c8d; }
+
+*.leisure { icon-color: #16a085; }
+*.leisure[mx:closed] { icon-color: #7f8c8d; }
+
+*.amenity { icon-color: #7d8025; }
+*.amenity[mx:closed] { icon-color: #7f8c8d; }
+
+*.food { icon-color: #fdbc4b; }
+*.food[mx:closed],
+*.food[shop=vacant]
+{
+    icon-color: #7f8c8d;
+}
+
+*.health { icon-color: #ed1515; }
+*.health[mx:closed] { icon-color: #7f8c8d; }
+
 /** Specific elements */
 area[amenity=toilets],
 area[room=toilets]
