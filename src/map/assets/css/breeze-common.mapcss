@@ -444,13 +444,7 @@ node|z20-[vending=public_transport_tickets] {
 *|z18-[amenity=motorcycle_parking]
 {
     icon-image: amenity;
-    icon-color: #3daee9;
-}
-*|z17-[amenity=parking][access=private],
-*|z18-[amenity=bicycle_parking][access=private],
-*|z18-[amenity=motorcycle_parking][access=private]
-{
-    icon-color: #7f8c8d;
+    set .parking;
 }
 *|z-20[amenity=parking][access=private]
 {
@@ -476,7 +470,7 @@ node|z20-[vending=public_transport_tickets] {
 
 // charging stations
 node|z19-[amenity=charging_station] {
-    icon-color: #3daee9;
+    set .parking;
     icon-image: "charging_station";
 }
 node|z19-[amenity=charging_station][access=private] { icon-color: #7f8c8d; }
@@ -488,14 +482,14 @@ node|z19-[amenity=charging_station][access=private] { icon-color: #7f8c8d; }
 *|z19-[amenity=car_sharing],
 *|z18-[amenity=taxi]
 {
-    icon-color: #3daee9;
+    set .parking;
     icon-image: amenity;
 }
 *|z21-[amenity=taxi] { text: ""; }
 *|z19-[amenity=car_sharing] { icon-image: "car_rental"; } // TODO needs a better icon
 node|z19-[barrier=toll_booth]
 {
-    icon-color: #3daee9;
+    set .parking;
     icon-image: barrier;
 }
 

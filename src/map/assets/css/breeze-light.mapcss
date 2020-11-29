@@ -175,6 +175,14 @@ line[public_transport=platform]
     icon-color: #7f8c8d;
 }
 
+*.parking { icon-color: #3daee9; }
+*.parking[access=no],
+*.parking[access=private],
+*.parking[mx:closed]
+{
+    icon-color: #7f8c8d;
+}
+
 *.health { icon-color: #ed1515; }
 *.health[mx:closed] { icon-color: #7f8c8d; }
 
