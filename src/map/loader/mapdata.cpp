@@ -326,4 +326,9 @@ void MapData::setTimeZone(const QTimeZone &tz)
     d->m_timeZone = tz;
 }
 
+QString MapData::timeZoneId() const
+{
+    return QString::fromUtf8(d->m_timeZone.id());
+}
+
 #include "moc_mapdata.cpp"

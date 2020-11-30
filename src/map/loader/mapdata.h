@@ -67,6 +67,7 @@ class KOSMINDOORMAP_EXPORT MapData
     Q_PROPERTY(float radius READ radius)
 
     Q_PROPERTY(QString regionCode READ regionCode)
+    Q_PROPERTY(QString timeZone READ timeZoneId)
 public:
     explicit MapData();
     MapData(const MapData&);
@@ -104,6 +105,8 @@ private:
     void addElement(int level, OSM::Element e, bool isDependentElement);
     QString levelName(OSM::Element e);
     void filterLevels();
+
+    QString timeZoneId() const;
 
     std::shared_ptr<MapDataPrivate> d;
 };
