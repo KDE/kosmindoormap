@@ -31,12 +31,12 @@ void OpeningHoursCache::setMapData(const MapData &mapData)
 
 void OpeningHoursCache::setTimeRange(const QDateTime &begin, const QDateTime &end)
 {
-    if ((begin == m_begin || begin < QDateTime::currentDateTime()) && end == m_end) {
+    if (begin == m_begin && end == m_end) {
         return;
     }
 
-    m_begin = std::max(begin, QDateTime::currentDateTime());
-    m_end = end;
+    m_begin = begin.isValid() ? begin : QDateTime::currentDateTime();
+    m_end = (end > m_begin) ? end : QDateTime();
     m_cacheEntries.clear();
 }
 
