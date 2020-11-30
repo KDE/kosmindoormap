@@ -14,6 +14,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QProcess>
 #include <QTest>
 
 using namespace KOSMIndoorMap;
@@ -91,7 +92,15 @@ private Q_SLOTS:
         QVERIFY(refFile.open(QFile::ReadOnly));
         const auto refContent = QJsonDocument::fromJson(refFile.readAll()).object();
         if (top != refContent) {
-            qDebug().noquote() << QJsonDocument(top).toJson();
+            QFile failFile(modelFile + QLatin1String(".fail"));
+            QVERIFY(failFile.open(QFile::WriteOnly));
+            failFile.write(QJsonDocument(top).toJson());
+            failFile.close();
+
+            QProcess proc;
+            proc.setProcessChannelMode(QProcess::ForwardedChannels);
+            proc.start(QStringLiteral("diff"), {QStringLiteral("-u"), modelFile, failFile.fileName()});
+            QVERIFY(proc.waitForFinished());
         }
         QCOMPARE(top, refContent);
     }
