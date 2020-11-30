@@ -2,12 +2,12 @@
     "category": "Mall and Parking",
     "content": [
         {
-            "keyLabel": "Opening hours",
-            "value": "Tu 10:00-14:00"
-        },
-        {
             "url": "https://en.wikipedia.org/wiki/Shopping_mall",
             "value": "Wikipedia"
+        },
+        {
+            "categoryLabel": "Opening Hours",
+            "value": "Tu 10:00-14:00"
         },
         {
             "categoryLabel": "Toilets",

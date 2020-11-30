@@ -186,7 +186,7 @@ struct {
     M("network", Network, Operator),
     M("office", Category, Header),
     M("old_name", OldName, UnresolvedCategory),
-    M("opening_hours", OpeningHours, UnresolvedCategory),
+    M("opening_hours", OpeningHours, OpeningHoursCategory),
     M("operator", OperatorName, Operator),
     M("operator:email", Email, Contact),
     M("operator:phone", Phone, Contact),
@@ -372,6 +372,7 @@ QString OSMElementInformationModel::categoryLabel(OSMElementInformationModel::Ke
         case UnresolvedCategory:
         case Header:
         case Main:          return {};
+        case OpeningHoursCategory: return i18n("Opening Hours");
         case Contact:       return i18n("Contact");
         case Payment:       return i18n("Payment");
         case Toilets:       return i18n("Toilets");
@@ -409,7 +410,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case Diet: return i18n("Diet");
         case Takeaway: return i18n("Takeaway");
         case Socket: return i18n("Socket");
-        case OpeningHours: return i18n("Opening hours");
+        case OpeningHours: return {};
         case Fee: return i18n("Fee");
         case Authentication: return i18n("Authentication");
         case BicycleParking: return i18n("Bicycle parking");

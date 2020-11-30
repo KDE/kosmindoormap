@@ -1,16 +1,16 @@
 {
     "content": [
         {
-            "keyLabel": "Opening hours",
-            "value": "24/7"
-        },
-        {
             "keyLabel": "Fee",
             "value": "yes (0.50 EUR)"
         },
         {
             "keyLabel": "Diaper changing table",
             "value": "yes"
+        },
+        {
+            "categoryLabel": "Opening Hours",
+            "value": "24/7"
         },
         {
             "categoryLabel": "Payment",

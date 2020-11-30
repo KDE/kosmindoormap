@@ -43,6 +43,7 @@ public:
         UnresolvedCategory,
         Header,
         Main,
+        OpeningHoursCategory,
         Contact,
         Payment,
         Toilets,

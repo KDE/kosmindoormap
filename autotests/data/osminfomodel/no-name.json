@@ -13,10 +13,9 @@
             "value": "yes"
         },
         {
-            "keyLabel": "Opening hours",
+            "categoryLabel": "Opening Hours",
             "value": "12:00-23:00"
         }
     ],
     "name": "Fast Food"
 }
-

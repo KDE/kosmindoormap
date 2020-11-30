@@ -2,7 +2,7 @@
     "category": "Car Rental",
     "content": [
         {
-            "keyLabel": "Opening hours",
+            "categoryLabel": "Opening Hours",
             "value": "Mo-Fr 06:00-22:00;Sa-Su 07:30-21:00"
         }
     ],
