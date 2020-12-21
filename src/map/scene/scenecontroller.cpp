@@ -37,7 +37,7 @@ public:
     MapData m_data;
     const MapCSSStyle *m_styleSheet = nullptr;
     const View *m_view = nullptr;
-    std::vector<std::unique_ptr<AbstractOverlaySource>> m_overlaySources;
+    std::vector<QPointer<AbstractOverlaySource>> m_overlaySources;
     mutable std::vector<OSM::Element> m_hiddenElements;
 
     MapCSSResult m_styleResult;
@@ -88,7 +88,7 @@ void SceneController::setView(const View *view)
     d->m_dirty = true;
 }
 
-void SceneController::setOverlaySources(std::vector<std::unique_ptr<AbstractOverlaySource>> &&overlays)
+void SceneController::setOverlaySources(std::vector<QPointer<AbstractOverlaySource>> &&overlays)
 {
     d->m_overlaySources = std::move(overlays);
     d->m_dirty = true;

@@ -41,7 +41,7 @@ public:
     void setMapData(const MapData &data);
     void setStyleSheet(const MapCSSStyle *styleSheet);
     void setView(const View *view);
-    void setOverlaySources(std::vector<std::unique_ptr<AbstractOverlaySource>> &&overlays);
+    void setOverlaySources(std::vector<QPointer<AbstractOverlaySource>> &&overlays);
     /** Overlay dirty state tracking. */
     void overlaySourceUpdated();
 

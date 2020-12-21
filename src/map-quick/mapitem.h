@@ -98,7 +98,9 @@ private:
     QVariant overlaySources() const;
     void setOverlaySources(const QVariant &overlays);
 
-    void addOverlaySource(std::vector<std::unique_ptr<AbstractOverlaySource>> &overlaySources, const QVariant &source);
+    void addOverlaySource(std::vector<QPointer<AbstractOverlaySource>> &overlaySources, const QVariant &source);
+    void overlayUpdate();
+    void overlayReset();
 
     MapLoader *m_loader = nullptr;
     MapData m_data;
@@ -111,6 +113,7 @@ private:
     FloorLevelModel *m_floorLevelModel = nullptr;
     QString m_errorMessage;
     QVariant m_overlaySources;
+    std::vector<std::unique_ptr<AbstractOverlaySource>> m_ownedOverlaySources;
 };
 
 }

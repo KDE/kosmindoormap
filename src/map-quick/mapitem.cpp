@@ -204,7 +204,9 @@ QVariant MapItem::overlaySources() const
 
 void MapItem::setOverlaySources(const QVariant &overlays)
 {
-    std::vector<std::unique_ptr<AbstractOverlaySource>> sources;
+    const auto oldOwnedOverlays = std::move(m_ownedOverlaySources);
+
+    std::vector<QPointer<AbstractOverlaySource>> sources;
     if (overlays.canConvert<QVariantList>()) {
         const auto l = overlays.value<QVariantList>();
         for (const auto &v : l) {
@@ -214,27 +216,39 @@ void MapItem::setOverlaySources(const QVariant &overlays)
         addOverlaySource(sources, overlays);
     }
 
+    for (const auto &overlay : sources) {
+        connect(overlay.data(), &AbstractOverlaySource::update, this, &MapItem::overlayUpdate, Qt::UniqueConnection);
+        connect(overlay.data(), &AbstractOverlaySource::reset, this, &MapItem::overlayReset, Qt::UniqueConnection);
+    }
+
     m_controller.setOverlaySources(std::move(sources));
     emit overlaySourcesChanged();
     update();
 }
 
-void MapItem::addOverlaySource(std::vector<std::unique_ptr<AbstractOverlaySource>> &overlaySources, const QVariant &source)
+void MapItem::addOverlaySource(std::vector<QPointer<AbstractOverlaySource>> &overlaySources, const QVariant &source)
 {
     const auto obj = source.value<QObject*>();
     if (auto model = qobject_cast<QAbstractItemModel*>(obj)) {
         auto overlay = std::make_unique<ModelOverlaySource>(model);
-        connect(overlay.get(), &AbstractOverlaySource::update, this, [this]() {
-            m_controller.overlaySourceUpdated();
-            update();
-        });
-        connect(overlay.get(), &AbstractOverlaySource::reset, this, [this]() {
-            m_style.compile(m_data.dataSet());
-        });
-        overlaySources.push_back(std::move(overlay));
+        overlaySources.push_back(overlay.get());
+        m_ownedOverlaySources.push_back(std::move(overlay));
+    } else if (auto source = qobject_cast<AbstractOverlaySource*>(obj)) {
+        overlaySources.push_back(source);
     } else {
         qWarning() << "unsupported overlay source:" << source << obj;
     }
+}
+
+void MapItem::overlayUpdate()
+{
+    m_controller.overlaySourceUpdated();
+    update();
+}
+
+void MapItem::overlayReset()
+{
+    m_style.compile(m_data.dataSet());
 }
 
 QString MapItem::region() const
