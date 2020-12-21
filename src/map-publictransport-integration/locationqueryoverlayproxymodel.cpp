@@ -8,6 +8,7 @@
 
 #include <KPublicTransport/Location>
 #include <KPublicTransport/LocationQueryModel>
+#include <KPublicTransport/RentalVehicle>
 
 #include <osm/element.h>
 #include <osm/geomath.h>
