@@ -277,7 +277,7 @@ Kirigami.ApplicationWindow {
             locationQuery.request.latitude = page.map.mapData.center.y;
             locationQuery.request.longitude = page.map.mapData.center.x;
             locationQuery.request.maximumDistance = page.map.mapData.radius;
-            locationQuery.request.types = PublicTransport.Location.RentedVehicleStation;
+            locationQuery.request.types = PublicTransport.Location.RentedVehicleStation | PublicTransport.Location.RentedVehicle;
         }
     }
 }

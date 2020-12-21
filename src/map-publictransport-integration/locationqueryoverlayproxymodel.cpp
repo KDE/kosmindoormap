@@ -157,32 +157,43 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
     Info info;
     info.overlayNode.coordinate = OSM::Coordinate(loc.latitude(), loc.longitude());
 
-    // try to find a matching node in the base OSM data
-    for (const auto &n : m_data.dataSet().nodes) {
-        if (OSM::distance(n.coordinate, info.overlayNode.coordinate) < 10 && OSM::tagValue(n, m_tagKeys.amenity) == "bicycle_rental") {
-            qDebug() << "found matching node, cloning that!" << n.url();
-            info.sourceElement = OSM::Element(&n);
-            info.overlayNode = n;
-            OSM::setTagValue(info.overlayNode, m_tagKeys.mxoid, QByteArray::number(qlonglong(n.id)));
+    switch (loc.type()) {
+        case Location::Place:
+        case Location::Stop:
+            Q_UNREACHABLE();
             break;
-        }
-    }
+        case Location::RentedVehicleStation:
+            // try to find a matching node in the base OSM data
+            for (const auto &n : m_data.dataSet().nodes) {
+                if (OSM::distance(n.coordinate, info.overlayNode.coordinate) < 10 && OSM::tagValue(n, m_tagKeys.amenity) == "bicycle_rental") {
+                    qDebug() << "found matching node, cloning that!" << n.url();
+                    info.sourceElement = OSM::Element(&n);
+                    info.overlayNode = n;
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.mxoid, QByteArray::number(qlonglong(n.id)));
+                    break;
+                }
+            }
 
-    info.overlayNode.id = m_data.dataSet().nextInternalId();
-    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
-    if (loc.rentalVehicleStation().capacity() >= 0) {
-        OSM::setTagValue(info.overlayNode, m_tagKeys.capacity, QByteArray::number(loc.rentalVehicleStation().capacity()));
-    }
-
-    if (loc.rentalVehicleStation().isValid()) {
-        OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, QByteArray::number(loc.rentalVehicleStation().availableVehicles()));
-    } else { // free floating
-        OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
-        OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, "1");
-    }
-
-    if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !loc.rentalVehicleStation().network().name().isEmpty()) {
-        OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicleStation().network().name().toUtf8());
+            info.overlayNode.id = m_data.dataSet().nextInternalId();
+            OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
+            if (loc.rentalVehicleStation().capacity() >= 0) {
+                OSM::setTagValue(info.overlayNode, m_tagKeys.capacity, QByteArray::number(loc.rentalVehicleStation().capacity()));
+            }
+            OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, QByteArray::number(loc.rentalVehicleStation().availableVehicles()));
+            if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !loc.rentalVehicleStation().network().name().isEmpty()) {
+                OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicleStation().network().name().toUtf8());
+            }
+            break;
+        case Location::RentedVehicle:
+            // free floating vehicles have no matching OSM element, so no point in searching for one
+            info.overlayNode.id = m_data.dataSet().nextInternalId();
+            OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
+            OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
+            OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, "1");
+            if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !loc.rentalVehicle().network().name().isEmpty()) {
+                OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicle().network().name().toUtf8());
+            }
+            break;
     }
     return info;
 }
