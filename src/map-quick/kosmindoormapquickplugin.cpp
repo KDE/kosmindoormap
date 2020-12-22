@@ -11,6 +11,7 @@
 #include "osmelement.h"
 #include "osmelementinformationmodel.h"
 
+#include <KOSMIndoorMap/EquipmentModel>
 #include <KOSMIndoorMap/GateModel>
 #include <KOSMIndoorMap/MapData>
 #include <KOSMIndoorMap/PlatformModel>
@@ -32,6 +33,7 @@ void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
     qmlRegisterType<FloorLevelChangeModel>("org.kde.kosmindoormap", 1, 0, "FloorLevelChangeModel");
     qmlRegisterType<MapItem>("org.kde.kosmindoormap", 1, 0, "MapItemImpl");
     qmlRegisterType<OSMElementInformationModel>("org.kde.kosmindoormap", 1, 0, "OSMElementInformationModel");
+    qmlRegisterType<EquipmentModel>("org.kde.kosmindoormap", 1, 0, "EquipmentModel");
     qmlRegisterType<GateModel>("org.kde.kosmindoormap", 1, 0, "GateModel");
     qmlRegisterType<PlatformModel>("org.kde.kosmindoormap", 1, 0, "PlatformModel");
 }

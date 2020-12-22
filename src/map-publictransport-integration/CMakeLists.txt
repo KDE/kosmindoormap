@@ -8,6 +8,7 @@ set(kosmindoormap_kpublictransport_integration_qml
 add_library(kosmindoormap_kpublictransport_integration_plugin
     kosmindoormap-kpublictransport-integration.cpp
     locationqueryoverlayproxymodel.cpp
+    realtimeequipmentmodel.cpp
 )
 target_link_libraries(kosmindoormap_kpublictransport_integration_plugin
     Qt5::Qml

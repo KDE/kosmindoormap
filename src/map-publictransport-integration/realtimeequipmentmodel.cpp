@@ -1,0 +1,92 @@
+/*
+    SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
+
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#include "realtimeequipmentmodel.h"
+
+#include <KPublicTransport/Equipment>
+#include <KPublicTransport/Location>
+#include <KPublicTransport/LocationQueryModel>
+
+#include <QAbstractItemModel>
+
+using namespace KOSMIndoorMap;
+
+RealtimeEquipmentModel::RealtimeEquipmentModel(QObject *parent)
+    : EquipmentModel(parent)
+{
+}
+
+RealtimeEquipmentModel::~RealtimeEquipmentModel() = default;
+
+QObject* RealtimeEquipmentModel::realtimeModel() const
+{
+    return m_realtimeModel;
+}
+
+void RealtimeEquipmentModel::setRealtimeModel(QObject *model)
+{
+    if (m_realtimeModel == model) {
+        return;
+    }
+
+    m_realtimeModel = qobject_cast<QAbstractItemModel*>(model);
+    emit realtimeModelChanged();
+
+    if (m_realtimeModel) {
+        connect(m_realtimeModel, &QAbstractItemModel::modelReset, this, &RealtimeEquipmentModel::updateRealtimeState);
+        connect(m_realtimeModel, &QAbstractItemModel::rowsInserted, this, &RealtimeEquipmentModel::updateRealtimeState);
+        connect(m_realtimeModel, &QAbstractItemModel::rowsRemoved, this, &RealtimeEquipmentModel::updateRealtimeState);
+        connect(m_realtimeModel, &QAbstractItemModel::dataChanged, this, &RealtimeEquipmentModel::updateRealtimeState);
+
+        if (m_realtimeModel->rowCount() > 0) {
+            updateRealtimeState();
+        }
+    }
+}
+
+void RealtimeEquipmentModel::updateRealtimeState()
+{
+    if (!m_realtimeModel) {
+        return;
+    }
+
+    for (auto i = 0; i < m_realtimeModel->rowCount(); ++i) {
+        const auto idx = m_realtimeModel->index(i, 0);
+        const auto loc = idx.data(KPublicTransport::LocationQueryModel::LocationRole).value<KPublicTransport::Location>();
+        if (loc.type() != KPublicTransport::Location::Equipment) {
+            continue;
+        }
+
+        const auto rtEq = loc.equipment();
+        qDebug() << "trying to match equipment" << loc.name() << rtEq.type() << rtEq.disruptionEffect();
+        auto eqIdx = std::numeric_limits<std::size_t>::max();
+        for (std::size_t j = 0; j < m_equipment.size(); ++j) {
+            const auto &eq = m_equipment[j];
+            if (eq.distanceTo(m_data.dataSet(), loc.latitude(), loc.longitude()) < 2.0) {
+                if (eqIdx < m_equipment.size()) {
+                    qDebug() << "  multiple hits for equipment!" << loc.name();
+                    eqIdx = std::numeric_limits<std::size_t>::max();
+                    break;
+                } else {
+                    eqIdx = j;
+                }
+            }
+        }
+
+        if (eqIdx < m_equipment.size()) {
+            qDebug() << "  found equipment!" << loc.name();
+            auto &eq = m_equipment[eqIdx];
+            if (!eq.syntheticElement) {
+                eq.syntheticElement = OSM::copy_element(eq.sourceElements[0]);
+                eq.syntheticElement.setTagValue(m_tagKeys.mxoid, QByteArray::number((qlonglong)eq.sourceElements[0].id()));
+            }
+
+            eq.syntheticElement.setTagValue(m_tagKeys.realtimeStatus, rtEq.disruptionEffect() == KPublicTransport::Disruption::NoService ? "0" : "1");
+        }
+    }
+
+    emit update();
+}

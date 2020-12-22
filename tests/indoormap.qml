@@ -211,7 +211,13 @@ Kirigami.ApplicationWindow {
             mapData: page.map.mapData
         }
 
-        map.overlaySources: [ gateModel, platformModel, locationModel ]
+        RealtimeEquipmentModel {
+            id: equipmentModel
+            mapData: page.map.mapData
+            realtimeModel: locationModel.sourceModel
+        }
+
+        map.overlaySources: [ gateModel, platformModel, locationModel, equipmentModel ]
         map.region: "DE"
         map.timeZone: "Europe/Berlin"
 
@@ -277,7 +283,7 @@ Kirigami.ApplicationWindow {
             locationQuery.request.latitude = page.map.mapData.center.y;
             locationQuery.request.longitude = page.map.mapData.center.x;
             locationQuery.request.maximumDistance = page.map.mapData.radius;
-            locationQuery.request.types = PublicTransport.Location.RentedVehicleStation | PublicTransport.Location.RentedVehicle;
+            locationQuery.request.types = PublicTransport.Location.RentedVehicleStation | PublicTransport.Location.RentedVehicle | PublicTransport.Location.Equipment;
         }
     }
 }

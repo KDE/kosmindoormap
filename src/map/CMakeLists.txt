@@ -28,6 +28,7 @@ add_library(KOSMIndoorMap
     ${logging_srcs}
     assets/assets.qrc
 
+    content/equipmentmodel.cpp
     content/floorlevelmodel.cpp
     content/gatemodel.cpp
     content/platform.cpp
@@ -86,6 +87,7 @@ endif()
 
 ecm_generate_headers(KOSMIndoorMap_Content_FORWARDING_HEADERS
     HEADER_NAMES
+        EquipmentModel
         FloorLevelModel
         GateModel
         Platform
