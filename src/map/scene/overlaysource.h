@@ -11,6 +11,7 @@
 
 #include <KOSM/Element>
 
+#include <QObject>
 #include <QPointer>
 
 #include <functional>
@@ -19,38 +20,55 @@ class QAbstractItemModel;
 
 namespace KOSMIndoorMap {
 
-/** A source for overlay elements, drawn on top of the static map data.
- *  @todo If we ever get different sources than QAIMs, this could be split into
- *  an abstract base and specific implementations.
- */
-class KOSMINDOORMAP_EXPORT OverlaySource
+class AbstractOverlaySourcePrivate;
+
+/** A source for overlay elements, drawn on top of the static map data. */
+class KOSMINDOORMAP_EXPORT AbstractOverlaySource : public QObject
 {
+    Q_OBJECT
 public:
-    explicit OverlaySource(QAbstractItemModel *model);
-    ~OverlaySource();
+    virtual ~AbstractOverlaySource();
 
-    /** Callback to trigger map re-rendering when the source changes. */
-    void setUpdateCallback(QObject *context, const std::function<void()> &updateFunc) const;
+    /** Iteration interface with floor level filtering. */
+    virtual void forEach(int floorLevel, const std::function<void(OSM::Element, int)> &func) const = 0;
 
-    /** Callback to trigger style re-compilation.
+    /** Adds hidden elements to @param elems. */
+    virtual void hiddenElements(std::vector<OSM::Element> &elems) const = 0;
+
+Q_SIGNALS:
+    /** Trigger map re-rendering when the source changes. */
+    void update();
+
+    /** Trigger style re-compilation.
      *  This is needed for example when the source added new tag keys that the map data
      *  didn't previously contain (and thus would be optimized out of the style).
      */
-    void setResetCallback(QObject *context, const std::function<void()> &resetFunc) const;
+    void reset();
+
+protected:
+    explicit AbstractOverlaySource(AbstractOverlaySourcePrivate *dd, QObject *parent);
+    std::unique_ptr<AbstractOverlaySourcePrivate> d_ptr;
+    Q_DECLARE_PRIVATE(AbstractOverlaySource)
+};
+
+class ModelOverlaySourcePrivate;
+
+/** A source for overlay elements, based on a QAbstractItemModel as input. */
+class KOSMINDOORMAP_EXPORT ModelOverlaySource : public AbstractOverlaySource
+{
+    Q_OBJECT
+public:
+    explicit ModelOverlaySource(QAbstractItemModel *model, QObject *parent = nullptr);
+    ~ModelOverlaySource();
 
     /** Iteration interface with floor level filtering. */
-    void forEach(int floorLevel, const std::function<void(OSM::Element, int)> &func) const;
+    void forEach(int floorLevel, const std::function<void(OSM::Element, int)> &func) const override;
 
     /** Adds hidden elements to @param elems. */
-    void hiddenElements(std::vector<OSM::Element> &elems) const;
+    void hiddenElements(std::vector<OSM::Element> &elems) const override;
 
 private:
-    void recursiveForEach(const QModelIndex &rootIdx, int floorLevel, const std::function<void (OSM::Element, int)> &func) const;
-
-    QPointer<QAbstractItemModel> m_model;
-    int m_elementRole = -1;
-    int m_floorRole = -1;
-    int m_hiddenElementRole = -1;
+    Q_DECLARE_PRIVATE(ModelOverlaySource)
 };
 
 }

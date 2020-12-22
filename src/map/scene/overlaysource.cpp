@@ -11,56 +11,76 @@
 
 using namespace KOSMIndoorMap;
 
-OverlaySource::OverlaySource(QAbstractItemModel *model)
+namespace KOSMIndoorMap
 {
+class AbstractOverlaySourcePrivate {
+public:
+    virtual ~AbstractOverlaySourcePrivate() = default;
+};
+
+class ModelOverlaySourcePrivate : public AbstractOverlaySourcePrivate {
+public:
+    ~ModelOverlaySourcePrivate() override = default;
+    void recursiveForEach(const QModelIndex &rootIdx, int floorLevel, const std::function<void (OSM::Element, int)> &func) const;
+
+    QPointer<QAbstractItemModel> m_model;
+    int m_elementRole = -1;
+    int m_floorRole = -1;
+    int m_hiddenElementRole = -1;
+};
+
+}
+
+AbstractOverlaySource::AbstractOverlaySource(AbstractOverlaySourcePrivate *dd, QObject *parent)
+    : QObject(parent)
+    , d_ptr(dd)
+{
+}
+
+AbstractOverlaySource::~AbstractOverlaySource() = default;
+
+
+ModelOverlaySource::ModelOverlaySource(QAbstractItemModel *model, QObject *parent)
+    : AbstractOverlaySource(new ModelOverlaySourcePrivate, parent)
+{
+    Q_D(ModelOverlaySource);
     const auto roles = model->roleNames();
     for (auto it = roles.begin(); it != roles.end(); ++it) {
         if (it.value() == "osmElement") {
-            m_elementRole = it.key();
+            d->m_elementRole = it.key();
         } else if (it.value() == "level") {
-            m_floorRole = it.key();
+            d->m_floorRole = it.key();
         } else if (it.value() == "hiddenElement") {
-            m_hiddenElementRole = it.key();
+            d->m_hiddenElementRole = it.key();
         }
     }
-    if (m_elementRole < 0 || m_floorRole < 0) {
+    if (d->m_elementRole < 0 || d->m_floorRole < 0) {
         qWarning() << model << " - model does not provide the required roles!";
         return;
     }
-    m_model = model;
+    d->m_model = model;
+
+    connect(model, &QAbstractItemModel::modelReset, this, &ModelOverlaySource::update);
+    connect(model, &QAbstractItemModel::rowsInserted, this, &ModelOverlaySource::update);
+    connect(model, &QAbstractItemModel::rowsRemoved, this, &ModelOverlaySource::update);
+    connect(model, &QAbstractItemModel::dataChanged, this, &ModelOverlaySource::update);
+
+    connect(model, &QAbstractItemModel::modelReset, this, &ModelOverlaySource::reset);
 }
 
-OverlaySource::~OverlaySource() = default;
+ModelOverlaySource::~ModelOverlaySource() = default;
 
-void OverlaySource::setUpdateCallback(QObject *context, const std::function<void()> &updateFunc) const
+void ModelOverlaySource::forEach(int floorLevel, const std::function<void (OSM::Element, int)> &func) const
 {
-    if (!m_model) {
-        return;
-    }
-    QObject::connect(m_model, &QAbstractItemModel::modelReset, context, updateFunc);
-    QObject::connect(m_model, &QAbstractItemModel::rowsInserted, context, updateFunc);
-    QObject::connect(m_model, &QAbstractItemModel::rowsRemoved, context, updateFunc);
-    QObject::connect(m_model, &QAbstractItemModel::dataChanged, context, updateFunc);
-}
-
-void OverlaySource::setResetCallback(QObject *context, const std::function<void()> &resetFunc) const
-{
-    if (!m_model) {
-        return;
-    }
-    QObject::connect(m_model, &QAbstractItemModel::modelReset, context, resetFunc);
-}
-
-void OverlaySource::forEach(int floorLevel, const std::function<void (OSM::Element, int)> &func) const
-{
-    if (!m_model) {
+    Q_D(const ModelOverlaySource);
+    if (!d->m_model) {
         return;
     }
 
-    recursiveForEach({}, floorLevel, func);
+    d->recursiveForEach({}, floorLevel, func);
 }
 
-void OverlaySource::recursiveForEach(const QModelIndex &rootIdx, int floorLevel, const std::function<void (OSM::Element, int)> &func) const
+void ModelOverlaySourcePrivate::recursiveForEach(const QModelIndex &rootIdx, int floorLevel, const std::function<void (OSM::Element, int)> &func) const
 {
     const auto rows = m_model->rowCount(rootIdx);
     for (int i = 0; i < rows; ++i) {
@@ -77,16 +97,17 @@ void OverlaySource::recursiveForEach(const QModelIndex &rootIdx, int floorLevel,
     }
 }
 
-void OverlaySource::hiddenElements(std::vector<OSM::Element> &elems) const
+void ModelOverlaySource::hiddenElements(std::vector<OSM::Element> &elems) const
 {
-    if (!m_model || m_hiddenElementRole < 0) {
+    Q_D(const ModelOverlaySource);
+    if (!d->m_model || d->m_hiddenElementRole < 0) {
         return;
     }
 
-    const auto rows = m_model->rowCount();
+    const auto rows = d->m_model->rowCount();
     for (int i = 0; i < rows; ++i) {
-        const auto idx = m_model->index(i, 0);
-        const auto elem = idx.data(m_hiddenElementRole).value<OSM::Element>();
+        const auto idx = d->m_model->index(i, 0);
+        const auto elem = idx.data(d->m_hiddenElementRole).value<OSM::Element>();
         if (elem.type() != OSM::Type::Null) {
             elems.push_back(elem);
         }

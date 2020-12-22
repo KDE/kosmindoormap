@@ -204,7 +204,7 @@ QVariant MapItem::overlaySources() const
 
 void MapItem::setOverlaySources(const QVariant &overlays)
 {
-    std::vector<OverlaySource> sources;
+    std::vector<std::unique_ptr<AbstractOverlaySource>> sources;
     if (overlays.canConvert<QVariantList>()) {
         const auto l = overlays.value<QVariantList>();
         for (const auto &v : l) {
@@ -219,16 +219,16 @@ void MapItem::setOverlaySources(const QVariant &overlays)
     update();
 }
 
-void MapItem::addOverlaySource(std::vector<OverlaySource> &overlaySources, const QVariant &source)
+void MapItem::addOverlaySource(std::vector<std::unique_ptr<AbstractOverlaySource>> &overlaySources, const QVariant &source)
 {
     const auto obj = source.value<QObject*>();
     if (auto model = qobject_cast<QAbstractItemModel*>(obj)) {
-        OverlaySource overlay(model);
-        overlay.setUpdateCallback(this, [this]() {
+        auto overlay = std::make_unique<ModelOverlaySource>(model);
+        connect(overlay.get(), &AbstractOverlaySource::update, this, [this]() {
             m_controller.overlaySourceUpdated();
             update();
         });
-        overlay.setResetCallback(this, [this]() {
+        connect(overlay.get(), &AbstractOverlaySource::reset, this, [this]() {
             m_style.compile(m_data.dataSet());
         });
         overlaySources.push_back(std::move(overlay));

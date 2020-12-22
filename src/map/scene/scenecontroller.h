@@ -23,10 +23,10 @@ class Element;
 
 namespace KOSMIndoorMap {
 
+class AbstractOverlaySource;
 class MapData;
 class MapCSSDeclaration;
 class MapCSSStyle;
-class OverlaySource;
 class SceneControllerPrivate;
 class SceneGraph;
 class View;
@@ -41,7 +41,7 @@ public:
     void setMapData(const MapData &data);
     void setStyleSheet(const MapCSSStyle *styleSheet);
     void setView(const View *view);
-    void setOverlaySources(std::vector<OverlaySource> &&overlays);
+    void setOverlaySources(std::vector<std::unique_ptr<AbstractOverlaySource>> &&overlays);
     /** Overlay dirty state tracking. */
     void overlaySourceUpdated();
 

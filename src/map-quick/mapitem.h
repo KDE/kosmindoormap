@@ -98,7 +98,7 @@ private:
     QVariant overlaySources() const;
     void setOverlaySources(const QVariant &overlays);
 
-    void addOverlaySource(std::vector<OverlaySource> &overlaySources, const QVariant &source);
+    void addOverlaySource(std::vector<std::unique_ptr<AbstractOverlaySource>> &overlaySources, const QVariant &source);
 
     MapLoader *m_loader = nullptr;
     MapData m_data;

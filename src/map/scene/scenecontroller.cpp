@@ -37,7 +37,7 @@ public:
     MapData m_data;
     const MapCSSStyle *m_styleSheet = nullptr;
     const View *m_view = nullptr;
-    std::vector<OverlaySource> m_overlaySources;
+    std::vector<std::unique_ptr<AbstractOverlaySource>> m_overlaySources;
     mutable std::vector<OSM::Element> m_hiddenElements;
 
     MapCSSResult m_styleResult;
@@ -88,7 +88,7 @@ void SceneController::setView(const View *view)
     d->m_dirty = true;
 }
 
-void SceneController::setOverlaySources(std::vector<OverlaySource> &&overlays)
+void SceneController::setOverlaySources(std::vector<std::unique_ptr<AbstractOverlaySource>> &&overlays)
 {
     d->m_overlaySources = std::move(overlays);
     d->m_dirty = true;
@@ -151,7 +151,7 @@ void SceneController::updateScene(SceneGraph &sg) const
     // collect elements that the overlay want to hide
     d->m_hiddenElements.clear();
     for (const auto &overlaySource : d->m_overlaySources) {
-        overlaySource.hiddenElements(d->m_hiddenElements);
+        overlaySource->hiddenElements(d->m_hiddenElements);
     }
     std::sort(d->m_hiddenElements.begin(), d->m_hiddenElements.end());
 
@@ -168,7 +168,7 @@ void SceneController::updateScene(SceneGraph &sg) const
     // update overlay elements
     d->m_overlay = true;
     for (const auto &overlaySource : d->m_overlaySources) {
-        overlaySource.forEach(d->m_view->level(), [this, &geoBbox, &sg](OSM::Element e, int floorLevel) {
+        overlaySource->forEach(d->m_view->level(), [this, &geoBbox, &sg](OSM::Element e, int floorLevel) {
             if (OSM::intersects(geoBbox, e.boundingBox()) && e.type() != OSM::Type::Null) {
                 updateElement(e, floorLevel, sg);
             }
