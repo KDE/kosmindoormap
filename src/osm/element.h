@@ -116,6 +116,8 @@ public:
         return *this;
     }
 
+    explicit inline operator bool() const { return m_element.type() != OSM::Type::Null; }
+
     constexpr inline Element element() const { return m_element; }
     constexpr inline operator Element() const { return m_element; }
 
@@ -125,6 +127,8 @@ private:
     Element m_element;
 };
 
+/** Creates a copy of @p element. */
+KOSM_EXPORT UniqueElement copy_element(Element e);
 
 /** Utility function similar to SQL COALESCE for OSM::Element, ie. this returns the first non-null element passed as argument. */
 constexpr Element coalesce(Element e) { return e; }

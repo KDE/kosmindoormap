@@ -257,3 +257,19 @@ void UniqueElement::setTagValue(TagKey key, const QByteArray &value)
             break;
     }
 }
+
+UniqueElement OSM::copy_element(Element e)
+{
+    switch (e.type()) {
+        case OSM::Type::Null:
+            return UniqueElement();
+        case OSM::Type::Node:
+            return UniqueElement(new Node(*e.node()));
+        case OSM::Type::Way:
+            return UniqueElement(new Way(*e.way()));
+        case OSM::Type::Relation:
+            return UniqueElement(new Relation(*e.relation()));
+    }
+    Q_UNREACHABLE();
+    return UniqueElement();
+}
