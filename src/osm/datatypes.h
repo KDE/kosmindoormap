@@ -213,6 +213,9 @@ public:
     QByteArray value;
 };
 
+inline constexpr bool operator<(const Tag &lhs, TagKey rhs) { return lhs.key < rhs; }
+inline constexpr bool operator<(TagKey lhs, const Tag &rhs) { return lhs < rhs.key; }
+
 /** An OSM node. */
 class KOSM_EXPORT Node {
 public:
@@ -378,7 +381,7 @@ private:
 template <typename Elem>
 inline QByteArray tagValue(const Elem& elem, TagKey key)
 {
-    const auto it = std::lower_bound(elem.tags.begin(), elem.tags.end(), key, [](const auto &lhs, const auto &rhs) { return lhs.key < rhs; });
+    const auto it = std::lower_bound(elem.tags.begin(), elem.tags.end(), key);
     if (it != elem.tags.end() && (*it).key == key) {
         return (*it).value;
     }
