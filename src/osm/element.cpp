@@ -111,6 +111,11 @@ QByteArray Element::tagValue(const char *keyName, const QLocale &locale) const
     return {};
 }
 
+bool Element::hasTag(TagKey key) const
+{
+    return std::binary_search(tagsBegin(), tagsEnd(), key);
+}
+
 std::vector<Tag>::const_iterator OSM::Element::tagsBegin() const
 {
     switch (type()) {

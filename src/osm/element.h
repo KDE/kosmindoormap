@@ -50,6 +50,8 @@ public:
     template <typename K, typename ...Args> QByteArray tagValue(K key, Args... args, const QLocale &locale) const;
     /** Returns whether or not this element has any tags set. */
     inline bool hasTags() const { return std::distance(tagsBegin(), tagsEnd()) > 0; }
+    /** Returns @c true if this element has a tag with key @p key. */
+    bool hasTag(TagKey key) const;
 
     std::vector<Tag>::const_iterator tagsBegin() const;
     std::vector<Tag>::const_iterator tagsEnd() const;
