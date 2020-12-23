@@ -123,6 +123,7 @@ public:
     constexpr inline Element element() const { return m_element; }
     constexpr inline operator Element() const { return m_element; }
 
+    void setId(Id id);
     void setTagValue(TagKey key, const QByteArray &value);
 
 private:

@@ -246,6 +246,23 @@ UniqueElement::~UniqueElement()
     }
 }
 
+void UniqueElement::setId(Id id)
+{
+    switch (m_element.type()) {
+        case OSM::Type::Null:
+            return;
+        case OSM::Type::Node:
+            const_cast<Node*>(m_element.node())->id = id;
+            break;
+        case OSM::Type::Way:
+            const_cast<Way*>(m_element.way())->id = id;
+            break;
+        case OSM::Type::Relation:
+            const_cast<Relation*>(m_element.relation())->id = id;
+            break;
+    }
+}
+
 void UniqueElement::setTagValue(TagKey key, const QByteArray &value)
 {
     switch (m_element.type()) {
