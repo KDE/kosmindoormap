@@ -37,9 +37,35 @@ void RealtimeEquipmentModel::setRealtimeModel(QObject *model)
 
     if (m_realtimeModel) {
         connect(m_realtimeModel, &QAbstractItemModel::modelReset, this, &RealtimeEquipmentModel::updateRealtimeState);
-        connect(m_realtimeModel, &QAbstractItemModel::rowsInserted, this, &RealtimeEquipmentModel::updateRealtimeState);
+        connect(m_realtimeModel, &QAbstractItemModel::rowsInserted, this, [this](const auto &parent, auto first, auto last) {
+            if (parent.isValid() || m_pendingRealtimeUpdate) {
+                return;
+            }
+            for (auto i = first; i <= last; ++i) {
+                const auto idx = m_realtimeModel->index(i, 0);
+                const auto loc = idx.data(KPublicTransport::LocationQueryModel::LocationRole).template value<KPublicTransport::Location>();
+                if (loc.type() == KPublicTransport::Location::Equipment) {
+                    m_pendingRealtimeUpdate = true;
+                    QMetaObject::invokeMethod(this, &RealtimeEquipmentModel::updateRealtimeState, Qt::QueuedConnection);
+                    return;
+                }
+            }
+        });
         connect(m_realtimeModel, &QAbstractItemModel::rowsRemoved, this, &RealtimeEquipmentModel::updateRealtimeState);
-        connect(m_realtimeModel, &QAbstractItemModel::dataChanged, this, &RealtimeEquipmentModel::updateRealtimeState);
+        connect(m_realtimeModel, &QAbstractItemModel::dataChanged, this, [this](const auto &fromIdx, const auto &toIdx) {
+            if (m_pendingRealtimeUpdate) {
+                return;
+            }
+            for (auto i = fromIdx.row(); i <= toIdx.row(); ++i) {
+                const auto idx = m_realtimeModel->index(i, 0);
+                const auto loc = idx.data(KPublicTransport::LocationQueryModel::LocationRole).template value<KPublicTransport::Location>();
+                if (loc.type() == KPublicTransport::Location::Equipment) {
+                    m_pendingRealtimeUpdate = true;
+                    QMetaObject::invokeMethod(this, &RealtimeEquipmentModel::updateRealtimeState, Qt::QueuedConnection);
+                    return;
+                }
+            }
+        });
 
         if (m_realtimeModel->rowCount() > 0) {
             updateRealtimeState();
@@ -49,6 +75,7 @@ void RealtimeEquipmentModel::setRealtimeModel(QObject *model)
 
 void RealtimeEquipmentModel::updateRealtimeState()
 {
+    m_pendingRealtimeUpdate = false;
     if (!m_realtimeModel) {
         return;
     }

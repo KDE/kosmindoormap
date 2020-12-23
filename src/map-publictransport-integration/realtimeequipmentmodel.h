@@ -33,6 +33,7 @@ private:
     void updateRealtimeState();
 
     QPointer<QAbstractItemModel> m_realtimeModel;
+    bool m_pendingRealtimeUpdate = false;
 };
 
 }
