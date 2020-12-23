@@ -59,7 +59,7 @@ void EquipmentModel::setMapData(const MapData &data)
 
     if (!m_data.isEmpty()) {
         m_tagKeys.building = m_data.dataSet().tagKey("building");
-        m_tagKeys.buildling_part = m_data.dataSet().tagKey("buildling:part");
+        m_tagKeys.buildling_part = m_data.dataSet().tagKey("building:part");
         m_tagKeys.conveying = m_data.dataSet().tagKey("conveying");
         m_tagKeys.elevator = m_data.dataSet().tagKey("elevator");
         m_tagKeys.highway = m_data.dataSet().tagKey("highway");
