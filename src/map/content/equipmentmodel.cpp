@@ -140,8 +140,68 @@ void EquipmentModel::findEquipment()
             if (elevator.levels.empty()) {
                 elevator.levels.push_back(0);
             }
+
+            // try to find duplicate elements on other levels
+            for (auto &e : m_equipment) {
+                if (e.type != Equipment::Elevator) {
+                    continue;
+                }
+                if (OSM::intersects(e.sourceElements[0].boundingBox(), elevator.sourceElements[0].boundingBox())) {
+                    // TODO check for non-intersecting but present level sets?
+                    qDebug() << "merging elevator elements:" << elevator.sourceElements[0].url() << e.sourceElements[0].url();
+                    e.sourceElements.push_back(elevator.sourceElements[0]);
+                    e.levels.insert(e.levels.end(), elevator.levels.begin(), elevator.levels.end());
+                    return;
+                }
+            }
+
             m_equipment.push_back(std::move(elevator));
         }
 
     }, OSM::IncludeNodes | OSM::IncludeWays);
+
+    // finalize elevator merging
+    for (auto &elevator : m_equipment) {
+        if (elevator.type != Equipment::Elevator || elevator.sourceElements.size() < 2) {
+            continue;
+        }
+
+        std::sort(elevator.levels.begin(), elevator.levels.end());
+        elevator.levels.erase(std::unique(elevator.levels.begin(), elevator.levels.end()), elevator.levels.end());
+        if (elevator.levels.size() < 2) {
+            continue;
+        }
+
+        std::sort(elevator.sourceElements.begin(), elevator.sourceElements.end(), [](auto lhs, auto rhs) { return lhs.type() > rhs.type(); });
+
+        elevator.syntheticElement = OSM::copy_element(elevator.sourceElements[0]);
+        elevator.syntheticElement.setTagValue(m_tagKeys.mxoid, QByteArray::number((qlonglong)elevator.syntheticElement.element().id()));
+        elevator.syntheticElement.setId(m_data.dataSet().nextInternalId());
+
+        // clone tags
+        for (auto it = std::next(elevator.sourceElements.begin()); it != elevator.sourceElements.end(); ++it) {
+            for (auto tagIt = (*it).tagsBegin(); tagIt != (*it).tagsEnd(); ++tagIt) {
+                if ((*tagIt).key == m_tagKeys.level) {
+                    continue;
+                }
+
+                if (elevator.syntheticElement.element().hasTag((*tagIt).key)) {
+                    // ### for testing only
+                    if (elevator.syntheticElement.element().tagValue((*tagIt).key) != (*tagIt).value) {
+                        qDebug() << "  tag value conflict:" << (*tagIt).key.name() << (*tagIt).value << elevator.sourceElements[0].url() << elevator.syntheticElement.element().tagValue((*tagIt).key);
+                    }
+                    continue;
+                }
+                elevator.syntheticElement.setTagValue((*tagIt).key, (*tagIt).value);
+            }
+        }
+
+        if (elevator.levels.size() > 1) {
+            auto levelValue = QByteArray::number(elevator.levels.at(0) / 10);
+            for (auto it = std::next(elevator.levels.begin()); it != elevator.levels.end(); ++it) {
+                levelValue += ';' + QByteArray::number((*it) / 10);
+            }
+            elevator.syntheticElement.setTagValue(m_tagKeys.level, levelValue);
+        }
+    }
 }
