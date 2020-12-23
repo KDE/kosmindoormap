@@ -760,6 +760,11 @@ area[indoor=room][elevator=yes]
     z-index: 1;
 }
 
+area.elevator|z20- {
+    icon-image: "elevator";
+    icon-color: #eff0f1;
+}
+
 node[highway=elevator][access!=no]
 {
     set .elevator;
