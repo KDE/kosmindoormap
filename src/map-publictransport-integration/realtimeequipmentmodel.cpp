@@ -73,6 +73,12 @@ void RealtimeEquipmentModel::setRealtimeModel(QObject *model)
     }
 }
 
+static bool isSameEquipmentType(Equipment::Type lhs, KPublicTransport::Equipment::Type rhs)
+{
+    return (lhs == Equipment::Elevator && rhs == KPublicTransport::Equipment::Elevator)
+        || (lhs == Equipment::Escalator && rhs == KPublicTransport::Equipment::Escalator);
+}
+
 void RealtimeEquipmentModel::updateRealtimeState()
 {
     m_pendingRealtimeUpdate = false;
@@ -92,6 +98,9 @@ void RealtimeEquipmentModel::updateRealtimeState()
         auto eqIdx = std::numeric_limits<std::size_t>::max();
         for (std::size_t j = 0; j < m_equipment.size(); ++j) {
             const auto &eq = m_equipment[j];
+            if (!isSameEquipmentType(eq.type, rtEq.type())) {
+                continue;
+            }
             if (eq.distanceTo(m_data.dataSet(), loc.latitude(), loc.longitude()) < 2.0) {
                 if (eqIdx < m_equipment.size()) {
                     qDebug() << "  multiple hits for equipment!" << loc.name();
