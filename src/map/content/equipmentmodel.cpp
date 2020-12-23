@@ -92,7 +92,12 @@ void EquipmentModel::forEach(int floorLevel, const std::function<void (OSM::Elem
 
 void EquipmentModel::hiddenElements(std::vector<OSM::Element> &elems) const
 {
-    // TODO
+    for (const auto &eq : m_equipment) {
+        if (!eq.syntheticElement) {
+            continue;
+        }
+        elems.insert(elems.end(), eq.sourceElements.begin(), eq.sourceElements.end());
+    }
 }
 
 void EquipmentModel::findEquipment()
