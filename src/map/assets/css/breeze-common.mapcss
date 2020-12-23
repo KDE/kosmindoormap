@@ -744,3 +744,37 @@ node|z19- [amenity=drinking_water]
 {
     text: "";
 }
+
+/** Elevators/escalators. */
+area[building=elevator],
+area[building:part=elevator],
+area[building=yes][elevator=yes][!tourism][!shop][!amenity],
+area[building:part=yes][elevator=yes],
+area[highway=elevator],
+area[room=elevator],
+area[stairwell=elevator],
+area[indoor=room][elevator=yes]
+{
+    set .elevator;
+    width: 0;
+    z-index: 1;
+}
+
+node[highway=elevator][access!=no]
+{
+    set .elevator;
+    icon-image: "elevator";
+}
+
+line[highway=footway][conveying=yes],
+line[highway=footway][conveying=forward],
+line[highway=footway][conveying=backward],
+line[highway=footway][conveying=reversible],
+line[highway=steps][conveying=yes],
+line[highway=steps][conveying=forward],
+line[highway=steps][conveying=backward],
+line[highway=steps][conveying=reversible]
+{
+    set .escalator;
+    casing-linecap: none;
+}

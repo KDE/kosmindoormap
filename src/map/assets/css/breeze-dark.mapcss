@@ -118,18 +118,9 @@ line [highway=steps] {
     dashes: 0.5, 0.5;
 }
 
-line[highway=footway][conveying=yes],
-line[highway=footway][conveying=forward],
-line[highway=footway][conveying=backward],
-line[highway=footway][conveying=reversible],
-line[highway=steps][conveying=yes],
-line[highway=steps][conveying=forward],
-line[highway=steps][conveying=backward],
-line[highway=steps][conveying=reversible]
-{
-    casing-color: #27ae60;
-    casing-linecap: none;
-}
+line.escalator { casing-color: #27ae60; }
+line.escalator [mx:realtime_status=0] { casing-color: #da4453; }
+line.escalator [mx:realtime_status=1] { casing-color: #11d116; }
 
 /** Railway stuff */
 area[railway=platform],
@@ -191,25 +182,17 @@ area[room=toilets]
     fill-color: #3daee9;
 }
 
-area[building=elevator],
-area[building:part=elevator],
-area[building=yes][elevator=yes][!tourism][!shop][!amenity],
-area[building:part=yes][elevator=yes],
-area[highway=elevator],
-area[room=elevator],
-area[stairwell=elevator],
-area[indoor=room][elevator=yes]
+area.elevator
 {
     fill-color: #27ae60;
     color: #7f8c8d;
-    width: 0;
-    z-index: 1;
 }
-node[highway=elevator][access!=no]
-{
-    icon-image: "elevator";
-    icon-color: #27ae60;
-}
+area.elevator [mx:realtime_status=0] { fill-color: #ed1515; }
+area.elevator [mx:realtime_status=1] { fill-color: #11d116; }
+
+node.elevator { icon-color: #27ae60; }
+node.elevator [mx:realtime_status=0] { icon-color: #ed1515; }
+node.elevator [mx:realtime_status=1] { icon-color: #11d116; }
 
 area[shop=ticket],
 area[tourism=information]
