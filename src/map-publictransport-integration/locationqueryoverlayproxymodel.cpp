@@ -194,6 +194,8 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
                 OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicle().network().name().toUtf8());
             }
             break;
+        case Location::Equipment:
+            break;
     }
     return info;
 }
