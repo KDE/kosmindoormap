@@ -79,6 +79,12 @@ static bool isSameEquipmentType(Equipment::Type lhs, KPublicTransport::Equipment
         || (lhs == Equipment::Escalator && rhs == KPublicTransport::Equipment::Escalator);
 }
 
+void RealtimeEquipmentModel::updateEquipment(Equipment &eq, const KPublicTransport::Equipment &rtEq) const
+{
+    createSyntheticElement(eq);
+    eq.syntheticElement.setTagValue(m_tagKeys.realtimeStatus, rtEq.disruptionEffect() == KPublicTransport::Disruption::NoService ? "0" : "1");
+}
+
 void RealtimeEquipmentModel::updateRealtimeState()
 {
     m_pendingRealtimeUpdate = false;
@@ -115,12 +121,7 @@ void RealtimeEquipmentModel::updateRealtimeState()
         if (eqIdx < m_equipment.size()) {
             qDebug() << "  found equipment!" << loc.name();
             auto &eq = m_equipment[eqIdx];
-            if (!eq.syntheticElement) {
-                eq.syntheticElement = OSM::copy_element(eq.sourceElements[0]);
-                eq.syntheticElement.setTagValue(m_tagKeys.mxoid, QByteArray::number((qlonglong)eq.sourceElements[0].id()));
-            }
-
-            eq.syntheticElement.setTagValue(m_tagKeys.realtimeStatus, rtEq.disruptionEffect() == KPublicTransport::Disruption::NoService ? "0" : "1");
+            updateEquipment(eq, rtEq);
         }
     }
 

@@ -9,6 +9,10 @@
 
 #include <KOSMIndoorMap/EquipmentModel>
 
+namespace KPublicTransport {
+class Equipment;
+}
+
 class QAbstractItemModel;
 
 namespace KOSMIndoorMap {
@@ -31,6 +35,7 @@ Q_SIGNALS:
 
 private:
     void updateRealtimeState();
+    void updateEquipment(Equipment &eq, const KPublicTransport::Equipment &rtEq) const;
 
     QPointer<QAbstractItemModel> m_realtimeModel;
     bool m_pendingRealtimeUpdate = false;

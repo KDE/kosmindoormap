@@ -135,7 +135,6 @@ void EquipmentModel::findEquipment()
          || stairwell == "elevator"
          || (indoor == "room" && elevator == "yes"))
         {
-            // TODO single level elevators need to be merged with duplicates on other levels
             Equipment elevator;
             elevator.type = Equipment::Elevator;
             elevator.sourceElements.push_back(e);
@@ -178,35 +177,43 @@ void EquipmentModel::findEquipment()
         }
 
         std::sort(elevator.sourceElements.begin(), elevator.sourceElements.end(), [](auto lhs, auto rhs) { return lhs.type() > rhs.type(); });
+        createSyntheticElement(elevator);
+    }
+}
 
-        elevator.syntheticElement = OSM::copy_element(elevator.sourceElements[0]);
-        elevator.syntheticElement.setTagValue(m_tagKeys.mxoid, QByteArray::number((qlonglong)elevator.syntheticElement.element().id()));
-        elevator.syntheticElement.setId(m_data.dataSet().nextInternalId());
+void EquipmentModel::createSyntheticElement(Equipment& eq) const
+{
+    if (eq.syntheticElement) {
+        return;
+    }
 
-        // clone tags
-        for (auto it = std::next(elevator.sourceElements.begin()); it != elevator.sourceElements.end(); ++it) {
-            for (auto tagIt = (*it).tagsBegin(); tagIt != (*it).tagsEnd(); ++tagIt) {
-                if ((*tagIt).key == m_tagKeys.level) {
-                    continue;
-                }
+    eq.syntheticElement = OSM::copy_element(eq.sourceElements[0]);
+    eq.syntheticElement.setTagValue(m_tagKeys.mxoid, QByteArray::number((qlonglong)eq.syntheticElement.element().id()));
+    eq.syntheticElement.setId(m_data.dataSet().nextInternalId());
 
-                if (elevator.syntheticElement.element().hasTag((*tagIt).key)) {
-                    // ### for testing only
-                    if (elevator.syntheticElement.element().tagValue((*tagIt).key) != (*tagIt).value) {
-                        qDebug() << "  tag value conflict:" << (*tagIt).key.name() << (*tagIt).value << elevator.sourceElements[0].url() << elevator.syntheticElement.element().tagValue((*tagIt).key);
-                    }
-                    continue;
-                }
-                elevator.syntheticElement.setTagValue((*tagIt).key, (*tagIt).value);
+    // clone tags
+    for (auto it = std::next(eq.sourceElements.begin()); it != eq.sourceElements.end(); ++it) {
+        for (auto tagIt = (*it).tagsBegin(); tagIt != (*it).tagsEnd(); ++tagIt) {
+            if ((*tagIt).key == m_tagKeys.level) {
+                continue;
             }
-        }
 
-        if (elevator.levels.size() > 1) {
-            auto levelValue = QByteArray::number(elevator.levels.at(0) / 10);
-            for (auto it = std::next(elevator.levels.begin()); it != elevator.levels.end(); ++it) {
-                levelValue += ';' + QByteArray::number((*it) / 10);
+            if (eq.syntheticElement.element().hasTag((*tagIt).key)) {
+                // ### for testing only
+                if (eq.syntheticElement.element().tagValue((*tagIt).key) != (*tagIt).value) {
+                    qDebug() << "  tag value conflict:" << (*tagIt).key.name() << (*tagIt).value << eq.sourceElements[0].url() << eq.syntheticElement.element().tagValue((*tagIt).key);
+                }
+                continue;
             }
-            elevator.syntheticElement.setTagValue(m_tagKeys.level, levelValue);
+            eq.syntheticElement.setTagValue((*tagIt).key, (*tagIt).value);
         }
+    }
+
+    if (eq.levels.size() > 1) {
+        auto levelValue = QByteArray::number(eq.levels.at(0) / 10);
+        for (auto it = std::next(eq.levels.begin()); it != eq.levels.end(); ++it) {
+            levelValue += ';' + QByteArray::number((*it) / 10);
+        }
+        eq.syntheticElement.setTagValue(m_tagKeys.level, levelValue);
     }
 }

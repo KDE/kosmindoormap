@@ -23,7 +23,6 @@ public:
     std::vector<int> levels;
     OSM::UniqueElement syntheticElement;
     Type type;
-    // TODO realtime state
 
     float distanceTo(const OSM::DataSet &dataSet, float lat, float lon) const;
 };
@@ -47,6 +46,8 @@ Q_SIGNALS:
     void mapDataChanged();
 
 protected:
+    void createSyntheticElement(Equipment &eq) const;
+
     MapData m_data;
     std::vector<Equipment> m_equipment;
 
