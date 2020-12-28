@@ -36,6 +36,7 @@ Q_SIGNALS:
 private:
     void updateRealtimeState();
     void updateEquipment(Equipment &eq, const KPublicTransport::Equipment &rtEq) const;
+    void resolveEquipmentPair(int eqRow1, int eqRow2, int rtRow1, int rtRow2);
 
     QPointer<QAbstractItemModel> m_realtimeModel;
     bool m_pendingRealtimeUpdate = false;

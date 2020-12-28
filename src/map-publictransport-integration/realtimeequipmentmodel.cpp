@@ -14,6 +14,8 @@
 
 using namespace KOSMIndoorMap;
 
+constexpr inline const float EquipmentMatchDistance = 2.0; // meters
+
 RealtimeEquipmentModel::RealtimeEquipmentModel(QObject *parent)
     : EquipmentModel(parent)
 {
@@ -85,6 +87,27 @@ void RealtimeEquipmentModel::updateEquipment(Equipment &eq, const KPublicTranspo
     eq.syntheticElement.setTagValue(m_tagKeys.realtimeStatus, rtEq.disruptionEffect() == KPublicTransport::Disruption::NoService ? "0" : "1");
 }
 
+static int matchCount(const std::vector<std::vector<int>> &matches, int idx)
+{
+    return std::accumulate(matches.begin(), matches.end(), 0, [idx](int count, const auto &indexes) {
+        return count + std::count(indexes.begin(), indexes.end(), idx);
+    });
+}
+
+static int findOtherMatch(const std::vector<std::vector<int>> &matches, int value, std::size_t current)
+{
+    for (std::size_t i = 0; i < matches.size(); ++i) {
+        if (i == current) {
+            continue;
+        }
+        if (std::find(matches[i].begin(), matches[i].end(), value) != matches[i].end()) {
+            return i;
+        }
+    }
+    Q_UNREACHABLE();
+    return -1;
+}
+
 void RealtimeEquipmentModel::updateRealtimeState()
 {
     m_pendingRealtimeUpdate = false;
@@ -92,6 +115,9 @@ void RealtimeEquipmentModel::updateRealtimeState()
         return;
     }
 
+    // find candidates by distance
+    std::vector<std::vector<int>> matches;
+    matches.resize(m_equipment.size());
     for (auto i = 0; i < m_realtimeModel->rowCount(); ++i) {
         const auto idx = m_realtimeModel->index(i, 0);
         const auto loc = idx.data(KPublicTransport::LocationQueryModel::LocationRole).value<KPublicTransport::Location>();
@@ -100,30 +126,86 @@ void RealtimeEquipmentModel::updateRealtimeState()
         }
 
         const auto rtEq = loc.equipment();
-        qDebug() << "trying to match equipment" << loc.name() << rtEq.type() << rtEq.disruptionEffect();
-        auto eqIdx = std::numeric_limits<std::size_t>::max();
         for (std::size_t j = 0; j < m_equipment.size(); ++j) {
             const auto &eq = m_equipment[j];
             if (!isSameEquipmentType(eq.type, rtEq.type())) {
                 continue;
             }
-            if (eq.distanceTo(m_data.dataSet(), loc.latitude(), loc.longitude()) < 2.0) {
-                if (eqIdx < m_equipment.size()) {
-                    qDebug() << "  multiple hits for equipment!" << loc.name();
-                    eqIdx = std::numeric_limits<std::size_t>::max();
-                    break;
-                } else {
-                    eqIdx = j;
+            if (eq.distanceTo(m_data.dataSet(), loc.latitude(), loc.longitude()) < EquipmentMatchDistance) {
+                matches[j].push_back(i);
+            }
+        }
+    }
+
+    // apply realtime status
+    // we accept 3 different cases:
+    // - a single 1:1 match
+    // - a 1/2 or a 2/2 match for horizontally adjacent elements if there is a distance difference
+    for (std::size_t i = 0; i < m_equipment.size(); ++i) {
+        if (matches[i].size() == 1) {
+            const auto mcount = matchCount(matches, matches[i][0]);
+            if (mcount == 1) {
+                const auto idx =  m_realtimeModel->index(matches[i][0], 0);
+                const auto rtEq = idx.data(KPublicTransport::LocationQueryModel::LocationRole).value<KPublicTransport::Location>().equipment();
+                updateEquipment(m_equipment[i], rtEq);
+            }
+            else if (mcount == 2) {
+                const auto other = findOtherMatch(matches, matches[i][0], i);
+                if (matches[other].size() == 2) {
+                    const auto otherRow = matches[other][0] == matches[i][0] ? matches[other][1] : matches[other][0];
+                    if (matchCount(matches, otherRow) == 1) {
+                        resolveEquipmentPair(i, other, matches[other][0], matches[other][1]);
+                    }
                 }
             }
         }
 
-        if (eqIdx < m_equipment.size()) {
-            qDebug() << "  found equipment!" << loc.name();
-            auto &eq = m_equipment[eqIdx];
-            updateEquipment(eq, rtEq);
+        if (matches[i].size() == 2) {
+            if (matchCount(matches, matches[i][0]) == 2 && matchCount(matches, matches[i][1]) == 2) {
+                const auto it = std::find(std::next(matches.begin() + i), matches.end(), matches[i]);
+                if (it != matches.end()) {
+                    resolveEquipmentPair(i, std::distance(matches.begin(), it), matches[i][0], matches[i][1]);
+                }
+            }
         }
     }
 
     emit update();
+}
+void RealtimeEquipmentModel::resolveEquipmentPair(int eqRow1, int eqRow2, int rtRow1, int rtRow2)
+{
+    // check if the equipment pair is horizontally adjacent
+    if (m_equipment[eqRow1].levels != m_equipment[eqRow2].levels) {
+        return;
+    }
+
+    // match best combination
+    const auto rtIdx1 = m_realtimeModel->index(rtRow1, 0);
+    const auto rtIdx2 = m_realtimeModel->index(rtRow2, 0);
+    const auto rtEq1 = rtIdx1.data(KPublicTransport::LocationQueryModel::LocationRole).value<KPublicTransport::Location>();
+    const auto rtEq2 = rtIdx2.data(KPublicTransport::LocationQueryModel::LocationRole).value<KPublicTransport::Location>();
+
+    const auto d11 = m_equipment[eqRow1].distanceTo(m_data.dataSet(), rtEq1.latitude(), rtEq1.longitude());
+    const auto d12 = m_equipment[eqRow1].distanceTo(m_data.dataSet(), rtEq2.latitude(), rtEq2.longitude());
+    const auto d21 = m_equipment[eqRow2].distanceTo(m_data.dataSet(), rtEq1.latitude(), rtEq1.longitude());
+    const auto d22 = m_equipment[eqRow2].distanceTo(m_data.dataSet(), rtEq2.latitude(), rtEq2.longitude());
+
+    const auto swap1 = d11 >= d12;
+    const auto swap2 = d21 < d22;
+
+    if (swap1 != swap2) {
+        return;
+    }
+
+    if (swap1) {
+        if (d12 < EquipmentMatchDistance && d21 < EquipmentMatchDistance) {
+            updateEquipment(m_equipment[eqRow1], rtEq2.equipment());
+            updateEquipment(m_equipment[eqRow2], rtEq1.equipment());
+        }
+    } else {
+        if (d11 < EquipmentMatchDistance && d22 < EquipmentMatchDistance) {
+            updateEquipment(m_equipment[eqRow1], rtEq1.equipment());
+            updateEquipment(m_equipment[eqRow2], rtEq2.equipment());
+        }
+    }
 }
