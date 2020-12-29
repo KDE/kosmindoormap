@@ -34,6 +34,8 @@ Item {
 
     /** Emitted when a map element has been picked by clicking/tapping on it. */
     signal elementPicked(var element);
+    /** Emitted when a map element has been long-pressed. */
+    signal elementLongPressed(var element);
 
     MapItemImpl {
         id: map
@@ -68,14 +70,24 @@ Item {
         QQC2.ScrollBar.horizontal: QQC2.ScrollBar {}
 
         TapHandler {
+            id: tapHandler
             acceptedButtons: Qt.LeftButton
-            onTapped: {
+            onTapped: function(eventPoint) {
                 var root = parent;
                 while (root.parent) { root = root.parent; }
                 var localPos = map.mapFromItem(root, eventPoint.scenePosition.x, eventPoint.scenePosition.y);
                 var element = map.elementAt(localPos.x, localPos.y);
                 if (!element.isNull) {
                     elementPicked(element);
+                }
+            }
+            onLongPressed: function() {
+                var root = parent;
+                while (root.parent) { root = root.parent; }
+                var localPos = map.mapFromItem(root, tapHandler.point.scenePosition.x, tapHandler.point.scenePosition.y);
+                var element = map.elementAt(localPos.x, localPos.y);
+                if (!element.isNull) {
+                    elementLongPressed(element);
                 }
             }
         }
