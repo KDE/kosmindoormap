@@ -53,10 +53,10 @@ Item {
 
     Connections {
         target: root.map.view
-        onTransformationChanged: root.updateScale();
+        function onTransformationChanged() { root.updateScale(); }
     }
     Connections {
         target: root
-        onWidthChanged: root.updateScale();
+        function onWidthChanged() { root.updateScale(); }
     }
 }

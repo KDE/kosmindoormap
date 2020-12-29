@@ -110,7 +110,7 @@ Item {
 
     Connections {
         target: map.view
-        onTransformationChanged: {
+        function onTransformationChanged() {
             flickable.contentX = map.view.panX;
             flickable.contentY = map.view.panY;
         }
