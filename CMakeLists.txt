@@ -33,14 +33,14 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     SOVERSION 1
 )
 
-find_package(Qt5 5.11 REQUIRED COMPONENTS Quick)
+find_package(Qt5 5.14 REQUIRED COMPONENTS Quick)
 find_package(KF5 REQUIRED COMPONENTS I18n)
 find_package(KPublicTransport REQUIRED)
 find_package(KOpeningHours)
 set_package_properties(KOpeningHours PROPERTIES TYPE OPTIONAL PURPOSE "Highlight currently open amenities/shops/etc.")
 
 if (BUILD_TESTING)
-    find_package(Qt5 5.11 REQUIRED COMPONENTS Test Widgets)
+    find_package(Qt5 5.14 REQUIRED COMPONENTS Test Widgets)
 endif()
 
 find_package(ZLIB REQUIRED)
@@ -57,14 +57,11 @@ if (NOT WIN32)
     set_package_properties(Protobuf PROPERTIES TYPE OPTIONAL PURPOSE "Parsing of OSM PBF files.")
 endif()
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
-   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
-   add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054400)
-endif()
-
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054400)
 add_definitions(-DQT_NO_FOREACH)
-add_subdirectory(src)
 
+add_subdirectory(src)
 if (BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
