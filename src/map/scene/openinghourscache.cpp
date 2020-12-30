@@ -63,14 +63,14 @@ bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
     expr.setTimeZone(m_mapData.timeZone());
 
     if (expr.error() != KOpeningHours::OpeningHours::NoError) {
-        qCDebug(Log) << "opening hours expression error:" << expr.error() << oh;
+        qCDebug(Log) << "opening hours expression error:" << expr.error() << oh << elem.url();
     } else {
         auto i = expr.interval(m_begin);
         while (i.state() == KOpeningHours::Interval::Closed && !i.hasOpenEnd() && (i.end() < m_end || !m_end.isValid())) {
             i = expr.nextInterval(i);
         }
         if (expr.error() != KOpeningHours::OpeningHours::NoError) {
-            qCDebug(Log) << "opening hours expression runtime error:" << expr.error() << oh << i;
+            qCDebug(Log) << "opening hours expression runtime error:" << expr.error() << oh << i << elem.url();
         }
         closed = i.state() == KOpeningHours::Interval::Closed;
     }
