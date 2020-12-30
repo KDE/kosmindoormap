@@ -232,7 +232,7 @@ Kirigami.ApplicationWindow {
             }
             Connections {
                 target: page.map.view
-                onFloorLevelChanged: floorLevelCombo.currentIndex = page.map.floorLevels.rowForLevel(page.map.view.floorLevel);
+                function onFloorLevelChanged() { floorLevelCombo.currentIndex = page.map.floorLevels.rowForLevel(page.map.view.floorLevel); }
             }
 
             QQC2.Slider {
@@ -248,7 +248,7 @@ Kirigami.ApplicationWindow {
             }
             Connections {
                 target: page.map.view
-                onZoomLevelChanged: zoomSlider.value = page.map.view.zoomLevel
+                function onZoomLevelChanged() { zoomSlider.value = page.map.view.zoomLevel; }
             }
 
             QQC2.Label { text: "Coordinate:" }
