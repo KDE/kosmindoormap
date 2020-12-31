@@ -465,6 +465,16 @@ inline void setTagValue(Elem &elem, TagKey key, const QByteArray &value)
     setTag(elem, std::move(tag));
 }
 
+/** Removes a tag from the given element. */
+template <typename Elem>
+inline void removeTag(Elem &elem, TagKey key)
+{
+    const auto it = std::lower_bound(elem.tags.begin(), elem.tags.end(), key);
+    if (it != elem.tags.end() && (*it).key == key) {
+        elem.tags.erase(it);
+    }
+}
+
 template <typename Elem>
 inline bool operator<(const Elem &elem, Id id)
 {

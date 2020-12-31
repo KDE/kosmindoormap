@@ -115,6 +115,14 @@ void RealtimeEquipmentModel::updateRealtimeState()
         return;
     }
 
+    // clear previous data
+    for (auto &eq : m_equipment) {
+        if (!eq.syntheticElement) {
+            continue;
+        }
+        eq.syntheticElement.removeTag(m_tagKeys.realtimeStatus);
+    }
+
     // find candidates by distance
     std::vector<std::vector<int>> matches;
     matches.resize(m_equipment.size());

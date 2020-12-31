@@ -280,6 +280,23 @@ void UniqueElement::setTagValue(TagKey key, const QByteArray &value)
     }
 }
 
+void UniqueElement::removeTag(TagKey key)
+{
+    switch (m_element.type()) {
+        case OSM::Type::Null:
+            return;
+        case OSM::Type::Node:
+            OSM::removeTag(*const_cast<Node*>(m_element.node()), key);
+            break;
+        case OSM::Type::Way:
+            OSM::removeTag(*const_cast<Way*>(m_element.way()), key);
+            break;
+        case OSM::Type::Relation:
+            OSM::removeTag(*const_cast<Relation*>(m_element.relation()), key);
+            break;
+    }
+}
+
 UniqueElement OSM::copy_element(Element e)
 {
     switch (e.type()) {

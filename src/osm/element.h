@@ -125,6 +125,7 @@ public:
 
     void setId(Id id);
     void setTagValue(TagKey key, const QByteArray &value);
+    void removeTag(TagKey key);
 
 private:
     Element m_element;
