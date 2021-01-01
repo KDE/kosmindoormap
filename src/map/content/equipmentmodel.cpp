@@ -100,6 +100,11 @@ void EquipmentModel::hiddenElements(std::vector<OSM::Element> &elems) const
     }
 }
 
+static bool isConveying(const QByteArray &b)
+{
+    return b == "yes" || b == "forward" || b == "backward" || b == "reversible";
+}
+
 void EquipmentModel::findEquipment()
 {
     OSM::for_each(m_data.dataSet(), [this](OSM::Element e) {
@@ -110,7 +115,7 @@ void EquipmentModel::findEquipment()
         // escalators
         const auto highway = e.tagValue(m_tagKeys.highway);
         const auto conveying = e.tagValue(m_tagKeys.conveying);
-        if ((highway == "footway" || highway == "steps") && (!conveying.isEmpty() && conveying != "no")) {
+        if ((highway == "footway" || highway == "steps") && isConveying(conveying)) {
             Equipment escalator;
             escalator.type = Equipment::Escalator;
             escalator.sourceElements.push_back(e);
