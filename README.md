@@ -11,6 +11,7 @@ User facing:
 * Support for identifying railway platforms or airport gates in the map data.
 * Integration with KPublicTransport line meta-data to show line icons for railway platforms.
 * Integration with KPublicTransport rental vehicle data to show availability of rental bikes.
+* Integration with KPublicTransport realtime equipment (elevators/escalators/etc) status information.
 
 Technical:
 * QPainter and QML integration interface.
@@ -25,7 +26,7 @@ Technical:
 There's two test applications included:
 - A fairly minimal widget-based one that can be launched via `$buildir/bin/indoormap -c <lat>,<lon>`
   (use e.g. `-c 52.52512,13.36966` for a good example).
-- A QML-based one that can be launched via `qmlscene tests/indoormap.qml`. This one demos a number
+- A QML-based one that can be launched via `qmlscene src/app/indoormap.qml`. This one demos a number
   of additional features, such as element picking and the KPublicTransport integration.
 
 ### Dynamic MapCSS

@@ -14,8 +14,6 @@ import org.kde.kosmindoormap 1.0
 import org.kde.kosmindoormap.kpublictransport 1.0
 
 Kirigami.ApplicationWindow {
-    title: "OSM Indoor Map QML Test"
-
     globalDrawer: Kirigami.GlobalDrawer {
         title: "Indoor Map"
         titleIcon: "map-symbolic"
