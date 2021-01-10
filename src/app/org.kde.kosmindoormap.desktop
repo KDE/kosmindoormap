@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=KDE OSM Indoor Map
+GenericName=OSM Indoop Map
+Exec=kosmindoormap
+Icon=go-home
+Type=Application
+Comment=OSM indoor map demo application
+Terminal=false
+Categories=Qt;KDE;SDK;

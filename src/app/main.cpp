@@ -6,12 +6,12 @@
 
 #include <kosmindoormap_version.h>
 
-// #include <QQuickStyle>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
+#include <QQuickStyle>
 #else
 #include <QApplication>
 #endif
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
-//     QQuickStyle::setStyle(QStringLiteral("Material"));
+    QQuickStyle::setStyle(QStringLiteral("Material"));
 #else
     QApplication app(argc, argv); // for native file dialogs
 #endif
