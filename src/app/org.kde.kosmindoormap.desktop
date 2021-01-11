@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=KDE OSM Indoor Map
-GenericName=OSM Indoop Map
+GenericName=OSM Indoor Map
 Exec=kosmindoormap
 Icon=go-home
 Type=Application
