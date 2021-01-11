@@ -5,6 +5,8 @@
 <RCC>
     <qresource prefix="/">
         <file>indoormap.qml</file>
+        <file>ExampleLocationModel.qml</file>
         <file>IndoorMapPage.qml</file>
+        <file>SelectLocationSheet.qml</file>
     </qresource>
 </RCC>

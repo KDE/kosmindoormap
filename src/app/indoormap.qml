@@ -59,6 +59,11 @@ Kirigami.ApplicationWindow {
         debug: debugAction.checked
 
         actions {
+            main: Kirigami.Action {
+                text: "Select Location"
+                icon.name: "search"
+                onTriggered: locationSheet.sheetOpen = true
+            }
             contextualActions: [
                 Kirigami.Action {
                     text: "Light Style"
@@ -215,6 +220,17 @@ Kirigami.ApplicationWindow {
             realtimeModel: locationModel.sourceModel
         }
 
+        SelectLocationSheet {
+            id: locationSheet
+            publicTransportManager: ptMgr
+            onCoordinateSelected: function() {
+                page.map.mapLoader.loadForCoordinate(locationSheet.coordinate.y, locationSheet.coordinate.x);
+                page.map.view.beginTime = new Date();
+                page.map.view.endTime = new Date(page.map.view.beginTime.getTime() + 3600000);
+                // TODO region, timezone
+            }
+        }
+
         map.overlaySources: [ gateModel, platformModel, locationModel, equipmentModel ]
         map.region: "DE"
         map.timeZone: "Europe/Berlin"
@@ -247,28 +263,6 @@ Kirigami.ApplicationWindow {
             Connections {
                 target: page.map.view
                 function onZoomLevelChanged() { zoomSlider.value = page.map.view.zoomLevel; }
-            }
-
-            QQC2.Label { text: "Coordinate:" }
-            QQC2.TextField {
-                id: coordInput
-                placeholderText: "map coordinates"
-                text: "49.44572, 11.08196"
-            }
-            QQC2.Button {
-                text: "x"
-                onClicked: coordInput.text = ""
-            }
-            QQC2.Button {
-                text: ">"
-                onClicked: {
-                    var c = coordInput.text.match(/([\d\.-]+)[,;/ ]+([\d\.-]*)/);
-                    var lat = c[1];
-                    var lon = c[2];
-                    page.map.mapLoader.loadForCoordinate(lat, lon);
-                    page.map.view.beginTime = new Date();
-                    page.map.view.endTime = new Date(page.map.view.beginTime.getTime() + 3600000);
-                }
             }
         }
 
