@@ -8,7 +8,7 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1 as QQC2
 import Qt.labs.platform 1.0 as QPlatform
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.kpublictransport 1.0 as PublicTransport
 import org.kde.kosmindoormap 1.0
 import org.kde.kosmindoormap.kpublictransport 1.0
@@ -34,6 +34,17 @@ Kirigami.ApplicationWindow {
                     page.map.styleSheet = "";
                     page.map.styleSheet = s;
                 }
+            },
+            Kirigami.Action { separator: true },
+            Kirigami.Action {
+                text: "Data Sources"
+                icon.name: "about-help"
+                onTriggered: function() { applicationWindow().pageStack.push(attributionPage); }
+            },
+            Kirigami.Action {
+                id: aboutAction
+                text: "About"
+                onTriggered: function() { applicationWindow().pageStack.push(aboutPage); }
             }
         ]
     }
@@ -276,6 +287,36 @@ Kirigami.ApplicationWindow {
             locationQuery.request.longitude = page.map.mapData.center.x;
             locationQuery.request.maximumDistance = page.map.mapData.radius;
             locationQuery.request.types = PublicTransport.Location.RentedVehicleStation | PublicTransport.Location.RentedVehicle | PublicTransport.Location.Equipment;
+        }
+    }
+
+    Component {
+        id: attributionPage
+        AttributionPage {
+            publicTransportManager: ptMgr
+        }
+    }
+
+    Component {
+        id: aboutPage
+        Kirigami.AboutPage {
+            aboutData: {
+                "displayName": "KDE OSM Indoor Map",
+                "productName": "org.kde.kosmindoormap",
+                "componentName": "org.kde.kosmindoormap",
+                "shortDescription": "OSM Indoor Map Demo",
+                "homepage": "https://kde.org/",
+                "bugAddress": "submit@bugs.kde.org",
+                "version": "21.04",
+                "licenses": [
+                    {
+                        "name": "LGPL 2.0 or later",
+                        "spdx": "LGPL-2.0-or-later"
+                    }
+                ],
+                "copyrightStatement": "© 2020-2021 The KDE Team",
+                "desktopFileName": "kosmindoormap"
+            }
         }
     }
 }
