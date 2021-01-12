@@ -36,6 +36,7 @@ Kirigami.OverlaySheet {
             id: exampleBox
             Layout.fillWidth: true
             model: exampleModel
+            popup.z: 999 // workaround for ending up below the overlay sheet
             textRole: "label"
             onCurrentIndexChanged: {
                 var obj = exampleModel.get(currentIndex);
