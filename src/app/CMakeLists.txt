@@ -9,6 +9,7 @@ add_executable(kosmindoormap-app
 target_include_directories(kosmindoormap-app PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(kosmindoormap-app PRIVATE
     KOSMIndoorMap
+    KF5::I18n
     Qt5::Quick
 )
 
@@ -23,8 +24,13 @@ if (ANDROID)
     )
 
     kirigami_package_breeze_icons(ICONS
-        document-open
+        document-open-symbolic
+        edit-clear-symbolic
+        edit-paste-symbolic
         go-home
+        help-about-symbolic
+        search
+        view-refresh-symbolic
     )
 else ()
     target_link_libraries(kosmindoormap-app PRIVATE

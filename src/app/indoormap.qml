@@ -21,14 +21,17 @@ Kirigami.ApplicationWindow {
         actions: [
             Kirigami.Action {
                 text: "Open O5M File"
+                icon.name: "document-open-symbolic"
                 onTriggered: fileDialog.open()
             },
             Kirigami.Action {
                 text: "Open MapCSS Stylesheet"
+                icon.name: "document-open-symbolic"
                 onTriggered: mapcssDialog.open()
             },
             Kirigami.Action {
                 text: "Reload Stylesheet"
+                icon.name: "view-refresh-symbolic"
                 onTriggered: {
                     var s = page.map.styleSheet;
                     page.map.styleSheet = "";
@@ -38,15 +41,19 @@ Kirigami.ApplicationWindow {
             Kirigami.Action { separator: true },
             Kirigami.Action {
                 text: "Data Sources"
-                icon.name: "about-help"
+                icon.name: "help-about-symbolic"
                 onTriggered: function() { applicationWindow().pageStack.push(attributionPage); }
             },
             Kirigami.Action {
                 id: aboutAction
                 text: "About"
+                icon.name: "help-about-symbolic"
                 onTriggered: function() { applicationWindow().pageStack.push(aboutPage); }
             }
         ]
+    }
+    contextDrawer: Kirigami.ContextDrawer {
+        id: contextDrawer
     }
 
     QPlatform.FileDialog {
@@ -254,6 +261,7 @@ Kirigami.ApplicationWindow {
                 textRole: "display"
                 currentIndex: page.map.floorLevels.rowForLevel(page.map.view.floorLevel);
                 onCurrentIndexChanged: if (currentIndex >= 0) { page.map.view.floorLevel = page.map.floorLevels.levelForRow(currentIndex); }
+                Layout.fillWidth: true
             }
             Connections {
                 target: page.map.view
@@ -265,7 +273,7 @@ Kirigami.ApplicationWindow {
                 from: 14.0
                 to: 21.0
                 live: true
-                Layout.preferredWidth: 200
+                Layout.fillWidth: true
 
                 onValueChanged: {
                     page.map.view.setZoomLevel(value, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));

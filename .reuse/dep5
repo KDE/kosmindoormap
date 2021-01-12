@@ -10,3 +10,7 @@ License: CC0-1.0
 Files: autotests/data/platforms/*.platforms
 Copyright: OpenStreetMap contributors
 License: ODbL-1.0
+
+Files: src/app/android/res/drawable/icon.png
+Copyright: Breeze contributors
+License: LGPL-3.0-or-later

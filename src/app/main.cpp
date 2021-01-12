@@ -6,6 +6,9 @@
 
 #include <kosmindoormap_version.h>
 
+#include <KLocalizedContext>
+#include <KLocalizedString>
+
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
@@ -40,6 +43,10 @@ int main(int argc, char **argv)
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("go-home")));
 
     QQmlApplicationEngine engine;
+    auto l10nContext = new KLocalizedContext(&engine);
+    l10nContext->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
+    engine.rootContext()->setContextObject(l10nContext);
+
     engine.load(QStringLiteral("qrc:/indoormap.qml"));
     return app.exec();
 }
