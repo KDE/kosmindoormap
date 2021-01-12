@@ -1,9 +1,22 @@
 [Desktop Entry]
 Name=KDE OSM Indoor Map
+Name[ca]=Mapa d'interiors d'OSM de KDE
+Name[ca@valencia]=Mapa d'interiors d'OSM de KDE
+Name[es]=Planos de interiores de OSM para KDE
+Name[nl]=KDE OSM indoorkaart
+Name[uk]=Внутрішня карта OSM KDE
+Name[x-test]=xxKDE OSM Indoor Mapxx
 GenericName=OSM Indoor Map
+GenericName[uk]=Внутрішня карта OSM
 Exec=kosmindoormap
 Icon=go-home
 Type=Application
 Comment=OSM indoor map demo application
+Comment[ca]=Aplicació de demostració de mapa d'interiors d'OSM
+Comment[ca@valencia]=Aplicació de demostració de mapa d'interiors d'OSM
+Comment[es]=Aplicación de demostración de planos de interiores de OSM
+Comment[nl]=Demo-toepassing van OSM indoorkaart 
+Comment[uk]=Демонстраційна програма внутрішніх карт OSM
+Comment[x-test]=xxOSM indoor map demo applicationxx
 Terminal=false
 Categories=Qt;KDE;Development;
