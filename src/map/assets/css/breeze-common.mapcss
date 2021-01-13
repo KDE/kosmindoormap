@@ -112,7 +112,7 @@ line[highway=tertiary],
 line[highway=tertiary_link],
 line[highway=unclassified],
 line[highway=residential],
-line[highway=service],
+line[highway=service][!aeroway],
 line[highway=living_street],
 line[highway=pedestrian],
 line[highway=road]
@@ -267,7 +267,8 @@ area|z15-[aeroway=helipad]
     text: "H";
     fill-color: #95a5a6;
 }
-way|z14-[aeroway=taxiway]
+way|z14-[aeroway=taxiway],
+way|z14-[aeroway=taxilane]
 {
     color: #fdbc4b;
     width: 1px;
@@ -298,7 +299,7 @@ way|z19-[aeroway=parking_position]
     text: ref;
     text-offset: 12;
 }
-node|z19-[aeroway=parking_position]
+node|z20-[aeroway=parking_position]
 {
     text-color: #fdbc4b;
     font-size: 8;

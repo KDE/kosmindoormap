@@ -56,7 +56,7 @@ line[highway=tertiary],
 line[highway=tertiary_link],
 line[highway=unclassified],
 line[highway=residential],
-line[highway=service],
+line[highway=service][!aeroway],
 line[highway=road]
 {
     casing-color: #bdc3c7;
