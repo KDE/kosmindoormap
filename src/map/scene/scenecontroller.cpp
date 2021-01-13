@@ -458,10 +458,28 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
 QPolygonF SceneController::createPolygon(OSM::Element e) const
 {
     const auto path = e.outerPath(d->m_data.dataSet());
+    if (path.empty()) {
+        return {};
+    }
+
     QPolygonF poly;
-    poly.reserve(path.size());
-    for (auto node : path) {
-        poly.push_back(d->m_view->mapGeoToScene(node->coordinate));
+    // Element::outerPath takes care of re-assembling broken up line segments
+    // the below takes care of properly merging broken up polygons
+    for (auto it = path.begin(); it != path.end();) {
+        QPolygonF subPoly;
+        subPoly.reserve(path.size());
+        OSM::Id pathBegin = (*it)->id;
+
+        auto subIt = it;
+        for (; subIt != path.end(); ++subIt) {
+            subPoly.push_back(d->m_view->mapGeoToScene((*subIt)->coordinate));
+            if ((*subIt)->id == pathBegin && subIt != it && subIt != std::prev(path.end())) {
+                ++subIt;
+                break;
+            }
+        }
+        it = subIt;
+        poly = poly.isEmpty() ? std::move(subPoly) : poly.united(subPoly);
     }
     return poly;
 }
