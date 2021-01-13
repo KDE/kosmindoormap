@@ -23,7 +23,7 @@ ListModel {
     ListElement { label: "Wien Hauptbahnhof"; lat: 48.18282; lon: 16.37859 }
 
     ListElement { label: "Berlin Hauptbahnhof"; lat: 52.52518; lon: 13.36935 }
-    ListElement { label: "Berlin Alexanderplatz"; lat: 52.52068; lon: 13.41644 }
+    ListElement { label: "Berlin Alexanderplatz"; lat: 52.52159; lon: 13.41112 }
     ListElement { label: "Berlin Südkreuz"; lat: 52.47577; lon: 13.36535 }
     ListElement { label: "Berlin Flughafen Tegel"; lat: 52.55420; lon: 13.29281 }
     ListElement { label: "Berlin Flughafen Schönefeld"; lat: 52.38841; lon: 13.51870 }
