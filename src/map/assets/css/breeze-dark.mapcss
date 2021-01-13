@@ -131,7 +131,7 @@ area[public_transport=platform]
     width: 0;
 }
 
-line[public_transport=platform]
+line[public_transport=platform][railway!=platform_edge]
 {
     color: #232629;
     width: 1.5; // meter
