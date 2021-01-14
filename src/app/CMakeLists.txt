@@ -27,7 +27,9 @@ if (ANDROID)
         document-open-symbolic
         edit-clear-symbolic
         edit-paste-symbolic
+        go-down-symbolic
         go-home
+        go-up-symbolic
         help-about-symbolic
         search
         view-refresh-symbolic
