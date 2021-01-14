@@ -8,9 +8,30 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LGPL-2.0-or-later</project_license>
   <name>KDE OSM Indoor Map</name>
+  <name xml:lang="ca">Mapes d'interiors OSM del KDE</name>
+  <name xml:lang="ca-valencia">Mapes d'interiors OSM del KDE</name>
+  <name xml:lang="es">Planos de interiores de OSM para KDE</name>
+  <name xml:lang="nl">KDE OSM indoorkaart</name>
+  <name xml:lang="sv">KDE OSM inomhuskarta</name>
+  <name xml:lang="uk">Внутрішня карта OSM KDE</name>
+  <name xml:lang="x-test">xxKDE OSM Indoor Mapxx</name>
   <summary>OSM indoor map demo application</summary>
+  <summary xml:lang="ca">Aplicació de demostració per a mapes d'interiors OSM</summary>
+  <summary xml:lang="ca-valencia">Aplicació de demostració per a mapes d'interiors OSM</summary>
+  <summary xml:lang="es">Aplicación de demostración de planos de interiores de OSM</summary>
+  <summary xml:lang="nl">Demo-toepassing van OSM indoorkaart </summary>
+  <summary xml:lang="sv">Demonstrationsprogram för OSM inomhuskarta</summary>
+  <summary xml:lang="uk">Демонстраційна програма внутрішніх карт OSM</summary>
+  <summary xml:lang="x-test">xxOSM indoor map demo applicationxx</summary>
   <description>
     <p>Demo application for KDE's OSM indoor map component.</p>
+    <p xml:lang="ca">Aplicació de demostració per al component de mapes d'interiors OSM del KDE.</p>
+    <p xml:lang="ca-valencia">Aplicació de demostració per al component de mapes d'interiors OSM del KDE.</p>
+    <p xml:lang="es">Aplicación de demostración para el componente de planos de interiores de OSM para KDE.</p>
+    <p xml:lang="nl">Demo-toepassing voor OSM indoorkaartcomponent van KDE.</p>
+    <p xml:lang="sv">Demonstrationsprogram för KDE:s komponent för OSM inomhuskarta.</p>
+    <p xml:lang="uk">Демонстраційна програма для компонента внутрішньобудинкових кар OSM KDE.</p>
+    <p xml:lang="x-test">xxDemo application for KDE's OSM indoor map component.xx</p>
   </description>
   <categories>
     <category>Development</category>
