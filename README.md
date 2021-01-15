@@ -29,6 +29,16 @@ There's two test applications included:
 - A QML-based one that can be launched via `qmlscene src/app/indoormap.qml`. This one demos a number
   of additional features, such as element picking and the KPublicTransport integration.
 
+The latter is also available as nightly build:
+* Flatpak:
+```
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
+flatpak install kdeapps org.kde.kosmindoormap
+```
+* [KDE nightly F-Droid repository](https://community.kde.org/Android/FDroid)
+* [Raw APKs from binary factory](https://binary-factory.kde.org/view/Android/job/KOSMIndoorMap_android/)
+
 ### Dynamic MapCSS
 
 By default the compiled-in MapCSS files are used. If you put files with the same name into
