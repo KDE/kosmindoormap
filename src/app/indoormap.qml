@@ -245,12 +245,11 @@ Kirigami.ApplicationWindow {
                 page.map.mapLoader.loadForCoordinate(locationSheet.coordinate.y, locationSheet.coordinate.x);
                 page.map.view.beginTime = new Date();
                 page.map.view.endTime = new Date(page.map.view.beginTime.getTime() + 3600000);
-                // TODO region, timezone
+                // TODO timezone
             }
         }
 
         map.overlaySources: [ gateModel, platformModel, locationModel, equipmentModel ]
-        map.region: "DE"
         map.timeZone: "Europe/Berlin"
 
         header: RowLayout {

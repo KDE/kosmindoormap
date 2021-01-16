@@ -161,6 +161,7 @@ void MapData::processElements()
     const auto buildingLevelsUndergroundTag = d->m_dataSet.tagKey("building:levels:underground");
     const auto maxLevelTag = d->m_dataSet.tagKey("max_level");
     const auto minLevelTag = d->m_dataSet.tagKey("min_level");
+    const auto countryTag = d->m_dataSet.tagKey("addr:country");
 
     MapCSSParser p;
     auto filter = p.parse(QStringLiteral(":/org.kde.kosmindoormap/assets/css/input-filter.mapcss"));
@@ -174,6 +175,14 @@ void MapData::processElements()
         // discard everything here that is tag-less (and thus likely part of a higher-level geometry)
         if (!e.hasTags()) {
             return;
+        }
+
+        // attempt to detect the country we are in
+        if (d->m_regionCode.isEmpty()) {
+            const auto countryCode = e.tagValue(countryTag);
+            if (countryCode.size() == 2 && std::isupper(countryCode[0]) && std::isupper(countryCode[1])) {
+                d->m_regionCode = QString::fromUtf8(countryCode);
+            }
         }
 
         // apply the input filter, anything that explicitly got opacity 0 will be discarded

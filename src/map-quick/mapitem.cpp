@@ -137,7 +137,9 @@ void MapItem::loaderDone()
 
     if (!m_loader->hasError()) {
         auto data = m_loader->takeData();
-        data.setRegionCode(m_data.regionCode());
+        if (data.regionCode().isEmpty()) {
+            data.setRegionCode(m_data.regionCode());
+        }
         data.setTimeZone(m_data.timeZone());
         m_data = std::move(data);
         m_view->setSceneBoundingBox(m_data.boundingBox());
