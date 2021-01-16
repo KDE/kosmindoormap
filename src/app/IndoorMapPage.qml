@@ -43,94 +43,10 @@ Kirigami.Page {
         debug: true
     }
 
-    Component {
-        id: infoStringDelegate
-        Row {
-            QQC2.Label {
-                visible: row.keyLabel != ""
-                text: row.keyLabel + ": "
-                color: row.category == OSMElementInformationModel.DebugCategory ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-            }
-            QQC2.Label {
-                text: row.value
-                color: row.category == OSMElementInformationModel.DebugCategory ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-            }
-        }
-    }
-
-    Component {
-        id: infoLinkDelegate
-        Row {
-            QQC2.Label {
-                visible: row.keyLabel != ""
-                text: row.keyLabel + ": "
-                color: row.category == OSMElementInformationModel.DebugCategory ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-            }
-            QQC2.Label {
-                text: "<a href=\"" + row.url + "\">" + row.value + "</a>"
-                color: row.category == OSMElementInformationModel.DebugCategory ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-                onLinkActivated: Qt.openUrlExternally(link)
-            }
-        }
-    }
-
-    Component {
-        id: infoAddressDelegate
-        QQC2.Label {
-            text: (row.value.street + " " + row.value.houseNumber + "\n" + row.value.postalCode + " " + row.value.city + "\n" + row.value.country).trim()
-        }
-    }
-
-    Kirigami.OverlaySheet {
+    IndoorMapInfoSheet {
         id: elementDetailsSheet
-
-        header: Column {
-            Kirigami.Heading {
-                text: infoModel.name
-            }
-            Kirigami.Heading {
-                text: infoModel.category
-                level: 4
-                visible: text != ""
-            }
-        }
-
-        ListView {
-            model: infoModel
-
-            section.property: "categoryLabel"
-            section.delegate: Kirigami.Heading {
-                x: Kirigami.Units.largeSpacing
-                level: 4
-                text: section
-                color: section == "Debug" ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-                height: implicitHeight + Kirigami.Units.largeSpacing
-                verticalAlignment: Qt.AlignBottom
-            }
-            section.criteria: ViewSection.FullString
-            section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
-
-            delegate: Loader {
-                property var row: model
-                x: Kirigami.Units.largeSpacing
-                sourceComponent: {
-                    switch (row.type) {
-                        case OSMElementInformationModel.Link:
-                            return infoLinkDelegate;
-                        case OSMElementInformationModel.PostalAddress:
-                            return infoAddressDelegate;
-                        default:
-                            return infoStringDelegate;
-                    }
-                }
-            }
-        }
-
-        onSheetOpenChanged: {
-            if (sheetOpen == false) {
-                infoModel.clear()
-            }
-        }
+        model: infoModel
+        mapData: page.map.mapData
     }
 
     FloorLevelChangeModel {
