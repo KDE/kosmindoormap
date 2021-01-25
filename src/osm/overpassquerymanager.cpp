@@ -52,10 +52,11 @@ public:
 
 static const char* executor_configs[] = {
     "https://overpass-api.de/api/interpreter",
-    "https://1.overpass.kumi.systems/api/interpreter",
-    "https://2.overpass.kumi.systems/api/interpreter",
-    "https://3.overpass.kumi.systems/api/interpreter",
-    "https://4.overpass.kumi.systems/api/interpreter",
+    "https://overpass.openstreetmap.fr/api/interpreter",
+//     "https://1.overpass.kumi.systems/api/interpreter",
+//     "https://2.overpass.kumi.systems/api/interpreter",
+//     "https://3.overpass.kumi.systems/api/interpreter",
+//     "https://4.overpass.kumi.systems/api/interpreter",
 };
 
 OverpassQueryManager::OverpassQueryManager(QObject *parent)
