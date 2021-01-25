@@ -6,6 +6,7 @@
 
 #include <overpassquery.h>
 #include <overpassquerymanager.h>
+#include <xmlwriter.h>
 
 #include <QCommandLineParser>
 #include <QCoreApplication>
@@ -31,6 +32,8 @@ int main(int argc, char **argv)
     parser.addOption(bboxOption);
     QCommandLineOption tileSizeOption({ S("t"), S("tile-size") }, S("Query tile size"), S("w,h"));
     parser.addOption(tileSizeOption);
+    QCommandLineOption outFileOption( { S("o"), S("output") }, S("Output file name"), S("out"));
+    parser.addOption(outFileOption);
     parser.process(app);
 
     OSM::OverpassQueryManager mgr;
@@ -67,28 +70,18 @@ int main(int argc, char **argv)
         query.setTileSize(tileSize);
     }
 
-    QObject::connect(&query, &OSM::OverpassQuery::finished, [&query, &app]() {
+    QObject::connect(&query, &OSM::OverpassQuery::finished, [&]() {
         if (query.error() != OSM::OverpassQuery::NoError) {
             std::cerr << "query error" << std::endl;
             app.exit(1);
         }
 
-        // ### for testing only
-        const auto &res = query.result();
-        for (const auto &node : res.nodes) {
-            qDebug() << "Node" << node.id << node.coordinate.latitude << node.coordinate.longitude;
-            for (const auto &tag : node.tags) {
-                qDebug() << "  tag" << tag.key.name() << tag.value;
-            }
-        }
-        for (const auto &rel : res.relations) {
-            qDebug() << "Relation" << rel.id << rel.bbox.min.latitude << rel.bbox.min.longitude << rel.bbox.max.latitude << rel.bbox.max.longitude;
-            for (const auto &mem : rel.members) {
-                qDebug() << "  member" << mem.id << (int)mem.type() << mem.role().name();
-            }
-            for (const auto &tag : rel.tags) {
-                qDebug() << "  tag" << tag.key.name() << tag.value;
-            }
+        const auto outFileName = parser.value(outFileOption);
+        QFile outFile(outFileName);
+        if (!outFileName.isEmpty() && outFile.open(QFile::WriteOnly)) {
+            OSM::XmlWriter::write(query.result(), &outFile);
+        } else if (outFile.open(stdout, QFile::WriteOnly)) {
+            OSM::XmlWriter::write(query.result(), &outFile);
         }
 
         app.quit();
