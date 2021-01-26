@@ -100,3 +100,4 @@ install(FILES
 install(EXPORT KOSMIndoorMapTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KOSMIndoorMapTargets.cmake)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kosmindoormap_version.h DESTINATION ${KDE_INSTALL_INCLUDEDIR} COMPONENT Devel)
+ki18n_install(po)
