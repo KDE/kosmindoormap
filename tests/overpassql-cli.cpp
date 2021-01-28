@@ -32,6 +32,8 @@ int main(int argc, char **argv)
     parser.addOption(bboxOption);
     QCommandLineOption tileSizeOption({ S("t"), S("tile-size") }, S("Query tile size"), S("w,h"));
     parser.addOption(tileSizeOption);
+    QCommandLineOption minTileSizeOption({ S("m"), S("minimum-tile-size") }, S("Minimum query tile size"), S("w,h"));
+    parser.addOption(minTileSizeOption);
     QCommandLineOption outFileOption( { S("o"), S("output") }, S("Output file name"), S("out"));
     parser.addOption(outFileOption);
     parser.process(app);
@@ -68,6 +70,15 @@ int main(int argc, char **argv)
         }
         QSizeF tileSize(s[0].toDouble(), s[1].toDouble());
         query.setTileSize(tileSize);
+    }
+    if (parser.isSet(minTileSizeOption)) {
+        const auto s = parser.value(minTileSizeOption).split(QLatin1Char(','));
+        if (s.size() != 2) {
+            std::cerr << "invalid minimum tile size format" << std::endl;
+            return 1;
+        }
+        QSizeF minTileSize(s[0].toDouble(), s[1].toDouble());
+        query.setMinimumTileSize(minTileSize);
     }
 
     QObject::connect(&query, &OSM::OverpassQuery::finished, [&]() {
