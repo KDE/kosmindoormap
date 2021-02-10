@@ -12,6 +12,7 @@
   <name xml:lang="ca-valencia">Mapes d'interiors OSM del KDE</name>
   <name xml:lang="es">Planos de interiores de OSM para KDE</name>
   <name xml:lang="id">KDE OSM Indoor Map</name>
+  <name xml:lang="it">Mappa degli interni OSM di KDE</name>
   <name xml:lang="nl">KDE OSM indoorkaart</name>
   <name xml:lang="pt">Mapa de Interiores do OSM para o KDE</name>
   <name xml:lang="sk">KDE OSM mapa interiéru</name>
@@ -24,6 +25,7 @@
   <summary xml:lang="ca-valencia">Aplicació de demostració per a mapes d'interiors OSM</summary>
   <summary xml:lang="es">Aplicación de demostración de planos de interiores de OSM</summary>
   <summary xml:lang="id">Aplikasi demo peta dalam ruangan OSM</summary>
+  <summary xml:lang="it">Applicazione dimostrativa per mappe degli interni OSM</summary>
   <summary xml:lang="nl">Demo-toepassing van OSM indoorkaart </summary>
   <summary xml:lang="pt">Aplicação de demonstração de mapas de interiores do OSM</summary>
   <summary xml:lang="sk">Demo aplikuácia mapy interiéru OSM</summary>
@@ -37,6 +39,7 @@
     <p xml:lang="ca-valencia">Aplicació de demostració per al component de mapes d'interiors OSM del KDE.</p>
     <p xml:lang="es">Aplicación de demostración para el componente de planos de interiores de OSM para KDE.</p>
     <p xml:lang="id">Aplikasi demo untuk komponen peta dalam ruangan KDE's OSM</p>
+    <p xml:lang="it">Applicazione dimostrativa per il componente mappe degli interni OSM di KDE.</p>
     <p xml:lang="nl">Demo-toepassing voor OSM indoorkaartcomponent van KDE.</p>
     <p xml:lang="pt">Aplicação de demonstração para o componente de mapas de interiores do OSM para o KDE.</p>
     <p xml:lang="sk">Demo aplikácia pre KDE komponent pre OSM mapy interiéru.</p>
