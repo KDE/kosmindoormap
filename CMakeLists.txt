@@ -35,7 +35,8 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     SOVERSION 1
 )
 
-find_package(Qt5 5.15 REQUIRED COMPONENTS Quick OPTIONAL_COMPONENTS Widgets)
+find_package(Qt5 5.15 REQUIRED COMPONENTS Quick)
+find_package(Qt5 5.15 OPTIONAL_COMPONENTS Widgets)
 find_package(KF5 REQUIRED COMPONENTS I18n)
 find_package(KPublicTransport REQUIRED)
 find_package(KOpeningHours)
