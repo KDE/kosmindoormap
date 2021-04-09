@@ -35,22 +35,22 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     SOVERSION 1
 )
 
-find_package(Qt5 5.14 REQUIRED COMPONENTS Quick OPTIONAL_COMPONENTS Widgets)
+find_package(Qt5 5.15 REQUIRED COMPONENTS Quick OPTIONAL_COMPONENTS Widgets)
 find_package(KF5 REQUIRED COMPONENTS I18n)
 find_package(KPublicTransport REQUIRED)
 find_package(KOpeningHours)
 set_package_properties(KOpeningHours PROPERTIES TYPE OPTIONAL PURPOSE "Highlight currently open amenities/shops/etc.")
 
 if (BUILD_TESTING)
-    find_package(Qt5 5.14 REQUIRED COMPONENTS Test Widgets)
+    find_package(Qt5 5.15 REQUIRED COMPONENTS Test Widgets)
 endif()
 
 if (BUILD_STANDALONE_APP)
     if (NOT ANDROID)
-        find_package(Qt5 5.14 REQUIRED COMPONENTS Widgets)
+        find_package(Qt5 5.15 REQUIRED COMPONENTS Widgets)
     else()
         find_package(KF5 REQUIRED COMPONENTS Kirigami2)
-        find_package(Qt5 5.14 REQUIRED COMPONENTS QuickControls2 Svg)
+        find_package(Qt5 5.15 REQUIRED COMPONENTS QuickControls2 Svg)
         find_package(OpenSSL REQUIRED)
         if (NOT DEFINED BREEZEICONS_DIR AND EXISTS ${CMAKE_SOURCE_DIR}/../breeze-icons)
             set(BREEZEICONS_DIR ${CMAKE_SOURCE_DIR}/../breeze-icons)
@@ -72,7 +72,7 @@ if (NOT WIN32)
     set_package_properties(Protobuf PROPERTIES TYPE OPTIONAL PURPOSE "Parsing of OSM PBF files.")
 endif()
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054400)
 add_definitions(-DQT_NO_FOREACH)
 

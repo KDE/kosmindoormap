@@ -146,9 +146,7 @@ void TileCache::downloadNext()
         + QString::number(tile.y) + QLatin1String(".o5m"));
 
     QNetworkRequest req(url);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
-#endif
     auto reply = m_nam->get(req);
     connect(reply, &QNetworkReply::readyRead, this, [this, reply]() { dataReceived(reply); });
     connect(reply, &QNetworkReply::finished, this, [this, reply, tile]() { downloadFinished(reply, tile); });
