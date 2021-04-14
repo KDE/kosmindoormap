@@ -62,4 +62,7 @@
     <binary>kosmindoormap</binary>
   </provides>
   <launchable type="desktop-id">org.kde.kosmindoormap.desktop</launchable>
+  <releases>
+    <release version="21.04.0" date="2021-04-22"/>
+  </releases>
 </component>
