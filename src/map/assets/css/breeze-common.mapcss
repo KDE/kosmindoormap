@@ -718,6 +718,7 @@ node|z19- [vending=parking_tickets]
     icon-image: vending;
     set .amenity;
 }
+*|z18- [tourism=information][!information],
 *|z19- [tourism=museum],
 *|z20- [tourism=viewpoint]
 {
@@ -737,6 +738,11 @@ node|z20- [leisure=firepit]
 *|z19- [office=diplomatic][embassy]
 {
     icon-image: "embassy";
+    set .amenity;
+}
+*|z18- [information=office]
+{
+    icon-image: information;
     set .amenity;
 }
 
