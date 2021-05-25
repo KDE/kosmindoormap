@@ -15,6 +15,7 @@
   <name xml:lang="fr">Carte interne de OpenStreetmap pour KDE</name>
   <name xml:lang="id">KDE OSM Indoor Map</name>
   <name xml:lang="it">Mappa degli interni OSM di KDE</name>
+  <name xml:lang="ko">KDE OSM 실내 지도</name>
   <name xml:lang="nl">KDE OSM indoorkaart</name>
   <name xml:lang="pl">Mapa wnętrz OSM KDE</name>
   <name xml:lang="pt">Mapa de Interiores do OSM para o KDE</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="fr">Application de démonstration pour la carte interne de OpenStreetMap</summary>
   <summary xml:lang="id">Aplikasi demo peta dalam ruangan OSM</summary>
   <summary xml:lang="it">Applicazione dimostrativa per mappe degli interni OSM</summary>
+  <summary xml:lang="ko">OSM 실내 지도 데모 프로그램</summary>
   <summary xml:lang="nl">Demo-toepassing van OSM indoorkaart </summary>
   <summary xml:lang="pl">Aplikacja pokazowa mapy wnętrz OSM</summary>
   <summary xml:lang="pt">Aplicação de demonstração de mapas de interiores do OSM</summary>
@@ -48,6 +50,7 @@
     <p xml:lang="fr">Application de démonstration pour le composant de KDE de carte interne de OpenStreetmap.</p>
     <p xml:lang="id">Aplikasi demo untuk komponen peta dalam ruangan KDE's OSM</p>
     <p xml:lang="it">Applicazione dimostrativa per il componente mappe degli interni OSM di KDE.</p>
+    <p xml:lang="ko">KDE OSM 실내 지도 구성 요소 데모 프로그램입니다.</p>
     <p xml:lang="nl">Demo-toepassing voor OSM indoorkaartcomponent van KDE.</p>
     <p xml:lang="pl">Aplikacja pokazowa składnika mapy wnętrz OSM KDE.</p>
     <p xml:lang="pt">Aplicação de demonstração para o componente de mapas de interiores do OSM para o KDE.</p>
