@@ -409,7 +409,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case Cuisine: return i18n("Cuisine");
         case Diet: return i18n("Diet");
         case Takeaway: return i18n("Takeaway");
-        case Socket: return i18n("Socket");
+        case Socket: return i18nc("electrical power socket", "Socket");
         case OpeningHours: return {};
         case Fee: return i18n("Fee");
         case Authentication: return i18n("Authentication");
