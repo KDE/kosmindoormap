@@ -772,7 +772,7 @@ area.elevator|z20- {
     icon-color: #eff0f1;
 }
 
-node[highway=elevator][access!=no]
+node[highway=elevator][access!=no][access!=private]
 {
     set .elevator;
     icon-image: "elevator";
