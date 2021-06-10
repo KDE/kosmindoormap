@@ -121,3 +121,16 @@ node[shop=pastry]
 node.importantShops { color: "red"; }
 way.importantShops|z20- { color: "green"; }
 *.importantShops[access=no] { color: "blue"; }
+
+// layer selectors (see https://wiki.openstreetmap.org/wiki/MapCSS/0.2/Proposal_layer_selector)
+way[highway]::road {
+  width: 8;
+  color: #ffffff;
+  casing-width: 2;
+  casing-color: #a0a0a0;
+}
+way[railway=tram]::tram {
+  width: 2;
+  color: #303030;
+  z-index: 1;
+}

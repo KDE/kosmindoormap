@@ -119,6 +119,7 @@ using namespace KOSMIndoorMap;
 %type <zoomRange> ZoomRange
 %type <condition> Condition
 %type <binaryOp> BinaryOp
+%type <strRef> LayerSelector
 %type <strRef> Key
 %type <rule> Declarations
 %type <declaration> Declaration
@@ -189,14 +190,14 @@ Selector:
 
 // TODO incomplete: missing pseudo-class
 BasicSelector:
-  T_IDENT[I] ClassSelector[C] ZoomRange[Z] Tests[T] {
+  T_IDENT[I] ClassSelector[C] ZoomRange[Z] Tests[T] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
     $$->setClass($C.str, $C.len);
     $$->setObjectType($I.str, $I.len);
     $$->setZoomRange($Z.low, $Z.high);
     $$->setConditions($T);
   }
-| T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] {
+| T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
     $$->objectType = MapCSSBasicSelector::Any;
     $$->setClass($C.str, $C.len);
@@ -235,6 +236,11 @@ Condition:
 BinaryOp:
   T_BINARY_OP { $$ = $1; }
 | T_EQUALS    { $$ = MapCSSCondition::Equal; }
+
+LayerSelector:
+  %empty { $$.str = nullptr; $$.len = 0; }
+| T_COLON T_COLON T_IDENT[L] { $$ = $L; }
+;
 
 Key:
   T_IDENT { $$ = $1; }

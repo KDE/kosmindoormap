@@ -142,3 +142,18 @@ way.importantShops|z20-
     color: "blue";
 }
 
+way[highway]
+{
+    width: 8;
+    color: #ffffffff;
+    casing-width: 2;
+    casing-color: #ffa0a0a0;
+}
+
+way[railway=tram]
+{
+    width: 2;
+    color: #ff303030;
+    z-index: 1;
+}
+
