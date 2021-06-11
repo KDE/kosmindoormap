@@ -142,7 +142,7 @@ way.importantShops|z20-
     color: "blue";
 }
 
-way[highway]
+way[highway]::road
 {
     width: 8;
     color: #ffffffff;
@@ -150,7 +150,7 @@ way[highway]
     casing-color: #ffa0a0a0;
 }
 
-way[railway=tram]
+way[railway=tram]::tram
 {
     width: 2;
     color: #ff303030;

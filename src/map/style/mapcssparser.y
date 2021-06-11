@@ -192,17 +192,27 @@ Selector:
 BasicSelector:
   T_IDENT[I] ClassSelector[C] ZoomRange[Z] Tests[T] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
-    $$->setClass($C.str, $C.len);
+    if ($C.str) {
+        $$->setClass(parser->makeClassSelector($C.str, $C.len));
+    }
     $$->setObjectType($I.str, $I.len);
     $$->setZoomRange($Z.low, $Z.high);
     $$->setConditions($T);
+    if ($L.str) {
+        $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
+    }
   }
 | T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
     $$->objectType = MapCSSBasicSelector::Any;
-    $$->setClass($C.str, $C.len);
+    if ($C.str) {
+        $$->setClass(parser->makeClassSelector($C.str, $C.len));
+    }
     $$->setZoomRange($Z.low, $Z.high);
     $$->setConditions($T);
+    if ($L.str) {
+        $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
+    }
   }
 ;
 
@@ -270,7 +280,7 @@ Declaration:
   }
 | T_KEYWORD_SET T_DOT T_IDENT[C] T_SEMICOLON {
     $$ = new MapCSSDeclaration(MapCSSDeclaration::ClassDeclaration);
-    $$->setIdentifierValue($C.str, $C.len);
+    $$->setClassSelectorKey(parser->makeClassSelector($C.str, $C.len));
   }
 ;
 

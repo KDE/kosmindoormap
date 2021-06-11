@@ -72,7 +72,7 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state, const MapCSSResult &
         case Any: break;
     }
 
-    if (!m_class.isEmpty() && !result.hasClass(m_class)) {
+    if (!m_class.isNull() && !result.hasClass(m_class)) {
         return false;
     }
 
@@ -117,9 +117,9 @@ void MapCSSBasicSelector::write(QIODevice *out) const
         }
     }
 
-    if (!m_class.isEmpty()) {
+    if (!m_class.isNull()) {
         out->write(".");
-        out->write(m_class);
+        out->write(m_class.name());
     }
 
     if (m_zoomLow > 0 || m_zoomHigh > 0) {
@@ -139,6 +139,11 @@ void MapCSSBasicSelector::write(QIODevice *out) const
 
     for (const auto &cond : conditions) {
         cond->write(out);
+    }
+
+    if (!m_layer.isNull()) {
+        out->write("::");
+        out->write(m_layer.name());
     }
 }
 
@@ -167,11 +172,14 @@ void MapCSSBasicSelector::setConditions(MapCSSConditionHolder *conds)
     delete conds;
 }
 
-void MapCSSBasicSelector::setClass(const char *str, std::size_t len)
+void MapCSSBasicSelector::setClass(ClassSelectorKey key)
 {
-    if (str) {
-        m_class = QByteArray(str, len);
-    }
+    m_class = key;
+}
+
+void MapCSSBasicSelector::setLayer(LayerSelectorKey key)
+{
+    m_layer = key;
 }
 
 

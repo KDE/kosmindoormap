@@ -122,8 +122,9 @@ bool MapCSSDeclaration::isValid() const
         case PropertyDeclaration:
             return property() != Unknown;
         case TagDeclaration:
-        case ClassDeclaration:
             return !m_identValue.isEmpty();
+        case ClassDeclaration:
+            return !m_class.isNull();
     }
 
     Q_UNREACHABLE();
@@ -289,6 +290,16 @@ void MapCSSDeclaration::setUnit(const char *val, int len)
     m_unit = NoUnit;
 }
 
+ClassSelectorKey MapCSSDeclaration::classSelectorKey() const
+{
+    return m_class;
+}
+
+void MapCSSDeclaration::setClassSelectorKey(ClassSelectorKey key)
+{
+    m_class = key;
+}
+
 void MapCSSDeclaration::compile(const OSM::DataSet &dataSet)
 {
     Q_UNUSED(dataSet);
@@ -347,7 +358,7 @@ void MapCSSDeclaration::write(QIODevice *out) const
             break;
         case ClassDeclaration:
             out->write("set .");
-            out->write(m_identValue);
+            out->write(m_class.name());
             break;
     }
 

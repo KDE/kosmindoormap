@@ -8,6 +8,7 @@
 #define KOSMINDOORMAP_MAPCSSRESULT_P_H
 
 #include "mapcssdeclaration_p.h"
+#include "mapcsstypes.h"
 
 #include <vector>
 
@@ -36,12 +37,12 @@ public:
 
     /** @internal */
     void addDeclaration(const MapCSSDeclaration *decl);
-    void addClass(const QByteArray &cls);
-    bool hasClass(const QByteArray &cls) const;
+    void addClass(ClassSelectorKey cls);
+    bool hasClass(ClassSelectorKey cls) const;
 
 private:
     std::vector<const MapCSSDeclaration*> m_declarations;
-    std::vector<QByteArray> m_classes;
+    std::vector<ClassSelectorKey> m_classes;
     int m_flags = 0;
 };
 

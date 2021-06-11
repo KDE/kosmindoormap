@@ -37,7 +37,7 @@ void MapCSSRule::evaluate(const MapCSSState &state, MapCSSResult &result) const
                 result.addDeclaration(decl.get());
                 break;
             case MapCSSDeclaration::ClassDeclaration:
-                result.addClass(decl->keyValue());
+                result.addClass(decl->classSelectorKey());
                 break;
             case MapCSSDeclaration::TagDeclaration:
                 // TODO

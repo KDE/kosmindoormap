@@ -65,7 +65,7 @@ void MapCSSResult::addDeclaration(const MapCSSDeclaration *decl)
     m_flags |= decl->propertyFlags();
 }
 
-void MapCSSResult::addClass(const QByteArray &cls)
+void MapCSSResult::addClass(ClassSelectorKey cls)
 {
     const auto it = std::lower_bound(m_classes.begin(), m_classes.end(), cls);
     if (it == m_classes.end() || (*it) != cls) {
@@ -73,7 +73,7 @@ void MapCSSResult::addClass(const QByteArray &cls)
     }
 }
 
-bool MapCSSResult::hasClass(const QByteArray& cls) const
+bool MapCSSResult::hasClass(ClassSelectorKey cls) const
 {
     return std::binary_search(m_classes.begin(), m_classes.end(), cls);
 }

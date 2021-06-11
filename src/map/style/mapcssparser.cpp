@@ -11,6 +11,7 @@
 #include "mapcssrule_p.h"
 #include "mapcssscanner.h"
 #include "mapcssstyle.h"
+#include "mapcssstyle_p.h"
 
 #include <QDebug>
 #include <QFile>
@@ -135,7 +136,7 @@ bool MapCSSParser::addImport(char* fileName)
 
 void MapCSSParser::addRule(MapCSSRule *rule)
 {
-    m_currentStyle->m_rules.push_back(std::unique_ptr<MapCSSRule>(rule));
+    MapCSSStylePrivate::get(m_currentStyle)->m_rules.push_back(std::unique_ptr<MapCSSRule>(rule));
 }
 
 void MapCSSParser::setError(const QString &msg, int line, int column)
@@ -144,4 +145,14 @@ void MapCSSParser::setError(const QString &msg, int line, int column)
     m_errorMsg = msg;
     m_line = line;
     m_column = column;
+}
+
+ClassSelectorKey MapCSSParser::makeClassSelector(const char *str, std::size_t len)
+{
+    return MapCSSStylePrivate::get(m_currentStyle)->m_classSelectorRegistry.makeKey(str, len, OSM::StringMemory::Transient);
+}
+
+LayerSelectorKey MapCSSParser::makeLayerSelector(const char *str, std::size_t len)
+{
+    return MapCSSStylePrivate::get(m_currentStyle)->m_layerSelectorRegistry.makeKey(str, len, OSM::StringMemory::Transient);
 }

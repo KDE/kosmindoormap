@@ -10,7 +10,6 @@
 #include "kosmindoormap_export.h"
 
 #include <memory>
-#include <vector>
 
 class QIODevice;
 
@@ -20,10 +19,9 @@ class DataSet;
 
 namespace KOSMIndoorMap {
 
-class MapCSSParser;
 class MapCSSResult;
-class MapCSSRule;
 class MapCSSState;
+class MapCSSStylePrivate;
 
 /** A parsed MapCSS style sheet.
  *  @see MapCSSParser::parse for how to obtain a valid instance
@@ -60,8 +58,8 @@ public:
     void write(QIODevice *out) const;
 
 private:
-    friend class MapCSSParser;
-    std::vector<std::unique_ptr<MapCSSRule>> m_rules;
+    friend class MapCSSStylePrivate;
+    std::unique_ptr<MapCSSStylePrivate> d;
 };
 
 }

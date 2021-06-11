@@ -8,6 +8,7 @@
 #define KOSMINDOORMAP_MAPCSSDECLARATION_P_H
 
 #include "kosmindoormap_export.h"
+#include "mapcsstypes.h"
 
 #include <QByteArray>
 #include <QColor>
@@ -157,6 +158,8 @@ public:
     };
     Unit unit() const;
 
+    ClassSelectorKey classSelectorKey() const;
+
     void compile(const OSM::DataSet &dataSet);
     void write(QIODevice *out) const;
 
@@ -172,6 +175,7 @@ private:
     void setColorRgba(uint32_t argb);
     void setDashesValue(const QVector<double> &dashes);
     void setUnit(const char *val, int len);
+    void setClassSelectorKey(ClassSelectorKey key);
 
     Property m_property = Unknown;
     int m_flags = NoFlag;
@@ -181,6 +185,7 @@ private:
     double m_doubleValue = NAN;
     QVector<double> m_dashValue;
     QString m_stringValue;
+    ClassSelectorKey m_class;
     Unit m_unit = NoUnit;
     Type m_type;
 };

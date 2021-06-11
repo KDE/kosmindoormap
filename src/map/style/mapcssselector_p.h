@@ -7,6 +7,8 @@
 #ifndef KOSMINDOORMAP_MAPCSSSELECTOR_P_H
 #define KOSMINDOORMAP_MAPCSSSELECTOR_P_H
 
+#include "mapcsstypes.h"
+
 #include <osm/datatypes.h>
 
 #include <memory>
@@ -67,12 +69,14 @@ public:
     void setObjectType(const char *str, std::size_t len);
     void setZoomRange(int low, int high);
     void setConditions(MapCSSConditionHolder *conds);
-    void setClass(const char *str, std::size_t len);
+    void setClass(ClassSelectorKey key);
+    void setLayer(LayerSelectorKey key);
 
     std::vector<std::unique_ptr<MapCSSCondition>> conditions;
     OSM::TagKey m_areaKey;
     OSM::TagKey m_typeKey;
-    QByteArray m_class;
+    ClassSelectorKey m_class;
+    LayerSelectorKey m_layer;
     int m_zoomLow = 0;
     int m_zoomHigh = 0;
 };

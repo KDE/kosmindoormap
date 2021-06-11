@@ -9,6 +9,8 @@
 
 #include "kosmindoormap_export.h"
 
+#include "mapcsstypes.h"
+
 #include <QString>
 
 namespace KOSMIndoorMap { class MapCSSParser; }
@@ -42,6 +44,9 @@ private:
     bool addImport(char *fileName);
     void addRule(MapCSSRule *rule);
     void setError(const QString &msg, int line, int column);
+
+    ClassSelectorKey makeClassSelector(const char *str, std::size_t len);
+    LayerSelectorKey makeLayerSelector(const char *str, std::size_t len);
 
     MapCSSStyle *m_currentStyle = nullptr;
     QString m_currentFileName;
