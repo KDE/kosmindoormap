@@ -198,9 +198,7 @@ BasicSelector:
     $$->setObjectType($I.str, $I.len);
     $$->setZoomRange($Z.low, $Z.high);
     $$->setConditions($T);
-    if ($L.str) {
-        $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
-    }
+    $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
   }
 | T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
@@ -210,9 +208,7 @@ BasicSelector:
     }
     $$->setZoomRange($Z.low, $Z.high);
     $$->setConditions($T);
-    if ($L.str) {
-        $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
-    }
+    $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
   }
 ;
 

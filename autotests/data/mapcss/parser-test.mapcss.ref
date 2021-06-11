@@ -157,3 +157,8 @@ way[railway=tram]::tram
     z-index: 1;
 }
 
+node
+{
+    icon-image: "bla";
+}
+

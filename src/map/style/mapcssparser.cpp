@@ -154,5 +154,8 @@ ClassSelectorKey MapCSSParser::makeClassSelector(const char *str, std::size_t le
 
 LayerSelectorKey MapCSSParser::makeLayerSelector(const char *str, std::size_t len)
 {
+    if (!str || std::strcmp(str, "default") == 0) {
+        return {};
+    }
     return MapCSSStylePrivate::get(m_currentStyle)->m_layerSelectorRegistry.makeKey(str, len, OSM::StringMemory::Transient);
 }

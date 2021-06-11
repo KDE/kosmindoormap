@@ -134,3 +134,7 @@ way[railway=tram]::tram {
   color: #303030;
   z-index: 1;
 }
+// default layer selector
+node::default {
+    icon-image: "bla";
+}
