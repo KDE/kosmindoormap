@@ -23,6 +23,7 @@ add_library(KOSM
     overpassquery.cpp
     overpassquerymanager.cpp
     pathutil.cpp
+    stringpool.cpp
     xmlparser.cpp
     xmlwriter.cpp
     ztile.cpp
@@ -56,5 +57,6 @@ install(FILES
     ${KOSM_HEADERS}
     ${CMAKE_CURRENT_BINARY_DIR}/kosm_export.h
     internal.h
+    stringpool.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kosm
 )

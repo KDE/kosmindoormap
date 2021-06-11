@@ -10,62 +10,28 @@ using namespace OSM;
 
 DataSet::DataSet() = default;
 DataSet::DataSet(DataSet &&) = default;
-DataSet::~DataSet()
-{
-    std::for_each(m_stringPool.begin(), m_stringPool.end(), free);
-}
+DataSet::~DataSet() = default;
 
 DataSet& DataSet::operator=(DataSet &&) = default;
 
-template<typename T>
-T DataSet::makeStringKey(const char *name, DataSet::StringMemory memOpt, std::vector<T> &registry)
+TagKey DataSet::makeTagKey(const char *keyName, OSM::StringMemory keyMemOpt)
 {
-    const auto it = std::lower_bound(registry.begin(), registry.end(), name, [](T lhs, const char *rhs) {
-        return std::strcmp(lhs.name(), rhs) < 0;
-    });
-    if (it == registry.end() || std::strcmp((*it).name(), name) != 0) {
-        if (memOpt == StringIsTransient) {
-            auto s = strdup(name);
-            m_stringPool.push_back(s);
-            name = s;
-        }
-        T k(name);
-        registry.insert(it, k);
-        return k;
-    }
-    return (*it);
+    return m_tagKeyRegistry.makeKey(keyName, keyMemOpt);
 }
 
-TagKey DataSet::makeTagKey(const char *keyName, DataSet::StringMemory keyMemOpt)
+Role DataSet::makeRole(const char *roleName, OSM::StringMemory memOpt)
 {
-    return makeStringKey(keyName, keyMemOpt, m_tagKeyRegistry);
-}
-
-Role DataSet::makeRole(const char *roleName, DataSet::StringMemory memOpt)
-{
-    return makeStringKey(roleName, memOpt, m_roleRegistry);
-}
-
-template <typename T>
-T DataSet::stringKey(const char *name, const std::vector<T> &registry) const
-{
-    const auto it = std::lower_bound(registry.begin(), registry.end(), name, [](T lhs, const char *rhs) {
-        return std::strcmp(lhs.name(), rhs) < 0;
-    });
-    if (it == registry.end() || std::strcmp((*it).name(), name) != 0) {
-        return {};
-    }
-    return (*it);
+    return m_roleRegistry.makeKey(roleName, memOpt);
 }
 
 TagKey DataSet::tagKey(const char *keyName) const
 {
-    return stringKey(keyName, m_tagKeyRegistry);
+    return m_tagKeyRegistry.key(keyName);
 }
 
 Role DataSet::role(const char *roleName) const
 {
-    return stringKey(roleName, m_roleRegistry);
+    return m_roleRegistry.key(roleName);
 }
 
 const Node* DataSet::node(Id id) const

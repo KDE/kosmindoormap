@@ -112,7 +112,7 @@ void XmlParser::parseRelation(QXmlStreamReader &reader)
             } else {
                 member.setType(Type::Relation);
             }
-            member.setRole(m_dataSet->makeRole(reader.attributes().value(QLatin1String("role")).toUtf8().constData(), DataSet::StringIsTransient));
+            member.setRole(m_dataSet->makeRole(reader.attributes().value(QLatin1String("role")).toUtf8().constData(), OSM::StringMemory::Transient));
             rel.members.push_back(std::move(member));
         }
         reader.skipCurrentElement();
@@ -124,7 +124,7 @@ void XmlParser::parseRelation(QXmlStreamReader &reader)
 template <typename T>
 void XmlParser::parseTag(QXmlStreamReader &reader, T &elem)
 {
-    const auto key = m_dataSet->makeTagKey(reader.attributes().value(QLatin1String("k")).toString().toUtf8().constData(), OSM::DataSet::StringIsTransient);
+    const auto key = m_dataSet->makeTagKey(reader.attributes().value(QLatin1String("k")).toString().toUtf8().constData(), OSM::StringMemory::Transient);
     OSM::setTagValue(elem, key, reader.attributes().value(QLatin1String("v")).toUtf8());
 }
 

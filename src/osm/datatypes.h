@@ -9,6 +9,7 @@
 
 #include "kosm_export.h"
 #include "internal.h"
+#include "stringpool.h"
 
 #include <QByteArray>
 #include <QDebug>
@@ -172,37 +173,10 @@ constexpr inline uint32_t longitudeDifference(BoundingBox bbox1, BoundingBox bbo
     return bbox1.max.longitude < bbox2.min.longitude ? bbox2.min.longitude - bbox1.max.longitude : bbox1.min.longitude - bbox2.max.longitude;
 }
 
-/** Base class for unique string keys. */
-class StringKey
-{
-public:
-    constexpr inline const char* name() const { return key; }
-    constexpr inline bool isNull() const { return !key; }
-
-    // yes, pointer compare is enough here
-    inline constexpr bool operator<(StringKey other) const { return key < other.key; }
-    inline constexpr bool operator==(StringKey other) const { return key == other.key; }
-    inline constexpr bool operator!=(StringKey other) const { return key != other.key; }
-
-protected:
-    constexpr inline StringKey() = default;
-    explicit constexpr inline StringKey(const char *keyData) : key(keyData) {}
-
-private:
-    const char* key = nullptr;
-};
-
 /** A key of an OSM tag.
  *  See DataSet::tagKey().
  */
-class TagKey : public StringKey
-{
-public:
-    constexpr inline TagKey() = default;
-private:
-    explicit constexpr inline TagKey(const char *keyData) : StringKey(keyData) {}
-    friend class DataSet;
-};
+class TagKey : public StringKey {};
 
 /** An OSM element tag. */
 class Tag {
@@ -259,7 +233,6 @@ class Role : public StringKey
 public:
     constexpr inline Role() = default;
 private:
-    friend class DataSet;
     friend class Member;
     explicit constexpr inline Role(const char *keyData) : StringKey(keyData) {}
 };
@@ -343,14 +316,13 @@ public:
      */
     TagKey tagKey(const char *keyName) const;
 
-    enum StringMemory { StringIsPersistent, StringIsTransient };
     /** Create a tag key for the given tag name. If none exist yet a new one is created.
      *  Use this for creating tags, not for lookup, prefer tagKey() for that.
      *  @param keyMemOpt specifies whether @p keyName is persisent for the lifetime of this
      *  instance and thus can be used without requiring a copy. If the memory is transient
      *  the string is copied if needed, and released in the DataSet destructor.
      */
-    TagKey makeTagKey(const char *keyName, StringMemory keyMemOpt = StringIsTransient);
+    TagKey makeTagKey(const char *keyName, StringMemory keyMemOpt = StringMemory::Transient);
 
     /** Looks up a role name key.
      *  @see tagKey()
@@ -359,7 +331,7 @@ public:
     /** Creates a role name key.
      *  @see makeTagKey()
      */
-    Role makeRole(const char *roleName, StringMemory memOpt = StringIsTransient);
+    Role makeRole(const char *roleName, StringMemory memOpt = StringMemory::Transient);
 
     /** Create a unique id for internal use (ie. one that will not clash with official OSM ids). */
     Id nextInternalId() const;
@@ -372,9 +344,8 @@ private:
     template <typename T> T stringKey(const char *name, const std::vector<T> &registry) const;
     template <typename T> T makeStringKey(const char *name, StringMemory memOpt, std::vector<T> &registry);
 
-    std::vector<TagKey> m_tagKeyRegistry;
-    std::vector<Role> m_roleRegistry;
-    std::vector<char*> m_stringPool;
+    StringKeyRegistry<TagKey> m_tagKeyRegistry;
+    StringKeyRegistry<Role> m_roleRegistry;
 };
 
 /** Returns the tag value for @p key of @p elem. */
