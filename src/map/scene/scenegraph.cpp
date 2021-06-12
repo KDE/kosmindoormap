@@ -143,7 +143,10 @@ bool SceneGraph::itemPoolCompare(const SceneGraphItem &lhs, const SceneGraphItem
 {
     if (lhs.element.type() == rhs.element.type()) {
         if (lhs.element.id() == rhs.element.id()) {
-            return lhs.level < rhs.level;
+            if (lhs.layerSelector == rhs.layerSelector) {
+                return lhs.level < rhs.level;
+            }
+            return lhs.layerSelector < rhs.layerSelector;
         }
         return lhs.element.id() < rhs.element.id();
     }

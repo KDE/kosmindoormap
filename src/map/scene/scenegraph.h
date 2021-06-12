@@ -43,7 +43,7 @@ public:
     void beginSwap();
     void addItem(SceneGraphItem &&item);
     template <typename T>
-    std::unique_ptr<SceneGraphItemPayload> findOrCreatePayload(OSM::Element e, int level);
+    std::unique_ptr<SceneGraphItemPayload> findOrCreatePayload(OSM::Element e, int level, LayerSelectorKey layerSelector);
     void zSort();
     void endSwap();
 
@@ -85,13 +85,13 @@ private:
 
 
 template<typename T>
-std::unique_ptr<SceneGraphItemPayload> SceneGraph::findOrCreatePayload(OSM::Element e, int level)
+std::unique_ptr<SceneGraphItemPayload> SceneGraph::findOrCreatePayload(OSM::Element e, int level, LayerSelectorKey layerSelector)
 {
     SceneGraphItem ref;
     ref.element = e;
     ref.level = level;
     auto it = std::lower_bound(m_previousItems.begin(), m_previousItems.end(), ref, SceneGraph::itemPoolCompare);
-    for (;it != m_previousItems.end() && (*it).element.type() == e.type() && (*it).element.id() == e.id() && (*it).level == level && (*it).payload; ++it) {
+    for (;it != m_previousItems.end() && (*it).element.type() == e.type() && (*it).element.id() == e.id() && (*it).layerSelector == layerSelector && (*it).level == level && (*it).payload; ++it) {
         if (dynamic_cast<T*>((*it).payload.get())) {
             return std::move((*it).payload);
         }

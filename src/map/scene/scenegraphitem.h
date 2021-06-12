@@ -9,6 +9,8 @@
 
 #include <KOSM/Element>
 
+#include <style/mapcsstypes.h>
+
 #include <QBrush>
 #include <QColor>
 #include <QFont>
@@ -45,6 +47,8 @@ public:
 
     int level = 0;
     int layer = 0;
+
+    LayerSelectorKey layerSelector;
 
     std::unique_ptr<SceneGraphItemPayload> payload;
 };
