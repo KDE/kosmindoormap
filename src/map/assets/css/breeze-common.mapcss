@@ -112,13 +112,13 @@ line[highway=tertiary],
 line[highway=tertiary_link],
 line[highway=unclassified],
 line[highway=residential],
-line[highway=service][!aeroway],
+line[highway=service]::road,
 line[highway=living_street],
 line[highway=pedestrian],
 line[highway=road]
 {
     casing-width: 1;
-    z-index: -10;
+    z-index: -30;
     linecap: round;
     casing-linecap: round;
 }
@@ -151,7 +151,7 @@ line[highway=road]
     width: 3;
 }
 
-line[highway=service] { width: 2; }
+line[highway=service]::road { width: 2; }
 
 line[highway][layer<0],
 line[highway][tunnel] {
@@ -195,7 +195,7 @@ line|z20-[highway=road]
 way[railway=rail],
 way[railway=light_rail],
 way[railway=subway],
-way[railway=tram],
+way[railway=tram]::tram,
 way[railway=monorail]
 {
     color: #eff0f1;
@@ -204,6 +204,7 @@ way[railway=monorail]
     casing-width: 3;
     casing-color: #31363b;
     linecap: none;
+    linejoin: miter;
 }
 way[railway=narrow_gauge]
 {
