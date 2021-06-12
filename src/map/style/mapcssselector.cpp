@@ -99,6 +99,11 @@ bool MapCSSBasicSelector::matchesCanvas(const MapCSSState &state) const
     return std::all_of(conditions.begin(), conditions.end(), [&state](const auto &cond) { return cond->matchesCanvas(state); });
 }
 
+LayerSelectorKey MapCSSBasicSelector::layerSelector() const
+{
+    return m_layer;
+}
+
 struct {
     const char *name;
     MapCSSBasicSelector::ObjectType type;
@@ -208,6 +213,11 @@ bool MapCSSChainedSelector::matchesCanvas(const MapCSSState &state) const
     return false;
 }
 
+LayerSelectorKey MapCSSChainedSelector::layerSelector() const
+{
+    return selectors.back()->layerSelector();
+}
+
 void MapCSSChainedSelector::write(QIODevice *out) const
 {
     assert(selectors.size() > 1);
@@ -218,32 +228,72 @@ void MapCSSChainedSelector::write(QIODevice *out) const
     }
 }
 
+
 MapCSSUnionSelector::MapCSSUnionSelector() = default;
 MapCSSUnionSelector::~MapCSSUnionSelector() = default;
 
 void MapCSSUnionSelector::compile(const OSM::DataSet &dataSet)
 {
-    for (const auto &s : selectors) {
-        s->compile(dataSet);
+    for (const auto &ls : m_selectors) {
+        for (const auto &s : ls.selectors) {
+            s->compile(dataSet);
+        }
     }
 }
 
 bool MapCSSUnionSelector::matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const
 {
-    return std::any_of(selectors.begin(), selectors.end(), [&state, &result, &matchCallback](const auto &selector) { return selector->matches(state, result, matchCallback); });
+    bool ret = false;
+    for (const auto &ls : m_selectors) {
+        if (std::any_of(ls.selectors.begin(), ls.selectors.end(), [&state, &result, &matchCallback](const auto &selector) {
+            return selector->matches(state, result, matchCallback);
+
+        })) {
+            // no short-circuit evaluation, we want the matchCallback to be called once per matching layer!
+            ret = true;
+        }
+    }
+    return ret;
 }
 
 bool MapCSSUnionSelector::matchesCanvas(const MapCSSState &state) const
 {
-    return std::any_of(selectors.begin(), selectors.end(), [&state](const auto &selector) { return selector->matchesCanvas(state); });
+    for (const auto &ls : m_selectors) {
+        if (ls.layer.isNull()) {
+            return std::any_of(ls.selectors.begin(), ls.selectors.end(), [&state](const auto &selector) { return selector->matchesCanvas(state); });
+        }
+    }
+    return false;
+}
+
+LayerSelectorKey MapCSSUnionSelector::layerSelector() const
+{
+    return {};
 }
 
 void MapCSSUnionSelector::write(QIODevice *out) const
 {
-    assert(selectors.size() > 1);
-    selectors[0]->write(out);
-    for (auto it = std::next(selectors.begin()); it != selectors.end(); ++it) {
-        out->write(",\n");
-        (*it)->write(out);
+    for (std::size_t i = 0; i < m_selectors.size(); ++i) {
+        for (std::size_t j = 0; j < m_selectors[i].selectors.size(); ++j) {
+            if (i != 0 || j != 0) {
+                out->write(",\n");
+            }
+            m_selectors[i].selectors[j]->write(out);
+        }
+    }
+}
+
+void MapCSSUnionSelector::addSelector(std::unique_ptr<MapCSSSelector> &&selector)
+{
+    auto it = std::find_if(m_selectors.begin(), m_selectors.end(), [&selector](const auto &ls) {
+        return ls.layer == selector->layerSelector();
+    });
+    if (it != m_selectors.end()) {
+        (*it).selectors.push_back(std::move(selector));
+    } else {
+        SelectorMap ls;
+        ls.layer = selector->layerSelector();
+        ls.selectors.push_back(std::move(selector));
+        m_selectors.push_back(std::move(ls));
     }
 }

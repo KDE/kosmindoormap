@@ -36,6 +36,8 @@ public:
     virtual bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const = 0;
     /** Selector matches the canvas element. */
     virtual bool matchesCanvas(const MapCSSState &state) const = 0;
+    /** The layer selector of this style selector (invalid for union selectors). */
+    virtual LayerSelectorKey layerSelector() const = 0;
 
     virtual void write(QIODevice *out) const = 0;
 
@@ -64,6 +66,7 @@ public:
     void compile(const OSM::DataSet &dataSet) override;
     bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
+    LayerSelectorKey layerSelector() const override;
     void write(QIODevice* out) const override;
 
     /** @internal only to be used by the parser */
@@ -89,6 +92,7 @@ public:
     void compile(const OSM::DataSet &dataSet) override;
     bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
+    LayerSelectorKey layerSelector() const override;
     void write(QIODevice* out) const override;
     std::vector<std::unique_ptr<MapCSSBasicSelector>> selectors;
 };
@@ -103,8 +107,18 @@ public:
     void compile(const OSM::DataSet &dataSet) override;
     bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
+    LayerSelectorKey layerSelector() const override;
     void write(QIODevice* out) const override;
-    std::vector<std::unique_ptr<MapCSSSelector>> selectors;
+
+    /** @internal */
+    void addSelector(std::unique_ptr<MapCSSSelector> &&selector);
+
+private:
+    struct SelectorMap {
+        LayerSelectorKey layer;
+        std::vector<std::unique_ptr<MapCSSSelector>> selectors;
+    };
+    std::vector<SelectorMap> m_selectors;
 };
 
 }

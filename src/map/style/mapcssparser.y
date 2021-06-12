@@ -165,12 +165,12 @@ Import:
 Selectors:
   Selector { $$ = $1; }
 | Selectors T_COMMA Selector { if (auto u = dynamic_cast<MapCSSUnionSelector*>($1)) {
-    u->selectors.push_back(std::unique_ptr<MapCSSSelector>($3));
+    u->addSelector(std::unique_ptr<MapCSSSelector>($3));
     $$ = $1;
   } else {
     auto s = new MapCSSUnionSelector;
-    s->selectors.push_back(std::unique_ptr<MapCSSSelector>($1));
-    s->selectors.push_back(std::unique_ptr<MapCSSSelector>($3));
+    s->addSelector(std::unique_ptr<MapCSSSelector>($1));
+    s->addSelector(std::unique_ptr<MapCSSSelector>($3));
     $$ = s;
   }}
 ;
