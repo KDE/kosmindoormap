@@ -190,7 +190,7 @@ void MapData::processElements()
         MapCSSState filterState;
         filterState.element = e;
         filter.evaluate(filterState, filterResult);
-        if (auto prop = filterResult.declaration(MapCSSDeclaration::Opacity)) {
+        if (auto prop = filterResult[{}].declaration(MapCSSDeclaration::Opacity)) {
             if (prop->doubleValue() == 0.0) {
                 qDebug() << "input filter dropped" << e.url();
                 return;

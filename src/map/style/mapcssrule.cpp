@@ -34,10 +34,10 @@ void MapCSSRule::evaluate(const MapCSSState &state, MapCSSResult &result) const
     for (const auto &decl : m_declarations) {
         switch (decl->type()) {
             case MapCSSDeclaration::PropertyDeclaration:
-                result.addDeclaration(decl.get());
+                result[{}].addDeclaration(decl.get());
                 break;
             case MapCSSDeclaration::ClassDeclaration:
-                result.addClass(decl->classSelectorKey());
+                result[{}].addClass(decl->classSelectorKey());
                 break;
             case MapCSSDeclaration::TagDeclaration:
                 // TODO
@@ -55,7 +55,7 @@ void MapCSSRule::evaluateCanvas(const MapCSSState &state, MapCSSResult &result) 
 
     for (const auto &decl : m_declarations) {
         if (decl->type() == MapCSSDeclaration::PropertyDeclaration) {
-            result.addDeclaration(decl.get());
+            result[{}].addDeclaration(decl.get());
         }
     }
 }

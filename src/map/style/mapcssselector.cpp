@@ -72,7 +72,7 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state, const MapCSSResult &
         case Any: break;
     }
 
-    if (!m_class.isNull() && !result.hasClass(m_class)) {
+    if (!m_class.isNull() && !result[m_layer].hasClass(m_class)) {
         return false;
     }
 

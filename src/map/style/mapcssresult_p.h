@@ -14,12 +14,12 @@
 
 namespace KOSMIndoorMap {
 
-/** Result of MapCSS stylesheet evaluation. */
-class MapCSSResult
+/** Result of MapCSS stylesheet evaluation for a single layer selector. */
+class MapCSSResultItem
 {
 public:
-    explicit MapCSSResult();
-    ~MapCSSResult();
+    explicit MapCSSResultItem();
+    ~MapCSSResultItem();
 
     void clear();
 
@@ -35,15 +35,41 @@ public:
     /** The active declarations for the queried element. */
     const std::vector<const MapCSSDeclaration*>& declarations() const;
 
+    /** The layer selector for this result. */
+    LayerSelectorKey layerSelector() const;
+
     /** @internal */
     void addDeclaration(const MapCSSDeclaration *decl);
     void addClass(ClassSelectorKey cls);
     bool hasClass(ClassSelectorKey cls) const;
+    void setLayerSelector(LayerSelectorKey layer);
 
 private:
     std::vector<const MapCSSDeclaration*> m_declarations;
     std::vector<ClassSelectorKey> m_classes;
+    LayerSelectorKey m_layer;
     int m_flags = 0;
+};
+
+/** Result of MapCSS stylesheet evaluation for all layer selectors. */
+class MapCSSResult
+{
+public:
+    explicit MapCSSResult();
+    ~MapCSSResult();
+
+    void clear();
+
+    /** Results for all layer selectors. */
+    const std::vector<MapCSSResultItem>& results() const;
+
+    /** @internal */
+    MapCSSResultItem& operator[](LayerSelectorKey layer);
+    const MapCSSResultItem& operator[](LayerSelectorKey layer) const;
+
+private:
+    std::vector<MapCSSResultItem> m_results;
+    mutable std::vector<MapCSSResultItem> m_inactivePool; // for reuse of already allocated result items
 };
 
 }

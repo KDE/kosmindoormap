@@ -192,7 +192,7 @@ void SceneController::updateCanvas(SceneGraph &sg) const
     state.zoomLevel = d->m_view->zoomLevel();
     state.floorLevel = d->m_view->level();
     d->m_styleSheet->evaluateCanvas(state, d->m_styleResult);
-    for (auto decl : d->m_styleResult.declarations()) {
+    for (auto decl : d->m_styleResult[{}].declarations()) {
         switch (decl->property()) {
             case MapCSSDeclaration::FillColor:
                 sg.setBackgroundColor(decl->colorValue());
@@ -214,8 +214,14 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     state.floorLevel = d->m_view->level();
     state.openingHours = &d->m_openingHours;
     d->m_styleSheet->evaluate(state, d->m_styleResult);
+    for (const auto &result : d->m_styleResult.results()) {
+        updateElement(e, level, sg, result);
+    }
+}
 
-    if (d->m_styleResult.hasAreaProperties()) {
+void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultItem &result) const
+{
+    if (result.hasAreaProperties()) {
         PolygonBaseItem *item = nullptr;
         std::unique_ptr<SceneGraphItemPayload> baseItem;
         if (e.type() == OSM::Type::Relation && e.tagValue(d->m_typeTag) == "multipolygon") {
@@ -223,7 +229,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
             auto i = static_cast<MultiPolygonItem*>(baseItem.get());
             if (i->path.isEmpty()) {
                 i->path = createPath(e, d->m_labelPlacementPath);
-            } else if (d->m_styleResult.hasLabelProperties()) {
+            } else if (result.hasLabelProperties()) {
                 SceneGeometry::outerPolygonFromPath(i->path, d->m_labelPlacementPath);
             }
             item = i;
@@ -240,7 +246,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
         double lineOpacity = 1.0;
         double fillOpacity = 1.0;
         initializePen(item->pen);
-        for (auto decl : d->m_styleResult.declarations()) {
+        for (auto decl : result.declarations()) {
             applyGenericStyle(decl, item);
             applyPenStyle(e, decl, item->pen, lineOpacity, item->penWidthUnit);
             switch (decl->property()) {
@@ -266,7 +272,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
         }
 
         addItem(sg, e, level, std::move(baseItem));
-    } else if (d->m_styleResult.hasLineProperties()) {
+    } else if (result.hasLineProperties()) {
         auto baseItem = sg.findOrCreatePayload<PolylineItem>(e, level);
         auto item = static_cast<PolylineItem*>(baseItem.get());
         if (item->path.isEmpty()) {
@@ -277,7 +283,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
         double casingOpacity = 1.0;
         initializePen(item->pen);
         initializePen(item->casingPen);
-        for (auto decl : d->m_styleResult.declarations()) {
+        for (auto decl : result.declarations()) {
             applyGenericStyle(decl, item);
             applyPenStyle(e, decl, item->pen, lineOpacity, item->penWidthUnit);
             applyCasingPenStyle(e, decl, item->casingPen, casingOpacity, item->casingPenWidthUnit);
@@ -289,11 +295,11 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
         addItem(sg, e, level, std::move(baseItem));
     }
 
-    if (d->m_styleResult.hasLabelProperties()) {
+    if (result.hasLabelProperties()) {
         QString text;
-        auto textDecl = d->m_styleResult.declaration(MapCSSDeclaration::Text);
+        auto textDecl = result.declaration(MapCSSDeclaration::Text);
         if (!textDecl) {
-            textDecl = d->m_styleResult.declaration(MapCSSDeclaration::ShieldText);
+            textDecl = result.declaration(MapCSSDeclaration::ShieldText);
         }
 
         if (textDecl) {
@@ -304,7 +310,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
             }
         }
 
-        const auto iconDecl = d->m_styleResult.declaration(MapCSSDeclaration::IconImage);
+        const auto iconDecl = result.declaration(MapCSSDeclaration::IconImage);
 
         if (!text.isEmpty() || iconDecl) {
             auto baseItem = sg.findOrCreatePayload<LabelItem>(e, level);
@@ -314,9 +320,9 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
             item->color = d->m_defaultTextColor;
 
             if (item->pos.isNull()) {
-                if (d->m_styleResult.hasAreaProperties()) {
+                if (result.hasAreaProperties()) {
                     item->pos = SceneGeometry::polygonCentroid(d->m_labelPlacementPath);
-                } else if (d->m_styleResult.hasLineProperties()) {
+                } else if (result.hasLineProperties()) {
                     item->pos = SceneGeometry::polylineMidPoint(d->m_labelPlacementPath);
                 }
                 if (item->pos.isNull()) {
@@ -327,7 +333,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
             double textOpacity = 1.0;
             double shieldOpacity = 1.0;
             IconData iconData;
-            for (auto decl : d->m_styleResult.declarations()) {
+            for (auto decl : result.declarations()) {
                 applyGenericStyle(decl, item);
                 applyFontStyle(decl, item->font);
                 switch (decl->property()) {
@@ -435,7 +441,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
                 item->text.prepare({}, item->font);
 
                 // discard labels that are longer than the line they are aligned with
-                if (d->m_styleResult.hasLineProperties() && d->m_labelPlacementPath.size() > 1 && item->angle != 0.0) {
+                if (result.hasLineProperties() && d->m_labelPlacementPath.size() > 1 && item->angle != 0.0) {
                     const auto sceneLen = SceneGeometry::polylineLength(d->m_labelPlacementPath);
                     const auto sceneP1 = d->m_view->viewport().topLeft();
                     const auto sceneP2 = QPointF(sceneP1.x() + sceneLen, sceneP1.y());

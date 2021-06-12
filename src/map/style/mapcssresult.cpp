@@ -10,32 +10,33 @@
 
 using namespace KOSMIndoorMap;
 
-MapCSSResult::MapCSSResult() = default;
-MapCSSResult::~MapCSSResult() = default;
+MapCSSResultItem::MapCSSResultItem() = default;
+MapCSSResultItem::~MapCSSResultItem() = default;
 
-void MapCSSResult::clear()
+void MapCSSResultItem::clear()
 {
     m_declarations.clear();
     m_classes.clear();
     m_flags = MapCSSDeclaration::NoFlag;
+    m_layer = {};
 }
 
-bool MapCSSResult::hasAreaProperties() const
+bool MapCSSResultItem::hasAreaProperties() const
 {
     return m_flags & MapCSSDeclaration::AreaProperty;
 }
 
-bool MapCSSResult::hasLineProperties() const
+bool MapCSSResultItem::hasLineProperties() const
 {
     return m_flags & MapCSSDeclaration::LineProperty;
 }
 
-bool MapCSSResult::hasLabelProperties() const
+bool MapCSSResultItem::hasLabelProperties() const
 {
     return m_flags & MapCSSDeclaration::LabelProperty;
 }
 
-const MapCSSDeclaration* MapCSSResult::declaration(MapCSSDeclaration::Property prop) const
+const MapCSSDeclaration* MapCSSResultItem::declaration(MapCSSDeclaration::Property prop) const
 {
     const auto it = std::lower_bound(m_declarations.begin(), m_declarations.end(), prop, [](auto lhs, auto rhs) {
         return lhs->property() < rhs;
@@ -46,12 +47,12 @@ const MapCSSDeclaration* MapCSSResult::declaration(MapCSSDeclaration::Property p
     return (*it);
 }
 
-const std::vector<const MapCSSDeclaration*>& MapCSSResult::declarations() const
+const std::vector<const MapCSSDeclaration*>& MapCSSResultItem::declarations() const
 {
     return m_declarations;
 }
 
-void MapCSSResult::addDeclaration(const MapCSSDeclaration *decl)
+void MapCSSResultItem::addDeclaration(const MapCSSDeclaration *decl)
 {
     const auto it = std::lower_bound(m_declarations.begin(), m_declarations.end(), decl, [](auto lhs, auto rhs) {
         return lhs->property() < rhs->property();
@@ -65,7 +66,7 @@ void MapCSSResult::addDeclaration(const MapCSSDeclaration *decl)
     m_flags |= decl->propertyFlags();
 }
 
-void MapCSSResult::addClass(ClassSelectorKey cls)
+void MapCSSResultItem::addClass(ClassSelectorKey cls)
 {
     const auto it = std::lower_bound(m_classes.begin(), m_classes.end(), cls);
     if (it == m_classes.end() || (*it) != cls) {
@@ -73,7 +74,70 @@ void MapCSSResult::addClass(ClassSelectorKey cls)
     }
 }
 
-bool MapCSSResult::hasClass(ClassSelectorKey cls) const
+bool MapCSSResultItem::hasClass(ClassSelectorKey cls) const
 {
     return std::binary_search(m_classes.begin(), m_classes.end(), cls);
+}
+
+LayerSelectorKey MapCSSResultItem::layerSelector() const
+{
+    return m_layer;
+}
+
+void MapCSSResultItem::setLayerSelector(LayerSelectorKey layer)
+{
+    m_layer = layer;
+}
+
+
+MapCSSResult::MapCSSResult() = default;
+MapCSSResult::~MapCSSResult() = default;
+
+void MapCSSResult::clear()
+{
+    std::move(m_results.begin(), m_results.end(), std::back_inserter(m_inactivePool));
+    m_results.clear();
+    std::for_each(m_inactivePool.begin(), m_inactivePool.end(), std::mem_fn(&MapCSSResultItem::clear));
+}
+
+const std::vector<MapCSSResultItem>& MapCSSResult::results() const
+{
+    return m_results;
+}
+
+MapCSSResultItem& MapCSSResult::operator[](LayerSelectorKey layer)
+{
+    const auto it = std::find_if(m_results.begin(), m_results.end(), [layer](const auto &res) {
+        return res.layerSelector() == layer;
+    });
+    if (it != m_results.end()) {
+        return *it;
+    }
+
+    if (!m_inactivePool.empty()) {
+        auto res = std::move(m_inactivePool.back());
+        m_inactivePool.pop_back();
+        res.setLayerSelector(layer);
+        m_results.push_back(std::move(res));
+    } else {
+        MapCSSResultItem res;
+        res.setLayerSelector(layer);
+        m_results.push_back(std::move(res));
+    }
+    return m_results.back();
+}
+
+const MapCSSResultItem& MapCSSResult::operator[](LayerSelectorKey layer) const
+{
+    const auto it = std::find_if(m_results.begin(), m_results.end(), [layer](const auto &res) {
+        return res.layerSelector() == layer;
+    });
+    if (it != m_results.end()) {
+        return *it;
+    }
+
+    if (m_inactivePool.empty()) {
+        m_inactivePool.push_back(MapCSSResultItem());
+    }
+    return m_inactivePool.back();
 }
