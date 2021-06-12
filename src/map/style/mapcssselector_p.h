@@ -11,6 +11,7 @@
 
 #include <osm/datatypes.h>
 
+#include <functional>
 #include <memory>
 #include <vector>
 
@@ -32,7 +33,7 @@ public:
     /** Resolve tag keys. */
     virtual void compile(const OSM::DataSet &dataSet) = 0;
     /** Returns @c true if this selector matches the evaluation state. */
-    virtual bool matches(const MapCSSState &state, const MapCSSResult &result) const = 0;
+    virtual bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const = 0;
     /** Selector matches the canvas element. */
     virtual bool matchesCanvas(const MapCSSState &state) const = 0;
 
@@ -61,7 +62,7 @@ public:
     ObjectType objectType;
 
     void compile(const OSM::DataSet &dataSet) override;
-    bool matches(const MapCSSState &state, const MapCSSResult &result) const override;
+    bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
     void write(QIODevice* out) const override;
 
@@ -86,7 +87,7 @@ class MapCSSChainedSelector : public MapCSSSelector
 {
 public:
     void compile(const OSM::DataSet &dataSet) override;
-    bool matches(const MapCSSState &state, const MapCSSResult &result) const override;
+    bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
     void write(QIODevice* out) const override;
     std::vector<std::unique_ptr<MapCSSBasicSelector>> selectors;
@@ -100,7 +101,7 @@ public:
     ~MapCSSUnionSelector();
 
     void compile(const OSM::DataSet &dataSet) override;
-    bool matches(const MapCSSState &state, const MapCSSResult &result) const override;
+    bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
     void write(QIODevice* out) const override;
     std::vector<std::unique_ptr<MapCSSSelector>> selectors;

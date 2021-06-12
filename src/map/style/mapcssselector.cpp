@@ -32,7 +32,7 @@ void MapCSSBasicSelector::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSBasicSelector::matches(const MapCSSState &state, const MapCSSResult &result) const
+bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const
 {
     // check zoom conditions first, as this is the cheapest one and can avoid expensive tag lookups we it doesn't match
     if (m_zoomLow > 0 && state.zoomLevel < m_zoomLow) {
@@ -76,7 +76,11 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state, const MapCSSResult &
         return false;
     }
 
-    return std::all_of(conditions.begin(), conditions.end(), [&state](const auto &cond) { return cond->matches(state); });
+    if (std::all_of(conditions.begin(), conditions.end(), [&state](const auto &cond) { return cond->matches(state); })) {
+        matchCallback(result, m_layer);
+        return true;
+    }
+    return false;
 }
 
 bool MapCSSBasicSelector::matchesCanvas(const MapCSSState &state) const
@@ -190,10 +194,10 @@ void MapCSSChainedSelector::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSChainedSelector::matches(const MapCSSState &state, const MapCSSResult &result) const
+bool MapCSSChainedSelector::matches([[maybe_unused]] const MapCSSState &state, [[maybe_unused]] MapCSSResult &result,
+                                    [[maybe_unused]] const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const
 {
-    Q_UNUSED(state); // TODO
-    Q_UNUSED(result);
+    // TODO
     return false;
 }
 
@@ -224,9 +228,9 @@ void MapCSSUnionSelector::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSUnionSelector::matches(const MapCSSState &state, const MapCSSResult &result) const
+bool MapCSSUnionSelector::matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const
 {
-    return std::any_of(selectors.begin(), selectors.end(), [&state, &result](const auto &selector) { return selector->matches(state, result); });
+    return std::any_of(selectors.begin(), selectors.end(), [&state, &result, &matchCallback](const auto &selector) { return selector->matches(state, result, matchCallback); });
 }
 
 bool MapCSSUnionSelector::matchesCanvas(const MapCSSState &state) const

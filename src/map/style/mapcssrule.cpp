@@ -27,24 +27,22 @@ void MapCSSRule::compile(const OSM::DataSet &dataSet)
 void MapCSSRule::evaluate(const MapCSSState &state, MapCSSResult &result) const
 {
     // TODO how do we deal with chained selectors here??
-    if (!m_selector->matches(state, result)) {
-        return;
-    }
-
-    for (const auto &decl : m_declarations) {
-        switch (decl->type()) {
-            case MapCSSDeclaration::PropertyDeclaration:
-                result[{}].addDeclaration(decl.get());
-                break;
-            case MapCSSDeclaration::ClassDeclaration:
-                result[{}].addClass(decl->classSelectorKey());
-                break;
-            case MapCSSDeclaration::TagDeclaration:
-                // TODO
-                qDebug() << "MapCSS tag declaration not implemented yet.";
-                break;
+    m_selector->matches(state, result, [this](auto &result, auto layer) {
+        for (const auto &decl : m_declarations) {
+            switch (decl->type()) {
+                case MapCSSDeclaration::PropertyDeclaration:
+                    result[layer].addDeclaration(decl.get());
+                    break;
+                case MapCSSDeclaration::ClassDeclaration:
+                    result[layer].addClass(decl->classSelectorKey());
+                    break;
+                case MapCSSDeclaration::TagDeclaration:
+                    // TODO
+                    qDebug() << "MapCSS tag declaration not implemented yet.";
+                    break;
+            }
         }
-    }
+    });
 }
 
 void MapCSSRule::evaluateCanvas(const MapCSSState &state, MapCSSResult &result) const
