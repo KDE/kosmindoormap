@@ -55,13 +55,5 @@ area[razed:building]
     opacity: 0;
 }
 
-// boundaries
-way[boundary=administrative],
-way[boundary=census],
-way[boundary=postal_code]
-{
-    opacity: 0;
-}
-
 // marble clipping side-effects
 area[marble_land] { opacity: 0; }
