@@ -54,7 +54,7 @@ void OSMElementInformationModel::setElement(const OSMElement &element)
         reload();
     }
     endResetModel();
-    emit elementChanged();
+    Q_EMIT elementChanged();
 }
 
 void OSMElementInformationModel::clear()
@@ -66,7 +66,7 @@ void OSMElementInformationModel::clear()
     m_infos.clear();
     m_element = {};
     endResetModel();
-    emit elementChanged();
+    Q_EMIT elementChanged();
 }
 
 QString OSMElementInformationModel::name() const

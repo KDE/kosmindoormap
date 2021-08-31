@@ -93,7 +93,7 @@ void View::setLevel(int level)
     }
 
     m_level = level;
-    emit floorLevelChanged();
+    Q_EMIT floorLevelChanged();
 }
 
 double View::zoomLevel() const
@@ -118,7 +118,7 @@ void View::setZoomLevel(double zoom, QPointF screenCenter)
 
     m_viewport.adjust(-xr * dx, -yr * dy, (1-xr) * dx, (1-yr) * dy);
     constrainViewToScene();
-    emit transformationChanged();
+    Q_EMIT transformationChanged();
 }
 
 QRectF View::viewport() const
@@ -311,7 +311,7 @@ void View::centerOnGeoCoordinate(QPointF geoCoord)
     const auto sceneCenter = mapGeoToScene(OSM::Coordinate(geoCoord.y(), geoCoord.x()));
     m_viewport.moveCenter(sceneCenter);
     constrainViewToScene();
-    emit transformationChanged();
+    Q_EMIT transformationChanged();
 }
 
 QDateTime View::beginTime() const
@@ -326,7 +326,7 @@ void View::setBeginTime(const QDateTime &beginTime)
         return;
     }
     m_beginTime = alignedTime;
-    emit timeChanged();
+    Q_EMIT timeChanged();
 }
 
 QDateTime View::endTime() const
@@ -341,5 +341,5 @@ void View::setEndTime(const QDateTime& endTime)
         return;
     }
     m_endTime = alignedTime;
-    emit timeChanged();
+    Q_EMIT timeChanged();
 }

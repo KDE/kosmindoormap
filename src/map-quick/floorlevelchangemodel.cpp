@@ -65,9 +65,9 @@ void FloorLevelChangeModel::setCurrentFloorLevel(int level)
     }
     m_currentFloorLevel = level;
     if (!m_levels.empty()) {
-        emit dataChanged(index(0, 0), index(rowCount() - 1, 0));
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0));
     }
-    emit contentChanged();
+    Q_EMIT contentChanged();
 }
 
 FloorLevelModel* FloorLevelChangeModel::floorLevelModel() const
@@ -82,7 +82,7 @@ void FloorLevelChangeModel::setFloorLevelModel(FloorLevelModel *floorLevelModel)
     }
 
     m_floorLevelModel = floorLevelModel;
-    emit contentChanged();
+    Q_EMIT contentChanged();
 }
 
 OSMElement FloorLevelChangeModel::element() const
@@ -125,7 +125,7 @@ void FloorLevelChangeModel::setElement(const OSMElement &element)
     }
 
     endResetModel();
-    emit contentChanged();
+    Q_EMIT contentChanged();
 }
 
 bool FloorLevelChangeModel::isLevelChangeElement(OSM::Element element) const

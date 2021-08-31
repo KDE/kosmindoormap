@@ -104,7 +104,7 @@ void MapItem::setStylesheetName(const QString &styleSheet)
 
         if (cssParser.hasError()) {
             m_errorMessage = cssParser.errorMessage();
-            emit errorChanged();
+            Q_EMIT errorChanged();
             return;
         }
     }
@@ -112,7 +112,7 @@ void MapItem::setStylesheetName(const QString &styleSheet)
     m_style.compile(m_data.dataSet());
     m_controller.setStyleSheet(&m_style);
 
-    emit styleSheetChanged();
+    Q_EMIT styleSheetChanged();
     update();
 }
 
@@ -149,7 +149,7 @@ void MapItem::loaderDone()
         m_view->setLevel(0);
         m_floorLevelModel->setMapData(&m_data);
         m_view->floorLevelChanged();
-        emit mapDataChanged();
+        Q_EMIT mapDataChanged();
     }
 
     Q_EMIT errorChanged();
@@ -179,8 +179,8 @@ void MapItem::clear()
     m_sg.clear();
     m_data = MapData();
     m_controller.setMapData(m_data);
-    emit mapDataChanged();
-    emit errorChanged();
+    Q_EMIT mapDataChanged();
+    Q_EMIT errorChanged();
     update();
 }
 
@@ -224,7 +224,7 @@ void MapItem::setOverlaySources(const QVariant &overlays)
     }
 
     m_controller.setOverlaySources(std::move(sources));
-    emit overlaySourcesChanged();
+    Q_EMIT overlaySourcesChanged();
     update();
 }
 
@@ -265,7 +265,7 @@ void MapItem::setRegion(const QString &region)
     }
 
     m_data.setRegionCode(region);
-    emit regionChanged();
+    Q_EMIT regionChanged();
 }
 
 QString MapItem::timeZoneId() const
@@ -281,5 +281,5 @@ void MapItem::setTimeZoneId(const QString &tz)
     }
 
     m_data.setTimeZone(QTimeZone(tzId));
-    emit timeZoneChanged();
+    Q_EMIT timeZoneChanged();
 }

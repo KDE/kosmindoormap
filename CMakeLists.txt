@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2018 Volker Krause <vkrause@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 # KDE Application Version, managed by release script
 set (RELEASE_SERVICE_VERSION_MAJOR "21")
@@ -12,10 +12,10 @@ project(KOSMIndoorMap VERSION ${RELEASE_SERVICE_VERSION})
 
 option(BUILD_STANDALONE_APP "Build and install the stand-alone test/demo app." OFF)
 
-find_package(ECM 5.59 REQUIRED NO_MODULE)
+find_package(ECM 5.85 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
-include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMAddTests)
 include(ECMGenerateHeaders)
 include(ECMQtDeclareLoggingCategory)
@@ -25,10 +25,6 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(GenerateExportHeader)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
 ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     VERSION_HEADER kosmindoormap_version.h
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KOSMIndoorMapConfigVersion.cmake"
@@ -75,7 +71,6 @@ endif()
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054400)
-add_definitions(-DQT_NO_FOREACH)
 
 add_subdirectory(src)
 if (BUILD_TESTING)

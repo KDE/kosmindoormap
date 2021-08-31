@@ -77,7 +77,7 @@ void EquipmentModel::setMapData(const MapData &data)
         qDebug() << "  E" << eq.sourceElements.size() << eq.levels << eq.type;
     }
 
-    emit update();
+    Q_EMIT update();
 }
 
 void EquipmentModel::forEach(int floorLevel, const std::function<void (OSM::Element, int)> &func) const

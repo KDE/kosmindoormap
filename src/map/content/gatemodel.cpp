@@ -39,7 +39,7 @@ void GateModel::setMapData(const MapData &data)
         populateModel();
     }
     endResetModel();
-    emit mapDataChanged();
+    Q_EMIT mapDataChanged();
     matchGates();
 }
 
@@ -170,12 +170,12 @@ void GateModel::matchGates()
     m_departureGateRow = matchGate(m_departureGate);
     setGateTag(m_departureGateRow, m_tagKeys.mxDeparture, true);
 
-    emit gateIndexChanged();
+    Q_EMIT gateIndexChanged();
     if (m_arrivalGateRow >= 0) {
-        emit dataChanged(index(m_arrivalGateRow, 0), index(m_arrivalGateRow, 0));
+        Q_EMIT dataChanged(index(m_arrivalGateRow, 0), index(m_arrivalGateRow, 0));
     }
     if (m_departureGateRow >= 0) {
-        emit dataChanged(index(m_departureGateRow, 0), index(m_departureGateRow, 0));
+        Q_EMIT dataChanged(index(m_departureGateRow, 0), index(m_departureGateRow, 0));
     }
 }
 

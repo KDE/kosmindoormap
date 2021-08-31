@@ -48,7 +48,7 @@ void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
 
     initialize();
     endResetModel();
-    emit mapDataChanged();
+    Q_EMIT mapDataChanged();
 }
 
 QObject* LocationQueryOverlayProxyModel::sourceModel() const
@@ -96,7 +96,7 @@ void LocationQueryOverlayProxyModel::setSourceModel(QObject *sourceModel)
         for (int i = first.row(); i <= last.row(); ++i) {
             m_nodes[i] = nodeForRow(i);
         }
-        emit dataChanged(index(first.row(), 0), index(last.row(), 0));
+        Q_EMIT dataChanged(index(first.row(), 0), index(last.row(), 0));
     });
 }
 

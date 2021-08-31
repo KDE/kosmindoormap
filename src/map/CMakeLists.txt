@@ -70,7 +70,7 @@ add_library(KOSMIndoorMap
 
 generate_export_header(KOSMIndoorMap BASE_NAME KOSMIndoorMap)
 set_target_properties(KOSMIndoorMap PROPERTIES
-    VERSION ${KOSMINDOORMAP_VERSION_STRING}
+    VERSION ${KOSMINDOORMAP_VERSION}
     SOVERSION ${KOSMINDOORMAP_SOVERSION}
     EXPORT_NAME KOSMIndoorMap
 )

@@ -49,7 +49,7 @@ void PlatformModel::setMapData(const MapData &data)
         createLabels();
     }
     endResetModel();
-    emit mapDataChanged();
+    Q_EMIT mapDataChanged();
     matchPlatforms();
 }
 
@@ -178,12 +178,12 @@ void PlatformModel::matchPlatforms()
     setPlatformTag(m_departurePlatformRow, m_tagKeys.departure, false);
     m_departurePlatformRow = matchPlatform(m_departurePlatform);
     setPlatformTag(m_departurePlatformRow, m_tagKeys.departure, true);
-    emit platformIndexChanged();
+    Q_EMIT platformIndexChanged();
     if (m_arrivalPlatformRow >= 0) {
-        emit dataChanged(index(m_arrivalPlatformRow, 0), index(m_arrivalPlatformRow, 0));
+        Q_EMIT dataChanged(index(m_arrivalPlatformRow, 0), index(m_arrivalPlatformRow, 0));
     }
     if (m_departurePlatformRow >= 0) {
-        emit dataChanged(index(m_departurePlatformRow, 0), index(m_departurePlatformRow, 0));
+        Q_EMIT dataChanged(index(m_departurePlatformRow, 0), index(m_departurePlatformRow, 0));
     }
 }
 

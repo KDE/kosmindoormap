@@ -35,7 +35,7 @@ void RealtimeEquipmentModel::setRealtimeModel(QObject *model)
     }
 
     m_realtimeModel = qobject_cast<QAbstractItemModel*>(model);
-    emit realtimeModelChanged();
+    Q_EMIT realtimeModelChanged();
 
     if (m_realtimeModel) {
         connect(m_realtimeModel, &QAbstractItemModel::modelReset, this, &RealtimeEquipmentModel::updateRealtimeState);
@@ -178,7 +178,7 @@ void RealtimeEquipmentModel::updateRealtimeState()
         }
     }
 
-    emit update();
+    Q_EMIT update();
 }
 void RealtimeEquipmentModel::resolveEquipmentPair(int eqRow1, int eqRow2, int rtRow1, int rtRow2)
 {
