@@ -11,4 +11,4 @@ callgrind.*
 heaptrack.*
 *.qmlc
 *.fail
-build
+/build*
