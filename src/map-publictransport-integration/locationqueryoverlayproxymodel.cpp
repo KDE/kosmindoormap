@@ -185,15 +185,26 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
             }
             break;
         case Location::RentedVehicle:
+        {
+            const auto vehicle = loc.data().value<RentalVehicle>();
+
             // free floating vehicles have no matching OSM element, so no point in searching for one
             info.overlayNode.id = m_data.dataSet().nextInternalId();
-            OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
+            switch (vehicle.type()) {
+                case RentalVehicle::ElectricKickScooter:
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "scooter_rental");
+                    break;
+                default:
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
+                    break;
+            }
             OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
             OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, "1");
             if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !loc.rentalVehicle().network().name().isEmpty()) {
                 OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicle().network().name().toUtf8());
             }
             break;
+        }
         case Location::Equipment:
             break;
     }
