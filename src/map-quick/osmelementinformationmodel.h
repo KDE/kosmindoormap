@@ -89,6 +89,7 @@ public:
         OperatorName,
         Network,
         OperatorWikipedia,
+        RemainingRange,
         DebugLink,
         DebugKey,
     };

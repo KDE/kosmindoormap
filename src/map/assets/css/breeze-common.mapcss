@@ -485,6 +485,10 @@ node|z20-[vending=public_transport_tickets] {
     icon-color: #27ae60;
     text: "";
 }
+*|z18-[amenity=scooter_rental][mx:realtime_available>0][mx:remaining_range<5000]
+{
+    icon-color: #fdbc4b;
+}
 
 // charging stations
 node|z19-[amenity=charging_station] {

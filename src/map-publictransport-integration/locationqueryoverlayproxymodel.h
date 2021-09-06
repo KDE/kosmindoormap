@@ -67,6 +67,7 @@ private:
         OSM::TagKey realtimeAvailable;
         OSM::TagKey network;
         OSM::TagKey mxoid;
+        OSM::TagKey remainingRange;
     } m_tagKeys;
 
     std::vector<Info> m_nodes;

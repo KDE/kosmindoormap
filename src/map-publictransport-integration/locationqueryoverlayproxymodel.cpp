@@ -44,6 +44,7 @@ void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
         m_tagKeys.realtimeAvailable = m_data.dataSet().makeTagKey("mx:realtime_available");
         m_tagKeys.network = m_data.dataSet().makeTagKey("network");
         m_tagKeys.mxoid = m_data.dataSet().makeTagKey("mx:oid");
+        m_tagKeys.remainingRange = m_data.dataSet().makeTagKey("mx:remaining_range");
     }
 
     initialize();
@@ -210,6 +211,9 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
             OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, "1");
             if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !loc.rentalVehicle().network().name().isEmpty()) {
                 OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicle().network().name().toUtf8());
+            }
+            if (vehicle.remainingRange() >= 0) {
+                OSM::setTagValue(info.overlayNode, m_tagKeys.remainingRange, QByteArray::number(vehicle.remainingRange()));
             }
             break;
         }

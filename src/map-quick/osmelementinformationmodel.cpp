@@ -15,6 +15,17 @@
 
 using namespace KOSMIndoorMap;
 
+static QString formatDistance(int meter)
+{
+    if (meter < 1000) {
+        return i18n("%1m", meter);
+    }
+    if (meter < 10000) {
+        return i18n("%1km", ((int)meter/100)/10.0);
+    }
+    return i18n("%1km", (int)qRound(meter/1000.0));
+}
+
 bool OSMElementInformationModel::Info::operator<(OSMElementInformationModel::Info other) const
 {
     if (category == other.category) {
@@ -183,6 +194,7 @@ struct {
     M("email", Email, Contact),
     M("fee", Fee, UnresolvedCategory),
     M("maxstay", MaxStay, Parking),
+    M("mx:remaining_range", RemainingRange, Main),
     M("network", Network, Operator),
     M("office", Category, Header),
     M("old_name", OldName, UnresolvedCategory),
@@ -436,6 +448,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case OperatorName: return {};
         case Network: return i18nc("transport network", "Network");
         case OperatorWikipedia: return {};
+        case RemainingRange: return i18nc("remaining travel range of a battery powered vehicle", "Remaining range");
         case DebugLink: return QStringLiteral("OSM");
         case DebugKey: return {};
     }
@@ -637,6 +650,11 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         case OperatorName: return QString::fromUtf8(m_element.tagValue("operator"));
         case Network: return QString::fromUtf8(m_element.tagValue("network"));
         case OperatorWikipedia: return wikipediaUrl(m_element.tagValue("operator:wikipedia", QLocale()));
+        case RemainingRange:
+        {
+            const auto range = m_element.tagValue("mx:remaining_range").toInt();
+            return formatDistance(range);
+        }
         case DebugLink: return m_element.url();
         case DebugKey: return {};
     }
