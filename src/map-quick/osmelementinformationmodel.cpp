@@ -744,8 +744,8 @@ QUrl OSMElementInformationModel::wikipediaUrl(const QByteArray &wp) const
 
     QUrl url;
     url.setScheme(QStringLiteral("https"));
-    url.setHost(s.leftRef(idx) + QLatin1String(".wikipedia.org"));
-    url.setPath(QLatin1String("/wiki/") + s.midRef(idx + 1));
+    url.setHost(QStringView(s).left(idx) + QLatin1String(".wikipedia.org"));
+    url.setPath(QLatin1String("/wiki/") + QStringView(s).mid(idx + 1));
     return url;
 }
 
