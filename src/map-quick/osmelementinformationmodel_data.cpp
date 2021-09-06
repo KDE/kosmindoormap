@@ -93,6 +93,7 @@ static constexpr const ValueMapEntry amenity_map[] = {
     { "mobile_phone", I18N_NOOP2("OSM::amenity/shop", "Mobile Phone") },
     { "money_transfer", I18N_NOOP2("OSM::amenity/shop", "Money Transfer") },
     { "motorcycle_parking", I18N_NOOP2("OSM::amenity/shop", "Motorcycle Parking") },
+    { "motorcycle_rental", I18N_NOOP2("OSM::amenity/shop", "Motorcycle Rental") },
     { "museum", I18N_NOOP2("OSM::amenity/shop", "Museum") },
     { "music", I18N_NOOP2("OSM::amenity/shop", "Music") },
     { "musical_instrument", I18N_NOOP2("OSM::amenity/shop", "Musical Instruments") },

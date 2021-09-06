@@ -191,11 +191,19 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
             // free floating vehicles have no matching OSM element, so no point in searching for one
             info.overlayNode.id = m_data.dataSet().nextInternalId();
             switch (vehicle.type()) {
+                case RentalVehicle::Unknown:
+                case RentalVehicle::Bicycle:
+                case RentalVehicle::Pedelec:
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
+                    break;
                 case RentalVehicle::ElectricKickScooter:
                     OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "scooter_rental");
                     break;
-                default:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
+                case RentalVehicle::ElectricMoped:
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "motorcycle_rental");
+                    break;
+                case RentalVehicle::Car:
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "car_rental");
                     break;
             }
             OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
