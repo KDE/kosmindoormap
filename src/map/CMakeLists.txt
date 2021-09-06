@@ -20,12 +20,8 @@ bison_target(mapcssparser
 add_flex_bison_dependency(mapcssscanner mapcssparser)
 set_source_files_properties(${BISON_mapcssparser_OUTPUTS} ${FLEX_mapcssscanner_OUTPUTS} PROPERTIES SKIP_AUTOMOC ON)
 
-ecm_qt_declare_logging_category(logging_srcs HEADER logging.h IDENTIFIER KOSMIndoorMap::Log CATEGORY_NAME org.kde.kosmindoormap)
-ecm_qt_declare_logging_category(logging_srcs HEADER render-logging.h IDENTIFIER KOSMIndoorMap::RenderLog CATEGORY_NAME org.kde.kosmindoormap.renderer)
-ecm_qt_declare_logging_category(logging_srcs HEADER reassembly-logging.h IDENTIFIER KOSMIndoorMap::ReassemblyLog CATEGORY_NAME org.kde.kosmindoormap.reassembly)
-
-add_library(KOSMIndoorMap
-    ${logging_srcs}
+add_library(KOSMIndoorMap)
+target_sources(KOSMIndoorMap PRIVATE
     assets/assets.qrc
 
     content/equipmentmodel.cpp
@@ -66,6 +62,28 @@ add_library(KOSMIndoorMap
     style/mapcssstyle.cpp
     ${BISON_mapcssparser_OUTPUTS}
     ${FLEX_mapcssscanner_OUTPUTS}
+)
+
+ecm_qt_declare_logging_category(KOSMIndoorMap
+    HEADER logging.h
+    IDENTIFIER KOSMIndoorMap::Log
+    CATEGORY_NAME org.kde.kosmindoormap
+    DESCRIPTION "KOSMIndoorMap"
+    EXPORT KOSMINDOORMAP
+)
+ecm_qt_declare_logging_category(KOSMIndoorMap
+    HEADER render-logging.h
+    IDENTIFIER KOSMIndoorMap::RenderLog
+    CATEGORY_NAME org.kde.kosmindoormap.renderer
+    DESCRIPTION "KOSMIndoorMap (Rendering)"
+    EXPORT KOSMINDOORMAP
+)
+ecm_qt_declare_logging_category(KOSMIndoorMap
+    HEADER reassembly-logging.h
+    IDENTIFIER KOSMIndoorMap::ReassemblyLog
+    CATEGORY_NAME org.kde.kosmindoormap.reassembly
+    DESCRIPTION "KOSMIndoorMap (Geometry Reassembly)"
+    EXPORT KOSMINDOORMAP
 )
 
 generate_export_header(KOSMIndoorMap BASE_NAME KOSMIndoorMap)
@@ -150,4 +168,8 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kosmindoormap_export.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kosmindoormap
 )
-install(FILES org_kde_kosmindoormap.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+ecm_qt_install_logging_categories(
+    EXPORT KOSMINDOORMAP
+    FILE org_kde_kosmindoormap.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
