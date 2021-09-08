@@ -10,6 +10,7 @@
 
 #include "iconloader_p.h"
 #include "penwidthutil_p.h"
+#include "poleofinaccessibilityfinder_p.h"
 #include "scenegeometry_p.h"
 #include "openinghourscache_p.h"
 #include "../style/mapcssdeclaration_p.h"
@@ -46,6 +47,7 @@ public:
     QPolygonF m_labelPlacementPath;
     IconLoader m_iconLoader;
     OpeningHoursCache m_openingHours;
+    PoleOfInaccessibilityFinder m_piaFinder;
 
     OSM::TagKey m_layerTag;
     OSM::TagKey m_typeTag;
@@ -321,7 +323,12 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
 
             if (item->pos.isNull()) {
                 if (result.hasAreaProperties()) {
-                    item->pos = SceneGeometry::polygonCentroid(d->m_labelPlacementPath);
+                    // for simple enough shapes we can use the faster centroid rather than the expensive PIA
+                    if (d->m_labelPlacementPath.size() > 6)  {
+                        item->pos = d->m_piaFinder.find(d->m_labelPlacementPath);
+                    } else {
+                        item->pos = SceneGeometry::polygonCentroid(d->m_labelPlacementPath);
+                    }
                 } else if (result.hasLineProperties()) {
                     item->pos = SceneGeometry::polylineMidPoint(d->m_labelPlacementPath);
                 }

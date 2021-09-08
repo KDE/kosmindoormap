@@ -47,6 +47,7 @@ target_sources(KOSMIndoorMap PRIVATE
     scene/openinghourscache.cpp
     scene/overlaysource.cpp
     scene/penwidthutil.cpp
+    scene/poleofinaccessibilityfinder.cpp
     scene/scenecontroller.cpp
     scene/scenegeometry.cpp
     scene/scenegraph.cpp
