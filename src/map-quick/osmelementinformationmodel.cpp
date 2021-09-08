@@ -195,6 +195,7 @@ struct {
     M("fee", Fee, UnresolvedCategory),
     M("maxstay", MaxStay, Parking),
     M("mx:remaining_range", RemainingRange, Main),
+    M("mx:vehicle", Category, Header),
     M("network", Network, Operator),
     M("office", Category, Header),
     M("old_name", OldName, UnresolvedCategory),
@@ -468,6 +469,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             l += m_element.tagValue("tourism").split(';');
             l += m_element.tagValue("vending").split(';');
             l += m_element.tagValue("office").split(';');
+            l += m_element.tagValue("mx:vehicle");
             if (l.isEmpty()) {
                 l += m_element.tagValue("room").split(';');
             }

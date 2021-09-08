@@ -460,10 +460,10 @@ node|z20-[vending=public_transport_tickets] {
     icon-opacity: 0.0;
 }
 
-// bicycle rental
+// vehicle rental stations
 *|z18-[amenity=bicycle_rental] {
     icon-color: #3daee9;
-    icon-image: "bicycle_rental";
+    icon-image: amenity;
     text: ""; // suppress generic names messing up the layouting when we have realtime data (see below)
 }
 *|z18-[amenity=bicycle_rental][mx:realtime_available=0] {
@@ -477,15 +477,20 @@ node|z20-[vending=public_transport_tickets] {
     text-color: #27ae60;
 }
 
-*|z18-[amenity=car_rental][mx:realtime_available>0],
-*|z18-[amenity=motorcycle_rental][mx:realtime_available>0],
-*|z18-[amenity=scooter_rental][mx:realtime_available>0]
+// free floating rental vehicles
+*|z18-[mx:vehicle=bicycle_rental],
+*|z18-[mx:vehicle=car_rental],
+*|z18-[mx:vehicle=motorcycle_rental],
+*|z18-[mx:vehicle=scooter_rental]
 {
-    icon-image: amenity;
+    icon-image: mx:vehicle;
     icon-color: #27ae60;
     text: "";
 }
-*|z18-[amenity=scooter_rental][mx:realtime_available>0][mx:remaining_range<5000]
+*|z18-[mx:vehicle=bicycle_rental][mx:remaining_range<5000],
+*|z18-[mx:vehicle=car_rental][mx:remaining_range<30000],
+*|z18-[mx:vehicle=motorcycle_rental][mx:remaining_range<5000],
+*|z18-[mx:vehicle=scooter_rental][mx:remaining_range<5000]
 {
     icon-color: #fdbc4b;
 }

@@ -45,6 +45,7 @@ void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
         m_tagKeys.network = m_data.dataSet().makeTagKey("network");
         m_tagKeys.mxoid = m_data.dataSet().makeTagKey("mx:oid");
         m_tagKeys.remainingRange = m_data.dataSet().makeTagKey("mx:remaining_range");
+        m_tagKeys.vehicle = m_data.dataSet().makeTagKey("mx:vehicle");
     }
 
     initialize();
@@ -195,20 +196,19 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
                 case RentalVehicle::Unknown:
                 case RentalVehicle::Bicycle:
                 case RentalVehicle::Pedelec:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.vehicle, "bicycle_rental");
                     break;
                 case RentalVehicle::ElectricKickScooter:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "scooter_rental");
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.vehicle, "scooter_rental");
                     break;
                 case RentalVehicle::ElectricMoped:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "motorcycle_rental");
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.vehicle, "motorcycle_rental");
                     break;
                 case RentalVehicle::Car:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "car_rental");
+                    OSM::setTagValue(info.overlayNode, m_tagKeys.vehicle, "car_rental");
                     break;
             }
             OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
-            OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, "1");
             if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !loc.rentalVehicle().network().name().isEmpty()) {
                 OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicle().network().name().toUtf8());
             }

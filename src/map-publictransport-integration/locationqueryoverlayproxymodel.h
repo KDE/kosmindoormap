@@ -68,6 +68,7 @@ private:
         OSM::TagKey network;
         OSM::TagKey mxoid;
         OSM::TagKey remainingRange;
+        OSM::TagKey vehicle;
     } m_tagKeys;
 
     std::vector<Info> m_nodes;
