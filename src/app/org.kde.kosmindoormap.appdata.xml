@@ -28,7 +28,7 @@
   <name xml:lang="zh-CN">KDE OSM 室内地图</name>
   <summary>OSM indoor map demo application</summary>
   <summary xml:lang="ca">Aplicació de demostració de mapes OSM d'interiors</summary>
-  <summary xml:lang="ca-valencia">Aplicació de demostració per a mapes d'interiors OSM</summary>
+  <summary xml:lang="ca-valencia">Aplicació de demostració de mapes OSM d'interiors</summary>
   <summary xml:lang="en-GB">OSM indoor map demo application</summary>
   <summary xml:lang="es">Aplicación de demostración de planos de interiores de OSM</summary>
   <summary xml:lang="fr">Application de démonstration pour la carte interne de OpenStreetMap</summary>
@@ -48,7 +48,7 @@
   <description>
     <p>Demo application for KDE's OSM indoor map component.</p>
     <p xml:lang="ca">Aplicació de demostració per al component de mapes OSM d'interiors del KDE.</p>
-    <p xml:lang="ca-valencia">Aplicació de demostració per al component de mapes d'interiors OSM del KDE.</p>
+    <p xml:lang="ca-valencia">Aplicació de demostració per al component de mapes OSM d'interiors del KDE.</p>
     <p xml:lang="en-GB">Demo application for KDE's OSM indoor map component.</p>
     <p xml:lang="es">Aplicación de demostración para el componente de planos de interiores de OSM para KDE.</p>
     <p xml:lang="fr">Application de démonstration pour le composant de KDE de carte interne de OpenStreetmap.</p>
