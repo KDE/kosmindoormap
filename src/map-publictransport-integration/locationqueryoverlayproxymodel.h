@@ -70,6 +70,7 @@ private:
         OSM::TagKey remainingRange;
         OSM::TagKey vehicle;
     } m_tagKeys;
+    OSM::TagKey m_realtimeAvailableTagKeys[5];
 
     std::vector<Info> m_nodes;
     MapData m_data;
