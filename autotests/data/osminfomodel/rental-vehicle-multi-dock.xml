@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm>
+    <node id="1" lat="0.0" lon="0.0">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="10"/>
+        <tag k="mx:realtime_available" v="5"/>
+        <tag k="mx:realtime_available:bike" v="3"/>
+        <tag k="mx:realtime_available:pedelec" v="2"/>
+    </node>
+</osm>

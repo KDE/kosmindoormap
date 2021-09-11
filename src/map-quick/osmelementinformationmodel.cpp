@@ -176,7 +176,7 @@ struct {
     M("brand:wikipedia", Wikipedia, UnresolvedCategory),
     M("bus_routes", Routes, Main),
     M("buses", Routes, Main),
-    M("capacity", Capacity, Parking),
+    M("capacity", Capacity, UnresolvedCategory),
     M("capacity:charging", CapacityCharing, Parking),
     M("capacity:disabled", CapacityDisabled, Parking),
     M("capacity:parent", CapacityParent, Parking),
@@ -194,6 +194,7 @@ struct {
     M("email", Email, Contact),
     M("fee", Fee, UnresolvedCategory),
     M("maxstay", MaxStay, Parking),
+    M("mx:realtime_available", AvailableVehicles, Main),
     M("mx:remaining_range", RemainingRange, Main),
     M("mx:vehicle", Category, Header),
     M("network", Network, Operator),
@@ -306,9 +307,16 @@ void OSMElementInformationModel::resolveCategories()
                     info.category = Main;
                 }
                 break;
+            case Capacity:
+                if (m_element.tagValue("amenity").endsWith("rental")) {
+                    info.category = Main;
+                } else {
+                    info.category = Parking;
+                }
+                break;
             default:
             {
-                // for anything else: if it's not clearly something we have a secondary group for, resovle it to Main
+                // for anything else: if it's not clearly something we have a secondary group for, resolve it to Main
                 const auto amenity = m_element.tagValue("amenity");
                 if ((amenity != "parking" && amenity != "toilets")
                     || !m_element.tagValue("office").isEmpty()
@@ -424,6 +432,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case Takeaway: return i18n("Takeaway");
         case Socket: return i18nc("electrical power socket", "Socket");
         case OpeningHours: return {};
+        case AvailableVehicles: return i18n("Available vehicles");
         case Fee: return i18n("Fee");
         case Authentication: return i18n("Authentication");
         case BicycleParking: return i18n("Bicycle parking");
@@ -562,6 +571,37 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return QLocale().createSeparatedList(l);
         }
         case OpeningHours: return QString::fromUtf8(m_element.tagValue("opening_hours"));
+        case AvailableVehicles:
+        {
+            const auto total = m_element.tagValue("mx:realtime_available").toInt();
+            QStringList types;
+            // there's no I18N_NOOP plural variants, so we have to use this more expensive approach
+            struct {
+                const char *tagName;
+                KLocalizedString msg;
+            } static const available_vehicles_map[] = {
+                { "mx:realtime_available:bike", ki18ncp("available rental vehicles", "%1 bike", "%1 bikes") },
+                { "mx:realtime_available:pedelec", ki18ncp("available rental vehicles", "%1 pedelec", "%1 pedelecs") },
+                { "mx:realtime_available:scooter", ki18ncp("available rental vehicles", "%1 kick scooter", "%1 kick scooters") },
+                { "mx:realtime_available:motorcycle", ki18ncp("available rental vehicles", "%1 moped", "%1 mopeds") },
+                { "mx:realtime_available:car", ki18ncp("available rental vehicles", "%1 car", "%1 cars") },
+            };
+            for (const auto &v : available_vehicles_map) {
+                const auto b = m_element.tagValue(v.tagName);
+                if (b.isEmpty()) {
+                    continue;
+                }
+                types.push_back(v.msg.subs(b.toInt()).toString());
+            }
+
+            if (types.isEmpty()) {
+                return QString::number(total);
+            } else if (types.size() == 1) {
+                return types.at(0);
+            } else {
+                return i18n("%1 (%2)", QString::number(total), QLocale().createSeparatedList(types));
+            }
+        }
         case Fee:
         {
             QByteArray fee;

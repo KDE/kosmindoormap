@@ -64,6 +64,7 @@ public:
         Takeaway,
         Socket,
         OpeningHours,
+        AvailableVehicles,
         Fee,
         Authentication,
         BicycleParking,

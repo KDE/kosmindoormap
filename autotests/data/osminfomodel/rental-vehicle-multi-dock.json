@@ -1,0 +1,13 @@
+{
+    "content": [
+        {
+            "keyLabel": "Available vehicles",
+            "value": "5 (3 bikes and 2 pedelecs)"
+        },
+        {
+            "keyLabel": "Capacity",
+            "value": "10"
+        }
+    ],
+    "name": "Bicycle Rental"
+}
