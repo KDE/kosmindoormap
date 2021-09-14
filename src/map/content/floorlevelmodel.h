@@ -39,7 +39,7 @@ public:
 
     /** Maps a floor level to a model row index. */
     Q_INVOKABLE int rowForLevel(int level) const;
-    /** Mapps a row index to a floor level. */
+    /** Maps a row index to a floor level. */
     Q_INVOKABLE int levelForRow(int row) const;
 
     /** Returns @c true when we can still go further down. */
