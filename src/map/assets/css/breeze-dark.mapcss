@@ -99,7 +99,8 @@ area[shop]
 }
 
 line[barrier],
-line[indoor=wall]
+line[indoor=wall],
+line[man_made=embankment]
 {
     color: #7f8c8d;
     width: 0.25m;
