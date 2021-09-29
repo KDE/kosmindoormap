@@ -83,7 +83,7 @@ void EquipmentModel::setMapData(const MapData &data)
 void EquipmentModel::forEach(int floorLevel, const std::function<void (OSM::Element, int)> &func) const
 {
     for (const auto &eq : m_equipment) {
-        if (!eq.syntheticElement || std::find(eq.levels.begin(), eq.levels.end(), floorLevel) == eq.levels.end()) {
+        if (!eq.syntheticElement || std::find_if(eq.levels.begin(), eq.levels.end(), [floorLevel](int lvl) { return std::abs(floorLevel - lvl) < 10; }) == eq.levels.end()) {
             continue;
         }
         func(eq.syntheticElement, floorLevel);
@@ -215,9 +215,9 @@ void EquipmentModel::createSyntheticElement(Equipment& eq) const
     }
 
     if (eq.levels.size() > 1) {
-        auto levelValue = QByteArray::number(eq.levels.at(0) / 10);
+        auto levelValue = QByteArray::number(eq.levels.at(0) / 10.0);
         for (auto it = std::next(eq.levels.begin()); it != eq.levels.end(); ++it) {
-            levelValue += ';' + QByteArray::number((*it) / 10);
+            levelValue += ';' + QByteArray::number((*it) / 10.0);
         }
         eq.syntheticElement.setTagValue(m_tagKeys.level, levelValue);
     }
