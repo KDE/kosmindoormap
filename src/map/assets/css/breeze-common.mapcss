@@ -751,6 +751,12 @@ node|z19- [vending=parking_tickets]
     icon-image: tourism;
     set .amenity;
 }
+*|z19- [tourism=gallery]
+{
+    icon-image: "art";
+    set .amenity;
+}
+
 node|z20- [emergency=phone]
 {
     icon-image: "emergency_phone";
