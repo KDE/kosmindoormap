@@ -7,7 +7,6 @@
 #include "stringpool.h"
 
 #include <algorithm>
-#include <cstring>
 
 OSM::StringKeyRegistryBase::StringKeyRegistryBase() = default;
 OSM::StringKeyRegistryBase::StringKeyRegistryBase(OSM::StringKeyRegistryBase&&) = default;
