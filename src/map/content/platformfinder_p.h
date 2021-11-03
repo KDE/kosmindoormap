@@ -49,6 +49,7 @@ private:
         OSM::TagKey railway;
         OSM::TagKey railway_platform_section;
         OSM::TagKey route;
+        OSM::TagKey disused;
     } m_tagKeys;
     void resolveTagKeys();
     /** Tries to merge m_platformAreas into m_platforms. */

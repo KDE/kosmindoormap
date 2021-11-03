@@ -44,7 +44,7 @@ std::vector<Platform> PlatformFinder::find(const MapData &data)
 
     for (auto it = m_data.levelMap().begin(); it != m_data.levelMap().end(); ++it) {
         for (const auto &e : (*it).second) {
-            if (!e.hasTags()) {
+            if (!e.hasTags() || e.tagValue(m_tagKeys.disused) == "yes") {
                 continue;
             }
 
@@ -147,6 +147,7 @@ void PlatformFinder::resolveTagKeys()
     m_tagKeys.railway = m_data.dataSet().tagKey("railway");
     m_tagKeys.railway_platform_section = m_data.dataSet().tagKey("railway:platform:section");
     m_tagKeys.route = m_data.dataSet().tagKey("route");
+    m_tagKeys.disused = m_data.dataSet().tagKey("disused");
 }
 
 void PlatformFinder::scanRoute(OSM::Element e, OSM::Element route)
