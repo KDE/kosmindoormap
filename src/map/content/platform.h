@@ -89,6 +89,10 @@ public:
     Mode mode() const;
     void setMode(Mode mode);
 
+    /** IFOPT identifier */
+    QByteArray ifopt() const;
+    void setIfopt(const QByteArray &ifopt);
+
     // TODO - clean up once PlatformModel is ported to PlatformFinder
     QStringList lines;
 
@@ -111,6 +115,7 @@ private:
     Mode m_mode = Rail; // TODO should eventually be "Unknown"
     int m_level = std::numeric_limits<int>::min(); // INT_MIN indicates not set, needed for merging
     std::vector<PlatformSection> m_sections;
+    QByteArray m_ifopt;
 
     static void appendSection(std::vector<PlatformSection> &sections, const Platform &p, PlatformSection &&sec, std::vector<const OSM::Node*> &edgePath, const OSM::DataSet &dataSet);
     static double maxSectionDistance(const Platform &p, const std::vector<PlatformSection> &sections, const OSM::DataSet &dataSet);

@@ -71,13 +71,17 @@ std::vector<Platform> PlatformFinder::find(const MapData &data)
             if (railway == "platform") {
                 QRegularExpression splitExp(QStringLiteral("[;,/\\+]"));;
                 const auto names = QString::fromUtf8(e.tagValue("local_ref", "ref")).split(splitExp);
-                for (const auto &name : names) {
+                const auto ifopts = e.tagValue("ref:IFOPT").split(';');
+                for (auto i = 0; i < names.size(); ++i) {
                     Platform platform;
                     platform.setArea(e);
-                    platform.setName(name);
+                    platform.setName(names[i]);
                     platform.setLevel(levelForPlatform((*it).first, e));
                     platform.setMode(modeForElement(e));
-                    platform.setSections(sectionsForPath(e.outerPath(m_data.dataSet()), name));
+                    platform.setSections(sectionsForPath(e.outerPath(m_data.dataSet()), names[i]));
+                    if (ifopts.size() == names.size()) {
+                        platform.setIfopt(ifopts[i]);
+                    }
                     // we delay merging of platforms, as those without track names would
                     // otherwise cobble together two distinct edges when merged to early
                     m_platformAreas.push_back(std::move(platform));
@@ -89,6 +93,7 @@ std::vector<Platform> PlatformFinder::find(const MapData &data)
                 platform.setName(QString::fromUtf8(e.tagValue("local_ref", "ref")));
                 platform.setLevel(levelForPlatform((*it).first, e));
                 platform.setSections(sectionsForPath(e.outerPath(m_data.dataSet()), platform.name()));
+                platform.setIfopt(e.tagValue("ref:IFOPT"));
                 addPlatform(std::move(platform));
             }
             else if (!railway.isEmpty() && e.type() == OSM::Type::Way && railway != "disused") {
@@ -108,6 +113,7 @@ std::vector<Platform> PlatformFinder::find(const MapData &data)
                         platform.setLevel(levelForPlatform((*it).first, e));
                         platform.setName(Platform::preferredName(QString::fromUtf8(platform.stopPoint().tagValue("local_ref", "ref", "name")), nameFromTrack(e)));
                         platform.setMode(modeForElement(OSM::Element(&node)));
+                        platform.setIfopt(platform.stopPoint().tagValue("ref:IFOPT"));
                         if (platform.mode() == Platform::Unknown) {
                             platform.setMode(modeForElement(e));
                         }

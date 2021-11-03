@@ -127,6 +127,16 @@ void Platform::setMode(Platform::Mode mode)
     m_mode = mode;
 }
 
+QByteArray Platform::ifopt() const
+{
+    return m_ifopt;
+}
+
+void Platform::setIfopt(const QByteArray &ifopt)
+{
+    m_ifopt = ifopt;
+}
+
 static bool conflictIfPresent(OSM::Element lhs, OSM::Element rhs)
 {
     return lhs && rhs && lhs != rhs;
@@ -256,6 +266,10 @@ static bool isOverlappingWay(const std::vector<OSM::Element> &lhs, const std::ve
 
 bool Platform::isSame(const Platform &lhs, const Platform &rhs, const OSM::DataSet &dataSet)
 {
+    if (!lhs.ifopt().isEmpty() && !rhs.ifopt().isEmpty()) {
+        return lhs.ifopt() == rhs.ifopt();
+    }
+
     const auto isConnectedEdge = isConnectedGeometry(lhs.m_edge, rhs.m_edge, dataSet);
     const auto isConnectedTrack = isConnectedWay(lhs.m_track, rhs.m_track, dataSet);
     const auto isOverlappingTrack = isOverlappingWay(lhs.m_track, rhs.m_track);
@@ -377,6 +391,7 @@ Platform Platform::merge(const Platform &lhs, const Platform &rhs, const OSM::Da
     p.m_area = OSM::coalesce(lhs.m_area, rhs.m_area);
     p.m_track = mergeWays(lhs.m_track, rhs.m_track);
     p.m_level = lhs.hasLevel() ? lhs.m_level : rhs.m_level;
+    p.m_ifopt = lhs.ifopt().isEmpty() ? rhs.ifopt() : lhs.ifopt();
 
     // TODO
     p.m_mode = std::max(lhs.m_mode, rhs.m_mode);
