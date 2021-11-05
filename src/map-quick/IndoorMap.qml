@@ -47,6 +47,7 @@ Item {
         id: flickable
         boundsBehavior: Flickable.StopAtBounds
         clip: true
+        interactive: !pinchHandler.active
         contentX: map.view.panX
         contentY: map.view.panY
         contentWidth: map.view.panWidth
@@ -99,7 +100,8 @@ Item {
                 initialZoom = map.view.zoomLevel
             }
             onActiveScaleChanged: {
-                map.view.setZoomLevel(pinchHandler.initialZoom + Math.log2(pinchHandler.activeScale), pinchHandler.centroid.pressPosition);
+                map.view.setZoomLevel(pinchHandler.initialZoom + Math.log2(pinchHandler.activeScale),
+                                      Qt.point(pinchHandler.centroid.position.x - flickable.contentX, pinchHandler.centroid.position.y - flickable.contentY));
             }
             xAxis.enabled: false
             yAxis.enabled: false

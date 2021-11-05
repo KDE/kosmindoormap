@@ -92,7 +92,7 @@ public:
 
     /** Converts a point in scene coordinates to screen coordinates. */
     QPointF mapSceneToScreen(QPointF scenePos) const;
-    /** Converts a rectanble in scene coordinates to screen coordinates. */
+    /** Converts a rectangle in scene coordinates to screen coordinates. */
     QRectF mapSceneToScreen(const QRectF &sceneRect) const;
     /** Converts a point in screen coordinates to scene coordinates. */
     QPointF mapScreenToScene(QPointF screenPos) const;
