@@ -57,8 +57,8 @@ std::vector<Platform> PlatformFinder::find(const MapData &data)
                     p.setLevel(levelForPlatform((*it).first, e));
                     p.setName(name);
                     PlatformSection section;
-                    section.name = QString::fromUtf8(e.tagValue("local_ref", "ref"));
-                    section.position = e;
+                    section.setName(QString::fromUtf8(e.tagValue("local_ref", "ref")));
+                    section.setPosition(e);
                     p.setSections({section});
                     m_floatingSections.push_back(std::move(p)); // can't merge this reliably until we have the full area geometry
                 }
@@ -218,16 +218,16 @@ std::vector<PlatformSection> PlatformFinder::sectionsForPath(const std::vector<c
         const auto pt = OSM::tagValue(*n, m_tagKeys.public_transport);
         if (pt == "platform_section_sign") {
             PlatformSection sec;
-            sec.position = OSM::Element(n);
-            sec.name = QString::fromUtf8(sec.position.tagValue("platform_section_sign_value", "local_ref", "ref"));
+            sec.setPosition(OSM::Element(n));
+            sec.setName(QString::fromUtf8(sec.position().tagValue("platform_section_sign_value", "local_ref", "ref")));
             sections.push_back(std::move(sec));
             continue;
         }
         const auto railway_platform_section = OSM::tagValue(*n, m_tagKeys.railway_platform_section);
         if (!railway_platform_section.isEmpty()) {
             PlatformSection sec;
-            sec.position = OSM::Element(n);
-            sec.name = QString::fromUtf8(railway_platform_section);
+            sec.setPosition(OSM::Element(n));
+            sec.setName(QString::fromUtf8(railway_platform_section));
             sections.push_back(std::move(sec));
             continue;
         }
@@ -340,7 +340,7 @@ void PlatformFinder::finalizeResult()
         auto sections = p.takeSections();
         sections.erase(std::remove_if(sections.begin(), sections.end(), [](const auto &s) { return !s.isValid(); }), sections.end());
         std::sort(sections.begin(), sections.end(), [this](const auto &lhs, const auto &rhs) {
-            return m_collator.compare(lhs.name, rhs.name) < 0;
+            return m_collator.compare(lhs.name(), rhs.name()) < 0;
         });
         p.setSections(std::move(sections));
     }

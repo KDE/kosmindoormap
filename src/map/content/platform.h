@@ -11,6 +11,7 @@
 
 #include <KOSM/Element>
 
+#include <QExplicitlySharedDataPointer>
 #include <QMetaType>
 #include <QStringList>
 
@@ -19,15 +20,31 @@
 
 namespace KOSMIndoorMap {
 
+class PlatformSectionPrivate;
+
 /** A railway platform section. */
 class KOSMINDOORMAP_EXPORT PlatformSection
 {
 public:
+    explicit PlatformSection();
+    PlatformSection(const PlatformSection&);
+    PlatformSection(PlatformSection&&);
+    ~PlatformSection();
+    PlatformSection& operator=(const PlatformSection&);
+    PlatformSection& operator=(PlatformSection&&);
+
     /** Platform section has enough data to work with. */
     bool isValid() const;
 
-    QString name;
-    OSM::Element position;
+    /** Platform section name. */
+    QString name() const;
+    void setName(const QString &name);
+    /** Platform section position. */
+    OSM::Element position() const;
+    void setPosition(const OSM::Element &position);
+
+private:
+    QExplicitlySharedDataPointer<PlatformSectionPrivate> d;
 };
 
 /** A railway platform/track. */

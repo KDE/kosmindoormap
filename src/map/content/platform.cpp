@@ -13,9 +13,51 @@
 
 using namespace KOSMIndoorMap;
 
+namespace KOSMIndoorMap {
+class PlatformSectionPrivate : public QSharedData
+{
+public:
+    QString name;
+    OSM::Element position;
+};
+}
+
+PlatformSection::PlatformSection()
+    : d(new PlatformSectionPrivate)
+{
+}
+
+PlatformSection::PlatformSection(const PlatformSection&) = default;
+PlatformSection::PlatformSection(PlatformSection&&) = default;
+PlatformSection::~PlatformSection() = default;
+PlatformSection& PlatformSection::operator=(const PlatformSection&) = default;
+PlatformSection& PlatformSection::operator=(PlatformSection&&) = default;
+
+QString PlatformSection::name() const
+{
+    return d->name;
+}
+
+void PlatformSection::setName(const QString &name)
+{
+    d.detach();
+    d->name = name;
+}
+
+OSM::Element PlatformSection::position() const
+{
+    return d->position;
+}
+
+void PlatformSection::setPosition(const OSM::Element &position)
+{
+    d.detach();
+    d->position = position;
+}
+
 bool PlatformSection::isValid() const
 {
-    return !name.isEmpty() && position;
+    return !d->name.isEmpty() && d->position;
 }
 
 
@@ -161,7 +203,7 @@ static double maxSectionDistance(const std::vector<const OSM::Node*> &path, cons
 {
     auto dist = std::numeric_limits<double>::lowest();
     for (const auto &section : sections) {
-        dist = std::max(dist, OSM::distance(path, section.position.center()));
+        dist = std::max(dist, OSM::distance(path, section.position().center()));
     }
     return dist;
 }
@@ -344,15 +386,15 @@ bool Platform::isSame(const Platform &lhs, const Platform &rhs, const OSM::DataS
 
 static bool compareSection(const PlatformSection &lhs, const PlatformSection &rhs)
 {
-    if (lhs.name == rhs.name) {
-        return lhs.position < rhs.position;
+    if (lhs.name() == rhs.name()) {
+        return lhs.position() < rhs.position();
     }
-    return lhs.name < rhs.name;
+    return lhs.name() < rhs.name();
 }
 
 void Platform::appendSection(std::vector<PlatformSection> &sections, const Platform &p, PlatformSection &&sec, std::vector<const OSM::Node*> &edgePath, const OSM::DataSet &dataSet)
 {
-    if (sections.empty() || sections.back().name != sec.name) {
+    if (sections.empty() || sections.back().name() != sec.name()) {
         sections.push_back(std::move(sec));
         return;
     }
@@ -365,8 +407,8 @@ void Platform::appendSection(std::vector<PlatformSection> &sections, const Platf
             OSM::assemblePath(dataSet, p.m_track, edgePath);
         }
     }
-    const auto dist1 = OSM::distance(edgePath, sections.back().position.center());
-    const auto dist2 = OSM::distance(edgePath, sec.position.center());
+    const auto dist1 = OSM::distance(edgePath, sections.back().position().center());
+    const auto dist2 = OSM::distance(edgePath, sec.position().center());
     if (dist2 < dist1) {
         sections.back() = std::move(sec);
     }
@@ -423,7 +465,7 @@ Platform Platform::merge(const Platform &lhs, const Platform &rhs, const OSM::Da
         }
 
         // both are equal
-        if ((*lit).position == (*rit).position) {
+        if ((*lit).position() == (*rit).position()) {
             appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
             ++rit;
             continue;

@@ -131,9 +131,9 @@ private Q_SLOTS:
             if (!platform.sections().empty()) {
                 outFile.write("  sections:\n");
                 for (const auto &section : platform.sections()) {
-                    outFile.write("    name: " + section.name.toUtf8() + "\n");
+                    outFile.write("    name: " + section.name().toUtf8() + "\n");
                     outFile.write("    position: ");
-                    writeElement(&outFile, section.position);
+                    writeElement(&outFile, section.position());
                     outFile.write("\n");
                 }
             }

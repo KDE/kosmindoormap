@@ -104,9 +104,9 @@ QVariant PlatformModel::data(const QModelIndex &index, int role) const
         const auto &section = platform.sections()[index.row()];
         switch (role) {
             case Qt::DisplayRole:
-                return section.name;
+                return section.name();
             case CoordinateRole:
-                return QPointF(section.position.center().lonF(), section.position.center().latF());
+                return QPointF(section.position().center().lonF(), section.position().center().latF());
             case ElementRole:
                 return QVariant::fromValue(OSM::Element(m_sectionsLabels[index.internalId()][index.row()]));
             case LevelRole:
@@ -249,8 +249,8 @@ void PlatformModel::createLabels()
         for (const auto &sec : p.sections()) {
             auto node = new OSM::Node;
             node->id = m_data.dataSet().nextInternalId();
-            node->coordinate = sec.position.center();
-            OSM::setTagValue(*node, sectionTag, sec.name.toUtf8());
+            node->coordinate = sec.position().center();
+            OSM::setTagValue(*node, sectionTag, sec.name().toUtf8());
             m_sectionsLabels[i].push_back(OSM::UniqueElement(node));
         }
     }
