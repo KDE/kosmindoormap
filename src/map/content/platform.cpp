@@ -354,6 +354,7 @@ void Platform::appendSection(std::vector<PlatformSection> &sections, const Platf
 {
     if (sections.empty() || sections.back().name != sec.name) {
         sections.push_back(std::move(sec));
+        return;
     }
 
     // check which one is closer
