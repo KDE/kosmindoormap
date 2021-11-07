@@ -9,14 +9,17 @@
 
 #include "kosmindoormap_export.h"
 
-#include <KOSM/Element>
-
 #include <QExplicitlySharedDataPointer>
 #include <QMetaType>
 #include <QStringList>
 
-#include <limits>
 #include <vector>
+
+namespace OSM {
+class Coordinate;
+class DataSet;
+class Element;
+}
 
 namespace KOSMIndoorMap {
 
@@ -47,12 +50,18 @@ private:
     QExplicitlySharedDataPointer<PlatformSectionPrivate> d;
 };
 
+class PlatformPrivate;
+
 /** A railway platform/track. */
 class KOSMINDOORMAP_EXPORT Platform {
     Q_GADGET
 public:
     explicit Platform();
+    Platform(const Platform&);
+    Platform(Platform&&);
     ~Platform();
+    Platform& operator=(const Platform&);
+    Platform& operator=(Platform&&);
 
     /** Platform has enough data to work with. */
     bool isValid() const;
@@ -124,18 +133,8 @@ public:
     static QString preferredName(const QString &lhs, const QString &rhs);
 
 private:
-    QString m_name;
-    OSM::Element m_stopPoint;
-    OSM::Element m_edge;
-    OSM::Element m_area;
-    std::vector<OSM::Element> m_track;
-    Mode m_mode = Rail; // TODO should eventually be "Unknown"
-    int m_level = std::numeric_limits<int>::min(); // INT_MIN indicates not set, needed for merging
-    std::vector<PlatformSection> m_sections;
-    QByteArray m_ifopt;
-
-    static void appendSection(std::vector<PlatformSection> &sections, const Platform &p, PlatformSection &&sec, std::vector<const OSM::Node*> &edgePath, const OSM::DataSet &dataSet);
-    static double maxSectionDistance(const Platform &p, const std::vector<PlatformSection> &sections, const OSM::DataSet &dataSet);
+    friend class PlatformPrivate;
+    QExplicitlySharedDataPointer<PlatformPrivate> d;
 };
 
 }

@@ -6,10 +6,13 @@
 
 #include "platform.h"
 
+#include <osm/element.h>
 #include <osm/geomath.h>
 #include <osm/pathutil.h>
 
 #include <QRegularExpression>
+
+#include <limits>
 
 using namespace KOSMIndoorMap;
 
@@ -61,122 +64,160 @@ bool PlatformSection::isValid() const
 }
 
 
-Platform::Platform() = default;
+namespace KOSMIndoorMap {
+class PlatformPrivate : public QSharedData
+{
+public:
+    QString m_name;
+    OSM::Element m_stopPoint;
+    OSM::Element m_edge;
+    OSM::Element m_area;
+    std::vector<OSM::Element> m_track;
+    Platform::Mode m_mode = Platform::Rail; // TODO should eventually be "Unknown"
+    int m_level = std::numeric_limits<int>::min(); // INT_MIN indicates not set, needed for merging
+    std::vector<PlatformSection> m_sections;
+    QByteArray m_ifopt;
+
+    static void appendSection(std::vector<PlatformSection> &sections, const Platform &p, PlatformSection &&sec, std::vector<const OSM::Node*> &edgePath, const OSM::DataSet &dataSet);
+    static double maxSectionDistance(const Platform &p, const std::vector<PlatformSection> &sections, const OSM::DataSet &dataSet);
+};
+}
+
+Platform::Platform()
+    : d(new PlatformPrivate)
+{
+}
+
+Platform::Platform(const Platform&) = default;
+Platform::Platform(Platform&&) = default;
 Platform::~Platform() = default;
+Platform& Platform::operator=(const Platform&) = default;
+Platform& Platform::operator=(Platform&&) = default;
 
 bool Platform::isValid() const
 {
-    return !m_name.isEmpty() && position().isValid() && m_mode != Unknown;
+    return !d->m_name.isEmpty() && position().isValid() && d->m_mode != Unknown;
 }
 
 QString Platform::name() const
 {
-    return m_name;
+    return d->m_name;
 }
 
 void Platform::setName(const QString &name)
 {
-    m_name = name;
+    d.detach();
+    d->m_name = name;
 }
 
 int Platform::level() const
 {
-    return hasLevel() ? m_level : 0;
+    return hasLevel() ? d->m_level : 0;
 }
 
 bool Platform::hasLevel() const
 {
-    return m_level != std::numeric_limits<int>::min();
+    return d->m_level != std::numeric_limits<int>::min();
 }
 
 void Platform::setLevel(int level)
 {
-    m_level = level;
+    d.detach();
+    d->m_level = level;
 }
 
 OSM::Coordinate Platform::position() const
 {
-    return OSM::coalesce(m_stopPoint, m_area).center();
+    return OSM::coalesce(d->m_stopPoint, d->m_area).center();
 }
 
 OSM::Element Platform::stopPoint() const
 {
-    return m_stopPoint;
+    return d->m_stopPoint;
 }
 
 void Platform::setStopPoint(OSM::Element stop)
 {
-    m_stopPoint = stop;
+    d.detach();
+    d->m_stopPoint = stop;
 }
 
 OSM::Element Platform::edge() const
 {
-    return OSM::coalesce(m_edge, m_stopPoint);
+    return OSM::coalesce(d->m_edge, d->m_stopPoint);
 }
 
 void Platform::setEdge(OSM::Element edge)
 {
-    m_edge = edge;
+    d.detach();
+    d->m_edge = edge;
 }
 
 OSM::Element Platform::area() const
 {
-    return OSM::coalesce(m_area, m_edge, m_stopPoint);
+    return OSM::coalesce(d->m_area, d->m_edge, d->m_stopPoint);
 }
 
 void Platform::setArea(OSM::Element area)
 {
-    m_area = area;
+    d.detach();
+    d->m_area = area;
 }
 
 const std::vector<OSM::Element>& Platform::track() const
 {
-    return m_track;
+    return d->m_track;
 }
 
 void Platform::setTrack(std::vector<OSM::Element> &&track)
 {
-    m_track = std::move(track);
+    d.detach();
+    d->m_track = std::move(track);
 }
 
 std::vector<OSM::Element>&& Platform::takeTrack()
 {
-    return std::move(m_track);
+    d.detach();
+    return std::move(d->m_track);
 }
 
 const std::vector<PlatformSection>& Platform::sections() const
 {
-    return m_sections;
+    return d->m_sections;
 }
 
 void Platform::setSections(std::vector<PlatformSection> &&sections)
 {
-    m_sections = std::move(sections);
+    d.detach();
+    d->m_sections = std::move(sections);
 }
 
 std::vector<PlatformSection>&& Platform::takeSections()
 {
-    return std::move(m_sections);
+    d.detach();
+    return std::move(d->m_sections);
 }
 
 Platform::Mode Platform::mode() const
 {
-    return m_mode;
+    return d->m_mode;
 }
 
 void Platform::setMode(Platform::Mode mode)
 {
-    m_mode = mode;
+    d.detach();
+    d->m_mode = mode;
 }
 
 QByteArray Platform::ifopt() const
 {
-    return m_ifopt;
+    return d->m_ifopt;
 }
 
 void Platform::setIfopt(const QByteArray &ifopt)
 {
-    m_ifopt = ifopt;
+    d.detach();
+    d->m_ifopt = ifopt;
 }
 
 static bool conflictIfPresent(OSM::Element lhs, OSM::Element rhs)
@@ -208,14 +249,14 @@ static double maxSectionDistance(const std::vector<const OSM::Node*> &path, cons
     return dist;
 }
 
-double Platform::maxSectionDistance(const Platform &p, const std::vector<PlatformSection> &sections, const OSM::DataSet &dataSet)
+double PlatformPrivate::maxSectionDistance(const Platform &p, const std::vector<PlatformSection> &sections, const OSM::DataSet &dataSet)
 {
-    if (auto elem = OSM::coalesce(p.m_edge, p.m_area)) {
+    if (auto elem = OSM::coalesce(p.d->m_edge, p.d->m_area)) {
         return ::maxSectionDistance(elem.outerPath(dataSet), sections);
     }
-    if (!p.m_track.empty()) {
+    if (!p.d->m_track.empty()) {
         std::vector<const OSM::Node*> path;
-        OSM::assemblePath(dataSet, p.m_track, path);
+        OSM::assemblePath(dataSet, p.d->m_track, path);
         return ::maxSectionDistance(path, sections);
     }
     return std::numeric_limits<double>::lowest();
@@ -312,23 +353,23 @@ bool Platform::isSame(const Platform &lhs, const Platform &rhs, const OSM::DataS
         return lhs.ifopt() == rhs.ifopt();
     }
 
-    const auto isConnectedEdge = isConnectedGeometry(lhs.m_edge, rhs.m_edge, dataSet);
-    const auto isConnectedTrack = isConnectedWay(lhs.m_track, rhs.m_track, dataSet);
-    const auto isOverlappingTrack = isOverlappingWay(lhs.m_track, rhs.m_track);
-    const auto isConnectedArea = isConnectedGeometry(lhs.m_area, rhs.m_area, dataSet);
+    const auto isConnectedEdge = isConnectedGeometry(lhs.d->m_edge, rhs.d->m_edge, dataSet);
+    const auto isConnectedTrack = isConnectedWay(lhs.d->m_track, rhs.d->m_track, dataSet);
+    const auto isOverlappingTrack = isOverlappingWay(lhs.d->m_track, rhs.d->m_track);
+    const auto isConnectedArea = isConnectedGeometry(lhs.d->m_area, rhs.d->m_area, dataSet);
 
-    if ((conflictIfPresent(lhs.m_stopPoint, rhs.m_stopPoint) && lhs.m_track != rhs.m_track && !isConnectedTrack)
-     || (conflictIfPresent(lhs.m_edge, rhs.m_edge) && !isConnectedEdge)
-     || (conflictIfPresent(lhs.m_area, rhs.m_area) && !isConnectedArea)
-     || (!lhs.m_track.empty() && !rhs.m_track.empty() && !isOverlappingTrack && !isConnectedTrack)
+    if ((conflictIfPresent(lhs.d->m_stopPoint, rhs.d->m_stopPoint) && lhs.d->m_track != rhs.d->m_track && !isConnectedTrack)
+     || (conflictIfPresent(lhs.d->m_edge, rhs.d->m_edge) && !isConnectedEdge)
+     || (conflictIfPresent(lhs.d->m_area, rhs.d->m_area) && !isConnectedArea)
+     || (!lhs.d->m_track.empty() && !rhs.d->m_track.empty() && !isOverlappingTrack && !isConnectedTrack)
      || (lhs.hasLevel() && rhs.hasLevel() && lhs.level() != rhs.level())
-     || (lhs.m_mode != Unknown && rhs.m_mode != Unknown && lhs.m_mode != rhs.m_mode))
+     || (lhs.d->m_mode != Unknown && rhs.d->m_mode != Unknown && lhs.d->m_mode != rhs.d->m_mode))
     {
         return false;
     }
 
     // we can accept conflicting names if one of them is likely a station name instead of a platform name
-    if (!lhs.m_name.isEmpty() && !rhs.m_name.isEmpty() && lhs.m_name != rhs.m_name) {
+    if (!lhs.d->m_name.isEmpty() && !rhs.d->m_name.isEmpty() && lhs.d->m_name != rhs.d->m_name) {
         if (isPlausibleName(lhs.name()) && isPlausibleName(rhs.name())) {
             return false;
         }
@@ -336,15 +377,15 @@ bool Platform::isSame(const Platform &lhs, const Platform &rhs, const OSM::DataS
 
     // edge has to be part of area, but on its own that doesn't mean equallity
     if (!isConnectedArea && !isConnectedEdge) {
-        if ((lhs.m_area && rhs.m_edge.type() == OSM::Type::Way && !isSubPath(lhs.m_area.outerPath(dataSet), *rhs.m_edge.way()))
-        || (rhs.m_area && lhs.m_edge.type() == OSM::Type::Way && !isSubPath(rhs.m_area.outerPath(dataSet), *lhs.m_edge.way()))) {
+        if ((lhs.d->m_area && rhs.d->m_edge.type() == OSM::Type::Way && !isSubPath(lhs.d->m_area.outerPath(dataSet), *rhs.d->m_edge.way()))
+        || (rhs.d->m_area && lhs.d->m_edge.type() == OSM::Type::Way && !isSubPath(rhs.d->m_area.outerPath(dataSet), *lhs.d->m_edge.way()))) {
             return false;
         }
     }
 
     // matching edge, point or track is good enough, matching area however isn't
-    if (equalIfPresent(lhs.m_stopPoint, rhs.m_stopPoint)
-     || equalIfPresent(lhs.m_edge, rhs.m_edge) || isConnectedEdge
+    if (equalIfPresent(lhs.d->m_stopPoint, rhs.d->m_stopPoint)
+     || equalIfPresent(lhs.d->m_edge, rhs.d->m_edge) || isConnectedEdge
      || isOverlappingTrack)
     {
         return true;
@@ -352,30 +393,30 @@ bool Platform::isSame(const Platform &lhs, const Platform &rhs, const OSM::DataS
 
     if (!isConnectedEdge) {
         // track/stop and area/edge elements do not share nodes, so those we need to match by spatial distance
-        if (lhs.m_edge && rhs.m_stopPoint) {
-            return OSM::distance(lhs.m_edge.outerPath(dataSet), rhs.position()) < MAX_TRACK_TO_EDGE_DISTANCE;
+        if (lhs.d->m_edge && rhs.d->m_stopPoint) {
+            return OSM::distance(lhs.d->m_edge.outerPath(dataSet), rhs.position()) < MAX_TRACK_TO_EDGE_DISTANCE;
         }
-        if (rhs.m_edge && lhs.m_stopPoint) {
-            return OSM::distance(rhs.m_edge.outerPath(dataSet), lhs.position()) < MAX_TRACK_TO_EDGE_DISTANCE;
+        if (rhs.d->m_edge && lhs.d->m_stopPoint) {
+            return OSM::distance(rhs.d->m_edge.outerPath(dataSet), lhs.position()) < MAX_TRACK_TO_EDGE_DISTANCE;
         }
     }
 
     if (!isConnectedArea) {
-        if (lhs.m_area && rhs.m_stopPoint) {
-            return OSM::distance(lhs.m_area.outerPath(dataSet), rhs.position()) < MAX_TRACK_TO_EDGE_DISTANCE;
+        if (lhs.d->m_area && rhs.d->m_stopPoint) {
+            return OSM::distance(lhs.d->m_area.outerPath(dataSet), rhs.position()) < MAX_TRACK_TO_EDGE_DISTANCE;
         }
-        if (rhs.m_area && lhs.m_stopPoint) {
-            return OSM::distance(rhs.m_area.outerPath(dataSet), lhs.position()) < MAX_TRACK_TO_EDGE_DISTANCE;
+        if (rhs.d->m_area && lhs.d->m_stopPoint) {
+            return OSM::distance(rhs.d->m_area.outerPath(dataSet), lhs.position()) < MAX_TRACK_TO_EDGE_DISTANCE;
         }
     }
 
     // free-floating sections: edge, area or track is within a reasonable distance
-    if (!lhs.m_name.isEmpty() && lhs.m_name == rhs.m_name && !isConnectedArea && !isConnectedEdge) {
-        auto d = maxSectionDistance(lhs, rhs.sections(), dataSet);
+    if (!lhs.d->m_name.isEmpty() && lhs.d->m_name == rhs.d->m_name && !isConnectedArea && !isConnectedEdge) {
+        auto d = PlatformPrivate::maxSectionDistance(lhs, rhs.sections(), dataSet);
         if (d >= 0.0) {
             return d < MAX_SECTION_TO_EDGE_DISTANCE;
         }
-        d = maxSectionDistance(rhs, lhs.sections(), dataSet);
+        d = PlatformPrivate::maxSectionDistance(rhs, lhs.sections(), dataSet);
         if (d >= 0.0) {
             return d < MAX_SECTION_TO_EDGE_DISTANCE;
         }
@@ -392,7 +433,7 @@ static bool compareSection(const PlatformSection &lhs, const PlatformSection &rh
     return lhs.name() < rhs.name();
 }
 
-void Platform::appendSection(std::vector<PlatformSection> &sections, const Platform &p, PlatformSection &&sec, std::vector<const OSM::Node*> &edgePath, const OSM::DataSet &dataSet)
+void PlatformPrivate::appendSection(std::vector<PlatformSection> &sections, const Platform &p, PlatformSection &&sec, std::vector<const OSM::Node*> &edgePath, const OSM::DataSet &dataSet)
 {
     if (sections.empty() || sections.back().name() != sec.name()) {
         sections.push_back(std::move(sec));
@@ -401,10 +442,10 @@ void Platform::appendSection(std::vector<PlatformSection> &sections, const Platf
 
     // check which one is closer
     if (edgePath.empty()) {
-        if (p.m_edge) {
-            edgePath = p.m_edge.outerPath(dataSet);
-        } else if (!p.m_track.empty()) {
-            OSM::assemblePath(dataSet, p.m_track, edgePath);
+        if (p.d->m_edge) {
+            edgePath = p.d->m_edge.outerPath(dataSet);
+        } else if (!p.d->m_track.empty()) {
+            OSM::assemblePath(dataSet, p.d->m_track, edgePath);
         }
     }
     const auto dist1 = OSM::distance(edgePath, sections.back().position().center());
@@ -428,16 +469,16 @@ static std::vector<OSM::Element> mergeWays(const std::vector<OSM::Element> &lhs,
 Platform Platform::merge(const Platform &lhs, const Platform &rhs, const OSM::DataSet &dataSet)
 {
     Platform p;
-    p.m_name = preferredName(lhs.name(), rhs.name());
-    p.m_stopPoint = OSM::coalesce(lhs.m_stopPoint, rhs.m_stopPoint);
-    p.m_edge = OSM::coalesce(lhs.m_edge, rhs.m_edge);
-    p.m_area = OSM::coalesce(lhs.m_area, rhs.m_area);
-    p.m_track = mergeWays(lhs.m_track, rhs.m_track);
-    p.m_level = lhs.hasLevel() ? lhs.m_level : rhs.m_level;
-    p.m_ifopt = lhs.ifopt().isEmpty() ? rhs.ifopt() : lhs.ifopt();
+    p.d->m_name = preferredName(lhs.name(), rhs.name());
+    p.d->m_stopPoint = OSM::coalesce(lhs.d->m_stopPoint, rhs.d->m_stopPoint);
+    p.d->m_edge = OSM::coalesce(lhs.d->m_edge, rhs.d->m_edge);
+    p.d->m_area = OSM::coalesce(lhs.d->m_area, rhs.d->m_area);
+    p.d->m_track = mergeWays(lhs.d->m_track, rhs.d->m_track);
+    p.d->m_level = lhs.hasLevel() ? lhs.d->m_level : rhs.d->m_level;
+    p.d->m_ifopt = lhs.ifopt().isEmpty() ? rhs.ifopt() : lhs.ifopt();
 
     // TODO
-    p.m_mode = std::max(lhs.m_mode, rhs.m_mode);
+    p.d->m_mode = std::max(lhs.d->m_mode, rhs.d->m_mode);
     p.lines = lhs.lines.isEmpty() ? std::move(rhs.lines) : std::move(lhs.lines);
 
     std::vector<const OSM::Node*> edgePath;
@@ -448,31 +489,31 @@ Platform Platform::merge(const Platform &lhs, const Platform &rhs, const OSM::Da
     std::sort(rsec.begin(), rsec.end(), compareSection);
     for (auto lit = lsec.begin(), rit = rsec.begin(); lit != lsec.end() || rit != rsec.end();) {
         if (rit == rsec.end()) {
-            appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
+            PlatformPrivate::appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
             continue;
         }
         if (lit == lsec.end()) {
-            appendSection(sections, p, std::move(*rit++), edgePath, dataSet);
+            PlatformPrivate::appendSection(sections, p, std::move(*rit++), edgePath, dataSet);
             continue;
         }
         if (compareSection(*lit, *rit)) {
-            appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
+            PlatformPrivate::appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
             continue;
         }
         if (compareSection(*rit, *lit)) {
-            appendSection(sections, p, std::move(*rit++), edgePath, dataSet);
+            PlatformPrivate::appendSection(sections, p, std::move(*rit++), edgePath, dataSet);
             continue;
         }
 
         // both are equal
         if ((*lit).position() == (*rit).position()) {
-            appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
+            PlatformPrivate::appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
             ++rit;
             continue;
         }
 
         // both are equal but differ in distance: will be handled in appendSection in the next iteration
-        appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
+        PlatformPrivate::appendSection(sections, p, std::move(*lit++), edgePath, dataSet);
     }
     p.setSections(std::move(sections));
 
