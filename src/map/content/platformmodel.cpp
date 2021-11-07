@@ -93,7 +93,7 @@ QVariant PlatformModel::data(const QModelIndex &index, int role) const
             case TransportModeRole:
                 return platform.mode();
             case LinesRole:
-                return platform.lines;
+                return platform.lines();
             case ArrivalPlatformRole:
                 return index.row() == m_arrivalPlatformRow;
             case DeparturePlatformRole:

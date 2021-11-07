@@ -77,6 +77,7 @@ public:
     int m_level = std::numeric_limits<int>::min(); // INT_MIN indicates not set, needed for merging
     std::vector<PlatformSection> m_sections;
     QByteArray m_ifopt;
+    QStringList m_lines;
 
     static void appendSection(std::vector<PlatformSection> &sections, const Platform &p, PlatformSection &&sec, std::vector<const OSM::Node*> &edgePath, const OSM::DataSet &dataSet);
     static double maxSectionDistance(const Platform &p, const std::vector<PlatformSection> &sections, const OSM::DataSet &dataSet);
@@ -218,6 +219,23 @@ void Platform::setIfopt(const QByteArray &ifopt)
 {
     d.detach();
     d->m_ifopt = ifopt;
+}
+
+QStringList Platform::lines() const
+{
+    return d->m_lines;
+}
+
+void Platform::setLines(QStringList &&lines)
+{
+    d.detach();
+    d->m_lines = std::move(lines);
+}
+
+QStringList&& Platform::takeLines()
+{
+    d.detach();
+    return std::move(d->m_lines);
 }
 
 static bool conflictIfPresent(OSM::Element lhs, OSM::Element rhs)
@@ -479,7 +497,7 @@ Platform Platform::merge(const Platform &lhs, const Platform &rhs, const OSM::Da
 
     // TODO
     p.d->m_mode = std::max(lhs.d->m_mode, rhs.d->m_mode);
-    p.lines = lhs.lines.isEmpty() ? std::move(rhs.lines) : std::move(lhs.lines);
+    p.d->m_lines = lhs.d->m_lines.isEmpty() ? std::move(rhs.d->m_lines) : std::move(lhs.d->m_lines);
 
     std::vector<const OSM::Node*> edgePath;
     std::vector<PlatformSection> sections;

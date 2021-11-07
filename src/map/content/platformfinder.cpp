@@ -191,10 +191,12 @@ void PlatformFinder::scanRoute(const OSM::Node& node, OSM::Element route)
                 if (lineName.isEmpty()) {
                     continue;
                 }
-                const auto it = std::lower_bound(p.lines.begin(), p.lines.end(), lineName, m_collator);
-                if (it == p.lines.end() || (*it) != lineName) {
-                    p.lines.insert(it, lineName);
+                auto lines = p.takeLines();
+                const auto it = std::lower_bound(lines.begin(), lines.end(), lineName, m_collator);
+                if (it == lines.end() || (*it) != lineName) {
+                    lines.insert(it, lineName);
                 }
+                p.setLines(std::move(lines));
             }
             break;
         }

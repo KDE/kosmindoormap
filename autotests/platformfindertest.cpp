@@ -125,8 +125,8 @@ private Q_SLOTS:
             outFile.write("\n");
             outFile.write("  level: " + QByteArray::number(platform.level()) + "\n");
             outFile.write(QByteArray("  mode: ") + Platform::staticMetaObject.enumerator(0).valueToKey(platform.mode()) + "\n");
-            if (!platform.lines.empty()) {
-                outFile.write("  lines: " + platform.lines.join(QLatin1Char('|')).toUtf8() + "\n");
+            if (!platform.lines().empty()) {
+                outFile.write("  lines: " + platform.lines().join(QLatin1Char('|')).toUtf8() + "\n");
             }
             if (!platform.sections().empty()) {
                 outFile.write("  sections:\n");

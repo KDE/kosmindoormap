@@ -119,8 +119,10 @@ public:
     QByteArray ifopt() const;
     void setIfopt(const QByteArray &ifopt);
 
-    // TODO - clean up once PlatformModel is ported to PlatformFinder
-    QStringList lines;
+    /** Names of public transport lines stopping at this platform. */
+    QStringList lines() const;
+    void setLines(QStringList &&lines);
+    QStringList&& takeLines();
 
     /** Checks if two instances refer to the same platform. */
     static bool isSame(const Platform &lhs, const Platform &rhs, const OSM::DataSet &dataSet);
