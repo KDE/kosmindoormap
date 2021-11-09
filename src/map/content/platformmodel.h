@@ -9,11 +9,11 @@
 
 #include "kosmindoormap_export.h"
 
-#include "platform.h"
-
 #include <KOSMIndoorMap/MapData>
+#include <KOSMIndoorMap/Platform>
 
 #include <QAbstractItemModel>
+#include <QTimer>
 
 namespace KOSMIndoorMap {
 
@@ -30,6 +30,11 @@ class KOSMINDOORMAP_EXPORT PlatformModel : public QAbstractItemModel
     /** Row indexes of the matched arrival/departure platforms, if found and/or set, otherwise @c -1. */
     Q_PROPERTY(int arrivalPlatformRow READ arrivalPlatformRow NOTIFY platformIndexChanged)
     Q_PROPERTY(int departurePlatformRow READ departurePlatformRow NOTIFY platformIndexChanged)
+
+    /** Platform search parameters (name/mode/ifopt) for matching arrival/departure platform against what we found in the map data. */
+    Q_PROPERTY(KOSMIndoorMap::Platform arrivalPlatform READ arrivalPlatform WRITE setArrivalPlatform NOTIFY arrivalPlatformChanged)
+    Q_PROPERTY(KOSMIndoorMap::Platform departurePlatform READ departurePlatform WRITE setDeparturePlatform NOTIFY departurePlatformChanged)
+
 public:
     explicit PlatformModel(QObject *parent = nullptr);
     ~PlatformModel();
@@ -58,8 +63,12 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     /** Match arrival/departure platform against what we found in the map data. */
-    Q_INVOKABLE void setArrivalPlatform(const QString &name, KOSMIndoorMap::Platform::Mode mode);
-    Q_INVOKABLE void setDeparturePlatform(const QString &name, KOSMIndoorMap::Platform::Mode mode);
+    Platform arrivalPlatform() const;
+    void setArrivalPlatform(const Platform &platform);
+    Q_INVOKABLE [[deprecated("use arrivalPlatform property")]] void setArrivalPlatform(const QString &name, KOSMIndoorMap::Platform::Mode mode);
+    Platform departurePlatform() const;
+    void setDeparturePlatform(const Platform &platform);
+    Q_INVOKABLE [[deprecated("use departurePlatform property")]] void setDeparturePlatform(const QString &name, KOSMIndoorMap::Platform::Mode mode);
 
     int arrivalPlatformRow() const;
     int departurePlatformRow() const;
@@ -67,6 +76,8 @@ public:
 Q_SIGNALS:
     void mapDataChanged();
     void platformIndexChanged();
+    void arrivalPlatformChanged();
+    void departurePlatformChanged();
 
 private:
     void matchPlatforms();
@@ -88,6 +99,8 @@ private:
     Platform m_departurePlatform;
     int m_arrivalPlatformRow = -1;
     int m_departurePlatformRow = -1;
+
+    QTimer m_matchTimer;
 };
 
 }
