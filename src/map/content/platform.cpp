@@ -76,7 +76,7 @@ public:
     Platform::Mode m_mode = Platform::Rail; // TODO should eventually be "Unknown"
     int m_level = std::numeric_limits<int>::min(); // INT_MIN indicates not set, needed for merging
     std::vector<PlatformSection> m_sections;
-    QByteArray m_ifopt;
+    QString m_ifopt;
     QStringList m_lines;
 
     static void appendSection(std::vector<PlatformSection> &sections, const Platform &p, PlatformSection &&sec, std::vector<const OSM::Node*> &edgePath, const OSM::DataSet &dataSet);
@@ -210,12 +210,12 @@ void Platform::setMode(Platform::Mode mode)
     d->m_mode = mode;
 }
 
-QByteArray Platform::ifopt() const
+QString Platform::ifopt() const
 {
     return d->m_ifopt;
 }
 
-void Platform::setIfopt(const QByteArray &ifopt)
+void Platform::setIfopt(const QString &ifopt)
 {
     d.detach();
     d->m_ifopt = ifopt;
