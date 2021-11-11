@@ -10,6 +10,7 @@
 
 #include <QTest>
 #include <QAbstractItemModelTester>
+#include <QSignalSpy>
 
 using namespace KOSMIndoorMap;
 
@@ -33,10 +34,16 @@ private Q_SLOTS:
 
         PlatformModel model;
         QAbstractItemModelTester modelTest(&model);
+        QSignalSpy platformChangeSpy(&model, &PlatformModel::platformIndexChanged);
 
         model.setMapData(mapData);
-        model.setArrivalPlatform(QStringLiteral("10"), Platform::Rail);
-        model.setDeparturePlatform(QStringLiteral("7"), Platform::Rail);
+        Platform p;
+        p.setMode(Platform::Rail);
+        p.setName(QStringLiteral("10"));
+        model.setArrivalPlatform(p);
+        p.setName(QStringLiteral("7"));
+        model.setDeparturePlatform(p);
+        QVERIFY(platformChangeSpy.wait());
         QCOMPARE(model.rowCount(), 12);
 
         for (int i = 0; i < model.rowCount(); ++i) {
@@ -57,17 +64,22 @@ private Q_SLOTS:
         QVERIFY(model.arrivalPlatformRow() >= 0);
 
         // fuzzy platform matching
-        model.setArrivalPlatform(QStringLiteral("10 D-F"), Platform::Rail);
-        model.setDeparturePlatform(QStringLiteral("9A-C"), Platform::Rail);
+        p.setName(QStringLiteral("10 D-F"));
+        model.setArrivalPlatform(p);
+        p.setName(QStringLiteral("9A-C"));
+        model.setDeparturePlatform(p);
+        QVERIFY(platformChangeSpy.wait());
         QVERIFY(model.departurePlatformRow() >= 0);
         QVERIFY(model.arrivalPlatformRow() >= 0);
 
         // non-matching platforms
-        model.setArrivalPlatform(QStringLiteral("13"), Platform::Rail);
-        model.setDeparturePlatform(QStringLiteral("14 A-D"), Platform::Rail);
+        p.setName(QStringLiteral("13"));
+        model.setArrivalPlatform(p);
+        p.setName(QStringLiteral("14 A-D"));
+        model.setDeparturePlatform(p);
+        QVERIFY(platformChangeSpy.wait());
         QCOMPARE(model.departurePlatformRow(), -1);
         QCOMPARE(model.arrivalPlatformRow(), -1);
-
     }
 };
 

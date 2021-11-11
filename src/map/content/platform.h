@@ -55,6 +55,9 @@ class PlatformPrivate;
 /** A railway platform/track. */
 class KOSMINDOORMAP_EXPORT Platform {
     Q_GADGET
+    Q_PROPERTY(QString name READ name WRITE setName)
+    Q_PROPERTY(Mode mode READ mode WRITE setMode)
+    Q_PROPERTY(QString ifopt READ ifopt WRITE setIfopt)
 public:
     explicit Platform();
     Platform(const Platform&);
@@ -116,8 +119,8 @@ public:
     void setMode(Mode mode);
 
     /** IFOPT identifier */
-    QByteArray ifopt() const;
-    void setIfopt(const QByteArray &ifopt);
+    QString ifopt() const;
+    void setIfopt(const QString &ifopt);
 
     /** Names of public transport lines stopping at this platform. */
     QStringList lines() const;

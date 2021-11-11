@@ -19,6 +19,13 @@ static constexpr auto TOP_PARENT = std::numeric_limits<quintptr>::max();
 PlatformModel::PlatformModel(QObject* parent) :
     QAbstractItemModel(parent)
 {
+    m_matchTimer.setSingleShot(true);
+    m_matchTimer.setInterval(0);
+    connect(&m_matchTimer, &QTimer::timeout, this, &PlatformModel::matchPlatforms);
+
+    connect(this, &PlatformModel::mapDataChanged, &m_matchTimer, qOverload<>(&QTimer::start));
+    connect(this, &PlatformModel::arrivalPlatformChanged, &m_matchTimer, qOverload<>(&QTimer::start));
+    connect(this, &PlatformModel::departurePlatformChanged, &m_matchTimer, qOverload<>(&QTimer::start));
 }
 
 PlatformModel::~PlatformModel() = default;
@@ -38,6 +45,8 @@ void PlatformModel::setMapData(const MapData &data)
     m_platforms.clear();
     m_platformLabels.clear();
     m_sectionsLabels.clear();
+    m_arrivalPlatformRow = -1;
+    m_departurePlatformRow = -1;
 
     m_data = data;
     if (!m_data.isEmpty()) {
@@ -50,7 +59,7 @@ void PlatformModel::setMapData(const MapData &data)
     }
     endResetModel();
     Q_EMIT mapDataChanged();
-    matchPlatforms();
+    Q_EMIT platformIndexChanged();
 }
 
 bool PlatformModel::isEmpty() const
@@ -146,18 +155,40 @@ QHash<int, QByteArray> PlatformModel::roleNames() const
     return n;
 }
 
+Platform PlatformModel::arrivalPlatform() const
+{
+    return m_arrivalPlatform;
+}
+
+void PlatformModel::setArrivalPlatform(const Platform &platform)
+{
+    m_arrivalPlatform = platform;
+    Q_EMIT arrivalPlatformChanged();
+}
+
 void PlatformModel::setArrivalPlatform(const QString &name, Platform::Mode mode)
 {
     m_arrivalPlatform.setName(name);
     m_arrivalPlatform.setMode(mode);
-    matchPlatforms();
+    Q_EMIT arrivalPlatformChanged();
+}
+
+Platform PlatformModel::departurePlatform() const
+{
+    return m_departurePlatform;
+}
+
+void PlatformModel::setDeparturePlatform(const Platform &platform)
+{
+    m_departurePlatform = platform;
+    Q_EMIT departurePlatformChanged();
 }
 
 void PlatformModel::setDeparturePlatform(const QString &name, Platform::Mode mode)
 {
     m_departurePlatform.setName(name);
     m_departurePlatform.setMode(mode);
-    matchPlatforms();
+    Q_EMIT departurePlatformChanged();
 }
 
 int PlatformModel::arrivalPlatformRow() const
@@ -201,6 +232,15 @@ static bool isPossiblySamePlatformName(const QString &name, const QString &platf
 
 int PlatformModel::matchPlatform(const Platform &platform) const
 {
+    if (!platform.ifopt().isEmpty()) { // try IFOPT first, if we have that
+        const auto it = std::find_if(m_platforms.begin(), m_platforms.end(), [platform](const auto &p) {
+            return p.ifopt() == platform.ifopt();
+        });
+        if (it != m_platforms.end()) {
+            return std::distance(m_platforms.begin(), it);
+        }
+    }
+
     if (platform.name().isEmpty()) {
         return -1;
     }
