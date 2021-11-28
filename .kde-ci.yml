@@ -4,5 +4,14 @@
 Dependencies:
 - 'on': ['@all']
   'require':
-    'frameworks/extra-cmake-modules': '@latest'
-    'frameworks/ki18n': '@latest'
+    'frameworks/extra-cmake-modules': '@stable'
+    'frameworks/ki18n': '@stable'
+    'libraries/kpublictransport': "@same"
+    'libraries/kopeninghours': "@same"
+
+- 'on': ['Android']
+  'require':
+    'frameworks/kirigami': '@stable'
+
+Options:
+  cmake-options: "-DBUILD_STANDALONE_APP=ON"
