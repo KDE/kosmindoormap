@@ -31,7 +31,9 @@ int main(int argc, char **argv)
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationVersion(QStringLiteral(KOSMINDOORMAP_VERSION_STRING));
 
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
+#endif
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
