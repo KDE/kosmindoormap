@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 #else
     QApplication app(argc, argv); // for native file dialogs
 #endif
-    QGuiApplication::setApplicationDisplayName(QStringLiteral("KDE OSM Indoor Map"));
+    QGuiApplication::setApplicationDisplayName(i18n("KDE OSM Indoor Map"));
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("go-home")));
 
     QQmlApplicationEngine engine;
