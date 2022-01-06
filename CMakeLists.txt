@@ -12,7 +12,7 @@ project(KOSMIndoorMap VERSION ${RELEASE_SERVICE_VERSION})
 
 option(BUILD_STANDALONE_APP "Build and install the stand-alone test/demo app." OFF)
 
-find_package(ECM 5.85 REQUIRED NO_MODULE)
+find_package(ECM 5.89 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(KDECompilerSettings NO_POLICY_SCOPE)

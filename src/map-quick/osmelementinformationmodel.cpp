@@ -492,7 +492,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 if ((*it).isEmpty() || (*it) == "yes" || (*it) == "vending_machine") {
                     continue;
                 }
-                out.push_back(translateValue((*it).constData(), amenity_map, "OSM::amenity/shop"));
+                out.push_back(translateValue((*it).constData(), amenity_map));
             }
 
             std::sort(out.begin(), out.end());
@@ -512,13 +512,13 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             }
             return QLocale().createSeparatedList(l);
         }
-        case Cuisine: return translateValues(m_element.tagValue("cuisine"), cuisine_map, "OSM::cuisine");
+        case Cuisine: return translateValues(m_element.tagValue("cuisine"), cuisine_map);
         case Diet:
         {
             QStringList l;
             for (const auto &d : diet_type_map) {
                 const auto v = m_element.tagValue(d.keyName);
-                const auto label = i18nc("OSM::diet_type", d.label);
+                const auto label = d.label.toString();
                 if (v == "yes") {
                     l.push_back(label);
                 } else if (v == "only") {
@@ -539,7 +539,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                     continue;
                 }
 
-                auto s = i18nc("OSM::charging_station_socket", socket.label);
+                auto s = socket.label.toString();
 
                 QStringList details;
                 if (value != "yes") {
@@ -628,11 +628,11 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 if (v.isEmpty() || v == "no") {
                     continue;
                 }
-                l.push_back(i18nc("OSM::charging_station_authentication", auth.label));
+                l.push_back(auth.label.toString());
             }
             return QLocale().createSeparatedList(l);
         }
-        case BicycleParking: return translateValues(m_element.tagValue("bicycle_parking"), bicycle_parking_map, "OSM::bicycle_parking");
+        case BicycleParking: return translateValues(m_element.tagValue("bicycle_parking"), bicycle_parking_map);
         case Capacity: return QString::fromUtf8(m_element.tagValue("capacity"));
         case CapacityDisabled: return capacitryValue("capacity:disabled");
         case CapacityWomen: return capacitryValue("capacity:women");
@@ -679,7 +679,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             } else {
                 wheelchair = m_element.tagValue("wheelchair");
             }
-            const auto a = translateValue(wheelchair.constData(), wheelchair_map, "OSM::wheelchair_access");
+            const auto a = translateValue(wheelchair.constData(), wheelchair_map);
             const auto d = QString::fromUtf8(m_element.tagValue("wheelchair:description", QLocale()));
             if (!d.isEmpty()) {
                 return QString(a + QLatin1String(" (") + d + QLatin1Char(')'));
@@ -746,7 +746,7 @@ QString OSMElementInformationModel::paymentMethodList(OSMElementInformationModel
             continue;
         }
         if (m_element.tagValue(payment.keyName) == "yes") {
-            l.push_back(i18nc("OSM::payment_method", payment.label));
+            l.push_back(payment.label.toString());
         }
     }
     std::sort(l.begin(), l.end());

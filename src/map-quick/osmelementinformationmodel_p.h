@@ -8,6 +8,7 @@
 #define KOSMINDOORMAP_OSMELEMENTINFORMATIONMODEL_P_H
 
 #include <KLocalizedString>
+#include <KLazyLocalizedString>
 
 #include <QCoreApplication>
 #include <QLocale>
@@ -20,7 +21,7 @@ namespace KOSMIndoorMap {
 struct ValueMapEntry
 {
     const char *keyName;
-    const char *label;
+    const KLazyLocalizedString label;
 };
 
 template <typename MapEntry, std::size_t N>
@@ -37,7 +38,7 @@ inline constexpr bool isSortedLookupTable(const MapEntry(&map)[N])
 }
 
 template <typename MapEntry, std::size_t N>
-inline QString translateValue(const char *keyName, const MapEntry(&map)[N], const char *context)
+inline QString translateValue(const char *keyName, const MapEntry(&map)[N])
 {
     const auto it = std::lower_bound(std::begin(map), std::end(map), keyName, [](const auto &lhs, auto rhs) {
         return std::strcmp(lhs.keyName, rhs) < 0;
@@ -46,17 +47,17 @@ inline QString translateValue(const char *keyName, const MapEntry(&map)[N], cons
         return QString::fromUtf8(keyName);
     }
 
-    return i18nc(context, (*it).label);
+    return (*it).label.toString();
 }
 
 template <typename MapEntry, std::size_t N>
-inline QString translateValues(const QByteArray &values, const MapEntry(&map)[N], const char *context)
+inline QString translateValues(const QByteArray &values, const MapEntry(&map)[N])
 {
     const auto l = values.split(';');
     QStringList out;
     out.reserve(l.size());
     for (const auto &value : l) {
-        const auto s = translateValue(value.constData(), map, context);
+        const auto s = translateValue(value.constData(), map);
         if (!s.isEmpty()) {
             out.push_back(s);
         }
