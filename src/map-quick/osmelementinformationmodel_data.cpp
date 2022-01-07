@@ -331,4 +331,14 @@ static constexpr const ValueMapEntry bicycle_parking_map[] = {
 };
 static_assert(isSortedLookupTable(bicycle_parking_map), "bicycle parking map is not sorted!");
 
+// shared vehicle types
+// tag keys are our extension, based on KPublicTransport data
+static constexpr const ValueMapEntry available_vehicles_map[] = {
+    { "mx:realtime_available:bike", kli18ncp("available rental vehicles", "%1 bike", "%1 bikes") },
+    { "mx:realtime_available:pedelec", kli18ncp("available rental vehicles", "%1 pedelec", "%1 pedelecs") },
+    { "mx:realtime_available:scooter", kli18ncp("available rental vehicles", "%1 kick scooter", "%1 kick scooters") },
+    { "mx:realtime_available:motorcycle", kli18ncp("available rental vehicles", "%1 moped", "%1 mopeds") },
+    { "mx:realtime_available:car", kli18ncp("available rental vehicles", "%1 car", "%1 cars") },
+};
+
 }

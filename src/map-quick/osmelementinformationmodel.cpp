@@ -575,23 +575,12 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         {
             const auto total = m_element.tagValue("mx:realtime_available").toInt();
             QStringList types;
-            // there's no I18N_NOOP plural variants, so we have to use this more expensive approach
-            struct {
-                const char *tagName;
-                KLocalizedString msg;
-            } static const available_vehicles_map[] = {
-                { "mx:realtime_available:bike", ki18ncp("available rental vehicles", "%1 bike", "%1 bikes") },
-                { "mx:realtime_available:pedelec", ki18ncp("available rental vehicles", "%1 pedelec", "%1 pedelecs") },
-                { "mx:realtime_available:scooter", ki18ncp("available rental vehicles", "%1 kick scooter", "%1 kick scooters") },
-                { "mx:realtime_available:motorcycle", ki18ncp("available rental vehicles", "%1 moped", "%1 mopeds") },
-                { "mx:realtime_available:car", ki18ncp("available rental vehicles", "%1 car", "%1 cars") },
-            };
             for (const auto &v : available_vehicles_map) {
-                const auto b = m_element.tagValue(v.tagName);
+                const auto b = m_element.tagValue(v.keyName);
                 if (b.isEmpty()) {
                     continue;
                 }
-                types.push_back(v.msg.subs(b.toInt()).toString());
+                types.push_back(v.label.subs(b.toInt()).toString());
             }
 
             if (types.isEmpty()) {
