@@ -136,6 +136,7 @@ private:
     QString paymentMethodValue(Key key) const;
     QUrl wikipediaUrl(const QByteArray &wp) const;
     QString capacitryValue(const char *prop) const;
+    QString translatedBoolValue(const QByteArray &value) const;
 
     template <typename KeyMapEntry, std::size_t N>
     void addEntryForKey(const char *keyName, const KeyMapEntry(&map)[N]);

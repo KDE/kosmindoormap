@@ -529,7 +529,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             }
             return l.join(QLatin1String(", "));
         }
-        case Takeaway: return QString::fromUtf8(m_element.tagValue("takeaway")); // TODO decode (yes/only/no) and translate
+        case Takeaway: return translatedBoolValue(m_element.tagValue("takeaway")); // TODO decode (yes/only/no) and translate
         case Socket:
         {
             QStringList l;
@@ -629,9 +629,8 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         case CapacityCharing: return capacitryValue("capacity:charging");
         case MaxStay: return QString::fromUtf8(m_element.tagValue("maxstay"));
         case DiaperChangingTable:
-            // TODO bool value translation
             // TODO look for changing_table:location too
-            return QString::fromUtf8(m_element.tagValue("changing_table", "diaper"));
+            return translatedBoolValue(m_element.tagValue("changing_table", "diaper"));
         case Wikipedia: return wikipediaUrl(m_element.tagValue("wikipedia", "brand:wikipedia", QLocale()));
         case Address: return QVariant::fromValue(OSMAddress(m_element));
         case Phone: return QString::fromUtf8(m_element.tagValue("contact:phone", "phone", "telephone", "operator:phone"));
@@ -642,7 +641,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             const auto coins = m_element.tagValue("payment:coins");
             const auto notes = m_element.tagValue("payment:notes");
             if (coins.isEmpty() && notes.isEmpty()) {
-                return m_element.tagValue("payment:cash"); // TODO decode bool
+                return translatedBoolValue(m_element.tagValue("payment:cash"));
             }
             if (coins == "yes" && notes == "yes") {
                 return i18n("yes");
@@ -783,11 +782,16 @@ QUrl OSMElementInformationModel::wikipediaUrl(const QByteArray &wp) const
 QString OSMElementInformationModel::capacitryValue(const char *prop) const
 {
     const auto v = m_element.tagValue(prop);
-    if (v == "yes") {
+    return translatedBoolValue(v);
+}
+
+QString OSMElementInformationModel::translatedBoolValue(const QByteArray &value) const
+{
+    if (value == "yes") {
         return i18n("yes");
     }
-    if (v == "no") {
+    if (value == "no") {
         return i18n("no");
     }
-    return QString::fromUtf8(v);
+    return QString::fromUtf8(value);
 }
