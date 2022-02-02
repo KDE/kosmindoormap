@@ -78,7 +78,7 @@ void MapItem::setStylesheetName(const QString &styleSheet)
 #ifndef Q_OS_ANDROID
             auto searchPaths = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
 #else
-            auto searchPaths = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+            auto searchPaths = QStandardPaths::standardLocations(QStandardPaths::AppLocalDataLocation);
 #endif
             searchPaths.push_back(QStringLiteral(":"));
             for (const auto &searchPath : qAsConst(searchPaths)) {
