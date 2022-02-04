@@ -6,6 +6,9 @@
 
 #include "osmaddress.h"
 
+#include <KCountry>
+#include <KCountrySubdivision>
+
 using namespace KOSMIndoorMap;
 
 OSMAddress::OSMAddress() = default;
@@ -38,10 +41,22 @@ QString OSMAddress::city() const
 
 QString OSMAddress::state() const
 {
-    return QString::fromUtf8(m_element.tagValue("addr:state"));
+    const auto state = QString::fromUtf8(m_element.tagValue("addr:state"));
+    if (!state.isEmpty()) {
+        return state;
+    }
+
+    const auto s = KCountrySubdivision::fromLocation(m_element.center().latF(), m_element.center().lonF());
+    return s.isValid() ? s.code().left(3) : QString();
 }
 
 QString OSMAddress::country() const
 {
-    return QString::fromUtf8(m_element.tagValue("addr:country", "contact:country"));
+    const auto country = QString::fromUtf8(m_element.tagValue("addr:country", "contact:country"));
+    if (!country.isEmpty()) {
+        return country;
+    }
+
+    const auto c = KCountry::fromLocation(m_element.center().latF(), m_element.center().lonF());
+    return c.alpha2();
 }
