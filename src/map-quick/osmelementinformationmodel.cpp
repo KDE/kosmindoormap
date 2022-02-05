@@ -584,11 +584,11 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             }
 
             if (types.isEmpty()) {
-                return QString::number(total);
+                return QLocale().toString(total);
             } else if (types.size() == 1) {
                 return types.at(0);
             } else {
-                return i18n("%1 (%2)", QString::number(total), QLocale().createSeparatedList(types));
+                return i18n("%1 (%2)", total, QLocale().createSeparatedList(types));
             }
         }
         case Fee:
