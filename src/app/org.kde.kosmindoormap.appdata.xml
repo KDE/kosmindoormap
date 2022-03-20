@@ -9,7 +9,7 @@
   <project_license>LGPL-2.0-or-later</project_license>
   <name>KDE OSM Indoor Map</name>
   <name xml:lang="ca">Mapes d'interiors OSM del KDE</name>
-  <name xml:lang="ca-valencia">Mapes d'interiors OSM del KDE</name>
+  <name xml:lang="ca-valencia">Mapes d'interiors OSM de KDE</name>
   <name xml:lang="en-GB">KDE OSM Indoor Map</name>
   <name xml:lang="es">Planos de interiores de OSM para KDE</name>
   <name xml:lang="fr">Carte interne de OpenStreetmap pour KDE</name>
@@ -48,7 +48,7 @@
   <description>
     <p>Demo application for KDE's OSM indoor map component.</p>
     <p xml:lang="ca">Aplicació de demostració per al component de mapes OSM d'interiors del KDE.</p>
-    <p xml:lang="ca-valencia">Aplicació de demostració per al component de mapes OSM d'interiors del KDE.</p>
+    <p xml:lang="ca-valencia">Aplicació de demostració per al component de mapes OSM d'interiors de KDE.</p>
     <p xml:lang="en-GB">Demo application for KDE's OSM indoor map component.</p>
     <p xml:lang="es">Aplicación de demostración para el componente de planos de interiores de OSM para KDE.</p>
     <p xml:lang="fr">Application de démonstration pour le composant de KDE de carte interne de OpenStreetmap.</p>
