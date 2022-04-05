@@ -207,8 +207,17 @@ void MarbleGeometryAssembler::mergeWay(OSM::Way &way, OSM::Way &otherWay) const
     // - lines can only be merged at the beginning or the end, a line crossing the same boundary multiple times would be split at every boundary intersection
     // - we can assume polygon orientation is preserved by the splitting
 
+    // in some cases the Marble tile generator produces both ways and areas for the same polygon
+    // e.g. for something way-like itself used in a multipolygon relations, with both being tagged
+    // we ignore the way in that case and rely solely on area merging
+
     if (!way.isClosed() && !otherWay.isClosed()) {
         mergeLine(way, otherWay);
+    } else if (way.isClosed() && !otherWay.isClosed()) {
+        return;
+    } else if (!way.isClosed() && otherWay.isClosed()) {
+        std::swap(way, otherWay);
+        return;
     } else {
         way.nodes = mergeArea(way, otherWay);
     }
