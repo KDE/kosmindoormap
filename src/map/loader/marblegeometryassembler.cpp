@@ -234,17 +234,22 @@ void MarbleGeometryAssembler::mergeLine(OSM::Way &way, OSM::Way &otherWay) const
         return;
     }
 
+    // only merge ways on synthetic nodes (the < 0 checks)
+    // it is possible to end up here with mergable non-synthetic nodes, in case of a circular
+    // path that the Marble tile generator classified as a line rather than an area
+    // in this case we do not want to merge the nodes as that would eliminate that node
+
     way.nodes.reserve(way.nodes.size() + otherWay.nodes.size() - 2);
-    if (fuzzyEquals(end1->coordinate, begin2->coordinate)) {
+    if (end1->id < 0 && begin2->id < 0 && fuzzyEquals(end1->coordinate, begin2->coordinate)) {
         way.nodes.pop_back();
         std::copy(std::next(otherWay.nodes.begin()), otherWay.nodes.end(), std::back_inserter(way.nodes));
-    } else if (fuzzyEquals(end1->coordinate, end2->coordinate)) {
+    } else if (end1->id < 0 && end2->id < 0 && fuzzyEquals(end1->coordinate, end2->coordinate)) {
         way.nodes.pop_back();
         std::copy(std::next(otherWay.nodes.rbegin()), otherWay.nodes.rend(), std::back_inserter(way.nodes));
-    } else if (fuzzyEquals(begin1->coordinate, end2->coordinate)) {
+    } else if (begin1->id < 0 && end2->id < 0 && fuzzyEquals(begin1->coordinate, end2->coordinate)) {
         way.nodes.erase(way.nodes.begin());
         way.nodes.insert(way.nodes.begin(), otherWay.nodes.begin(), std::prev(otherWay.nodes.end()));
-    } else if (fuzzyEquals(begin1->coordinate, begin2->coordinate)) {
+    } else if (begin1->id < 0 && begin2->id < 0 && fuzzyEquals(begin1->coordinate, begin2->coordinate)) {
         way.nodes.erase(way.nodes.begin());
         way.nodes.insert(way.nodes.begin(), otherWay.nodes.rbegin(), std::prev(otherWay.nodes.rend()));
     } else {
