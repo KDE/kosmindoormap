@@ -10,7 +10,7 @@ target_include_directories(kosmindoormap-app PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(kosmindoormap-app PRIVATE
     KOSMIndoorMap
     KF5::I18n
-    Qt5::Quick
+    Qt::Quick
 )
 
 if (ANDROID)
@@ -18,9 +18,9 @@ if (ANDROID)
     # so androiddeployqt picks them up
     target_link_libraries(kosmindoormap-app PRIVATE
         KF5::Kirigami2
-        Qt5::Svg
+        Qt::Svg
         OpenSSL::SSL
-        Qt5::QuickControls2
+        Qt::QuickControls2
     )
 
     kirigami_package_breeze_icons(ICONS
@@ -36,7 +36,7 @@ if (ANDROID)
     )
 else ()
     target_link_libraries(kosmindoormap-app PRIVATE
-        Qt5::Widgets
+        Qt::Widgets
     )
     set_target_properties(kosmindoormap-app PROPERTIES OUTPUT_NAME "kosmindoormap")
 endif()

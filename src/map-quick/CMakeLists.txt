@@ -9,7 +9,7 @@ add_library(KOSMIndoorMapQuick STATIC
     osmelementinformationmodel.cpp
 )
 target_link_libraries(KOSMIndoorMapQuick PUBLIC
-    Qt5::Quick
+    Qt::Quick
     KF5::I18n
     KF5::I18nLocaleData
     KOSMIndoorMap

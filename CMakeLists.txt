@@ -12,7 +12,7 @@ project(KOSMIndoorMap VERSION ${RELEASE_SERVICE_VERSION})
 
 option(BUILD_STANDALONE_APP "Build and install the stand-alone test/demo app." OFF)
 
-find_package(ECM 5.89 REQUIRED NO_MODULE)
+find_package(ECM 5.90 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(KDECompilerSettings NO_POLICY_SCOPE)
@@ -32,8 +32,8 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     SOVERSION 1
 )
 
-find_package(Qt5 5.15 REQUIRED COMPONENTS Quick)
-find_package(Qt5 5.15 OPTIONAL_COMPONENTS Widgets)
+find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Quick)
+find_package(Qt${QT_MAJOR_VERSION} 5.15 OPTIONAL_COMPONENTS Widgets)
 find_package(KF5 REQUIRED COMPONENTS I18n)
 find_package(KPublicTransport REQUIRED)
 find_package(KOpeningHours)
@@ -45,10 +45,10 @@ endif()
 
 if (BUILD_STANDALONE_APP)
     if (NOT ANDROID)
-        find_package(Qt5 5.15 REQUIRED COMPONENTS Widgets)
+        find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Widgets)
     else()
         find_package(KF5 REQUIRED COMPONENTS Kirigami2)
-        find_package(Qt5 5.15 REQUIRED COMPONENTS QuickControls2 Svg)
+        find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS QuickControls2 Svg)
         find_package(OpenSSL REQUIRED)
         if (NOT DEFINED BREEZEICONS_DIR AND EXISTS ${CMAKE_SOURCE_DIR}/../breeze-icons)
             set(BREEZEICONS_DIR ${CMAKE_SOURCE_DIR}/../breeze-icons)

@@ -97,8 +97,8 @@ set_target_properties(KOSMIndoorMap PROPERTIES
 target_include_directories(KOSMIndoorMap PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
 target_include_directories(KOSMIndoorMap PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>)
 target_link_libraries(KOSMIndoorMap
-    PUBLIC Qt5::Gui KOSM
-    PRIVATE Qt5::Network Qt5::CorePrivate
+    PUBLIC Qt::Gui KOSM
+    PRIVATE Qt::Network Qt::CorePrivate
 )
 if (TARGET KOpeningHours)
     target_link_libraries(KOSMIndoorMap PRIVATE KOpeningHours)

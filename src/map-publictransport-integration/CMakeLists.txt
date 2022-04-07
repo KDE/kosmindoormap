@@ -11,7 +11,7 @@ add_library(kosmindoormap_kpublictransport_integration_plugin
     realtimeequipmentmodel.cpp
 )
 target_link_libraries(kosmindoormap_kpublictransport_integration_plugin
-    Qt5::Qml
+    Qt::Qml
     KOSMIndoorMap
     KPublicTransport
 )
