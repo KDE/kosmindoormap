@@ -15,10 +15,12 @@ namespace KOSMIndoorMap {
 // - https://taginfo.openstreetmap.org/keys/?key=amenity#values
 // - https://taginfo.openstreetmap.org/keys/?key=shop#values
 // - https://taginfo.openstreetmap.org/keys/?key=tourism#values
+// - https://taginfo.openstreetmap.org/keys/?key=leisure#values
 // - parts of https://taginfo.openstreetmap.org/keys/?key=office#values
 // - parts of https://taginfo.openstreetmap.org/keys/?key=room#values
 static constexpr const ValueMapEntry amenity_map[] = {
     { "alcohol", kli18nc("OSM::amenity/shop", "Alcohol") },
+    { "apartment", kli18nc("OSM::amenity/shop", "Apartment") },
     { "atm", kli18nc("OSM::amenity/shop", "ATM") },
     { "attraction", kli18nc("OSM::amenity/shop", "Attraction") },
     { "bag", kli18nc("OSM::amenity/shop", "Bag") },
@@ -66,6 +68,7 @@ static constexpr const ValueMapEntry amenity_map[] = {
     { "fountain", kli18nc("OSM::amenity/shop", "Fountain") },
     { "furniture", kli18nc("OSM::amenity/shop", "Furniture") },
     { "gallery", kli18nc("OSM::amenity/shop", "Gallery") },
+    { "garden", kli18nc("OSM::amenity/shop", "Garden") },
     { "garden_centre", kli18nc("OSM::amenity/shop", "Garden Center") },
     { "gift", kli18nc("OSM::amenity/shop", "Gift Shop") },
     { "greengrocer", kli18nc("OSM::amenity/shop", "Greengrocer") },
@@ -103,6 +106,7 @@ static constexpr const ValueMapEntry amenity_map[] = {
     { "optician", kli18nc("OSM::amenity/shop", "Optician") },
     { "outdoor", kli18nc("OSM::amenity/shop", "Outdoor") },
     { "paint", kli18nc("OSM::amenity/shop", "Paint") },
+    { "park", kli18nc("outdoor recreational area", "Park") },
     { "parking", kli18nc("OSM::amenity/shop", "Parking") },
     { "parking_tickets", kli18nc("OSM::amenity/shop", "Parking Tickets") },
     { "pastry", kli18nc("OSM::amenity/shop", "Pastry") },
@@ -111,6 +115,7 @@ static constexpr const ValueMapEntry amenity_map[] = {
     { "pharmacy", kli18nc("OSM::amenity/shop", "Pharmacy") },
     { "photo", kli18nc("OSM::amenity/shop", "Photo") },
     { "place_of_worship", kli18nc("OSM::amenity/shop", "Place of Worship") },
+    { "playground", kli18n("Playground") },
     { "police", kli18nc("OSM::amenity/shop", "Police") },
     { "post_box", kli18nc("OSM::amenity/shop", "Post Box") },
     { "post_office", kli18nc("OSM::amenity/shop", "Post Office") },

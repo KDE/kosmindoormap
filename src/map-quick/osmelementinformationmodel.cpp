@@ -193,6 +193,7 @@ struct {
     M("diaper", DiaperChangingTable, UnresolvedCategory),
     M("email", Email, Contact),
     M("fee", Fee, UnresolvedCategory),
+    M("leisure", Category, Header),
     M("maxstay", MaxStay, Parking),
     M("mx:realtime_available", AvailableVehicles, Main),
     M("mx:remaining_range", RemainingRange, Main),
@@ -478,6 +479,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             l += m_element.tagValue("tourism").split(';');
             l += m_element.tagValue("vending").split(';');
             l += m_element.tagValue("office").split(';');
+            l += m_element.tagValue("leisure").split(';');
             l += m_element.tagValue("mx:vehicle");
             if (l.isEmpty()) {
                 l += m_element.tagValue("room").split(';');
