@@ -207,8 +207,17 @@ void MarbleGeometryAssembler::mergeWay(OSM::Way &way, OSM::Way &otherWay) const
     // - lines can only be merged at the beginning or the end, a line crossing the same boundary multiple times would be split at every boundary intersection
     // - we can assume polygon orientation is preserved by the splitting
 
+    // in some cases the Marble tile generator produces both ways and areas for the same polygon
+    // e.g. for something way-like itself used in a multipolygon relations, with both being tagged
+    // we ignore the way in that case and rely solely on area merging
+
     if (!way.isClosed() && !otherWay.isClosed()) {
         mergeLine(way, otherWay);
+    } else if (way.isClosed() && !otherWay.isClosed()) {
+        return;
+    } else if (!way.isClosed() && otherWay.isClosed()) {
+        std::swap(way, otherWay);
+        return;
     } else {
         way.nodes = mergeArea(way, otherWay);
     }
@@ -225,17 +234,22 @@ void MarbleGeometryAssembler::mergeLine(OSM::Way &way, OSM::Way &otherWay) const
         return;
     }
 
+    // only merge ways on synthetic nodes (the < 0 checks)
+    // it is possible to end up here with mergable non-synthetic nodes, in case of a circular
+    // path that the Marble tile generator classified as a line rather than an area
+    // in this case we do not want to merge the nodes as that would eliminate that node
+
     way.nodes.reserve(way.nodes.size() + otherWay.nodes.size() - 2);
-    if (fuzzyEquals(end1->coordinate, begin2->coordinate)) {
+    if (end1->id < 0 && begin2->id < 0 && fuzzyEquals(end1->coordinate, begin2->coordinate)) {
         way.nodes.pop_back();
         std::copy(std::next(otherWay.nodes.begin()), otherWay.nodes.end(), std::back_inserter(way.nodes));
-    } else if (fuzzyEquals(end1->coordinate, end2->coordinate)) {
+    } else if (end1->id < 0 && end2->id < 0 && fuzzyEquals(end1->coordinate, end2->coordinate)) {
         way.nodes.pop_back();
         std::copy(std::next(otherWay.nodes.rbegin()), otherWay.nodes.rend(), std::back_inserter(way.nodes));
-    } else if (fuzzyEquals(begin1->coordinate, end2->coordinate)) {
+    } else if (begin1->id < 0 && end2->id < 0 && fuzzyEquals(begin1->coordinate, end2->coordinate)) {
         way.nodes.erase(way.nodes.begin());
         way.nodes.insert(way.nodes.begin(), otherWay.nodes.begin(), std::prev(otherWay.nodes.end()));
-    } else if (fuzzyEquals(begin1->coordinate, begin2->coordinate)) {
+    } else if (begin1->id < 0 && begin2->id < 0 && fuzzyEquals(begin1->coordinate, begin2->coordinate)) {
         way.nodes.erase(way.nodes.begin());
         way.nodes.insert(way.nodes.begin(), otherWay.nodes.rbegin(), std::prev(otherWay.nodes.rend()));
     } else {
