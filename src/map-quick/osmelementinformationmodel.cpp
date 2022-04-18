@@ -193,6 +193,7 @@ struct {
     M("diaper", DiaperChangingTable, UnresolvedCategory),
     M("email", Email, Contact),
     M("fee", Fee, UnresolvedCategory),
+    M("historic", Category, Header),
     M("leisure", Category, Header),
     M("maxstay", MaxStay, Parking),
     M("mx:realtime_available", AvailableVehicles, Main),
@@ -480,6 +481,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             l += m_element.tagValue("vending").split(';');
             l += m_element.tagValue("office").split(';');
             l += m_element.tagValue("leisure").split(';');
+            l += m_element.tagValue("historic").split(';');
             l += m_element.tagValue("mx:vehicle");
             if (l.isEmpty()) {
                 l += m_element.tagValue("room").split(';');
@@ -491,7 +493,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
 
             for (auto it = l.begin(); it != l.end();++it) {
                 (*it) = (*it).trimmed();
-                if ((*it).isEmpty() || (*it) == "yes" || (*it) == "vending_machine") {
+                if ((*it).isEmpty() || (*it) == "yes" || (*it) == "no" || (*it) == "vending_machine" || (*it) == "building") {
                     continue;
                 }
                 out.push_back(translateValue((*it).constData(), amenity_map));
