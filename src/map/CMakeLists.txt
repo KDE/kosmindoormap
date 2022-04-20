@@ -151,7 +151,7 @@ ecm_generate_headers(KOSMIndoorMap_Style_FORWARDING_HEADERS
     RELATIVE style
 )
 
-install(TARGETS KOSMIndoorMap EXPORT KOSMIndoorMapTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KOSMIndoorMap EXPORT KOSMIndoorMapTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
     ${KOSMIndoorMap_Content_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Loader_FORWARDING_HEADERS}

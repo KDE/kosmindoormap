@@ -27,6 +27,6 @@ else()
     message(WARNING "CMake is too old, cannot setup examples to work without installation")
 endif()
 
-install(TARGETS kosmindoormap_kpublictransport_integration_plugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kosmindoormap/kpublictransport)
-install(FILES ${kosmindoormap_kpublictransport_integration_qml} DESTINATION ${QML_INSTALL_DIR}/org/kde/kosmindoormap/kpublictransport)
+install(TARGETS kosmindoormap_kpublictransport_integration_plugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kosmindoormap/kpublictransport)
+install(FILES ${kosmindoormap_kpublictransport_integration_qml} DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kosmindoormap/kpublictransport)
 

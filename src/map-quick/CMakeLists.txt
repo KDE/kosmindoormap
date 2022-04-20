@@ -38,5 +38,5 @@ else()
     message(WARNING "CMake is too old, cannot setup examples to work without installation")
 endif()
 
-install(TARGETS kosmindoormapquickplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kosmindoormap)
-install(FILES ${kosmindoormapquickplugin_qml} DESTINATION ${QML_INSTALL_DIR}/org/kde/kosmindoormap)
+install(TARGETS kosmindoormapquickplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kosmindoormap)
+install(FILES ${kosmindoormapquickplugin_qml} DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kosmindoormap)

@@ -42,7 +42,7 @@ else ()
 endif()
 
 if (BUILD_STANDALONE_APP)
-    install(TARGETS kosmindoormap-app ${INSTALL_TARGETS_DEFAULT_ARGS})
+    install(TARGETS kosmindoormap-app ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
     install(PROGRAMS org.kde.kosmindoormap.desktop DESTINATION ${KDE_INSTALL_APPDIR})
     #install(FILES org.kde.kosmindoormap.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 endif()
