@@ -15,4 +15,4 @@ Dependencies:
 
 Options:
   cmake-options: "-DBUILD_STANDALONE_APP=ON"
-  require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
+  require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]

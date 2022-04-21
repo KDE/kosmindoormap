@@ -106,7 +106,7 @@ private Q_SLOTS:
         QVERIFY(!result.empty());
 
         QFile outFile(QFileInfo(expected).fileName());
-        QVERIFY(outFile.open(QFile::ReadWrite | QFile::Truncate));
+        QVERIFY(outFile.open(QFile::ReadWrite | QFile::Truncate | QFile::Text));
 
         for (const auto &platform : result) {
             outFile.write(platform.name().toUtf8() + "\n");
@@ -142,7 +142,7 @@ private Q_SLOTS:
         const auto platforms = outFile.readAll();
 
         QFile expectedFile(expected);
-        QVERIFY(expectedFile.open(QFile::ReadOnly));
+        QVERIFY(expectedFile.open(QFile::ReadOnly | QFile::Text));
         const auto expectedPlatforms = expectedFile.readAll();
 
         if (platforms != expectedPlatforms) {

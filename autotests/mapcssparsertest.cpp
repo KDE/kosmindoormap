@@ -24,14 +24,14 @@ private Q_SLOTS:
         QVERIFY(!p.hasError());
 
         QFile outFile(QStringLiteral("parser-test.mapcss.out"));
-        QVERIFY(outFile.open(QFile::WriteOnly));
+        QVERIFY(outFile.open(QFile::WriteOnly | QFile::Text));
         style.write(&outFile);
         outFile.close();
-        QVERIFY(outFile.open(QFile::ReadOnly));
+        QVERIFY(outFile.open(QFile::ReadOnly | QFile::Text));
         const auto b1 = outFile.readAll();
 
         QFile refFile(QStringLiteral(SOURCE_DIR "/data/mapcss/parser-test.mapcss.ref"));
-        QVERIFY(refFile.open(QFile::ReadOnly));
+        QVERIFY(refFile.open(QFile::ReadOnly | QFile::Text));
         const auto b2 = refFile.readAll();
 
         if (b1 != b2) {

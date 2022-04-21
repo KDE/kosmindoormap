@@ -95,13 +95,12 @@ STRING      ["]{STRING_ELEMENT}*["]
 
 {HEXCOLOR8}  {
     // the 32bit signed version of strtol isn't good enough for 32bit unsigned
-#if Q_PROCESSOR_WORDSIZE == 8
-    yylval->uintVal = strtol(yytext + 1, nullptr, 16);
-#elif Q_PROCESSOR_WORDSIZE == 4
-    yylval->uintVal = strtoll(yytext + 1, nullptr, 16);
-#else
-#error unknown wordsize!?
-#endif
+    static_assert(sizeof(long) == 4 || sizeof(long) == 8);
+    if constexpr (sizeof(long) == 8) {
+        yylval->uintVal = strtol(yytext + 1, nullptr, 16);
+    } else if constexpr (sizeof(long) == 4) {
+        yylval->uintVal = strtoll(yytext + 1, nullptr, 16);
+    }
     return T_HEX_COLOR;
 }
 {HEXCOLOR6}  {
