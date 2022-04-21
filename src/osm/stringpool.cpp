@@ -24,7 +24,13 @@ const char* OSM::StringKeyRegistryBase::makeKeyInternal(const char *name, std::s
     });
     if (it == m_registry.end() || std::strncmp((*it), name, len) != 0 || std::strlen(*it) != len) {
         if (memOpt == OSM::StringMemory::Transient) {
+#ifndef _MSC_VER
             auto s = strndup(name, len);
+#else
+            auto s = static_cast<char*>(malloc(len + 1));
+            std::strncpy(s, name, len);
+            s[len] = '\0';
+#endif
             m_pool.push_back(s);
             name = s;
         }
