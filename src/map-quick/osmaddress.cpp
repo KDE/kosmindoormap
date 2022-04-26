@@ -47,7 +47,7 @@ QString OSMAddress::state() const
     }
 
     const auto s = KCountrySubdivision::fromLocation(m_element.center().latF(), m_element.center().lonF());
-    return s.isValid() ? s.code().left(3) : QString();
+    return s.isValid() ? s.code().mid(3) : QString();
 }
 
 QString OSMAddress::country() const
