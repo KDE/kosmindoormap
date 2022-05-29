@@ -393,7 +393,11 @@ inline QByteArray tagValue(const Elem& elem, const char *keyName, const QLocale 
         const auto idx = lang.indexOf(QLatin1Char('-'));
         if (idx > 0) {
             key.resize(baseLen);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             key.append(lang.leftRef(idx).toUtf8());
+#else
+            key.append(QStringView(lang).left(idx).toUtf8());
+#endif
             const auto it = std::find_if(elem.tags.begin(), elem.tags.end(), [key](const auto &tag) { return std::strcmp(tag.key.name(), key.constData()) == 0; });
             if (it != elem.tags.end()) {
                 return (*it).value;

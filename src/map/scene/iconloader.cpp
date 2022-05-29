@@ -30,7 +30,11 @@ public:
 
     ~IconEngine() = default;
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QList<QSize> availableSizes(QIcon::Mode mode, QIcon::State state) const override
+#else
+    QList<QSize> availableSizes(QIcon::Mode mode, QIcon::State state) override
+#endif
     {
         Q_UNUSED(mode);
         Q_UNUSED(state);

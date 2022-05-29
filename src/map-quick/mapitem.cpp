@@ -11,6 +11,7 @@
 #include <KOSMIndoorMap/OverlaySource>
 
 #include <QDebug>
+#include <QFile>
 #include <QGuiApplication>
 #include <QPainter>
 #include <QPalette>
@@ -121,9 +122,15 @@ FloorLevelModel* MapItem::floorLevelModel() const
     return m_floorLevelModel;
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void MapItem::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry)
 {
     QQuickPaintedItem::geometryChanged(newGeometry, oldGeometry);
+#else
+void MapItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
+{
+    QQuickPaintedItem::geometryChange(newGeometry, oldGeometry);
+#endif
     m_view->setScreenSize(newGeometry.size().toSize());
     // the scale factor isn't automatically applied to the paint device, only to the input coordinates
     // so we need to handle this manually here

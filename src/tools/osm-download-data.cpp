@@ -73,7 +73,7 @@ int main(int argc, char **argv)
     }
 
     OSM::BoundingBox bbox;
-    const auto coords = parser.value(bboxOpt).splitRef(QLatin1Char(','));
+    const auto coords = QStringView(parser.value(bboxOpt)).split(QLatin1Char(','));
     if (coords.size() == 4) {
         bbox.min = OSM::Coordinate(coords[0].toDouble(), coords[1].toDouble());
         bbox.max = OSM::Coordinate(coords[2].toDouble(), coords[3].toDouble());

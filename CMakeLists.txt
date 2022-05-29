@@ -40,7 +40,7 @@ find_package(KOpeningHours)
 set_package_properties(KOpeningHours PROPERTIES TYPE OPTIONAL PURPOSE "Highlight currently open amenities/shops/etc.")
 
 if (BUILD_TESTING)
-    find_package(Qt5 5.15 REQUIRED COMPONENTS Test Widgets)
+    find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Test Widgets)
 endif()
 
 if (BUILD_STANDALONE_APP)
