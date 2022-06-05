@@ -8,6 +8,7 @@ add_library(KOSMIndoorMapQuick STATIC
     osmelement.cpp
     osmelementinformationmodel.cpp
 )
+set_target_properties(KOSMIndoorMapQuick PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(KOSMIndoorMapQuick PUBLIC
     Qt::Quick
     KF5::I18n
