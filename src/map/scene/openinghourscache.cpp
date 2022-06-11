@@ -8,7 +8,7 @@
 #include "openinghourscache_p.h"
 #include "logging.h"
 
-#ifdef HAVE_KOPENINGHOURS
+#if HAVE_KOPENINGHOURS
 #include <KOpeningHours/Interval>
 #include <KOpeningHours/OpeningHours>
 #endif
@@ -42,7 +42,7 @@ void OpeningHoursCache::setTimeRange(const QDateTime &begin, const QDateTime &en
 
 bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
 {
-#ifndef HAVE_KOPENINGHOURS
+#if !HAVE_KOPENINGHOURS
     Q_UNUSED(elem);
     Q_UNUSED(oh);
     return false;
