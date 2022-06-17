@@ -245,6 +245,7 @@ struct {
     { "light_rail", Platform::Rail }, // TODO consumer code can't handle LightRail yet
     { "subway", Platform::Subway },
     { "tram", Platform::Tram },
+    { "monorail", Platform::Tram }, // TODO consumer code can't handle Monorail yet
     { "bus", Platform::Bus },
 };
 
