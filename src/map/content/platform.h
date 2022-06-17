@@ -112,6 +112,7 @@ public:
         LightRail,
         Subway,
         Tram,
+        Monorail,
         Bus,
     };
     Q_ENUM(Mode)
