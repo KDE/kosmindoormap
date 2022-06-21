@@ -25,6 +25,7 @@ include(FeatureSummary)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(GenerateExportHeader)
+include(ECMDeprecationSettings)
 
 ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     VERSION_HEADER kosmindoormap_version.h
@@ -70,8 +71,7 @@ if (NOT WIN32)
     set_package_properties(Protobuf PROPERTIES TYPE OPTIONAL PURPOSE "Parsing of OSM PBF files.")
 endif()
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055600)
+ecm_set_disabled_deprecation_versions(QT 5.15.2 KF 5.95.0)
 
 add_subdirectory(src)
 if (BUILD_TESTING)
