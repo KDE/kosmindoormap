@@ -69,6 +69,9 @@ private:
         OSM::TagKey mxoid;
         OSM::TagKey remainingRange;
         OSM::TagKey vehicle;
+        OSM::TagKey addr_street;
+        OSM::TagKey addr_city;
+        OSM::TagKey addr_postcode;
     } m_tagKeys;
     OSM::TagKey m_realtimeAvailableTagKeys[5];
 

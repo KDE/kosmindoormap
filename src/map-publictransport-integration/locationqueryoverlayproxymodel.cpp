@@ -59,6 +59,9 @@ void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
         m_tagKeys.mxoid = m_data.dataSet().makeTagKey("mx:oid");
         m_tagKeys.remainingRange = m_data.dataSet().makeTagKey("mx:remaining_range");
         m_tagKeys.vehicle = m_data.dataSet().makeTagKey("mx:vehicle");
+        m_tagKeys.addr_street = m_data.dataSet().makeTagKey("addr:street");
+        m_tagKeys.addr_city = m_data.dataSet().makeTagKey("addr:city");
+        m_tagKeys.addr_postcode = m_data.dataSet().makeTagKey("addr:postcode");
     }
 
     int i = 0;
@@ -169,6 +172,13 @@ void LocationQueryOverlayProxyModel::initialize()
     }
 }
 
+static void setTagIfMissing(OSM::Node &node, OSM::TagKey tag, const QString &value)
+{
+    if (OSM::tagValue(node, tag).isEmpty() && !value.isEmpty()) {
+        OSM::setTagValue(node, tag, value.toUtf8());
+    }
+}
+
 LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(int row) const
 {
     const auto idx = m_sourceModel->index(row, 0);
@@ -203,9 +213,11 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
                 OSM::setTagValue(info.overlayNode, m_tagKeys.capacity, QByteArray::number(station.capacity()));
             }
             OSM::setTagValue(info.overlayNode, m_tagKeys.realtimeAvailable, QByteArray::number(station.availableVehicles()));
-            if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !station.network().name().isEmpty()) {
-                OSM::setTagValue(info.overlayNode, m_tagKeys.network, station.network().name().toUtf8());
-            }
+            setTagIfMissing(info.overlayNode, m_tagKeys.network, station.network().name());
+            setTagIfMissing(info.overlayNode, m_tagKeys.name, loc.name());
+            setTagIfMissing(info.overlayNode, m_tagKeys.addr_street, loc.streetAddress());
+            setTagIfMissing(info.overlayNode, m_tagKeys.addr_city, loc.locality());
+            setTagIfMissing(info.overlayNode, m_tagKeys.addr_postcode, loc.postalCode());
 
             int i = 0;
             for (const auto &v : vehicle_type_map) {
@@ -240,9 +252,7 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
                     break;
             }
             OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
-            if (OSM::tagValue(info.overlayNode, m_tagKeys.network).isEmpty() && !loc.rentalVehicle().network().name().isEmpty()) {
-                OSM::setTagValue(info.overlayNode, m_tagKeys.network, loc.rentalVehicle().network().name().toUtf8());
-            }
+            setTagIfMissing(info.overlayNode, m_tagKeys.network, vehicle.network().name());
             if (vehicle.remainingRange() >= 0) {
                 OSM::setTagValue(info.overlayNode, m_tagKeys.remainingRange, QByteArray::number(vehicle.remainingRange()));
             }
