@@ -59,5 +59,4 @@ Comment[tr]=OSM iç harita demo uygulaması
 Comment[uk]=Демонстраційна програма внутрішніх карт OSM
 Comment[x-test]=xxOSM indoor map demo applicationxx
 Comment[zh_CN]=OSM 室内地图演示应用
-Terminal=false
 Categories=Qt;KDE;Development;
