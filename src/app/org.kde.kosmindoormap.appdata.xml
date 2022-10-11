@@ -15,6 +15,7 @@
   <name xml:lang="fr">Carte interne de OpenStreetmap pour KDE</name>
   <name xml:lang="id">KDE OSM Indoor Map</name>
   <name xml:lang="it">Mappa degli interni OSM di KDE</name>
+  <name xml:lang="ka">KDE OSM შიდა რუკა</name>
   <name xml:lang="ko">KDE OSM 실내 지도</name>
   <name xml:lang="nl">KDE OSM indoorkaart</name>
   <name xml:lang="pl">Mapa wnętrz OSM KDE</name>
@@ -36,6 +37,7 @@
   <summary xml:lang="fr">Application de démonstration pour la carte interne de OpenStreetMap</summary>
   <summary xml:lang="id">Aplikasi demo peta dalam ruangan OSM</summary>
   <summary xml:lang="it">Applicazione dimostrativa per mappe degli interni OSM</summary>
+  <summary xml:lang="ka">OSM შიდა რუკის დემო აპლიკაცია</summary>
   <summary xml:lang="ko">OSM 실내 지도 데모 프로그램</summary>
   <summary xml:lang="nl">Demo-toepassing van OSM indoorkaart </summary>
   <summary xml:lang="pl">Aplikacja pokazowa mapy wnętrz OSM</summary>
