@@ -145,7 +145,7 @@
     name: G
     position: n1629931022
 9
-  position: 1409429562 1869594995
+  position: 1409429562 1869594996
   stop point: n1629836040
   edge: n1629836040
   area: r6838147
@@ -167,7 +167,7 @@
     name: G
     position: n1629931028
 10
-  position: 1409429759 1869595583
+  position: 1409429760 1869595583
   stop point: n1629836001
   edge: n1629836001
   area: r6838156
@@ -211,7 +211,7 @@
   mode: Tram
   lines: 16|18
 2
-  position: 1409418150 1869572123
+  position: 1409418151 1869572123
   stop point: n1341075078
   edge: n1341075078
   area: w119317753

@@ -51,7 +51,7 @@
   level: 10
   mode: Rail
 9
-  position: 1413459477 1923816067
+  position: 1413459477 1923816068
   stop point: n2299420233
   edge: w585434420
   area: r5299028
@@ -78,7 +78,7 @@
   mode: Rail
   lines: ICE 11|ICE 28
 12
-  position: 1413457989 1923819758
+  position: 1413457989 1923819759
   stop point: n2299420217
   edge: w367895064
   area: r5299021
@@ -111,7 +111,7 @@
   mode: Rail
   lines: IC 55
 15
-  position: 1413456335 1923824249
+  position: 1413456336 1923824249
   stop point: n2299420220
   edge: w180179182
   area: r5299022
@@ -120,7 +120,7 @@
   mode: Rail
   lines: ICE 50
 16
-  position: 1413455918 1923825296
+  position: 1413455919 1923825296
   stop point: n2299420221
   edge: w585434432
   area: r5299023
@@ -144,7 +144,7 @@
   level: 10
   mode: Rail
 18a
-  position: 1413466213 1923841277
+  position: 1413466213 1923841278
   stop point: n1834202015
   edge: w585434437
   area: r9615735

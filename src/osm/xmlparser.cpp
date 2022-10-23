@@ -11,6 +11,8 @@
 #include <QIODevice>
 #include <QXmlStreamReader>
 
+#include <cmath>
+
 using namespace OSM;
 
 XmlParser::XmlParser(DataSet* dataSet)
@@ -45,11 +47,29 @@ void XmlParser::parse(QIODevice *io)
     }
 }
 
+// parse double coordinate value without actually doing floating point computations
+// this avoids any loss in precision we can other get heret
+uint32_t parseCoordinateValue(QStringView s, int offset)
+{
+    const auto idx = s.indexOf(QLatin1Char('.'));
+    if (idx < 0) {
+        return s.toUInt() * 10'000'000;
+    }
+    uint32_t result = (uint32_t)(s.left(idx).toInt() + offset) * 10'000'000;
+    const auto decimals = s.mid(idx + 1);
+    if (decimals.size() >= 7) {
+        result += decimals.left(7).toUInt();
+    } else {
+        result += decimals.toUInt() * std::pow(10, 7 - decimals.size());
+    }
+    return result;
+}
+
 void XmlParser::parseNode(QXmlStreamReader &reader)
 {
     Node node;
     node.id = reader.attributes().value(QLatin1String("id")).toLongLong();
-    node.coordinate = Coordinate(reader.attributes().value(QLatin1String("lat")).toDouble(), reader.attributes().value(QLatin1String("lon")).toDouble());
+    node.coordinate = Coordinate(parseCoordinateValue(reader.attributes().value(QLatin1String("lat")), 90), parseCoordinateValue(reader.attributes().value(QLatin1String("lon")), 180));
 
     while (!reader.atEnd() && reader.readNext() != QXmlStreamReader::EndElement) {
         if (reader.tokenType() != QXmlStreamReader::StartElement) {

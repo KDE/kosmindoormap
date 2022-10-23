@@ -1,5 +1,5 @@
 1
-  position: 1435522329 1900083177
+  position: 1435522329 1900083178
   stop point: n1359198009
   edge: n1359198009
   area: r4869406
@@ -35,7 +35,7 @@
   mode: Rail
   lines: A1|S2|S3|S21|S31
 5
-  position: 1435534436 1900069801
+  position: 1435534436 1900069802
   stop point: n3934362101
   edge: n3934362101
   area: w28679287
@@ -49,7 +49,7 @@
     name: E
     position: n6002452933
 6
-  position: 1435534104 1900068116
+  position: 1435534105 1900068116
   stop point: n3934362100
   edge: n3934362100
   area: w28679287
@@ -131,7 +131,7 @@
     name: B
     position: n5859780192
 13
-  position: 1435511273 1900067919
+  position: 1435511274 1900067919
   stop point: n3595451434
   edge: n3595451434
   area: w152813949
@@ -163,7 +163,7 @@
   level: -20
   mode: Subway
 1
-  position: 1435519032 1900096591
+  position: 1435519032 1900096592
   stop point: n1145811379
   edge: n1145811379
   area: n1145811379
@@ -195,7 +195,7 @@
   level: -20
   mode: Subway
 Hauptbahnhof Nord
-  position: 1435541390 1900061804
+  position: 1435541391 1900061804
   stop point: n1143048428
   edge: n1143048428
   area: w408855544

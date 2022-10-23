@@ -24,7 +24,7 @@
   level: -30
   mode: Rail
 4
-  position: 1388435246 1823740874
+  position: 1388435247 1823740874
   stop point: <null>
   edge: <null>
   area: w406470900
@@ -89,7 +89,7 @@
     name: V
     position: n3618878871
 11
-  position: 1388430150 1823782409
+  position: 1388430151 1823782409
   stop point: <null>
   edge: <null>
   area: w361731435
@@ -108,7 +108,7 @@
     name: W
     position: n3618878868
 13
-  position: 1388430150 1823782409
+  position: 1388430151 1823782409
   stop point: <null>
   edge: <null>
   area: w361731435
@@ -165,7 +165,7 @@
     name: W
     position: n3618878870
 19
-  position: 1388430809 1823786283
+  position: 1388430809 1823786284
   stop point: <null>
   edge: <null>
   area: w361731429
@@ -186,7 +186,7 @@
     name: W
     position: n3618878872
 21
-  position: 1388430809 1823786283
+  position: 1388430809 1823786284
   stop point: <null>
   edge: <null>
   area: w361731429
@@ -528,7 +528,7 @@ Voie 1
   level: 0
   mode: Subway
 Voie 2
-  position: 1388458489 1823737851
+  position: 1388458490 1823737852
   stop point: n7064892033
   edge: n7064892033
   area: w756383638

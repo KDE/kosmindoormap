@@ -13,7 +13,7 @@
     name: E
     position: n4126318179
 6
-  position: 1435530832 1899348982
+  position: 1435530832 1899348983
   stop point: n1686600812
   edge: w662834904
   area: w42873615
@@ -150,7 +150,7 @@ Hamburg-Altona
   mode: Rail
   lines: S11|S31
 Hamburg-Altona
-  position: 1435518777 1899349360
+  position: 1435518777 1899349361
   stop point: n300809530
   edge: n300809530
   area: w42838505
@@ -159,7 +159,7 @@ Hamburg-Altona
   mode: Rail
   lines: S1|S2|S3
 Hamburg-Altona
-  position: 1435518544 1899343955
+  position: 1435518544 1899343956
   stop point: n535951138
   edge: n535951138
   area: w42838504
