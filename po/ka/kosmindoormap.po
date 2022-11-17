@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-29 00:43+0000\n"
-"PO-Revision-Date: 2022-10-10 05:25+0200\n"
+"PO-Revision-Date: 2022-11-16 08:45+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: app/main.cpp:44
 #, kde-format
@@ -1439,52 +1439,52 @@ msgstr "SMS"
 #: map-quick/osmelementinformationmodel_data.cpp:335
 msgctxt "OSM::bicycle_parking"
 msgid "anchors"
-msgstr ""
+msgstr "კვანძები"
 
 #: map-quick/osmelementinformationmodel_data.cpp:336
 msgctxt "OSM::bicycle_parking"
 msgid "bollard"
-msgstr ""
+msgstr "ბოძკინტი"
 
 #: map-quick/osmelementinformationmodel_data.cpp:337
 msgctxt "OSM::bicycle_parking"
 msgid "building"
-msgstr ""
+msgstr "შენობა"
 
 #: map-quick/osmelementinformationmodel_data.cpp:338
 msgctxt "OSM::bicycle_parking"
 msgid "ground slots"
-msgstr ""
+msgstr "მიწისქვეშა პარკინგი"
 
 #: map-quick/osmelementinformationmodel_data.cpp:339
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
-msgstr ""
+msgstr "სეიფები"
 
 #: map-quick/osmelementinformationmodel_data.cpp:340
 msgctxt "OSM::bicycle_parking"
 msgid "racks"
-msgstr ""
+msgstr "ყუთები"
 
 #: map-quick/osmelementinformationmodel_data.cpp:341
 msgctxt "OSM::bicycle_parking"
 msgid "shed"
-msgstr ""
+msgstr "ფარდული"
 
 #: map-quick/osmelementinformationmodel_data.cpp:342
 msgctxt "OSM::bicycle_parking"
 msgid "stands"
-msgstr ""
+msgstr "სტენდები"
 
 #: map-quick/osmelementinformationmodel_data.cpp:343
 msgctxt "OSM::bicycle_parking"
 msgid "wall loops"
-msgstr ""
+msgstr "კედლის მარყუჟები"
 
 #: map-quick/osmelementinformationmodel_data.cpp:344
 msgctxt "OSM::bicycle_parking"
 msgid "wide stands"
-msgstr ""
+msgstr "ფართო სტენდები"
 
 #: map-quick/osmelementinformationmodel_data.cpp:351
 #, kde-format
