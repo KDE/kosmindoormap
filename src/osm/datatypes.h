@@ -413,7 +413,10 @@ inline QByteArray tagValue(const Elem& elem, const char *keyName, const QLocale 
 
     // check if there is at least one in any language we can use
     key.resize(baseLen);
-    const auto it = std::find_if(elem.tags.begin(), elem.tags.end(), [key, baseLen](const auto &tag) { return std::strncmp(tag.key.name(), key.constData(), baseLen) == 0; });
+    const auto it = std::find_if(elem.tags.begin(), elem.tags.end(), [key, baseLen](const auto &tag) {
+        return std::strncmp(tag.key.name(), key.constData(), baseLen) == 0
+            && std::strlen(tag.key.name()) == key.size() + 2; // primitive check whether this is a plausible language rather than some other qualifier
+    });
     if (it != elem.tags.end()) {
         return (*it).value;
     }
