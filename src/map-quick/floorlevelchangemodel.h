@@ -40,6 +40,11 @@ class FloorLevelChangeModel : public QAbstractListModel
      */
     Q_PROPERTY(bool hasMultipleLevelChanges READ hasMultipleLevelChanges NOTIFY contentChanged)
 
+    /** Human-readable title of the thing enabling a floor level change here.
+     *  E.g. "Elevator" or "Staircase"
+     */
+    Q_PROPERTY(QString title READ title NOTIFY contentChanged)
+
 public:
     explicit FloorLevelChangeModel(QObject *parent = nullptr);
     ~FloorLevelChangeModel();
@@ -64,6 +69,8 @@ public:
     int destinationLevel() const;
     QString destinationLevelName() const;
     bool hasMultipleLevelChanges() const;
+
+    QString title() const;
 
 Q_SIGNALS:
     void contentChanged();

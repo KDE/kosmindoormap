@@ -58,7 +58,7 @@ Kirigami.Page {
     Kirigami.OverlaySheet {
         id: elevatorSheet
         header: Kirigami.Heading {
-            text: "Elevator"
+            text: floorLevelChangeModel.title
         }
         ListView {
             model: floorLevelChangeModel

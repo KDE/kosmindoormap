@@ -9,6 +9,8 @@
 #include "loader/levelparser_p.h"
 #include <KOSMIndoorMap/MapData>
 
+#include <KLocalizedString>
+
 #include <QDebug>
 
 using namespace KOSMIndoorMap;
@@ -190,4 +192,26 @@ QString FloorLevelChangeModel::destinationLevelName() const
 bool FloorLevelChangeModel::hasMultipleLevelChanges() const
 {
     return m_levels.size() > 1;
+}
+
+QString FloorLevelChangeModel::title() const
+{
+    if (m_element.tagValue("highway") == "elevator"
+        || !m_element.tagValue("elevator").isEmpty()
+        || m_element.tagValue("building:part") == "elevator"
+        || m_element.tagValue("building") == "elevator"
+        || m_element.tagValue("room") == "elevator"
+        || m_element.tagValue("levelpart") == "elevator_platform")
+    {
+        return i18n("Elevator");
+    }
+
+    if (!m_element.tagValue("stairwell").isEmpty()
+     || m_element.tagValue("stairs") == "yes")
+    {
+        return i18n("Staircase");
+    }
+
+    qWarning() << "Unknown floor level change element type:" << m_element.url();
+    return {};
 }
