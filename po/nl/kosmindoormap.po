@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-29 00:43+0000\n"
+"POT-Creation-Date: 2022-11-22 00:44+0000\n"
 "PO-Revision-Date: 2022-04-19 13:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -21,6 +21,17 @@ msgstr ""
 #, kde-format
 msgid "KDE OSM Indoor Map"
 msgstr "KDE OSM indoorkaart"
+
+#: map-quick/floorlevelchangemodel.cpp:206
+#, fuzzy, kde-format
+#| msgid "Operator"
+msgid "Elevator"
+msgstr "Operator"
+
+#: map-quick/floorlevelchangemodel.cpp:212
+#, kde-format
+msgid "Staircase"
+msgstr ""
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format
