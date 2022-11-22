@@ -75,6 +75,7 @@ public:
         CapacityCharing,
         MaxStay,
         DiaperChangingTable,
+        Gender,
         Wikipedia,
         Address,
         Phone,

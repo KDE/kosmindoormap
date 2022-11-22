@@ -9,6 +9,10 @@
             "value": "yes"
         },
         {
+            "keyLabel": "Gender",
+            "value": "female"
+        },
+        {
             "categoryLabel": "Opening Hours",
             "value": "24/7"
         },

@@ -9,6 +9,10 @@
             "value": "yes"
         },
         {
+            "keyLabel": "Gender",
+            "value": "female and male"
+        },
+        {
             "categoryLabel": "Accessibility",
             "keyLabel": "Wheelchair access",
             "value": "limited"

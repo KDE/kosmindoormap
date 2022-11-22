@@ -259,6 +259,7 @@ void OSMElementInformationModel::reload()
         addEntryForKey((*it).key.name(), diet_type_map);
         addEntryForKey((*it).key.name(), socket_type_map);
         addEntryForKey((*it).key.name(), authentication_type_map);
+        addEntryForKey((*it).key.name(), gender_type_map);
     }
 
     std::sort(m_infos.begin(), m_infos.end());
@@ -446,6 +447,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case CapacityCharing: return i18n("Parking spaces for charging");
         case MaxStay: return i18n("Maximum stay");
         case DiaperChangingTable: return i18n("Diaper changing table");
+        case Gender: return i18n("Gender");
         case Wikipedia: return {};
         case Address: return i18n("Address");
         case Phone: return i18n("Phone");
@@ -636,6 +638,18 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         case DiaperChangingTable:
             // TODO look for changing_table:location too
             return translatedBoolValue(m_element.tagValue("changing_table", "diaper"));
+        case Gender:
+        {
+            QStringList l;
+            for (const auto &gender : gender_type_map) {
+                const auto v = m_element.tagValue(gender.keyName);
+                if (v.isEmpty() || v == "no") {
+                    continue;
+                }
+                l.push_back(gender.label.toString());
+            }
+            return QLocale().createSeparatedList(l);
+        }
         case Wikipedia: return wikipediaUrl(m_element.tagValue("wikipedia", "brand:wikipedia", QLocale()));
         case Address: return QVariant::fromValue(OSMAddress(m_element));
         case Phone: return QString::fromUtf8(m_element.tagValue("contact:phone", "phone", "telephone", "operator:phone"));

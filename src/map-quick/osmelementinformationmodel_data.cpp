@@ -355,4 +355,18 @@ static constexpr const ValueMapEntry available_vehicles_map[] = {
     { "mx:realtime_available:car", kli18ncp("available rental vehicles", "%1 car", "%1 cars") },
 };
 
+// gender neutral/gender segregated facilities
+struct {
+    const char *keyName;
+    const KLazyLocalizedString label;
+
+    constexpr inline OSMElementInformationModel::Key key() const { return OSMElementInformationModel::Gender; }
+    constexpr inline OSMElementInformationModel::KeyCategory category() const { return OSMElementInformationModel::UnresolvedCategory; }
+} static constexpr const gender_type_map[] = {
+    { "female", kli18nc("OSM::gender_segregation", "female") },
+    { "male", kli18nc("OSM::gender_segregation", "male") },
+    { "unisex", kli18nc("OSM::gender_segregation", "unisex") },
+};
+static_assert(isSortedLookupTable(gender_type_map), "gender type map is not sorted!");
+
 }
