@@ -25,7 +25,7 @@ area[man_made=bridge],
 area[man_made=pier],
 area[railway=loading_ramp]
 {
-    fill-color: #80dad9d8;
+    fill-color: #80c7c6c5;
 }
 
 /** Roads */
@@ -77,7 +77,7 @@ area[indoor],
 area[building],
 area[building:part=yes][!roof:shape]
 {
-    fill-color: #80eff0f1;
+    fill-color: #80c7c6c5;
 }
 
 area[indoor=area],
@@ -86,7 +86,7 @@ area[building:part=floor],
 area[stairwell],
 area[tunnel=yes]
 {
-    fill-color: #eff0f1;
+    fill-color: #dad9d8;
 }
 
 area[stairwell] { color: #e0dfde; width: 0; }

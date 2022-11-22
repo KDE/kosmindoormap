@@ -66,6 +66,13 @@ area[natural=sand]
 }
 
 /** Generic labeling */
+*|z21- [indoor=room]
+{
+    text: ref;
+    max-width: 100;
+    text-halo-radius: 2.0;
+}
+
 *|z20- [shop],
 *|z19- [shop=ticket],
 *|z21- [amenity][name],
@@ -73,7 +80,7 @@ area[natural=sand]
 *|z20- [amenity=car_rental],
 *|z20- [amenity=fast_food],
 *|z20- [amenity=restaurant],
-*|z21- [indoor=room],
+*|z21- [indoor=room][name],
 *|z21- [leisure],
 *|z19- [tourism=information],
 *|z21- [tourism],
@@ -782,6 +789,13 @@ node|z19- [amenity=atm],
 node|z19- [amenity=drinking_water]
 {
     text: "";
+}
+
+/** Stairwells */
+area|z20-[indoor=area][stairs=yes],
+area|z20-[indoor=room][stairs=yes]
+{
+    icon-image: "stairs";
 }
 
 /** Elevators/escalators. */

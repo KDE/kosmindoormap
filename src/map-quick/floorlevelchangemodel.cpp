@@ -138,7 +138,8 @@ bool FloorLevelChangeModel::isLevelChangeElement(OSM::Element element) const
         || element.tagValue("building:part") == "elevator"
         || element.tagValue("building") == "elevator"
         || element.tagValue("room") == "elevator"
-        || element.tagValue("levelpart") == "elevator_platform";
+        || element.tagValue("levelpart") == "elevator_platform"
+        || (!element.tagValue("indoor").isEmpty() && element.tagValue("stairs") == "yes");
 }
 
 void FloorLevelChangeModel::appendFloorLevel(int level)
