@@ -791,6 +791,13 @@ node|z19- [amenity=drinking_water]
     text: "";
 }
 
+/** Stairwells */
+area|z20-[indoor=area][stairs=yes],
+area|z20-[indoor=room][stairs=yes]
+{
+    icon-image: "stairs";
+}
+
 /** Elevators/escalators. */
 area[building=elevator],
 area[building:part=elevator],
