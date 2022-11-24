@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-23 00:45+0000\n"
-"PO-Revision-Date: 2022-11-16 08:45+0100\n"
+"PO-Revision-Date: 2022-11-23 06:30+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -24,15 +24,14 @@ msgid "KDE OSM Indoor Map"
 msgstr "KDE OSM შიდა რუკა"
 
 #: map-quick/floorlevelchangemodel.cpp:207
-#, fuzzy, kde-format
-#| msgid "Operator"
+#, kde-format
 msgid "Elevator"
-msgstr "ოპერატორი"
+msgstr "ლიფტი"
 
 #: map-quick/floorlevelchangemodel.cpp:213
 #, kde-format
 msgid "Staircase"
-msgstr ""
+msgstr "კიბე"
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format
@@ -174,7 +173,7 @@ msgstr "საფენების შესაცვლელი მაგი�
 #: map-quick/osmelementinformationmodel.cpp:450
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "სქესი"
 
 #: map-quick/osmelementinformationmodel.cpp:452
 #, kde-format
@@ -1545,14 +1544,14 @@ msgstr[1] "%1 მანქანა"
 #: map-quick/osmelementinformationmodel_data.cpp:366
 msgctxt "OSM::gender_segregation"
 msgid "female"
-msgstr ""
+msgstr "მდედრი"
 
 #: map-quick/osmelementinformationmodel_data.cpp:367
 msgctxt "OSM::gender_segregation"
 msgid "male"
-msgstr ""
+msgstr "მამრი"
 
 #: map-quick/osmelementinformationmodel_data.cpp:368
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
-msgstr ""
+msgstr "ორივესქესი"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-23 00:45+0000\n"
-"PO-Revision-Date: 2022-04-20 18:35+0200\n"
+"PO-Revision-Date: 2022-11-22 19:04+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.11.80\n"
 
 #: app/main.cpp:44
 #, kde-format
@@ -20,15 +20,14 @@ msgid "KDE OSM Indoor Map"
 msgstr "Carte interne de OpenStreetmap pour KDE"
 
 #: map-quick/floorlevelchangemodel.cpp:207
-#, fuzzy, kde-format
-#| msgid "Operator"
+#, kde-format
 msgid "Elevator"
-msgstr "Opérateur"
+msgstr "Ascenseur"
 
 #: map-quick/floorlevelchangemodel.cpp:213
 #, kde-format
 msgid "Staircase"
-msgstr ""
+msgstr "Escalier"
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format

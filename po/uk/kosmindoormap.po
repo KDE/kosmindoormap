@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-23 00:45+0000\n"
-"PO-Revision-Date: 2022-11-22 22:15+0200\n"
+"PO-Revision-Date: 2022-11-23 07:18+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -175,7 +175,7 @@ msgstr "Стіл для зміни пелюшок"
 #: map-quick/osmelementinformationmodel.cpp:450
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "Стать"
 
 #: map-quick/osmelementinformationmodel.cpp:452
 #, kde-format
@@ -1556,14 +1556,14 @@ msgstr[3] "%1 автомобіль"
 #: map-quick/osmelementinformationmodel_data.cpp:366
 msgctxt "OSM::gender_segregation"
 msgid "female"
-msgstr ""
+msgstr "жіноча"
 
 #: map-quick/osmelementinformationmodel_data.cpp:367
 msgctxt "OSM::gender_segregation"
 msgid "male"
-msgstr ""
+msgstr "чоловіча"
 
 #: map-quick/osmelementinformationmodel_data.cpp:368
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
-msgstr ""
+msgstr "без визначення"
