@@ -208,7 +208,8 @@ QString FloorLevelChangeModel::title() const
     }
 
     if (!m_element.tagValue("stairwell").isEmpty()
-     || m_element.tagValue("stairs") == "yes")
+     || m_element.tagValue("stairs") == "yes"
+     || m_element.tagValue("room") == "stairs")
     {
         return i18n("Staircase");
     }
