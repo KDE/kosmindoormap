@@ -141,6 +141,8 @@ private:
 
     template <typename KeyMapEntry, std::size_t N>
     void addEntryForKey(const char *keyName, const KeyMapEntry(&map)[N]);
+    template <typename KeyMapEntry, std::size_t N>
+    void addEntryForLocalizedKey(const char *keyName, const KeyMapEntry(&map)[N]);
 
     OSM::Element m_element;
 

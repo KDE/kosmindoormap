@@ -160,14 +160,16 @@ QHash<int, QByteArray> OSMElementInformationModel::roleNames() const
 }
 
 #define M(name, key, category) { name, OSMElementInformationModel::key, OSMElementInformationModel::category }
-struct {
+struct KeyCategoryMapEntry {
     const char *keyName;
     OSMElementInformationModel::Key m_key;
     OSMElementInformationModel::KeyCategory m_category;
 
     constexpr inline OSMElementInformationModel::Key key() const { return m_key; }
     constexpr inline OSMElementInformationModel::KeyCategory category() const { return m_category; }
-} static constexpr const simple_key_map[] = {
+};
+
+static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("addr:city", Address, Contact),
     M("addr:street", Address, Contact),
     M("amenity", Category, Header),
@@ -225,8 +227,13 @@ struct {
     M("website", Website, Contact),
     M("wheelchair", Wheelchair, Accessibility),
 };
-#undef M
 static_assert(isSortedLookupTable(simple_key_map), "key map is not sorted!");
+
+static constexpr const KeyCategoryMapEntry localized_key_map[] = {
+    M("name", Name, Header),
+    M("wikipedia", Wikipedia, UnresolvedCategory),
+};
+#undef M
 
 template <typename KeyMapEntry, std::size_t N>
 void OSMElementInformationModel::addEntryForKey(const char *keyName, const KeyMapEntry(&map)[N])
@@ -239,20 +246,29 @@ void OSMElementInformationModel::addEntryForKey(const char *keyName, const KeyMa
     }
 }
 
+template <typename KeyMapEntry, std::size_t N>
+void OSMElementInformationModel::addEntryForLocalizedKey(const char *keyName, const KeyMapEntry(&map)[N])
+{
+    for (const auto &entry : map) {
+        const auto mapKeyLen = std::strlen(entry.keyName);
+        if (std::strncmp(keyName, entry.keyName, mapKeyLen) != 0) {
+            continue;
+        }
+        const auto keyNameLen = std::strlen(keyName);
+        if (keyNameLen == mapKeyLen || (keyNameLen == mapKeyLen + 3 && keyName[mapKeyLen] == ':')) {
+            m_infos.push_back(Info{entry.key(), entry.category()});
+            return;
+        }
+    }
+}
+
 void OSMElementInformationModel::reload()
 {
     m_nameKey = NoKey;
     m_categoryKey = NoKey;
 
     for (auto it = m_element.tagsBegin(); it != m_element.tagsEnd(); ++it) {
-        if (std::strncmp((*it).key.name(), "name", 4) == 0) {
-            m_infos.push_back(Info{Name, Header});
-            continue;
-        }
-        if (std::strncmp((*it).key.name(), "wikipedia", 9) == 0) {
-            m_infos.push_back(Info{Wikipedia, UnresolvedCategory});
-            continue;
-        }
+        addEntryForLocalizedKey((*it).key.name(), localized_key_map);
         addEntryForKey((*it).key.name(), simple_key_map);
         addEntryForKey((*it).key.name(), payment_generic_type_map);
         addEntryForKey((*it).key.name(), payment_type_map);
