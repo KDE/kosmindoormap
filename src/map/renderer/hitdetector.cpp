@@ -12,6 +12,7 @@
 #include "view.h"
 
 #include <QBrush>
+#include <QFontMetrics>
 
 using namespace KOSMIndoorMap;
 
@@ -108,6 +109,18 @@ bool HitDetector::itemContainsPoint(const PolylineItem *item, QPointF scenePos, 
 bool HitDetector::itemContainsPoint(const LabelItem *item, QPointF screenPos, const View *view) const
 {
     auto hitBox = item->boundingRect();
+    // QStaticText::size doesn't return the actual bounding box with QStaticText::textWidth is set,
+    // so we need to compute that manually here to not end up with overly large hitboxes
+    if (item->text.textWidth() > 0) {
+        double width = QFontMetrics(item->font).horizontalAdvance(item->text.text());
+        if (!item->icon.isNull()) {
+            width = std::max(width, item->iconSize.width());
+        }
+        width += std::max(item->frameWidth, item->haloRadius) + item->casingWidth;
+        const auto widthDelta = (hitBox.width() - width) / 2.0;
+        hitBox.adjust(widthDelta, 0, -widthDelta, 0);
+    }
+
     hitBox.moveCenter(view->mapSceneToScreen(hitBox.center()));
     return hitBox.contains(screenPos);
 }
