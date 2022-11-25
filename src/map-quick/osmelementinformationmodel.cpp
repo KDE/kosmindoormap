@@ -231,6 +231,7 @@ static_assert(isSortedLookupTable(simple_key_map), "key map is not sorted!");
 
 static constexpr const KeyCategoryMapEntry localized_key_map[] = {
     M("name", Name, Header),
+    M("speech_output", SpeechOutput, Accessibility),
     M("wikipedia", Wikipedia, UnresolvedCategory),
 };
 #undef M
@@ -476,6 +477,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case PaymentStoredValueCard: return i18n("Stored value cards");
         case Wheelchair: return i18n("Wheelchair access");
         case CentralKey: return i18n("Central key");
+        case SpeechOutput: return i18n("Speech output");
         case OperatorName: return {};
         case Network: return i18nc("transport network", "Network");
         case OperatorWikipedia: return {};
@@ -712,6 +714,9 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         case CentralKey:
             // translate enum values
             return QString::fromUtf8(m_element.tagValue("centralkey"));
+        case SpeechOutput:
+            // TODO: rather than as a boolean value, list the available languages here when we have that information
+            return translatedBoolValue(m_element.tagValue("speech_output", QLocale()));
         case OperatorName: return QString::fromUtf8(m_element.tagValue("operator"));
         case Network: return QString::fromUtf8(m_element.tagValue("network"));
         case OperatorWikipedia: return wikipediaUrl(m_element.tagValue("operator:wikipedia", QLocale()));

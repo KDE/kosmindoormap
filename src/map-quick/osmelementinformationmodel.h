@@ -88,6 +88,7 @@ public:
         PaymentStoredValueCard,
         Wheelchair,
         CentralKey,
+        SpeechOutput,
         OperatorName,
         Network,
         OperatorWikipedia,
