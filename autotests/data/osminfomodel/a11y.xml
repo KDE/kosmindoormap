@@ -5,5 +5,12 @@
         <tag k="wheelchair" v="yes"/>
         <tag k="wheelchair:description:de" v="description in the wrong language"/>
         <tag k="centralkey" v="eurokey"/>
+        <tag k="tactile_paving" v="yes"/>
+        <tag k="handrail" v="yes"/>
+        <tag k="handrail:left" v="yes"/>
+        <tag k="handrail:right" v="yes"/>
+        <tag k="wheelchair:lift" v="no"/>
+        <tag k="tactile_writing:braille:de" v="yes"/>
+        <tag k="tactile_writing:embossed_printed_letters:de" v="yes"/>
     </node>
 </osm>

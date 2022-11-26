@@ -89,6 +89,7 @@ public:
         Wheelchair,
         CentralKey,
         SpeechOutput,
+        TactileWriting,
         OperatorName,
         Network,
         OperatorWikipedia,

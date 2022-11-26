@@ -219,6 +219,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("room", Category, Header),
     M("route_ref", Routes, Main),
     M("shop", Category, Header),
+    M("tactile_writing", TactileWriting, Accessibility), // occurs also unqualified
     M("takeaway", Takeaway, Main),
     M("toilets:fee", Fee, Toilets),
     M("toilets:wheelchair", Wheelchair, Toilets),
@@ -277,6 +278,7 @@ void OSMElementInformationModel::reload()
         addEntryForKey((*it).key.name(), socket_type_map);
         addEntryForKey((*it).key.name(), authentication_type_map);
         addEntryForKey((*it).key.name(), gender_type_map);
+        addEntryForLocalizedKey((*it).key.name(), tactile_writing_map);
     }
 
     std::sort(m_infos.begin(), m_infos.end());
@@ -478,6 +480,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case Wheelchair: return i18n("Wheelchair access");
         case CentralKey: return i18n("Central key");
         case SpeechOutput: return i18n("Speech output");
+        case TactileWriting: return i18n("Tactile writing");
         case OperatorName: return {};
         case Network: return i18nc("transport network", "Network");
         case OperatorWikipedia: return {};
@@ -717,6 +720,31 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         case SpeechOutput:
             // TODO: rather than as a boolean value, list the available languages here when we have that information
             return translatedBoolValue(m_element.tagValue("speech_output", QLocale()));
+        case TactileWriting:
+        {
+            // TODO: rather than as a boolean value, list the available languages here when we have that information
+            QStringList l;
+            bool explicitNo = false;
+            for (const auto &writing : tactile_writing_map) {
+                const auto v = m_element.tagValue(writing.keyName, QLocale());
+                if (v.isEmpty()) {
+                    continue;
+                }
+                if (v == "no") {
+                    explicitNo = true;
+                    continue;
+                }
+                l.push_back(writing.label.toString());
+            }
+            if (!l.isEmpty()) {
+                return QLocale().createSeparatedList(l);
+            }
+            const auto v = m_element.tagValue("tactile_writing", QLocale());
+            if (explicitNo && v.isEmpty()) {
+                return i18n("no");
+            }
+            return translatedBoolValue(v);
+        }
         case OperatorName: return QString::fromUtf8(m_element.tagValue("operator"));
         case Network: return QString::fromUtf8(m_element.tagValue("network"));
         case OperatorWikipedia: return wikipediaUrl(m_element.tagValue("operator:wikipedia", QLocale()));

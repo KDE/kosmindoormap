@@ -369,4 +369,18 @@ struct {
 };
 static_assert(isSortedLookupTable(gender_type_map), "gender type map is not sorted!");
 
+// tactile writing variants
+struct {
+    const char *keyName;
+    const KLazyLocalizedString label;
+
+    constexpr inline OSMElementInformationModel::Key key() const { return OSMElementInformationModel::TactileWriting; }
+    constexpr inline OSMElementInformationModel::KeyCategory category() const { return OSMElementInformationModel::Accessibility; }
+} static constexpr const tactile_writing_map[] = {
+    { "tactile_writing:braille", kli18nc("tactile writing", "braille") },
+    { "tactile_writing:embossed_printed_letters", kli18nc("tactile writing", "embossed printed letters") },
+    { "tactile_writing:engraved_printed_letters", kli18nc("tactile writing", "engraved printed letters") },
+};
+static_assert(isSortedLookupTable(tactile_writing_map), "tactile writing type map is not sorted!");
+
 }

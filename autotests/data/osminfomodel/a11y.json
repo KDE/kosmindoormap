@@ -9,6 +9,11 @@
              "categoryLabel": "Accessibility",
              "keyLabel": "Central key",
              "value": "eurokey"
+        },
+        {
+            "categoryLabel": "Accessibility",
+            "keyLabel": "Tactile writing",
+            "value": "braille and embossed printed letters"
         }
     ],
     "name": "Toilets"
