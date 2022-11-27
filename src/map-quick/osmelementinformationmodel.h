@@ -87,6 +87,7 @@ public:
         PaymentCreditCard,
         PaymentStoredValueCard,
         Wheelchair,
+        WheelchairLift,
         CentralKey,
         SpeechOutput,
         TactileWriting,

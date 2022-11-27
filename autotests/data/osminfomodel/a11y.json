@@ -6,9 +6,14 @@
             "value": "yes (description in the wrong language)"
         },
         {
-             "categoryLabel": "Accessibility",
-             "keyLabel": "Central key",
-             "value": "eurokey"
+            "categoryLabel": "Accessibility",
+            "keyLabel": "Wheelchair lift",
+            "value": "no"
+        },
+        {
+            "categoryLabel": "Accessibility",
+            "keyLabel": "Central key",
+            "value": "eurokey"
         },
         {
             "categoryLabel": "Accessibility",

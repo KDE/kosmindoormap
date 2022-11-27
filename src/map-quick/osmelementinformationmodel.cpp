@@ -227,6 +227,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("url", Website, Contact),
     M("website", Website, Contact),
     M("wheelchair", Wheelchair, Accessibility),
+    M("wheelchair:lift", WheelchairLift, Accessibility),
 };
 static_assert(isSortedLookupTable(simple_key_map), "key map is not sorted!");
 
@@ -478,6 +479,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case PaymentCreditCard: return i18n("Credit cards");
         case PaymentStoredValueCard: return i18n("Stored value cards");
         case Wheelchair: return i18n("Wheelchair access");
+        case WheelchairLift: return i18n("Wheelchair lift");
         case CentralKey: return i18n("Central key");
         case SpeechOutput: return i18n("Speech output");
         case TactileWriting: return i18n("Tactile writing");
@@ -714,6 +716,8 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             }
             return a;
         }
+        case WheelchairLift:
+            return translatedBoolValue(m_element.tagValue("wheelchair:lift"));
         case CentralKey:
             // translate enum values
             return QString::fromUtf8(m_element.tagValue("centralkey"));
