@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:44+0000\n"
+"POT-Creation-Date: 2022-11-27 00:45+0000\n"
 "PO-Revision-Date: 2022-09-14 19:07+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -49,251 +49,257 @@ msgstr "%1 km"
 msgid "Wikipedia"
 msgstr "Wikipedia"
 
-#: map-quick/osmelementinformationmodel.cpp:417
+#: map-quick/osmelementinformationmodel.cpp:419
 #, kde-format
 msgid "Opening Hours"
 msgstr "Aukioloajat"
 
-#: map-quick/osmelementinformationmodel.cpp:418
+#: map-quick/osmelementinformationmodel.cpp:420
 #, kde-format
 msgid "Contact"
 msgstr "Yhteystieto"
 
-#: map-quick/osmelementinformationmodel.cpp:419
+#: map-quick/osmelementinformationmodel.cpp:421
 #, kde-format
 msgid "Payment"
 msgstr "Maksu"
 
-#: map-quick/osmelementinformationmodel.cpp:420
+#: map-quick/osmelementinformationmodel.cpp:422
 #, kde-format
 msgid "Toilets"
 msgstr "Vessa"
 
-#: map-quick/osmelementinformationmodel.cpp:421
+#: map-quick/osmelementinformationmodel.cpp:423
 #, kde-format
 msgid "Accessibility"
 msgstr "Esteettömyys"
 
-#: map-quick/osmelementinformationmodel.cpp:422
+#: map-quick/osmelementinformationmodel.cpp:424
 #, kde-format
 msgid "Parking"
 msgstr "Pysäköinti"
 
-#: map-quick/osmelementinformationmodel.cpp:423
+#: map-quick/osmelementinformationmodel.cpp:425
 #, kde-format
 msgid "Operator"
 msgstr "Operaattori"
 
-#: map-quick/osmelementinformationmodel.cpp:449
+#: map-quick/osmelementinformationmodel.cpp:451
 #, kde-format
 msgid "Formerly"
 msgstr "Aiemmin"
 
-#: map-quick/osmelementinformationmodel.cpp:450
+#: map-quick/osmelementinformationmodel.cpp:452
 #, kde-format
 msgid "Routes"
 msgstr "Reitit"
 
-#: map-quick/osmelementinformationmodel.cpp:451
+#: map-quick/osmelementinformationmodel.cpp:453
 #, kde-format
 msgid "Cuisine"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel.cpp:452
+#: map-quick/osmelementinformationmodel.cpp:454
 #, kde-format
 msgid "Diet"
 msgstr "Ruokavalio"
 
-#: map-quick/osmelementinformationmodel.cpp:453
+#: map-quick/osmelementinformationmodel.cpp:455
 #, kde-format
 msgid "Takeaway"
 msgstr "Noutoruoka"
 
-#: map-quick/osmelementinformationmodel.cpp:454
+#: map-quick/osmelementinformationmodel.cpp:456
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
 msgstr "Pistorasia"
 
-#: map-quick/osmelementinformationmodel.cpp:456
+#: map-quick/osmelementinformationmodel.cpp:458
 #, kde-format
 msgid "Available vehicles"
 msgstr "Käytettävissä olevat kulkuneuvot"
 
-#: map-quick/osmelementinformationmodel.cpp:457
+#: map-quick/osmelementinformationmodel.cpp:459
 #, kde-format
 msgid "Fee"
 msgstr "Maksu"
 
-#: map-quick/osmelementinformationmodel.cpp:458
+#: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format
 msgid "Authentication"
 msgstr "Todennus"
 
-#: map-quick/osmelementinformationmodel.cpp:459
+#: map-quick/osmelementinformationmodel.cpp:461
 #, kde-format
 msgid "Bicycle parking"
 msgstr "Pyöräpysäköinti"
 
-#: map-quick/osmelementinformationmodel.cpp:460
+#: map-quick/osmelementinformationmodel.cpp:462
 #, kde-format
 msgid "Capacity"
 msgstr "Kapasiteetti"
 
-#: map-quick/osmelementinformationmodel.cpp:461
+#: map-quick/osmelementinformationmodel.cpp:463
 #, kde-format
 msgid "Disabled parking spaces"
 msgstr "Vammaispysäköinti"
 
-#: map-quick/osmelementinformationmodel.cpp:462
+#: map-quick/osmelementinformationmodel.cpp:464
 #, kde-format
 msgid "Women parking spaces"
 msgstr "Naisten pysäköinti"
 
-#: map-quick/osmelementinformationmodel.cpp:463
+#: map-quick/osmelementinformationmodel.cpp:465
 #, kde-format
 msgid "Parent parking spaces"
 msgstr "Perhepysäköinti"
 
-#: map-quick/osmelementinformationmodel.cpp:464
+#: map-quick/osmelementinformationmodel.cpp:466
 #, kde-format
 msgid "Parking spaces for charging"
 msgstr "Latauspysäköintipaikkoja"
 
-#: map-quick/osmelementinformationmodel.cpp:465
+#: map-quick/osmelementinformationmodel.cpp:467
 #, kde-format
 msgid "Maximum stay"
 msgstr "Enimmäisaika"
 
-#: map-quick/osmelementinformationmodel.cpp:466
+#: map-quick/osmelementinformationmodel.cpp:468
 #, kde-format
 msgid "Diaper changing table"
 msgstr "Vaipanvaihtopöytä"
 
-#: map-quick/osmelementinformationmodel.cpp:467
+#: map-quick/osmelementinformationmodel.cpp:469
 #, kde-format
 msgid "Gender"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel.cpp:469
+#: map-quick/osmelementinformationmodel.cpp:471
 #, kde-format
 msgid "Address"
 msgstr "Osoite"
 
-#: map-quick/osmelementinformationmodel.cpp:470
+#: map-quick/osmelementinformationmodel.cpp:472
 #, kde-format
 msgid "Phone"
 msgstr "Puhelin"
 
-#: map-quick/osmelementinformationmodel.cpp:471
+#: map-quick/osmelementinformationmodel.cpp:473
 #, kde-format
 msgid "Email"
 msgstr "Sähköposti"
 
-#: map-quick/osmelementinformationmodel.cpp:472
+#: map-quick/osmelementinformationmodel.cpp:474
 #, kde-format
 msgid "Website"
 msgstr "Sivusto"
 
-#: map-quick/osmelementinformationmodel.cpp:473
+#: map-quick/osmelementinformationmodel.cpp:475
 #, kde-format
 msgid "Cash"
 msgstr "Käteinen"
 
-#: map-quick/osmelementinformationmodel.cpp:474
+#: map-quick/osmelementinformationmodel.cpp:476
 #, kde-format
 msgid "Digital"
 msgstr "Digitaalinen"
 
-#: map-quick/osmelementinformationmodel.cpp:475
+#: map-quick/osmelementinformationmodel.cpp:477
 #, kde-format
 msgid "Debit cards"
 msgstr "Pankkikortit"
 
-#: map-quick/osmelementinformationmodel.cpp:476
+#: map-quick/osmelementinformationmodel.cpp:478
 #, kde-format
 msgid "Credit cards"
 msgstr "Luottokortit"
 
-#: map-quick/osmelementinformationmodel.cpp:477
+#: map-quick/osmelementinformationmodel.cpp:479
 #, kde-format
 msgid "Stored value cards"
 msgstr "Maksukortit"
 
-#: map-quick/osmelementinformationmodel.cpp:478
+#: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
 msgid "Wheelchair access"
 msgstr "Pyörätuolikulku"
 
-#: map-quick/osmelementinformationmodel.cpp:479
+#: map-quick/osmelementinformationmodel.cpp:481
 #, kde-format
 msgid "Central key"
 msgstr "Yleisavain"
 
-#: map-quick/osmelementinformationmodel.cpp:480
+#: map-quick/osmelementinformationmodel.cpp:482
 #, kde-format
 msgid "Speech output"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel.cpp:482
+#: map-quick/osmelementinformationmodel.cpp:483
+#, kde-format
+msgid "Tactile writing"
+msgstr ""
+
+#: map-quick/osmelementinformationmodel.cpp:485
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
 msgstr "Verkko"
 
-#: map-quick/osmelementinformationmodel.cpp:484
+#: map-quick/osmelementinformationmodel.cpp:487
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
 msgstr "Jäljellä oleva kulkusäde"
 
-#: map-quick/osmelementinformationmodel.cpp:550
+#: map-quick/osmelementinformationmodel.cpp:553
 #, kde-format
 msgid "only %1"
 msgstr "vain %1"
 
-#: map-quick/osmelementinformationmodel.cpp:552
+#: map-quick/osmelementinformationmodel.cpp:555
 #, kde-format
 msgid "no %1"
 msgstr "ei: %1"
 
-#: map-quick/osmelementinformationmodel.cpp:577
+#: map-quick/osmelementinformationmodel.cpp:580
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
 msgstr "%1 A"
 
-#: map-quick/osmelementinformationmodel.cpp:585
+#: map-quick/osmelementinformationmodel.cpp:588
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
 msgstr "%1 kW"
 
-#: map-quick/osmelementinformationmodel.cpp:616
+#: map-quick/osmelementinformationmodel.cpp:619
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:684
-#: map-quick/osmelementinformationmodel.cpp:831
+#: map-quick/osmelementinformationmodel.cpp:687
+#: map-quick/osmelementinformationmodel.cpp:859
 #, kde-format
 msgid "yes"
 msgstr "kyllä"
 
-#: map-quick/osmelementinformationmodel.cpp:687
+#: map-quick/osmelementinformationmodel.cpp:690
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "vain kolikot"
 
-#: map-quick/osmelementinformationmodel.cpp:690
+#: map-quick/osmelementinformationmodel.cpp:693
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "vain setelit"
 
-#: map-quick/osmelementinformationmodel.cpp:692
-#: map-quick/osmelementinformationmodel.cpp:834
+#: map-quick/osmelementinformationmodel.cpp:695
+#: map-quick/osmelementinformationmodel.cpp:744
+#: map-quick/osmelementinformationmodel.cpp:862
 #, kde-format
 msgid "no"
 msgstr "ei"
@@ -1562,4 +1568,19 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:368
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
+msgstr ""
+
+#: map-quick/osmelementinformationmodel_data.cpp:380
+msgctxt "tactile writing"
+msgid "braille"
+msgstr ""
+
+#: map-quick/osmelementinformationmodel_data.cpp:381
+msgctxt "tactile writing"
+msgid "embossed printed letters"
+msgstr ""
+
+#: map-quick/osmelementinformationmodel_data.cpp:382
+msgctxt "tactile writing"
+msgid "engraved printed letters"
 msgstr ""
