@@ -509,6 +509,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             l += m_element.tagValue("leisure").split(';');
             l += m_element.tagValue("historic").split(';');
             l += m_element.tagValue("mx:vehicle");
+            l.erase(std::remove(l.begin(), l.end(), QByteArray()), l.end());
             if (l.isEmpty()) {
                 l += m_element.tagValue("room").split(';');
             }
