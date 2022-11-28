@@ -270,6 +270,7 @@ void OSMElementInformationModel::reload()
     m_nameKey = NoKey;
     m_categoryKey = NoKey;
 
+    const bool isRoom = m_element.tagValue("indoor") == "room";
     for (auto it = m_element.tagsBegin(); it != m_element.tagsEnd(); ++it) {
         addEntryForLocalizedKey((*it).key.name(), localized_key_map);
         addEntryForKey((*it).key.name(), simple_key_map);
@@ -280,6 +281,10 @@ void OSMElementInformationModel::reload()
         addEntryForKey((*it).key.name(), authentication_type_map);
         addEntryForKey((*it).key.name(), gender_type_map);
         addEntryForLocalizedKey((*it).key.name(), tactile_writing_map);
+
+        if (isRoom && std::strcmp((*it).key.name(), "ref") == 0) {
+            m_infos.push_back(Info{Name, Header});
+        }
     }
 
     std::sort(m_infos.begin(), m_infos.end());
@@ -497,7 +502,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
 {
     switch (info.key) {
         case NoKey: return {};
-        case Name: return QString::fromUtf8(m_element.tagValue("name", "brand", QLocale()));
+        case Name: return QString::fromUtf8(m_element.tagValue("name", "brand", "ref", QLocale()));
         case Category:
         {
             QList<QByteArray> l;
