@@ -245,6 +245,7 @@ area[building:part=yes],
 area[building:part=floor],
 area[indoor=area],
 area[indoor=corridor],
+area[indoor=level],
 area[stairwell],
 area[tunnel]
 {
