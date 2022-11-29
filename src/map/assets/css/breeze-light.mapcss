@@ -208,7 +208,9 @@ area[tourism=information]
 /** Restricted access, disused, etc: keep this last. */
 area[indoor=room][access=no],
 area[indoor=room][access=private],
-area[shop=vacant]
+area[shop=vacant],
+area[disused:amenity],
+area[disused:shop]
 {
     fill-color: #888786;
 }
