@@ -25,8 +25,6 @@ MapCSSBasicSelector::~MapCSSBasicSelector() = default;
 
 void MapCSSBasicSelector::compile(const OSM::DataSet &dataSet)
 {
-    m_areaKey = dataSet.tagKey("area");
-    m_typeKey = dataSet.tagKey("type");
     for (const auto &c : conditions) {
         c->compile(dataSet);
     }
@@ -34,42 +32,24 @@ void MapCSSBasicSelector::compile(const OSM::DataSet &dataSet)
 
 bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const
 {
-    // check zoom conditions first, as this is the cheapest one and can avoid expensive tag lookups we it doesn't match
+    // check object type
+    switch (m_objectType) {
+        case MapCSSObjectType::Node: if (state.element.type() != OSM::Type::Node) return false; break;
+        case MapCSSObjectType::Way: if (state.element.type() != OSM::Type::Way) return false; break;
+        case MapCSSObjectType::Relation: if (state.element.type() != OSM::Type::Relation) return false; break;
+        case MapCSSObjectType::Area: if (state.objectType !=MapCSSObjectType::Area && state.objectType != MapCSSObjectType::LineOrArea) return false; break;
+        case MapCSSObjectType::Line: if (state.objectType !=MapCSSObjectType::Line && state.objectType != MapCSSObjectType::LineOrArea) return false; break;
+        case MapCSSObjectType::Canvas: return false;
+        case MapCSSObjectType::Any: break;
+        case MapCSSObjectType::LineOrArea: Q_UNREACHABLE();
+    }
+
+    // check zoom level
     if (m_zoomLow > 0 && state.zoomLevel < m_zoomLow) {
         return false;
     }
     if (m_zoomHigh > 0 && state.zoomLevel >= m_zoomHigh) {
         return false;
-    }
-
-    switch (objectType) {
-        case Node: if (state.element.type() != OSM::Type::Node) return false; break;
-        case Way: if (state.element.type() != OSM::Type::Way) return false; break;
-        case Relation: if (state.element.type() != OSM::Type::Relation) return false; break;
-        case Area:
-            switch (state.element.type()) {
-                case OSM::Type::Null:
-                case OSM::Type::Node:
-                    return false;
-                case OSM::Type::Way:
-                    if (!state.element.way()->isClosed()) {
-                        return false;
-                    }
-                    break;
-                case OSM::Type::Relation:
-                    if (state.element.tagValue(m_typeKey) != "multipolygon") {
-                        return false;
-                    }
-                    break;
-            }
-            break;
-        case Line:
-            if (state.element.type() != OSM::Type::Way || (state.element.way()->isClosed() && state.element.tagValue(m_areaKey) == "yes")) {
-                return false;
-            }
-            break;
-        case Canvas: return false;
-        case Any: break;
     }
 
     if (!m_class.isNull() && !result[m_layer].hasClass(m_class)) {
@@ -85,7 +65,7 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result
 
 bool MapCSSBasicSelector::matchesCanvas(const MapCSSState &state) const
 {
-    if (objectType != Canvas) {
+    if (m_objectType != MapCSSObjectType::Canvas) {
         return false;
     }
 
@@ -106,21 +86,21 @@ LayerSelectorKey MapCSSBasicSelector::layerSelector() const
 
 struct {
     const char *name;
-    MapCSSBasicSelector::ObjectType type;
+    MapCSSObjectType type;
 } static constexpr const object_type_map[] = {
-    { "node", MapCSSBasicSelector::Node },
-    { "way", MapCSSBasicSelector::Way },
-    { "relation", MapCSSBasicSelector::Relation },
-    { "area", MapCSSBasicSelector::Area },
-    { "line", MapCSSBasicSelector::Line },
-    { "canvas", MapCSSBasicSelector::Canvas },
-    { "*", MapCSSBasicSelector::Any },
+    { "node", MapCSSObjectType::Node },
+    { "way", MapCSSObjectType::Way },
+    { "relation", MapCSSObjectType::Relation },
+    { "area", MapCSSObjectType::Area },
+    { "line", MapCSSObjectType::Line },
+    { "canvas", MapCSSObjectType::Canvas },
+    { "*", MapCSSObjectType::Any },
 };
 
 void MapCSSBasicSelector::write(QIODevice *out) const
 {
     for (const auto &t : object_type_map) {
-        if (objectType == t.type) {
+        if (m_objectType == t.type) {
             out->write(t.name);
             break;
         }
@@ -160,7 +140,7 @@ void MapCSSBasicSelector::setObjectType(const char *str, std::size_t len)
 {
     for (const auto &t : object_type_map) {
         if (std::strncmp(t.name, str, std::max(std::strlen(t.name), len)) == 0) {
-            objectType = t.type;
+            m_objectType = t.type;
             return;
         }
     }

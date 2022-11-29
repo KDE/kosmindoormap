@@ -8,6 +8,7 @@
 #define KOSMINDOORMAP_MAPCSSSELECTOR_P_H
 
 #include "mapcsstypes.h"
+#include "mapcssobjecttype_p.h"
 
 #include <osm/datatypes.h>
 
@@ -52,17 +53,6 @@ public:
     explicit MapCSSBasicSelector();
     ~MapCSSBasicSelector();
 
-    enum ObjectType {
-        Node,
-        Way,
-        Relation,
-        Area,
-        Line,
-        Canvas,
-        Any
-    };
-    ObjectType objectType;
-
     void compile(const OSM::DataSet &dataSet) override;
     bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
@@ -76,9 +66,9 @@ public:
     void setClass(ClassSelectorKey key);
     void setLayer(LayerSelectorKey key);
 
+private:
+    MapCSSObjectType m_objectType = MapCSSObjectType::Any;
     std::vector<std::unique_ptr<MapCSSCondition>> conditions;
-    OSM::TagKey m_areaKey;
-    OSM::TagKey m_typeKey;
     ClassSelectorKey m_class;
     LayerSelectorKey m_layer;
     int m_zoomLow = 0;

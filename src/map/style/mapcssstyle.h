@@ -47,7 +47,7 @@ public:
      *  The result is not returned but added to @p result for reusing allocated memory
      *  between evaluations.
      */
-    void evaluate(const MapCSSState &state, MapCSSResult &result) const;
+    void evaluate(MapCSSState &&state, MapCSSResult &result) const;
 
     /** Evaluate canvas style rules. */
     void evaluateCanvas(const MapCSSState &state, MapCSSResult &result) const;

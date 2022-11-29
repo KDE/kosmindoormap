@@ -202,7 +202,6 @@ BasicSelector:
   }
 | T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
-    $$->objectType = MapCSSBasicSelector::Any;
     if ($C.str) {
         $$->setClass(parser->makeClassSelector($C.str, $C.len));
     }

@@ -215,7 +215,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     state.zoomLevel = d->m_view->zoomLevel();
     state.floorLevel = d->m_view->level();
     state.openingHours = &d->m_openingHours;
-    d->m_styleSheet->evaluate(state, d->m_styleResult);
+    d->m_styleSheet->evaluate(std::move(state), d->m_styleResult);
     for (const auto &result : d->m_styleResult.results()) {
         updateElement(e, level, sg, result);
     }
