@@ -58,6 +58,7 @@ public:
         Name,
         Category,
         OldName,
+        Description,
         Routes,
         Cuisine,
         Diet,

@@ -193,6 +193,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("contact:street", Address, Contact),
     M("contact:website", Website, Contact),
     M("cuisine", Cuisine, Main),
+    M("description", Description, Main),
     M("diaper", DiaperChangingTable, UnresolvedCategory),
     M("email", Email, Contact),
     M("fee", Fee, UnresolvedCategory),
@@ -455,6 +456,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case Name:
         case Category: return {};
         case OldName: return i18n("Formerly");
+        case Description: return i18n("Description");
         case Routes: return i18n("Routes");
         case Cuisine: return i18n("Cuisine");
         case Diet: return i18n("Diet");
@@ -540,6 +542,8 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             const auto l = QString::fromUtf8(m_element.tagValue("old_name")).split(QLatin1Char(';'));
             return l.join(QLatin1String(", "));
         }
+        case Description:
+            return m_element.tagValue("description", QLocale());
         case Routes:
         {
             auto l = QString::fromUtf8(m_element.tagValue("route_ref", "bus_routes", "bus_lines", "buses")).split(QLatin1Char(';'), Qt::SkipEmptyParts);
