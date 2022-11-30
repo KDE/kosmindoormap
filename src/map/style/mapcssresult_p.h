@@ -12,6 +12,11 @@
 
 #include <vector>
 
+namespace OSM {
+class Tag;
+class TagKey;
+}
+
 namespace KOSMIndoorMap {
 
 /** Result of MapCSS stylesheet evaluation for a single layer selector. */
@@ -38,15 +43,20 @@ public:
     /** The layer selector for this result. */
     LayerSelectorKey layerSelector() const;
 
+    /** Tag lookup for tags overridden by the style sheet. */
+    QByteArray tagValue(OSM::TagKey key) const;
+
     /** @internal */
     void addDeclaration(const MapCSSDeclaration *decl);
     void addClass(ClassSelectorKey cls);
     bool hasClass(ClassSelectorKey cls) const;
     void setLayerSelector(LayerSelectorKey layer);
+    void setTag(OSM::Tag &&tag);
 
 private:
     std::vector<const MapCSSDeclaration*> m_declarations;
     std::vector<ClassSelectorKey> m_classes;
+    std::vector<OSM::Tag> m_tags;
     LayerSelectorKey m_layer;
     int m_flags = 0;
 };

@@ -11,6 +11,8 @@
 #include <QDebug>
 #include <QIODevice>
 
+#include <cmath>
+
 using namespace KOSMIndoorMap;
 
 MapCSSRule::MapCSSRule() = default;
@@ -37,8 +39,11 @@ void MapCSSRule::evaluate(const MapCSSState &state, MapCSSResult &result) const
                     result[layer].addClass(decl->classSelectorKey());
                     break;
                 case MapCSSDeclaration::TagDeclaration:
-                    // TODO
-                    qDebug() << "MapCSS tag declaration not implemented yet.";
+                    if (!std::isnan(decl->doubleValue())) {
+                        result[layer].setTag(OSM::Tag{decl->tagKey(), QByteArray::number(decl->doubleValue())});
+                    } else {
+                        result[layer].setTag(OSM::Tag{decl->tagKey(), decl->stringValue().toUtf8()});
+                    }
                     break;
             }
         }

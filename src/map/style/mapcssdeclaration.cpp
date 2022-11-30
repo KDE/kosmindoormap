@@ -179,6 +179,11 @@ QVector<double> MapCSSDeclaration::dashesValue() const
     return m_dashValue;
 }
 
+OSM::TagKey MapCSSDeclaration::tagKey() const
+{
+    return m_tagKey;
+}
+
 void MapCSSDeclaration::setDoubleValue(double val)
 {
     m_doubleValue = val;
@@ -304,6 +309,10 @@ void MapCSSDeclaration::compile(const OSM::DataSet &dataSet)
 {
     Q_UNUSED(dataSet);
     // TODO resolve tag key if m_identValue is one
+    if (m_type == TagDeclaration) {
+        // TODO handle the case that the tag isn't actually available in dataSet
+        m_tagKey = dataSet.tagKey(m_identValue.constData());
+    }
 }
 
 void MapCSSDeclaration::write(QIODevice *out) const

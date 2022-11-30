@@ -6,6 +6,8 @@
 
 #include "mapcssresult_p.h"
 
+#include <osm/datatypes.h>
+
 #include <algorithm>
 
 using namespace KOSMIndoorMap;
@@ -17,6 +19,7 @@ void MapCSSResultItem::clear()
 {
     m_declarations.clear();
     m_classes.clear();
+    m_tags.clear();
     m_flags = MapCSSDeclaration::NoFlag;
     m_layer = {};
 }
@@ -84,9 +87,28 @@ LayerSelectorKey MapCSSResultItem::layerSelector() const
     return m_layer;
 }
 
+QByteArray MapCSSResultItem::tagValue(OSM::TagKey key) const
+{
+    const auto it = std::lower_bound(m_tags.begin(), m_tags.end(), key);
+    if (it != m_tags.end() && (*it).key == key) {
+        return (*it).value;
+    }
+    return {};
+}
+
 void MapCSSResultItem::setLayerSelector(LayerSelectorKey layer)
 {
     m_layer = layer;
+}
+
+void MapCSSResultItem::setTag(OSM::Tag &&tag)
+{
+    const auto it = std::lower_bound(m_tags.begin(), m_tags.end(), tag);
+    if (it == m_tags.end() || (*it).key != tag.key) {
+        m_tags.insert(it, std::move(tag));
+    } else {
+        (*it) = std::move(tag);
+    }
 }
 
 
