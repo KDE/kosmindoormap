@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:45+0000\n"
-"PO-Revision-Date: 2022-11-28 11:12+0100\n"
+"POT-Creation-Date: 2022-11-30 00:46+0000\n"
+"PO-Revision-Date: 2022-11-29 10:48+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -48,262 +48,267 @@ msgstr "%1km"
 msgid "Wikipedia"
 msgstr "Wikipedia"
 
-#: map-quick/osmelementinformationmodel.cpp:425
+#: map-quick/osmelementinformationmodel.cpp:426
 #, kde-format
 msgid "Opening Hours"
 msgstr "Openingsuren"
 
-#: map-quick/osmelementinformationmodel.cpp:426
+#: map-quick/osmelementinformationmodel.cpp:427
 #, kde-format
 msgid "Contact"
 msgstr "Contactpersoon"
 
-#: map-quick/osmelementinformationmodel.cpp:427
+#: map-quick/osmelementinformationmodel.cpp:428
 #, kde-format
 msgid "Payment"
 msgstr "Betaling"
 
-#: map-quick/osmelementinformationmodel.cpp:428
+#: map-quick/osmelementinformationmodel.cpp:429
 #, kde-format
 msgid "Toilets"
 msgstr "Toiletten"
 
-#: map-quick/osmelementinformationmodel.cpp:429
+#: map-quick/osmelementinformationmodel.cpp:430
 #, kde-format
 msgid "Accessibility"
 msgstr "Toegankelijkheid"
 
-#: map-quick/osmelementinformationmodel.cpp:430
+#: map-quick/osmelementinformationmodel.cpp:431
 #, kde-format
 msgid "Parking"
 msgstr "Parkeren"
 
-#: map-quick/osmelementinformationmodel.cpp:431
+#: map-quick/osmelementinformationmodel.cpp:432
 #, kde-format
 msgid "Operator"
 msgstr "Operator"
 
-#: map-quick/osmelementinformationmodel.cpp:457
+#: map-quick/osmelementinformationmodel.cpp:458
 #, kde-format
 msgid "Formerly"
 msgstr "Vroeger"
 
-#: map-quick/osmelementinformationmodel.cpp:458
+#: map-quick/osmelementinformationmodel.cpp:459
+#, kde-format
+msgid "Description"
+msgstr ""
+
+#: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format
 msgid "Routes"
 msgstr "Routes"
 
-#: map-quick/osmelementinformationmodel.cpp:459
+#: map-quick/osmelementinformationmodel.cpp:461
 #, kde-format
 msgid "Cuisine"
 msgstr "Keuken"
 
-#: map-quick/osmelementinformationmodel.cpp:460
+#: map-quick/osmelementinformationmodel.cpp:462
 #, kde-format
 msgid "Diet"
 msgstr "Dieet"
 
-#: map-quick/osmelementinformationmodel.cpp:461
+#: map-quick/osmelementinformationmodel.cpp:463
 #, kde-format
 msgid "Takeaway"
 msgstr "Afhaalwinkel"
 
-#: map-quick/osmelementinformationmodel.cpp:462
+#: map-quick/osmelementinformationmodel.cpp:464
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
 msgstr "Socket"
 
-#: map-quick/osmelementinformationmodel.cpp:464
+#: map-quick/osmelementinformationmodel.cpp:466
 #, kde-format
 msgid "Available vehicles"
 msgstr "Beschikbare voertuigen"
 
-#: map-quick/osmelementinformationmodel.cpp:465
+#: map-quick/osmelementinformationmodel.cpp:467
 #, kde-format
 msgid "Fee"
 msgstr "Kosten"
 
-#: map-quick/osmelementinformationmodel.cpp:466
+#: map-quick/osmelementinformationmodel.cpp:468
 #, kde-format
 msgid "Authentication"
 msgstr "Authenticatie"
 
-#: map-quick/osmelementinformationmodel.cpp:467
+#: map-quick/osmelementinformationmodel.cpp:469
 #, kde-format
 msgid "Bicycle parking"
 msgstr "Fietsstalling"
 
-#: map-quick/osmelementinformationmodel.cpp:468
+#: map-quick/osmelementinformationmodel.cpp:470
 #, kde-format
 msgid "Capacity"
 msgstr "Capaciteit"
 
-#: map-quick/osmelementinformationmodel.cpp:469
+#: map-quick/osmelementinformationmodel.cpp:471
 #, kde-format
 msgid "Disabled parking spaces"
 msgstr "Gehandicapten parkeerplaatsen"
 
-#: map-quick/osmelementinformationmodel.cpp:470
+#: map-quick/osmelementinformationmodel.cpp:472
 #, kde-format
 msgid "Women parking spaces"
 msgstr "Parkeerplaatsen voor vrouwen"
 
-#: map-quick/osmelementinformationmodel.cpp:471
+#: map-quick/osmelementinformationmodel.cpp:473
 #, kde-format
 msgid "Parent parking spaces"
 msgstr "Parkeerplaatsen voor ouders"
 
-#: map-quick/osmelementinformationmodel.cpp:472
+#: map-quick/osmelementinformationmodel.cpp:474
 #, kde-format
 msgid "Parking spaces for charging"
 msgstr "Betaalde parkeerplaatsen"
 
-#: map-quick/osmelementinformationmodel.cpp:473
+#: map-quick/osmelementinformationmodel.cpp:475
 #, kde-format
 msgid "Maximum stay"
 msgstr "Maximum verblijf"
 
-#: map-quick/osmelementinformationmodel.cpp:474
+#: map-quick/osmelementinformationmodel.cpp:476
 #, kde-format
 msgid "Diaper changing table"
 msgstr "Tafel voor verwisselen van luiers"
 
-#: map-quick/osmelementinformationmodel.cpp:475
+#: map-quick/osmelementinformationmodel.cpp:477
 #, kde-format
 msgid "Gender"
 msgstr "Geslacht"
 
-#: map-quick/osmelementinformationmodel.cpp:477
+#: map-quick/osmelementinformationmodel.cpp:479
 #, kde-format
 msgid "Address"
 msgstr "Adres"
 
-#: map-quick/osmelementinformationmodel.cpp:478
+#: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
 msgid "Phone"
 msgstr "Telefoon"
 
-#: map-quick/osmelementinformationmodel.cpp:479
+#: map-quick/osmelementinformationmodel.cpp:481
 #, kde-format
 msgid "Email"
 msgstr "E-mail"
 
-#: map-quick/osmelementinformationmodel.cpp:480
+#: map-quick/osmelementinformationmodel.cpp:482
 #, kde-format
 msgid "Website"
 msgstr "Website"
 
-#: map-quick/osmelementinformationmodel.cpp:481
+#: map-quick/osmelementinformationmodel.cpp:483
 #, kde-format
 msgid "Cash"
 msgstr "Geld"
 
-#: map-quick/osmelementinformationmodel.cpp:482
+#: map-quick/osmelementinformationmodel.cpp:484
 #, kde-format
 msgid "Digital"
 msgstr "Digitaal"
 
-#: map-quick/osmelementinformationmodel.cpp:483
+#: map-quick/osmelementinformationmodel.cpp:485
 #, kde-format
 msgid "Debit cards"
 msgstr "Betaalkaarten"
 
-#: map-quick/osmelementinformationmodel.cpp:484
+#: map-quick/osmelementinformationmodel.cpp:486
 #, kde-format
 msgid "Credit cards"
 msgstr "Creditcards"
 
-#: map-quick/osmelementinformationmodel.cpp:485
+#: map-quick/osmelementinformationmodel.cpp:487
 #, kde-format
 msgid "Stored value cards"
 msgstr "Opgeslagen betaalkaarten"
 
-#: map-quick/osmelementinformationmodel.cpp:486
+#: map-quick/osmelementinformationmodel.cpp:488
 #, kde-format
 msgid "Wheelchair access"
 msgstr "Toegang voor rolstoelen"
 
-#: map-quick/osmelementinformationmodel.cpp:487
+#: map-quick/osmelementinformationmodel.cpp:489
 #, kde-format
 msgid "Wheelchair lift"
 msgstr "Lift voor rolstoelen"
 
-#: map-quick/osmelementinformationmodel.cpp:488
+#: map-quick/osmelementinformationmodel.cpp:490
 #, kde-format
 msgid "Central key"
 msgstr "Centrale sleutel"
 
-#: map-quick/osmelementinformationmodel.cpp:489
+#: map-quick/osmelementinformationmodel.cpp:491
 #, kde-format
 msgid "Speech output"
 msgstr "Spraakuitvoer"
 
-#: map-quick/osmelementinformationmodel.cpp:490
+#: map-quick/osmelementinformationmodel.cpp:492
 #, kde-format
 msgid "Tactile writing"
 msgstr "Tactiel schrijven"
 
-#: map-quick/osmelementinformationmodel.cpp:492
+#: map-quick/osmelementinformationmodel.cpp:494
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
 msgstr "Netwerk"
 
-#: map-quick/osmelementinformationmodel.cpp:494
+#: map-quick/osmelementinformationmodel.cpp:496
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
 msgstr "Resterend bereik"
 
-#: map-quick/osmelementinformationmodel.cpp:561
+#: map-quick/osmelementinformationmodel.cpp:565
 #, kde-format
 msgid "only %1"
 msgstr "alleen %1"
 
-#: map-quick/osmelementinformationmodel.cpp:563
+#: map-quick/osmelementinformationmodel.cpp:567
 #, kde-format
 msgid "no %1"
 msgstr "geen %1"
 
-#: map-quick/osmelementinformationmodel.cpp:588
+#: map-quick/osmelementinformationmodel.cpp:592
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
 msgstr "%1 A"
 
-#: map-quick/osmelementinformationmodel.cpp:596
+#: map-quick/osmelementinformationmodel.cpp:600
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
 msgstr "%1 kW"
 
-#: map-quick/osmelementinformationmodel.cpp:627
+#: map-quick/osmelementinformationmodel.cpp:631
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:695
-#: map-quick/osmelementinformationmodel.cpp:869
+#: map-quick/osmelementinformationmodel.cpp:699
+#: map-quick/osmelementinformationmodel.cpp:873
 #, kde-format
 msgid "yes"
 msgstr "ja"
 
-#: map-quick/osmelementinformationmodel.cpp:698
+#: map-quick/osmelementinformationmodel.cpp:702
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "alleen munten"
 
-#: map-quick/osmelementinformationmodel.cpp:701
+#: map-quick/osmelementinformationmodel.cpp:705
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "alleen bankbiljetten"
 
-#: map-quick/osmelementinformationmodel.cpp:703
-#: map-quick/osmelementinformationmodel.cpp:754
-#: map-quick/osmelementinformationmodel.cpp:872
+#: map-quick/osmelementinformationmodel.cpp:707
+#: map-quick/osmelementinformationmodel.cpp:758
+#: map-quick/osmelementinformationmodel.cpp:876
 #, kde-format
 msgid "no"
 msgstr "nee"
@@ -462,7 +467,7 @@ msgstr "Stadsmuur"
 #: map-quick/osmelementinformationmodel_data.cpp:53
 msgctxt "OSM::room"
 msgid "Classroom"
-msgstr ""
+msgstr "Klaslokaal"
 
 #: map-quick/osmelementinformationmodel_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -542,7 +547,7 @@ msgstr "Elektronica"
 #: map-quick/osmelementinformationmodel_data.cpp:69
 msgctxt "OSM::amenity"
 msgid "Events Venue"
-msgstr ""
+msgstr "Locatie voor evenementen"
 
 #: map-quick/osmelementinformationmodel_data.cpp:70
 msgctxt "OSM::amenity/shop"
@@ -677,7 +682,7 @@ msgstr "Kiosk"
 #: map-quick/osmelementinformationmodel_data.cpp:96
 msgctxt "OSM::room"
 msgid "Kitchen"
-msgstr ""
+msgstr "Kitchen"
 
 #: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::amenity/shop"
@@ -688,7 +693,7 @@ msgstr "Wasserette"
 #: map-quick/osmelementinformationmodel_data.cpp:99
 msgctxt "OSM::room"
 msgid "Lecture Hall"
-msgstr ""
+msgstr "Collegezaal"
 
 #: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::amenity/shop"
@@ -879,7 +884,7 @@ msgstr "Tweedehands"
 #: map-quick/osmelementinformationmodel_data.cpp:139
 msgctxt "OSM::amenity"
 msgid "Research Institute"
-msgstr ""
+msgstr "Onderzoekinstituut"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -927,12 +932,9 @@ msgid "Sports"
 msgstr "Sport"
 
 #: map-quick/osmelementinformationmodel_data.cpp:149
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Sports"
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr "Sport"
+msgstr "Sporthal"
 
 #: map-quick/osmelementinformationmodel_data.cpp:150
 msgctxt "OSM::amenity/shop"
