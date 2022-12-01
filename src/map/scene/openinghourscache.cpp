@@ -17,7 +17,11 @@
 
 using namespace KOSMIndoorMap;
 
-OpeningHoursCache::OpeningHoursCache() = default;
+OpeningHoursCache::OpeningHoursCache()
+{
+    setTimeRange({}, {});
+}
+
 OpeningHoursCache::~OpeningHoursCache() = default;
 
 void OpeningHoursCache::setMapData(const MapData &mapData)
@@ -31,12 +35,15 @@ void OpeningHoursCache::setMapData(const MapData &mapData)
 
 void OpeningHoursCache::setTimeRange(const QDateTime &begin, const QDateTime &end)
 {
-    if (begin == m_begin && end == m_end) {
+    const auto actualBegin = begin.isValid() ? begin : QDateTime::currentDateTime();
+    const auto actualEnd = (end.isValid() && end > m_begin) ? end : actualBegin.addYears(1);
+
+    if (actualBegin == m_begin && actualEnd == m_end) {
         return;
     }
 
-    m_begin = begin.isValid() ? begin : QDateTime::currentDateTime();
-    m_end = (end > m_begin) ? end : QDateTime();
+    m_begin = actualBegin;
+    m_end = actualEnd;
     m_cacheEntries.clear();
 }
 
