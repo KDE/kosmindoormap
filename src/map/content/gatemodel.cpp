@@ -120,7 +120,7 @@ void GateModel::populateModel()
                 gate.sourceElement = e;
                 gate.node = *e.node();
                 gate.node.id = m_data.dataSet().nextInternalId();
-                OSM::setTagValue(gate.node, m_data.dataSet().tagKey("name"), "TODO");
+                OSM::setTagValue(gate.node, m_data.dataSet().tagKey("name"), gate.name.toUtf8());
                 gate.level = (*it).first.numericLevel();
                 m_gates.push_back(gate);
             }
