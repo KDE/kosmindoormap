@@ -73,6 +73,7 @@ area[natural=sand]
     text-halo-radius: 2.0;
 }
 
+*|z21- [building],
 *|z20- [shop],
 *|z19- [shop=ticket],
 *|z21- [amenity][name],

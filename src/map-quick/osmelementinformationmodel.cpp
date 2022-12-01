@@ -176,6 +176,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("bicycle_parking", BicycleParking, Parking),
     M("brand", Name, Header),
     M("brand:wikipedia", Wikipedia, UnresolvedCategory),
+    M("building", Category, Header),
     M("bus_lines", Routes, Main),
     M("bus_routes", Routes, Main),
     M("buses", Routes, Main),
@@ -500,6 +501,19 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
     return {};
 }
 
+static void appendNonEmpty(const QByteArray &tagValue, QList<QByteArray> &l)
+{
+    if (tagValue.isEmpty()) {
+        return;
+    }
+    auto split = tagValue.split(';');
+    for (const auto &s : split) {
+        if (!s.isEmpty()) {
+            l.push_back(s.trimmed());
+        }
+    }
+}
+
 QVariant OSMElementInformationModel::valueForKey(Info info) const
 {
     switch (info.key) {
@@ -508,29 +522,38 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         case Category:
         {
             QList<QByteArray> l;
-            l += m_element.tagValue("amenity").split(';');
-            l += m_element.tagValue("shop").split(';');
-            l += m_element.tagValue("tourism").split(';');
-            l += m_element.tagValue("vending").split(';');
-            l += m_element.tagValue("office").split(';');
-            l += m_element.tagValue("leisure").split(';');
-            l += m_element.tagValue("historic").split(';');
-            l += m_element.tagValue("mx:vehicle");
-            l.erase(std::remove(l.begin(), l.end(), QByteArray()), l.end());
+            appendNonEmpty(m_element.tagValue("amenity"), l);
+            appendNonEmpty(m_element.tagValue("shop"), l);
+            appendNonEmpty(m_element.tagValue("tourism"), l);
+            appendNonEmpty(m_element.tagValue("vending"), l);
+            appendNonEmpty(m_element.tagValue("office"), l);
+            appendNonEmpty(m_element.tagValue("leisure"), l);
+            appendNonEmpty(m_element.tagValue("historic"), l);
+            appendNonEmpty(m_element.tagValue("mx:vehicle"), l);
             if (l.isEmpty()) {
-                l += m_element.tagValue("room").split(';');
+                appendNonEmpty(m_element.tagValue("room"), l);
             }
+
             QStringList out;
             out.reserve(l.size());
 
             // TODO drop general categories if specific ones are available (e.g. restaurant vs fast_food)
 
             for (auto it = l.begin(); it != l.end();++it) {
-                (*it) = (*it).trimmed();
                 if ((*it).isEmpty() || (*it) == "yes" || (*it) == "no" || (*it) == "vending_machine" || (*it) == "building") {
                     continue;
                 }
                 out.push_back(translateValue((*it).constData(), amenity_map));
+            }
+
+            if (out.isEmpty()) { // fall back to building, but only take terms we have translated
+                appendNonEmpty(m_element.tagValue("building"), l);
+                for (const auto &key : l) {
+                    auto s = translateValue(key.constData(), amenity_map, ReturnEmptyOnUnknownKey);
+                    if (!s.isEmpty()) {
+                        out.push_back(std::move(s));
+                    }
+                }
             }
 
             std::sort(out.begin(), out.end());

@@ -37,14 +37,19 @@ inline constexpr bool isSortedLookupTable(const MapEntry(&map)[N])
 #endif
 }
 
+enum TranslationOption {
+    ReturnUnknownKey,
+    ReturnEmptyOnUnknownKey
+};
+
 template <typename MapEntry, std::size_t N>
-inline QString translateValue(const char *keyName, const MapEntry(&map)[N])
+inline QString translateValue(const char *keyName, const MapEntry(&map)[N], TranslationOption opt = ReturnUnknownKey)
 {
     const auto it = std::lower_bound(std::begin(map), std::end(map), keyName, [](const auto &lhs, auto rhs) {
         return std::strcmp(lhs.keyName, rhs) < 0;
     });
     if (it == std::end(map) || std::strcmp((*it).keyName, keyName) != 0) {
-        return QString::fromUtf8(keyName);
+        return opt == ReturnUnknownKey ? QString::fromUtf8(keyName) : QString();
     }
 
     return (*it).label.toString();
