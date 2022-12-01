@@ -98,7 +98,7 @@ msgstr "Anterior"
 #: map-quick/osmelementinformationmodel.cpp:459
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format

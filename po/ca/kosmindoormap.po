@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:46+0000\n"
-"PO-Revision-Date: 2022-11-29 09:09+0100\n"
+"PO-Revision-Date: 2022-11-30 09:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -94,7 +94,7 @@ msgstr "Antigament"
 #: map-quick/osmelementinformationmodel.cpp:459
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format

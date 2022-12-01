@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:46+0000\n"
-"PO-Revision-Date: 2022-11-29 10:48+0100\n"
+"PO-Revision-Date: 2022-11-30 10:37+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -91,7 +91,7 @@ msgstr "Vroeger"
 #: map-quick/osmelementinformationmodel.cpp:459
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Beschrijving"
 
 #: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format

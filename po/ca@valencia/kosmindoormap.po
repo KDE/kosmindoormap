@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:46+0000\n"
-"PO-Revision-Date: 2022-11-28 09:38+0100\n"
+"PO-Revision-Date: 2022-11-30 09:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -94,7 +94,7 @@ msgstr "Antigament"
 #: map-quick/osmelementinformationmodel.cpp:459
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format
@@ -471,7 +471,7 @@ msgstr "Muralla"
 #: map-quick/osmelementinformationmodel_data.cpp:53
 msgctxt "OSM::room"
 msgid "Classroom"
-msgstr ""
+msgstr "Aula"
 
 #: map-quick/osmelementinformationmodel_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -551,7 +551,7 @@ msgstr "Electrònica"
 #: map-quick/osmelementinformationmodel_data.cpp:69
 msgctxt "OSM::amenity"
 msgid "Events Venue"
-msgstr ""
+msgstr "Recinte d'esdeveniments"
 
 #: map-quick/osmelementinformationmodel_data.cpp:70
 msgctxt "OSM::amenity/shop"
@@ -686,7 +686,7 @@ msgstr "Quiosc"
 #: map-quick/osmelementinformationmodel_data.cpp:96
 msgctxt "OSM::room"
 msgid "Kitchen"
-msgstr ""
+msgstr "Cuina"
 
 #: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::amenity/shop"
@@ -697,7 +697,7 @@ msgstr "Bugaderia"
 #: map-quick/osmelementinformationmodel_data.cpp:99
 msgctxt "OSM::room"
 msgid "Lecture Hall"
-msgstr ""
+msgstr "Aula amfiteatre"
 
 #: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::amenity/shop"
@@ -889,7 +889,7 @@ msgstr "Reciclatge"
 #: map-quick/osmelementinformationmodel_data.cpp:139
 msgctxt "OSM::amenity"
 msgid "Research Institute"
-msgstr ""
+msgstr "Institut de recerca"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -937,12 +937,9 @@ msgid "Sports"
 msgstr "Esports"
 
 #: map-quick/osmelementinformationmodel_data.cpp:149
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Sports"
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr "Esports"
+msgstr "Poliesportiu"
 
 #: map-quick/osmelementinformationmodel_data.cpp:150
 msgctxt "OSM::amenity/shop"
