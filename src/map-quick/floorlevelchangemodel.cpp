@@ -83,7 +83,17 @@ void FloorLevelChangeModel::setFloorLevelModel(FloorLevelModel *floorLevelModel)
         return;
     }
 
+    if (m_floorLevelModel) {
+        disconnect(m_floorLevelModel, &FloorLevelModel::modelAboutToBeReset, this, nullptr);
+    }
+
     m_floorLevelModel = floorLevelModel;
+    connect(m_floorLevelModel, &FloorLevelModel::modelAboutToBeReset, this, [this]() {
+        beginResetModel();
+        m_element = {};
+        m_levels.clear();
+        endResetModel();
+    });
     Q_EMIT contentChanged();
 }
 

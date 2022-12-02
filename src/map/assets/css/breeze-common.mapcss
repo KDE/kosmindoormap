@@ -252,6 +252,13 @@ area[tunnel]
 {
     z-index: -1;
 }
+/** Cap building layers, this is much more often a data issue than actually intended and
+ *  causes misrenderings as building content then gets covered.
+ */
+area[building][layer>0]
+{
+    set layer=0;
+}
 
 
 /** Airports */

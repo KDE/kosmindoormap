@@ -67,7 +67,7 @@ private:
     void initializePen(QPen &pen) const;
     void finalizePen(QPen &pen, double opacity) const;
 
-    void addItem(SceneGraph &sg, OSM::Element e, int level, LayerSelectorKey layerSelector, std::unique_ptr<SceneGraphItemPayload> &&payload) const;
+    void addItem(SceneGraph &sg, OSM::Element e, int level, const MapCSSResultItem &result, std::unique_ptr<SceneGraphItemPayload> &&payload) const;
 
     std::unique_ptr<SceneControllerPrivate> d;
 };

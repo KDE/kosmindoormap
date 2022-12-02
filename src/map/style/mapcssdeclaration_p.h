@@ -10,6 +10,8 @@
 #include "kosmindoormap_export.h"
 #include "mapcsstypes.h"
 
+#include <osm/datatypes.h>
+
 #include <QByteArray>
 #include <QColor>
 #include <QFont>
@@ -141,6 +143,9 @@ public:
     /** Line dashes. */
     QVector<double> dashesValue() const;
 
+    /** Tag key of the tag to change in a tag setting declaration. */
+    OSM::TagKey tagKey() const;
+
     Qt::PenCapStyle capStyle() const;
     Qt::PenJoinStyle joinStyle() const;
     QFont::Capitalization capitalizationStyle() const;
@@ -185,6 +190,7 @@ private:
     double m_doubleValue = NAN;
     QVector<double> m_dashValue;
     QString m_stringValue;
+    OSM::TagKey m_tagKey;
     ClassSelectorKey m_class;
     Unit m_unit = NoUnit;
     Type m_type;

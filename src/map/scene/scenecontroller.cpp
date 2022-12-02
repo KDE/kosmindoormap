@@ -273,7 +273,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             item->brush.setStyle(Qt::NoBrush);
         }
 
-        addItem(sg, e, level, result.layerSelector(), std::move(baseItem));
+        addItem(sg, e, level, result, std::move(baseItem));
     } else if (result.hasLineProperties()) {
         auto baseItem = sg.findOrCreatePayload<PolylineItem>(e, level, result.layerSelector());
         auto item = static_cast<PolylineItem*>(baseItem.get());
@@ -294,7 +294,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
         finalizePen(item->casingPen, casingOpacity);
 
         d->m_labelPlacementPath = item->path;
-        addItem(sg, e, level, result.layerSelector(), std::move(baseItem));
+        addItem(sg, e, level, result, std::move(baseItem));
     }
 
     if (result.hasLabelProperties()) {
@@ -462,7 +462,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             }
 
             if (!item->icon.isNull() || !item->text.text().isEmpty()) {
-                addItem(sg, e, level, result.layerSelector(), std::move(baseItem));
+                addItem(sg, e, level, result, std::move(baseItem));
             }
         }
     }
@@ -643,17 +643,20 @@ void SceneController::finalizePen(QPen &pen, double opacity) const
     }
 }
 
-void SceneController::addItem(SceneGraph &sg, OSM::Element e, int level, LayerSelectorKey layerSelector, std::unique_ptr<SceneGraphItemPayload> &&payload) const
+void SceneController::addItem(SceneGraph &sg, OSM::Element e, int level, const MapCSSResultItem &result, std::unique_ptr<SceneGraphItemPayload> &&payload) const
 {
     SceneGraphItem item;
     item.element = e;
-    item.layerSelector = layerSelector;
+    item.layerSelector = result.layerSelector();
     item.level = level;
     item.payload = std::move(payload);
 
     // get the OSM layer, if set
     if (!d->m_overlay) {
-        const auto layerStr = e.tagValue(d->m_layerTag);
+        auto layerStr = result.tagValue(d->m_layerTag);
+        if (layerStr.isNull()) {
+            layerStr = e.tagValue(d->m_layerTag);
+        }
         if (!layerStr.isEmpty()) {
             bool success = false;
             const auto layer = layerStr.toInt(&success);

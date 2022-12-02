@@ -38,7 +38,7 @@ private:
     };
     std::vector<Entry> m_cacheEntries;
 
-    QDateTime m_begin = QDateTime::currentDateTime();
+    QDateTime m_begin;
     QDateTime m_end;
 
     MapData m_mapData;
