@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:46+0000\n"
+"POT-Creation-Date: 2022-12-02 00:45+0000\n"
 "PO-Revision-Date: 2022-05-06 00:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -52,268 +52,268 @@ msgstr "%1 km"
 msgid "Wikipedia"
 msgstr "위키백과"
 
-#: map-quick/osmelementinformationmodel.cpp:426
+#: map-quick/osmelementinformationmodel.cpp:427
 #, kde-format
 msgid "Opening Hours"
 msgstr "개점 시간"
 
-#: map-quick/osmelementinformationmodel.cpp:427
+#: map-quick/osmelementinformationmodel.cpp:428
 #, kde-format
 msgid "Contact"
 msgstr "연락처"
 
-#: map-quick/osmelementinformationmodel.cpp:428
+#: map-quick/osmelementinformationmodel.cpp:429
 #, kde-format
 msgid "Payment"
 msgstr "지불"
 
-#: map-quick/osmelementinformationmodel.cpp:429
+#: map-quick/osmelementinformationmodel.cpp:430
 #, kde-format
 msgid "Toilets"
 msgstr "화장실"
 
-#: map-quick/osmelementinformationmodel.cpp:430
+#: map-quick/osmelementinformationmodel.cpp:431
 #, kde-format
 msgid "Accessibility"
 msgstr "접근성"
 
-#: map-quick/osmelementinformationmodel.cpp:431
+#: map-quick/osmelementinformationmodel.cpp:432
 #, kde-format
 msgid "Parking"
 msgstr "주차"
 
-#: map-quick/osmelementinformationmodel.cpp:432
+#: map-quick/osmelementinformationmodel.cpp:433
 #, kde-format
 msgid "Operator"
 msgstr "운영자"
 
-#: map-quick/osmelementinformationmodel.cpp:458
+#: map-quick/osmelementinformationmodel.cpp:459
 #, kde-format
 msgid "Formerly"
 msgstr "과거 명칭"
 
-#: map-quick/osmelementinformationmodel.cpp:459
+#: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format
 msgid "Description"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel.cpp:460
+#: map-quick/osmelementinformationmodel.cpp:461
 #, kde-format
 msgid "Routes"
 msgstr "경로"
 
-#: map-quick/osmelementinformationmodel.cpp:461
+#: map-quick/osmelementinformationmodel.cpp:462
 #, kde-format
 msgid "Cuisine"
 msgstr "요리"
 
-#: map-quick/osmelementinformationmodel.cpp:462
+#: map-quick/osmelementinformationmodel.cpp:463
 #, kde-format
 msgid "Diet"
 msgstr "식단"
 
-#: map-quick/osmelementinformationmodel.cpp:463
+#: map-quick/osmelementinformationmodel.cpp:464
 #, kde-format
 msgid "Takeaway"
 msgstr "포장"
 
-#: map-quick/osmelementinformationmodel.cpp:464
+#: map-quick/osmelementinformationmodel.cpp:465
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
 msgstr "전원 플러그"
 
-#: map-quick/osmelementinformationmodel.cpp:466
+#: map-quick/osmelementinformationmodel.cpp:467
 #, kde-format
 msgid "Available vehicles"
 msgstr "사용 가능한 이동 수단"
 
-#: map-quick/osmelementinformationmodel.cpp:467
+#: map-quick/osmelementinformationmodel.cpp:468
 #, kde-format
 msgid "Fee"
 msgstr "요금"
 
-#: map-quick/osmelementinformationmodel.cpp:468
+#: map-quick/osmelementinformationmodel.cpp:469
 #, kde-format
 msgid "Authentication"
 msgstr "인증"
 
-#: map-quick/osmelementinformationmodel.cpp:469
+#: map-quick/osmelementinformationmodel.cpp:470
 #, kde-format
 msgid "Bicycle parking"
 msgstr "자전거 주차"
 
-#: map-quick/osmelementinformationmodel.cpp:470
+#: map-quick/osmelementinformationmodel.cpp:471
 #, kde-format
 msgid "Capacity"
 msgstr "규모"
 
-#: map-quick/osmelementinformationmodel.cpp:471
+#: map-quick/osmelementinformationmodel.cpp:472
 #, kde-format
 msgid "Disabled parking spaces"
 msgstr "장애인 주차장"
 
-#: map-quick/osmelementinformationmodel.cpp:472
+#: map-quick/osmelementinformationmodel.cpp:473
 #, kde-format
 msgid "Women parking spaces"
 msgstr "여성 전용 주차 공간"
 
-#: map-quick/osmelementinformationmodel.cpp:473
+#: map-quick/osmelementinformationmodel.cpp:474
 #, kde-format
 msgid "Parent parking spaces"
 msgstr "부모 전용 주차 공간"
 
-#: map-quick/osmelementinformationmodel.cpp:474
+#: map-quick/osmelementinformationmodel.cpp:475
 #, kde-format
 msgid "Parking spaces for charging"
 msgstr "전기차 충전 가능 주차 공간"
 
-#: map-quick/osmelementinformationmodel.cpp:475
+#: map-quick/osmelementinformationmodel.cpp:476
 #, kde-format
 msgid "Maximum stay"
 msgstr "최대 체류 시간"
 
-#: map-quick/osmelementinformationmodel.cpp:476
+#: map-quick/osmelementinformationmodel.cpp:477
 #, kde-format
 msgid "Diaper changing table"
 msgstr "기저귀 교환대"
 
-#: map-quick/osmelementinformationmodel.cpp:477
+#: map-quick/osmelementinformationmodel.cpp:478
 #, kde-format
 msgid "Gender"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel.cpp:479
+#: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
 msgid "Address"
 msgstr "주소"
 
-#: map-quick/osmelementinformationmodel.cpp:480
+#: map-quick/osmelementinformationmodel.cpp:481
 #, kde-format
 msgid "Phone"
 msgstr "전화"
 
-#: map-quick/osmelementinformationmodel.cpp:481
+#: map-quick/osmelementinformationmodel.cpp:482
 #, kde-format
 msgid "Email"
 msgstr "이메일"
 
-#: map-quick/osmelementinformationmodel.cpp:482
+#: map-quick/osmelementinformationmodel.cpp:483
 #, kde-format
 msgid "Website"
 msgstr "웹사이트"
 
-#: map-quick/osmelementinformationmodel.cpp:483
+#: map-quick/osmelementinformationmodel.cpp:484
 #, kde-format
 msgid "Cash"
 msgstr "현금"
 
-#: map-quick/osmelementinformationmodel.cpp:484
+#: map-quick/osmelementinformationmodel.cpp:485
 #, kde-format
 msgid "Digital"
 msgstr "디지털"
 
-#: map-quick/osmelementinformationmodel.cpp:485
+#: map-quick/osmelementinformationmodel.cpp:486
 #, kde-format
 msgid "Debit cards"
 msgstr "직불 카드"
 
-#: map-quick/osmelementinformationmodel.cpp:486
+#: map-quick/osmelementinformationmodel.cpp:487
 #, kde-format
 msgid "Credit cards"
 msgstr "신용 카드"
 
-#: map-quick/osmelementinformationmodel.cpp:487
+#: map-quick/osmelementinformationmodel.cpp:488
 #, kde-format
 msgid "Stored value cards"
 msgstr "선불형 카드"
 
-#: map-quick/osmelementinformationmodel.cpp:488
+#: map-quick/osmelementinformationmodel.cpp:489
 #, kde-format
 msgid "Wheelchair access"
 msgstr "휠체어 접근"
 
-#: map-quick/osmelementinformationmodel.cpp:489
+#: map-quick/osmelementinformationmodel.cpp:490
 #, fuzzy, kde-format
 #| msgid "Wheelchair access"
 msgid "Wheelchair lift"
 msgstr "휠체어 접근"
 
-#: map-quick/osmelementinformationmodel.cpp:490
+#: map-quick/osmelementinformationmodel.cpp:491
 #, kde-format
 msgid "Central key"
 msgstr "중앙 키"
 
-#: map-quick/osmelementinformationmodel.cpp:491
+#: map-quick/osmelementinformationmodel.cpp:492
 #, kde-format
 msgid "Speech output"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel.cpp:492
+#: map-quick/osmelementinformationmodel.cpp:493
 #, kde-format
 msgid "Tactile writing"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel.cpp:494
+#: map-quick/osmelementinformationmodel.cpp:495
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
 msgstr "네트워크"
 
-#: map-quick/osmelementinformationmodel.cpp:496
+#: map-quick/osmelementinformationmodel.cpp:497
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
 msgstr "이동 가능 범위"
 
-#: map-quick/osmelementinformationmodel.cpp:565
+#: map-quick/osmelementinformationmodel.cpp:588
 #, kde-format
 msgid "only %1"
 msgstr "%1만"
 
-#: map-quick/osmelementinformationmodel.cpp:567
+#: map-quick/osmelementinformationmodel.cpp:590
 #, kde-format
 msgid "no %1"
 msgstr "%1 없음"
 
-#: map-quick/osmelementinformationmodel.cpp:592
+#: map-quick/osmelementinformationmodel.cpp:615
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
 msgstr "%1 A"
 
-#: map-quick/osmelementinformationmodel.cpp:600
+#: map-quick/osmelementinformationmodel.cpp:623
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
 msgstr "%1 kW"
 
-#: map-quick/osmelementinformationmodel.cpp:631
+#: map-quick/osmelementinformationmodel.cpp:654
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:699
-#: map-quick/osmelementinformationmodel.cpp:873
+#: map-quick/osmelementinformationmodel.cpp:722
+#: map-quick/osmelementinformationmodel.cpp:896
 #, kde-format
 msgid "yes"
 msgstr "예"
 
-#: map-quick/osmelementinformationmodel.cpp:702
+#: map-quick/osmelementinformationmodel.cpp:725
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "동전만"
 
-#: map-quick/osmelementinformationmodel.cpp:705
+#: map-quick/osmelementinformationmodel.cpp:728
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "지폐만"
 
-#: map-quick/osmelementinformationmodel.cpp:707
-#: map-quick/osmelementinformationmodel.cpp:758
-#: map-quick/osmelementinformationmodel.cpp:876
+#: map-quick/osmelementinformationmodel.cpp:730
+#: map-quick/osmelementinformationmodel.cpp:781
+#: map-quick/osmelementinformationmodel.cpp:899
 #, kde-format
 msgid "no"
 msgstr "아니요"
@@ -486,459 +486,481 @@ msgid "Coffee"
 msgstr "커피 상점"
 
 #: map-quick/osmelementinformationmodel_data.cpp:56
+msgctxt "OSM::amenity"
+msgid "Community Center"
+msgstr ""
+
+#: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::amenity/shop"
 msgid "Computer"
 msgstr "컴퓨터 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:57
+#: map-quick/osmelementinformationmodel_data.cpp:58
 msgctxt "OSM::amenity/shop"
 msgid "Confectionery"
 msgstr "과자 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:58
+#: map-quick/osmelementinformationmodel_data.cpp:59
 msgctxt "OSM::amenity/shop"
 msgid "Convenience Store"
 msgstr "편의점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:59
+#: map-quick/osmelementinformationmodel_data.cpp:60
 msgctxt "OSM::amenity/shop"
 msgid "Copy Shop"
 msgstr "복사점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:60
+#: map-quick/osmelementinformationmodel_data.cpp:61
 msgctxt "OSM::amenity/shop"
 msgid "Cosmetics"
 msgstr "화장품 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:61
+#: map-quick/osmelementinformationmodel_data.cpp:62
 msgctxt "OSM::amenity/shop"
 msgid "Court House"
 msgstr "법원"
 
-#: map-quick/osmelementinformationmodel_data.cpp:62
+#: map-quick/osmelementinformationmodel_data.cpp:63
 msgctxt "OSM::amenity/shop"
 msgid "Deli"
 msgstr "델리카트슨"
 
-#: map-quick/osmelementinformationmodel_data.cpp:63
+#: map-quick/osmelementinformationmodel_data.cpp:64
 msgctxt "OSM::amenity/shop"
 msgid "Department Store"
 msgstr "백화점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:64
+#: map-quick/osmelementinformationmodel_data.cpp:65
 msgctxt "OSM::amenity/shop"
 msgid "Doctor"
 msgstr "의원"
 
-#: map-quick/osmelementinformationmodel_data.cpp:65
+#: map-quick/osmelementinformationmodel_data.cpp:66
 msgctxt "OSM::amenity/shop"
 msgid "Hardware Store"
 msgstr "철물점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:66
+#: map-quick/osmelementinformationmodel_data.cpp:67
 msgctxt "OSM::amenity/shop"
 msgid "Drinking Water"
 msgstr "음수대"
 
-#: map-quick/osmelementinformationmodel_data.cpp:67
+#: map-quick/osmelementinformationmodel_data.cpp:68
 msgctxt "OSM::amenity/shop"
 msgid "Dry Cleaning"
 msgstr "드라이클리닝"
 
-#: map-quick/osmelementinformationmodel_data.cpp:68
+#: map-quick/osmelementinformationmodel_data.cpp:69
 msgctxt "OSM::amenity/shop"
 msgid "Electronics"
 msgstr "전자 제품 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:69
+#: map-quick/osmelementinformationmodel_data.cpp:70
 msgctxt "OSM::amenity"
 msgid "Events Venue"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:70
+#: map-quick/osmelementinformationmodel_data.cpp:71
 msgctxt "OSM::amenity/shop"
 msgid "Fashion"
 msgstr "패션 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:71
+#: map-quick/osmelementinformationmodel_data.cpp:72
 msgctxt "OSM::amenity/shop"
 msgid "Fast Food"
 msgstr "패스트 푸드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:72
+#: map-quick/osmelementinformationmodel_data.cpp:73
 msgctxt "OSM::amenity/shop"
 msgid "Ferry Terminal"
 msgstr "페리 부두"
 
-#: map-quick/osmelementinformationmodel_data.cpp:73
+#: map-quick/osmelementinformationmodel_data.cpp:74
 msgctxt "OSM::amenity/shop"
 msgid "Florist"
 msgstr "꽃집"
 
-#: map-quick/osmelementinformationmodel_data.cpp:74
+#: map-quick/osmelementinformationmodel_data.cpp:75
 msgctxt "OSM::amenity/shop"
 msgid "Food Court"
 msgstr "푸드코트"
 
-#: map-quick/osmelementinformationmodel_data.cpp:75
+#: map-quick/osmelementinformationmodel_data.cpp:76
 msgctxt "OSM::amenity/shop"
 msgid "Fountain"
 msgstr "분수대"
 
-#: map-quick/osmelementinformationmodel_data.cpp:76
+#: map-quick/osmelementinformationmodel_data.cpp:77
 msgctxt "OSM::amenity/shop"
 msgid "Furniture"
 msgstr "가구점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:77
+#: map-quick/osmelementinformationmodel_data.cpp:78
 msgctxt "OSM::amenity/shop"
 msgid "Gallery"
 msgstr "갤러리"
 
-#: map-quick/osmelementinformationmodel_data.cpp:78
+#: map-quick/osmelementinformationmodel_data.cpp:79
 msgctxt "OSM::amenity/shop"
 msgid "Garden"
 msgstr "원예 용품점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:79
+#: map-quick/osmelementinformationmodel_data.cpp:80
 msgctxt "OSM::amenity/shop"
 msgid "Garden Center"
 msgstr "원예 용품점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:80
+#: map-quick/osmelementinformationmodel_data.cpp:81
 msgctxt "OSM::amenity/shop"
 msgid "Gift Shop"
 msgstr "선물 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:81
+#: map-quick/osmelementinformationmodel_data.cpp:82
 msgctxt "OSM::office"
 msgid "Government"
 msgstr "정부 기관"
 
-#: map-quick/osmelementinformationmodel_data.cpp:82
+#: map-quick/osmelementinformationmodel_data.cpp:83
 msgctxt "OSM::amenity/shop"
 msgid "Greengrocer"
 msgstr "청과상"
 
-#: map-quick/osmelementinformationmodel_data.cpp:83
+#: map-quick/osmelementinformationmodel_data.cpp:84
 msgctxt "OSM::amenity/shop"
 msgid "Guest House"
 msgstr "게스트 하우스"
 
-#: map-quick/osmelementinformationmodel_data.cpp:84
+#: map-quick/osmelementinformationmodel_data.cpp:85
 msgctxt "OSM::amenity/shop"
 msgid "Hairdresser"
 msgstr "미용실"
 
-#: map-quick/osmelementinformationmodel_data.cpp:85
+#: map-quick/osmelementinformationmodel_data.cpp:86
 msgctxt "OSM::amenity/shop"
 msgid "Hearing Aids"
 msgstr "보청기"
 
-#: map-quick/osmelementinformationmodel_data.cpp:86
+#: map-quick/osmelementinformationmodel_data.cpp:87
 msgctxt "OSM::amenity/shop"
 msgid "Hospital"
 msgstr "병원"
 
-#: map-quick/osmelementinformationmodel_data.cpp:87
+#: map-quick/osmelementinformationmodel_data.cpp:88
 msgctxt "OSM::amenity/shop"
 msgid "Hostel"
 msgstr "호스텔"
 
-#: map-quick/osmelementinformationmodel_data.cpp:88
+#: map-quick/osmelementinformationmodel_data.cpp:89
 msgctxt "OSM::amenity/shop"
 msgid "Hotel"
 msgstr "호텔"
 
-#: map-quick/osmelementinformationmodel_data.cpp:89
+#: map-quick/osmelementinformationmodel_data.cpp:90
 msgctxt "OSM::amenity/shop"
 msgid "Houseware"
 msgstr "가정용품 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:90
+#: map-quick/osmelementinformationmodel_data.cpp:91
 msgctxt "OSM::amenity/shop"
 msgid "Ice Cream"
 msgstr "아이스크림 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:91
+#: map-quick/osmelementinformationmodel_data.cpp:92
 msgctxt "OSM::amenity/shop"
 msgid "Information"
 msgstr "안내소"
 
-#: map-quick/osmelementinformationmodel_data.cpp:92
+#: map-quick/osmelementinformationmodel_data.cpp:93
 msgctxt "OSM::amenity/shop"
 msgid "Interior Decoration"
 msgstr "실내 장식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:93
+#: map-quick/osmelementinformationmodel_data.cpp:94
 msgctxt "OSM::amenity/shop"
 msgid "Internet Cafe"
 msgstr "인터넷 카페"
 
-#: map-quick/osmelementinformationmodel_data.cpp:94
+#: map-quick/osmelementinformationmodel_data.cpp:95
 msgctxt "OSM::amenity/shop"
 msgid "Jewelry"
 msgstr "보석 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:95
+#: map-quick/osmelementinformationmodel_data.cpp:96
 msgctxt "OSM::amenity/shop"
 msgid "Kiosk"
 msgstr "키오스크 숍"
 
-#: map-quick/osmelementinformationmodel_data.cpp:96
+#: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::room"
 msgid "Kitchen"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:97
+#: map-quick/osmelementinformationmodel_data.cpp:98
 msgctxt "OSM::amenity/shop"
 msgid "Laundry"
 msgstr "세탁소"
 
-#: map-quick/osmelementinformationmodel_data.cpp:98
 #: map-quick/osmelementinformationmodel_data.cpp:99
+#: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::room"
 msgid "Lecture Hall"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:100
+#: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::amenity/shop"
 msgid "Library"
 msgstr "도서관"
 
-#: map-quick/osmelementinformationmodel_data.cpp:101
-#: map-quick/osmelementinformationmodel_data.cpp:105
+#: map-quick/osmelementinformationmodel_data.cpp:102
+#: map-quick/osmelementinformationmodel_data.cpp:106
 msgctxt "OSM::amenity/shop"
 msgid "Locker"
 msgstr "물품 보관함"
 
-#: map-quick/osmelementinformationmodel_data.cpp:102
+#: map-quick/osmelementinformationmodel_data.cpp:103
 msgctxt "OSM::amenity/shop"
 msgid "Locksmith"
 msgstr "자물쇠 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:103
 #: map-quick/osmelementinformationmodel_data.cpp:104
+#: map-quick/osmelementinformationmodel_data.cpp:105
 msgctxt "OSM::amenity/shop"
 msgid "Lost & Found"
 msgstr "유실물 보관소"
 
-#: map-quick/osmelementinformationmodel_data.cpp:106
+#: map-quick/osmelementinformationmodel_data.cpp:107
 msgctxt "OSM::amenity/shop"
 msgid "Mall"
 msgstr "쇼핑몰"
 
-#: map-quick/osmelementinformationmodel_data.cpp:107
+#: map-quick/osmelementinformationmodel_data.cpp:108
 msgctxt "OSM::amenity"
 msgid "Marketplace"
 msgstr "시장"
 
-#: map-quick/osmelementinformationmodel_data.cpp:108
+#: map-quick/osmelementinformationmodel_data.cpp:109
 msgctxt "OSM::amenity/shop"
 msgid "Medical Supply"
 msgstr "의료용품 공급점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:109
+#: map-quick/osmelementinformationmodel_data.cpp:110
 msgctxt "OSM::historic"
 msgid "Memorial"
 msgstr "기념비"
 
-#: map-quick/osmelementinformationmodel_data.cpp:110
+#: map-quick/osmelementinformationmodel_data.cpp:111
 msgctxt "OSM::amenity/shop"
 msgid "Mobile Phone"
 msgstr "휴대폰 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:111
+#: map-quick/osmelementinformationmodel_data.cpp:112
 msgctxt "OSM::amenity/shop"
 msgid "Money Transfer"
 msgstr "송금"
 
-#: map-quick/osmelementinformationmodel_data.cpp:112
+#: map-quick/osmelementinformationmodel_data.cpp:113
 msgctxt "OSM::historic"
 msgid "Monument"
 msgstr "기념물"
 
-#: map-quick/osmelementinformationmodel_data.cpp:113
+#: map-quick/osmelementinformationmodel_data.cpp:114
 msgctxt "OSM::amenity/shop"
 msgid "Motorcycle Parking"
 msgstr "오토바이 주차"
 
-#: map-quick/osmelementinformationmodel_data.cpp:114
+#: map-quick/osmelementinformationmodel_data.cpp:115
 msgctxt "OSM::amenity/shop"
 msgid "Motorcycle Rental"
 msgstr "오토바이 대여점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:115
+#: map-quick/osmelementinformationmodel_data.cpp:116
 msgctxt "OSM::amenity/shop"
 msgid "Museum"
 msgstr "박물관"
 
-#: map-quick/osmelementinformationmodel_data.cpp:116
+#: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "OSM::amenity/shop"
 msgid "Music"
 msgstr "음반 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:117
+#: map-quick/osmelementinformationmodel_data.cpp:118
 msgctxt "OSM::amenity/shop"
 msgid "Musical Instruments"
 msgstr "악기 판매점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:118
+#: map-quick/osmelementinformationmodel_data.cpp:119
 msgctxt "OSM::amenity/shop"
 msgid "Newsagent"
 msgstr "신문 판매소"
 
-#: map-quick/osmelementinformationmodel_data.cpp:119
+#: map-quick/osmelementinformationmodel_data.cpp:120
 msgctxt "OSM::amenity/shop"
 msgid "Office"
 msgstr "사옥"
 
-#: map-quick/osmelementinformationmodel_data.cpp:120
+#: map-quick/osmelementinformationmodel_data.cpp:121
 msgctxt "OSM::amenity/shop"
 msgid "Optician"
 msgstr "안경점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:121
+#: map-quick/osmelementinformationmodel_data.cpp:122
 msgctxt "OSM::amenity/shop"
 msgid "Outdoor"
 msgstr "아웃도어 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:122
+#: map-quick/osmelementinformationmodel_data.cpp:123
 msgctxt "OSM::amenity/shop"
 msgid "Paint"
 msgstr "페인트 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:123
+#: map-quick/osmelementinformationmodel_data.cpp:124
 msgctxt "outdoor recreational area"
 msgid "Park"
 msgstr "공원"
 
-#: map-quick/osmelementinformationmodel_data.cpp:124
+#: map-quick/osmelementinformationmodel_data.cpp:125
 msgctxt "OSM::amenity/shop"
 msgid "Parking"
 msgstr "주차장"
 
-#: map-quick/osmelementinformationmodel_data.cpp:125
+#: map-quick/osmelementinformationmodel_data.cpp:126
 msgctxt "OSM::amenity/shop"
 msgid "Parking Tickets"
 msgstr "주차 티켓"
 
-#: map-quick/osmelementinformationmodel_data.cpp:126
+#: map-quick/osmelementinformationmodel_data.cpp:127
 msgctxt "OSM::amenity/shop"
 msgid "Pastry"
 msgstr "제과점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:127
+#: map-quick/osmelementinformationmodel_data.cpp:128
 msgctxt "OSM::amenity/shop"
 msgid "Perfumery"
 msgstr "향수 판매점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:128
+#: map-quick/osmelementinformationmodel_data.cpp:129
 msgctxt "OSM::amenity/shop"
 msgid "Pet"
 msgstr "애완 동물 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:129
+#: map-quick/osmelementinformationmodel_data.cpp:130
 msgctxt "OSM::amenity/shop"
 msgid "Pharmacy"
 msgstr "약국"
 
-#: map-quick/osmelementinformationmodel_data.cpp:130
+#: map-quick/osmelementinformationmodel_data.cpp:131
 msgctxt "OSM::amenity/shop"
 msgid "Photo"
 msgstr "사진관"
 
 # OSM 한국어 번역의 "예배당"은 기독교의 예배로 한정되어 사용되므로 종교 중립적인 명칭을 사용함.
-#: map-quick/osmelementinformationmodel_data.cpp:131
+#: map-quick/osmelementinformationmodel_data.cpp:132
 msgctxt "OSM::amenity/shop"
 msgid "Place of Worship"
 msgstr "기도실"
 
-#: map-quick/osmelementinformationmodel_data.cpp:132
+#: map-quick/osmelementinformationmodel_data.cpp:133
 msgid "Playground"
 msgstr "놀이터"
 
-#: map-quick/osmelementinformationmodel_data.cpp:133
+#: map-quick/osmelementinformationmodel_data.cpp:134
 msgctxt "OSM::amenity/shop"
 msgid "Police"
 msgstr "경찰서"
 
-#: map-quick/osmelementinformationmodel_data.cpp:134
+#: map-quick/osmelementinformationmodel_data.cpp:135
 msgctxt "OSM::amenity/shop"
 msgid "Post Box"
 msgstr "우체통"
 
-#: map-quick/osmelementinformationmodel_data.cpp:135
+#: map-quick/osmelementinformationmodel_data.cpp:136
 msgctxt "OSM::amenity/shop"
 msgid "Post Office"
 msgstr "우체국"
 
-#: map-quick/osmelementinformationmodel_data.cpp:136
+#: map-quick/osmelementinformationmodel_data.cpp:137
 msgctxt "OSM::amenity/shop"
 msgid "Pub"
 msgstr "술집"
 
-#: map-quick/osmelementinformationmodel_data.cpp:137
+#: map-quick/osmelementinformationmodel_data.cpp:138
 msgctxt "OSM::amenity/shop"
 msgid "Public Transport Tickets"
 msgstr "대중 교통 매표소"
 
-#: map-quick/osmelementinformationmodel_data.cpp:138
+#: map-quick/osmelementinformationmodel_data.cpp:139
+#: map-quick/osmelementinformationmodel_data.cpp:165
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Charging Station"
+msgctxt "OSM::building"
+msgid "Train Station"
+msgstr "충전소"
+
+#: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
 msgid "Recycling"
 msgstr "재활용장"
 
-#: map-quick/osmelementinformationmodel_data.cpp:139
+#: map-quick/osmelementinformationmodel_data.cpp:141
 msgctxt "OSM::amenity"
 msgid "Research Institute"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:140
+#: map-quick/osmelementinformationmodel_data.cpp:142
 msgctxt "OSM::amenity/shop"
 msgid "Restaurant"
 msgstr "음식점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:141
+#: map-quick/osmelementinformationmodel_data.cpp:143
 msgctxt "OSM::amenity/shop"
 msgid "School"
 msgstr "학교"
 
-#: map-quick/osmelementinformationmodel_data.cpp:142
+#: map-quick/osmelementinformationmodel_data.cpp:144
 msgctxt "OSM::amenity/shop"
 msgid "Kick Scooter Rental"
 msgstr "킥 스쿠터 대여점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:143
+#: map-quick/osmelementinformationmodel_data.cpp:145
 msgctxt "OSM::amenity/shop"
 msgid "Seafood"
 msgstr "해산물 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:144
+#: map-quick/osmelementinformationmodel_data.cpp:146
 msgctxt "OSM::amenity/shop"
 msgid "Shoes"
 msgstr "신발 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:145
+#: map-quick/osmelementinformationmodel_data.cpp:147
 msgctxt "OSM::amenity/shop"
 msgid "Shop"
 msgstr "가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:146
+#: map-quick/osmelementinformationmodel_data.cpp:148
 msgctxt "OSM::amenity/shop"
 msgid "Social Facility"
 msgstr "사회 센터"
 
-#: map-quick/osmelementinformationmodel_data.cpp:147
+#: map-quick/osmelementinformationmodel_data.cpp:149
 msgctxt "OSM::amenity/shop"
 msgid "Souvenirs"
 msgstr "기념품 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:148
+#: map-quick/osmelementinformationmodel_data.cpp:150
 msgctxt "OSM::amenity/shop"
 msgid "Sports"
 msgstr "스포츠용품점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:149
+#: map-quick/osmelementinformationmodel_data.cpp:151
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Arts Center"
+msgctxt "OSM::amenity"
+msgid "Sports Center"
+msgstr "아트 센터"
+
+#: map-quick/osmelementinformationmodel_data.cpp:152
 #, fuzzy
 #| msgctxt "OSM::amenity/shop"
 #| msgid "Sports"
@@ -946,685 +968,685 @@ msgctxt "OSM::amenity"
 msgid "Sports Hall"
 msgstr "스포츠용품점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:150
+#: map-quick/osmelementinformationmodel_data.cpp:153
 msgctxt "OSM::amenity/shop"
 msgid "Stationery"
 msgstr "문구점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:151
+#: map-quick/osmelementinformationmodel_data.cpp:154
 msgctxt "OSM::amenity/shop"
 msgid "Supermarket"
 msgstr "슈퍼마켓"
 
-#: map-quick/osmelementinformationmodel_data.cpp:152
+#: map-quick/osmelementinformationmodel_data.cpp:155
 msgctxt "OSM::amenity/shop"
 msgid "Tailor"
 msgstr "재단사"
 
-#: map-quick/osmelementinformationmodel_data.cpp:153
+#: map-quick/osmelementinformationmodel_data.cpp:156
 msgctxt "OSM::amenity/shop"
 msgid "Tattoo"
 msgstr "문신소"
 
-#: map-quick/osmelementinformationmodel_data.cpp:154
+#: map-quick/osmelementinformationmodel_data.cpp:157
 msgctxt "OSM::amenity/shop"
 msgid "Taxi"
 msgstr "택시 정류장"
 
-#: map-quick/osmelementinformationmodel_data.cpp:155
+#: map-quick/osmelementinformationmodel_data.cpp:158
 msgctxt "OSM::amenity/shop"
 msgid "Tea"
 msgstr "다방"
 
-#: map-quick/osmelementinformationmodel_data.cpp:156
+#: map-quick/osmelementinformationmodel_data.cpp:159
 msgctxt "OSM::amenity/shop"
 msgid "Theatre"
 msgstr "극장"
 
-#: map-quick/osmelementinformationmodel_data.cpp:157
+#: map-quick/osmelementinformationmodel_data.cpp:160
 msgctxt "OSM::amenity/shop"
 msgid "Tickets"
 msgstr "매표소"
 
-#: map-quick/osmelementinformationmodel_data.cpp:158
+#: map-quick/osmelementinformationmodel_data.cpp:161
 msgctxt "OSM::amenity/shop"
 msgid "Tobacco"
 msgstr "담배 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:159
+#: map-quick/osmelementinformationmodel_data.cpp:162
 msgctxt "OSM::amenity/shop"
 msgid "Toilets"
 msgstr "화장실"
 
-#: map-quick/osmelementinformationmodel_data.cpp:160
+#: map-quick/osmelementinformationmodel_data.cpp:163
 msgctxt "OSM::amenity/shop"
 msgid "Town Hall"
 msgstr "마을 회관"
 
-#: map-quick/osmelementinformationmodel_data.cpp:161
+#: map-quick/osmelementinformationmodel_data.cpp:164
 msgctxt "OSM::amenity/shop"
 msgid "Toys"
 msgstr "완구점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:162
-#: map-quick/osmelementinformationmodel_data.cpp:163
+#: map-quick/osmelementinformationmodel_data.cpp:166
+#: map-quick/osmelementinformationmodel_data.cpp:167
 msgctxt "OSM::amenity/shop"
 msgid "Travel Agency"
 msgstr "여행사"
 
-#: map-quick/osmelementinformationmodel_data.cpp:164
+#: map-quick/osmelementinformationmodel_data.cpp:168
 msgctxt "OSM::amenity/shop"
 msgid "University"
 msgstr "대학교"
 
-#: map-quick/osmelementinformationmodel_data.cpp:165
+#: map-quick/osmelementinformationmodel_data.cpp:169
 msgctxt "OSM::amenity/shop"
 msgid "Variety Store"
 msgstr "잡화점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:166
+#: map-quick/osmelementinformationmodel_data.cpp:170
 msgctxt "OSM::amenity/shop"
 msgid "Video Games"
 msgstr "비디오 게임 가게"
 
-#: map-quick/osmelementinformationmodel_data.cpp:167
-#: map-quick/osmelementinformationmodel_data.cpp:168
-#: map-quick/osmelementinformationmodel_data.cpp:169
+#: map-quick/osmelementinformationmodel_data.cpp:171
+#: map-quick/osmelementinformationmodel_data.cpp:172
+#: map-quick/osmelementinformationmodel_data.cpp:173
 msgctxt "OSM::amenity/shop"
 msgid "Waiting Area"
 msgstr "대기실"
 
-#: map-quick/osmelementinformationmodel_data.cpp:170
+#: map-quick/osmelementinformationmodel_data.cpp:174
 msgctxt "OSM::amenity"
 msgid "Waste Basket"
 msgstr "휴지통"
 
-#: map-quick/osmelementinformationmodel_data.cpp:171
+#: map-quick/osmelementinformationmodel_data.cpp:175
 msgctxt "OSM::amenity/shop"
 msgid "Wine"
 msgstr "와인 상점"
 
-#: map-quick/osmelementinformationmodel_data.cpp:177
+#: map-quick/osmelementinformationmodel_data.cpp:181
 msgctxt "OSM::cuisine"
 msgid "American"
 msgstr "미국식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:178
+#: map-quick/osmelementinformationmodel_data.cpp:182
 msgctxt "OSM::cuisine"
 msgid "Arab"
 msgstr "아랍식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:179
+#: map-quick/osmelementinformationmodel_data.cpp:183
 msgctxt "OSM::cuisine"
 msgid "Argentinian"
 msgstr "아르헨티나식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:180
+#: map-quick/osmelementinformationmodel_data.cpp:184
 msgctxt "OSM::cuisine"
 msgid "Asian"
 msgstr "아시아식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:181
+#: map-quick/osmelementinformationmodel_data.cpp:185
 msgctxt "OSM::cuisine"
 msgid "Austrian"
 msgstr "오스트리아식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:182
-#: map-quick/osmelementinformationmodel_data.cpp:183
+#: map-quick/osmelementinformationmodel_data.cpp:186
+#: map-quick/osmelementinformationmodel_data.cpp:187
 msgctxt "OSM::cuisine"
 msgid "BBQ"
 msgstr "바베큐"
 
-#: map-quick/osmelementinformationmodel_data.cpp:184
+#: map-quick/osmelementinformationmodel_data.cpp:188
 msgctxt "OSM::cuisine"
 msgid "Brazilian"
 msgstr "브라질식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:185
+#: map-quick/osmelementinformationmodel_data.cpp:189
 msgctxt "OSM::cuisine"
 msgid "Breakfast"
 msgstr "아침 식사"
 
-#: map-quick/osmelementinformationmodel_data.cpp:186
+#: map-quick/osmelementinformationmodel_data.cpp:190
 msgctxt "OSM::cuisine"
 msgid "Burger"
 msgstr "햄버거"
 
-#: map-quick/osmelementinformationmodel_data.cpp:187
+#: map-quick/osmelementinformationmodel_data.cpp:191
 msgctxt "OSM::cuisine"
 msgid "Cake"
 msgstr "케이크"
 
-#: map-quick/osmelementinformationmodel_data.cpp:188
+#: map-quick/osmelementinformationmodel_data.cpp:192
 msgctxt "OSM::cuisine"
 msgid "Chicken"
 msgstr "치킨"
 
-#: map-quick/osmelementinformationmodel_data.cpp:189
+#: map-quick/osmelementinformationmodel_data.cpp:193
 msgctxt "OSM::cuisine"
 msgid "Chinese"
 msgstr "중국식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:190
+#: map-quick/osmelementinformationmodel_data.cpp:194
 msgctxt "OSM::cuisine"
 msgid "Coffee Shop"
 msgstr "커피"
 
-#: map-quick/osmelementinformationmodel_data.cpp:191
+#: map-quick/osmelementinformationmodel_data.cpp:195
 msgctxt "OSM::cuisine"
 msgid "Cookies"
 msgstr "쿠키"
 
-#: map-quick/osmelementinformationmodel_data.cpp:192
+#: map-quick/osmelementinformationmodel_data.cpp:196
 msgctxt "OSM::cuisine"
 msgid "Crêpe"
 msgstr "크레프"
 
-#: map-quick/osmelementinformationmodel_data.cpp:193
+#: map-quick/osmelementinformationmodel_data.cpp:197
 msgctxt "OSM::cuisine"
 msgid "Donut"
 msgstr "도넛"
 
-#: map-quick/osmelementinformationmodel_data.cpp:194
+#: map-quick/osmelementinformationmodel_data.cpp:198
 msgctxt "OSM::cuisine"
 msgid "Falafel"
 msgstr "팔라펠"
 
-#: map-quick/osmelementinformationmodel_data.cpp:195
+#: map-quick/osmelementinformationmodel_data.cpp:199
 msgctxt "OSM::cuisine"
 msgid "Fish"
 msgstr "생선"
 
-#: map-quick/osmelementinformationmodel_data.cpp:196
+#: map-quick/osmelementinformationmodel_data.cpp:200
 msgctxt "OSM::cuisine"
 msgid "Fish & Chips"
 msgstr "피시앤칩스"
 
-#: map-quick/osmelementinformationmodel_data.cpp:197
+#: map-quick/osmelementinformationmodel_data.cpp:201
 msgctxt "OSM::cuisine"
 msgid "French"
 msgstr "프랑스식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:198
+#: map-quick/osmelementinformationmodel_data.cpp:202
 msgctxt "OSM::cuisine"
 msgid "German"
 msgstr "독일식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:199
+#: map-quick/osmelementinformationmodel_data.cpp:203
 msgctxt "OSM::cuisine"
 msgid "Greek"
 msgstr "그리스식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:200
+#: map-quick/osmelementinformationmodel_data.cpp:204
 msgctxt "OSM::cuisine"
 msgid "Ice Cream"
 msgstr "아이스크림"
 
-#: map-quick/osmelementinformationmodel_data.cpp:201
+#: map-quick/osmelementinformationmodel_data.cpp:205
 msgctxt "OSM::cuisine"
 msgid "Indian"
 msgstr "인도식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:202
+#: map-quick/osmelementinformationmodel_data.cpp:206
 msgctxt "OSM::cuisine"
 msgid "Indonesian"
 msgstr "인도네시아식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:203
+#: map-quick/osmelementinformationmodel_data.cpp:207
 msgctxt "OSM::cuisine"
 msgid "International"
 msgstr "국제"
 
-#: map-quick/osmelementinformationmodel_data.cpp:204
+#: map-quick/osmelementinformationmodel_data.cpp:208
 msgctxt "OSM::cuisine"
 msgid "Italian"
 msgstr "이탈리아식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:205
-#: map-quick/osmelementinformationmodel_data.cpp:218
+#: map-quick/osmelementinformationmodel_data.cpp:209
+#: map-quick/osmelementinformationmodel_data.cpp:222
 msgctxt "OSM::cuisine"
 msgid "Pizza"
 msgstr "피자"
 
-#: map-quick/osmelementinformationmodel_data.cpp:206
+#: map-quick/osmelementinformationmodel_data.cpp:210
 msgctxt "OSM::cuisine"
 msgid "Japanese"
 msgstr "일본식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:207
+#: map-quick/osmelementinformationmodel_data.cpp:211
 msgctxt "OSM::cuisine"
 msgid "Juice"
 msgstr "주스"
 
-#: map-quick/osmelementinformationmodel_data.cpp:208
+#: map-quick/osmelementinformationmodel_data.cpp:212
 msgctxt "OSM::cuisine"
 msgid "Kebab"
 msgstr "케밥"
 
-#: map-quick/osmelementinformationmodel_data.cpp:209
+#: map-quick/osmelementinformationmodel_data.cpp:213
 msgctxt "OSM::cuisine"
 msgid "Korean"
 msgstr "한국식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:210
+#: map-quick/osmelementinformationmodel_data.cpp:214
 msgctxt "OSM::cuisine"
 msgid "Lebanese"
 msgstr "레바논식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:211
+#: map-quick/osmelementinformationmodel_data.cpp:215
 msgctxt "OSM::cuisine"
 msgid "Local"
 msgstr "지역식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:212
+#: map-quick/osmelementinformationmodel_data.cpp:216
 msgctxt "OSM::cuisine"
 msgid "Mediterranean"
 msgstr "지중해식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:213
+#: map-quick/osmelementinformationmodel_data.cpp:217
 msgctxt "OSM::cuisine"
 msgid "Mexican"
 msgstr "멕시코식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:214
+#: map-quick/osmelementinformationmodel_data.cpp:218
 msgctxt "OSM::cuisine"
 msgid "Noodle"
 msgstr "국수"
 
-#: map-quick/osmelementinformationmodel_data.cpp:215
+#: map-quick/osmelementinformationmodel_data.cpp:219
 msgctxt "OSM::cuisine"
 msgid "Pakistani"
 msgstr "파키스탄식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:216
+#: map-quick/osmelementinformationmodel_data.cpp:220
 msgctxt "OSM::cuisine"
 msgid "Pancake"
 msgstr "팬케이크"
 
-#: map-quick/osmelementinformationmodel_data.cpp:217
+#: map-quick/osmelementinformationmodel_data.cpp:221
 msgctxt "OSM::cuisine"
 msgid "Pasta"
 msgstr "파스타"
 
-#: map-quick/osmelementinformationmodel_data.cpp:219
+#: map-quick/osmelementinformationmodel_data.cpp:223
 msgctxt "OSM::cuisine"
 msgid "Polish"
 msgstr "폴란드식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:220
+#: map-quick/osmelementinformationmodel_data.cpp:224
 msgctxt "OSM::cuisine"
 msgid "Portuguese"
 msgstr "포르투갈식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:221
+#: map-quick/osmelementinformationmodel_data.cpp:225
 msgctxt "OSM::cuisine"
 msgid "Ramen"
 msgstr "라멘"
 
-#: map-quick/osmelementinformationmodel_data.cpp:222
+#: map-quick/osmelementinformationmodel_data.cpp:226
 msgctxt "OSM::cuisine"
 msgid "Regional"
 msgstr "지역식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:223
+#: map-quick/osmelementinformationmodel_data.cpp:227
 msgctxt "OSM::cuisine"
 msgid "Salad"
 msgstr "샐러드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:224
+#: map-quick/osmelementinformationmodel_data.cpp:228
 msgctxt "OSM::cuisine"
 msgid "Sandwich"
 msgstr "샌드위치"
 
-#: map-quick/osmelementinformationmodel_data.cpp:225
+#: map-quick/osmelementinformationmodel_data.cpp:229
 msgctxt "OSM::cuisine"
 msgid "Sausage"
 msgstr "소시지"
 
-#: map-quick/osmelementinformationmodel_data.cpp:226
+#: map-quick/osmelementinformationmodel_data.cpp:230
 msgctxt "OSM::cuisine"
 msgid "Seafood"
 msgstr "해산물"
 
-#: map-quick/osmelementinformationmodel_data.cpp:227
+#: map-quick/osmelementinformationmodel_data.cpp:231
 msgctxt "OSM::cuisine"
 msgid "Soup"
 msgstr "수프"
 
-#: map-quick/osmelementinformationmodel_data.cpp:228
+#: map-quick/osmelementinformationmodel_data.cpp:232
 msgctxt "OSM::cuisine"
 msgid "Spanish"
 msgstr "스페인식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:229
-#: map-quick/osmelementinformationmodel_data.cpp:230
+#: map-quick/osmelementinformationmodel_data.cpp:233
+#: map-quick/osmelementinformationmodel_data.cpp:234
 msgctxt "OSM::cuisine"
 msgid "Steak"
 msgstr "스테이크"
 
-#: map-quick/osmelementinformationmodel_data.cpp:231
+#: map-quick/osmelementinformationmodel_data.cpp:235
 msgctxt "OSM::cuisine"
 msgid "Sushi"
 msgstr "스시"
 
-#: map-quick/osmelementinformationmodel_data.cpp:232
+#: map-quick/osmelementinformationmodel_data.cpp:236
 msgctxt "OSM::cuisine"
 msgid "Tapas"
 msgstr "타파스"
 
-#: map-quick/osmelementinformationmodel_data.cpp:233
+#: map-quick/osmelementinformationmodel_data.cpp:237
 msgctxt "OSM::cuisine"
 msgid "Thai"
 msgstr "태국식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:234
+#: map-quick/osmelementinformationmodel_data.cpp:238
 msgctxt "OSM::cuisine"
 msgid "Turkish"
 msgstr "튀르키예식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:235
+#: map-quick/osmelementinformationmodel_data.cpp:239
 msgctxt "OSM::cuisine"
 msgid "Vegetarian"
 msgstr "채식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:236
+#: map-quick/osmelementinformationmodel_data.cpp:240
 msgctxt "OSM::cuisine"
 msgid "Vietnamese"
 msgstr "베트남식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:248
+#: map-quick/osmelementinformationmodel_data.cpp:252
 msgctxt "OSM::diet_type"
 msgid "gluten free"
 msgstr "글루텐 프리"
 
-#: map-quick/osmelementinformationmodel_data.cpp:249
+#: map-quick/osmelementinformationmodel_data.cpp:253
 msgctxt "OSM::diet_type"
 msgid "halal"
 msgstr "할랄"
 
-#: map-quick/osmelementinformationmodel_data.cpp:250
+#: map-quick/osmelementinformationmodel_data.cpp:254
 msgctxt "OSM::diet_type"
 msgid "kosher"
 msgstr "코셔"
 
-#: map-quick/osmelementinformationmodel_data.cpp:251
+#: map-quick/osmelementinformationmodel_data.cpp:255
 msgctxt "OSM::diet_type"
 msgid "lactose free"
 msgstr "락토스 프리"
 
-#: map-quick/osmelementinformationmodel_data.cpp:252
+#: map-quick/osmelementinformationmodel_data.cpp:256
 msgctxt "OSM::diet_type"
 msgid "vegan"
 msgstr "비건"
 
-#: map-quick/osmelementinformationmodel_data.cpp:253
+#: map-quick/osmelementinformationmodel_data.cpp:257
 msgctxt "OSM::diet_type"
 msgid "vegetarian"
 msgstr "채식"
 
-#: map-quick/osmelementinformationmodel_data.cpp:281
+#: map-quick/osmelementinformationmodel_data.cpp:285
 msgctxt "OSM::payment_method"
 msgid "American Express"
 msgstr "아메리칸 익스프레스"
 
-#: map-quick/osmelementinformationmodel_data.cpp:282
+#: map-quick/osmelementinformationmodel_data.cpp:286
 msgctxt "OSM::payment_method"
 msgid "Apple Pay"
 msgstr "Apple Pay"
 
-#: map-quick/osmelementinformationmodel_data.cpp:283
+#: map-quick/osmelementinformationmodel_data.cpp:287
 msgctxt "OSM::payment_method"
 msgid "Diners Club"
 msgstr "다이너스클럽"
 
-#: map-quick/osmelementinformationmodel_data.cpp:284
+#: map-quick/osmelementinformationmodel_data.cpp:288
 msgctxt "OSM::payment_method"
 msgid "Discover Card"
 msgstr "디스커버 카드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:285
+#: map-quick/osmelementinformationmodel_data.cpp:289
 msgctxt "OSM::payment_method"
 msgid "JCB"
 msgstr "JCB"
 
-#: map-quick/osmelementinformationmodel_data.cpp:286
+#: map-quick/osmelementinformationmodel_data.cpp:290
 msgctxt "OSM::payment_method"
 msgid "Girocard"
 msgstr "Girocard"
 
-#: map-quick/osmelementinformationmodel_data.cpp:287
+#: map-quick/osmelementinformationmodel_data.cpp:291
 msgctxt "OSM::payment_method"
 msgid "Google Pay"
 msgstr "Google Pay"
 
-#: map-quick/osmelementinformationmodel_data.cpp:288
+#: map-quick/osmelementinformationmodel_data.cpp:292
 msgctxt "OSM::payment_method"
 msgid "Maestro"
 msgstr "마에스트로"
 
-#: map-quick/osmelementinformationmodel_data.cpp:289
+#: map-quick/osmelementinformationmodel_data.cpp:293
 msgctxt "OSM::payment_method"
 msgid "Mastercard"
 msgstr "마스터카드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:290
+#: map-quick/osmelementinformationmodel_data.cpp:294
 msgctxt "OSM::payment_method"
 msgid "UnionPay"
 msgstr "중국은련"
 
-#: map-quick/osmelementinformationmodel_data.cpp:291
-#: map-quick/osmelementinformationmodel_data.cpp:292
+#: map-quick/osmelementinformationmodel_data.cpp:295
+#: map-quick/osmelementinformationmodel_data.cpp:296
 msgctxt "OSM::payment_method"
 msgid "V Pay"
 msgstr "V Pay"
 
-#: map-quick/osmelementinformationmodel_data.cpp:293
+#: map-quick/osmelementinformationmodel_data.cpp:297
 msgctxt "OSM::payment_method"
 msgid "Visa"
 msgstr "비자"
 
-#: map-quick/osmelementinformationmodel_data.cpp:297
+#: map-quick/osmelementinformationmodel_data.cpp:301
 msgctxt "OSM::wheelchair_access"
 msgid "limited"
 msgstr "제한됨"
 
-#: map-quick/osmelementinformationmodel_data.cpp:298
+#: map-quick/osmelementinformationmodel_data.cpp:302
 msgctxt "OSM::wheelchair_access"
 msgid "no"
 msgstr "불가능"
 
-#: map-quick/osmelementinformationmodel_data.cpp:299
+#: map-quick/osmelementinformationmodel_data.cpp:303
 msgctxt "OSM::wheelchair_access"
 msgid "yes"
 msgstr "가능"
 
-#: map-quick/osmelementinformationmodel_data.cpp:311
+#: map-quick/osmelementinformationmodel_data.cpp:315
 msgctxt "OSM::charging_station_socket"
 msgid "Chademo"
 msgstr "Chademo"
 
-#: map-quick/osmelementinformationmodel_data.cpp:312
+#: map-quick/osmelementinformationmodel_data.cpp:316
 msgctxt "OSM::charging_station_socket"
 msgid "Schuko"
 msgstr "슈코"
 
-#: map-quick/osmelementinformationmodel_data.cpp:313
+#: map-quick/osmelementinformationmodel_data.cpp:317
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla"
 msgstr "Tesla"
 
 # https://www.tesla.com/ko_KR/supercharger
-#: map-quick/osmelementinformationmodel_data.cpp:314
+#: map-quick/osmelementinformationmodel_data.cpp:318
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla Supercharger"
 msgstr "Tesla 수퍼차저"
 
-#: map-quick/osmelementinformationmodel_data.cpp:315
+#: map-quick/osmelementinformationmodel_data.cpp:319
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla Supercharger CCS"
 msgstr "Tesla 수퍼차저 CCS"
 
-#: map-quick/osmelementinformationmodel_data.cpp:316
+#: map-quick/osmelementinformationmodel_data.cpp:320
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2"
 msgstr "Type 2"
 
-#: map-quick/osmelementinformationmodel_data.cpp:317
+#: map-quick/osmelementinformationmodel_data.cpp:321
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2 cable"
 msgstr "Type 2 케이블"
 
-#: map-quick/osmelementinformationmodel_data.cpp:318
+#: map-quick/osmelementinformationmodel_data.cpp:322
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2 CCS"
 msgstr "Type 2 CCS"
 
-#: map-quick/osmelementinformationmodel_data.cpp:319
+#: map-quick/osmelementinformationmodel_data.cpp:323
 msgctxt "OSM::charging_station_socket"
 msgid "Type E"
 msgstr "Type E"
 
-#: map-quick/osmelementinformationmodel_data.cpp:331
+#: map-quick/osmelementinformationmodel_data.cpp:335
 msgctxt "OSM::charging_station_authentication"
 msgid "app"
 msgstr "앱"
 
-#: map-quick/osmelementinformationmodel_data.cpp:332
+#: map-quick/osmelementinformationmodel_data.cpp:336
 msgctxt "OSM::charging_station_authentication"
 msgid "membership card"
 msgstr "회원 카드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:333
+#: map-quick/osmelementinformationmodel_data.cpp:337
 msgctxt "OSM::charging_station_authentication"
 msgid "NFC"
 msgstr "NFC"
 
-#: map-quick/osmelementinformationmodel_data.cpp:334
+#: map-quick/osmelementinformationmodel_data.cpp:338
 msgctxt "OSM::charging_station_authentication"
 msgid "none"
 msgstr "없음"
 
-#: map-quick/osmelementinformationmodel_data.cpp:335
+#: map-quick/osmelementinformationmodel_data.cpp:339
 msgctxt "OSM::charging_station_authentication"
 msgid "phone call"
 msgstr "전화 통화"
 
-#: map-quick/osmelementinformationmodel_data.cpp:336
+#: map-quick/osmelementinformationmodel_data.cpp:340
 msgctxt "OSM::charging_station_authentication"
 msgid "SMS"
 msgstr "SMS"
 
-#: map-quick/osmelementinformationmodel_data.cpp:343
+#: map-quick/osmelementinformationmodel_data.cpp:347
 msgctxt "OSM::bicycle_parking"
 msgid "anchors"
 msgstr "고정"
 
-#: map-quick/osmelementinformationmodel_data.cpp:344
+#: map-quick/osmelementinformationmodel_data.cpp:348
 msgctxt "OSM::bicycle_parking"
 msgid "bollard"
 msgstr "볼라드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:345
+#: map-quick/osmelementinformationmodel_data.cpp:349
 msgctxt "OSM::bicycle_parking"
 msgid "building"
 msgstr "건물"
 
-#: map-quick/osmelementinformationmodel_data.cpp:346
+#: map-quick/osmelementinformationmodel_data.cpp:350
 msgctxt "OSM::bicycle_parking"
 msgid "ground slots"
 msgstr "지상 슬롯"
 
-#: map-quick/osmelementinformationmodel_data.cpp:347
+#: map-quick/osmelementinformationmodel_data.cpp:351
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
 msgstr "로커"
 
-#: map-quick/osmelementinformationmodel_data.cpp:348
+#: map-quick/osmelementinformationmodel_data.cpp:352
 msgctxt "OSM::bicycle_parking"
 msgid "racks"
 msgstr "랙"
 
-#: map-quick/osmelementinformationmodel_data.cpp:349
+#: map-quick/osmelementinformationmodel_data.cpp:353
 msgctxt "OSM::bicycle_parking"
 msgid "shed"
 msgstr "셰드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:350
+#: map-quick/osmelementinformationmodel_data.cpp:354
 msgctxt "OSM::bicycle_parking"
 msgid "stands"
 msgstr "스탠드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:351
+#: map-quick/osmelementinformationmodel_data.cpp:355
 msgctxt "OSM::bicycle_parking"
 msgid "wall loops"
 msgstr "벽 루프"
 
-#: map-quick/osmelementinformationmodel_data.cpp:352
+#: map-quick/osmelementinformationmodel_data.cpp:356
 msgctxt "OSM::bicycle_parking"
 msgid "wide stands"
 msgstr "와이드 스탠드"
 
-#: map-quick/osmelementinformationmodel_data.cpp:359
+#: map-quick/osmelementinformationmodel_data.cpp:363
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 bike"
 msgid_plural "%1 bikes"
 msgstr[0] "자전거 %1대"
 
-#: map-quick/osmelementinformationmodel_data.cpp:360
+#: map-quick/osmelementinformationmodel_data.cpp:364
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 pedelec"
 msgid_plural "%1 pedelecs"
 msgstr[0] "페델렉 %1대"
 
-#: map-quick/osmelementinformationmodel_data.cpp:361
+#: map-quick/osmelementinformationmodel_data.cpp:365
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
 msgid_plural "%1 kick scooters"
 msgstr[0] "킥 스쿠터 %1대"
 
-#: map-quick/osmelementinformationmodel_data.cpp:362
+#: map-quick/osmelementinformationmodel_data.cpp:366
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 moped"
 msgid_plural "%1 mopeds"
 msgstr[0] "모페드 %1대"
 
-#: map-quick/osmelementinformationmodel_data.cpp:363
+#: map-quick/osmelementinformationmodel_data.cpp:367
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 car"
 msgid_plural "%1 cars"
 msgstr[0] "차량 %1대"
 
-#: map-quick/osmelementinformationmodel_data.cpp:374
+#: map-quick/osmelementinformationmodel_data.cpp:378
 msgctxt "OSM::gender_segregation"
 msgid "female"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:375
+#: map-quick/osmelementinformationmodel_data.cpp:379
 msgctxt "OSM::gender_segregation"
 msgid "male"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:376
+#: map-quick/osmelementinformationmodel_data.cpp:380
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:388
+#: map-quick/osmelementinformationmodel_data.cpp:392
 msgctxt "tactile writing"
 msgid "braille"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:389
+#: map-quick/osmelementinformationmodel_data.cpp:393
 msgctxt "tactile writing"
 msgid "embossed printed letters"
 msgstr ""
 
-#: map-quick/osmelementinformationmodel_data.cpp:390
+#: map-quick/osmelementinformationmodel_data.cpp:394
 msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr ""
