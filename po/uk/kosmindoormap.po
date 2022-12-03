@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:45+0000\n"
-"PO-Revision-Date: 2022-11-30 06:57+0200\n"
+"POT-Creation-Date: 2022-12-03 00:45+0000\n"
+"PO-Revision-Date: 2022-12-02 08:37+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -25,12 +25,12 @@ msgstr ""
 msgid "KDE OSM Indoor Map"
 msgstr "Внутрішня карта OSM KDE"
 
-#: map-quick/floorlevelchangemodel.cpp:208
+#: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
 msgid "Elevator"
 msgstr "Ліфт"
 
-#: map-quick/floorlevelchangemodel.cpp:215
+#: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
 msgid "Staircase"
 msgstr "Сходи"
@@ -485,7 +485,7 @@ msgstr "Кава"
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "Центр спільноти"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -886,12 +886,9 @@ msgstr "Квитки на громадський транспорт"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "Заряджальна станція"
+msgstr "Залізнична станція"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -949,12 +946,9 @@ msgid "Sports"
 msgstr "Спорт"
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr "Художній центр"
+msgstr "Спортивний центр"
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
 msgctxt "OSM::amenity"
