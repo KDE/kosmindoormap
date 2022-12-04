@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:45+0000\n"
-"PO-Revision-Date: 2022-12-01 06:52+0100\n"
+"PO-Revision-Date: 2022-12-03 06:58+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: app/main.cpp:44
 #, kde-format
@@ -483,7 +483,7 @@ msgstr "ყავა"
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "საზოგადოებრივი შეკრების ადგილი"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -884,12 +884,9 @@ msgstr "საჯარო ტრანსპორტის ბილეთე�
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "დასატენი სადგური"
+msgstr "რკინიგზის სადგური"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -947,12 +944,9 @@ msgid "Sports"
 msgstr "სპორტი"
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr "ხელოვნების ცენტრი"
+msgstr "სპორტის დარბაზი"
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
 msgctxt "OSM::amenity"
