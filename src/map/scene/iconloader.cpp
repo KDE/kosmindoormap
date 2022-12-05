@@ -108,7 +108,7 @@ QIcon IconLoader::loadIcon(const IconData &iconData) const
 QIcon IconLoader::loadSvgAsset(QIODevice *svgFile, const IconData &iconData) const
 {
     // prepare CSS
-    const QString css = QLatin1String(".ColorScheme-Text { color:") + iconData.color.name(QColor::HexArgb) + QLatin1String("; }");
+    const QString css = QLatin1String(".ColorScheme-Text { color:") + iconData.color.name(QColor::HexRgb) + QLatin1String("; }");
 
     // inject CSS (inspired by KIconLoader)
     QByteArray processedContents;
