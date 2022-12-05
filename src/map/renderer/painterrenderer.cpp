@@ -194,7 +194,9 @@ void PainterRenderer::renderLabel(LabelItem *item)
     if (!item->icon.isNull()) {
         QRectF iconRect(QPointF(0.0, 0.0), item->iconSize);
         iconRect.moveCenter(QPointF(0.0, -((box.height() - item->iconSize.height()) / 2.0) + item->offset));
+        m_painter->setOpacity(item->iconOpacity);
         item->icon.paint(m_painter, iconRect.toRect());
+        m_painter->setOpacity(1.0);
     }
     box.moveTop(box.top() + item->iconSize.height());
 
