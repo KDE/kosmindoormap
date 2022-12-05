@@ -388,9 +388,11 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                         break;
                     case MapCSSDeclaration::IconHeight:
                         item->iconSize.setHeight(decl->doubleValue()); // TODO percent sizes
+                        item->iconHeightUnit = decl->unit() == MapCSSDeclaration::Meters ? Unit::Meter : Unit::Pixel;
                         break;
                     case MapCSSDeclaration::IconWidth:
                         item->iconSize.setWidth(decl->doubleValue()); // TODO percent sizes
+                        item->iconWidthUnit = decl->unit() == MapCSSDeclaration::Meters ? Unit::Meter : Unit::Pixel;
                         break;
                     case MapCSSDeclaration::IconColor:
                     {
@@ -427,6 +429,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                     iconData.color = d->m_defaultTextColor;
                 }
                 item->icon = d->m_iconLoader.loadIcon(iconData);
+                item->iconOpacity = iconData.color.alphaF();
             }
             if (!item->icon.isNull()) {
                 const auto iconSourceSize = item->icon.availableSizes().at(0);

@@ -144,6 +144,9 @@ public:
 
     QIcon icon;
     QSizeF iconSize;
+    double iconOpacity = 1.0;
+    Unit iconWidthUnit = Unit::Pixel;
+    Unit iconHeightUnit = Unit::Pixel;
 
     double casingWidth = 0.0;
     QColor casingColor = Qt::transparent;
