@@ -191,14 +191,23 @@ void PainterRenderer::renderLabel(LabelItem *item)
     }
 
     // draw icon
+    QSizeF iconOutputSize;
     if (!item->icon.isNull()) {
-        QRectF iconRect(QPointF(0.0, 0.0), item->iconSize);
-        iconRect.moveCenter(QPointF(0.0, -((box.height() - item->iconSize.height()) / 2.0) + item->offset));
+        iconOutputSize = item->iconSize;
+        if (item->iconWidthUnit == Unit::Meter) {
+            iconOutputSize.setWidth(m_view->mapMetersToScreen(item->iconSize.width()));
+        }
+        if (item->iconHeightUnit == Unit::Meter) {
+            iconOutputSize.setHeight(m_view->mapMetersToScreen(item->iconSize.height()));
+        }
+
+        QRectF iconRect(QPointF(0.0, 0.0), iconOutputSize);
+        iconRect.moveCenter(QPointF(0.0, -((box.height() - iconOutputSize.height()) / 2.0) + item->offset));
         m_painter->setOpacity(item->iconOpacity);
         item->icon.paint(m_painter, iconRect.toRect());
         m_painter->setOpacity(1.0);
     }
-    box.moveTop(box.top() + item->iconSize.height());
+    box.moveTop(box.top() + iconOutputSize.height());
 
     // draw text halo
     if (item->haloRadius > 0.0 && item->haloColor.alphaF() > 0.0) {
