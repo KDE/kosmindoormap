@@ -33,8 +33,6 @@ public:
     QIcon loadIcon(const IconData &iconData) const;
 
 private:
-    QIcon loadSvgAsset(QIODevice *svgFile, const IconData &iconData) const;
-
     struct CacheEntry {
         IconData data;
         QIcon icon;

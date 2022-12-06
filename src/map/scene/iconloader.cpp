@@ -23,8 +23,9 @@ using namespace KOSMIndoorMap;
 class IconEngine : public QIconEngine
 {
 public:
-    explicit IconEngine(QImage &&img)
-        : m_image(std::move(img))
+    explicit IconEngine(QIODevice *svgFile, const IconData &iconData)
+        : m_iconData(iconData)
+        , m_image(renderStyledSvg(svgFile, iconData.size))
     {
     }
 
@@ -48,15 +49,15 @@ public:
         return engine;
     }
 
-    void paint(QPainter *painter, const QRect &rect, QIcon::Mode mode, QIcon::State state) override
-    {
-        Q_UNUSED(mode);
-        Q_UNUSED(state);
-        painter->drawImage(rect, m_image);
-    }
+    void paint(QPainter *painter, const QRect &rect, QIcon::Mode mode, QIcon::State state) override;
+
+    static QString findSvgAsset(const QString &name);
 
 private:
     explicit IconEngine() = default;
+    QImage renderStyledSvg(QIODevice *svgFile, const QSizeF &size);
+
+    IconData m_iconData;
     QImage m_image;
 };
 
@@ -85,12 +86,12 @@ QIcon IconLoader::loadIcon(const IconData &iconData) const
     }
 
     // check if it's one of our bundled assets
-    const QString path = QLatin1String(":/org.kde.kosmindoormap/assets/icons/") + iconData.name + QLatin1String(".svg");
+    const QString path = IconEngine::findSvgAsset(iconData.name);
     QFile f(path);
     if (f.open(QFile::ReadOnly)) {
         CacheEntry entry;
         entry.data = iconData;
-        entry.icon = loadSvgAsset(&f, iconData);
+        entry.icon = QIcon(new IconEngine(&f, iconData));
         it = m_cache.insert(it, std::move(entry));
         return (*it).icon;
     }
@@ -105,10 +106,29 @@ QIcon IconLoader::loadIcon(const IconData &iconData) const
     return icon;
 }
 
-QIcon IconLoader::loadSvgAsset(QIODevice *svgFile, const IconData &iconData) const
+QString IconEngine::findSvgAsset(const QString &name)
+{
+    return QLatin1String(":/org.kde.kosmindoormap/assets/icons/") + name + QLatin1String(".svg");
+}
+
+void IconEngine::paint(QPainter *painter, const QRect &rect, [[maybe_unused]] QIcon::Mode mode, [[maybe_unused]] QIcon::State state)
+{
+    // check if our pre-rendered image cache has a resolution high enough for this
+    const auto threshold = std::max<int>(1, std::max(m_image.width(), m_image.height()) * 0.25);
+    if (rect.width() > m_image.width() + threshold || rect.height() > m_image.height() + threshold) {
+        QFile f(findSvgAsset(m_iconData.name));
+        if (f.open(QFile::ReadOnly)) {
+            m_image = renderStyledSvg(&f, rect.size());
+        }
+    }
+
+    painter->drawImage(rect, m_image);
+}
+
+QImage IconEngine::renderStyledSvg(QIODevice *svgFile, const QSizeF &size)
 {
     // prepare CSS
-    const QString css = QLatin1String(".ColorScheme-Text { color:") + iconData.color.name(QColor::HexRgb) + QLatin1String("; }");
+    const QString css = QLatin1String(".ColorScheme-Text { color:") + m_iconData.color.name(QColor::HexRgb) + QLatin1String("; }");
 
     // inject CSS (inspired by KIconLoader)
     QByteArray processedContents;
@@ -137,8 +157,8 @@ QIcon IconLoader::loadSvgAsset(QIODevice *svgFile, const IconData &iconData) con
     buffer.open(QIODevice::ReadOnly);
     buffer.seek(0);
     QImageReader imgReader(&buffer, "svg");
-    imgReader.setScaledSize((iconData.size.isValid() ? iconData.size.toSize() : imgReader.size()) * qGuiApp->devicePixelRatio());
+    imgReader.setScaledSize((size.isValid() ? size.toSize() : imgReader.size()) * qGuiApp->devicePixelRatio());
     auto img = imgReader.read();
     img.setDevicePixelRatio(qGuiApp->devicePixelRatio());
-    return QIcon(new IconEngine(std::move(img)));
+    return img;
 }
