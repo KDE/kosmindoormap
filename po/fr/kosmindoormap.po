@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:45+0000\n"
-"PO-Revision-Date: 2022-11-23 22:30+0100\n"
+"PO-Revision-Date: 2022-12-04 17:18+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 22.11.90\n"
 
 #: app/main.cpp:44
 #, kde-format
@@ -88,7 +88,7 @@ msgstr "Précédemment"
 #: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: map-quick/osmelementinformationmodel.cpp:461
 #, kde-format
@@ -227,10 +227,9 @@ msgid "Wheelchair access"
 msgstr "Accès pour chaises roulantes"
 
 #: map-quick/osmelementinformationmodel.cpp:490
-#, fuzzy, kde-format
-#| msgid "Wheelchair access"
+#, kde-format
 msgid "Wheelchair lift"
-msgstr "Accès pour chaises roulantes"
+msgstr "Ascenseur pour fauteuils roulants"
 
 #: map-quick/osmelementinformationmodel.cpp:491
 #, kde-format
@@ -240,12 +239,12 @@ msgstr "Clé central"
 #: map-quick/osmelementinformationmodel.cpp:492
 #, kde-format
 msgid "Speech output"
-msgstr ""
+msgstr "Sortie vocale"
 
 #: map-quick/osmelementinformationmodel.cpp:493
 #, kde-format
 msgid "Tactile writing"
-msgstr ""
+msgstr "Écriture tactile"
 
 #: map-quick/osmelementinformationmodel.cpp:495
 #, kde-format
@@ -465,7 +464,7 @@ msgstr "Hôtel de ville"
 #: map-quick/osmelementinformationmodel_data.cpp:53
 msgctxt "OSM::room"
 msgid "Classroom"
-msgstr ""
+msgstr "Salle de classe"
 
 #: map-quick/osmelementinformationmodel_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -480,7 +479,7 @@ msgstr "Café"
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "Centre communautaire"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -685,7 +684,7 @@ msgstr "Kiosque à journaux"
 #: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::room"
 msgid "Kitchen"
-msgstr ""
+msgstr "Cuisine"
 
 #: map-quick/osmelementinformationmodel_data.cpp:98
 msgctxt "OSM::amenity/shop"
@@ -696,7 +695,7 @@ msgstr "Blanchisserie"
 #: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::room"
 msgid "Lecture Hall"
-msgstr ""
+msgstr "Salon de lecture"
 
 #: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::amenity/shop"
@@ -881,12 +880,9 @@ msgstr "Tickets pour transports collectifs"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "Station de rechargement"
+msgstr "Gare "
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -896,7 +892,7 @@ msgstr "Recyclage"
 #: map-quick/osmelementinformationmodel_data.cpp:141
 msgctxt "OSM::amenity"
 msgid "Research Institute"
-msgstr ""
+msgstr "Institut de recherche"
 
 #: map-quick/osmelementinformationmodel_data.cpp:142
 msgctxt "OSM::amenity/shop"
@@ -944,20 +940,14 @@ msgid "Sports"
 msgstr "Sports"
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr "Centre d'art"
+msgstr "Centre sportif"
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Sports"
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr "Sports"
+msgstr "Salle de sports"
 
 #: map-quick/osmelementinformationmodel_data.cpp:153
 msgctxt "OSM::amenity/shop"
@@ -1634,7 +1624,7 @@ msgstr "unisexe"
 #: map-quick/osmelementinformationmodel_data.cpp:392
 msgctxt "tactile writing"
 msgid "braille"
-msgstr ""
+msgstr "braille"
 
 #: map-quick/osmelementinformationmodel_data.cpp:393
 msgctxt "tactile writing"
