@@ -387,12 +387,10 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                         }
                         break;
                     case MapCSSDeclaration::IconHeight:
-                        item->iconSize.setHeight(decl->doubleValue()); // TODO percent sizes
-                        item->iconHeightUnit = decl->unit() == MapCSSDeclaration::Meters ? Unit::Meter : Unit::Pixel;
+                        item->iconSize.setHeight(PenWidthUtil::penWidth(e, decl, item->iconHeightUnit));
                         break;
                     case MapCSSDeclaration::IconWidth:
-                        item->iconSize.setWidth(decl->doubleValue()); // TODO percent sizes
-                        item->iconWidthUnit = decl->unit() == MapCSSDeclaration::Meters ? Unit::Meter : Unit::Pixel;
+                        item->iconSize.setWidth(PenWidthUtil::penWidth(e, decl, item->iconWidthUnit));
                         break;
                     case MapCSSDeclaration::IconColor:
                     {
