@@ -65,6 +65,20 @@ area[natural=sand]
     z-index: -999;
 }
 
+node|z19-[natural=tree]
+{
+    icon-image: "tree";
+    icon-height: 2m;
+    icon-width: 2m;
+    icon-color: #27ae60;
+    icon-opacity: 0.4;
+}
+node|z19-[natural=tree][diameter_crown]
+{
+    icon-height: diameter_crown;
+    icon-width: diameter_crown;
+}
+
 /** Generic labeling */
 *|z21- [indoor=room]
 {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg version="1.1" viewBox="0 0 14 14" height="14" width="14" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <style type="text/css" id="current-color-scheme" />
+  <path
+     style="fill:currentColor;fill-rule:evenodd"
+     id="path242" d="M 10.531394,0.97921103 A 6.9852257,6.9852257 0 0 1 13.042685,10.531561 6.9852257,6.9852257 0 0 1 3.49118,13.046062 6.9852257,6.9852257 0 0 1 0.97347012,3.4954016 6.9852257,6.9852257 0 0 1 10.523284,0.97448308 L 7.0092597,7.0114536 Z" class="ColorScheme-Text"/>
+  <path
+     style="fill:#502d16;fill-rule:evenodd"
+     d="M 7.4537932,6.0790143 A 1.068686,1.068686 0 0 1 7.8380016,7.5404506 1.068686,1.068686 0 0 1 6.3766944,7.9251499 1.068686,1.068686 0 0 1 5.9915041,6.4639721 1.068686,1.068686 0 0 1 7.4525524,6.0782909 L 6.9149337,7.0019011 Z" />
+</svg>
