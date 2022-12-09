@@ -121,6 +121,7 @@ void PainterRenderer::beginPhase(SceneGraphItemPayload::RenderPhase phase)
         case SceneGraphItemPayload::LabelPhase:
             m_painter->setTransform(m_view->deviceTransform());
             m_painter->setRenderHint(QPainter::Antialiasing, true);
+            m_painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
             break;
     }
 }
