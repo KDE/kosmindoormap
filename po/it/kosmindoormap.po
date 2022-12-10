@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:45+0000\n"
-"PO-Revision-Date: 2022-11-29 22:43+0100\n"
+"PO-Revision-Date: 2022-12-02 19:32+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -92,7 +92,7 @@ msgstr "Precedentemente"
 #: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #: map-quick/osmelementinformationmodel.cpp:461
 #, kde-format
@@ -483,7 +483,7 @@ msgstr "Caffè"
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "Centro di aggregazione"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -884,12 +884,9 @@ msgstr "Biglietti per il trasporto pubblico"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "Stazione di ricarica"
+msgstr "Stazione ferroviaria"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -947,12 +944,9 @@ msgid "Sports"
 msgstr "Sport"
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr "Centro delle arti"
+msgstr "Centro sportivo"
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
 msgctxt "OSM::amenity"
