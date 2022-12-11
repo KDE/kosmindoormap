@@ -26,6 +26,7 @@
 namespace KOSMIndoorMap {
 
 class SceneGraphItemPayload;
+class View;
 
 /** Unit for geometry sizes. */
 enum class Unit : uint8_t {
@@ -73,7 +74,7 @@ public:
     /** Bounding box of this item in scene coordinates.
      *  Performance trumps precision here, so estimating this slightly larger rather than computing it expensively makes sense.
      */
-    virtual QRectF boundingRect() const = 0;
+    virtual QRectF boundingRect(const View *view) const = 0;
 
     /** Is this item drawn in scene coordinates (as oposed to HUD coordinates)? */
     bool inSceneSpace() const;
@@ -89,7 +90,7 @@ class PolylineItem : public SceneGraphItemPayload
 {
 public:
     uint8_t renderPhases() const override;
-    QRectF boundingRect() const override;
+    QRectF boundingRect(const View *view) const override;
 
     QPolygonF path;
     QPen pen;
@@ -115,7 +116,7 @@ public:
 class PolygonItem : public PolygonBaseItem
 {
 public:
-    QRectF boundingRect() const override;
+    QRectF boundingRect(const View *view) const override;
 
     QPolygonF polygon;
 };
@@ -125,7 +126,7 @@ public:
 class MultiPolygonItem : public PolygonBaseItem
 {
 public:
-    QRectF boundingRect() const override;
+    QRectF boundingRect(const View *view) const override;
 
     QPainterPath path;
 };
@@ -135,7 +136,7 @@ class LabelItem : public SceneGraphItemPayload
 {
 public:
     uint8_t renderPhases() const override;
-    QRectF boundingRect() const override;
+    QRectF boundingRect(const View *view) const override;
 
     QPointF pos;
     QColor color;

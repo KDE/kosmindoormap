@@ -6,10 +6,10 @@
 
 #include "painterrenderer.h"
 #include "stackblur_p.h"
-#include "view.h"
 #include "render-logging.h"
 
 #include <KOSMIndoorMap/SceneGraph>
+#include <KOSMIndoorMap/View>
 
 #include <QDebug>
 #include <QElapsedTimer>
@@ -48,11 +48,11 @@ void PainterRenderer::render(const SceneGraph &sg, View *view)
         m_renderBatch.reserve(layerOffsets.second - layerOffsets.first);
         const QRectF screenRect(QPointF(0, 0), QSizeF(m_view->screenWidth(), m_view->screenHeight()));
         for (auto it = layerBegin; it != layerEnd; ++it) {
-            if ((*it).payload->inSceneSpace() && m_view->viewport().intersects((*it).payload->boundingRect())) {
+            if ((*it).payload->inSceneSpace() && m_view->viewport().intersects((*it).payload->boundingRect(view))) {
                 m_renderBatch.push_back((*it).payload.get());
             }
             if ((*it).payload->inHUDSpace()) {
-                auto bbox = (*it).payload->boundingRect();
+                auto bbox = (*it).payload->boundingRect(view);
                 bbox.moveCenter(m_view->mapSceneToScreen(bbox.center()));
                 if (screenRect.intersects(bbox)) {
                     m_renderBatch.push_back((*it).payload.get());
@@ -173,7 +173,7 @@ void PainterRenderer::renderLabel(LabelItem *item)
     m_painter->translate(m_view->mapSceneToScreen(item->pos));
     m_painter->rotate(item->angle);
 
-    auto box = item->boundingRect();
+    auto box = item->boundingRect(m_view);
     box.moveCenter({0.0, item->offset});
 
     // draw shield

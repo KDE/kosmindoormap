@@ -41,7 +41,6 @@ target_sources(KOSMIndoorMap PRIVATE
     renderer/hitdetector.cpp
     renderer/painterrenderer.cpp
     renderer/stackblur.cpp
-    renderer/view.cpp
 
     scene/iconloader.cpp
     scene/openinghourscache.cpp
@@ -52,6 +51,7 @@ target_sources(KOSMIndoorMap PRIVATE
     scene/scenegeometry.cpp
     scene/scenegraph.cpp
     scene/scenegraphitem.cpp
+    scene/view.cpp
 
     style/mapcsscondition.cpp
     style/mapcssdeclaration.cpp
@@ -127,7 +127,6 @@ ecm_generate_headers(KOSMIndoorMap_Renderer_FORWARDING_HEADERS
     HEADER_NAMES
         HitDetector
         PainterRenderer
-        View
     PREFIX KOSMIndoorMap
     REQUIRED_HEADERS KOSMIndoorMap_Renderer_HEADERS
     RELATIVE renderer
@@ -138,6 +137,7 @@ ecm_generate_headers(KOSMIndoorMap_Scene_FORWARDING_HEADERS
         SceneController
         SceneGraph
         SceneGraphItem
+        View
     PREFIX KOSMIndoorMap
     REQUIRED_HEADERS KOSMIndoorMap_Scene_HEADERS
     RELATIVE scene
