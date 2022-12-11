@@ -28,7 +28,7 @@ uint8_t PolylineItem::renderPhases() const
     return (pen.style() != Qt::NoPen ? StrokePhase : NoPhase) | (casingPen.style() != Qt::NoPen ? CasingPhase : NoPhase);
 }
 
-QRectF PolylineItem::boundingRect() const
+QRectF PolylineItem::boundingRect([[maybe_unused]] const View *view) const
 {
     return path.boundingRect(); // TODO do we need to cache this?
 }
@@ -39,12 +39,12 @@ uint8_t PolygonBaseItem::renderPhases() const
     return (pen.style() == Qt::NoPen ? NoPhase : StrokePhase) | (brush.style() == Qt::NoBrush ? NoPhase : FillPhase);
 }
 
-QRectF PolygonItem::boundingRect() const
+QRectF PolygonItem::boundingRect([[maybe_unused]] const View *view) const
 {
     return polygon.boundingRect(); // TODO do we need to cache this?
 }
 
-QRectF MultiPolygonItem::boundingRect() const
+QRectF MultiPolygonItem::boundingRect([[maybe_unused]] const View *view) const
 {
     return path.boundingRect(); // TODO do we need to cache this?
 }
@@ -55,7 +55,7 @@ uint8_t LabelItem::renderPhases() const
     return LabelPhase;
 }
 
-QRectF LabelItem::boundingRect() const
+QRectF LabelItem::boundingRect([[maybe_unused]] const View *view) const
 {
     QRectF bbox;
     if (!text.text().isEmpty()) {

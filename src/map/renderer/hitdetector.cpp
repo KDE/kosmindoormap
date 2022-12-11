@@ -9,7 +9,7 @@
 #include "../scene/scenegraph.h"
 #include "../scene/scenegraphitem.h"
 #include "../scene/scenegeometry_p.h"
-#include "view.h"
+#include "../scene/view.h"
 
 #include <QBrush>
 #include <QFontMetrics>
@@ -35,9 +35,9 @@ const SceneGraphItem* HitDetector::itemAt(QPointF pos, const SceneGraph& sg, con
     }
 
     // (2) in presence of transparency, use the smallest item at this position
-    std::sort(items.begin(), items.end(), [](auto lhs, auto rhs) {
-        const auto lhsBbox = lhs->payload->boundingRect();
-        const auto rhsBbox = rhs->payload->boundingRect();
+    std::sort(items.begin(), items.end(), [view](auto lhs, auto rhs) {
+        const auto lhsBbox = lhs->payload->boundingRect(view);
+        const auto rhsBbox = rhs->payload->boundingRect(view);
         return (lhsBbox.width() * lhsBbox.height()) < (rhsBbox.width() * rhsBbox.height());
     });
     return items.front();
@@ -47,7 +47,7 @@ std::vector<const SceneGraphItem*> HitDetector::itemsAt(QPointF pos, const Scene
 {
     std::vector<const SceneGraphItem*> result;
     for (const auto &item : sg.items()) {
-        if (item.payload->renderPhases() == SceneGraphItemPayload::NoPhase || !item.payload->boundingRect().contains(view->mapScreenToScene(pos))) {
+        if (item.payload->renderPhases() == SceneGraphItemPayload::NoPhase || !item.payload->boundingRect(view).contains(view->mapScreenToScene(pos))) {
             continue;
         }
         if (!itemContainsPoint(item, pos, view)) {
@@ -108,7 +108,7 @@ bool HitDetector::itemContainsPoint(const PolylineItem *item, QPointF scenePos, 
 
 bool HitDetector::itemContainsPoint(const LabelItem *item, QPointF screenPos, const View *view) const
 {
-    auto hitBox = item->boundingRect();
+    auto hitBox = item->boundingRect(view);
     // QStaticText::size doesn't return the actual bounding box with QStaticText::textWidth is set,
     // so we need to compute that manually here to not end up with overly large hitboxes
     if (item->text.textWidth() > 0) {

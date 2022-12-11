@@ -4,7 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <map/renderer/view.h>
+#include <map/scene/view.h>
 
 #include <QTest>
 
