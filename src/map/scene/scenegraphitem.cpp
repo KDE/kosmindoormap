@@ -5,6 +5,7 @@
 */
 
 #include "scenegraphitem.h"
+#include "view.h"
 
 #include <QDebug>
 
@@ -30,7 +31,27 @@ uint8_t PolylineItem::renderPhases() const
 
 QRectF PolylineItem::boundingRect([[maybe_unused]] const View *view) const
 {
-    return path.boundingRect(); // TODO do we need to cache this?
+    auto r = path.boundingRect(); // TODO do we need to cache this?
+    double w = 0.0;
+    switch (penWidthUnit) {
+        case Unit::Pixel:
+            w += view->mapScreenDistanceToSceneDistance(pen.widthF());
+            break;
+        case Unit::Meter:
+            w += view->mapMetersToScene(pen.widthF());
+            break;
+    }
+    switch (casingPenWidthUnit) {
+        case Unit::Pixel:
+            w += view->mapScreenDistanceToSceneDistance(casingPen.widthF());
+            break;
+        case Unit::Meter:
+            w += view->mapMetersToScene(casingPen.widthF());
+            break;
+    }
+    w /= 2.0;
+    r.adjust(-w, -w, w, w);
+    return r;
 }
 
 
