@@ -39,7 +39,7 @@ public:
     {
         Q_UNUSED(mode);
         Q_UNUSED(state);
-        return { m_image.size() / m_image.devicePixelRatio() };
+        return { m_sourceSize.isValid() ? m_sourceSize : m_image.size() };
     }
 
     QIconEngine* clone() const override
@@ -59,6 +59,7 @@ private:
 
     IconData m_iconData;
     QImage m_image;
+    QSize m_sourceSize;
 };
 
 static bool operator<(const IconData &lhs, const IconData &rhs)
@@ -157,6 +158,7 @@ QImage IconEngine::renderStyledSvg(QIODevice *svgFile, const QSizeF &size)
     buffer.open(QIODevice::ReadOnly);
     buffer.seek(0);
     QImageReader imgReader(&buffer, "svg");
+    m_sourceSize = imgReader.size();
     imgReader.setScaledSize((size.isValid() ? size.toSize() : imgReader.size()) * qGuiApp->devicePixelRatio());
     auto img = imgReader.read();
     img.setDevicePixelRatio(qGuiApp->devicePixelRatio());
