@@ -274,6 +274,11 @@ area[building][layer>0]
     set layer=0;
 }
 
+node|z21-[entrance=yes][railway!=subway_entrance],
+node|z21-[entrance=main]
+{
+    icon-image: "entrance";
+}
 
 /** Airports */
 line|z14-[aeroway=runway]
