@@ -398,6 +398,14 @@ way[public_transport=platform]
 /** static elements
  *  keep before amenities/shops, as those can occur on the same element and should override the static element styles
  */
+node|z21- [barrier=block]
+{
+    set .static;
+    icon-image: "circle";
+    icon-width: 0.5m;
+    icon-height: 0.5m;
+}
+
 node|z20- [amenity=bench],
 node|z20- [amenity=recycling],
 *|z20- [amenity=shelter],
