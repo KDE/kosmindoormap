@@ -8,6 +8,10 @@
 
 #include "kosm_export.h"
 
+#include <cstdint>
+
+class QIODevice;
+
 namespace OSM {
 
 class DataSet;
@@ -32,8 +36,23 @@ public:
      */
     void setMergeBuffer(OSM::DataSetMergeBuffer *buffer);
 
+    /** Read the given data.
+     *  Useful e.g. for working on memory-mapped data.
+     */
+    void read(const uint8_t *data, std::size_t len);
+
+    /** Read data from the given QIODevice. */
+    void read(QIODevice *io);
+
 protected:
     explicit AbstractReader(DataSet *dataSet);
+
+    /** Implement for actual parsing.
+     *  The default implementation convert into the respective other form,
+     *  so implementing one is enough.
+     */
+    virtual void readFromData(const uint8_t *data, std::size_t len);
+    virtual void readFromIODevice(QIODevice *io);
 
     /** Add read elements to the merge buffer if set, or the dataset otherwise. */
     void addNode(OSM::Node &&node);
