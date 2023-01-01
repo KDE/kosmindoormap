@@ -8,6 +8,7 @@
 #define OSM_XMLPARSER_H
 
 #include <kosm_export.h>
+#include "abstractreader.h"
 
 #include <QString>
 
@@ -18,7 +19,7 @@ namespace OSM {
 
 class DataSet;
 
-class KOSM_EXPORT XmlParser
+class KOSM_EXPORT XmlParser : public AbstractReader
 {
 public:
     explicit XmlParser(DataSet *dataSet);
@@ -37,7 +38,6 @@ private:
     template <typename T>
     void parseBounds(QXmlStreamReader &reader, T &elem);
 
-    DataSet *m_dataSet;
     QString m_error;
 };
 

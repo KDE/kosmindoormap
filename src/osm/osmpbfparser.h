@@ -9,6 +9,7 @@
 
 #include "kosm_export.h"
 
+#include "abstractreader.h"
 #include "datatypes.h"
 
 namespace OSMPBF {
@@ -21,7 +22,7 @@ namespace OSM {
 /** Parser of .osm.pbf files.
  *  @see https://wiki.openstreetmap.org/wiki/PBF_Format
  */
-class KOSM_EXPORT OsmPbfParser
+class KOSM_EXPORT OsmPbfParser : public AbstractReader
 {
 public:
     explicit OsmPbfParser(DataSet *dataSet);
@@ -38,7 +39,6 @@ private:
     void parseWays(const OSMPBF::PrimitiveBlock &block, const OSMPBF::PrimitiveGroup &group);
     void parseRelations(const OSMPBF::PrimitiveBlock &block, const OSMPBF::PrimitiveGroup &group);
 
-    DataSet *m_dataSet = nullptr;
     QByteArray m_zlibBuffer;
 };
 

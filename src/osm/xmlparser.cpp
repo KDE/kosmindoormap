@@ -16,9 +16,8 @@
 using namespace OSM;
 
 XmlParser::XmlParser(DataSet* dataSet)
-    : m_dataSet(dataSet)
+    : AbstractReader(dataSet)
 {
-    assert(dataSet);
 }
 
 void XmlParser::parse(QIODevice *io)

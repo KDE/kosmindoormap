@@ -39,14 +39,9 @@ enum : uint16_t {
 };
 
 O5mParser::O5mParser(DataSet *dataSet)
-    : m_dataSet(dataSet)
+    : AbstractReader(dataSet)
 {
     m_stringLookupTable.resize(O5M_STRING_TABLE_SIZE);
-}
-
-void O5mParser::setMergeBuffer(DataSetMergeBuffer *buffer)
-{
-    m_mergeBuffer = buffer;
 }
 
 void O5mParser::parse(const uint8_t* data, std::size_t len)

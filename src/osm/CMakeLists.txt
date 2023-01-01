@@ -14,6 +14,7 @@ endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-kosm.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kosm.h)
 
 add_library(KOSM
+    abstractreader.cpp
     datatypes.cpp
     datasetmergebuffer.cpp
     element.cpp

@@ -22,7 +22,7 @@
 using namespace OSM;
 
 OsmPbfParser::OsmPbfParser(DataSet *dataSet)
-    : m_dataSet(dataSet)
+    : AbstractReader(dataSet)
 {
 }
 

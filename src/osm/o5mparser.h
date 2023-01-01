@@ -8,6 +8,7 @@
 #define OSM_O5MPARSER_H
 
 #include "kosm_export.h"
+#include "abstractreader.h"
 
 #include <cstddef>
 #include <cstdint>
@@ -23,20 +24,10 @@ class DataSetMergeBuffer;
 /** Zero-copy parser of O5M binary files.
  *  @see https://wiki.openstreetmap.org/wiki/O5m
  */
-class KOSM_EXPORT O5mParser
+class KOSM_EXPORT O5mParser : public AbstractReader
 {
 public:
     explicit O5mParser(DataSet *dataSet);
-
-    /** Sets a merge buffer.
-     *  When set, the parser will insert all elements into that buffer
-     *  rather than in the OSM::DataSet specified in the constructor.
-     *  It is then your responsibility to properly integrate those.
-     *  @note The OSM::DataSet is used for generating tag keys and for memory
-     *  managing strings in this case as well. So the generated elements are
-     *  tied to the OSM::DataSet in any case.
-     */
-    void setMergeBuffer(OSM::DataSetMergeBuffer *buffer);
 
     /** Parse the given binary content.
      *  Feed this with QFile::map() for example.
@@ -61,9 +52,6 @@ private:
     void readNode(const uint8_t *begin, const uint8_t *end);
     void readWay(const uint8_t *begin, const uint8_t *end);
     void readRelation(const uint8_t *begin, const uint8_t *end);
-
-    DataSet *m_dataSet = nullptr;
-    DataSetMergeBuffer *m_mergeBuffer = nullptr;
 
     // delta coding state
     void resetDeltaCodingState();
