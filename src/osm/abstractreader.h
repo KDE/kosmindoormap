@@ -9,6 +9,7 @@
 #include "kosm_export.h"
 
 #include <cstdint>
+#include <cstddef>
 
 class QIODevice;
 
