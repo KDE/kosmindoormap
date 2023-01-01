@@ -29,12 +29,9 @@ class KOSM_EXPORT O5mParser : public AbstractReader
 public:
     explicit O5mParser(DataSet *dataSet);
 
-    /** Parse the given binary content.
-     *  Feed this with QFile::map() for example.
-     */
-    void parse(const uint8_t *data, std::size_t len);
-
 private:
+    void readFromData(const uint8_t *data, std::size_t len) override;
+
     friend class ::O5mParserTest;
 
     uint64_t readUnsigned(const uint8_t *&it, const uint8_t *endIt) const;

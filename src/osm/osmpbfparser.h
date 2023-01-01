@@ -27,12 +27,9 @@ class KOSM_EXPORT OsmPbfParser : public AbstractReader
 public:
     explicit OsmPbfParser(DataSet *dataSet);
 
-    /** Parse the given binary content.
-     *  Feed this with QFile::map() for example.
-     */
-    void parse(const uint8_t *data, std::size_t len);
-
 private:
+    void readFromData(const uint8_t *data, std::size_t len) override;
+
     bool parseBlob(const uint8_t *&it, const uint8_t *end);
     void parsePrimitiveBlock(const uint8_t *data, std::size_t len);
     void parseDenseNodes(const OSMPBF::PrimitiveBlock &block,  const OSMPBF::PrimitiveGroup &group);

@@ -81,14 +81,14 @@ void MapLoader::loadFromFile(const QString &fileName)
     OSM::DataSet ds;
     if (fileName.endsWith(QLatin1String(".osm.pbf"))) {
         OSM::OsmPbfParser p(&ds);
-        p.parse(data, f.size());
+        p.read(data, f.size());
     } else if (fileName.endsWith(QLatin1String(".osm"))) {
         qDebug() << fileName << f.pos() <<f.size();
         OSM::XmlParser p(&ds);
-        p.parse(&f);
+        p.read(data, f.size());
     } else {
         OSM::O5mParser p(&ds);
-        p.parse(data, f.size());
+        p.read(data, f.size());
     }
     d->m_data = MapData();
     d->m_data.setDataSet(std::move(ds));
@@ -161,7 +161,7 @@ void MapLoader::loadTiles()
             break;
         }
         const auto data = f.map(0, f.size());
-        p.parse(data, f.size());
+        p.read(data, f.size());
         d->m_marbleMerger.merge(&d->m_mergeBuffer);
 
         d->m_tileBbox = OSM::unite(d->m_tileBbox, tile.boundingBox());

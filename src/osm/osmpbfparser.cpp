@@ -26,7 +26,7 @@ OsmPbfParser::OsmPbfParser(DataSet *dataSet)
 {
 }
 
-void OsmPbfParser::parse(const uint8_t *data, std::size_t len)
+void OsmPbfParser::readFromData(const uint8_t *data, std::size_t len)
 {
 #if HAVE_PROTOBUF
     const uint8_t *it = data;

@@ -24,10 +24,11 @@ class KOSM_EXPORT XmlParser : public AbstractReader
 public:
     explicit XmlParser(DataSet *dataSet);
 
-    void parse(QIODevice *io);
     QString error() const;
 
 private:
+    void readFromIODevice(QIODevice *io) override;
+
     void parseNode(QXmlStreamReader &reader);
     void parseWay(QXmlStreamReader &reader);
     void parseRelation(QXmlStreamReader &reader);

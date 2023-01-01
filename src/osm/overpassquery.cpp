@@ -83,7 +83,7 @@ DataSet&& OverpassQuery::takeResult()
 OverpassQuery::Error OverpassQuery::processReply(QNetworkReply *reply)
 {
     XmlParser p(&m_result);
-    p.parse(reply);
+    p.read(reply);
     if (!p.error().isEmpty()) {
         qWarning() << "Query error:" << p.error();
         qWarning() << "Request:" << reply->request().url();

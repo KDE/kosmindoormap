@@ -20,7 +20,7 @@ XmlParser::XmlParser(DataSet* dataSet)
 {
 }
 
-void XmlParser::parse(QIODevice *io)
+void XmlParser::readFromIODevice(QIODevice *io)
 {
     QXmlStreamReader reader(io);
     while (!reader.atEnd() && !reader.hasError()) {

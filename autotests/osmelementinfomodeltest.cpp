@@ -60,7 +60,7 @@ private Q_SLOTS:
 
         OSM::DataSet dataSet;
         OSM::XmlParser p(&dataSet);
-        p.parse(&inFile);
+        p.read(&inFile);
         QCOMPARE(dataSet.nodes.size(), 1);
 
         OSMElementInformationModel model;
