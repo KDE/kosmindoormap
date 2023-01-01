@@ -24,6 +24,7 @@ add_library(KOSM
     overpassquery.cpp
     overpassquerymanager.cpp
     pathutil.cpp
+    reader.cpp
     stringpool.cpp
     xmlparser.cpp
     xmlwriter.cpp

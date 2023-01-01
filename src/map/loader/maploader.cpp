@@ -15,8 +15,7 @@
 #include <osm/datasetmergebuffer.h>
 #include <osm/element.h>
 #include <osm/o5mparser.h>
-#include <osm/osmpbfparser.h>
-#include <osm/xmlparser.h>
+#include <osm/reader.h>
 
 #include <QDateTime>
 #include <QElapsedTimer>
@@ -79,17 +78,12 @@ void MapLoader::loadFromFile(const QString &fileName)
     const auto data = f.map(0, f.size());
 
     OSM::DataSet ds;
-    if (fileName.endsWith(QLatin1String(".osm.pbf"))) {
-        OSM::OsmPbfParser p(&ds);
-        p.read(data, f.size());
-    } else if (fileName.endsWith(QLatin1String(".osm"))) {
-        qDebug() << fileName << f.pos() <<f.size();
-        OSM::XmlParser p(&ds);
-        p.read(data, f.size());
-    } else {
-        OSM::O5mParser p(&ds);
-        p.read(data, f.size());
+    auto reader = OSM::Reader::readerForFileName(fileName, &ds);
+    if (!reader) {
+        qCWarning(Log) << "no file reader for" << fileName;
+        return;
     }
+    reader->read(data, f.size());
     d->m_data = MapData();
     d->m_data.setDataSet(std::move(ds));
     qCDebug(Log) << "o5m loading took" << loadTime.elapsed() << "ms";
