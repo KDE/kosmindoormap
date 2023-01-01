@@ -154,7 +154,7 @@ void OsmPbfParser::parseDenseNodes(const OSMPBF::PrimitiveBlock &block, const OS
             OSM::setTag(node, std::move(tag));
         }
 
-        m_dataSet->addNode(std::move(node));
+        addNode(std::move(node));
     }
 }
 
@@ -180,7 +180,7 @@ void OsmPbfParser::parseWays(const OSMPBF::PrimitiveBlock &block, const OSMPBF::
             OSM::setTag(way, std::move(tag));
         }
 
-        m_dataSet->addWay(std::move(way));
+        addWay(std::move(way));
     }
 }
 
@@ -217,7 +217,7 @@ void OsmPbfParser::parseRelations(const OSMPBF::PrimitiveBlock &block, const OSM
             OSM::setTag(rel, std::move(tag));
         }
 
-        m_dataSet->addRelation(std::move(rel));
+        addRelation(std::move(rel));
     }
 }
 

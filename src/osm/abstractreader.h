@@ -12,6 +12,9 @@ namespace OSM {
 
 class DataSet;
 class DataSetMergeBuffer;
+class Node;
+class Relation;
+class Way;
 
 /** Abstract base class for OSM file format readers. */
 class KOSM_EXPORT AbstractReader
@@ -32,7 +35,14 @@ public:
 protected:
     explicit AbstractReader(DataSet *dataSet);
 
+    /** Add read elements to the merge buffer if set, or the dataset otherwise. */
+    void addNode(OSM::Node &&node);
+    void addWay(OSM::Way &&way);
+    void addRelation(OSM::Relation &&relation);
+
     DataSet *m_dataSet = nullptr;
+
+private:
     DataSetMergeBuffer *m_mergeBuffer = nullptr;
 };
 

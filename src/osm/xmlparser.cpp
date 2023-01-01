@@ -80,7 +80,7 @@ void XmlParser::parseNode(QXmlStreamReader &reader)
         reader.skipCurrentElement();
     }
 
-    m_dataSet->addNode(std::move(node));
+    addNode(std::move(node));
 }
 
 void XmlParser::parseWay(QXmlStreamReader &reader)
@@ -104,7 +104,7 @@ void XmlParser::parseWay(QXmlStreamReader &reader)
         reader.skipCurrentElement();
     }
 
-    m_dataSet->addWay(std::move(way));
+    addWay(std::move(way));
 }
 
 void XmlParser::parseRelation(QXmlStreamReader &reader)
@@ -137,7 +137,7 @@ void XmlParser::parseRelation(QXmlStreamReader &reader)
         reader.skipCurrentElement();
     }
 
-    m_dataSet->addRelation(std::move(rel));
+    addRelation(std::move(rel));
 }
 
 template <typename T>
