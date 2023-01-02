@@ -7,7 +7,6 @@
 #ifndef OSM_XMLPARSER_H
 #define OSM_XMLPARSER_H
 
-#include <kosm_export.h>
 #include "abstractreader.h"
 
 #include <QString>
@@ -19,7 +18,7 @@ namespace OSM {
 
 class DataSet;
 
-class KOSM_EXPORT XmlParser : public AbstractReader
+class XmlParser : public AbstractReader
 {
 public:
     explicit XmlParser(DataSet *dataSet);

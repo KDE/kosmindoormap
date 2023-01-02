@@ -7,6 +7,7 @@
 #define OSM_READER_H
 
 #include "kosm_export.h"
+#include "abstractreader.h"
 
 class QStringView;
 
@@ -14,7 +15,6 @@ class QStringView;
 
 namespace OSM {
 
-class AbstractReader;
 class DataSet;
 
 /** Access to OSM file/data readers. */

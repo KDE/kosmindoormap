@@ -4,7 +4,6 @@
 */
 
 #include "reader.h"
-#include "abstractreader.h"
 #include "ioplugin.h"
 
 #include <QJsonArray>

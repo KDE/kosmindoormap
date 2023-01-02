@@ -6,7 +6,7 @@
 
 #include "../src/map-quick/osmelementinformationmodel.h"
 
-#include <osm/xmlparser.h>
+#include <osm/reader.h>
 
 #include <QAbstractItemModelTester>
 #include <QDir>
@@ -59,8 +59,8 @@ private Q_SLOTS:
         QVERIFY(inFile.open(QFile::ReadOnly));
 
         OSM::DataSet dataSet;
-        OSM::XmlParser p(&dataSet);
-        p.read(&inFile);
+        auto p = OSM::Reader::readerForFileName(osmFile, &dataSet);
+        p->read(&inFile);
         QCOMPARE(dataSet.nodes.size(), 1);
 
         OSMElementInformationModel model;
