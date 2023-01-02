@@ -6,6 +6,8 @@
 #ifndef OSM_IOPLUGIN_H
 #define OSM_IOPLUGIN_H
 
+#include "kosm_export.h"
+
 #include <QtPlugin>
 
 #include <memory>
@@ -16,7 +18,7 @@ class AbstractReader;
 class DataSet;
 
 /** Plugin interface for OSM file/data readers. */
-class IOPluginInterface
+class KOSM_EXPORT IOPluginInterface
 {
 public:
     virtual ~IOPluginInterface();

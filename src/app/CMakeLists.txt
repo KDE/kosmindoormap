@@ -13,6 +13,13 @@ target_link_libraries(kosmindoormap-app PRIVATE
     Qt::Quick
 )
 
+if (TARGET KOSM_pbfioplugin)
+    target_compile_definitions(kosmindoormap-app PRIVATE -DHAVE_OSM_PBF_SUPPORT=1)
+    target_link_libraries(kosmindoormap-app PRIVATE KOSM_pbfioplugin)
+else()
+    target_compile_definitions(kosmindoormap-app PRIVATE -DHAVE_OSM_PBF_SUPPORT=0)
+endif()
+
 if (ANDROID)
     # explicitly add runtime dependencies and transitive link dependencies,
     # so androiddeployqt picks them up

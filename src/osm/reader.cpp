@@ -13,7 +13,6 @@
 using namespace OSM;
 
 Q_IMPORT_PLUGIN(OSM_O5mIOPlugin)
-Q_IMPORT_PLUGIN(OSM_PbfIOPlugin)
 Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
 
 IOPluginInterface::~IOPluginInterface() = default;

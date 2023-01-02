@@ -20,6 +20,11 @@
 #endif
 
 #include <QIcon>
+#include <QtPlugin>
+
+#if HAVE_OSM_PBF_SUPPORT
+Q_IMPORT_PLUGIN(OSM_PbfIOPlugin)
+#endif
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
