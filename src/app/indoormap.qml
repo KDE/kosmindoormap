@@ -58,9 +58,9 @@ Kirigami.ApplicationWindow {
 
     QPlatform.FileDialog {
         id: fileDialog
-        title: "Open O5M File"
+        title: "Open OSM File"
         fileMode: QPlatform.FileDialog.OpenFile
-        nameFilters: ["o5m file (*.o5m)"]
+        nameFilters: ["o5m file (*.o5m)", "OSM XML file (*.osm *.xml)", "PBF file (*.osm.pbf)"]
         onAccepted: page.map.mapLoader.loadFromFile(fileDialog.file);
     }
     QPlatform.FileDialog {
