@@ -30,6 +30,10 @@ add_library(KOSM
     xmlwriter.cpp
     ztile.cpp
     ${pbf_srcs}
+
+    io/o5mplugin.cpp
+    io/osmpbfplugin.cpp
+    io/xmlplugin.cpp
 )
 generate_export_header(KOSM BASE_NAME KOSM)
 set_target_properties(KOSM PROPERTIES

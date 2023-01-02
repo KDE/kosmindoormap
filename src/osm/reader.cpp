@@ -4,23 +4,35 @@
 */
 
 #include "reader.h"
+#include "abstractreader.h"
+#include "ioplugin.h"
 
-#include "o5mparser.h"
-#include "osmpbfparser.h"
-#include "xmlparser.h"
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QPluginLoader>
 
 using namespace OSM;
 
+Q_IMPORT_PLUGIN(OSM_O5mIOPlugin)
+Q_IMPORT_PLUGIN(OSM_PbfIOPlugin)
+Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
+
+IOPluginInterface::~IOPluginInterface() = default;
+
 std::unique_ptr<AbstractReader> Reader::readerForFileName(QStringView fileName, OSM::DataSet *dataSet)
 {
-    if (fileName.endsWith(QLatin1String(".o5m"))) {
-        return std::make_unique<O5mParser>(dataSet);
-    }
-    if (fileName.endsWith(QLatin1String(".pbf"))) {
-        return std::make_unique<OsmPbfParser>(dataSet);
-    }
-    if (fileName.endsWith(QLatin1String(".osm")) || fileName.endsWith(QLatin1String(".xml"))) {
-        return std::make_unique<XmlParser>(dataSet);
+    const auto plugins = QPluginLoader::staticPlugins();
+    for (const auto &plugin : plugins) {
+        const auto md = plugin.metaData();
+        if (md.value(QLatin1String("IID")).toString() != QLatin1String(OSMIOPluginInteraface_iid)) {
+            continue;
+        }
+        const auto exts = md.value(QLatin1String("MetaData")).toObject().value(QLatin1String("fileExtensions")).toArray();
+        for (const auto &ext : exts) {
+            if (fileName.endsWith(ext.toString(), Qt::CaseInsensitive)) {
+                return qobject_cast<IOPluginInterface*>(plugin.instance())->createReader(dataSet);
+            }
+        }
     }
 
     return {};
