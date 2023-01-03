@@ -7,8 +7,9 @@
 
 #include "../ioplugin.h"
 #include "../xmlparser.h"
+#include "../xmlwriter.h"
 
-class OSM_XmlIOPlugin : public QObject, public OSM::IOPlugin<OSM::XmlParser>
+class OSM_XmlIOPlugin : public QObject, public OSM::IOPlugin<OSM::XmlParser, OSM::XmlWriter>
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID OSMIOPluginInteraface_iid FILE "xmlplugin.json")

@@ -89,10 +89,11 @@ int main(int argc, char **argv)
 
         const auto outFileName = parser.value(outFileOption);
         QFile outFile(outFileName);
+        OSM::XmlWriter writer;
         if (!outFileName.isEmpty() && outFile.open(QFile::WriteOnly)) {
-            OSM::XmlWriter::write(query.result(), &outFile);
+            writer.write(query.result(), &outFile);
         } else if (outFile.open(stdout, QFile::WriteOnly)) {
-            OSM::XmlWriter::write(query.result(), &outFile);
+            writer.write(query.result(), &outFile);
         }
 
         app.quit();

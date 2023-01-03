@@ -98,6 +98,7 @@ int main(int argc, char **argv)
         qCritical() << f.errorString();
         return 1;
     }
-    OSM::XmlWriter::write(data.dataSet(), &f);
+    OSM::XmlWriter writer;
+    writer.write(data.dataSet(), &f);
     return 0;
 }

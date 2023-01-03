@@ -3,6 +3,7 @@
 
 add_library(KOSM
     abstractreader.cpp
+    abstractwriter.cpp
     datatypes.cpp
     datasetmergebuffer.cpp
     element.cpp

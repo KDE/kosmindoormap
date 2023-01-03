@@ -1,1 +1,1 @@
-{"fileExtensions": [".osm", ".xml"]}
+{"fileExtensions": [".osm", ".xml"], "mimetypes": ["vnd.openstreetmap.data+xml"]}
