@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:45+0000\n"
+"POT-Creation-Date: 2023-01-03 00:45+0000\n"
 "PO-Revision-Date: 2022-12-05 19:25+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 22.11.90\n"
 
-#: app/main.cpp:44
+#: app/main.cpp:49
 #, kde-format
 msgid "KDE OSM Indoor Map"
 msgstr "Carte interne de OpenStreetmap pour KDE"
