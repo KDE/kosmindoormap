@@ -15,7 +15,7 @@
 #include <osm/datasetmergebuffer.h>
 #include <osm/element.h>
 #include <osm/o5mparser.h>
-#include <osm/reader.h>
+#include <osm/io.h>
 
 #include <QDateTime>
 #include <QElapsedTimer>
@@ -78,7 +78,7 @@ void MapLoader::loadFromFile(const QString &fileName)
     const auto data = f.map(0, f.size());
 
     OSM::DataSet ds;
-    auto reader = OSM::Reader::readerForFileName(fileName, &ds);
+    auto reader = OSM::IO::readerForFileName(fileName, &ds);
     if (!reader) {
         qCWarning(Log) << "no file reader for" << fileName;
         return;

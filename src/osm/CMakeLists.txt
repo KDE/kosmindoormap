@@ -8,11 +8,11 @@ add_library(KOSM
     datasetmergebuffer.cpp
     element.cpp
     geomath.cpp
+    io.cpp
     o5mparser.cpp
     overpassquery.cpp
     overpassquerymanager.cpp
     pathutil.cpp
-    reader.cpp
     stringpool.cpp
     xmlparser.cpp
     xmlwriter.cpp
