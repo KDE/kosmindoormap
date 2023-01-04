@@ -12,7 +12,7 @@
 namespace OSM {
 
 /** Serialize a OSM::DataSet into OSM XML. */
-class KOSM_EXPORT XmlWriter : public AbstractWriter
+class XmlWriter : public AbstractWriter
 {
 private:
     void writeToIODevice(const OSM::DataSet &dataSet, QIODevice *io) override;

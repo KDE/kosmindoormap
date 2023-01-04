@@ -8,7 +8,7 @@
 #include <KOSMIndoorMap/MapLoader>
 
 #include <osm/datatypes.h>
-#include <osm/xmlwriter.h>
+#include <osm/io.h>
 
 #include <QCommandLineParser>
 #include <QCoreApplication>
@@ -98,7 +98,11 @@ int main(int argc, char **argv)
         qCritical() << f.errorString();
         return 1;
     }
-    OSM::XmlWriter writer;
-    writer.write(data.dataSet(), &f);
+    auto writer = OSM::IO::writerForFileName(f.fileName());
+    if (!writer) {
+        qCritical() << "no file writer for requested format:" << f.fileName();
+        return 1;
+    }
+    writer->write(data.dataSet(), &f);
     return 0;
 }

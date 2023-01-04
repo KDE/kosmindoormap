@@ -6,7 +6,7 @@
 
 #include <overpassquery.h>
 #include <overpassquerymanager.h>
-#include <xmlwriter.h>
+#include <io.h>
 
 #include <QCommandLineParser>
 #include <QCoreApplication>
@@ -89,12 +89,17 @@ int main(int argc, char **argv)
 
         const auto outFileName = parser.value(outFileOption);
         QFile outFile(outFileName);
-        OSM::XmlWriter writer;
+        std::unique_ptr<OSM::AbstractWriter> writer;
         if (!outFileName.isEmpty() && outFile.open(QFile::WriteOnly)) {
-            writer.write(query.result(), &outFile);
+            writer = OSM::IO::writerForFileName(outFile.fileName());
         } else if (outFile.open(stdout, QFile::WriteOnly)) {
-            writer.write(query.result(), &outFile);
+            writer = OSM::IO::writerForMimeType(u"vnd.openstreetmap.data+xml");
         }
+        if (!writer) {
+            std::cerr << "unsupported output file format" << std::endl;
+            app.exit(1);
+        }
+        writer->write(query.result(), &outFile);
 
         app.quit();
     });
