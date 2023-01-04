@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-03 00:45+0000\n"
 "PO-Revision-Date: 2021-10-19 17:12+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -23,10 +23,9 @@ msgid "KDE OSM Indoor Map"
 msgstr ""
 
 #: map-quick/floorlevelchangemodel.cpp:218
-#, fuzzy, kde-format
-#| msgid "Operator"
+#, kde-format
 msgid "Elevator"
-msgstr "Operátor"
+msgstr "Výtah"
 
 #: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
@@ -92,7 +91,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 #: map-quick/osmelementinformationmodel.cpp:461
 #, kde-format
@@ -178,7 +177,7 @@ msgstr "Přebalovací pult"
 #: map-quick/osmelementinformationmodel.cpp:478
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "Pohlaví"
 
 #: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
@@ -231,10 +230,9 @@ msgid "Wheelchair access"
 msgstr "Přístupné na vozíčku"
 
 #: map-quick/osmelementinformationmodel.cpp:490
-#, fuzzy, kde-format
-#| msgid "Wheelchair access"
+#, kde-format
 msgid "Wheelchair lift"
-msgstr "Přístupné na vozíčku"
+msgstr ""
 
 #: map-quick/osmelementinformationmodel.cpp:491
 #, kde-format
@@ -885,12 +883,9 @@ msgstr "Jízdenky veřejné dopravy"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "Dobíjecí stanice"
+msgstr ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -948,20 +943,14 @@ msgid "Sports"
 msgstr "Sporty"
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Sports"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr "Sporty"
+msgstr ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Sports"
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr "Sporty"
+msgstr ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:153
 msgctxt "OSM::amenity/shop"
