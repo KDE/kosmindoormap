@@ -8,6 +8,8 @@
 
 #include "kosm_export.h"
 
+#include <QString>
+
 #include <cstdint>
 #include <cstddef>
 
@@ -45,6 +47,9 @@ public:
     /** Read data from the given QIODevice. */
     void read(QIODevice *io);
 
+    /** Error message in case parsing failed for some reason. */
+    QString errorString() const;
+
 protected:
     explicit AbstractReader(DataSet *dataSet);
 
@@ -61,6 +66,7 @@ protected:
     void addRelation(OSM::Relation &&relation);
 
     DataSet *m_dataSet = nullptr;
+    QString m_error;
 
 private:
     DataSetMergeBuffer *m_mergeBuffer = nullptr;

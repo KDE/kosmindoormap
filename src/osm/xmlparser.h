@@ -23,8 +23,6 @@ class XmlParser : public AbstractReader
 public:
     explicit XmlParser(DataSet *dataSet);
 
-    QString error() const;
-
 private:
     void readFromIODevice(QIODevice *io) override;
 
@@ -37,8 +35,6 @@ private:
     void parseTagOrBounds(QXmlStreamReader &reader, T&elem);
     template <typename T>
     void parseBounds(QXmlStreamReader &reader, T &elem);
-
-    QString m_error;
 };
 
 }

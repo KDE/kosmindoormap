@@ -42,7 +42,7 @@ void XmlParser::readFromIODevice(QIODevice *io)
     }
 
     if (reader.hasError()) {
-        qDebug() << reader.errorString();
+        m_error = reader.errorString();
     }
 }
 
@@ -167,9 +167,4 @@ void XmlParser::parseBounds(QXmlStreamReader &reader, T &elem)
     // overpass style bounding box
     elem.bbox.min = Coordinate(reader.attributes().value(QLatin1String("minlat")).toDouble(), reader.attributes().value(QLatin1String("minlon")).toDouble());
     elem.bbox.max = Coordinate(reader.attributes().value(QLatin1String("maxlat")).toDouble(), reader.attributes().value(QLatin1String("maxlon")).toDouble());
-}
-
-QString XmlParser::error() const
-{
-    return m_error;
 }

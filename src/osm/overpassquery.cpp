@@ -84,10 +84,10 @@ OverpassQuery::Error OverpassQuery::processReply(QNetworkReply *reply)
 {
     XmlParser p(&m_result);
     p.read(reply);
-    if (!p.error().isEmpty()) {
-        qWarning() << "Query error:" << p.error();
+    if (!p.errorString().isEmpty()) {
+        qWarning() << "Query error:" << p.errorString();
         qWarning() << "Request:" << reply->request().url();
-        return p.error().contains(QLatin1String("timed out"), Qt::CaseInsensitive) ? QueryTimeout : QueryError;
+        return p.errorString().contains(QLatin1String("timed out"), Qt::CaseInsensitive) ? QueryTimeout : QueryError;
     }
     qDebug() << "Nodes:" << m_result.nodes.size();
     qDebug() << "Ways:" << m_result.ways.size();

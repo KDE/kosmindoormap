@@ -7,6 +7,7 @@
 #include "datatypes.h"
 #include "datasetmergebuffer.h"
 
+#include <QDebug>
 #include <QIODevice>
 
 #include <cassert>
@@ -84,11 +85,17 @@ void AbstractReader::setMergeBuffer(OSM::DataSetMergeBuffer *buffer)
 void AbstractReader::read(const uint8_t *data, std::size_t len)
 {
     readFromData(data, len);
+    if (!m_error.isEmpty()) {
+        qWarning() << m_error;
+    }
 }
 
 void AbstractReader::read(QIODevice *io)
 {
     readFromIODevice(io);
+    if (!m_error.isEmpty()) {
+        qWarning() << m_error;
+    }
 }
 
 void AbstractReader::readFromData(const uint8_t *data, std::size_t len)
@@ -104,6 +111,11 @@ void AbstractReader::readFromIODevice(QIODevice *io)
     assert(io);
     QByteArray data = io->readAll();
     readFromData(reinterpret_cast<const uint8_t*>(data.constData()), data.size());
+}
+
+QString AbstractReader::errorString() const
+{
+    return m_error;
 }
 
 void AbstractReader::addNode(OSM::Node &&node)
