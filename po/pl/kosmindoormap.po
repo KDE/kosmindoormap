@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2021, 2022.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-29 00:43+0000\n"
-"PO-Revision-Date: 2022-06-27 20:09+0200\n"
+"PO-Revision-Date: 2023-01-04 20:42+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.03.70\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: app/main.cpp:44
 #, kde-format
@@ -213,7 +213,7 @@ msgstr "Dostęp na wózkach"
 #: map-quick/osmelementinformationmodel.cpp:460
 #, kde-format
 msgid "Central key"
-msgstr "Klucz centralny"
+msgstr "Klucz główny"
 
 #: map-quick/osmelementinformationmodel.cpp:462
 #, kde-format
