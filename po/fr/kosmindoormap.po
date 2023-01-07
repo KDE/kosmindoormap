@@ -1,23 +1,24 @@
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-29 00:43+0000\n"
-"PO-Revision-Date: 2022-04-20 18:35+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-01-06 12:53+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.11.90\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: app/main.cpp:44
 #, kde-format
 msgid "KDE OSM Indoor Map"
-msgstr "Carte interne de OpenStreetmap pour KDE"
+msgstr "Carte interne de OpenStreetMap pour KDE"
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format
@@ -397,7 +398,7 @@ msgstr "Location de voitures"
 #: map-quick/osmelementinformationmodel_data.cpp:46
 msgctxt "OSM::amenity/shop"
 msgid "Car Sharing"
-msgstr "Co-voiturage"
+msgstr "Covoiturage"
 
 #: map-quick/osmelementinformationmodel_data.cpp:47
 msgctxt "OSM::amenity/shop"
@@ -1234,7 +1235,7 @@ msgstr "Tapas"
 #: map-quick/osmelementinformationmodel_data.cpp:225
 msgctxt "OSM::cuisine"
 msgid "Thai"
-msgstr "Thai"
+msgstr "Thaï"
 
 #: map-quick/osmelementinformationmodel_data.cpp:226
 msgctxt "OSM::cuisine"
