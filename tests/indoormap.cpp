@@ -22,6 +22,12 @@
 #include <QHBoxLayout>
 #include <QPainter>
 #include <QRegularExpression>
+#include <QtPlugin>
+
+#if HAVE_OSM_PBF_SUPPORT
+Q_IMPORT_PLUGIN(OSM_PbfIOPlugin)
+#endif
+Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
 
 using namespace KOSMIndoorMap;
 

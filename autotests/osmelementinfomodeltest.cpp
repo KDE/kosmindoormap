@@ -16,6 +16,9 @@
 #include <QJsonObject>
 #include <QProcess>
 #include <QTest>
+#include <QtPlugin>
+
+Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
 
 using namespace KOSMIndoorMap;
 

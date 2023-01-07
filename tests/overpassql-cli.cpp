@@ -13,8 +13,11 @@
 #include <QDebug>
 #include <QFile>
 #include <QJsonDocument>
+#include <QtPlugin>
 
 #include <iostream>
+
+Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
 
 #define S(x) QStringLiteral(x)
 

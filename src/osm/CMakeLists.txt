@@ -14,12 +14,9 @@ add_library(KOSM
     overpassquerymanager.cpp
     pathutil.cpp
     stringpool.cpp
-    xmlparser.cpp
-    xmlwriter.cpp
     ztile.cpp
 
     io/o5mplugin.cpp
-    io/xmlplugin.cpp
 )
 generate_export_header(KOSM BASE_NAME KOSM)
 set_target_properties(KOSM PROPERTIES

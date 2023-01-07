@@ -11,6 +11,9 @@
 #include <QTest>
 #include <QAbstractItemModelTester>
 #include <QSignalSpy>
+#include <QtPlugin>
+
+Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
 
 using namespace KOSMIndoorMap;
 

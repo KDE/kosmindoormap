@@ -14,6 +14,9 @@
 #include <QCoreApplication>
 #include <QDebug>
 #include <QFile>
+#include <QtPlugin>
+
+Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
 
 using namespace KOSMIndoorMap;
 
