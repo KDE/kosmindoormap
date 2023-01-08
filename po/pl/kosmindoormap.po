@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:45+0000\n"
+"POT-Creation-Date: 2023-01-08 00:57+0000\n"
 "PO-Revision-Date: 2023-01-04 20:42+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 22.12.0\n"
 
-#: app/main.cpp:49
+#: app/main.cpp:50
 #, kde-format
 msgid "KDE OSM Indoor Map"
 msgstr "Mapa wnętrz OSM KDE"
