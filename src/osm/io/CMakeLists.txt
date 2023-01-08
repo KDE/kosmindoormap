@@ -30,4 +30,5 @@ target_sources(KOSM_xmlioplugin PRIVATE
     ../xmlwriter.cpp
 )
 set_target_properties(KOSM_xmlioplugin PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_compile_definitions(KOSM_xmlioplugin PRIVATE -DQT_STATICPLUGIN=1)
 target_link_libraries(KOSM_xmlioplugin PUBLIC KOSM)
