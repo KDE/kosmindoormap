@@ -96,7 +96,7 @@ int main(int argc, char **argv)
         if (!outFileName.isEmpty() && outFile.open(QFile::WriteOnly)) {
             writer = OSM::IO::writerForFileName(outFile.fileName());
         } else if (outFile.open(stdout, QFile::WriteOnly)) {
-            writer = OSM::IO::writerForMimeType(u"vnd.openstreetmap.data+xml");
+            writer = OSM::IO::writerForMimeType(u"application/vnd.openstreetmap.data+xml");
         }
         if (!writer) {
             std::cerr << "unsupported output file format" << std::endl;

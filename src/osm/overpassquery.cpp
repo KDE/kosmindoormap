@@ -82,7 +82,7 @@ DataSet&& OverpassQuery::takeResult()
 
 OverpassQuery::Error OverpassQuery::processReply(QNetworkReply *reply)
 {
-    auto reader = OSM::IO::readerForMimeType(u"vnd.openstreetmap.data+xml", &m_result);
+    auto reader = OSM::IO::readerForMimeType(u"application/vnd.openstreetmap.data+xml", &m_result);
     if (!reader) {
         qWarning() << "No support for reading OSM XML available!";
         return QueryError;
