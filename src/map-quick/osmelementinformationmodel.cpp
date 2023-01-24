@@ -798,7 +798,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
 
 QVariant OSMElementInformationModel::urlify(const QVariant& v, OSMElementInformationModel::Key key) const
 {
-    if (v.type() != QVariant::String) {
+    if (v.userType() != QMetaType::QString) {
         return v;
     }
     const auto s = v.toString();
