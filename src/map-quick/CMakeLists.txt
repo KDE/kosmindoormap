@@ -11,8 +11,8 @@ add_library(KOSMIndoorMapQuick STATIC
 set_target_properties(KOSMIndoorMapQuick PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(KOSMIndoorMapQuick PUBLIC
     Qt::Quick
-    KF5::I18n
-    KF5::I18nLocaleData
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::I18nLocaleData
     KOSMIndoorMap
 )
 
