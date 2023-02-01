@@ -39,7 +39,7 @@ public:
     {
         Q_UNUSED(mode);
         Q_UNUSED(state);
-        return { m_sourceSize.isValid() ? m_sourceSize : m_image.size() };
+        return { m_sourceSize.isValid() ? m_sourceSize : m_image.size() / m_image.devicePixelRatio() };
     }
 
     QIconEngine* clone() const override
