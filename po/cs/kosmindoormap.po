@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
-# Vit Pelcak <vit@pelcak.org>, 2020, 2021.
+# Vit Pelcak <vit@pelcak.org>, 2020, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-29 00:43+0000\n"
-"PO-Revision-Date: 2021-10-19 17:12+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2023-02-08 11:56+0100\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.2\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: app/main.cpp:44
 #, kde-format
@@ -295,7 +295,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:25
 msgctxt "OSM::amenity/shop"
 msgid "Artwork"
-msgstr ""
+msgstr "Grafika"
 
 #: map-quick/osmelementinformationmodel_data.cpp:26
 msgctxt "OSM::amenity/shop"
@@ -340,7 +340,7 @@ msgstr "Postel"
 #: map-quick/osmelementinformationmodel_data.cpp:34
 msgctxt "OSM::amenity"
 msgid "Bench"
-msgstr ""
+msgstr "Lavička"
 
 #: map-quick/osmelementinformationmodel_data.cpp:35
 msgctxt "OSM::amenity/shop"
@@ -425,7 +425,7 @@ msgstr "Kino"
 #: map-quick/osmelementinformationmodel_data.cpp:51
 msgctxt "OSM::historic"
 msgid "Citywall"
-msgstr ""
+msgstr "Městské opevnění"
 
 #: map-quick/osmelementinformationmodel_data.cpp:52
 msgctxt "OSM::amenity/shop"
@@ -545,7 +545,7 @@ msgstr "Galerie"
 #: map-quick/osmelementinformationmodel_data.cpp:75
 msgctxt "OSM::amenity/shop"
 msgid "Garden"
-msgstr ""
+msgstr "Zahrada"
 
 #: map-quick/osmelementinformationmodel_data.cpp:76
 msgctxt "OSM::amenity/shop"
@@ -560,7 +560,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:78
 msgctxt "OSM::office"
 msgid "Government"
-msgstr ""
+msgstr "Vláda"
 
 #: map-quick/osmelementinformationmodel_data.cpp:79
 msgctxt "OSM::amenity/shop"
@@ -667,7 +667,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::amenity"
 msgid "Marketplace"
-msgstr ""
+msgstr "Trh"
 
 #: map-quick/osmelementinformationmodel_data.cpp:102
 msgctxt "OSM::amenity/shop"
@@ -677,7 +677,7 @@ msgstr "Zdravotní potřeby"
 #: map-quick/osmelementinformationmodel_data.cpp:103
 msgctxt "OSM::historic"
 msgid "Memorial"
-msgstr ""
+msgstr "Památník"
 
 #: map-quick/osmelementinformationmodel_data.cpp:104
 msgctxt "OSM::amenity/shop"
@@ -692,7 +692,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:106
 msgctxt "OSM::historic"
 msgid "Monument"
-msgstr ""
+msgstr "Monument"
 
 #: map-quick/osmelementinformationmodel_data.cpp:107
 msgctxt "OSM::amenity/shop"
@@ -747,7 +747,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "outdoor recreational area"
 msgid "Park"
-msgstr ""
+msgstr "Park"
 
 #: map-quick/osmelementinformationmodel_data.cpp:118
 msgctxt "OSM::amenity/shop"
@@ -959,7 +959,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:162
 msgctxt "OSM::amenity"
 msgid "Waste Basket"
-msgstr ""
+msgstr "Odpadkový koš"
 
 #: map-quick/osmelementinformationmodel_data.cpp:163
 msgctxt "OSM::amenity/shop"
