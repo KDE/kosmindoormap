@@ -180,7 +180,7 @@ void MapData::processElements()
         // attempt to detect the country we are in
         if (d->m_regionCode.isEmpty()) {
             const auto countryCode = e.tagValue(countryTag);
-            if (countryCode.size() == 2 && std::isupper(countryCode[0]) && std::isupper(countryCode[1])) {
+            if (countryCode.size() == 2 && std::isupper(static_cast<unsigned char>(countryCode[0])) && std::isupper(static_cast<unsigned char>(countryCode[1]))) {
                 d->m_regionCode = QString::fromUtf8(countryCode);
             }
         }

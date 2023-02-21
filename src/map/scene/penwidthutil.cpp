@@ -48,7 +48,7 @@ double PenWidthUtil::penWidth(OSM::Element e, const MapCSSDeclaration *decl, Uni
         }
         it = numEnd;
 
-        while (it != valueEnd && std::isspace(*it)) {
+        while (it != valueEnd && std::isspace(static_cast<unsigned char>(*it))) {
             ++it;
         }
 

@@ -36,7 +36,7 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
             c = '.';
         }
 
-        if (std::isdigit(c) || c == '.') {
+        if (std::isdigit(static_cast<unsigned char>(c)) || c == '.') {
             if (numStartIdx < 0) {
                 numStartIdx = i;
             }

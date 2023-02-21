@@ -611,7 +611,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
 
                 const auto current = m_element.tagValue(QByteArray(socket.keyName + QByteArray(":current")).constData());
                 if (!current.isEmpty()) {
-                    if (std::all_of(current.begin(), current.end(), [](char c) { return std::isdigit(c); })) {
+                    if (std::all_of(current.begin(), current.end(), [](unsigned char c) { return std::isdigit(c); })) {
                         details.push_back(i18nc("electrical current/Ampere value", "%1 A", QString::fromUtf8(current)));
                     } else {
                         details.push_back(QString::fromUtf8(current));
@@ -619,7 +619,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 }
                 const auto output = m_element.tagValue(QByteArray(socket.keyName + QByteArray(":output")).constData());
                 if (!output.isEmpty()) {
-                    if (std::all_of(output.begin(), output.end(), [](char c) { return std::isdigit(c); })) {
+                    if (std::all_of(output.begin(), output.end(), [](unsigned char c) { return std::isdigit(c); })) {
                         details.push_back(i18nc("electrical power/kilowatt value", "%1 kW", QString::fromUtf8(output)));
                     } else {
                         details.push_back(QString::fromUtf8(output));
