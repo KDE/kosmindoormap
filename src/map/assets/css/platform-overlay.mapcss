@@ -27,12 +27,14 @@ node|z17- [mx:platform]
 node|z19- [mx:platform] { font-size: 16; }
 
 // arrival/departure markers
-node|z17- [mx:platform][mx:arrival=1]
+node|z17- [mx:platform][mx:arrival=1],
+node|z18- [mx:platform_section][mx:arrival=1]
 {
     text-color: #eff0f1;
     shield-color: #16a085;
 }
-node|z17- [mx:platform][mx:departure=1]
+node|z17- [mx:platform][mx:departure=1],
+node|z18- [mx:platform_section][mx:departure=1]
 {
     text-color: #eff0f1;
     shield-color: #da4453;
