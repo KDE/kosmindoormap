@@ -204,17 +204,26 @@ int PlatformModel::departurePlatformRow() const
 void PlatformModel::matchPlatforms()
 {
     setPlatformTag(m_arrivalPlatformRow, m_tagKeys.arrival, false);
+    applySectionSelection(m_arrivalPlatformRow, m_tagKeys.arrival, {});
     m_arrivalPlatformRow = matchPlatform(m_arrivalPlatform);
     setPlatformTag(m_arrivalPlatformRow, m_tagKeys.arrival, true);
     setPlatformTag(m_departurePlatformRow, m_tagKeys.departure, false);
+    applySectionSelection(m_departurePlatformRow, m_tagKeys.departure, {});
     m_departurePlatformRow = matchPlatform(m_departurePlatform);
     setPlatformTag(m_departurePlatformRow, m_tagKeys.departure, true);
     Q_EMIT platformIndexChanged();
+
     if (m_arrivalPlatformRow >= 0) {
-        Q_EMIT dataChanged(index(m_arrivalPlatformRow, 0), index(m_arrivalPlatformRow, 0));
+        const auto idx = index(m_arrivalPlatformRow, 0);
+        Q_EMIT dataChanged(idx, idx);
+        applySectionSelection(m_arrivalPlatformRow, m_tagKeys.arrival, effectiveArrivalSections());
+        Q_EMIT dataChanged(index(0, 0, idx), index(rowCount(idx) - 1, 0, idx));
     }
     if (m_departurePlatformRow >= 0) {
-        Q_EMIT dataChanged(index(m_departurePlatformRow, 0), index(m_departurePlatformRow, 0));
+        const auto idx = index(m_departurePlatformRow, 0);
+        Q_EMIT dataChanged(idx, idx);
+        applySectionSelection(m_departurePlatformRow, m_tagKeys.departure, effectiveDepartureSections());
+        Q_EMIT dataChanged(index(0, 0, idx), index(rowCount(idx) - 1, 0, idx));
     }
 }
 
@@ -303,6 +312,74 @@ void PlatformModel::setPlatformTag(int idx, OSM::TagKey key, bool enabled)
     }
 
     m_platformLabels[idx].setTagValue(key, enabled ? "1" : "0");
+}
+
+static QStringView stripPlatform(QStringView p)
+{
+    while (!p.empty() && (p[0].isDigit() || p[0].isSpace())) {
+        p = p.mid(1);
+    }
+    return p;
+}
+
+QStringView PlatformModel::effectiveArrivalSections() const
+{
+    // TODO prefer explicit section selectors once implemented/when present
+    return stripPlatform(m_arrivalPlatform.name());
+}
+
+QStringView PlatformModel::effectiveDepartureSections() const
+{
+    // TODO prefer explicit section selectors once implemented/when present
+    return stripPlatform(m_departurePlatform.name());
+}
+
+static std::vector<QChar> parseSectionSet(QStringView sections)
+{
+    std::vector<QChar> result;
+    const auto ranges = sections.split(QLatin1Char(','));
+    for (const auto &r : ranges) {
+        if (r.size() == 1) {
+            result.push_back(r[0]);
+            continue;
+        }
+        if (r.size() == 3 && r[1] == QLatin1Char('-') && r[0] < r[2]) {
+            for (QChar c = r[0]; c <= r[2]; c = QChar(c.unicode() + 1)) {
+                result.push_back(c);
+            }
+            continue;
+        }
+        qDebug() << "failed to parse platform section expression:" << r;
+    }
+    return result;
+}
+
+void PlatformModel::applySectionSelection(int platformIdx, OSM::TagKey key, QStringView sections)
+{
+    if (platformIdx < 0) {
+        return;
+    }
+
+    const auto sectionSet = parseSectionSet(sections);
+
+    std::size_t totalSelected = 0;
+    for (std::size_t i = 0; i < m_platforms[platformIdx].sections().size(); ++i) {
+        if (std::any_of(sectionSet.begin(), sectionSet.end(), [this, i, platformIdx](const QChar s) {
+            return s == m_platforms[platformIdx].sections()[i].name();
+        })) {
+            m_sectionsLabels[platformIdx][i].setTagValue(key, "1");
+            ++totalSelected;
+        } else {
+            m_sectionsLabels[platformIdx][i].setTagValue(key, "0");
+        }
+    }
+
+    // if we enabled all sections, disable them again, highlighting adds no value then
+    if (totalSelected == m_sectionsLabels[platformIdx].size()) {
+        for (auto &s : m_sectionsLabels[platformIdx]) {
+            s.setTagValue(key, "0");
+        }
+    }
 }
 
 #include "moc_platformmodel.cpp"

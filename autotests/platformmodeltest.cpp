@@ -59,7 +59,10 @@ private Q_SLOTS:
             for (int j = 0; j < secCount; ++j) {
                 const auto secIdx = model.index(j, 0, idx);
                 QVERIFY(!secIdx.data(Qt::DisplayRole).toString().isEmpty());
-                QVERIFY(secIdx.data(PlatformModel::ElementRole).value<OSM::Element>().type() != OSM::Type::Null);
+                const auto secElem = secIdx.data(PlatformModel::ElementRole).value<OSM::Element>();
+                QVERIFY(secElem.type() != OSM::Type::Null);
+                QVERIFY(secElem.tagValue("mx:arrival").isEmpty() || secElem.tagValue("mx:arrival") == "0");
+                QVERIFY(secElem.tagValue("mx:departure").isEmpty() || secElem.tagValue("mx:departure") == "0");
             }
         }
 
@@ -72,8 +75,26 @@ private Q_SLOTS:
         p.setName(QStringLiteral("9A-C"));
         model.setDeparturePlatform(p);
         QVERIFY(platformChangeSpy.wait());
+
         QVERIFY(model.departurePlatformRow() >= 0);
+        auto idx = model.index(model.departurePlatformRow(), 0);
+        QVERIFY(idx.isValid());
+        QCOMPARE(model.rowCount(idx), 5);
+        for (int i = 0; i < model.rowCount(idx); ++i) {
+            const auto secElem = model.index(i, 0, idx).data(PlatformModel::ElementRole).value<OSM::Element>();
+            QVERIFY(secElem.type() != OSM::Type::Null);
+            QCOMPARE(secElem.tagValue("mx:departure"), i < 3 ? "1" : "0");
+        }
+
         QVERIFY(model.arrivalPlatformRow() >= 0);
+        idx = model.index(model.arrivalPlatformRow(), 0);
+        QVERIFY(idx.isValid());
+        QCOMPARE(model.rowCount(idx), 5);
+        for (int i = 0; i < model.rowCount(idx); ++i) {
+            const auto secElem = model.index(i, 0, idx).data(PlatformModel::ElementRole).value<OSM::Element>();
+            QVERIFY(secElem.type() != OSM::Type::Null);
+            QCOMPARE(secElem.tagValue("mx:arrival"), i >= 3 ? "1" : "0");
+        }
 
         // non-matching platforms
         p.setName(QStringLiteral("13"));

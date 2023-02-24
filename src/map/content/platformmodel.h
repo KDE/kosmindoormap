@@ -85,6 +85,10 @@ private:
     void createLabels();
     void setPlatformTag(int idx, OSM::TagKey key, bool enabled);
 
+    QStringView effectiveArrivalSections() const;
+    QStringView effectiveDepartureSections() const;
+    void applySectionSelection(int platformIdx, OSM::TagKey key, QStringView sections);
+
     std::vector<Platform> m_platforms;
     MapData m_data;
     struct {
