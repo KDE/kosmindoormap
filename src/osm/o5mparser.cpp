@@ -5,6 +5,7 @@
 */
 
 #include "o5mparser.h"
+#include "o5m.h"
 #include "datatypes.h"
 #include "datasetmergebuffer.h"
 
@@ -14,29 +15,6 @@
 #include <cstring>
 
 using namespace OSM;
-
-enum : uint8_t {
-    O5M_BLOCK_RESET = 0xff,
-    O5M_BLOCK_NODE = 0x10,
-    O5M_BLOCK_WAY = 0x11,
-    O5M_BLOCK_RELATION = 0x12,
-    O5M_BLOCK_BOUNDING_BOX = 0xdb,
-    O5M_BLOCK_TIMESTAMP = 0xdc,
-    O5M_BLOCK_HEADER = 0xe0,
-
-    O5M_NUMBER_CONTINUATION = 0b1000'0000,
-    O5M_NUMBER_MASK = 0b0111'1111,
-    O5M_NUMBER_SIGNED_BIT = 0b1,
-
-    O5M_MEMTYPE_NODE = 0x30,
-    O5M_MEMTYPE_WAY = 0x31,
-    O5M_MEMTYPE_RELATION = 0x32,
-};
-
-enum : uint16_t {
-    O5M_STRING_TABLE_SIZE = 15000,
-    O5M_STRING_TABLE_MAXLEN = 250,
-};
 
 O5mParser::O5mParser(DataSet *dataSet)
     : AbstractReader(dataSet)
@@ -65,7 +43,7 @@ void O5mParser::readFromData(const uint8_t* data, std::size_t len)
         }
         switch (blockType) {
             case O5M_BLOCK_HEADER:
-                if (blockSize != 4 || std::strncmp(reinterpret_cast<const char*>(it), "o5m2", 4) != 0) {
+                if (blockSize != 4 || std::strncmp(reinterpret_cast<const char*>(it), O5M_HEADER, 4) != 0) {
                     qWarning() << "Invalid file header";
                     return;
                 }
