@@ -3,3 +3,6 @@
 
 add_executable(osm-download-data osm-download-data.cpp)
 target_link_libraries(osm-download-data KOSMIndoorMap KOSM_xmlioplugin)
+
+add_executable(marble-geometry-assembler marble-geometry-assembler.cpp)
+target_link_libraries(marble-geometry-assembler KOSMIndoorMap KOSM_xmlioplugin)
