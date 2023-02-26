@@ -49,6 +49,8 @@ int main(int argc, char **argv)
         marbleMerger.merge(&mergeBuffer);
     }
 
+    marbleMerger.finalize();
+
     QFile outputFile;
     std::unique_ptr<OSM::AbstractWriter> writer;
     if (parser.isSet(outOpt)) {
