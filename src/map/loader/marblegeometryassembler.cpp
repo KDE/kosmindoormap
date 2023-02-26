@@ -101,15 +101,26 @@ void MarbleGeometryAssembler::mergeWays(std::vector<OSM::Way> &ways)
     // 1. restore the original id
     // 2. if a way with that id already exists, we merge with the geometry of the existing one
 
+    // mark elements already process in ways with id = 0, and defer as many of the sorted insertions
+    // as possible to the append + sort step below
+    std::size_t toMergeCount = 0;
     for (auto &way : ways) {
         if (way.id > 0 || way.nodes.empty()) { // not a synthetic id
-            m_dataSet->addWay(std::move(way));
+            if (std::binary_search(m_dataSet->ways.begin(), m_dataSet->ways.end(), way)) {
+                way.id = 0; // skip duplicates
+            } else {
+                ++toMergeCount;
+            }
             continue;
         }
 
         const OSM::Id mxoid = takeMxOid(way);
         if (mxoid <= 0) { // shouldn't happen?
-            m_dataSet->addWay(std::move(way));
+            if (std::binary_search(m_dataSet->ways.begin(), m_dataSet->ways.end(), way)) {
+                way.id = 0; // skip duplicates
+            } else {
+                ++toMergeCount;
+            }
             continue;
         }
 
@@ -129,12 +140,21 @@ void MarbleGeometryAssembler::mergeWays(std::vector<OSM::Way> &ways)
                 OSM::setTagValue(way, m_mxoidKey, QByteArray::number((qlonglong)mxoid));
                 m_pendingWays.push_back(std::move(way));
             }
-
+            way.id = 0;
         } else {
             m_wayIdMap[syntheticId] = mxoid;
-            m_dataSet->ways.insert(it, std::move(way));
+            ++toMergeCount;
         }
     }
+
+    // append + merge the remaining non-merged ways
+    m_dataSet->ways.reserve(m_dataSet->ways.size() + toMergeCount);
+    for (auto &way : ways) {
+        if (way.id) {
+            m_dataSet->ways.push_back(std::move(way));
+        }
+    }
+    std::sort(m_dataSet->ways.begin(), m_dataSet->ways.end());
 }
 
 static bool isDuplicateWay(const OSM::Way &lhs, const OSM::Way &rhs)
