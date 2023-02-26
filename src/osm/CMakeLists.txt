@@ -10,6 +10,7 @@ add_library(KOSM
     geomath.cpp
     io.cpp
     o5mparser.cpp
+    o5mwriter.cpp
     overpassquery.cpp
     overpassquerymanager.cpp
     pathutil.cpp

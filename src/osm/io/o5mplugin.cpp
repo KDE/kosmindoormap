@@ -7,8 +7,9 @@
 
 #include "../ioplugin.h"
 #include "../o5mparser.h"
+#include "../o5mwriter.h"
 
-class OSM_O5mIOPlugin : public QObject, public OSM::IOPlugin<OSM::O5mParser>
+class OSM_O5mIOPlugin : public QObject, public OSM::IOPlugin<OSM::O5mParser, OSM::O5mWriter>
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID OSMIOPluginInteraface_iid FILE "o5mplugin.json")

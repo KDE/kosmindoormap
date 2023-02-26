@@ -30,6 +30,8 @@ enum : uint8_t {
     O5M_MEMTYPE_NODE = 0x30,
     O5M_MEMTYPE_WAY = 0x31,
     O5M_MEMTYPE_RELATION = 0x32,
+
+    O5M_TRAILER = 0xfe,
 };
 
 enum : uint16_t {
