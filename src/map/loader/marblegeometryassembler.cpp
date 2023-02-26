@@ -54,9 +54,13 @@ void MarbleGeometryAssembler::merge(OSM::DataSetMergeBuffer *mergeBuffer)
 
 void MarbleGeometryAssembler::finalize()
 {
+    m_dataSet->ways.reserve(m_dataSet->ways.size() + m_pendingWays.size());
     for (auto &way : m_pendingWays) {
-        m_dataSet->addWay(std::move(way));
+        if (!std::binary_search(m_dataSet->ways.begin(), m_dataSet->ways.end(), way)) {
+            m_dataSet->ways.push_back(std::move(way));
+        }
     }
+    std::sort(m_dataSet->ways.begin(), m_dataSet->ways.end());
 }
 
 void MarbleGeometryAssembler::mergeNodes(OSM::DataSetMergeBuffer *mergeBuffer)
