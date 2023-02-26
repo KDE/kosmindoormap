@@ -195,12 +195,12 @@ class KOSM_EXPORT Node {
 public:
     explicit Node() = default;
     Node(const Node&) = default;
-    Node(Node &&other)
+    Node(Node &&other) noexcept
     {
         *this = std::move(other);
     }
     Node& operator=(const Node &other) = default;
-    Node& operator=(Node &&other)
+    Node& operator=(Node &&other) noexcept
     {
         id = std::move(other.id);
         coordinate = std::move(other.coordinate);
@@ -222,12 +222,12 @@ class KOSM_EXPORT Way {
 public:
     explicit Way() = default;
     Way(const Way&) = default;
-    Way(Way &&other)
+    Way(Way &&other) noexcept
     {
         *this = std::move(other);
     }
     Way& operator=(const Way &other) = default;
-    Way& operator=(Way &&other)
+    Way& operator=(Way &&other) noexcept
     {
         id = std::move(other.id);
         bbox = std::move(other.bbox);
@@ -302,12 +302,12 @@ class KOSM_EXPORT Relation {
 public:
     explicit Relation() = default;
     Relation(const Relation&) = default;
-    Relation(Relation &&other)
+    Relation(Relation &&other) noexcept
     {
         *this = std::move(other);
     }
     Relation& operator=(const Relation &other) = default;
-    Relation& operator=(Relation &&other)
+    Relation& operator=(Relation &&other) noexcept
     {
         id = std::move(other.id);
         bbox = std::move(other.bbox);
