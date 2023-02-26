@@ -68,22 +68,31 @@ void MarbleGeometryAssembler::mergeNodes(OSM::DataSetMergeBuffer *mergeBuffer)
         return;
     }
 
-    // for all subsequent batches we have to check for colliding synthetic ids, and if necessary remap those
-    m_dataSet->nodes.reserve(m_dataSet->nodes.size() + mergeBuffer->nodes.size());
-
+    // find nodes we already know
+    // - for synthetic nodes those are collisions we need to remap
+    // - for normal nodes, those are real duplicates and can be omitted
+    // we do this in-place in the merge buffer, to avoid O(n^2) removal or insertion ops
+    // (which matters here as this grows with the number of tiles we load)
     for (auto &node : mergeBuffer->nodes) {
         const auto it = std::lower_bound(m_dataSet->nodes.begin(), m_dataSet->nodes.end(), node);
         if (it != m_dataSet->nodes.end() && (*it).id == node.id) {
             if (node.id < 0) { // synthetic id collision, remap that
                 node.id = s_nextInternalId++;
                 m_nodeIdMap[(*it).id] = node.id;
-                m_dataSet->addNode(std::move(node));
+            } else {
+                node.id = 0;
             }
-            // non-synthetic collisions are expected to be real duplicates, so nothing to do there
-        } else {
-            m_dataSet->nodes.insert(it, std::move(node));
         }
     }
+
+    // append the new nodes (those not marked with id == 0), then sort the result
+    m_dataSet->nodes.reserve(m_dataSet->nodes.size() + mergeBuffer->nodes.size());
+    for (auto &node : mergeBuffer->nodes) {
+        if (node.id) {
+            m_dataSet->nodes.push_back(std::move(node));
+        }
+    }
+    std::sort(m_dataSet->nodes.begin(), m_dataSet->nodes.end());
 }
 
 void MarbleGeometryAssembler::mergeWays(std::vector<OSM::Way> &ways)
