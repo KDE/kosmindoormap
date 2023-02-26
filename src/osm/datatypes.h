@@ -181,6 +181,12 @@ class TagKey : public StringKey {};
 /** An OSM element tag. */
 class Tag {
 public:
+    Tag() = default;
+    Tag(const Tag&) = default;
+    Tag(Tag &&Tag) noexcept = default;
+    Tag& operator=(const Tag &other) = default;
+    Tag& operator=(Tag &&other) noexcept = default;
+
     inline constexpr bool operator<(const Tag &other) const { return key < other.key; }
 
     TagKey key;

@@ -172,7 +172,7 @@ void O5mParser::readTagOrBbox(Elem &e, const uint8_t *&it, const uint8_t *endIt)
     OSM::Tag tag;
     tag.key = m_dataSet->makeTagKey(tagData.first, OSM::StringMemory::Transient); // TODO make use of mmap'ed data for this
     tag.value = QByteArray(tagData.second);
-    OSM::setTag(e, std::move(tag));
+    e.tags.push_back(std::move(tag));
 }
 
 void O5mParser::readNode(const uint8_t *begin, const uint8_t *end)
@@ -193,9 +193,10 @@ void O5mParser::readNode(const uint8_t *begin, const uint8_t *end)
         if (tagData.first) {
             tag.key = m_dataSet->makeTagKey(tagData.first, OSM::StringMemory::Transient); // TODO use the fact this is mmap'ed data here
             tag.value = QByteArray(tagData.second);
-            OSM::setTag(node, std::move(tag));
+            node.tags.push_back(std::move(tag));
         }
     }
+    std::sort(node.tags.begin(), node.tags.end());
 
     addNode(std::move(node));
 }
@@ -220,6 +221,7 @@ void O5mParser::readWay(const uint8_t *begin, const uint8_t *end)
     while (it < end) {
         readTagOrBbox(way, it, end);
     }
+    std::sort(way.tags.begin(), way.tags.end());
 
    addWay(std::move(way));
 }
@@ -265,6 +267,7 @@ void O5mParser::readRelation(const uint8_t *begin, const uint8_t *end)
     while (it < end) {
         readTagOrBbox(rel, it, end);
     }
+    std::sort(rel.tags.begin(), rel.tags.end());
 
     addRelation(std::move(rel));
 }
