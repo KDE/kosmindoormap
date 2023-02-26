@@ -193,6 +193,21 @@ inline constexpr bool operator<(TagKey lhs, const Tag &rhs) { return lhs < rhs.k
 /** An OSM node. */
 class KOSM_EXPORT Node {
 public:
+    explicit Node() = default;
+    Node(const Node&) = default;
+    Node(Node &&other)
+    {
+        *this = std::move(other);
+    }
+    Node& operator=(const Node &other) = default;
+    Node& operator=(Node &&other)
+    {
+        id = std::move(other.id);
+        coordinate = std::move(other.coordinate);
+        std::swap(tags, other.tags);
+        return *this;
+    }
+
     constexpr inline bool operator<(const Node &other) const { return id < other.id; }
 
     QString url() const;
@@ -205,6 +220,22 @@ public:
 /** An OSM way. */
 class KOSM_EXPORT Way {
 public:
+    explicit Way() = default;
+    Way(const Way&) = default;
+    Way(Way &&other)
+    {
+        *this = std::move(other);
+    }
+    Way& operator=(const Way &other) = default;
+    Way& operator=(Way &&other)
+    {
+        id = std::move(other.id);
+        bbox = std::move(other.bbox);
+        std::swap(nodes, other.nodes);
+        std::swap(tags, other.tags);
+        return *this;
+    }
+
     constexpr inline bool operator<(const Way &other) const { return id < other.id; }
 
     bool isClosed() const;
@@ -269,6 +300,22 @@ private:
 /** An OSM relation. */
 class KOSM_EXPORT Relation {
 public:
+    explicit Relation() = default;
+    Relation(const Relation&) = default;
+    Relation(Relation &&other)
+    {
+        *this = std::move(other);
+    }
+    Relation& operator=(const Relation &other) = default;
+    Relation& operator=(Relation &&other)
+    {
+        id = std::move(other.id);
+        bbox = std::move(other.bbox);
+        std::swap(members, other.members);
+        std::swap(tags, other.tags);
+        return *this;
+    }
+
     constexpr inline bool operator<(const Relation &other) const { return id < other.id; }
 
     QString url() const;
