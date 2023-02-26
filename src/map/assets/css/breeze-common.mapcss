@@ -275,6 +275,14 @@ area[building:part=yes][layer>0]
     set layer=0;
 }
 
+node|z21-[door][door!=no][!entrance]
+{
+    icon-image: "rect";
+    icon-height: 4px;
+    icon-width: 4px;
+    icon-color: #31363b;
+}
+
 node|z21-[entrance=yes][railway!=subway_entrance],
 node|z21-[entrance=main]
 {
