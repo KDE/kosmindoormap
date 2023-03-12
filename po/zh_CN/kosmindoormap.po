@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-08 00:57+0000\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
+"PO-Revision-Date: 2023-03-11 04:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/kosmindoormap/kosmindoormap.pot\n"
-"X-Crowdin-File-ID: 24874\n"
+"X-Crowdin-File: /kf5-stable/messages/kosmindoormap/kosmindoormap.pot\n"
+"X-Crowdin-File-ID: 25008\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -230,9 +230,10 @@ msgid "Wheelchair access"
 msgstr "轮椅入口"
 
 #: map-quick/osmelementinformationmodel.cpp:490
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Wheelchair access"
 msgid "Wheelchair lift"
-msgstr ""
+msgstr "轮椅入口"
 
 #: map-quick/osmelementinformationmodel.cpp:491
 #, kde-format
@@ -883,9 +884,12 @@ msgstr ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr ""
+msgstr "充电站"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -943,9 +947,12 @@ msgid "Sports"
 msgstr ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Garden Center"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr ""
+msgstr "园艺中心"
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
 msgctxt "OSM::amenity"
