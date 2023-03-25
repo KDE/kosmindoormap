@@ -42,12 +42,12 @@ public:
     BoundingBox boundingBox() const;
     QByteArray tagValue(TagKey key) const;
     QByteArray tagValue(const char *keyName) const;
-    QByteArray tagValue(const char *keyName, const QLocale &locale) const;
+    QByteArray tagValue(const QLocale &locale, const char *keyName) const;
     /** Returns the value of the first non-empty tag.
      *  Both OSM::TagKey (fast) and const char* (slow) keys are accepted.
      */
     template <typename K, typename ...Args> QByteArray tagValue(K key, Args... args) const;
-    template <typename K, typename ...Args> QByteArray tagValue(K key, Args... args, const QLocale &locale) const;
+    template <typename K, typename ...Args> QByteArray tagValue(const QLocale &locale, K key, Args... args) const;
     /** Returns whether or not this element has any tags set. */
     inline bool hasTags() const { return std::distance(tagsBegin(), tagsEnd()) > 0; }
     /** Returns @c true if this element has a tag with key @p key. */
@@ -84,13 +84,13 @@ QByteArray Element::tagValue(K k, Args... args) const
 }
 
 template <typename K, typename ...Args>
-QByteArray Element::tagValue(K key, Args... args, const QLocale &locale) const
+QByteArray Element::tagValue(const QLocale &locale, K key, Args... args) const
 {
-    const auto v = tagValue(key, locale);
+    const auto v = tagValue(locale, key);
     if (!v.isEmpty()) {
         return v;
     }
-    return tagValue(args..., locale);
+    return tagValue(locale, args...);
 }
 
 

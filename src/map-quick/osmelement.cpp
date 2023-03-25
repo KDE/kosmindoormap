@@ -23,7 +23,7 @@ bool OSMElement::isNull() const
 
 QString OSMElement::name() const
 {
-    return QString::fromUtf8(m_element.tagValue("name", QLocale()));
+    return QString::fromUtf8(m_element.tagValue(QLocale(), "name"));
 }
 
 QString OSMElement::tagValue(const QString &key) const
