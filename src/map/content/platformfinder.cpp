@@ -221,7 +221,7 @@ std::vector<PlatformSection> PlatformFinder::sectionsForPath(const std::vector<c
         if (pt == "platform_section_sign") {
             PlatformSection sec;
             sec.setPosition(OSM::Element(n));
-            sec.setName(QString::fromUtf8(sec.position().tagValue("platform_section_sign_value", "local_ref", "ref")));
+            sec.setName(QString::fromUtf8(sec.position().tagValue("platform_section_sign_value", "local_ref", "ref", "platform_section_sign")));
             sections.push_back(std::move(sec));
             continue;
         }

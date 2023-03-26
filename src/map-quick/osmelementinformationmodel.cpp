@@ -518,7 +518,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
 {
     switch (info.key) {
         case NoKey: return {};
-        case Name: return QString::fromUtf8(m_element.tagValue("name", "brand", "ref", QLocale()));
+        case Name: return QString::fromUtf8(m_element.tagValue(QLocale(), "name", "brand", "ref"));
         case Category:
         {
             QList<QByteArray> l;
@@ -566,7 +566,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return l.join(QLatin1String(", "));
         }
         case Description:
-            return m_element.tagValue("description", QLocale());
+            return m_element.tagValue(QLocale(), "description");
         case Routes:
         {
             auto l = QString::fromUtf8(m_element.tagValue("route_ref", "bus_routes", "bus_lines", "buses")).split(QLatin1Char(';'), Qt::SkipEmptyParts);
@@ -706,7 +706,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             }
             return QLocale().createSeparatedList(l);
         }
-        case Wikipedia: return wikipediaUrl(m_element.tagValue("wikipedia", "brand:wikipedia", QLocale()));
+        case Wikipedia: return wikipediaUrl(m_element.tagValue(QLocale(), "wikipedia", "brand:wikipedia"));
         case Address: return QVariant::fromValue(OSMAddress(m_element));
         case Phone: return QString::fromUtf8(m_element.tagValue("contact:phone", "phone", "telephone", "operator:phone"));
         case Email: return QString::fromUtf8(m_element.tagValue("contact:email", "email", "operator:email"));
@@ -743,7 +743,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 wheelchair = m_element.tagValue("wheelchair");
             }
             const auto a = translateValue(wheelchair.constData(), wheelchair_map);
-            const auto d = QString::fromUtf8(m_element.tagValue("wheelchair:description", QLocale()));
+            const auto d = QString::fromUtf8(m_element.tagValue(QLocale(), "wheelchair:description"));
             if (!d.isEmpty()) {
                 return QString(a + QLatin1String(" (") + d + QLatin1Char(')'));
             }
@@ -756,14 +756,14 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return QString::fromUtf8(m_element.tagValue("centralkey"));
         case SpeechOutput:
             // TODO: rather than as a boolean value, list the available languages here when we have that information
-            return translatedBoolValue(m_element.tagValue("speech_output", QLocale()));
+            return translatedBoolValue(m_element.tagValue(QLocale(), "speech_output"));
         case TactileWriting:
         {
             // TODO: rather than as a boolean value, list the available languages here when we have that information
             QStringList l;
             bool explicitNo = false;
             for (const auto &writing : tactile_writing_map) {
-                const auto v = m_element.tagValue(writing.keyName, QLocale());
+                const auto v = m_element.tagValue(QLocale(), writing.keyName);
                 if (v.isEmpty()) {
                     continue;
                 }
@@ -776,7 +776,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             if (!l.isEmpty()) {
                 return QLocale().createSeparatedList(l);
             }
-            const auto v = m_element.tagValue("tactile_writing", QLocale());
+            const auto v = m_element.tagValue(QLocale(), "tactile_writing");
             if (explicitNo && v.isEmpty()) {
                 return i18n("no");
             }
@@ -784,7 +784,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         }
         case OperatorName: return QString::fromUtf8(m_element.tagValue("operator"));
         case Network: return QString::fromUtf8(m_element.tagValue("network"));
-        case OperatorWikipedia: return wikipediaUrl(m_element.tagValue("operator:wikipedia", QLocale()));
+        case OperatorWikipedia: return wikipediaUrl(m_element.tagValue(QLocale(), "operator:wikipedia"));
         case RemainingRange:
         {
             const auto range = m_element.tagValue("mx:remaining_range").toInt();

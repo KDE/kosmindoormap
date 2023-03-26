@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm>
+    <node id="1" lat="0.0" lon="0.0">
+        <tag k="addr:street" v="Lidická"/>
+        <tag k="addr:postcode" v="602 00"/>
+        <tag k="name:en" v="Hotel Passage"/>
+        <tag k="tourism" v="hotel"/>
+    </node>
+</osm>

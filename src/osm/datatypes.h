@@ -430,7 +430,7 @@ inline QByteArray tagValue(const Elem& elem, const char *keyName)
  *  @warning This is slow due to doing a linear search and string comparissons.
  */
 template <typename Elem>
-inline QByteArray tagValue(const Elem& elem, const char *keyName, const QLocale &locale)
+inline QByteArray tagValue(const Elem& elem, const QLocale &locale, const char *keyName)
 {
     QByteArray key(keyName);
     key.push_back(':');
