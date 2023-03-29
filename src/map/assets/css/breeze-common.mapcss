@@ -11,7 +11,8 @@ area[water],
 area[waterway],
 area[natural=water],
 area[amenity=fountain],
-area[landuse=basin]
+area[landuse=basin],
+area[place=sea]
 {
     fill-color: #103daee9;
     z-index: -1000;
