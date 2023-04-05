@@ -190,7 +190,8 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
     switch (loc.type()) {
         case Location::Place:
         case Location::Stop:
-            Q_UNREACHABLE();
+        case Location::CarpoolPickupDropoff:
+            qDebug() << "got a location type we didn't ask for:" << loc.type() << loc.name();
             break;
         case Location::RentedVehicleStation:
         {
