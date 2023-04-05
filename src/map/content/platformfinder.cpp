@@ -63,6 +63,15 @@ std::vector<Platform> PlatformFinder::find(const MapData &data)
                     m_floatingSections.push_back(std::move(p)); // can't merge this reliably until we have the full area geometry
                 }
             }
+            if (e.tagValue(m_tagKeys.railway) == "platform_marker") {
+                Platform p;
+                p.setLevel(levelForPlatform((*it).first, e));
+                PlatformSection section;
+                section.setName(QString::fromUtf8(e.tagValue("ref")));
+                section.setPosition(e);
+                p.setSections({section});
+                m_floatingSections.push_back(std::move(p));
+            }
 
             if (e.type() == OSM::Type::Node) {
                 continue;
