@@ -73,14 +73,14 @@ line[highway=pedestrian]
 /** Generic building stuff */
 area[indoor],
 area[building],
-area[building:part=yes][!roof:shape]
+area[building:part=yes][!roof:shape],
+area[building:part=floor]
 {
     fill-color: #8095a5a6;
 }
 
 area[indoor=area],
 area[indoor=corridor],
-area[building:part=floor],
 area[stairwell],
 area[tunnel=yes]
 {
@@ -107,7 +107,8 @@ line[man_made=embankment]
 }
 area[barrier=wall],
 area[indoor=column],
-area[indoor=wall]
+area[indoor=wall],
+area[man_made=column]
 {
     fill-color: #7f8c8d;
     width: 0;
