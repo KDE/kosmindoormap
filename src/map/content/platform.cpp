@@ -429,7 +429,7 @@ bool Platform::isSame(const Platform &lhs, const Platform &rhs, const OSM::DataS
     }
 
     // free-floating sections: edge, area or track is within a reasonable distance
-    if (!lhs.d->m_name.isEmpty() && lhs.d->m_name == rhs.d->m_name && !isConnectedArea && !isConnectedEdge) {
+    if (((lhs.d->m_name.isEmpty() ^ rhs.d->m_name.isEmpty()) || lhs.d->m_name == rhs.d->m_name) && !isConnectedArea && !isConnectedEdge) {
         auto d = PlatformPrivate::maxSectionDistance(lhs, rhs.sections(), dataSet);
         if (d >= 0.0) {
             return d < MAX_SECTION_TO_EDGE_DISTANCE;
