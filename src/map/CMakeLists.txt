@@ -96,6 +96,7 @@ set_target_properties(KOSMIndoorMap PROPERTIES
 
 target_include_directories(KOSMIndoorMap PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
 target_include_directories(KOSMIndoorMap PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>)
+target_include_directories(KOSMIndoorMap INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(KOSMIndoorMap
     PUBLIC Qt::Gui KOSM
     PRIVATE Qt::Network Qt::CorePrivate
