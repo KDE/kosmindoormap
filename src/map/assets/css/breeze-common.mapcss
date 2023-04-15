@@ -80,6 +80,20 @@ node|z19-[natural=tree][diameter_crown]
     icon-width: diameter_crown;
 }
 
+node|z21-[natural=shrub]
+{
+    icon-image: "circle";
+    icon-height: 0.4m;
+    icon-width: 0.4m;
+    icon-color: #27ae60;
+    icon-opacity: 0.4;
+}
+node|z21-[natural=shrub][width]
+{
+    icon-height: width;
+    icon-width: width;
+}
+
 /** Generic labeling */
 *|z21- [indoor=room]
 {
