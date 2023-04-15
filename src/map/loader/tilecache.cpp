@@ -10,6 +10,7 @@
 #include <osm/datatypes.h>
 #include <osm/geomath.h>
 
+#include <QCoreApplication>
 #include <QDir>
 #include <QDirIterator>
 #include <QFile>
@@ -147,6 +148,7 @@ void TileCache::downloadNext()
 
     QNetworkRequest req(url);
     req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
+    req.setHeader(QNetworkRequest::UserAgentHeader, (QCoreApplication::applicationName() + QLatin1Char('/') + QCoreApplication::applicationVersion()).toUtf8());
     auto reply = m_nam->get(req);
     connect(reply, &QNetworkReply::readyRead, this, [this, reply]() { dataReceived(reply); });
     connect(reply, &QNetworkReply::finished, this, [this, reply, tile]() { downloadFinished(reply, tile); });
