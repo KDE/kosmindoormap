@@ -138,3 +138,6 @@ way[railway=tram]::tram {
 node::default {
     icon-image: "bla";
 }
+
+// negative tag values
+area[landuse] { set layer = -10; }

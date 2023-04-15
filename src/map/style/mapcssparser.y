@@ -269,6 +269,11 @@ Declaration:
     $$->setIdentifierValue($K.str, $K.len);
     $$->setDoubleValue($V);
   }
+| T_KEYWORD_SET Key[K] T_EQUALS T_DASH T_DOUBLE[V] T_SEMICOLON {
+    $$ = new MapCSSDeclaration(MapCSSDeclaration::TagDeclaration);
+    $$->setIdentifierValue($K.str, $K.len);
+    $$->setDoubleValue(-$V);
+  }
 | T_KEYWORD_SET Key[K] T_SEMICOLON {
     $$ = new MapCSSDeclaration(MapCSSDeclaration::TagDeclaration);
     $$->setIdentifierValue($K.str, $K.len);
