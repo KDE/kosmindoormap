@@ -198,6 +198,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("diaper", DiaperChangingTable, UnresolvedCategory),
     M("email", Email, Contact),
     M("fee", Fee, UnresolvedCategory),
+    M("genus", Name, Header),
     M("historic", Category, Header),
     M("leisure", Category, Header),
     M("maxstay", MaxStay, Parking),
@@ -235,6 +236,7 @@ static_assert(isSortedLookupTable(simple_key_map), "key map is not sorted!");
 
 static constexpr const KeyCategoryMapEntry localized_key_map[] = {
     M("name", Name, Header),
+    M("species", Name, Header),
     M("speech_output", SpeechOutput, Accessibility),
     M("wikipedia", Wikipedia, UnresolvedCategory),
 };
@@ -518,7 +520,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
 {
     switch (info.key) {
         case NoKey: return {};
-        case Name: return QString::fromUtf8(m_element.tagValue(QLocale(), "name", "brand", "ref"));
+        case Name: return QString::fromUtf8(m_element.tagValue(QLocale(), "name", "brand", "ref", "species", "genus"));
         case Category:
         {
             QList<QByteArray> l;
