@@ -422,6 +422,24 @@ way[public_transport=platform]
 /** static elements
  *  keep before amenities/shops, as those can occur on the same element and should override the static element styles
  */
+line[barrier],
+line[indoor=wall],
+line[man_made=embankment]
+{
+    width: 0.25m;
+}
+
+line[barrier=fence],
+area[barrier=fence] {
+    width: 1px;
+}
+line[barrier=hedge] {
+    width: 0.4m;
+}
+line[barrier=bollard] {
+    dashes: 0.2,1.2;
+}
+
 node|z21- [barrier=block]
 {
     set .static;
