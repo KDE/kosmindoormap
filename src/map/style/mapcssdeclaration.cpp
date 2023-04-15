@@ -109,6 +109,14 @@ struct {
     { "px", MapCSSDeclaration::Pixels },
 };
 
+struct {
+    const char *name;
+    MapCSSDeclaration::Position position;
+} static constexpr const position_map[] = {
+    { "center", MapCSSDeclaration::Position::Center },
+    { "line", MapCSSDeclaration::Position::Line },
+};
+
 MapCSSDeclaration::MapCSSDeclaration(Type type)
     : m_type(type)
 {
@@ -273,9 +281,14 @@ bool MapCSSDeclaration::isUnderlineStyle() const
     return m_identValue == "underline";
 }
 
-bool MapCSSDeclaration::textFollowsLine() const
+MapCSSDeclaration::Position MapCSSDeclaration::textPosition() const
 {
-    return m_identValue == "line";
+    for (const auto &p : position_map) {
+        if (std::strcmp(p.name, m_identValue.constData()) == 0) {
+            return p.position;
+        }
+    }
+    return Position::NoPostion;
 }
 
 MapCSSDeclaration::Unit MapCSSDeclaration::unit() const

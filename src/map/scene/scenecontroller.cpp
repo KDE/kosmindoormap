@@ -321,24 +321,10 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             item->font = d->m_defaultFont;
             item->color = d->m_defaultTextColor;
 
-            if (item->pos.isNull()) {
-                if (result.hasAreaProperties()) {
-                    // for simple enough shapes we can use the faster centroid rather than the expensive PIA
-                    if (d->m_labelPlacementPath.size() > 6)  {
-                        item->pos = d->m_piaFinder.find(d->m_labelPlacementPath);
-                    } else {
-                        item->pos = SceneGeometry::polygonCentroid(d->m_labelPlacementPath);
-                    }
-                } else if (result.hasLineProperties()) {
-                    item->pos = SceneGeometry::polylineMidPoint(d->m_labelPlacementPath);
-                }
-                if (item->pos.isNull()) {
-                    item->pos = d->m_view->mapGeoToScene(e.center()); // node or something failed above
-                }
-            }
-
             double textOpacity = 1.0;
             double shieldOpacity = 1.0;
+            bool forceCenterPosition = false;
+            bool forceLinePosition = false;
             IconData iconData;
             for (auto decl : result.declarations()) {
                 applyGenericStyle(decl, item);
@@ -369,8 +355,18 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                         item->frameWidth = decl->doubleValue();
                         break;
                     case MapCSSDeclaration::TextPosition:
-                        if (decl->textFollowsLine() && d->m_labelPlacementPath.size() > 1) {
-                            item->angle = SceneGeometry::polylineMidPointAngle(d->m_labelPlacementPath);
+                        switch (decl->textPosition()) {
+                            case MapCSSDeclaration::Position::Line:
+                                forceLinePosition = true;
+                                if (d->m_labelPlacementPath.size() > 1) {
+                                    item->angle = SceneGeometry::polylineMidPointAngle(d->m_labelPlacementPath);
+                                }
+                                break;
+                            case MapCSSDeclaration::Position::Center:
+                                forceCenterPosition = true;
+                                break;
+                            case MapCSSDeclaration::Position::NoPostion:
+                                break;
                         }
                         break;
                     case MapCSSDeclaration::TextOffset:
@@ -412,6 +408,23 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                         break;
                 }
             }
+
+            if (item->pos.isNull()) {
+                if ((result.hasAreaProperties() || forceCenterPosition) && !forceLinePosition) {
+                    // for simple enough shapes we can use the faster centroid rather than the expensive PIA
+                    if (d->m_labelPlacementPath.size() > 6)  {
+                        item->pos = d->m_piaFinder.find(d->m_labelPlacementPath);
+                    } else {
+                        item->pos = SceneGeometry::polygonCentroid(d->m_labelPlacementPath);
+                    }
+                } else if (result.hasLineProperties() || forceLinePosition) {
+                    item->pos = SceneGeometry::polylineMidPoint(d->m_labelPlacementPath);
+                }
+                if (item->pos.isNull()) {
+                    item->pos = d->m_view->mapGeoToScene(e.center()); // node or something failed above
+                }
+            }
+
             if (item->color.isValid() && textOpacity < 1.0) {
                 auto c = item->color;
                 c.setAlphaF(c.alphaF() * textOpacity);

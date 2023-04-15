@@ -95,11 +95,13 @@ node|z21-[natural=shrub][width]
 }
 
 /** Generic labeling */
-*|z21- [indoor=room]
+area|z21- [indoor=room],
+area|z21- [allotments=plot]
 {
     text: ref;
     max-width: 100;
     text-halo-radius: 2.0;
+    text-position: center;
 }
 
 *|z21- [building],

@@ -152,7 +152,14 @@ public:
     bool isBoldStyle() const;
     bool isItalicStyle() const;
     bool isUnderlineStyle() const;
-    bool textFollowsLine() const;
+
+    /** Text position property. */
+    enum class Position {
+        NoPostion,
+        Line,
+        Center,
+    };
+    Position textPosition() const;
 
     /** Unit type for numeric value. */
     enum Unit {
