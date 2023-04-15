@@ -439,6 +439,10 @@ line[barrier=hedge] {
 line[barrier=bollard] {
     dashes: 0.2,1.2;
 }
+line[barrier=kerb] {
+    width: 0;
+    opacity: 0.5;
+}
 
 node|z21- [barrier=block]
 {
