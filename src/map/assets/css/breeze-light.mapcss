@@ -56,7 +56,7 @@ line[highway=tertiary],
 line[highway=tertiary_link],
 line[highway=unclassified],
 line[highway=residential],
-line[highway=service][!aeroway],
+line[highway=service]::road,
 line[highway=road],
 line[highway=track],
 line[highway=path]
@@ -105,7 +105,6 @@ line[indoor=wall],
 line[man_made=embankment]
 {
     color: #888786;
-    width: 0.25m;
 }
 area[indoor=column],
 area[barrier=wall],
@@ -127,6 +126,15 @@ line [highway=steps] {
 line.escalator { casing-color: #006e28; }
 line.escalator [mx:realtime_status=0] { casing-color: #da4453; }
 line.escalator [mx:realtime_status=1] { casing-color: #27ae60; }
+
+/** Barrier variants */
+area[barrier=fence] {
+    color: #888786;
+}
+line[barrier=hedge] {
+    color: #27ae60;
+    opacity: 0.4;
+}
 
 /** Railway stuff */
 area[railway=platform],

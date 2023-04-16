@@ -80,12 +80,28 @@ node|z19-[natural=tree][diameter_crown]
     icon-width: diameter_crown;
 }
 
+node|z21-[natural=shrub]
+{
+    icon-image: "circle";
+    icon-height: 0.4m;
+    icon-width: 0.4m;
+    icon-color: #27ae60;
+    icon-opacity: 0.4;
+}
+node|z21-[natural=shrub][width]
+{
+    icon-height: width;
+    icon-width: width;
+}
+
 /** Generic labeling */
-*|z21- [indoor=room]
+area|z21- [indoor=room],
+area|z21- [allotments=plot]
 {
     text: ref;
     max-width: 100;
     text-halo-radius: 2.0;
+    text-position: center;
 }
 
 *|z21- [building],
@@ -408,6 +424,28 @@ way[public_transport=platform]
 /** static elements
  *  keep before amenities/shops, as those can occur on the same element and should override the static element styles
  */
+line[barrier],
+line[indoor=wall],
+line[man_made=embankment]
+{
+    width: 0.25m;
+}
+
+line[barrier=fence],
+area[barrier=fence] {
+    width: 1px;
+}
+line[barrier=hedge] {
+    width: 0.4m;
+}
+line[barrier=bollard] {
+    dashes: 0.2,1.2;
+}
+line[barrier=kerb] {
+    width: 0;
+    opacity: 0.5;
+}
+
 node|z21- [barrier=block]
 {
     set .static;

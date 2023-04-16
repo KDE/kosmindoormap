@@ -103,7 +103,6 @@ line[indoor=wall],
 line[man_made=embankment]
 {
     color: #7f8c8d;
-    width: 0.25m;
 }
 area[barrier=wall],
 area[indoor=column],
@@ -125,6 +124,15 @@ line [highway=steps] {
 line.escalator { casing-color: #27ae60; }
 line.escalator [mx:realtime_status=0] { casing-color: #da4453; }
 line.escalator [mx:realtime_status=1] { casing-color: #11d116; }
+
+/** Barrier variants */
+area[barrier=fence] {
+    color: #7f8c8d;
+}
+line[barrier=hedge] {
+    color: #27ae60;
+    opacity: 0.4;
+}
 
 /** Railway stuff */
 area[railway=platform],

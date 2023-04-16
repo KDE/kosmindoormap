@@ -162,3 +162,8 @@ node
     icon-image: "bla";
 }
 
+area[landuse]
+{
+    set layer = -10;
+}
+
