@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2022.
+# Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-16 02:47+0000\n"
-"PO-Revision-Date: 2022-07-24 15:04+0200\n"
+"PO-Revision-Date: 2023-04-18 22:46+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -26,12 +26,12 @@ msgstr ""
 #: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
 msgid "Elevator"
-msgstr ""
+msgstr "Aufzug"
 
 #: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
 msgid "Staircase"
-msgstr ""
+msgstr "Treppe"
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format
@@ -92,7 +92,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:462
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: map-quick/osmelementinformationmodel.cpp:463
 #, kde-format
@@ -178,7 +178,7 @@ msgstr "Wickeltisch"
 #: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "Geschlecht"
 
 #: map-quick/osmelementinformationmodel.cpp:482
 #, kde-format
@@ -231,10 +231,9 @@ msgid "Wheelchair access"
 msgstr "Rollstuhlzugang"
 
 #: map-quick/osmelementinformationmodel.cpp:492
-#, fuzzy, kde-format
-#| msgid "Wheelchair access"
+#, kde-format
 msgid "Wheelchair lift"
-msgstr "Rollstuhlzugang"
+msgstr "Rollstuhlaufzug"
 
 #: map-quick/osmelementinformationmodel.cpp:493
 #, kde-format
@@ -331,12 +330,9 @@ msgid "Arts Center"
 msgstr "Kunstcenter"
 
 #: map-quick/osmelementinformationmodel_data.cpp:25
-#, fuzzy
-#| msgctxt "transport network"
-#| msgid "Network"
 msgctxt "OSM::amenity/shop"
 msgid "Artwork"
-msgstr "Netzwerk"
+msgstr "Grafikdesign"
 
 #: map-quick/osmelementinformationmodel_data.cpp:26
 msgctxt "OSM::amenity/shop"
@@ -472,7 +468,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:53
 msgctxt "OSM::room"
 msgid "Classroom"
-msgstr ""
+msgstr "Klassenzimmer"
 
 #: map-quick/osmelementinformationmodel_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -692,7 +688,7 @@ msgstr "Kiosk"
 #: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::room"
 msgid "Kitchen"
-msgstr ""
+msgstr "Küche"
 
 #: map-quick/osmelementinformationmodel_data.cpp:98
 msgctxt "OSM::amenity/shop"
@@ -703,7 +699,7 @@ msgstr "Wäscherei"
 #: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::room"
 msgid "Lecture Hall"
-msgstr ""
+msgstr "Hörsaal"
 
 #: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::amenity/shop"
@@ -714,7 +710,7 @@ msgstr "Bibliothek"
 #: map-quick/osmelementinformationmodel_data.cpp:106
 msgctxt "OSM::amenity/shop"
 msgid "Locker"
-msgstr ""
+msgstr "Schließfach"
 
 #: map-quick/osmelementinformationmodel_data.cpp:103
 msgctxt "OSM::amenity/shop"
@@ -888,12 +884,9 @@ msgstr ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "Ladesäule"
+msgstr "Bahnhof"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -903,7 +896,7 @@ msgstr "Recycling"
 #: map-quick/osmelementinformationmodel_data.cpp:141
 msgctxt "OSM::amenity"
 msgid "Research Institute"
-msgstr ""
+msgstr "Forschungsinstitut"
 
 #: map-quick/osmelementinformationmodel_data.cpp:142
 msgctxt "OSM::amenity/shop"
@@ -1569,7 +1562,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:353
 msgctxt "OSM::bicycle_parking"
 msgid "shed"
-msgstr ""
+msgstr "Schuppen"
 
 #: map-quick/osmelementinformationmodel_data.cpp:354
 msgctxt "OSM::bicycle_parking"
@@ -1591,60 +1584,60 @@ msgstr ""
 msgctxt "available rental vehicles"
 msgid "%1 bike"
 msgid_plural "%1 bikes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Fahrrad"
+msgstr[1] "%1 Fahrräder"
 
 #: map-quick/osmelementinformationmodel_data.cpp:364
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 pedelec"
 msgid_plural "%1 pedelecs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Pedelec"
+msgstr[1] "%1 Pedelecs"
 
 #: map-quick/osmelementinformationmodel_data.cpp:365
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
 msgid_plural "%1 kick scooters"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Tretroller"
+msgstr[1] "%1 Tretroller"
 
 #: map-quick/osmelementinformationmodel_data.cpp:366
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 moped"
 msgid_plural "%1 mopeds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Moped"
+msgstr[1] "%1 Mopeds"
 
 #: map-quick/osmelementinformationmodel_data.cpp:367
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 car"
 msgid_plural "%1 cars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Auto"
+msgstr[1] "%1 Autos"
 
 #: map-quick/osmelementinformationmodel_data.cpp:378
 msgctxt "OSM::gender_segregation"
 msgid "female"
-msgstr ""
+msgstr "Damen"
 
 #: map-quick/osmelementinformationmodel_data.cpp:379
 msgctxt "OSM::gender_segregation"
 msgid "male"
-msgstr ""
+msgstr "Herren"
 
 #: map-quick/osmelementinformationmodel_data.cpp:380
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
-msgstr ""
+msgstr "Unisex"
 
 #: map-quick/osmelementinformationmodel_data.cpp:392
 msgctxt "tactile writing"
 msgid "braille"
-msgstr ""
+msgstr "Blindenschrift"
 
 #: map-quick/osmelementinformationmodel_data.cpp:393
 msgctxt "tactile writing"
