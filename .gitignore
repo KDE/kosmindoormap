@@ -6,9 +6,10 @@
 *.rej
 *.orig
 *.out
-CMakeLists.txt.user
+/build*/
+CMakeLists.txt.user*
 callgrind.*
 heaptrack.*
 *.qmlc
 *.fail
-/build*
+/compile_commands.json
