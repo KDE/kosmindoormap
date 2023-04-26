@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 #
-# Olesya Gerasimenko <translation-team@basealt.ru>, 2022.
+# Olesya Gerasimenko <translation-team@basealt.ru>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-16 02:47+0000\n"
-"PO-Revision-Date: 2022-09-30 16:50+0300\n"
+"PO-Revision-Date: 2023-04-25 15:54+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -24,15 +24,14 @@ msgid "KDE OSM Indoor Map"
 msgstr "Схема помещения OSM KDE"
 
 #: map-quick/floorlevelchangemodel.cpp:218
-#, fuzzy, kde-format
-#| msgid "Operator"
+#, kde-format
 msgid "Elevator"
-msgstr "Оператор"
+msgstr "Лифт"
 
 #: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
 msgid "Staircase"
-msgstr ""
+msgstr "Лестница"
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format
@@ -93,7 +92,7 @@ msgstr "Прежнее название"
 #: map-quick/osmelementinformationmodel.cpp:462
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: map-quick/osmelementinformationmodel.cpp:463
 #, kde-format
@@ -179,7 +178,7 @@ msgstr "Стол для смены подгузников"
 #: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "Пол"
 
 #: map-quick/osmelementinformationmodel.cpp:482
 #, kde-format
@@ -232,10 +231,9 @@ msgid "Wheelchair access"
 msgstr "Доступ для инвалидных колясок"
 
 #: map-quick/osmelementinformationmodel.cpp:492
-#, fuzzy, kde-format
-#| msgid "Wheelchair access"
+#, kde-format
 msgid "Wheelchair lift"
-msgstr "Доступ для инвалидных колясок"
+msgstr "Лифт для инвалидных колясок"
 
 #: map-quick/osmelementinformationmodel.cpp:493
 #, kde-format
@@ -245,12 +243,12 @@ msgstr "Центральный ключ"
 #: map-quick/osmelementinformationmodel.cpp:494
 #, kde-format
 msgid "Speech output"
-msgstr ""
+msgstr "Вывод речи"
 
 #: map-quick/osmelementinformationmodel.cpp:495
 #, kde-format
 msgid "Tactile writing"
-msgstr ""
+msgstr "Тактильная запись"
 
 #: map-quick/osmelementinformationmodel.cpp:497
 #, kde-format
@@ -470,7 +468,7 @@ msgstr "Городская стена"
 #: map-quick/osmelementinformationmodel_data.cpp:53
 msgctxt "OSM::room"
 msgid "Classroom"
-msgstr ""
+msgstr "Класс"
 
 #: map-quick/osmelementinformationmodel_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -485,7 +483,7 @@ msgstr "Кофе"
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "Общественный центр"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -555,7 +553,7 @@ msgstr "Электроника"
 #: map-quick/osmelementinformationmodel_data.cpp:70
 msgctxt "OSM::amenity"
 msgid "Events Venue"
-msgstr ""
+msgstr "Место проведения мероприятий"
 
 #: map-quick/osmelementinformationmodel_data.cpp:71
 msgctxt "OSM::amenity/shop"
@@ -690,7 +688,7 @@ msgstr "Киоск"
 #: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::room"
 msgid "Kitchen"
-msgstr ""
+msgstr "Столовая"
 
 #: map-quick/osmelementinformationmodel_data.cpp:98
 msgctxt "OSM::amenity/shop"
@@ -701,7 +699,7 @@ msgstr "Прачечная"
 #: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::room"
 msgid "Lecture Hall"
-msgstr ""
+msgstr "Лекционный зал"
 
 #: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::amenity/shop"
@@ -886,12 +884,9 @@ msgstr "Билеты на общественный транспорт"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "Станция зарядки"
+msgstr "Железнодорожная станция"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -901,7 +896,7 @@ msgstr "Пункт переработки"
 #: map-quick/osmelementinformationmodel_data.cpp:141
 msgctxt "OSM::amenity"
 msgid "Research Institute"
-msgstr ""
+msgstr "Исследовательский институт"
 
 #: map-quick/osmelementinformationmodel_data.cpp:142
 msgctxt "OSM::amenity/shop"
@@ -949,20 +944,14 @@ msgid "Sports"
 msgstr "Спорт"
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr "Центр искусств"
+msgstr "Спортивный центр"
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Sports"
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr "Спорт"
+msgstr "Спортивный зал"
 
 #: map-quick/osmelementinformationmodel_data.cpp:153
 msgctxt "OSM::amenity/shop"
@@ -1582,76 +1571,81 @@ msgid "wide stands"
 msgstr "широкие стенды"
 
 #: map-quick/osmelementinformationmodel_data.cpp:363
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 bike"
 msgid_plural "%1 bikes"
 msgstr[0] "%1 велосипед"
 msgstr[1] "%1 велосипеда"
 msgstr[2] "%1 велосипедов"
+msgstr[3] "%1 велосипед"
 
 #: map-quick/osmelementinformationmodel_data.cpp:364
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 pedelec"
 msgid_plural "%1 pedelecs"
 msgstr[0] "%1 электровелосипед"
 msgstr[1] "%1 электровелосипеда"
 msgstr[2] "%1 электровелосипедов"
+msgstr[3] "%1 электровелосипед"
 
 #: map-quick/osmelementinformationmodel_data.cpp:365
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
 msgid_plural "%1 kick scooters"
 msgstr[0] "%1 самокат"
 msgstr[1] "%1 самоката"
 msgstr[2] "%1 самокатов"
+msgstr[3] "%1 самокат"
 
 #: map-quick/osmelementinformationmodel_data.cpp:366
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 moped"
 msgid_plural "%1 mopeds"
 msgstr[0] "%1 мопед"
 msgstr[1] "%1 мопеда"
 msgstr[2] "%1 мопедов"
+msgstr[3] "%1 мопед"
 
 #: map-quick/osmelementinformationmodel_data.cpp:367
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 car"
 msgid_plural "%1 cars"
 msgstr[0] "%1 автомобиль"
 msgstr[1] "%1 автомобиля"
 msgstr[2] "%1 автомобилей"
+msgstr[3] "%1 автомобиль"
 
 #: map-quick/osmelementinformationmodel_data.cpp:378
 msgctxt "OSM::gender_segregation"
 msgid "female"
-msgstr ""
+msgstr "для женщин"
 
 #: map-quick/osmelementinformationmodel_data.cpp:379
 msgctxt "OSM::gender_segregation"
 msgid "male"
-msgstr ""
+msgstr "для мужчин"
 
 #: map-quick/osmelementinformationmodel_data.cpp:380
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
-msgstr ""
+msgstr "для обоих полов"
 
 #: map-quick/osmelementinformationmodel_data.cpp:392
 msgctxt "tactile writing"
 msgid "braille"
-msgstr ""
+msgstr "брайль"
 
 #: map-quick/osmelementinformationmodel_data.cpp:393
 msgctxt "tactile writing"
 msgid "embossed printed letters"
-msgstr ""
+msgstr "рельефные печатные буквы"
 
 #: map-quick/osmelementinformationmodel_data.cpp:394
 msgctxt "tactile writing"
 msgid "engraved printed letters"
-msgstr ""
+msgstr "выгравированные печатные буквы"
