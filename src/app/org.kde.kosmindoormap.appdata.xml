@@ -14,6 +14,7 @@
   <name xml:lang="es">Planos de interiores de OSM para KDE</name>
   <name xml:lang="fi">KDE:n OSM-sisätilakartta</name>
   <name xml:lang="fr">Carte interne de OpenStreetmap pour KDE</name>
+  <name xml:lang="gl">Mapa interior de OSM de KDE</name>
   <name xml:lang="id">KDE OSM Indoor Map</name>
   <name xml:lang="it">Mappa degli interni OSM di KDE</name>
   <name xml:lang="ka">KDE OSM შიდა რუკა</name>
@@ -37,6 +38,7 @@
   <summary xml:lang="es">Aplicación de demostración de planos de interiores de OSM</summary>
   <summary xml:lang="fi">OSM-sisätilakartan demosovellus</summary>
   <summary xml:lang="fr">Application de démonstration pour la carte interne de OpenStreetMap</summary>
+  <summary xml:lang="gl">Aplicación de demostración de mapa interior de OSM.</summary>
   <summary xml:lang="id">Aplikasi demo peta dalam ruangan OSM</summary>
   <summary xml:lang="it">Applicazione dimostrativa per mappe degli interni OSM</summary>
   <summary xml:lang="ka">OSM შიდა რუკის დემო აპლიკაცია</summary>
@@ -61,6 +63,7 @@
     <p xml:lang="es">Aplicación de demostración para el componente de planos de interiores de OSM para KDE.</p>
     <p xml:lang="fi">Demosovellus KDE:n OSM-sisätilakarttaosalle.</p>
     <p xml:lang="fr">Application de démonstration pour le composant de KDE de carte interne de OpenStreetmap.</p>
+    <p xml:lang="gl">Aplicación de demostración do compoñente de mapas interiores de OSM de KDE.</p>
     <p xml:lang="id">Aplikasi demo untuk komponen peta dalam ruangan KDE's OSM</p>
     <p xml:lang="it">Applicazione dimostrativa per il componente mappe degli interni OSM di KDE.</p>
     <p xml:lang="ka">KDE-ის OSM შიდა რუკის კომპონენტის დემო აპლიკაცია.</p>
