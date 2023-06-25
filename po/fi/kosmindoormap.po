@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
-# Tommi Nieminen <translator@legisign.org>, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-07 00:48+0000\n"
-"PO-Revision-Date: 2022-09-14 19:07+0300\n"
+"PO-Revision-Date: 2023-06-07 16:38+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -23,15 +23,14 @@ msgid "KDE OSM Indoor Map"
 msgstr "KDE:n OSM-sisätilakartta"
 
 #: map-quick/floorlevelchangemodel.cpp:218
-#, fuzzy, kde-format
-#| msgid "Operator"
+#, kde-format
 msgid "Elevator"
-msgstr "Operaattori"
+msgstr "Hissi"
 
 #: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
 msgid "Staircase"
-msgstr ""
+msgstr "Portaikko"
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format
@@ -92,7 +91,7 @@ msgstr "Aiemmin"
 #: map-quick/osmelementinformationmodel.cpp:463
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Kuvaus"
 
 #: map-quick/osmelementinformationmodel.cpp:464
 #, kde-format
@@ -178,7 +177,7 @@ msgstr "Vaipanvaihtopöytä"
 #: map-quick/osmelementinformationmodel.cpp:481
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "Sukupuoli"
 
 #: map-quick/osmelementinformationmodel.cpp:483
 #, kde-format
@@ -231,10 +230,9 @@ msgid "Wheelchair access"
 msgstr "Pyörätuolikulku"
 
 #: map-quick/osmelementinformationmodel.cpp:493
-#, fuzzy, kde-format
-#| msgid "Wheelchair access"
+#, kde-format
 msgid "Wheelchair lift"
-msgstr "Pyörätuolikulku"
+msgstr "Pyörätuolihissi"
 
 #: map-quick/osmelementinformationmodel.cpp:494
 #, kde-format
@@ -472,7 +470,7 @@ msgstr "Kaupunginmuuri"
 #: map-quick/osmelementinformationmodel_data.cpp:53
 msgctxt "OSM::room"
 msgid "Classroom"
-msgstr ""
+msgstr "Luokkahuone"
 
 #: map-quick/osmelementinformationmodel_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -487,7 +485,7 @@ msgstr "Kahvi"
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "Yhteisökeskus"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -557,7 +555,7 @@ msgstr "Elektroniikka"
 #: map-quick/osmelementinformationmodel_data.cpp:70
 msgctxt "OSM::amenity"
 msgid "Events Venue"
-msgstr ""
+msgstr "Tapahtumapaikka"
 
 #: map-quick/osmelementinformationmodel_data.cpp:71
 msgctxt "OSM::amenity/shop"
@@ -617,7 +615,7 @@ msgstr "Lahjakauppa"
 #: map-quick/osmelementinformationmodel_data.cpp:82
 msgctxt "OSM::office"
 msgid "Government"
-msgstr ""
+msgstr "Hallinto"
 
 #: map-quick/osmelementinformationmodel_data.cpp:83
 msgctxt "OSM::amenity/shop"
@@ -657,7 +655,7 @@ msgstr "Hotelli"
 #: map-quick/osmelementinformationmodel_data.cpp:90
 msgctxt "OSM::amenity/shop"
 msgid "Houseware"
-msgstr ""
+msgstr "Kotitaloustavarat"
 
 #: map-quick/osmelementinformationmodel_data.cpp:91
 msgctxt "OSM::amenity/shop"
@@ -667,7 +665,7 @@ msgstr "Jäätelö"
 #: map-quick/osmelementinformationmodel_data.cpp:92
 msgctxt "OSM::amenity/shop"
 msgid "Information"
-msgstr ""
+msgstr "Tietoa"
 
 #: map-quick/osmelementinformationmodel_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -692,7 +690,7 @@ msgstr "Kioski"
 #: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::room"
 msgid "Kitchen"
-msgstr ""
+msgstr "Keittiö"
 
 #: map-quick/osmelementinformationmodel_data.cpp:98
 msgctxt "OSM::amenity/shop"
@@ -703,7 +701,7 @@ msgstr "Pesula"
 #: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::room"
 msgid "Lecture Hall"
-msgstr ""
+msgstr "Luentosali"
 
 #: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::amenity/shop"
@@ -714,7 +712,7 @@ msgstr "Kirjasto"
 #: map-quick/osmelementinformationmodel_data.cpp:106
 msgctxt "OSM::amenity/shop"
 msgid "Locker"
-msgstr ""
+msgstr "Lokerikko"
 
 #: map-quick/osmelementinformationmodel_data.cpp:103
 msgctxt "OSM::amenity/shop"
@@ -888,12 +886,9 @@ msgstr "Julkisen liikenteen liput"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "Latauspiste"
+msgstr "Rautatieasema"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -903,7 +898,7 @@ msgstr "Kierrätys"
 #: map-quick/osmelementinformationmodel_data.cpp:141
 msgctxt "OSM::amenity"
 msgid "Research Institute"
-msgstr ""
+msgstr "Tutkimusinstituutti"
 
 #: map-quick/osmelementinformationmodel_data.cpp:142
 msgctxt "OSM::amenity/shop"
@@ -923,7 +918,7 @@ msgstr "Potkulautavuokraus"
 #: map-quick/osmelementinformationmodel_data.cpp:145
 msgctxt "OSM::amenity/shop"
 msgid "Seafood"
-msgstr ""
+msgstr "Meren antimia"
 
 #: map-quick/osmelementinformationmodel_data.cpp:146
 msgctxt "OSM::amenity/shop"
@@ -951,20 +946,14 @@ msgid "Sports"
 msgstr "Urheilu"
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr "Taidekeskus"
+msgstr "Urheilukeskus"
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Sports"
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr "Urheilu"
+msgstr "Urheiluhalli"
 
 #: map-quick/osmelementinformationmodel_data.cpp:153
 msgctxt "OSM::amenity/shop"
@@ -1304,7 +1293,7 @@ msgstr "Makkara"
 #: map-quick/osmelementinformationmodel_data.cpp:230
 msgctxt "OSM::cuisine"
 msgid "Seafood"
-msgstr ""
+msgstr "Meren antimia"
 
 #: map-quick/osmelementinformationmodel_data.cpp:231
 msgctxt "OSM::cuisine"
@@ -1556,7 +1545,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:351
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
-msgstr ""
+msgstr "lokerikot"
 
 #: map-quick/osmelementinformationmodel_data.cpp:352
 msgctxt "OSM::bicycle_parking"
@@ -1626,22 +1615,22 @@ msgstr[1] "%1 autoa"
 #: map-quick/osmelementinformationmodel_data.cpp:378
 msgctxt "OSM::gender_segregation"
 msgid "female"
-msgstr ""
+msgstr "naispuolinen"
 
 #: map-quick/osmelementinformationmodel_data.cpp:379
 msgctxt "OSM::gender_segregation"
 msgid "male"
-msgstr ""
+msgstr "miespuolinen"
 
 #: map-quick/osmelementinformationmodel_data.cpp:380
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
-msgstr ""
+msgstr "unisex"
 
 #: map-quick/osmelementinformationmodel_data.cpp:392
 msgctxt "tactile writing"
 msgid "braille"
-msgstr ""
+msgstr "pistekirjoitus"
 
 #: map-quick/osmelementinformationmodel_data.cpp:393
 msgctxt "tactile writing"
