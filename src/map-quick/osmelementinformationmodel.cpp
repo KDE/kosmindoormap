@@ -200,6 +200,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("fee", Fee, UnresolvedCategory),
     M("genus", Name, Header),
     M("historic", Category, Header),
+    M("int_name", Name, Header),
     M("leisure", Category, Header),
     M("maxstay", MaxStay, Parking),
     M("mx:realtime_available", AvailableVehicles, Main),
@@ -517,11 +518,42 @@ static void appendNonEmpty(const QByteArray &tagValue, QList<QByteArray> &l)
     }
 }
 
+static QChar::Script scriptForString(QStringView s)
+{
+    return std::accumulate(s.begin(), s.end(), QChar::Script_Unknown, [](QChar::Script script, QChar c) { return std::max(script, c.script());});
+}
+
+// why do we have two different script enums???
+// ### far from complete, this only handles the cases where int_name is in widespread use so far
+struct {
+    QLocale::Script localeScript;
+    QChar::Script charScript;
+} static constexpr const script_map[] = {
+    { QLocale::GreekScript, QChar::Script_Greek },
+    { QLocale::CyrillicScript, QChar::Script_Cyrillic },
+};
+
+static bool isSameScript(QLocale::Script ls, QChar::Script cs)
+{
+    return std::find_if(std::begin(script_map), std::end(script_map), [ls, cs](const auto &m) { return m.localeScript == ls && m.charScript == cs; }) != std::end(script_map);
+}
+
 QVariant OSMElementInformationModel::valueForKey(Info info) const
 {
     switch (info.key) {
         case NoKey: return {};
-        case Name: return QString::fromUtf8(m_element.tagValue(QLocale(), "name", "loc_name", "brand", "ref", "species", "genus"));
+        case Name: {
+            const auto n = QString::fromUtf8(m_element.tagValue(QLocale(), "name", "loc_name", "int_name", "brand", "ref", "species", "genus"));
+            const auto script = scriptForString(n);
+            if (!isSameScript(QLocale().script(), script) && script > QChar::Script_Latin) {
+                const auto transliterated = QString::fromUtf8(m_element.tagValue(QLocale(), "int_name"));
+                if (transliterated.isEmpty() || transliterated == n) {
+                    return n;
+                }
+                return i18nc("local name (transliterated name)", "%1 (%2)", n, transliterated);
+            }
+            return n;
+        }
         case Category:
         {
             QList<QByteArray> l;

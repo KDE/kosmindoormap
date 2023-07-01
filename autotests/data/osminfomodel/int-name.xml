@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm>
+    <node id="1" lat="0.0" lon="0.0">
+        <tag k="int_name" v="Stratigou Doubiotou street"/>
+        <tag k="name" v="Στρατηγού Δουμπιώτου"/>
+        <tag k="highway" v="secondary"/>
+    </node>
+</osm>
