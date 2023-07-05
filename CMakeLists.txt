@@ -73,7 +73,13 @@ find_package(BISON REQUIRED)
 set_package_properties(BISON PROPERTIES PURPOSE "MapCSS parser for indoor map rendering.")
 
 if (NOT WIN32)
-    find_package(Protobuf)
+    # try upstream cmake config first
+    set(protobuf_MODULE_COMPATIBLE ON)
+    find_package(Protobuf CONFIG)
+    if(NOT Protobuf_FOUND)
+    # fall back to cmake's protobuf module
+       find_package(Protobuf)
+    endif()
     set_package_properties(Protobuf PROPERTIES TYPE OPTIONAL PURPOSE "Parsing of OSM PBF files.")
 endif()
 
