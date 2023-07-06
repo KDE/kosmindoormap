@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-02 00:45+0000\n"
-"PO-Revision-Date: 2023-02-14 09:24-0300\n"
+"PO-Revision-Date: 2023-07-05 17:52-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -23,15 +23,14 @@ msgid "KDE OSM Indoor Map"
 msgstr "Mapa indoor do OSM para o KDE"
 
 #: map-quick/floorlevelchangemodel.cpp:218
-#, fuzzy, kde-format
-#| msgid "Operator"
+#, kde-format
 msgid "Elevator"
-msgstr "Operador"
+msgstr "Elevador"
 
 #: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
 msgid "Staircase"
-msgstr ""
+msgstr "Escada"
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format
@@ -92,7 +91,7 @@ msgstr "Anteriormente"
 #: map-quick/osmelementinformationmodel.cpp:464
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: map-quick/osmelementinformationmodel.cpp:465
 #, kde-format
@@ -264,8 +263,7 @@ msgid "Remaining range"
 msgstr ""
 
 #: map-quick/osmelementinformationmodel.cpp:553
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -328,12 +326,9 @@ msgid "Alcohol"
 msgstr "Álcool"
 
 #: map-quick/osmelementinformationmodel_data.cpp:23
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Department Store"
 msgctxt "OSM::amenity/shop"
 msgid "Apartment"
-msgstr "Loja de departamento"
+msgstr "Apartamento"
 
 #: map-quick/osmelementinformationmodel_data.cpp:24
 msgctxt "OSM::amenity/shop"
@@ -341,12 +336,9 @@ msgid "Arts Center"
 msgstr ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:25
-#, fuzzy
-#| msgctxt "transport network"
-#| msgid "Network"
 msgctxt "OSM::amenity/shop"
 msgid "Artwork"
-msgstr "Rede"
+msgstr "Arte"
 
 #: map-quick/osmelementinformationmodel_data.cpp:26
 msgctxt "OSM::amenity/shop"
@@ -1641,22 +1633,22 @@ msgstr[1] "%1 carros"
 #: map-quick/osmelementinformationmodel_data.cpp:378
 msgctxt "OSM::gender_segregation"
 msgid "female"
-msgstr ""
+msgstr "feminino"
 
 #: map-quick/osmelementinformationmodel_data.cpp:379
 msgctxt "OSM::gender_segregation"
 msgid "male"
-msgstr ""
+msgstr "masculino"
 
 #: map-quick/osmelementinformationmodel_data.cpp:380
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
-msgstr ""
+msgstr "unisex"
 
 #: map-quick/osmelementinformationmodel_data.cpp:392
 msgctxt "tactile writing"
 msgid "braille"
-msgstr ""
+msgstr "braille"
 
 #: map-quick/osmelementinformationmodel_data.cpp:393
 msgctxt "tactile writing"
