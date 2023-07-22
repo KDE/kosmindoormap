@@ -21,15 +21,13 @@ using namespace KOSMIndoorMap;
 void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
 {
     Q_UNUSED(uri);
+    qRegisterMetaType<MapData>();
     qRegisterMetaType<OSMAddress>();
     qRegisterMetaType<OSMElement>();
     qRegisterMetaType<Platform>();
     qRegisterMetaType<Platform::Mode>();
 
-    qmlRegisterUncreatableType<MapData>("org.kde.kosmindoormap", 1, 0, "MapData", {});
-    qmlRegisterUncreatableType<OSMAddress>("org.kde.kosmindoormap", 1, 0, "OSMAddress", {});
-    qmlRegisterUncreatableType<OSMElement>("org.kde.kosmindoormap", 1, 0, "OSMElement", {});
-    qmlRegisterUncreatableType<Platform>("org.kde.kosmindoormap", 1, 0, "Platform", {});
+    qmlRegisterUncreatableMetaObject(Platform::staticMetaObject, "org.kde.kosmindoormap", 1, 0, "Platform", {});
 
     qmlRegisterType<FloorLevelChangeModel>("org.kde.kosmindoormap", 1, 0, "FloorLevelChangeModel");
     qmlRegisterType<MapItem>("org.kde.kosmindoormap", 1, 0, "MapItemImpl");
