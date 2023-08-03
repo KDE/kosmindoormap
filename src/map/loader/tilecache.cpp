@@ -152,6 +152,7 @@ void TileCache::downloadNext()
     auto reply = m_nam->get(req);
     connect(reply, &QNetworkReply::readyRead, this, [this, reply]() { dataReceived(reply); });
     connect(reply, &QNetworkReply::finished, this, [this, reply, tile]() { downloadFinished(reply, tile); });
+    connect(reply, &QNetworkReply::sslErrors, this, [reply](const auto &sslErrors) { reply->setProperty("_ssl_errors", QVariant::fromValue(sslErrors)); });
 }
 
 void TileCache::dataReceived(QNetworkReply *reply)
@@ -167,7 +168,16 @@ void TileCache::downloadFinished(QNetworkReply* reply, Tile tile)
     if (reply->error() != QNetworkReply::NoError) {
         qCWarning(Log) << reply->errorString() << reply->url();
         m_output.remove();
-        Q_EMIT tileError(tile, reply->errorString());
+        if (reply->error() == QNetworkReply::SslHandshakeFailedError) {
+            const auto sslErrors = reply->property("_ssl_errors").value<QList<QSslError>>();
+            QStringList errorStrings;
+            errorStrings.reserve(sslErrors.size());
+            std::transform(sslErrors.begin(), sslErrors.end(), std::back_inserter(errorStrings), [](const auto &e) { return e.errorString(); });
+            qCWarning(Log) << errorStrings;
+            Q_EMIT tileError(tile, reply->errorString() + QLatin1String(" (") + errorStrings.join(QLatin1String(", ")) + QLatin1Char(')'));
+        } else {
+            Q_EMIT tileError(tile, reply->errorString());
+        }
         downloadNext();
         return;
     }
