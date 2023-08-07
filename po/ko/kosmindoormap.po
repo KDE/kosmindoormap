@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
-# Shinjo Park <kde@peremen.name>, 2021, 2022.
+# Shinjo Park <kde@peremen.name>, 2021, 2022, 2023.
 #
 #
 # https://translatewiki.net/wiki/Translating:OpenStreetMap 한국어 번역 참조.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-02 00:45+0000\n"
-"PO-Revision-Date: 2022-05-06 00:16+0200\n"
+"PO-Revision-Date: 2023-08-06 21:57+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -26,15 +26,14 @@ msgid "KDE OSM Indoor Map"
 msgstr "KDE OSM 실내 지도"
 
 #: map-quick/floorlevelchangemodel.cpp:218
-#, fuzzy, kde-format
-#| msgid "Operator"
+#, kde-format
 msgid "Elevator"
-msgstr "운영자"
+msgstr "엘리베이터"
 
 #: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
 msgid "Staircase"
-msgstr ""
+msgstr "계단"
 
 #: map-quick/osmelementinformationmodel.cpp:21
 #, kde-format
@@ -95,7 +94,7 @@ msgstr "과거 명칭"
 #: map-quick/osmelementinformationmodel.cpp:464
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "설명"
 
 #: map-quick/osmelementinformationmodel.cpp:465
 #, kde-format
@@ -181,7 +180,7 @@ msgstr "기저귀 교환대"
 #: map-quick/osmelementinformationmodel.cpp:482
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "성별"
 
 #: map-quick/osmelementinformationmodel.cpp:484
 #, kde-format
@@ -234,10 +233,9 @@ msgid "Wheelchair access"
 msgstr "휠체어 접근"
 
 #: map-quick/osmelementinformationmodel.cpp:494
-#, fuzzy, kde-format
-#| msgid "Wheelchair access"
+#, kde-format
 msgid "Wheelchair lift"
-msgstr "휠체어 접근"
+msgstr "휠체어 리프트"
 
 #: map-quick/osmelementinformationmodel.cpp:495
 #, kde-format
@@ -247,12 +245,12 @@ msgstr "중앙 키"
 #: map-quick/osmelementinformationmodel.cpp:496
 #, kde-format
 msgid "Speech output"
-msgstr ""
+msgstr "발성 출력"
 
 #: map-quick/osmelementinformationmodel.cpp:497
 #, kde-format
 msgid "Tactile writing"
-msgstr ""
+msgstr "점자 설명"
 
 #: map-quick/osmelementinformationmodel.cpp:499
 #, kde-format
@@ -267,8 +265,7 @@ msgid "Remaining range"
 msgstr "이동 가능 범위"
 
 #: map-quick/osmelementinformationmodel.cpp:553
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
@@ -480,7 +477,7 @@ msgstr "성벽"
 #: map-quick/osmelementinformationmodel_data.cpp:53
 msgctxt "OSM::room"
 msgid "Classroom"
-msgstr ""
+msgstr "교실"
 
 #: map-quick/osmelementinformationmodel_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -495,7 +492,7 @@ msgstr "커피 상점"
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "커뮤니티 센터"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -565,7 +562,7 @@ msgstr "전자 제품 가게"
 #: map-quick/osmelementinformationmodel_data.cpp:70
 msgctxt "OSM::amenity"
 msgid "Events Venue"
-msgstr ""
+msgstr "이벤트 행사장"
 
 #: map-quick/osmelementinformationmodel_data.cpp:71
 msgctxt "OSM::amenity/shop"
@@ -700,7 +697,7 @@ msgstr "키오스크 숍"
 #: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::room"
 msgid "Kitchen"
-msgstr ""
+msgstr "주방"
 
 #: map-quick/osmelementinformationmodel_data.cpp:98
 msgctxt "OSM::amenity/shop"
@@ -711,7 +708,7 @@ msgstr "세탁소"
 #: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::room"
 msgid "Lecture Hall"
-msgstr ""
+msgstr "강의실"
 
 #: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::amenity/shop"
@@ -897,12 +894,9 @@ msgstr "대중 교통 매표소"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 #: map-quick/osmelementinformationmodel_data.cpp:165
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Charging Station"
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr "충전소"
+msgstr "철도역"
 
 #: map-quick/osmelementinformationmodel_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -912,7 +906,7 @@ msgstr "재활용장"
 #: map-quick/osmelementinformationmodel_data.cpp:141
 msgctxt "OSM::amenity"
 msgid "Research Institute"
-msgstr ""
+msgstr "연구소"
 
 #: map-quick/osmelementinformationmodel_data.cpp:142
 msgctxt "OSM::amenity/shop"
@@ -960,20 +954,14 @@ msgid "Sports"
 msgstr "스포츠용품점"
 
 #: map-quick/osmelementinformationmodel_data.cpp:151
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr "아트 센터"
+msgstr "스포츠 센터"
 
 #: map-quick/osmelementinformationmodel_data.cpp:152
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Sports"
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr "스포츠용품점"
+msgstr "스포츠 홀"
 
 #: map-quick/osmelementinformationmodel_data.cpp:153
 msgctxt "OSM::amenity/shop"
@@ -1631,29 +1619,29 @@ msgstr[0] "차량 %1대"
 #: map-quick/osmelementinformationmodel_data.cpp:378
 msgctxt "OSM::gender_segregation"
 msgid "female"
-msgstr ""
+msgstr "여성"
 
 #: map-quick/osmelementinformationmodel_data.cpp:379
 msgctxt "OSM::gender_segregation"
 msgid "male"
-msgstr ""
+msgstr "남성"
 
 #: map-quick/osmelementinformationmodel_data.cpp:380
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
-msgstr ""
+msgstr "성중립"
 
 #: map-quick/osmelementinformationmodel_data.cpp:392
 msgctxt "tactile writing"
 msgid "braille"
-msgstr ""
+msgstr "점자"
 
 #: map-quick/osmelementinformationmodel_data.cpp:393
 msgctxt "tactile writing"
 msgid "embossed printed letters"
-msgstr ""
+msgstr "양각 문자"
 
 #: map-quick/osmelementinformationmodel_data.cpp:394
 msgctxt "tactile writing"
 msgid "engraved printed letters"
-msgstr ""
+msgstr "음각 문자"
