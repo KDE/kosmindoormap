@@ -104,7 +104,7 @@ line[man_made=embankment]
 {
     color: #7f8c8d;
 }
-area[barrier=wall],
+area[barrier=wall][area=yes],
 area[indoor=column],
 area[indoor=wall],
 area[man_made=column]
