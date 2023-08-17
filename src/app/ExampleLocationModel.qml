@@ -89,4 +89,6 @@ ListModel {
 
     ListElement { label: "Saarbrücken Hauptbahnhof"; lat: 49.24133; lon: 6.99032 }
     ListElement { label: "Luxembourg Gare Centrale"; lat: 49.59962; lon: 6.13473 }
+
+    ListElement { label: "Singapore Changi Airport"; lat: 1.36028; lon: 103.98932 }
 }
