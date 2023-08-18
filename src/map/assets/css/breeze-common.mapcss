@@ -808,6 +808,7 @@ node|z19- [amenity=drinking_water],
 *|z19- [amenity=fire_station],
 *|z19- [amenity=internet_cafe],
 *|z19- [amenity=library],
+*|z19- [amenity=luggage_locker],
 *|z20- [amenity=nightclub],
 *|z19- [amenity=place_of_worship],
 *|z19- [amenity=police],
@@ -873,6 +874,12 @@ node|z19- [amenity=atm],
 node|z19- [amenity=drinking_water]
 {
     text: "";
+}
+
+*|z19- [amenity=lockers]
+{
+    icon-image: "luggage_locker";
+    set .amenity;
 }
 
 /** Stairwells */
