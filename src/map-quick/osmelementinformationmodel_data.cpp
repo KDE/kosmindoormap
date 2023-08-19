@@ -26,6 +26,7 @@ static constexpr const ValueMapEntry amenity_map[] = {
     { "atm", kli18nc("OSM::amenity/shop", "ATM") },
     { "attraction", kli18nc("OSM::amenity/shop", "Attraction") },
     { "bag", kli18nc("OSM::amenity/shop", "Bag") },
+    { "baggage_claim", kli18nc("OSM::amenity", "Baggage Claim") },
     { "bakery", kli18nc("OSM::amenity/shop", "Bakery") },
     { "bank", kli18nc("OSM::amenity/shop", "Bank") },
     { "bar", kli18nc("OSM::amenity/shop", "Bar") },
