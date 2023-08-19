@@ -398,6 +398,17 @@ node|z17-[aeroway=gate][mx:departure=1]
     shield-color: #da4453;
 }
 
+*|z19-[amenity=baggage_claim]
+{
+    text: ref;
+    icon-image: amenity;
+    set .static;
+}
+way|z19-[amenity=baggage_claim]
+{
+    width: 1m;
+    color: #bdc3c7;
+}
 
 /** Platforms */
 node[highway=bus_stop]
