@@ -17,27 +17,32 @@
     "modules": [
         {
             "name": "kpublictransport",
-            "config-opts": [ "-DENABLE_TESTING=OFF" ],
+            "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kpublictransport.git" } ],
-            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories" ]
+            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories5" ]
         },
         {
             "name": "kopeninghours",
-            "config-opts": [ "-DENABLE_TESTING=OFF" ],
+            "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kopeninghours.git" } ],
-            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories" ]
+            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories5" ]
         },
         {
             "name": "kosmindoormap",
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "config-opts": [ "-DENABLE_TESTING=OFF", "-DBUILD_STANDALONE_APP=ON" ],
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kosmindoormap.git" } ],
-            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories" ]
+            "config-opts": [ "-DBUILD_TESTING=OFF", "-DBUILD_STANDALONE_APP=ON" ],
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ],
+            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories5" ]
         }
     ]
 }
