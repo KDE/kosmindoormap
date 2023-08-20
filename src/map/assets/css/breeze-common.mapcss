@@ -398,6 +398,17 @@ node|z17-[aeroway=gate][mx:departure=1]
     shield-color: #da4453;
 }
 
+*|z19-[amenity=baggage_claim]
+{
+    text: ref;
+    icon-image: amenity;
+    set .static;
+}
+way|z19-[amenity=baggage_claim]
+{
+    width: 1m;
+    color: #bdc3c7;
+}
 
 /** Platforms */
 node[highway=bus_stop]
@@ -808,6 +819,7 @@ node|z19- [amenity=drinking_water],
 *|z19- [amenity=fire_station],
 *|z19- [amenity=internet_cafe],
 *|z19- [amenity=library],
+*|z19- [amenity=luggage_locker],
 *|z20- [amenity=nightclub],
 *|z19- [amenity=place_of_worship],
 *|z19- [amenity=police],
@@ -873,6 +885,12 @@ node|z19- [amenity=atm],
 node|z19- [amenity=drinking_water]
 {
     text: "";
+}
+
+*|z19- [amenity=lockers]
+{
+    icon-image: "luggage_locker";
+    set .amenity;
 }
 
 /** Stairwells */
