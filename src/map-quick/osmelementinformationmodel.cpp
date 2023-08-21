@@ -207,6 +207,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("mx:remaining_range", RemainingRange, Main),
     M("mx:vehicle", Category, Header),
     M("network", Network, Operator),
+    M("network:wikipedia", OperatorWikipedia, Operator),
     M("office", Category, Header),
     M("old_name", OldName, UnresolvedCategory),
     M("opening_hours", OpeningHours, OpeningHoursCategory),
@@ -819,7 +820,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         }
         case OperatorName: return QString::fromUtf8(m_element.tagValue("operator"));
         case Network: return QString::fromUtf8(m_element.tagValue("network"));
-        case OperatorWikipedia: return wikipediaUrl(m_element.tagValue(QLocale(), "operator:wikipedia"));
+        case OperatorWikipedia: return wikipediaUrl(m_element.tagValue(QLocale(), "operator:wikipedia", "network:wikipedia"));
         case RemainingRange:
         {
             const auto range = m_element.tagValue("mx:remaining_range").toInt();
