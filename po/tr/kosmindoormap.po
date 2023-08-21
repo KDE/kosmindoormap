@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-20 00:44+0000\n"
-"PO-Revision-Date: 2023-07-02 10:06+0300\n"
+"PO-Revision-Date: 2023-08-20 11:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -357,7 +357,7 @@ msgstr "Çanta"
 #: map-quick/osmelementinformationmodel_data.cpp:29
 msgctxt "OSM::amenity"
 msgid "Baggage Claim"
-msgstr ""
+msgstr "Bagaj Alım"
 
 #: map-quick/osmelementinformationmodel_data.cpp:30
 msgctxt "OSM::amenity/shop"
