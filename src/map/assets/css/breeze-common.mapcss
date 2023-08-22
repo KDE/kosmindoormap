@@ -819,6 +819,7 @@ node|z19- [amenity=drinking_water],
 *|z19- [amenity=fire_station],
 *|z19- [amenity=internet_cafe],
 *|z19- [amenity=library],
+*|z20- [amenity=lost_property_office],
 *|z19- [amenity=luggage_locker],
 *|z20- [amenity=nightclub],
 *|z19- [amenity=place_of_worship],
@@ -890,6 +891,15 @@ node|z19- [amenity=drinking_water]
 *|z19- [amenity=lockers]
 {
     icon-image: "luggage_locker";
+    set .amenity;
+}
+*|z20- [amenity=lost_and_found],
+*|z20- [amenity=lost_found],
+*|z20- [amenity=lost_property],
+*|z20- [office=lost_property],
+*|z20- [office=lost_and_found]
+{
+    icon-image: "lost_property_office";
     set .amenity;
 }
 
