@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-20 00:44+0000\n"
-"PO-Revision-Date: 2023-07-03 05:50+0200\n"
+"PO-Revision-Date: 2023-08-21 06:03+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -358,7 +358,7 @@ msgstr "ჩანთა"
 #: map-quick/osmelementinformationmodel_data.cpp:29
 msgctxt "OSM::amenity"
 msgid "Baggage Claim"
-msgstr ""
+msgstr "ბარგის გამოთხოვა"
 
 #: map-quick/osmelementinformationmodel_data.cpp:30
 msgctxt "OSM::amenity/shop"
