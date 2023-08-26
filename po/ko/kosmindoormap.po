@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-23 00:45+0000\n"
-"PO-Revision-Date: 2023-08-06 21:57+0200\n"
+"PO-Revision-Date: 2023-08-25 22:56+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -361,7 +361,7 @@ msgstr "가방 판매점"
 #: map-quick/osmelementinformationmodel_data.cpp:29
 msgctxt "OSM::amenity"
 msgid "Baggage Claim"
-msgstr ""
+msgstr "수하물 수취대"
 
 #: map-quick/osmelementinformationmodel_data.cpp:30
 msgctxt "OSM::amenity/shop"
