@@ -4,8 +4,10 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KOSMINDOORMAP_OSMELEMENTINFORMATIONMODEL_P_H
-#define KOSMINDOORMAP_OSMELEMENTINFORMATIONMODEL_P_H
+#ifndef KOSMINDOORMAP_LOCALIZATION_P_H
+#define KOSMINDOORMAP_LOCALIZATION_P_H
+
+#include "localization.h"
 
 #include <KLocalizedString>
 #include <KLazyLocalizedString>
@@ -37,22 +39,26 @@ inline constexpr bool isSortedLookupTable(const MapEntry(&map)[N])
 #endif
 }
 
-enum TranslationOption {
-    ReturnUnknownKey,
-    ReturnEmptyOnUnknownKey
-};
-
 template <typename MapEntry, std::size_t N>
-inline QString translateValue(const char *keyName, const MapEntry(&map)[N], TranslationOption opt = ReturnUnknownKey)
+inline QString translateValue(const char *keyName, const MapEntry(&map)[N], Localization::TranslationOption opt = Localization::ReturnUnknownKey)
 {
     const auto it = std::lower_bound(std::begin(map), std::end(map), keyName, [](const auto &lhs, auto rhs) {
         return std::strcmp(lhs.keyName, rhs) < 0;
     });
     if (it == std::end(map) || std::strcmp((*it).keyName, keyName) != 0) {
-        return opt == ReturnUnknownKey ? QString::fromUtf8(keyName) : QString();
+        return opt == Localization::ReturnUnknownKey ? QString::fromUtf8(keyName) : QString();
     }
 
     return (*it).label.toString();
+}
+
+template <typename MapEntry, std::size_t N>
+inline bool hasTranslatedValue(const char *value, const MapEntry(&map)[N])
+{
+    const auto it = std::lower_bound(std::begin(map), std::end(map), value, [](const auto &lhs, auto rhs) {
+        return std::strcmp(lhs.keyName, rhs) < 0;
+    });
+    return it != std::end(map) && std::strcmp((*it).keyName, value) == 0;
 }
 
 template <typename MapEntry, std::size_t N>

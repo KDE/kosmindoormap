@@ -5,8 +5,9 @@
 */
 
 #include "osmelementinformationmodel.h"
-#include "osmelementinformationmodel_p.h"
 #include "osmelementinformationmodel_data.cpp"
+
+#include "localization.h"
 #include "osmaddress.h"
 
 #include <KLocalizedString>
@@ -585,13 +586,13 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 if ((*it).isEmpty() || (*it) == "yes" || (*it) == "no" || (*it) == "vending_machine" || (*it) == "building") {
                     continue;
                 }
-                out.push_back(translateValue((*it).constData(), amenity_map));
+                out.push_back(Localization::amenityType((*it).constData()));
             }
 
             if (out.isEmpty()) { // fall back to building, but only take terms we have translated
                 appendNonEmpty(m_element.tagValue("building"), l);
                 for (const auto &key : l) {
-                    auto s = translateValue(key.constData(), amenity_map, ReturnEmptyOnUnknownKey);
+                    auto s = Localization::amenityType(key.constData(), Localization::ReturnEmptyOnUnknownKey);
                     if (!s.isEmpty()) {
                         out.push_back(std::move(s));
                     }
