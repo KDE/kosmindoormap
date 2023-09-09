@@ -20,18 +20,20 @@ class OSMElement
     Q_GADGET
     Q_PROPERTY(bool isNull READ isNull)
     Q_PROPERTY(QString name READ name)
+    Q_PROPERTY(QString url READ url)
 public:
     OSMElement();
     explicit OSMElement(OSM::Element e);
     ~OSMElement();
 
-    bool isNull() const;
-    QString name() const;
+    [[nodiscard]] bool isNull() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QString url() const;
 
-    Q_INVOKABLE QString tagValue(const QString &key) const;
+    [[nodiscard]] Q_INVOKABLE QString tagValue(const QString &key) const;
 
     // @internal
-    OSM::Element element() const;
+    [[nodiscard]] OSM::Element element() const;
 
 private:
     OSM::Element m_element;

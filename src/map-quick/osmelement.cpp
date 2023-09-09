@@ -26,6 +26,11 @@ QString OSMElement::name() const
     return QString::fromUtf8(m_element.tagValue(QLocale(), "name"));
 }
 
+QString OSMElement::url() const
+{
+    return m_element.url();
+}
+
 QString OSMElement::tagValue(const QString &key) const
 {
     return QString::fromUtf8(m_element.tagValue(key.toUtf8().constData()));
