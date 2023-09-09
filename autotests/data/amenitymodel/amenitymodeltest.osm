@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+SPDX-FileCopyrightText: none
+SPDX-License-Identifier: CC0-1.0
+-->
+<osm>
+    <node id="1" lat="0.0" lon="0.0">
+        <tag k="amenity" v="toilets"/>
+    </node>
+    <node id="2" lat="0.0" lon="0.0">
+        <tag k="amenity" v="fast_food"/>
+        <tag k="cuisine" v="burger"/>
+        <tag k="takeaway" v="yes"/>
+        <tag k="seating" v="no"/>
+        <tag k="opening_hours" v="12:00-23:00"/>
+        <tag k="diet:vegetarian" v="no"/>
+        <tag k="name" v="Burger Place"/>
+    </node>
+    <node id="3" lat="0.0" lon="0.0">
+        <tag k="amenity" v="charging_station"/>
+        <tag k="operator" v="Some Company"/>
+        <tag k="bicycle" v="no"/>
+        <tag k="motorcar" v="yes"/>
+    </node>
+    <node id="4" lat="0.0" lon="0.0">
+        <tag k="amenity" v="car_rental"/>
+        <tag k="brand" v="Some Company"/>
+        <tag k="level" v="0"/>
+    </node>
+    <node id="5" lat="0.0" lon="0.0">
+        <tag k="shop" v="supermarket"/>
+        <tag k="name" v="My Supermarket"/>
+        <tag k="opening_hours" v="Mo-Fr 06:00-22:00;Sa-Su 07:30-21:00"/>
+    </node>
+    <node id="6" lat="0.0" lon="0.0">
+        <tag k="amenity" v="cafe"/>
+        <tag k="name" v="DB Lounge"/>
+        <tag k="access" v="private"/>
+    </node>
+</osm>

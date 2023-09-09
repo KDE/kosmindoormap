@@ -15,3 +15,9 @@ endif()
 if (NOT CROSS_COMPILING)
     add_subdirectory(tools)
 endif()
+
+ecm_qt_install_logging_categories(
+    EXPORT KOSMINDOORMAP
+    FILE org_kde_kosmindoormap.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)

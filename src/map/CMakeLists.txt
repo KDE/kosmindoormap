@@ -164,8 +164,3 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kosmindoormap_export.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kosmindoormap
 )
-ecm_qt_install_logging_categories(
-    EXPORT KOSMINDOORMAP
-    FILE org_kde_kosmindoormap.categories
-    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
-)

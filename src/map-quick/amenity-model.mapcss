@@ -1,0 +1,210 @@
+/*
+    SPDX-FileCopyrightText: 2023 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+/* Amenity model content selection and classification
+ * - opacity is used to include/exclude elements
+ * - grouping is done via setting the layer tag to: food, shop, toilets, amenity, healthcare, accommodation
+ * - icon-image is used for the icon
+ * - font-family is the category name
+ * Note: Zoom levels are not set for this.
+ */
+
+*[office]
+{
+    opacity: 1;
+    icon-image: office;
+    font-family: office;
+    set layer = "amenity";
+}
+*[office=diplomatic][diplomatic] {
+    font-family: diplomatic;
+    icon-image: diplomatic;
+}
+*[office=government][government] { font-family: government; }
+*[office=government][!government] { opacity: 0; }
+*[office=travel_agent] { icon-image: "travel_agency"; }
+
+*[tourism]
+{
+    opacity: 1;
+    icon-image: tourism;
+    font-family: tourism;
+    set layer = "amenity";
+}
+*[tourism=gallery] { icon-image: "art"; }
+*[tourism=information] { opacity: 0; }
+*[tourism=information][information=office] { opacity: 1; }
+
+*[historic=archaeological_site],
+*[historic=castle],
+*[historic=monument]
+{
+    opacity: 1;
+    icon-image: historic;
+    font-family: historic;
+    set layer = "amenity";
+}
+
+*[leisure]
+{
+    opacity: 1;
+    icon-image: leisure;
+    font-family: leisure;
+    set layer = "amenity";
+}
+*[leisure=sports_centre][sport=swimming] { icon-image: "water_park"; }
+*[leisure=fitness_station] { icon-image: "fitness_centre"; }
+*[leisure=park][!name] { opacity: 0; }
+
+*[healthcare]
+{
+    opacity: 1;
+    icon-image: healthcare;
+    font-family: healthcare;
+}
+
+*[amenity]
+{
+    opacity: 1;
+    icon-image: amenity;
+    font-family: amenity;
+    set layer = "amenity";
+}
+*[amenity=clinic] { icon-image: "doctors"; }
+*[amenity=food_court] { icon-image: "restaurant"; }
+
+*[amenity=baggage_lockers],
+*[amenity=left_luggage],
+*[amenity=locker],
+*[amenity=lockers]
+{
+    icon-image: "luggage_locker";
+}
+
+*[amenity=lost_and_found],
+*[amenity=lost_found],
+*[amenity=lost_property],
+*[office=lost_property],
+*[office=lost_and_found]
+{
+    icon-image: "lost_property_office";
+}
+
+*[shop]
+{
+    opacity: 1;
+    icon-image: shop;
+    font-family: shop;
+    set layer = "shop";
+}
+*[shop=books] { icon-image: "library"; }
+*[shop=boutique] { icon-image: "clothes"; }
+*[shop=chocolate] { icon-image: "confectionery"; }
+*[shop=cosmetics] { icon-image: "perfumery"; }
+*[shop=dry_cleaning] { icon-image: "laundry"; }
+*[shop=farm] { icon-image: "greengrocer"; }
+*[shop=fashion] { icon-image: "clothes"; }
+*[shop=kiosk] { icon-image: "newsagent"; }
+*[shop=pastry] { icon-image: "confectionery"; }
+*[shop=wine] { icon-image: "alcohol"; }
+*[shop=wholesale] { icon-image: "trade"; }
+
+*[tourism=appartment],
+*[tourism=caravan_site],
+*[tourism=chalet],
+*[tourism=guest_house],
+*[tourism=hostel],
+*[tourism=hotel]
+{
+    set layer = "accommodation";
+}
+
+*[shop=massage]
+{
+    set layer = "amenity";
+}
+
+*[amenity=shower],
+*[amenity=toilets]
+{
+    set layer = "toilets";
+}
+
+*[amenity=clinic],
+*[amenity=dentist],
+*[amenity=doctors],
+*[amenity=pharmacy],
+*[healthcare],
+*[shop=hearing_aids],
+*[shop=medical_supply],
+*[shop=optician]
+{
+    set layer = "healthcare";
+}
+
+*[amenity=marketplace],
+*[office=travel_agent]
+{
+    set layer = "shop";
+}
+
+*[amenity=bar],
+*[amenity=biergarten],
+*[amenity=cafe],
+*[amenity=drinking_water],
+*[amenity=fast_food],
+*[amenity=food_court],
+*[amenity=ice_cream],
+*[amenity=pub],
+*[amenity=restaurant]
+{
+    set layer = "food";
+    font-family: amenity; // in case there is also a shop tagging on this
+}
+*[shop=bakery]
+{
+    set layer = "food";
+}
+
+*[amenity=bench],
+*[amenity=bicycle_parking],
+*[amenity=bicycle_rental],
+*[amenity=car_sharing],
+*[amenity=charging_station],
+*[amenity=college],
+*[amenity=clock][!tourism],
+*[amenity=fountain],
+*[amenity=kindergarten],
+*[amenity=motorcycle_parking],
+*[amenity=parcel_locker],
+*[amenity=parking],
+*[amenity=parking_entrance],
+*[amenity=parking_space],
+*[amenity=place_of_worship],
+*[amenity=recycling],
+*[amenity=school],
+*[amenity=shelter],
+*[amenity=smoking_area],
+*[amenity=taxi],
+*[amenity=telephone],
+*[amenity=ticket_validator],
+*[amenity=vending_machine],
+*[amenity=waiting_area],
+*[amenity=waste_basket],
+*[amenity=waste_disposal],
+*[leisure=garden],
+*[leisure=outdoor_seating],
+*[shop=disused],
+*[shop=vacant],
+*[tourism=artwork]
+{
+    opacity: 0;
+}
+
+*[access=no],
+*[access=private]
+{
+    opacity: 0;
+}

@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 add_library(KOSMIndoorMapQuick STATIC
+    amenitymodel.cpp
+    assets.qrc
     floorlevelchangemodel.cpp
     localization.cpp
     mapitem.cpp
@@ -15,6 +17,14 @@ target_link_libraries(KOSMIndoorMapQuick PUBLIC
     KF${KF_MAJOR_VERSION}::I18n
     KF${KF_MAJOR_VERSION}::I18nLocaleData
     KOSMIndoorMap
+)
+
+ecm_qt_declare_logging_category(KOSMIndoorMapQuick
+    HEADER logging.h
+    IDENTIFIER KOSMIndoorMap::Log
+    CATEGORY_NAME org.kde.kosmindoormap.quick
+    DESCRIPTION "KOSMIndoorMap (Quick Bindings)"
+    EXPORT KOSMINDOORMAP
 )
 
 set(kosmindoormapquickplugin_qml
