@@ -20,9 +20,14 @@ MapCSSStyle::MapCSSStyle()
     : d(new MapCSSStylePrivate)
 {}
 
-MapCSSStyle::MapCSSStyle(MapCSSStyle&&) = default;
+MapCSSStyle::MapCSSStyle(MapCSSStyle&&) noexcept = default;
 MapCSSStyle::~MapCSSStyle() = default;
-MapCSSStyle& MapCSSStyle::operator=(MapCSSStyle&&) = default;
+MapCSSStyle& MapCSSStyle::operator=(MapCSSStyle&&) noexcept = default;
+
+bool MapCSSStyle::isEmpty() const
+{
+    return d->m_rules.empty();
+}
 
 void MapCSSStyle::compile(const OSM::DataSet &dataSet)
 {

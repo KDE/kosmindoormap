@@ -7,6 +7,8 @@
 #ifndef KOSMINDOORMAP_MAPCSSRESULT_P_H
 #define KOSMINDOORMAP_MAPCSSRESULT_P_H
 
+#include "kosmindoormap_export.h"
+
 #include "mapcssdeclaration_p.h"
 #include "mapcsstypes.h"
 
@@ -20,7 +22,7 @@ class TagKey;
 namespace KOSMIndoorMap {
 
 /** Result of MapCSS stylesheet evaluation for a single layer selector. */
-class MapCSSResultItem
+class KOSMINDOORMAP_EXPORT MapCSSResultItem
 {
 public:
     explicit MapCSSResultItem();
@@ -29,27 +31,27 @@ public:
     void clear();
 
     /** Returns @c true if an area/polygon needs to be drawn. */
-    bool hasAreaProperties() const;
+    [[nodiscard]] bool hasAreaProperties() const;
     /** Returns @c true if a way/line needs to be drawn. */
-    bool hasLineProperties() const;
+    [[nodiscard]] bool hasLineProperties() const;
     /** Returns @c true if a label needs to be drawn. */
-    bool hasLabelProperties() const;
+    [[nodiscard]] bool hasLabelProperties() const;
 
     /** Returns the declaration for property @prop, or @c nullptr is this property isn't set. */
-    const MapCSSDeclaration* declaration(MapCSSDeclaration::Property prop) const;
+    [[nodiscard]] const MapCSSDeclaration* declaration(MapCSSDeclaration::Property prop) const;
     /** The active declarations for the queried element. */
-    const std::vector<const MapCSSDeclaration*>& declarations() const;
+    [[nodiscard]] const std::vector<const MapCSSDeclaration*>& declarations() const;
 
     /** The layer selector for this result. */
-    LayerSelectorKey layerSelector() const;
+    [[nodiscard]] LayerSelectorKey layerSelector() const;
 
     /** Tag lookup for tags overridden by the style sheet. */
-    QByteArray tagValue(OSM::TagKey key) const;
+    [[nodiscard]] QByteArray tagValue(OSM::TagKey key) const;
 
     /** @internal */
     void addDeclaration(const MapCSSDeclaration *decl);
     void addClass(ClassSelectorKey cls);
-    bool hasClass(ClassSelectorKey cls) const;
+    [[nodiscard]] bool hasClass(ClassSelectorKey cls) const;
     void setLayerSelector(LayerSelectorKey layer);
     void setTag(OSM::Tag &&tag);
 
@@ -62,7 +64,7 @@ private:
 };
 
 /** Result of MapCSS stylesheet evaluation for all layer selectors. */
-class MapCSSResult
+class KOSMINDOORMAP_EXPORT MapCSSResult
 {
 public:
     explicit MapCSSResult();

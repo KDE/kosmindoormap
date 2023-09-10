@@ -32,11 +32,14 @@ public:
     /** Creates an invalid/empty style. */
     explicit MapCSSStyle();
     MapCSSStyle(const MapCSSStyle&) = delete;
-    MapCSSStyle(MapCSSStyle&&);
+    MapCSSStyle(MapCSSStyle&&) noexcept;
     ~MapCSSStyle();
 
     MapCSSStyle& operator=(const MapCSSStyle&) = delete;
-    MapCSSStyle& operator=(MapCSSStyle&&);
+    MapCSSStyle& operator=(MapCSSStyle&&) noexcept;
+
+    /** Returns @c true if this is a default-constructed or otherwise empty/invalud style. */
+    [[nodiscard]] bool isEmpty() const;
 
     /** Optimizes style sheet rules for application against @p dataSet.
      *  This does resolve tag keys and is therefore mandatory when changing the data set.
