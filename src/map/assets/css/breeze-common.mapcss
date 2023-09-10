@@ -667,6 +667,7 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
 *|z19- [amenity=biergarten],
 *|z19- [amenity=cafe],
 *|z19- [amenity=fast_food],
+*|z18- [amenity=food_court],
 *|z19- [amenity=ice_cream],
 *|z19- [amenity=pub],
 *|z19- [amenity=restaurant]
@@ -674,6 +675,7 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
     icon-image: amenity;
     set .food;
 }
+*|z18-[amenity=food_court] { icon-image: "restaurant"; }
 
 // shops
 * [shop] { set .shop; }
@@ -759,6 +761,11 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
 *|z19- [shop=pastry] { icon-image: "confectionery"; }
 *|z19- [shop=wine] { icon-image: "alcohol"; }
 *|z19- [shop=wholesale] { icon-image: "trade"; }
+*|z19- [office=travel_agent]
+{
+    icon-image: "travel_agency";
+    set .shop;
+}
 
 *|z18- [amenity=marketplace]
 {
@@ -774,6 +781,11 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
 *|z20- [amenity=veterinary]
 {
     icon-image: amenity;
+    set .health;
+}
+*|z19- [amenity=clinic]
+{
+    icon-image: "doctors";
     set .health;
 }
 
