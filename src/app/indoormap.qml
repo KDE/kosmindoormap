@@ -13,6 +13,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kpublictransport 1.0 as PublicTransport
 import org.kde.kosmindoormap 1.0
 import org.kde.kosmindoormap.kpublictransport 1.0
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
@@ -366,7 +367,7 @@ Kirigami.ApplicationWindow {
 
     Component {
         id: aboutPage
-        Kirigami.AboutPage {
+        FormCard.AboutPage {
             aboutData: {
                 "displayName": "KDE OSM Indoor Map",
                 "productName": "org.kde.kosmindoormap",
@@ -374,14 +375,14 @@ Kirigami.ApplicationWindow {
                 "shortDescription": "OSM Indoor Map Demo",
                 "homepage": "https://kde.org/",
                 "bugAddress": "submit@bugs.kde.org",
-                "version": "21.04",
+                "version": "23.08",
                 "licenses": [
                     {
                         "name": "LGPL 2.0 or later",
                         "spdx": "LGPL-2.0-or-later"
                     }
                 ],
-                "copyrightStatement": "© 2020-2021 The KDE Team",
+                "copyrightStatement": "© 2020-2023 The KDE Team",
                 "desktopFileName": "kosmindoormap"
             }
         }
