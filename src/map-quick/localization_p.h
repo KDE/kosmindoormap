@@ -69,12 +69,10 @@ inline QString translateValues(const QByteArray &values, const MapEntry(&map)[N]
     out.reserve(l.size());
     for (const auto &value : l) {
         const auto s = translateValue(value.constData(), map, opt);
-        if (!s.isEmpty()) {
+        if (!s.isEmpty() && !out.contains(s)) {
             out.push_back(s);
         }
     }
-    std::sort(out.begin(), out.end());
-    out.erase(std::unique(out.begin(), out.end()), out.end());
     return QLocale().createSeparatedList(out);
 }
 
