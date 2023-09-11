@@ -5,75 +5,11 @@
 */
 
 #include "localization_p.h"
+#include "osmelementinformationmodel.h"
 
 #include <KLazyLocalizedString>
 
 namespace KOSMIndoorMap {
-
-// TODO expand this, see https://taginfo.openstreetmap.org/keys/cuisine#values
-static constexpr const ValueMapEntry cuisine_map[] = {
-    { "american", kli18nc("OSM::cuisine", "American") },
-    { "arab", kli18nc("OSM::cuisine", "Arab") },
-    { "argentinian", kli18nc("OSM::cuisine", "Argentinian") },
-    { "asian", kli18nc("OSM::cuisine", "Asian") },
-    { "austrian", kli18nc("OSM::cuisine", "Austrian") },
-    { "barbecue", kli18nc("OSM::cuisine", "BBQ") },
-    { "bbq", kli18nc("OSM::cuisine", "BBQ") },
-    { "brazilian", kli18nc("OSM::cuisine", "Brazilian") },
-    { "breakfast", kli18nc("OSM::cuisine", "Breakfast") },
-    { "burger", kli18nc("OSM::cuisine", "Burger") },
-    { "cake", kli18nc("OSM::cuisine", "Cake") },
-    { "chicken", kli18nc("OSM::cuisine", "Chicken") },
-    { "chinese", kli18nc("OSM::cuisine", "Chinese") },
-    { "coffee_shop", kli18nc("OSM::cuisine", "Coffee Shop") },
-    { "cookies", kli18nc("OSM::cuisine", "Cookies") },
-    { "crepe", kli18nc("OSM::cuisine", "Crêpe") },
-    { "donut", kli18nc("OSM::cuisine", "Donut") },
-    { "falafel", kli18nc("OSM::cuisine", "Falafel") },
-    { "fish", kli18nc("OSM::cuisine", "Fish") },
-    { "fish_and_chips", kli18nc("OSM::cuisine", "Fish & Chips") },
-    { "french", kli18nc("OSM::cuisine", "French") },
-    { "german", kli18nc("OSM::cuisine", "German") },
-    { "greek", kli18nc("OSM::cuisine", "Greek") },
-    { "ice_cream", kli18nc("OSM::cuisine", "Ice Cream") },
-    { "indian", kli18nc("OSM::cuisine", "Indian") },
-    { "indonesian", kli18nc("OSM::cuisine", "Indonesian") },
-    { "international", kli18nc("OSM::cuisine", "International") },
-    { "italian", kli18nc("OSM::cuisine", "Italian") },
-    { "italian_pizza", kli18nc("OSM::cuisine", "Pizza") },
-    { "japanese", kli18nc("OSM::cuisine", "Japanese") },
-    { "juice", kli18nc("OSM::cuisine", "Juice") },
-    { "kebab", kli18nc("OSM::cuisine", "Kebab") },
-    { "korean", kli18nc("OSM::cuisine", "Korean") },
-    { "lebanese", kli18nc("OSM::cuisine", "Lebanese") },
-    { "local", kli18nc("OSM::cuisine", "Local") },
-    { "mediterranean", kli18nc("OSM::cuisine", "Mediterranean") },
-    { "mexican", kli18nc("OSM::cuisine", "Mexican") },
-    { "noodle", kli18nc("OSM::cuisine", "Noodle") },
-    { "pakistani", kli18nc("OSM::cuisine", "Pakistani") },
-    { "pancake", kli18nc("OSM::cuisine", "Pancake") },
-    { "pasta", kli18nc("OSM::cuisine", "Pasta") },
-    { "pizza", kli18nc("OSM::cuisine", "Pizza") },
-    { "polish", kli18nc("OSM::cuisine", "Polish") },
-    { "portuguese", kli18nc("OSM::cuisine", "Portuguese") },
-    { "ramen", kli18nc("OSM::cuisine", "Ramen") },
-    { "regional", kli18nc("OSM::cuisine", "Regional") },
-    { "salad", kli18nc("OSM::cuisine", "Salad") },
-    { "sandwich", kli18nc("OSM::cuisine", "Sandwich") },
-    { "sausage", kli18nc("OSM::cuisine", "Sausage") },
-    { "seafood", kli18nc("OSM::cuisine", "Seafood") },
-    { "soup", kli18nc("OSM::cuisine", "Soup") },
-    { "spanish", kli18nc("OSM::cuisine", "Spanish") },
-    { "steak", kli18nc("OSM::cuisine", "Steak") },
-    { "steak_house", kli18nc("OSM::cuisine", "Steak") },
-    { "sushi", kli18nc("OSM::cuisine", "Sushi") },
-    { "tapas", kli18nc("OSM::cuisine", "Tapas") },
-    { "thai", kli18nc("OSM::cuisine", "Thai") },
-    { "turkish", kli18nc("OSM::cuisine", "Turkish") },
-    { "vegetarian", kli18nc("OSM::cuisine", "Vegetarian") },
-    { "vietnamese", kli18nc("OSM::cuisine", "Vietnamese") },
-};
-static_assert(isSortedLookupTable(cuisine_map), "cuising map is not sorted!");
 
 // diet types offered at restaurants
 struct {

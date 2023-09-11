@@ -618,7 +618,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             }
             return QLocale().createSeparatedList(l);
         }
-        case Cuisine: return translateValues(m_element.tagValue("cuisine"), cuisine_map);
+        case Cuisine: return Localization::cuisineTypes(m_element.tagValue("cuisine"));
         case Diet:
         {
             QStringList l;

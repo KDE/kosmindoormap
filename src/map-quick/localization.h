@@ -6,6 +6,7 @@
 #ifndef KOSMINDOORMAP_LOCALIZATION_H
 #define KOSMINDOORMAP_LOCALIZATION_H
 
+class QByteArray;
 class QString;
 
 namespace KOSMIndoorMap {
@@ -28,6 +29,8 @@ bool hasAmenityTypeTranslation(const char *value);
  */
 QString amenityType(const char *value, Localization::TranslationOption opt = Localization::ReturnUnknownKey);
 
+/** Translated values of the cuisine tag (does list splitting). */
+QString cuisineTypes(const QByteArray &value, Localization::TranslationOption opt = Localization::ReturnUnknownKey);
 }
 
 }
