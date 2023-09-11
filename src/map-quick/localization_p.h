@@ -62,13 +62,13 @@ inline bool hasTranslatedValue(const char *value, const MapEntry(&map)[N])
 }
 
 template <typename MapEntry, std::size_t N>
-inline QString translateValues(const QByteArray &values, const MapEntry(&map)[N])
+inline QString translateValues(const QByteArray &values, const MapEntry(&map)[N], Localization::TranslationOption opt = Localization::ReturnUnknownKey)
 {
     const auto l = values.split(';');
     QStringList out;
     out.reserve(l.size());
     for (const auto &value : l) {
-        const auto s = translateValue(value.constData(), map);
+        const auto s = translateValue(value.constData(), map, opt);
         if (!s.isEmpty()) {
             out.push_back(s);
         }
