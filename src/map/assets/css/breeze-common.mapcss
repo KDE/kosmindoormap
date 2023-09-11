@@ -117,7 +117,8 @@ area|z21- [allotments=plot]
 *|z19- [tourism=information],
 *|z21- [tourism],
 *|z19- [shop=mall],
-*|z21- [historic]
+*|z21- [historic],
+*|z21- [diplomatic]
 {
     text: name;
     max-width: 100;
@@ -883,9 +884,10 @@ node|z20- [leisure=firepit]
     icon-image: leisure;
     set .amenity;
 }
-*|z19- [office=diplomatic][embassy]
+*|z19- [diplomatic=consulate],
+*|z19- [diplomatic=embassy]
 {
-    icon-image: "embassy";
+    icon-image: diplomatic;
     set .amenity;
 }
 *|z18- [information=office]
