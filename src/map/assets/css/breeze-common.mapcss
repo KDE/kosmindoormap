@@ -902,6 +902,7 @@ node|z19- [amenity=drinking_water]
     text: "";
 }
 
+*|z19- [amenity=left_luggage],
 *|z19- [amenity=lockers]
 {
     icon-image: "luggage_locker";
