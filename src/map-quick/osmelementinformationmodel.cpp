@@ -196,6 +196,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("cuisine", Cuisine, Main),
     M("description", Description, Main),
     M("diaper", DiaperChangingTable, UnresolvedCategory),
+    M("diplomatic", Category, Header),
     M("email", Email, Contact),
     M("fee", Fee, UnresolvedCategory),
     M("genus", Name, Header),
@@ -562,7 +563,11 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             appendNonEmpty(m_element.tagValue("shop"), l);
             appendNonEmpty(m_element.tagValue("tourism"), l);
             appendNonEmpty(m_element.tagValue("vending"), l);
-            appendNonEmpty(m_element.tagValue("office"), l);
+            const auto diplomatic = m_element.tagValue("diplomatic");
+            appendNonEmpty(diplomatic, l);
+            if (diplomatic.isEmpty()) {
+                appendNonEmpty(m_element.tagValue("office"), l);
+            }
             appendNonEmpty(m_element.tagValue("leisure"), l);
             appendNonEmpty(m_element.tagValue("historic"), l);
             appendNonEmpty(m_element.tagValue("mx:vehicle"), l);
