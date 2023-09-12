@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC0-1.0
     </node>
     <node id="2" lat="0.0" lon="0.0">
         <tag k="amenity" v="fast_food"/>
-        <tag k="cuisine" v="burger"/>
+        <tag k="cuisine" v="burger;wings"/>
         <tag k="takeaway" v="yes"/>
         <tag k="seating" v="no"/>
         <tag k="opening_hours" v="12:00-23:00"/>
