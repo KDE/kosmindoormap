@@ -4,11 +4,11 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.1 as QQC2
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as QQC2
 import Qt.labs.platform 1.0 as QPlatform
-import org.kde.kirigami 2.6 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kpublictransport 1.0 as PublicTransport
 import org.kde.kosmindoormap 1.0
 import org.kde.kosmindoormap.kpublictransport 1.0
@@ -112,6 +112,11 @@ Kirigami.ApplicationWindow {
                     text: "Find Gate"
                     onTriggered: gateSheet.sheetOpen = true
                     visible: !gateModel.isEmpty
+                },
+                Kirigami.Action {
+                    id: amenityAction
+                    text: "Find Amenity"
+                    onTriggered: amenitySheet.open()
                 }
             ]
         }
@@ -220,6 +225,53 @@ Kirigami.ApplicationWindow {
                         gateSheet.sheetOpen = false
                     }
                 }
+            }
+        }
+
+        AmenityModel {
+            id: amenityModel
+            mapData: page.map.mapData
+        }
+
+        Kirigami.OverlaySheet {
+            id: amenitySheet
+            header: Kirigami.Heading {
+                text: "Find Amenity"
+            }
+
+            ListView {
+                model: AmenitySortFilterProxyModel {
+                    sourceModel: amenitySheet.sheetOpen ? amenityModel : null
+                    filterCaseSensitivity: Qt.CaseInsensitive
+                    filterString: amenitySearchField.text
+                }
+
+                delegate: IndoorMapAmenityDelegate {
+                    id: item
+                    mapData: page.map.mapData
+                    required property QtObject model
+                    onClicked: {
+                        page.map.view.floorLevel = item.model.level
+                        page.map.view.centerOnGeoCoordinate(item.model.coordinate);
+                        page.map.view.setZoomLevel(21, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
+                        console.log(item.model.element.url);
+                        amenitySheet.close();
+                    }
+                }
+
+                section.property: "groupName"
+                section.delegate: Kirigami.ListSectionHeader {
+                    label: section
+                }
+            }
+
+            footer: Kirigami.SearchField {
+                id: amenitySearchField
+                focus: true
+            }
+            onSheetOpenChanged: {
+                if (sheetOpen)
+                    amenitySearchField.clear();
             }
         }
 
