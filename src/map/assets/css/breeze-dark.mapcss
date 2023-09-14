@@ -198,6 +198,7 @@ way[railway=narrow_gauge]
 *.health[mx:closed] { icon-color: #bdc3c7; }
 
 /** Specific elements */
+area[amenity=shower],
 area[amenity=toilets],
 area[room=toilets]
 {

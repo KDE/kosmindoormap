@@ -624,6 +624,12 @@ node|z19-[barrier=toll_booth]
 }
 
 // restrooms
+area|z20-[amenity=shower] { icon-image: "shower"; }
+node|z20-[amenity=shower]
+{
+    icon-color: #3daee9;
+    icon-image: "shower";
+}
 area|z18-[amenity=toilets],
 area|z18-[room=toilets]
 {
