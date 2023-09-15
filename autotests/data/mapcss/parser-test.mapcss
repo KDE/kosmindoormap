@@ -141,3 +141,6 @@ node::default {
 
 // negative tag values
 area[landuse] { set layer = -10; }
+
+// url properties
+area[natural=rock] { fill-image: url("rock_overlay.png"); }

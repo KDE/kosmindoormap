@@ -289,7 +289,8 @@ PropertyName:
 | T_IDENT T_DASH PropertyName { $$.str = $1.str; $$.len = $3.str - $1.str + $3.len; }
 ;
 
-// TODO incomplete: missing size, url, eval
+// TODO incomplete: missing size, eval
+// TODO url does not preserve type, and argument quoting differs from spec
 PropertyValue:
   Key { $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration); $$->setIdentifierValue($1.str, $1.len); }
 | T_HEX_COLOR { $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration); $$->setColorRgba($1); }
@@ -314,6 +315,10 @@ PropertyValue:
     c |= (uint32_t)($G * 255.0) << 8;
     c |= (uint32_t)($B * 255.0) << 0;
     $$->setColorRgba(c);
+  }
+| T_KEYWORD_URL T_LPAREN T_STRING[S] T_RPAREN {
+    $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration);
+    $$->setStringValue($S);
   }
 ;
 

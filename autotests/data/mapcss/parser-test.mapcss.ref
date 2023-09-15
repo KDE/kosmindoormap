@@ -167,3 +167,8 @@ area[landuse]
     set layer = -10;
 }
 
+area[natural=rock]
+{
+    fill-image: "rock_overlay.png";
+}
+
