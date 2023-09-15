@@ -115,6 +115,10 @@ area|z21- [allotments=plot]
 *|z21- [indoor=room][name],
 *|z21- [leisure],
 *|z19- [tourism=information],
+*|z18- [tourism=zoo],
+*|z18- [tourism=theme_park],
+*|z20- [tourism=attraction],
+*|z20- [attraction],
 *|z21- [tourism],
 *|z19- [shop=mall],
 *|z21- [historic],
@@ -909,6 +913,7 @@ node|z19- [amenity=drinking_water]
 }
 
 *|z19- [amenity=left_luggage],
+*|z19- [amenity=locker],
 *|z19- [amenity=lockers]
 {
     icon-image: "luggage_locker";
