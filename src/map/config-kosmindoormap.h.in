@@ -7,6 +7,4 @@
 #ifndef KOSMINDOORMAP_CONFIG_H
 #define KOSMINDOORMAP_CONFIG_H
 
-#cmakedefine01 HAVE_KOPENINGHOURS
-
 #endif

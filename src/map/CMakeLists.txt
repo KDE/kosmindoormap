@@ -1,9 +1,6 @@
 # SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-if (TARGET KOpeningHours)
-    set(HAVE_KOPENINGHOURS TRUE)
-endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-kosmindoormap.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kosmindoormap.h)
 
 flex_target(mapcssscanner
@@ -99,11 +96,8 @@ target_include_directories(KOSMIndoorMap PUBLIC $<BUILD_INTERFACE:${CMAKE_CURREN
 target_include_directories(KOSMIndoorMap INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(KOSMIndoorMap
     PUBLIC Qt::Gui KOSM
-    PRIVATE Qt::Network Qt::CorePrivate
+    PRIVATE KOpeningHours Qt::Network Qt::CorePrivate
 )
-if (TARGET KOpeningHours)
-    target_link_libraries(KOSMIndoorMap PRIVATE KOpeningHours)
-endif()
 
 ecm_generate_headers(KOSMIndoorMap_Content_FORWARDING_HEADERS
     HEADER_NAMES

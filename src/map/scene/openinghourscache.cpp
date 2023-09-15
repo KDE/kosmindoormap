@@ -4,14 +4,11 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "config-kosmindoormap.h"
 #include "openinghourscache_p.h"
 #include "logging.h"
 
-#if HAVE_KOPENINGHOURS
 #include <KOpeningHours/Interval>
 #include <KOpeningHours/OpeningHours>
-#endif
 
 #include <QTimeZone>
 
@@ -49,11 +46,6 @@ void OpeningHoursCache::setTimeRange(const QDateTime &begin, const QDateTime &en
 
 bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
 {
-#if !HAVE_KOPENINGHOURS
-    Q_UNUSED(elem);
-    Q_UNUSED(oh);
-    return false;
-#else
     const auto key = elem.id();
     const auto it = std::lower_bound(m_cacheEntries.begin(), m_cacheEntries.end(), key, [](auto lhs, auto rhs) {
         return lhs.key < rhs;
@@ -83,5 +75,4 @@ bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
     }
     m_cacheEntries.insert(it, {key, closed});
     return closed;
-#endif
 }

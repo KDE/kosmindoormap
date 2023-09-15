@@ -44,7 +44,7 @@ find_package(Qt${QT_MAJOR_VERSION} 5.15 OPTIONAL_COMPONENTS Widgets)
 find_package(KF${KF_MAJOR_VERSION} REQUIRED COMPONENTS I18n)
 find_package(KPublicTransport REQUIRED)
 find_package(KOpeningHours)
-set_package_properties(KOpeningHours PROPERTIES TYPE OPTIONAL PURPOSE "Highlight currently open amenities/shops/etc.")
+set_package_properties(KOpeningHours PROPERTIES TYPE REQUIRED PURPOSE "Highlight currently open amenities/shops/etc.")
 
 if (BUILD_TESTING)
     find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Test Widgets)
