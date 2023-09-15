@@ -13,6 +13,7 @@
 #include "poleofinaccessibilityfinder_p.h"
 #include "scenegeometry_p.h"
 #include "openinghourscache_p.h"
+#include "texturecache_p.h"
 #include "../style/mapcssdeclaration_p.h"
 #include "../style/mapcssstate_p.h"
 #include "../style/mapcssresult_p.h"
@@ -45,6 +46,7 @@ public:
     QColor m_defaultTextColor;
     QFont m_defaultFont;
     QPolygonF m_labelPlacementPath;
+    TextureCache m_textureCache;
     IconLoader m_iconLoader;
     OpeningHoursCache m_openingHours;
     PoleOfInaccessibilityFinder m_piaFinder;
@@ -253,24 +255,34 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             applyPenStyle(e, decl, item->pen, lineOpacity, item->penWidthUnit);
             switch (decl->property()) {
                 case MapCSSDeclaration::FillColor:
-                    item->brush.setColor(decl->colorValue());
-                    item->brush.setStyle(Qt::SolidPattern);
+                    item->fillBrush.setColor(decl->colorValue());
+                    item->fillBrush.setStyle(Qt::SolidPattern);
                     break;
                 case MapCSSDeclaration::FillOpacity:
                     fillOpacity = decl->doubleValue();
+                    break;
+                case MapCSSDeclaration::FillImage:
+                    item->textureBrush.setTextureImage(d->m_textureCache.image(decl->stringValue()));
                     break;
                 default:
                     break;
             }
         }
         finalizePen(item->pen, lineOpacity);
-        if (item->brush.style() == Qt::SolidPattern && fillOpacity < 1.0) {
-            auto c = item->brush.color();
+        if (item->fillBrush.style() == Qt::SolidPattern && item->textureBrush.style() == Qt::NoBrush && fillOpacity < 1.0) {
+            auto c = item->fillBrush.color();
             c.setAlphaF(c.alphaF() * fillOpacity);
-            item->brush.setColor(c);
+            item->fillBrush.setColor(c);
         }
-        if (item->brush.color().alphaF() == 0.0) {
-            item->brush.setStyle(Qt::NoBrush);
+        if (item->fillBrush.color().alphaF() == 0.0) {
+            item->fillBrush.setStyle(Qt::NoBrush);
+        }
+        if (item->textureBrush.style() != Qt::NoBrush && fillOpacity > 0.0) {
+            auto c = item->textureBrush.color();
+            c.setAlphaF(fillOpacity);
+            item->textureBrush.setColor(c);
+        } else {
+            item->textureBrush.setStyle(Qt::NoBrush);
         }
 
         addItem(sg, e, level, result, std::move(baseItem));

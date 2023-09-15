@@ -19,6 +19,8 @@
 #include <QLinearGradient>
 #include <QPainter>
 
+#include <cmath>
+
 using namespace KOSMIndoorMap;
 
 PainterRenderer::PainterRenderer() = default;
@@ -129,8 +131,17 @@ void PainterRenderer::beginPhase(SceneGraphItemPayload::RenderPhase phase)
 void PainterRenderer::renderPolygon(PolygonItem *item, SceneGraphItemPayload::RenderPhase phase)
 {
     if (phase == SceneGraphItemPayload::FillPhase) {
-        m_painter->setBrush(item->brush);
-        m_painter->drawPolygon(item->polygon);
+        if (item->fillBrush.style() != Qt::NoBrush) {
+            m_painter->setBrush(item->fillBrush);
+            m_painter->drawPolygon(item->polygon);
+        }
+        if (item->textureBrush.style() != Qt::NoBrush) {
+            item->textureBrush.setTransform(brushTransform());
+            m_painter->setOpacity(item->textureBrush.color().alphaF());
+            m_painter->setBrush(item->textureBrush);
+            m_painter->drawPolygon(item->polygon);
+            m_painter->setOpacity(1.0);
+        }
     } else {
         auto p = item->pen;
         p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
@@ -142,8 +153,17 @@ void PainterRenderer::renderPolygon(PolygonItem *item, SceneGraphItemPayload::Re
 void PainterRenderer::renderMultiPolygon(MultiPolygonItem *item, SceneGraphItemPayload::RenderPhase phase)
 {
     if (phase == SceneGraphItemPayload::FillPhase) {
-        m_painter->setBrush(item->brush);
-        m_painter->drawPath(item->path);
+        if (item->fillBrush.style() != Qt::NoBrush) {
+            m_painter->setBrush(item->fillBrush);
+            m_painter->drawPath(item->path);
+        }
+        if (item->textureBrush.style() != Qt::NoBrush) {
+            item->textureBrush.setTransform(brushTransform());
+            m_painter->setBrush(item->textureBrush);
+            m_painter->setOpacity(item->textureBrush.color().alphaF());
+            m_painter->drawPath(item->path);
+            m_painter->setOpacity(1.0);
+        }
     } else {
         auto p = item->pen;
         p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
@@ -291,4 +311,24 @@ double PainterRenderer::mapToSceneWidth(double width, Unit unit) const
     }
 
     return width;
+}
+
+QTransform PainterRenderer::brushTransform() const
+{
+    // the following is the easy solution here and produces the best quality rendering
+    // m_painter->transform().inverted().translate(m_painter->transform().dx(), m_painter->transform().dy());
+    // the downside however is that it's extremely irritating during continuous scaling
+
+    // the following does basically the same as the above, but with discrete zoom levels
+    // at the expense of rendering quality
+    constexpr const auto TextureZoomSteps = 5.0;
+    auto viewport = m_view->viewportForZoom(std::round(m_view->zoomLevel() * TextureZoomSteps) / TextureZoomSteps,
+                                            QPointF(m_view->screenWidth() / 2.0, m_view->screenHeight() / 2.0));
+    QTransform t;
+    t.scale(viewport.width() / m_view->screenWidth(), viewport.height() / m_view->screenHeight());
+    t.translate(viewport.x(), viewport.y());
+    return t;
+
+    // TODO maybe the best approach would be the best of both worlds, the second approach
+    // during continuous zooming, the first one when at a fixed zoom level?
 }

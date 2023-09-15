@@ -57,7 +57,7 @@ QRectF PolylineItem::boundingRect([[maybe_unused]] const View *view) const
 
 uint8_t PolygonBaseItem::renderPhases() const
 {
-    return (pen.style() == Qt::NoPen ? NoPhase : StrokePhase) | (brush.style() == Qt::NoBrush ? NoPhase : FillPhase);
+    return (pen.style() == Qt::NoPen ? NoPhase : StrokePhase) | (fillBrush.style() == Qt::NoBrush && textureBrush.style() == Qt::NoBrush ? NoPhase : FillPhase);
 }
 
 QRectF PolygonItem::boundingRect([[maybe_unused]] const View *view) const

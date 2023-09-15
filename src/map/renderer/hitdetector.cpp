@@ -128,10 +128,10 @@ bool HitDetector::itemContainsPoint(const LabelItem *item, QPointF screenPos, co
 float HitDetector::itemFillAlpha(const SceneGraphItem *item) const
 {
     if (const auto i = dynamic_cast<PolygonItem*>(item->payload.get())) {
-        return i->brush.color().alphaF();
+        return std::max(i->fillBrush.color().alphaF(), i->textureBrush.color().alphaF());
     }
     if (const auto i = dynamic_cast<MultiPolygonItem*>(item->payload.get())) {
-        return i->brush.color().alphaF();
+        return std::max(i->fillBrush.color().alphaF(), i->textureBrush.color().alphaF());
     }
     return 1.0f;
 }

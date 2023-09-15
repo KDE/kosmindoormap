@@ -106,7 +106,8 @@ class PolygonBaseItem : public SceneGraphItemPayload
 public:
     uint8_t renderPhases() const override;
 
-    QBrush brush = Qt::NoBrush;
+    QBrush fillBrush = Qt::NoBrush;
+    QBrush textureBrush = Qt::NoBrush;
     QPen pen;
     Unit penWidthUnit = Unit::Pixel;
 };

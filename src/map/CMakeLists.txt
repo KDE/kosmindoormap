@@ -48,6 +48,7 @@ target_sources(KOSMIndoorMap PRIVATE
     scene/scenegeometry.cpp
     scene/scenegraph.cpp
     scene/scenegraphitem.cpp
+    scene/texturecache.cpp
     scene/view.cpp
 
     style/mapcsscondition.cpp
