@@ -190,6 +190,7 @@ line[public_transport=platform][railway!=platform_edge]
 *.health[mx:closed] { icon-color: #7f8c8d; }
 
 /** Specific elements */
+area[amenity=shower],
 area[amenity=toilets],
 area[room=toilets]
 {

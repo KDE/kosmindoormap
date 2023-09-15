@@ -36,7 +36,8 @@ void MapCSSCondition::compile(const OSM::DataSet &dataSet)
 bool MapCSSCondition::matches(const MapCSSState &state) const
 {
     if (m_tagKey.isNull()) {
-        return false;
+        // if we couldn't compile the tag, it doesn't exist and thus can never be set
+        return m_op == KeyNotSet;
     }
 
     const auto v = state.element.tagValue(m_tagKey);

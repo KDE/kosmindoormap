@@ -241,6 +241,7 @@ static constexpr const KeyCategoryMapEntry localized_key_map[] = {
     M("name", Name, Header),
     M("loc_name", Name, Header),
     M("species", Name, Header),
+    M("species:wikipedia", Wikipedia, UnresolvedCategory),
     M("speech_output", SpeechOutput, Accessibility),
     M("wikipedia", Wikipedia, UnresolvedCategory),
 };
@@ -747,7 +748,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             }
             return QLocale().createSeparatedList(l);
         }
-        case Wikipedia: return wikipediaUrl(m_element.tagValue(QLocale(), "wikipedia", "brand:wikipedia"));
+        case Wikipedia: return wikipediaUrl(m_element.tagValue(QLocale(), "wikipedia", "brand:wikipedia", "species:wikipedia"));
         case Address: return QVariant::fromValue(OSMAddress(m_element));
         case Phone: return QString::fromUtf8(m_element.tagValue("contact:phone", "phone", "telephone", "operator:phone"));
         case Email: return QString::fromUtf8(m_element.tagValue("contact:email", "email", "operator:email"));
