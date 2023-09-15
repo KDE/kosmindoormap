@@ -8,6 +8,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import Qt.labs.platform 1.0 as QPlatform
+import Qt.labs.settings 1.0 as QSettings
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kpublictransport 1.0 as PublicTransport
 import org.kde.kosmindoormap 1.0
@@ -71,6 +72,10 @@ Kirigami.ApplicationWindow {
         onAccepted: page.map.styleSheet = mapcssDialog.file
     }
     PublicTransport.Manager { id: ptMgr }
+    QSettings.Settings {
+        id: settings
+        property alias debugMode: debugAction.checked
+    }
 
     pageStack.initialPage: IndoorMapPage {
         id: page
@@ -298,6 +303,9 @@ Kirigami.ApplicationWindow {
                 page.map.view.beginTime = new Date();
                 page.map.view.endTime = new Date(page.map.view.beginTime.getTime() + 3600000);
                 // TODO timezone
+
+                settings.setValue("latitude", locationSheet.coordinate.y);
+                settings.setValue("longitude", locationSheet.coordinate.x);
             }
         }
 
@@ -336,7 +344,7 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        coordinate: Qt.point(11.08196, 49.44572);
+        coordinate: Qt.point(settings.value("longitude", 11.08196), settings.value("latitude", 49.44572))
     }
 
     Connections {
