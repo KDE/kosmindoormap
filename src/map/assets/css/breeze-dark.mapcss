@@ -12,6 +12,8 @@ canvas {
     text-color: #eff0f1;
 }
 
+area[natural=bare_rock] { fill-opacity: 0.4; }
+
 /** Generic outdoor stuff */
 area[amenity=parking],
 area[amenity=bicycle_parking]

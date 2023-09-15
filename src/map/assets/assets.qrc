@@ -195,5 +195,27 @@
         <file>icons/water_tower.svg</file>
         <file>icons/waterfall.svg</file>
         <file>icons/windmill.svg</file>
+
+        <file>textures/allotments.svg</file>
+        <file>textures/beach.png</file>
+        <file>textures/grave_yard_generic.svg</file>
+        <file>textures/intermittent_water.svg</file>
+        <file>textures/leaftype_broadleaved.svg</file>
+        <file>textures/leaftype_leafless.svg</file>
+        <file>textures/leaftype_mixed.svg</file>
+        <file>textures/leaftype_needleleaved.svg</file>
+        <file>textures/leaftype_unknown.svg</file>
+        <file>textures/orchard.svg</file>
+        <file>textures/plant_nursery.svg</file>
+        <file>textures/quarry.svg</file>
+        <file>textures/rock_overlay.png</file>
+        <file>textures/scrub.png</file>
+        <file>textures/vineyard.svg</file>
+        <file>textures/wetland.png</file>
+        <file>textures/wetland_bog.png</file>
+        <file>textures/wetland_mangrove.png</file>
+        <file>textures/wetland_marsh.png</file>
+        <file>textures/wetland_reed.png</file>
+        <file>textures/wetland_swamp.png</file>
     </qresource>
 </RCC>

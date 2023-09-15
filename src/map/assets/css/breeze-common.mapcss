@@ -25,6 +25,12 @@ way[waterway]
 }
 way[waterway][width] { width: width; }
 
+area[natural=water][intermittent=yes]
+{
+    fill-opacity: 0.5;
+    fill-image: url("intermittent_water.svg");
+}
+
 *|z18- [amenity=fountain] {
     icon-image: amenity;
     icon-color: #2980b9;
@@ -34,33 +40,109 @@ way[waterway][width] { width: width; }
     icon-color: #2980b9;
 }
 
-area[leisure=garden],
 area[leisure=miniature_golf],
 area[leisure=park],
 area[leisure=pitch],
 area[leisure=playground],
 area[landuse=farmland],
-area[landuse=forest],
 area[landuse=grass],
 area[landuse=recreation_ground],
 area[landuse=village_green],
-area[landuse=allotments],
-area[landuse=cemetery],
 area[landuse=meadow],
 area[natural=grassland],
 area[natural=heath],
-area[natural=scrub],
-area[natural=wood],
 area[surface=grass]
 {
     fill-color: #1027ae60;
     z-index: -999;
 }
+area[landuse=cemetery]
+{
+    fill-color: #1027ae60;
+    fill-opacity: 0.4;
+    fill-image: url("grave_yard_generic.svg");
+    z-index: -999;
+}
+area[leisure=garden]
+{
+    fill-color: #1027ae60;
+    fill-opacity: 0.6;
+    fill-image: url("plant_nursery.svg");
+    z-index: -999;
+}
+area[landuse=plant_nursery]
+{
+    fill-color: #1027ae60;
+    z-index: -999;
+    fill-opacity: 0.5;
+    fill-image: url("plant_nursery.svg");
+}
+
 line[natural=tree_row]
 {
     color:  #1027ae60;
     width: 2m;
     linecap: round;
+}
+
+area[landuse=forest],
+area[natural=wood]
+{
+    fill-color: #1027ae60;
+    z-index: -999;
+    fill-opacity: 0.5;
+    fill-image: url("leaftype_unknown.svg");
+}
+area[landuse=forest][leaf_type=broadleaved],
+area[natural=wood][leaf_type=broadleaved]
+{
+    fill-image: url("leaftype_broadleaved.svg");
+}
+area[landuse=forest][leaf_type=leafless],
+area[natural=wood][leaf_type=leafless]
+{
+    fill-image: url("leaftype_leafless.svg");
+}
+area[landuse=forest][leaf_type=needleleaved],
+area[natural=wood][leaf_type=needleleaved]
+{
+    fill-image: url("leaftype_needleleaved.svg");
+}
+area[landuse=forest][leaf_type=mixed],
+area[natural=wood][leaf_type=mixed]
+{
+    fill-image: url("leaftype_mixed.svg");
+}
+
+area[landuse=orchard]
+{
+    fill-color: #1027ae60;
+    z-index: -999;
+    fill-opacity: 0.5;
+    fill-image: url("orchard.svg");
+}
+area[landuse=vineyard]
+{
+    fill-color: #1027ae60;
+    z-index: -999;
+    fill-opacity: 0.5;
+    fill-image: url("vineyard.svg");
+}
+
+area[natural=scrub]
+{
+    fill-color: #1027ae60;
+    z-index: -999;
+    fill-opacity: 0.5;
+    fill-image: url("scrub.png");
+}
+
+area[landuse=allotments]
+{
+    fill-color: #1027ae60;
+    z-index: -999;
+    fill-opacity: 0.5;
+    fill-image: url("allotments.svg");
 }
 
 area[natural=beach],
@@ -69,6 +151,49 @@ area[natural=sand]
     fill-color: #20fdbc4b;
     z-index: -999;
 }
+area[natural=beach][surface=sand] { fill-image: url("beach.png"); }
+
+area[natural=rock]
+{
+    fill-color: #20bdc3c7;
+    z-index: -999;
+}
+area[natural=bare_rock]
+{
+    fill-color: #20bdc3c7;
+    fill-image: url("rock_overlay.png");
+    z-index: -999;
+}
+area[landuse=quarry]
+{
+    fill-color: #20bdc3c7;
+    fill-image: url("quarry.svg");
+    z-index: -999;
+}
+
+area[natural=wetland],
+area[natural=mud]
+{
+    fill-color: #1027ae60;
+    fill-opacity: 0.5;
+    fill-image: url("wetland.png");
+    z-index: -999;
+}
+area[natural=wetland][wetland=bog],
+area[natural=wetland][wetland=fen],
+area[natural=wetland][wetland=string_bog]
+{
+    fill-image: url("wetland_bog.png");
+}
+area[natural=wetland][wetland=marsh],
+area[natural=wetland][wetland=saltmarsh],
+area[natural=wetland][wetland=wet_meadow]
+{
+    fill-image: url("wetland_marsh.png");
+}
+area[natural=wetland][wetland=mangrove] { fill-image: url("wetland_mangrove.png"); }
+area[natural=wetland][wetland=reedbed] { fill-image: url("wetland_reed.png"); }
+area[natural=wetland][wetland=swamp] { fill-image: url("wetland_swamp.png"); }
 
 node|z19-[natural=tree]
 {
