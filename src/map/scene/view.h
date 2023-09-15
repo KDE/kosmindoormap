@@ -83,6 +83,11 @@ public:
     QRectF viewport() const;
     void setViewport(const QRectF &viewport);
 
+    /** Computes the viewport for the given @p zoom level and @p screenCenter.
+     *  This does not apply the zoom change to the view itself though.
+     */
+    [[nodiscard]] QRectF viewportForZoom(double zoom, QPointF screenCenter) const;
+
     /** The bounding box of the scene.
      *  The viewport cannot exceed this area.
      */
@@ -145,6 +150,7 @@ Q_SIGNALS:
 private:
     /** Ensure we stay within the bounding box with the viewport, call after viewport modification. */
     void constrainViewToScene();
+    [[nodiscard]] QRectF constrainedViewport(QRectF viewport) const;
 
     QRectF m_bbox;
     QRectF m_viewport;

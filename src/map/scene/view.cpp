@@ -104,20 +104,7 @@ double View::zoomLevel() const
 
 void View::setZoomLevel(double zoom, QPointF screenCenter)
 {
-    auto z = std::pow(2.0, - std::min(zoom, (double)MaxZoomFactor));
-    const auto dx = ((screenWidth() / SceneWorldSize) * 360.0 * z) - m_viewport.width();
-    const auto dy = ((screenHeight() / SceneWorldSize) * 360.0 * z) - m_viewport.height();
-
-    const auto centerScene = mapScreenToScene(screenCenter);
-    if (!m_viewport.contains(centerScene)) {
-        return; // invalid input
-    }
-
-    const auto xr = (centerScene.x() - m_viewport.x()) / m_viewport.width();
-    const auto yr = (centerScene.y() - m_viewport.y()) / m_viewport.height();
-
-    m_viewport.adjust(-xr * dx, -yr * dy, (1-xr) * dx, (1-yr) * dy);
-    constrainViewToScene();
+    m_viewport = viewportForZoom(zoom, screenCenter);
     Q_EMIT transformationChanged();
 }
 
@@ -130,6 +117,25 @@ void View::setViewport(const QRectF &viewport)
 {
     m_viewport = viewport;
     constrainViewToScene();
+}
+
+QRectF View::viewportForZoom(double zoom, QPointF screenCenter) const
+{
+    auto z = std::pow(2.0, - std::min(zoom, (double)MaxZoomFactor));
+    const auto dx = ((screenWidth() / SceneWorldSize) * 360.0 * z) - m_viewport.width();
+    const auto dy = ((screenHeight() / SceneWorldSize) * 360.0 * z) - m_viewport.height();
+
+    const auto centerScene = mapScreenToScene(screenCenter);
+    if (!m_viewport.contains(centerScene)) {
+        return m_viewport; // invalid input
+    }
+
+    const auto xr = (centerScene.x() - m_viewport.x()) / m_viewport.width();
+    const auto yr = (centerScene.y() - m_viewport.y()) / m_viewport.height();
+
+    QRectF viewport(m_viewport);
+    viewport.adjust(-xr * dx, -yr * dy, (1-xr) * dx, (1-yr) * dy);
+    return constrainedViewport(viewport);
 }
 
 QRectF View::sceneBoundingBox() const
@@ -217,29 +223,36 @@ void View::zoomOut(QPointF screenCenter)
 
 void View::constrainViewToScene()
 {
+    m_viewport = constrainedViewport(m_viewport);
+}
+
+QRectF View::constrainedViewport(QRectF viewport) const
+{
     // ensure we don't scale smaller than the bounding box
-    const auto s = std::min(m_viewport.width() / m_bbox.width(), m_viewport.height() / m_bbox.height());
+    const auto s = std::min(viewport.width() / m_bbox.width(), viewport.height() / m_bbox.height());
     if (s > 1.0) {
-        m_viewport.setWidth(m_viewport.width() / s);
-        m_viewport.setHeight(m_viewport.height() / s);
+        viewport.setWidth(viewport.width() / s);
+        viewport.setHeight(viewport.height() / s);
     }
 
     // ensure we don't pan outside of the bounding box
-    if (m_bbox.left() < m_viewport.left() && m_bbox.right() < m_viewport.right()) {
-        const auto dx = std::min(m_viewport.left() - m_bbox.left(), m_viewport.right() - m_bbox.right());
-        m_viewport.adjust(-dx, 0, -dx, 0);
-    } else if (m_bbox.right() > m_viewport.right() && m_bbox.left() > m_viewport.left()) {
-        const auto dx = std::min(m_bbox.right() - m_viewport.right(), m_bbox.left() - m_viewport.left());
-        m_viewport.adjust(dx, 0, dx, 0);
+    if (m_bbox.left() < viewport.left() && m_bbox.right() < viewport.right()) {
+        const auto dx = std::min(viewport.left() - m_bbox.left(), viewport.right() - m_bbox.right());
+        viewport.adjust(-dx, 0, -dx, 0);
+    } else if (m_bbox.right() > viewport.right() && m_bbox.left() > viewport.left()) {
+        const auto dx = std::min(m_bbox.right() - viewport.right(), m_bbox.left() - viewport.left());
+        viewport.adjust(dx, 0, dx, 0);
     }
 
-    if (m_bbox.top() < m_viewport.top() && m_bbox.bottom() < m_viewport.bottom()) {
-        const auto dy = std::min(m_viewport.top() - m_bbox.top(), m_viewport.bottom() - m_bbox.bottom());
-        m_viewport.adjust(0, -dy, 0, -dy);
-    } else if (m_bbox.bottom() > m_viewport.bottom() && m_bbox.top() > m_viewport.top()) {
-        const auto dy = std::min(m_bbox.bottom() - m_viewport.bottom(), m_bbox.top() - m_viewport.top());
-        m_viewport.adjust(0, dy, 0, dy);
+    if (m_bbox.top() < viewport.top() && m_bbox.bottom() < viewport.bottom()) {
+        const auto dy = std::min(viewport.top() - m_bbox.top(), viewport.bottom() - m_bbox.bottom());
+        viewport.adjust(0, -dy, 0, -dy);
+    } else if (m_bbox.bottom() > viewport.bottom() && m_bbox.top() > viewport.top()) {
+        const auto dy = std::min(m_bbox.bottom() - viewport.bottom(), m_bbox.top() - viewport.top());
+        viewport.adjust(0, dy, 0, dy);
     }
+
+    return viewport;
 }
 
 double View::mapMetersToScene(double meters) const
