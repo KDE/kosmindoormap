@@ -149,6 +149,7 @@
         <file>icons/prison.svg</file>
         <file>icons/pub.svg</file>
         <file>icons/public_bath.svg</file>
+        <file>icons/public_bookcase.svg</file>
         <file>icons/public_transport_tickets.svg</file>
         <file>icons/rect.svg</file>
         <file>icons/recycling.svg</file>
@@ -192,6 +193,7 @@
         <file>icons/waste_disposal.svg</file>
         <file>icons/water_park.svg</file>
         <file>icons/water_tower.svg</file>
+        <file>icons/waterfall.svg</file>
         <file>icons/windmill.svg</file>
     </qresource>
 </RCC>

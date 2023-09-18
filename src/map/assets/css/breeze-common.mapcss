@@ -29,6 +29,10 @@ way[waterway][width] { width: width; }
     icon-image: amenity;
     icon-color: #2980b9;
 }
+*|z18- [waterway=waterfall] {
+    icon-image: waterway;
+    icon-color: #2980b9;
+}
 
 area[leisure=garden],
 area[leisure=miniature_golf],
@@ -122,7 +126,8 @@ area|z21- [allotments=plot]
 *|z21- [tourism],
 *|z19- [shop=mall],
 *|z21- [historic],
-*|z21- [diplomatic]
+*|z21- [diplomatic],
+*|z21- [office=coworking]
 {
     text: name;
     max-width: 100;
@@ -766,6 +771,7 @@ node|z18-[amenity=toilets] { // only for stand-alone nodes, otherwise we have th
 *|z19- [shop=chocolate] { icon-image: "confectionery"; }
 *|z19- [shop=cosmetics] { icon-image: "perfumery"; }
 *|z19- [shop=dry_cleaning] { icon-image: "laundry"; }
+*|z19- [shop=hardware] { icon-image: "doityourself"; }
 *|z19- [shop=farm] { icon-image: "greengrocer"; }
 *|z19- [shop=fashion] { icon-image: "clothes"; }
 *|z19- [shop=kiosk] { icon-image: "newsagent"; }
@@ -851,6 +857,7 @@ node|z20- [amenity=post_box],
 *|z19- [amenity=post_office],
 *|z19- [amenity=prison],
 *|z19- [amenity=public_bath],
+*|z21- [amenity=public_bookcase],
 *|z20- [amenity=recycling],
 *|z19- [amenity=social_facility],
 node|z20- [amenity=telephone],
