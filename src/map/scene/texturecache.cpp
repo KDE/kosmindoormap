@@ -8,6 +8,8 @@
 
 #include <QDebug>
 #include <QFile>
+#include <QGuiApplication>
+#include <QImageReader>
 
 using namespace KOSMIndoorMap;
 
@@ -23,8 +25,20 @@ QImage TextureCache::image(const QString &name) const
 
     CacheEntry entry;
     entry.name = name;
-    // TODO high-dpi support
-    entry.image = QImage(QLatin1String(":/org.kde.kosmindoormap/assets/textures/") + name);
+
+    const QString fileName = QLatin1String(":/org.kde.kosmindoormap/assets/textures/") + name;
+    if (name.endsWith(QLatin1String(".svg"))) {
+        QImageReader imgReader(fileName, "svg");
+        imgReader.setScaledSize(imgReader.size() * qGuiApp->devicePixelRatio());
+        entry.image = imgReader.read();
+        entry.image.setDevicePixelRatio(qGuiApp->devicePixelRatio());
+    } else {
+        // TODO high dpi raster image loading
+        // QImageReader is supposed to do that transparently, but that doesn't seem to work here?
+        QImageReader imgReader(fileName);
+        entry.image = imgReader.read();
+    }
+
     if (entry.image.isNull()) {
         qCWarning(Log) << "failed to load texture:" << name;
     } else {
