@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 00:44+0000\n"
+"POT-Creation-Date: 2023-09-18 00:44+0000\n"
 "PO-Revision-Date: 2023-08-20 10:48+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -33,1555 +33,1749 @@ msgstr "Schody ruchome"
 msgid "Staircase"
 msgstr "Klatka schodowa"
 
-#: map-quick/osmelementinformationmodel.cpp:21
+#: map-quick/localization_data.cpp:20
+msgctxt "OSM::amenity/shop"
+msgid "Alcohol"
+msgstr "Alkohol"
+
+#: map-quick/localization_data.cpp:21
+msgctxt "OSM::amenity/shop"
+msgid "Apartment"
+msgstr "Apartament"
+
+#: map-quick/localization_data.cpp:22
+msgctxt "OSM::amenity/shop"
+msgid "Arts Center"
+msgstr "Ośrodek sztuki"
+
+#: map-quick/localization_data.cpp:23
+msgctxt "OSM::amenity/shop"
+msgid "Artwork"
+msgstr "Sztuka"
+
+#: map-quick/localization_data.cpp:24
+msgctxt "OSM::amenity/shop"
+msgid "ATM"
+msgstr "Bankomat"
+
+#: map-quick/localization_data.cpp:25
+msgctxt "OSM::amenity/shop"
+msgid "Attraction"
+msgstr "Atrakcje"
+
+#: map-quick/localization_data.cpp:26
+msgctxt "OSM::amenity/shop"
+msgid "Bag"
+msgstr "Torba"
+
+#: map-quick/localization_data.cpp:27
+msgctxt "OSM::amenity"
+msgid "Baggage Claim"
+msgstr ""
+
+#: map-quick/localization_data.cpp:28
+msgctxt "OSM::amenity/shop"
+msgid "Bakery"
+msgstr "Piekarnia"
+
+#: map-quick/localization_data.cpp:29
+msgctxt "OSM::amenity/shop"
+msgid "Bank"
+msgstr "Bank"
+
+#: map-quick/localization_data.cpp:30
+msgctxt "OSM::amenity/shop"
+msgid "Bar"
+msgstr "Bar"
+
+#: map-quick/localization_data.cpp:31
+msgctxt "OSM::amenity/shop"
+msgid "Beauty"
+msgstr "Salon piękności"
+
+#: map-quick/localization_data.cpp:32
+msgctxt "OSM::amenity/shop"
+msgid "Bed"
+msgstr "Łóżko"
+
+#: map-quick/localization_data.cpp:33
+msgctxt "OSM::amenity"
+msgid "Bench"
+msgstr "Ławka"
+
+#: map-quick/localization_data.cpp:34
+msgctxt "OSM::amenity/shop"
+msgid "Beverages"
+msgstr "Napoje"
+
+#: map-quick/localization_data.cpp:35
+msgctxt "OSM::amenity/shop"
+msgid "Bicycle"
+msgstr "Rower"
+
+#: map-quick/localization_data.cpp:36
+msgctxt "OSM::amenity/shop"
+msgid "Bicycle Parking"
+msgstr "Miejsce postojowe dla rowerów"
+
+#: map-quick/localization_data.cpp:37
+msgctxt "OSM::amenity/shop"
+msgid "Bicycle Rental"
+msgstr "Wypożyczalnia rowerów"
+
+#: map-quick/localization_data.cpp:38
+msgctxt "OSM::amenity/shop"
+msgid "Books"
+msgstr "Książki"
+
+#: map-quick/localization_data.cpp:39
+msgctxt "OSM::amenity/shop"
+msgid "Boutique"
+msgstr "Butik"
+
+#: map-quick/localization_data.cpp:40
+msgctxt "OSM::amenity/shop"
+msgid "Bureau de Change"
+msgstr "Kantor"
+
+#: map-quick/localization_data.cpp:41
+msgctxt "OSM::amenity/shop"
+msgid "Butcher"
+msgstr "Mięsny"
+
+#: map-quick/localization_data.cpp:42
+msgctxt "OSM::amenity/shop"
+msgid "Cafe"
+msgstr "Kawiarnia"
+
+#: map-quick/localization_data.cpp:43
+msgctxt "OSM::amenity/shop"
+msgid "Car"
+msgstr "Samochód"
+
+#: map-quick/localization_data.cpp:44
+msgctxt "OSM::amenity/shop"
+msgid "Car Rental"
+msgstr "Wypożyczalnia samochodów"
+
+#: map-quick/localization_data.cpp:45
+msgctxt "OSM::amenity/shop"
+msgid "Car Sharing"
+msgstr "Udostępnianie aut"
+
+#: map-quick/localization_data.cpp:46
+msgctxt "OSM::amenity/shop"
+msgid "Charging Station"
+msgstr "Stacja ładowania"
+
+#: map-quick/localization_data.cpp:47
+msgctxt "OSM::amenity/shop"
+msgid "Chemist"
+msgstr "Chemia"
+
+#: map-quick/localization_data.cpp:48
+msgctxt "OSM::amenity/shop"
+msgid "Chocolate"
+msgstr "Czekolada"
+
+#: map-quick/localization_data.cpp:49
+msgctxt "OSM::amenity/shop"
+msgid "Cinema"
+msgstr "Kino"
+
+#: map-quick/localization_data.cpp:50
+msgctxt "OSM::historic"
+msgid "Citywall"
+msgstr "Mury miasta"
+
+#: map-quick/localization_data.cpp:51 map-quick/localization_data.cpp:52
+msgctxt "OSM::room"
+msgid "Classroom"
+msgstr "Klasa szkolna"
+
+#: map-quick/localization_data.cpp:53
+msgctxt "OSM::amenity/shop"
+msgid "Clothes"
+msgstr "Ubrania"
+
+#: map-quick/localization_data.cpp:54
+msgctxt "OSM::amenity/shop"
+msgid "Coffee"
+msgstr "Kawa"
+
+#: map-quick/localization_data.cpp:55
+msgctxt "OSM::amenity"
+msgid "Community Center"
+msgstr "Ośrodek społeczności"
+
+#: map-quick/localization_data.cpp:56
+msgctxt "OSM::amenity/shop"
+msgid "Computer"
+msgstr "Komputer"
+
+#: map-quick/localization_data.cpp:57
+msgctxt "OSM::amenity/shop"
+msgid "Confectionery"
+msgstr "Słodkości"
+
+#: map-quick/localization_data.cpp:58
+msgctxt "OSM::amenity/shop"
+msgid "Convenience Store"
+msgstr "Sklep osiedlowy"
+
+#: map-quick/localization_data.cpp:59
+msgctxt "OSM::amenity/shop"
+msgid "Copy Shop"
+msgstr "Drukarnia"
+
+#: map-quick/localization_data.cpp:60
+msgctxt "OSM::amenity/shop"
+msgid "Cosmetics"
+msgstr "Kosmetyczny"
+
+#: map-quick/localization_data.cpp:61
+msgctxt "OSM::amenity/shop"
+msgid "Court House"
+msgstr "Sąd"
+
+#: map-quick/localization_data.cpp:62
+msgctxt "OSM::amenity/shop"
+msgid "Deli"
+msgstr "Delikatesy"
+
+#: map-quick/localization_data.cpp:63
+msgctxt "OSM::amenity/shop"
+msgid "Department Store"
+msgstr "Dom towarowy"
+
+#: map-quick/localization_data.cpp:64
+msgctxt "OSM::amenity/shop"
+msgid "Doctor"
+msgstr "Lekarz"
+
+#: map-quick/localization_data.cpp:65
+msgctxt "OSM::amenity/shop"
+msgid "Hardware Store"
+msgstr "Sklep żelazny"
+
+#: map-quick/localization_data.cpp:66
+msgctxt "OSM::amenity/shop"
+msgid "Drinking Water"
+msgstr "Woda pitna"
+
+#: map-quick/localization_data.cpp:67
+msgctxt "OSM::amenity/shop"
+msgid "Dry Cleaning"
+msgstr "Czyszczenie na sucho"
+
+#: map-quick/localization_data.cpp:68
+msgctxt "OSM::amenity/shop"
+msgid "Electronics"
+msgstr "Elektronika"
+
+#: map-quick/localization_data.cpp:69
+msgctxt "OSM::amenity"
+msgid "Events Venue"
+msgstr "Miejsce wydarzeń"
+
+#: map-quick/localization_data.cpp:70
+msgctxt "OSM::amenity/shop"
+msgid "Fashion"
+msgstr "Moda"
+
+#: map-quick/localization_data.cpp:71
+msgctxt "OSM::amenity/shop"
+msgid "Fast Food"
+msgstr "Szybkie jedzenie"
+
+#: map-quick/localization_data.cpp:72
+msgctxt "OSM::amenity/shop"
+msgid "Ferry Terminal"
+msgstr "Terminal promów"
+
+#: map-quick/localization_data.cpp:73
+msgctxt "OSM::amenity/shop"
+msgid "Florist"
+msgstr "Florysta"
+
+#: map-quick/localization_data.cpp:74
+msgctxt "OSM::amenity/shop"
+msgid "Food Court"
+msgstr "Jadłodajnia"
+
+#: map-quick/localization_data.cpp:75
+msgctxt "OSM::amenity/shop"
+msgid "Fountain"
+msgstr "Fontanna"
+
+#: map-quick/localization_data.cpp:76
+msgctxt "OSM::amenity/shop"
+msgid "Furniture"
+msgstr "Meble"
+
+#: map-quick/localization_data.cpp:77
+msgctxt "OSM::amenity/shop"
+msgid "Gallery"
+msgstr "Galeria"
+
+#: map-quick/localization_data.cpp:78
+msgctxt "OSM::amenity/shop"
+msgid "Garden"
+msgstr "Ogród"
+
+#: map-quick/localization_data.cpp:79
+msgctxt "OSM::amenity/shop"
+msgid "Garden Center"
+msgstr "Przestrzeń zielona"
+
+#: map-quick/localization_data.cpp:80
+msgctxt "OSM::amenity/shop"
+msgid "Gift Shop"
+msgstr "Sklep z upominkami"
+
+#: map-quick/localization_data.cpp:81
+msgctxt "OSM::office"
+msgid "Government"
+msgstr "Władze"
+
+#: map-quick/localization_data.cpp:82
+msgctxt "OSM::amenity/shop"
+msgid "Greengrocer"
+msgstr "Warzywniak"
+
+#: map-quick/localization_data.cpp:83
+msgctxt "OSM::amenity/shop"
+msgid "Guest House"
+msgstr "Dom gościnny"
+
+#: map-quick/localization_data.cpp:84
+msgctxt "OSM::amenity/shop"
+msgid "Hairdresser"
+msgstr "Fryzjer"
+
+#: map-quick/localization_data.cpp:85
+msgctxt "OSM::amenity/shop"
+msgid "Hearing Aids"
+msgstr "Aparaty słuchowe"
+
+#: map-quick/localization_data.cpp:86
+msgctxt "OSM::amenity/shop"
+msgid "Hospital"
+msgstr "Szpital"
+
+#: map-quick/localization_data.cpp:87
+msgctxt "OSM::amenity/shop"
+msgid "Hostel"
+msgstr "Schronisko"
+
+#: map-quick/localization_data.cpp:88
+msgctxt "OSM::amenity/shop"
+msgid "Hotel"
+msgstr "Hotel"
+
+#: map-quick/localization_data.cpp:89
+msgctxt "OSM::amenity/shop"
+msgid "Houseware"
+msgstr "Sprzęt domowy"
+
+#: map-quick/localization_data.cpp:90
+msgctxt "OSM::amenity/shop"
+msgid "Ice Cream"
+msgstr "Lody"
+
+#: map-quick/localization_data.cpp:91
+msgctxt "OSM::amenity/shop"
+msgid "Information"
+msgstr "Punkt informacji"
+
+#: map-quick/localization_data.cpp:92
+msgctxt "OSM::amenity/shop"
+msgid "Interior Decoration"
+msgstr "Wystrój wnętrz"
+
+#: map-quick/localization_data.cpp:93
+msgctxt "OSM::amenity/shop"
+msgid "Internet Cafe"
+msgstr "Kawiarenka internetowa"
+
+#: map-quick/localization_data.cpp:94
+msgctxt "OSM::amenity/shop"
+msgid "Jewelry"
+msgstr "Jubiler"
+
+#: map-quick/localization_data.cpp:95
+msgctxt "OSM::amenity/shop"
+msgid "Kiosk"
+msgstr "Kiosk"
+
+#: map-quick/localization_data.cpp:96
+msgctxt "OSM::room"
+msgid "Kitchen"
+msgstr "Kuchnia"
+
+#: map-quick/localization_data.cpp:97
+msgctxt "OSM::amenity/shop"
+msgid "Laundry"
+msgstr "Pralnia"
+
+#: map-quick/localization_data.cpp:98 map-quick/localization_data.cpp:99
+msgctxt "OSM::room"
+msgid "Lecture Hall"
+msgstr "Sala wykładowa"
+
+#: map-quick/localization_data.cpp:100
+msgctxt "OSM::amenity/shop"
+msgid "Library"
+msgstr "Biblioteka"
+
+#: map-quick/localization_data.cpp:101 map-quick/localization_data.cpp:102
+#: map-quick/localization_data.cpp:106
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Locker"
+msgctxt "OSM::amenity"
+msgid "Locker"
+msgstr "Szafka"
+
+#: map-quick/localization_data.cpp:103
+msgctxt "OSM::amenity/shop"
+msgid "Locksmith"
+msgstr "Ślusarz"
+
+#: map-quick/localization_data.cpp:104 map-quick/localization_data.cpp:105
+msgctxt "OSM::amenity/shop"
+msgid "Lost & Found"
+msgstr "Zgubione i znalezione"
+
+#: map-quick/localization_data.cpp:107
+msgctxt "OSM::amenity/shop"
+msgid "Mall"
+msgstr "Centrum handlowe"
+
+#: map-quick/localization_data.cpp:108
+msgctxt "OSM::amenity"
+msgid "Marketplace"
+msgstr "Targ"
+
+#: map-quick/localization_data.cpp:109
+msgctxt "OSM::amenity/shop"
+msgid "Medical Supply"
+msgstr "Sklep medyczny"
+
+#: map-quick/localization_data.cpp:110
+msgctxt "OSM::historic"
+msgid "Memorial"
+msgstr "Memoriał"
+
+#: map-quick/localization_data.cpp:111
+msgctxt "OSM::amenity/shop"
+msgid "Mobile Phone"
+msgstr "Telefon komórkowy"
+
+#: map-quick/localization_data.cpp:112
+msgctxt "OSM::amenity/shop"
+msgid "Money Transfer"
+msgstr "Przelewy pieniężne"
+
+#: map-quick/localization_data.cpp:113
+msgctxt "OSM::historic"
+msgid "Monument"
+msgstr "Pomnik"
+
+#: map-quick/localization_data.cpp:114
+msgctxt "OSM::amenity/shop"
+msgid "Motorcycle Parking"
+msgstr "Miejsca postojowe dla motocykli"
+
+#: map-quick/localization_data.cpp:115
+msgctxt "OSM::amenity/shop"
+msgid "Motorcycle Rental"
+msgstr "Wypożyczalnia motocykli"
+
+#: map-quick/localization_data.cpp:116
+msgctxt "OSM::amenity/shop"
+msgid "Museum"
+msgstr "Muzeum"
+
+#: map-quick/localization_data.cpp:117
+msgctxt "OSM::amenity/shop"
+msgid "Music"
+msgstr "Muzyka"
+
+#: map-quick/localization_data.cpp:118
+msgctxt "OSM::amenity/shop"
+msgid "Musical Instruments"
+msgstr "Instrumenty muzyczne"
+
+#: map-quick/localization_data.cpp:119
+msgctxt "OSM::amenity/shop"
+msgid "Newsagent"
+msgstr "Z gazetami"
+
+#: map-quick/localization_data.cpp:120
+msgctxt "OSM::amenity/shop"
+msgid "Office"
+msgstr "Biuro"
+
+#: map-quick/localization_data.cpp:121
+msgctxt "OSM::amenity/shop"
+msgid "Optician"
+msgstr "Optyk"
+
+#: map-quick/localization_data.cpp:122
+msgctxt "OSM::amenity/shop"
+msgid "Outdoor"
+msgstr "Podróżniczy"
+
+#: map-quick/localization_data.cpp:123
+msgctxt "OSM::amenity/shop"
+msgid "Paint"
+msgstr "Malarski"
+
+#: map-quick/localization_data.cpp:124
+msgctxt "outdoor recreational area"
+msgid "Park"
+msgstr "Park"
+
+#: map-quick/localization_data.cpp:125
+msgctxt "OSM::amenity/shop"
+msgid "Parking"
+msgstr "Parking"
+
+#: map-quick/localization_data.cpp:126
+msgctxt "OSM::amenity/shop"
+msgid "Parking Tickets"
+msgstr "Bilety parkingowe"
+
+#: map-quick/localization_data.cpp:127
+msgctxt "OSM::amenity/shop"
+msgid "Pastry"
+msgstr "Cukierniczy"
+
+#: map-quick/localization_data.cpp:128
+msgctxt "OSM::amenity/shop"
+msgid "Perfumery"
+msgstr "Perfumeria"
+
+#: map-quick/localization_data.cpp:129
+msgctxt "OSM::amenity/shop"
+msgid "Pet"
+msgstr "Zoologiczny"
+
+#: map-quick/localization_data.cpp:130
+msgctxt "OSM::amenity/shop"
+msgid "Pharmacy"
+msgstr "Apteka"
+
+#: map-quick/localization_data.cpp:131
+msgctxt "OSM::amenity/shop"
+msgid "Photo"
+msgstr "Zdjęcie"
+
+#: map-quick/localization_data.cpp:132
+msgctxt "OSM::amenity/shop"
+msgid "Place of Worship"
+msgstr "Miejsce modlitw"
+
+#: map-quick/localization_data.cpp:133
+msgid "Playground"
+msgstr "Plac zabaw"
+
+#: map-quick/localization_data.cpp:134
+msgctxt "OSM::amenity/shop"
+msgid "Police"
+msgstr "Policja"
+
+#: map-quick/localization_data.cpp:135
+msgctxt "OSM::amenity/shop"
+msgid "Post Box"
+msgstr "Skrzynka pocztowa"
+
+#: map-quick/localization_data.cpp:136
+msgctxt "OSM::amenity/shop"
+msgid "Post Office"
+msgstr "Budynek poczty"
+
+#: map-quick/localization_data.cpp:137
+msgctxt "OSM::amenity/shop"
+msgid "Pub"
+msgstr "Pub"
+
+#: map-quick/localization_data.cpp:138
+msgctxt "OSM::amenity/shop"
+msgid "Public Transport Tickets"
+msgstr "Bilety komunikacji zbiorowej"
+
+#: map-quick/localization_data.cpp:139 map-quick/localization_data.cpp:166
+msgctxt "OSM::building"
+msgid "Train Station"
+msgstr "Dworzec kolejowy"
+
+#: map-quick/localization_data.cpp:140
+msgctxt "OSM::amenity/shop"
+msgid "Recycling"
+msgstr "Recycling"
+
+#: map-quick/localization_data.cpp:141
+msgctxt "OSM::amenity"
+msgid "Research Institute"
+msgstr "Instytut badawczy"
+
+#: map-quick/localization_data.cpp:142
+msgctxt "OSM::amenity/shop"
+msgid "Restaurant"
+msgstr "Restauracja"
+
+#: map-quick/localization_data.cpp:143
+msgctxt "OSM::amenity/shop"
+msgid "School"
+msgstr "Szkoła"
+
+#: map-quick/localization_data.cpp:144
+msgctxt "OSM::amenity/shop"
+msgid "Kick Scooter Rental"
+msgstr "Wypożyczalnia hulajnóg"
+
+#: map-quick/localization_data.cpp:145
+msgctxt "OSM::amenity/shop"
+msgid "Seafood"
+msgstr "Owoce morza"
+
+#: map-quick/localization_data.cpp:146
+msgctxt "OSM::amenity/shop"
+msgid "Shoes"
+msgstr "Buty"
+
+#: map-quick/localization_data.cpp:147
+msgctxt "OSM::amenity/shop"
+msgid "Shop"
+msgstr "Sklep"
+
+#: map-quick/localization_data.cpp:148
+msgctxt "OSM::amenity/shop"
+msgid "Social Facility"
+msgstr "Budynek społeczny"
+
+#: map-quick/localization_data.cpp:149
+msgctxt "OSM::amenity/shop"
+msgid "Souvenirs"
+msgstr "Pamiątki"
+
+#: map-quick/localization_data.cpp:150
+msgctxt "OSM::amenity/shop"
+msgid "Sports"
+msgstr "Sporty"
+
+#: map-quick/localization_data.cpp:151
+msgctxt "OSM::amenity"
+msgid "Sports Center"
+msgstr "Ośrodek sportowy"
+
+#: map-quick/localization_data.cpp:152
+msgctxt "OSM::amenity"
+msgid "Sports Hall"
+msgstr "Sala sportowa"
+
+#: map-quick/localization_data.cpp:153
+msgctxt "OSM::amenity/shop"
+msgid "Stationery"
+msgstr "Papierniczy"
+
+#: map-quick/localization_data.cpp:154
+msgctxt "OSM::amenity/shop"
+msgid "Supermarket"
+msgstr "Supermarket"
+
+#: map-quick/localization_data.cpp:155
+msgctxt "OSM::amenity/shop"
+msgid "Tailor"
+msgstr "Krawiec"
+
+#: map-quick/localization_data.cpp:156
+msgctxt "OSM::amenity/shop"
+msgid "Tattoo"
+msgstr "Tatuaż"
+
+#: map-quick/localization_data.cpp:157
+msgctxt "OSM::amenity/shop"
+msgid "Taxi"
+msgstr "Taxi"
+
+#: map-quick/localization_data.cpp:158
+msgctxt "OSM::amenity/shop"
+msgid "Tea"
+msgstr "Herbaciarnia"
+
+#: map-quick/localization_data.cpp:159
+msgctxt "OSM::amenity/shop"
+msgid "Theatre"
+msgstr "Teatr"
+
+#: map-quick/localization_data.cpp:160
+msgctxt "OSM::tourism"
+msgid "Theme Park"
+msgstr ""
+
+#: map-quick/localization_data.cpp:161
+msgctxt "OSM::amenity/shop"
+msgid "Tickets"
+msgstr "Bilety"
+
+#: map-quick/localization_data.cpp:162
+msgctxt "OSM::amenity/shop"
+msgid "Tobacco"
+msgstr "Tytoń"
+
+#: map-quick/localization_data.cpp:163
+msgctxt "OSM::amenity/shop"
+msgid "Toilets"
+msgstr "Toalety"
+
+#: map-quick/localization_data.cpp:164
+msgctxt "OSM::amenity/shop"
+msgid "Town Hall"
+msgstr "Ratusz"
+
+#: map-quick/localization_data.cpp:165
+msgctxt "OSM::amenity/shop"
+msgid "Toys"
+msgstr "Zabawki"
+
+#: map-quick/localization_data.cpp:167 map-quick/localization_data.cpp:168
+msgctxt "OSM::amenity/shop"
+msgid "Travel Agency"
+msgstr "Agencja podróżnicza"
+
+#: map-quick/localization_data.cpp:169
+msgctxt "OSM::amenity/shop"
+msgid "University"
+msgstr "Uniwersytet"
+
+#: map-quick/localization_data.cpp:170
+msgctxt "OSM::amenity/shop"
+msgid "Variety Store"
+msgstr "Sklep rozmaitości"
+
+#: map-quick/localization_data.cpp:171
+msgctxt "OSM::amenity/shop"
+msgid "Video Games"
+msgstr "Gry wideo"
+
+#: map-quick/localization_data.cpp:172
+msgctxt "OSM::tourism"
+msgid "Viewpoint"
+msgstr ""
+
+#: map-quick/localization_data.cpp:173 map-quick/localization_data.cpp:174
+#: map-quick/localization_data.cpp:175
+msgctxt "OSM::amenity/shop"
+msgid "Waiting Area"
+msgstr "Poczekalnia"
+
+#: map-quick/localization_data.cpp:176
+msgctxt "OSM::amenity"
+msgid "Waste Basket"
+msgstr "Kosz na odpady"
+
+#: map-quick/localization_data.cpp:177
+msgctxt "OSM::amenity/shop"
+msgid "Wine"
+msgstr "Wino"
+
+#: map-quick/localization_data.cpp:178
+msgctxt "OSM::tourism"
+msgid "Zoo"
+msgstr ""
+
+#: map-quick/localization_data.cpp:184
+#, fuzzy
+#| msgctxt "OSM::cuisine"
+#| msgid "American"
+msgctxt "OSM::cuisine"
+msgid "African"
+msgstr "Amerykańska"
+
+#: map-quick/localization_data.cpp:185
+msgctxt "OSM::cuisine"
+msgid "American"
+msgstr "Amerykańska"
+
+#: map-quick/localization_data.cpp:186
+msgctxt "OSM::cuisine"
+msgid "Arab"
+msgstr "Arabska"
+
+#: map-quick/localization_data.cpp:187
+msgctxt "OSM::cuisine"
+msgid "Argentinian"
+msgstr "Argentyńska"
+
+#: map-quick/localization_data.cpp:188
+msgctxt "OSM::cuisine"
+msgid "Asian"
+msgstr "Azjatycka"
+
+#: map-quick/localization_data.cpp:189
+msgctxt "OSM::cuisine"
+msgid "Austrian"
+msgstr "Austriacka"
+
+#: map-quick/localization_data.cpp:190 map-quick/localization_data.cpp:192
+msgctxt "OSM::cuisine"
+msgid "BBQ"
+msgstr "BBQ"
+
+#: map-quick/localization_data.cpp:191
+#, fuzzy
+#| msgctxt "OSM::diet_type"
+#| msgid "vegetarian"
+msgctxt "OSM::cuisine"
+msgid "Bavarian"
+msgstr "wegetariańska"
+
+#: map-quick/localization_data.cpp:193
+msgctxt "OSM::cuisine"
+msgid "Brazilian"
+msgstr "Brazylijska"
+
+#: map-quick/localization_data.cpp:194
+msgctxt "OSM::cuisine"
+msgid "Breakfast"
+msgstr "Śniadania"
+
+#: map-quick/localization_data.cpp:195
+msgctxt "OSM::cuisine"
+msgid "Bubble Tea"
+msgstr ""
+
+#: map-quick/localization_data.cpp:196
+msgctxt "OSM::cuisine"
+msgid "Burger"
+msgstr "Burger"
+
+#: map-quick/localization_data.cpp:197
+msgctxt "OSM::cuisine"
+msgid "Cake"
+msgstr "Ciasto"
+
+#: map-quick/localization_data.cpp:198
+msgctxt "OSM::cuisine"
+msgid "Chicken"
+msgstr "Kurczak"
+
+#: map-quick/localization_data.cpp:199
+msgctxt "OSM::cuisine"
+msgid "Chinese"
+msgstr "Chińska"
+
+#: map-quick/localization_data.cpp:200
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Coffee"
+msgctxt "OSM::cuisine"
+msgid "Coffee"
+msgstr "Kawa"
+
+#: map-quick/localization_data.cpp:201
+msgctxt "OSM::cuisine"
+msgid "Coffee Shop"
+msgstr "Sklep z kawą"
+
+#: map-quick/localization_data.cpp:202
+msgctxt "OSM::cuisine"
+msgid "Cookies"
+msgstr "Ciasteczka"
+
+#: map-quick/localization_data.cpp:203
+msgctxt "OSM::cuisine"
+msgid "Crêpe"
+msgstr "Crêpe"
+
+#: map-quick/localization_data.cpp:204
+msgctxt "OSM::cuisine"
+msgid "Czech"
+msgstr ""
+
+#: map-quick/localization_data.cpp:205
+msgctxt "OSM::cuisine"
+msgid "Dessert"
+msgstr ""
+
+#: map-quick/localization_data.cpp:206
+msgctxt "OSM::cuisine"
+msgid "Donut"
+msgstr "Pączek"
+
+#: map-quick/localization_data.cpp:207 map-quick/localization_data.cpp:208
+msgctxt "OSM::cuisine"
+msgid "Dumplings"
+msgstr ""
+
+#: map-quick/localization_data.cpp:209
+msgctxt "OSM::cuisine"
+msgid "Ethiopian"
+msgstr ""
+
+#: map-quick/localization_data.cpp:210
+msgctxt "OSM::cuisine"
+msgid "Falafel"
+msgstr "Falafel"
+
+#: map-quick/localization_data.cpp:211
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Fast Food"
+msgctxt "OSM::cuisine"
+msgid "Fast Food"
+msgstr "Szybkie jedzenie"
+
+#: map-quick/localization_data.cpp:212
+msgctxt "OSM::cuisine"
+msgid "Fish"
+msgstr "Ryba"
+
+#: map-quick/localization_data.cpp:213
+msgctxt "OSM::cuisine"
+msgid "Fish & Chips"
+msgstr "Ryby i czipsy"
+
+#: map-quick/localization_data.cpp:214
+msgctxt "OSM::cuisine"
+msgid "French"
+msgstr "Francuska"
+
+#: map-quick/localization_data.cpp:215
+msgctxt "OSM::cuisine"
+msgid "Fries"
+msgstr ""
+
+#: map-quick/localization_data.cpp:216
+msgctxt "OSM::cuisine"
+msgid "German"
+msgstr "Niemiecka"
+
+#: map-quick/localization_data.cpp:217
+msgctxt "OSM::cuisine"
+msgid "Greek"
+msgstr "Grecka"
+
+#: map-quick/localization_data.cpp:218
+msgctxt "OSM::cuisine"
+msgid "Grill"
+msgstr ""
+
+#: map-quick/localization_data.cpp:219
+msgctxt "OSM::cuisine"
+msgid "Gyros"
+msgstr ""
+
+#: map-quick/localization_data.cpp:220
+msgctxt "OSM::cuisine"
+msgid "Hawaiian"
+msgstr ""
+
+#: map-quick/localization_data.cpp:221
+msgctxt "OSM::cuisine"
+msgid "Hot Dog"
+msgstr ""
+
+#: map-quick/localization_data.cpp:222
+msgctxt "OSM::cuisine"
+msgid "Ice Cream"
+msgstr "Lody"
+
+#: map-quick/localization_data.cpp:223
+msgctxt "OSM::cuisine"
+msgid "Indian"
+msgstr "Indyjska"
+
+#: map-quick/localization_data.cpp:224
+msgctxt "OSM::cuisine"
+msgid "Indonesian"
+msgstr "Indonezyjska"
+
+#: map-quick/localization_data.cpp:225
+msgctxt "OSM::cuisine"
+msgid "International"
+msgstr "Międzynarodowe"
+
+#: map-quick/localization_data.cpp:226
+msgctxt "OSM::cuisine"
+msgid "Irish"
+msgstr ""
+
+#: map-quick/localization_data.cpp:227
+msgctxt "OSM::cuisine"
+msgid "Italian"
+msgstr "Włoska"
+
+#: map-quick/localization_data.cpp:228 map-quick/localization_data.cpp:247
+msgctxt "OSM::cuisine"
+msgid "Pizza"
+msgstr "Pizza"
+
+#: map-quick/localization_data.cpp:229
+msgctxt "OSM::cuisine"
+msgid "Japanese"
+msgstr "Japońska"
+
+#: map-quick/localization_data.cpp:230
+msgctxt "OSM::cuisine"
+msgid "Juice"
+msgstr "Sok"
+
+#: map-quick/localization_data.cpp:231
+msgctxt "OSM::cuisine"
+msgid "Kebab"
+msgstr "Kebab"
+
+#: map-quick/localization_data.cpp:232
+msgctxt "OSM::cuisine"
+msgid "Korean"
+msgstr "Koreańska"
+
+#: map-quick/localization_data.cpp:233
+msgctxt "OSM::cuisine"
+msgid "Lebanese"
+msgstr "Libańska"
+
+#: map-quick/localization_data.cpp:234
+msgctxt "OSM::cuisine"
+msgid "Local"
+msgstr "Lokalna"
+
+#: map-quick/localization_data.cpp:235
+msgctxt "OSM::cuisine"
+msgid "Meat"
+msgstr ""
+
+#: map-quick/localization_data.cpp:236
+msgctxt "OSM::cuisine"
+msgid "Mediterranean"
+msgstr "Śródziemnomorskie"
+
+#: map-quick/localization_data.cpp:237
+msgctxt "OSM::cuisine"
+msgid "Mexican"
+msgstr "Meksykańska"
+
+#: map-quick/localization_data.cpp:238
+msgctxt "OSM::cuisine"
+msgid "Moroccan"
+msgstr ""
+
+#: map-quick/localization_data.cpp:239
+msgctxt "OSM::cuisine"
+msgid "Nepalese"
+msgstr ""
+
+#: map-quick/localization_data.cpp:240
+msgctxt "OSM::cuisine"
+msgid "Noodle"
+msgstr "Makaron"
+
+#: map-quick/localization_data.cpp:241
+msgctxt "OSM::cuisine"
+msgid "Pakistani"
+msgstr "Pakistańska"
+
+#: map-quick/localization_data.cpp:242
+msgctxt "OSM::cuisine"
+msgid "Pancake"
+msgstr "Naleśnik"
+
+#: map-quick/localization_data.cpp:243
+msgctxt "OSM::cuisine"
+msgid "Pasta"
+msgstr "Makaron"
+
+#: map-quick/localization_data.cpp:244
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Pastry"
+msgctxt "OSM::cuisine"
+msgid "Pastry"
+msgstr "Cukierniczy"
+
+#: map-quick/localization_data.cpp:245
+#, fuzzy
+#| msgctxt "OSM::cuisine"
+#| msgid "Asian"
+msgctxt "OSM::cuisine"
+msgid "Persian"
+msgstr "Azjatycka"
+
+#: map-quick/localization_data.cpp:246
+msgctxt "OSM::cuisine"
+msgid "Peruvian"
+msgstr ""
+
+#: map-quick/localization_data.cpp:248
+msgctxt "OSM::cuisine"
+msgid "Poke"
+msgstr ""
+
+#: map-quick/localization_data.cpp:249
+msgctxt "OSM::cuisine"
+msgid "Polish"
+msgstr "Polska"
+
+#: map-quick/localization_data.cpp:250
+msgctxt "OSM::cuisine"
+msgid "Portuguese"
+msgstr "Portugalska"
+
+#: map-quick/localization_data.cpp:251
+msgctxt "OSM::cuisine"
+msgid "Pretzel"
+msgstr ""
+
+#: map-quick/localization_data.cpp:252
+msgctxt "OSM::cuisine"
+msgid "Ramen"
+msgstr "Ramen"
+
+#: map-quick/localization_data.cpp:253
+msgctxt "OSM::cuisine"
+msgid "Regional"
+msgstr "Regionalna"
+
+#: map-quick/localization_data.cpp:254
+#, fuzzy
+#| msgctxt "OSM::cuisine"
+#| msgid "Asian"
+msgctxt "OSM::cuisine"
+msgid "Russian"
+msgstr "Azjatycka"
+
+#: map-quick/localization_data.cpp:255
+msgctxt "OSM::cuisine"
+msgid "Salad"
+msgstr "Sałatka"
+
+#: map-quick/localization_data.cpp:256
+msgctxt "OSM::cuisine"
+msgid "Sandwich"
+msgstr "Kanapka"
+
+#: map-quick/localization_data.cpp:257
+msgctxt "OSM::cuisine"
+msgid "Sausage"
+msgstr "Kiełbasa"
+
+#: map-quick/localization_data.cpp:258
+msgctxt "OSM::cuisine"
+msgid "Seafood"
+msgstr "Owoce morza"
+
+#: map-quick/localization_data.cpp:259
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Pharmacy"
+msgctxt "OSM::cuisine"
+msgid "Shawarma"
+msgstr "Apteka"
+
+#: map-quick/localization_data.cpp:260
+msgctxt "OSM::cuisine"
+msgid "Soup"
+msgstr "Zupa"
+
+#: map-quick/localization_data.cpp:261
+msgctxt "OSM::cuisine"
+msgid "Spanish"
+msgstr "Hiszpańska"
+
+#: map-quick/localization_data.cpp:262 map-quick/localization_data.cpp:263
+msgctxt "OSM::cuisine"
+msgid "Steak"
+msgstr "Stek"
+
+#: map-quick/localization_data.cpp:264
+msgctxt "OSM::cuisine"
+msgid "Sushi"
+msgstr "Sushi"
+
+#: map-quick/localization_data.cpp:265
+msgctxt "OSM::cuisine"
+msgid "Syrian"
+msgstr ""
+
+#: map-quick/localization_data.cpp:266
+msgctxt "OSM::cuisine"
+msgid "Tacos"
+msgstr ""
+
+#: map-quick/localization_data.cpp:267
+msgctxt "OSM::cuisine"
+msgid "Tapas"
+msgstr "Tapas"
+
+#: map-quick/localization_data.cpp:268
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Tea"
+msgctxt "OSM::cuisine"
+msgid "Tea"
+msgstr "Herbaciarnia"
+
+#: map-quick/localization_data.cpp:269
+msgctxt "OSM::cuisine"
+msgid "Teahouse"
+msgstr ""
+
+#: map-quick/localization_data.cpp:270
+msgctxt "OSM::cuisine"
+msgid "Thai"
+msgstr "Tajska"
+
+#: map-quick/localization_data.cpp:271
+msgctxt "OSM::cuisine"
+msgid "Turkish"
+msgstr "Turecka"
+
+#: map-quick/localization_data.cpp:272
+msgctxt "OSM::cuisine"
+msgid "Vegetarian"
+msgstr "Wegetariańska"
+
+#: map-quick/localization_data.cpp:273
+msgctxt "OSM::cuisine"
+msgid "Vietnamese"
+msgstr "Wietnamska"
+
+#: map-quick/localization_data.cpp:274
+msgctxt "OSM::cuisine"
+msgid "Waffles"
+msgstr ""
+
+#: map-quick/localization_data.cpp:275
+#, fuzzy
+#| msgctxt "OSM::cuisine"
+#| msgid "Chicken"
+msgctxt "OSM::cuisine"
+msgid "Chicken Wings"
+msgstr "Kurczak"
+
+#: map-quick/osmelementinformationmodel.cpp:22
 #, kde-format
 msgid "%1m"
 msgstr "%1 m"
 
-#: map-quick/osmelementinformationmodel.cpp:24
-#: map-quick/osmelementinformationmodel.cpp:26
+#: map-quick/osmelementinformationmodel.cpp:25
+#: map-quick/osmelementinformationmodel.cpp:27
 #, kde-format
 msgid "%1km"
 msgstr "%1 km"
 
-#: map-quick/osmelementinformationmodel.cpp:135
+#: map-quick/osmelementinformationmodel.cpp:136
 #, kde-format
 msgid "Wikipedia"
 msgstr "Wikipedia"
 
-#: map-quick/osmelementinformationmodel.cpp:434
+#: map-quick/osmelementinformationmodel.cpp:435
 #, kde-format
 msgid "Opening Hours"
 msgstr "Godziny otwarcia"
 
-#: map-quick/osmelementinformationmodel.cpp:435
+#: map-quick/osmelementinformationmodel.cpp:436
 #, kde-format
 msgid "Contact"
 msgstr "Kontakt"
 
-#: map-quick/osmelementinformationmodel.cpp:436
+#: map-quick/osmelementinformationmodel.cpp:437
 #, kde-format
 msgid "Payment"
 msgstr "Płatność"
 
-#: map-quick/osmelementinformationmodel.cpp:437
+#: map-quick/osmelementinformationmodel.cpp:438
 #, kde-format
 msgid "Toilets"
 msgstr "Toalety"
 
-#: map-quick/osmelementinformationmodel.cpp:438
+#: map-quick/osmelementinformationmodel.cpp:439
 #, kde-format
 msgid "Accessibility"
 msgstr "Dostępność"
 
-#: map-quick/osmelementinformationmodel.cpp:439
+#: map-quick/osmelementinformationmodel.cpp:440
 #, kde-format
 msgid "Parking"
 msgstr "Parking"
 
-#: map-quick/osmelementinformationmodel.cpp:440
+#: map-quick/osmelementinformationmodel.cpp:441
 #, kde-format
 msgid "Operator"
 msgstr "Operator"
 
-#: map-quick/osmelementinformationmodel.cpp:466
+#: map-quick/osmelementinformationmodel.cpp:467
 #, kde-format
 msgid "Formerly"
 msgstr "Poprzednio"
 
-#: map-quick/osmelementinformationmodel.cpp:467
+#: map-quick/osmelementinformationmodel.cpp:468
 #, kde-format
 msgid "Description"
 msgstr "Opis"
 
-#: map-quick/osmelementinformationmodel.cpp:468
+#: map-quick/osmelementinformationmodel.cpp:469
 #, kde-format
 msgid "Routes"
 msgstr "Trasy"
 
-#: map-quick/osmelementinformationmodel.cpp:469
+#: map-quick/osmelementinformationmodel.cpp:470
 #, kde-format
 msgid "Cuisine"
 msgstr "Kuchnia"
 
-#: map-quick/osmelementinformationmodel.cpp:470
+#: map-quick/osmelementinformationmodel.cpp:471
 #, kde-format
 msgid "Diet"
 msgstr "Dieta"
 
-#: map-quick/osmelementinformationmodel.cpp:471
+#: map-quick/osmelementinformationmodel.cpp:472
 #, kde-format
 msgid "Takeaway"
 msgstr "Na wynos"
 
-#: map-quick/osmelementinformationmodel.cpp:472
+#: map-quick/osmelementinformationmodel.cpp:473
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
 msgstr "Gniazdo"
 
-#: map-quick/osmelementinformationmodel.cpp:474
+#: map-quick/osmelementinformationmodel.cpp:475
 #, kde-format
 msgid "Available vehicles"
 msgstr "Dostępne pojazdy"
 
-#: map-quick/osmelementinformationmodel.cpp:475
+#: map-quick/osmelementinformationmodel.cpp:476
 #, kde-format
 msgid "Fee"
 msgstr "Prowizja"
 
-#: map-quick/osmelementinformationmodel.cpp:476
+#: map-quick/osmelementinformationmodel.cpp:477
 #, kde-format
 msgid "Authentication"
 msgstr "Uwierzytelnianie"
 
-#: map-quick/osmelementinformationmodel.cpp:477
+#: map-quick/osmelementinformationmodel.cpp:478
 #, kde-format
 msgid "Bicycle parking"
 msgstr "Miejsce postojowe dla rowerów"
 
-#: map-quick/osmelementinformationmodel.cpp:478
+#: map-quick/osmelementinformationmodel.cpp:479
 #, kde-format
 msgid "Capacity"
 msgstr "Pojemność"
 
-#: map-quick/osmelementinformationmodel.cpp:479
+#: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
 msgid "Disabled parking spaces"
 msgstr "Miejsca postojowe dla niepełnosprawnych"
 
-#: map-quick/osmelementinformationmodel.cpp:480
+#: map-quick/osmelementinformationmodel.cpp:481
 #, kde-format
 msgid "Women parking spaces"
 msgstr "Miejsca postojowe dla kobiet"
 
-#: map-quick/osmelementinformationmodel.cpp:481
+#: map-quick/osmelementinformationmodel.cpp:482
 #, kde-format
 msgid "Parent parking spaces"
 msgstr "Miejsca postojowe dla rodzin"
 
-#: map-quick/osmelementinformationmodel.cpp:482
+#: map-quick/osmelementinformationmodel.cpp:483
 #, kde-format
 msgid "Parking spaces for charging"
 msgstr "Miejsca postojowe do ładowania"
 
-#: map-quick/osmelementinformationmodel.cpp:483
+#: map-quick/osmelementinformationmodel.cpp:484
 #, kde-format
 msgid "Maximum stay"
 msgstr "Najdłuższy pobyt"
 
-#: map-quick/osmelementinformationmodel.cpp:484
+#: map-quick/osmelementinformationmodel.cpp:485
 #, kde-format
 msgid "Diaper changing table"
 msgstr "Stół do przewijania dzieci"
 
-#: map-quick/osmelementinformationmodel.cpp:485
+#: map-quick/osmelementinformationmodel.cpp:486
 #, kde-format
 msgid "Gender"
 msgstr "Płeć"
 
-#: map-quick/osmelementinformationmodel.cpp:487
+#: map-quick/osmelementinformationmodel.cpp:488
 #, kde-format
 msgid "Address"
 msgstr "Adres"
 
-#: map-quick/osmelementinformationmodel.cpp:488
+#: map-quick/osmelementinformationmodel.cpp:489
 #, kde-format
 msgid "Phone"
 msgstr "Telefon"
 
-#: map-quick/osmelementinformationmodel.cpp:489
+#: map-quick/osmelementinformationmodel.cpp:490
 #, kde-format
 msgid "Email"
 msgstr "E-mail"
 
-#: map-quick/osmelementinformationmodel.cpp:490
+#: map-quick/osmelementinformationmodel.cpp:491
 #, kde-format
 msgid "Website"
 msgstr "Strona sieciowa"
 
-#: map-quick/osmelementinformationmodel.cpp:491
+#: map-quick/osmelementinformationmodel.cpp:492
 #, kde-format
 msgid "Cash"
 msgstr "Gotówka"
 
-#: map-quick/osmelementinformationmodel.cpp:492
+#: map-quick/osmelementinformationmodel.cpp:493
 #, kde-format
 msgid "Digital"
 msgstr "Cyfrowy"
 
-#: map-quick/osmelementinformationmodel.cpp:493
+#: map-quick/osmelementinformationmodel.cpp:494
 #, kde-format
 msgid "Debit cards"
 msgstr "Karty debetowe"
 
-#: map-quick/osmelementinformationmodel.cpp:494
+#: map-quick/osmelementinformationmodel.cpp:495
 #, kde-format
 msgid "Credit cards"
 msgstr "Karty kredytowe"
 
-#: map-quick/osmelementinformationmodel.cpp:495
+#: map-quick/osmelementinformationmodel.cpp:496
 #, kde-format
 msgid "Stored value cards"
 msgstr "Przechowywane karty z wartością"
 
-#: map-quick/osmelementinformationmodel.cpp:496
+#: map-quick/osmelementinformationmodel.cpp:497
 #, kde-format
 msgid "Wheelchair access"
 msgstr "Dostęp na wózkach"
 
-#: map-quick/osmelementinformationmodel.cpp:497
+#: map-quick/osmelementinformationmodel.cpp:498
 #, kde-format
 msgid "Wheelchair lift"
 msgstr "Winda dla wózków"
 
-#: map-quick/osmelementinformationmodel.cpp:498
+#: map-quick/osmelementinformationmodel.cpp:499
 #, kde-format
 msgid "Central key"
 msgstr "Klucz główny"
 
-#: map-quick/osmelementinformationmodel.cpp:499
+#: map-quick/osmelementinformationmodel.cpp:500
 #, kde-format
 msgid "Speech output"
 msgstr "Wyjście mowy"
 
-#: map-quick/osmelementinformationmodel.cpp:500
+#: map-quick/osmelementinformationmodel.cpp:501
 #, kde-format
 msgid "Tactile writing"
 msgstr "Pisanie dotykowe"
 
-#: map-quick/osmelementinformationmodel.cpp:502
+#: map-quick/osmelementinformationmodel.cpp:503
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
 msgstr "Sieć"
 
-#: map-quick/osmelementinformationmodel.cpp:504
+#: map-quick/osmelementinformationmodel.cpp:505
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
 msgstr "Pozostały zakres"
 
-#: map-quick/osmelementinformationmodel.cpp:556
+#: map-quick/osmelementinformationmodel.cpp:557
 #, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:630
+#: map-quick/osmelementinformationmodel.cpp:631
 #, kde-format
 msgid "only %1"
 msgstr "tylko %1"
 
-#: map-quick/osmelementinformationmodel.cpp:632
+#: map-quick/osmelementinformationmodel.cpp:633
 #, kde-format
 msgid "no %1"
 msgstr "nie %1"
 
-#: map-quick/osmelementinformationmodel.cpp:657
+#: map-quick/osmelementinformationmodel.cpp:658
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
 msgstr "%1 A"
 
-#: map-quick/osmelementinformationmodel.cpp:665
+#: map-quick/osmelementinformationmodel.cpp:666
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
 msgstr "%1 kW"
 
-#: map-quick/osmelementinformationmodel.cpp:696
+#: map-quick/osmelementinformationmodel.cpp:697
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:764
-#: map-quick/osmelementinformationmodel.cpp:938
+#: map-quick/osmelementinformationmodel.cpp:765
+#: map-quick/osmelementinformationmodel.cpp:939
 #, kde-format
 msgid "yes"
 msgstr "tak"
 
-#: map-quick/osmelementinformationmodel.cpp:767
+#: map-quick/osmelementinformationmodel.cpp:768
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "tylko monety"
 
-#: map-quick/osmelementinformationmodel.cpp:770
+#: map-quick/osmelementinformationmodel.cpp:771
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "tylko banknoty"
 
-#: map-quick/osmelementinformationmodel.cpp:772
-#: map-quick/osmelementinformationmodel.cpp:823
-#: map-quick/osmelementinformationmodel.cpp:941
+#: map-quick/osmelementinformationmodel.cpp:773
+#: map-quick/osmelementinformationmodel.cpp:824
+#: map-quick/osmelementinformationmodel.cpp:942
 #, kde-format
 msgid "no"
 msgstr "nie"
 
 #: map-quick/osmelementinformationmodel_data.cpp:22
-msgctxt "OSM::amenity/shop"
-msgid "Alcohol"
-msgstr "Alkohol"
-
-#: map-quick/osmelementinformationmodel_data.cpp:23
-msgctxt "OSM::amenity/shop"
-msgid "Apartment"
-msgstr "Apartament"
-
-#: map-quick/osmelementinformationmodel_data.cpp:24
-msgctxt "OSM::amenity/shop"
-msgid "Arts Center"
-msgstr "Ośrodek sztuki"
-
-#: map-quick/osmelementinformationmodel_data.cpp:25
-msgctxt "OSM::amenity/shop"
-msgid "Artwork"
-msgstr "Sztuka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:26
-msgctxt "OSM::amenity/shop"
-msgid "ATM"
-msgstr "Bankomat"
-
-#: map-quick/osmelementinformationmodel_data.cpp:27
-msgctxt "OSM::amenity/shop"
-msgid "Attraction"
-msgstr "Atrakcje"
-
-#: map-quick/osmelementinformationmodel_data.cpp:28
-msgctxt "OSM::amenity/shop"
-msgid "Bag"
-msgstr "Torba"
-
-#: map-quick/osmelementinformationmodel_data.cpp:29
-msgctxt "OSM::amenity"
-msgid "Baggage Claim"
-msgstr ""
-
-#: map-quick/osmelementinformationmodel_data.cpp:30
-msgctxt "OSM::amenity/shop"
-msgid "Bakery"
-msgstr "Piekarnia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:31
-msgctxt "OSM::amenity/shop"
-msgid "Bank"
-msgstr "Bank"
-
-#: map-quick/osmelementinformationmodel_data.cpp:32
-msgctxt "OSM::amenity/shop"
-msgid "Bar"
-msgstr "Bar"
-
-#: map-quick/osmelementinformationmodel_data.cpp:33
-msgctxt "OSM::amenity/shop"
-msgid "Beauty"
-msgstr "Salon piękności"
-
-#: map-quick/osmelementinformationmodel_data.cpp:34
-msgctxt "OSM::amenity/shop"
-msgid "Bed"
-msgstr "Łóżko"
-
-#: map-quick/osmelementinformationmodel_data.cpp:35
-msgctxt "OSM::amenity"
-msgid "Bench"
-msgstr "Ławka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:36
-msgctxt "OSM::amenity/shop"
-msgid "Beverages"
-msgstr "Napoje"
-
-#: map-quick/osmelementinformationmodel_data.cpp:37
-msgctxt "OSM::amenity/shop"
-msgid "Bicycle"
-msgstr "Rower"
-
-#: map-quick/osmelementinformationmodel_data.cpp:38
-msgctxt "OSM::amenity/shop"
-msgid "Bicycle Parking"
-msgstr "Miejsce postojowe dla rowerów"
-
-#: map-quick/osmelementinformationmodel_data.cpp:39
-msgctxt "OSM::amenity/shop"
-msgid "Bicycle Rental"
-msgstr "Wypożyczalnia rowerów"
-
-#: map-quick/osmelementinformationmodel_data.cpp:40
-msgctxt "OSM::amenity/shop"
-msgid "Books"
-msgstr "Książki"
-
-#: map-quick/osmelementinformationmodel_data.cpp:41
-msgctxt "OSM::amenity/shop"
-msgid "Boutique"
-msgstr "Butik"
-
-#: map-quick/osmelementinformationmodel_data.cpp:42
-msgctxt "OSM::amenity/shop"
-msgid "Bureau de Change"
-msgstr "Kantor"
-
-#: map-quick/osmelementinformationmodel_data.cpp:43
-msgctxt "OSM::amenity/shop"
-msgid "Butcher"
-msgstr "Mięsny"
-
-#: map-quick/osmelementinformationmodel_data.cpp:44
-msgctxt "OSM::amenity/shop"
-msgid "Cafe"
-msgstr "Kawiarnia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:45
-msgctxt "OSM::amenity/shop"
-msgid "Car"
-msgstr "Samochód"
-
-#: map-quick/osmelementinformationmodel_data.cpp:46
-msgctxt "OSM::amenity/shop"
-msgid "Car Rental"
-msgstr "Wypożyczalnia samochodów"
-
-#: map-quick/osmelementinformationmodel_data.cpp:47
-msgctxt "OSM::amenity/shop"
-msgid "Car Sharing"
-msgstr "Udostępnianie aut"
-
-#: map-quick/osmelementinformationmodel_data.cpp:48
-msgctxt "OSM::amenity/shop"
-msgid "Charging Station"
-msgstr "Stacja ładowania"
-
-#: map-quick/osmelementinformationmodel_data.cpp:49
-msgctxt "OSM::amenity/shop"
-msgid "Chemist"
-msgstr "Chemia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:50
-msgctxt "OSM::amenity/shop"
-msgid "Chocolate"
-msgstr "Czekolada"
-
-#: map-quick/osmelementinformationmodel_data.cpp:51
-msgctxt "OSM::amenity/shop"
-msgid "Cinema"
-msgstr "Kino"
-
-#: map-quick/osmelementinformationmodel_data.cpp:52
-msgctxt "OSM::historic"
-msgid "Citywall"
-msgstr "Mury miasta"
-
-#: map-quick/osmelementinformationmodel_data.cpp:53
-#: map-quick/osmelementinformationmodel_data.cpp:54
-msgctxt "OSM::room"
-msgid "Classroom"
-msgstr "Klasa szkolna"
-
-#: map-quick/osmelementinformationmodel_data.cpp:55
-msgctxt "OSM::amenity/shop"
-msgid "Clothes"
-msgstr "Ubrania"
-
-#: map-quick/osmelementinformationmodel_data.cpp:56
-msgctxt "OSM::amenity/shop"
-msgid "Coffee"
-msgstr "Kawa"
-
-#: map-quick/osmelementinformationmodel_data.cpp:57
-msgctxt "OSM::amenity"
-msgid "Community Center"
-msgstr "Ośrodek społeczności"
-
-#: map-quick/osmelementinformationmodel_data.cpp:58
-msgctxt "OSM::amenity/shop"
-msgid "Computer"
-msgstr "Komputer"
-
-#: map-quick/osmelementinformationmodel_data.cpp:59
-msgctxt "OSM::amenity/shop"
-msgid "Confectionery"
-msgstr "Słodkości"
-
-#: map-quick/osmelementinformationmodel_data.cpp:60
-msgctxt "OSM::amenity/shop"
-msgid "Convenience Store"
-msgstr "Sklep osiedlowy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:61
-msgctxt "OSM::amenity/shop"
-msgid "Copy Shop"
-msgstr "Drukarnia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:62
-msgctxt "OSM::amenity/shop"
-msgid "Cosmetics"
-msgstr "Kosmetyczny"
-
-#: map-quick/osmelementinformationmodel_data.cpp:63
-msgctxt "OSM::amenity/shop"
-msgid "Court House"
-msgstr "Sąd"
-
-#: map-quick/osmelementinformationmodel_data.cpp:64
-msgctxt "OSM::amenity/shop"
-msgid "Deli"
-msgstr "Delikatesy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:65
-msgctxt "OSM::amenity/shop"
-msgid "Department Store"
-msgstr "Dom towarowy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:66
-msgctxt "OSM::amenity/shop"
-msgid "Doctor"
-msgstr "Lekarz"
-
-#: map-quick/osmelementinformationmodel_data.cpp:67
-msgctxt "OSM::amenity/shop"
-msgid "Hardware Store"
-msgstr "Sklep żelazny"
-
-#: map-quick/osmelementinformationmodel_data.cpp:68
-msgctxt "OSM::amenity/shop"
-msgid "Drinking Water"
-msgstr "Woda pitna"
-
-#: map-quick/osmelementinformationmodel_data.cpp:69
-msgctxt "OSM::amenity/shop"
-msgid "Dry Cleaning"
-msgstr "Czyszczenie na sucho"
-
-#: map-quick/osmelementinformationmodel_data.cpp:70
-msgctxt "OSM::amenity/shop"
-msgid "Electronics"
-msgstr "Elektronika"
-
-#: map-quick/osmelementinformationmodel_data.cpp:71
-msgctxt "OSM::amenity"
-msgid "Events Venue"
-msgstr "Miejsce wydarzeń"
-
-#: map-quick/osmelementinformationmodel_data.cpp:72
-msgctxt "OSM::amenity/shop"
-msgid "Fashion"
-msgstr "Moda"
-
-#: map-quick/osmelementinformationmodel_data.cpp:73
-msgctxt "OSM::amenity/shop"
-msgid "Fast Food"
-msgstr "Szybkie jedzenie"
-
-#: map-quick/osmelementinformationmodel_data.cpp:74
-msgctxt "OSM::amenity/shop"
-msgid "Ferry Terminal"
-msgstr "Terminal promów"
-
-#: map-quick/osmelementinformationmodel_data.cpp:75
-msgctxt "OSM::amenity/shop"
-msgid "Florist"
-msgstr "Florysta"
-
-#: map-quick/osmelementinformationmodel_data.cpp:76
-msgctxt "OSM::amenity/shop"
-msgid "Food Court"
-msgstr "Jadłodajnia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:77
-msgctxt "OSM::amenity/shop"
-msgid "Fountain"
-msgstr "Fontanna"
-
-#: map-quick/osmelementinformationmodel_data.cpp:78
-msgctxt "OSM::amenity/shop"
-msgid "Furniture"
-msgstr "Meble"
-
-#: map-quick/osmelementinformationmodel_data.cpp:79
-msgctxt "OSM::amenity/shop"
-msgid "Gallery"
-msgstr "Galeria"
-
-#: map-quick/osmelementinformationmodel_data.cpp:80
-msgctxt "OSM::amenity/shop"
-msgid "Garden"
-msgstr "Ogród"
-
-#: map-quick/osmelementinformationmodel_data.cpp:81
-msgctxt "OSM::amenity/shop"
-msgid "Garden Center"
-msgstr "Przestrzeń zielona"
-
-#: map-quick/osmelementinformationmodel_data.cpp:82
-msgctxt "OSM::amenity/shop"
-msgid "Gift Shop"
-msgstr "Sklep z upominkami"
-
-#: map-quick/osmelementinformationmodel_data.cpp:83
-msgctxt "OSM::office"
-msgid "Government"
-msgstr "Władze"
-
-#: map-quick/osmelementinformationmodel_data.cpp:84
-msgctxt "OSM::amenity/shop"
-msgid "Greengrocer"
-msgstr "Warzywniak"
-
-#: map-quick/osmelementinformationmodel_data.cpp:85
-msgctxt "OSM::amenity/shop"
-msgid "Guest House"
-msgstr "Dom gościnny"
-
-#: map-quick/osmelementinformationmodel_data.cpp:86
-msgctxt "OSM::amenity/shop"
-msgid "Hairdresser"
-msgstr "Fryzjer"
-
-#: map-quick/osmelementinformationmodel_data.cpp:87
-msgctxt "OSM::amenity/shop"
-msgid "Hearing Aids"
-msgstr "Aparaty słuchowe"
-
-#: map-quick/osmelementinformationmodel_data.cpp:88
-msgctxt "OSM::amenity/shop"
-msgid "Hospital"
-msgstr "Szpital"
-
-#: map-quick/osmelementinformationmodel_data.cpp:89
-msgctxt "OSM::amenity/shop"
-msgid "Hostel"
-msgstr "Schronisko"
-
-#: map-quick/osmelementinformationmodel_data.cpp:90
-msgctxt "OSM::amenity/shop"
-msgid "Hotel"
-msgstr "Hotel"
-
-#: map-quick/osmelementinformationmodel_data.cpp:91
-msgctxt "OSM::amenity/shop"
-msgid "Houseware"
-msgstr "Sprzęt domowy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:92
-msgctxt "OSM::amenity/shop"
-msgid "Ice Cream"
-msgstr "Lody"
-
-#: map-quick/osmelementinformationmodel_data.cpp:93
-msgctxt "OSM::amenity/shop"
-msgid "Information"
-msgstr "Punkt informacji"
-
-#: map-quick/osmelementinformationmodel_data.cpp:94
-msgctxt "OSM::amenity/shop"
-msgid "Interior Decoration"
-msgstr "Wystrój wnętrz"
-
-#: map-quick/osmelementinformationmodel_data.cpp:95
-msgctxt "OSM::amenity/shop"
-msgid "Internet Cafe"
-msgstr "Kawiarenka internetowa"
-
-#: map-quick/osmelementinformationmodel_data.cpp:96
-msgctxt "OSM::amenity/shop"
-msgid "Jewelry"
-msgstr "Jubiler"
-
-#: map-quick/osmelementinformationmodel_data.cpp:97
-msgctxt "OSM::amenity/shop"
-msgid "Kiosk"
-msgstr "Kiosk"
-
-#: map-quick/osmelementinformationmodel_data.cpp:98
-msgctxt "OSM::room"
-msgid "Kitchen"
-msgstr "Kuchnia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:99
-msgctxt "OSM::amenity/shop"
-msgid "Laundry"
-msgstr "Pralnia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:100
-#: map-quick/osmelementinformationmodel_data.cpp:101
-msgctxt "OSM::room"
-msgid "Lecture Hall"
-msgstr "Sala wykładowa"
-
-#: map-quick/osmelementinformationmodel_data.cpp:102
-msgctxt "OSM::amenity/shop"
-msgid "Library"
-msgstr "Biblioteka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:103
-#: map-quick/osmelementinformationmodel_data.cpp:107
-msgctxt "OSM::amenity/shop"
-msgid "Locker"
-msgstr "Szafka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:104
-msgctxt "OSM::amenity/shop"
-msgid "Locksmith"
-msgstr "Ślusarz"
-
-#: map-quick/osmelementinformationmodel_data.cpp:105
-#: map-quick/osmelementinformationmodel_data.cpp:106
-msgctxt "OSM::amenity/shop"
-msgid "Lost & Found"
-msgstr "Zgubione i znalezione"
-
-#: map-quick/osmelementinformationmodel_data.cpp:108
-msgctxt "OSM::amenity/shop"
-msgid "Mall"
-msgstr "Centrum handlowe"
-
-#: map-quick/osmelementinformationmodel_data.cpp:109
-msgctxt "OSM::amenity"
-msgid "Marketplace"
-msgstr "Targ"
-
-#: map-quick/osmelementinformationmodel_data.cpp:110
-msgctxt "OSM::amenity/shop"
-msgid "Medical Supply"
-msgstr "Sklep medyczny"
-
-#: map-quick/osmelementinformationmodel_data.cpp:111
-msgctxt "OSM::historic"
-msgid "Memorial"
-msgstr "Memoriał"
-
-#: map-quick/osmelementinformationmodel_data.cpp:112
-msgctxt "OSM::amenity/shop"
-msgid "Mobile Phone"
-msgstr "Telefon komórkowy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:113
-msgctxt "OSM::amenity/shop"
-msgid "Money Transfer"
-msgstr "Przelewy pieniężne"
-
-#: map-quick/osmelementinformationmodel_data.cpp:114
-msgctxt "OSM::historic"
-msgid "Monument"
-msgstr "Pomnik"
-
-#: map-quick/osmelementinformationmodel_data.cpp:115
-msgctxt "OSM::amenity/shop"
-msgid "Motorcycle Parking"
-msgstr "Miejsca postojowe dla motocykli"
-
-#: map-quick/osmelementinformationmodel_data.cpp:116
-msgctxt "OSM::amenity/shop"
-msgid "Motorcycle Rental"
-msgstr "Wypożyczalnia motocykli"
-
-#: map-quick/osmelementinformationmodel_data.cpp:117
-msgctxt "OSM::amenity/shop"
-msgid "Museum"
-msgstr "Muzeum"
-
-#: map-quick/osmelementinformationmodel_data.cpp:118
-msgctxt "OSM::amenity/shop"
-msgid "Music"
-msgstr "Muzyka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:119
-msgctxt "OSM::amenity/shop"
-msgid "Musical Instruments"
-msgstr "Instrumenty muzyczne"
-
-#: map-quick/osmelementinformationmodel_data.cpp:120
-msgctxt "OSM::amenity/shop"
-msgid "Newsagent"
-msgstr "Z gazetami"
-
-#: map-quick/osmelementinformationmodel_data.cpp:121
-msgctxt "OSM::amenity/shop"
-msgid "Office"
-msgstr "Biuro"
-
-#: map-quick/osmelementinformationmodel_data.cpp:122
-msgctxt "OSM::amenity/shop"
-msgid "Optician"
-msgstr "Optyk"
-
-#: map-quick/osmelementinformationmodel_data.cpp:123
-msgctxt "OSM::amenity/shop"
-msgid "Outdoor"
-msgstr "Podróżniczy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:124
-msgctxt "OSM::amenity/shop"
-msgid "Paint"
-msgstr "Malarski"
-
-#: map-quick/osmelementinformationmodel_data.cpp:125
-msgctxt "outdoor recreational area"
-msgid "Park"
-msgstr "Park"
-
-#: map-quick/osmelementinformationmodel_data.cpp:126
-msgctxt "OSM::amenity/shop"
-msgid "Parking"
-msgstr "Parking"
-
-#: map-quick/osmelementinformationmodel_data.cpp:127
-msgctxt "OSM::amenity/shop"
-msgid "Parking Tickets"
-msgstr "Bilety parkingowe"
-
-#: map-quick/osmelementinformationmodel_data.cpp:128
-msgctxt "OSM::amenity/shop"
-msgid "Pastry"
-msgstr "Cukierniczy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:129
-msgctxt "OSM::amenity/shop"
-msgid "Perfumery"
-msgstr "Perfumeria"
-
-#: map-quick/osmelementinformationmodel_data.cpp:130
-msgctxt "OSM::amenity/shop"
-msgid "Pet"
-msgstr "Zoologiczny"
-
-#: map-quick/osmelementinformationmodel_data.cpp:131
-msgctxt "OSM::amenity/shop"
-msgid "Pharmacy"
-msgstr "Apteka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:132
-msgctxt "OSM::amenity/shop"
-msgid "Photo"
-msgstr "Zdjęcie"
-
-#: map-quick/osmelementinformationmodel_data.cpp:133
-msgctxt "OSM::amenity/shop"
-msgid "Place of Worship"
-msgstr "Miejsce modlitw"
-
-#: map-quick/osmelementinformationmodel_data.cpp:134
-msgid "Playground"
-msgstr "Plac zabaw"
-
-#: map-quick/osmelementinformationmodel_data.cpp:135
-msgctxt "OSM::amenity/shop"
-msgid "Police"
-msgstr "Policja"
-
-#: map-quick/osmelementinformationmodel_data.cpp:136
-msgctxt "OSM::amenity/shop"
-msgid "Post Box"
-msgstr "Skrzynka pocztowa"
-
-#: map-quick/osmelementinformationmodel_data.cpp:137
-msgctxt "OSM::amenity/shop"
-msgid "Post Office"
-msgstr "Budynek poczty"
-
-#: map-quick/osmelementinformationmodel_data.cpp:138
-msgctxt "OSM::amenity/shop"
-msgid "Pub"
-msgstr "Pub"
-
-#: map-quick/osmelementinformationmodel_data.cpp:139
-msgctxt "OSM::amenity/shop"
-msgid "Public Transport Tickets"
-msgstr "Bilety komunikacji zbiorowej"
-
-#: map-quick/osmelementinformationmodel_data.cpp:140
-#: map-quick/osmelementinformationmodel_data.cpp:166
-msgctxt "OSM::building"
-msgid "Train Station"
-msgstr "Dworzec kolejowy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:141
-msgctxt "OSM::amenity/shop"
-msgid "Recycling"
-msgstr "Recycling"
-
-#: map-quick/osmelementinformationmodel_data.cpp:142
-msgctxt "OSM::amenity"
-msgid "Research Institute"
-msgstr "Instytut badawczy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:143
-msgctxt "OSM::amenity/shop"
-msgid "Restaurant"
-msgstr "Restauracja"
-
-#: map-quick/osmelementinformationmodel_data.cpp:144
-msgctxt "OSM::amenity/shop"
-msgid "School"
-msgstr "Szkoła"
-
-#: map-quick/osmelementinformationmodel_data.cpp:145
-msgctxt "OSM::amenity/shop"
-msgid "Kick Scooter Rental"
-msgstr "Wypożyczalnia hulajnóg"
-
-#: map-quick/osmelementinformationmodel_data.cpp:146
-msgctxt "OSM::amenity/shop"
-msgid "Seafood"
-msgstr "Owoce morza"
-
-#: map-quick/osmelementinformationmodel_data.cpp:147
-msgctxt "OSM::amenity/shop"
-msgid "Shoes"
-msgstr "Buty"
-
-#: map-quick/osmelementinformationmodel_data.cpp:148
-msgctxt "OSM::amenity/shop"
-msgid "Shop"
-msgstr "Sklep"
-
-#: map-quick/osmelementinformationmodel_data.cpp:149
-msgctxt "OSM::amenity/shop"
-msgid "Social Facility"
-msgstr "Budynek społeczny"
-
-#: map-quick/osmelementinformationmodel_data.cpp:150
-msgctxt "OSM::amenity/shop"
-msgid "Souvenirs"
-msgstr "Pamiątki"
-
-#: map-quick/osmelementinformationmodel_data.cpp:151
-msgctxt "OSM::amenity/shop"
-msgid "Sports"
-msgstr "Sporty"
-
-#: map-quick/osmelementinformationmodel_data.cpp:152
-msgctxt "OSM::amenity"
-msgid "Sports Center"
-msgstr "Ośrodek sportowy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:153
-msgctxt "OSM::amenity"
-msgid "Sports Hall"
-msgstr "Sala sportowa"
-
-#: map-quick/osmelementinformationmodel_data.cpp:154
-msgctxt "OSM::amenity/shop"
-msgid "Stationery"
-msgstr "Papierniczy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:155
-msgctxt "OSM::amenity/shop"
-msgid "Supermarket"
-msgstr "Supermarket"
-
-#: map-quick/osmelementinformationmodel_data.cpp:156
-msgctxt "OSM::amenity/shop"
-msgid "Tailor"
-msgstr "Krawiec"
-
-#: map-quick/osmelementinformationmodel_data.cpp:157
-msgctxt "OSM::amenity/shop"
-msgid "Tattoo"
-msgstr "Tatuaż"
-
-#: map-quick/osmelementinformationmodel_data.cpp:158
-msgctxt "OSM::amenity/shop"
-msgid "Taxi"
-msgstr "Taxi"
-
-#: map-quick/osmelementinformationmodel_data.cpp:159
-msgctxt "OSM::amenity/shop"
-msgid "Tea"
-msgstr "Herbaciarnia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:160
-msgctxt "OSM::amenity/shop"
-msgid "Theatre"
-msgstr "Teatr"
-
-#: map-quick/osmelementinformationmodel_data.cpp:161
-msgctxt "OSM::amenity/shop"
-msgid "Tickets"
-msgstr "Bilety"
-
-#: map-quick/osmelementinformationmodel_data.cpp:162
-msgctxt "OSM::amenity/shop"
-msgid "Tobacco"
-msgstr "Tytoń"
-
-#: map-quick/osmelementinformationmodel_data.cpp:163
-msgctxt "OSM::amenity/shop"
-msgid "Toilets"
-msgstr "Toalety"
-
-#: map-quick/osmelementinformationmodel_data.cpp:164
-msgctxt "OSM::amenity/shop"
-msgid "Town Hall"
-msgstr "Ratusz"
-
-#: map-quick/osmelementinformationmodel_data.cpp:165
-msgctxt "OSM::amenity/shop"
-msgid "Toys"
-msgstr "Zabawki"
-
-#: map-quick/osmelementinformationmodel_data.cpp:167
-#: map-quick/osmelementinformationmodel_data.cpp:168
-msgctxt "OSM::amenity/shop"
-msgid "Travel Agency"
-msgstr "Agencja podróżnicza"
-
-#: map-quick/osmelementinformationmodel_data.cpp:169
-msgctxt "OSM::amenity/shop"
-msgid "University"
-msgstr "Uniwersytet"
-
-#: map-quick/osmelementinformationmodel_data.cpp:170
-msgctxt "OSM::amenity/shop"
-msgid "Variety Store"
-msgstr "Sklep rozmaitości"
-
-#: map-quick/osmelementinformationmodel_data.cpp:171
-msgctxt "OSM::amenity/shop"
-msgid "Video Games"
-msgstr "Gry wideo"
-
-#: map-quick/osmelementinformationmodel_data.cpp:172
-#: map-quick/osmelementinformationmodel_data.cpp:173
-#: map-quick/osmelementinformationmodel_data.cpp:174
-msgctxt "OSM::amenity/shop"
-msgid "Waiting Area"
-msgstr "Poczekalnia"
-
-#: map-quick/osmelementinformationmodel_data.cpp:175
-msgctxt "OSM::amenity"
-msgid "Waste Basket"
-msgstr "Kosz na odpady"
-
-#: map-quick/osmelementinformationmodel_data.cpp:176
-msgctxt "OSM::amenity/shop"
-msgid "Wine"
-msgstr "Wino"
-
-#: map-quick/osmelementinformationmodel_data.cpp:182
-msgctxt "OSM::cuisine"
-msgid "American"
-msgstr "Amerykańska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:183
-msgctxt "OSM::cuisine"
-msgid "Arab"
-msgstr "Arabska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:184
-msgctxt "OSM::cuisine"
-msgid "Argentinian"
-msgstr "Argentyńska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:185
-msgctxt "OSM::cuisine"
-msgid "Asian"
-msgstr "Azjatycka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:186
-msgctxt "OSM::cuisine"
-msgid "Austrian"
-msgstr "Austriacka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:187
-#: map-quick/osmelementinformationmodel_data.cpp:188
-msgctxt "OSM::cuisine"
-msgid "BBQ"
-msgstr "BBQ"
-
-#: map-quick/osmelementinformationmodel_data.cpp:189
-msgctxt "OSM::cuisine"
-msgid "Brazilian"
-msgstr "Brazylijska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:190
-msgctxt "OSM::cuisine"
-msgid "Breakfast"
-msgstr "Śniadania"
-
-#: map-quick/osmelementinformationmodel_data.cpp:191
-msgctxt "OSM::cuisine"
-msgid "Burger"
-msgstr "Burger"
-
-#: map-quick/osmelementinformationmodel_data.cpp:192
-msgctxt "OSM::cuisine"
-msgid "Cake"
-msgstr "Ciasto"
-
-#: map-quick/osmelementinformationmodel_data.cpp:193
-msgctxt "OSM::cuisine"
-msgid "Chicken"
-msgstr "Kurczak"
-
-#: map-quick/osmelementinformationmodel_data.cpp:194
-msgctxt "OSM::cuisine"
-msgid "Chinese"
-msgstr "Chińska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:195
-msgctxt "OSM::cuisine"
-msgid "Coffee Shop"
-msgstr "Sklep z kawą"
-
-#: map-quick/osmelementinformationmodel_data.cpp:196
-msgctxt "OSM::cuisine"
-msgid "Cookies"
-msgstr "Ciasteczka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:197
-msgctxt "OSM::cuisine"
-msgid "Crêpe"
-msgstr "Crêpe"
-
-#: map-quick/osmelementinformationmodel_data.cpp:198
-msgctxt "OSM::cuisine"
-msgid "Donut"
-msgstr "Pączek"
-
-#: map-quick/osmelementinformationmodel_data.cpp:199
-msgctxt "OSM::cuisine"
-msgid "Falafel"
-msgstr "Falafel"
-
-#: map-quick/osmelementinformationmodel_data.cpp:200
-msgctxt "OSM::cuisine"
-msgid "Fish"
-msgstr "Ryba"
-
-#: map-quick/osmelementinformationmodel_data.cpp:201
-msgctxt "OSM::cuisine"
-msgid "Fish & Chips"
-msgstr "Ryby i czipsy"
-
-#: map-quick/osmelementinformationmodel_data.cpp:202
-msgctxt "OSM::cuisine"
-msgid "French"
-msgstr "Francuska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:203
-msgctxt "OSM::cuisine"
-msgid "German"
-msgstr "Niemiecka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:204
-msgctxt "OSM::cuisine"
-msgid "Greek"
-msgstr "Grecka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:205
-msgctxt "OSM::cuisine"
-msgid "Ice Cream"
-msgstr "Lody"
-
-#: map-quick/osmelementinformationmodel_data.cpp:206
-msgctxt "OSM::cuisine"
-msgid "Indian"
-msgstr "Indyjska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:207
-msgctxt "OSM::cuisine"
-msgid "Indonesian"
-msgstr "Indonezyjska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:208
-msgctxt "OSM::cuisine"
-msgid "International"
-msgstr "Międzynarodowe"
-
-#: map-quick/osmelementinformationmodel_data.cpp:209
-msgctxt "OSM::cuisine"
-msgid "Italian"
-msgstr "Włoska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:210
-#: map-quick/osmelementinformationmodel_data.cpp:223
-msgctxt "OSM::cuisine"
-msgid "Pizza"
-msgstr "Pizza"
-
-#: map-quick/osmelementinformationmodel_data.cpp:211
-msgctxt "OSM::cuisine"
-msgid "Japanese"
-msgstr "Japońska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:212
-msgctxt "OSM::cuisine"
-msgid "Juice"
-msgstr "Sok"
-
-#: map-quick/osmelementinformationmodel_data.cpp:213
-msgctxt "OSM::cuisine"
-msgid "Kebab"
-msgstr "Kebab"
-
-#: map-quick/osmelementinformationmodel_data.cpp:214
-msgctxt "OSM::cuisine"
-msgid "Korean"
-msgstr "Koreańska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:215
-msgctxt "OSM::cuisine"
-msgid "Lebanese"
-msgstr "Libańska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:216
-msgctxt "OSM::cuisine"
-msgid "Local"
-msgstr "Lokalna"
-
-#: map-quick/osmelementinformationmodel_data.cpp:217
-msgctxt "OSM::cuisine"
-msgid "Mediterranean"
-msgstr "Śródziemnomorskie"
-
-#: map-quick/osmelementinformationmodel_data.cpp:218
-msgctxt "OSM::cuisine"
-msgid "Mexican"
-msgstr "Meksykańska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:219
-msgctxt "OSM::cuisine"
-msgid "Noodle"
-msgstr "Makaron"
-
-#: map-quick/osmelementinformationmodel_data.cpp:220
-msgctxt "OSM::cuisine"
-msgid "Pakistani"
-msgstr "Pakistańska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:221
-msgctxt "OSM::cuisine"
-msgid "Pancake"
-msgstr "Naleśnik"
-
-#: map-quick/osmelementinformationmodel_data.cpp:222
-msgctxt "OSM::cuisine"
-msgid "Pasta"
-msgstr "Makaron"
-
-#: map-quick/osmelementinformationmodel_data.cpp:224
-msgctxt "OSM::cuisine"
-msgid "Polish"
-msgstr "Polska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:225
-msgctxt "OSM::cuisine"
-msgid "Portuguese"
-msgstr "Portugalska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:226
-msgctxt "OSM::cuisine"
-msgid "Ramen"
-msgstr "Ramen"
-
-#: map-quick/osmelementinformationmodel_data.cpp:227
-msgctxt "OSM::cuisine"
-msgid "Regional"
-msgstr "Regionalna"
-
-#: map-quick/osmelementinformationmodel_data.cpp:228
-msgctxt "OSM::cuisine"
-msgid "Salad"
-msgstr "Sałatka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:229
-msgctxt "OSM::cuisine"
-msgid "Sandwich"
-msgstr "Kanapka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:230
-msgctxt "OSM::cuisine"
-msgid "Sausage"
-msgstr "Kiełbasa"
-
-#: map-quick/osmelementinformationmodel_data.cpp:231
-msgctxt "OSM::cuisine"
-msgid "Seafood"
-msgstr "Owoce morza"
-
-#: map-quick/osmelementinformationmodel_data.cpp:232
-msgctxt "OSM::cuisine"
-msgid "Soup"
-msgstr "Zupa"
-
-#: map-quick/osmelementinformationmodel_data.cpp:233
-msgctxt "OSM::cuisine"
-msgid "Spanish"
-msgstr "Hiszpańska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:234
-#: map-quick/osmelementinformationmodel_data.cpp:235
-msgctxt "OSM::cuisine"
-msgid "Steak"
-msgstr "Stek"
-
-#: map-quick/osmelementinformationmodel_data.cpp:236
-msgctxt "OSM::cuisine"
-msgid "Sushi"
-msgstr "Sushi"
-
-#: map-quick/osmelementinformationmodel_data.cpp:237
-msgctxt "OSM::cuisine"
-msgid "Tapas"
-msgstr "Tapas"
-
-#: map-quick/osmelementinformationmodel_data.cpp:238
-msgctxt "OSM::cuisine"
-msgid "Thai"
-msgstr "Tajska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:239
-msgctxt "OSM::cuisine"
-msgid "Turkish"
-msgstr "Turecka"
-
-#: map-quick/osmelementinformationmodel_data.cpp:240
-msgctxt "OSM::cuisine"
-msgid "Vegetarian"
-msgstr "Wegetariańska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:241
-msgctxt "OSM::cuisine"
-msgid "Vietnamese"
-msgstr "Wietnamska"
-
-#: map-quick/osmelementinformationmodel_data.cpp:253
 msgctxt "OSM::diet_type"
 msgid "gluten free"
 msgstr "bez glutenu"
 
-#: map-quick/osmelementinformationmodel_data.cpp:254
+#: map-quick/osmelementinformationmodel_data.cpp:23
 msgctxt "OSM::diet_type"
 msgid "halal"
 msgstr "halal"
 
-#: map-quick/osmelementinformationmodel_data.cpp:255
+#: map-quick/osmelementinformationmodel_data.cpp:24
 msgctxt "OSM::diet_type"
 msgid "kosher"
 msgstr "koszerna"
 
-#: map-quick/osmelementinformationmodel_data.cpp:256
+#: map-quick/osmelementinformationmodel_data.cpp:25
 msgctxt "OSM::diet_type"
 msgid "lactose free"
 msgstr "bez laktozy"
 
-#: map-quick/osmelementinformationmodel_data.cpp:257
+#: map-quick/osmelementinformationmodel_data.cpp:26
 msgctxt "OSM::diet_type"
 msgid "vegan"
 msgstr "wegańska"
 
-#: map-quick/osmelementinformationmodel_data.cpp:258
+#: map-quick/osmelementinformationmodel_data.cpp:27
 msgctxt "OSM::diet_type"
 msgid "vegetarian"
 msgstr "wegetariańska"
 
-#: map-quick/osmelementinformationmodel_data.cpp:286
+#: map-quick/osmelementinformationmodel_data.cpp:55
 msgctxt "OSM::payment_method"
 msgid "American Express"
 msgstr "American Express"
 
-#: map-quick/osmelementinformationmodel_data.cpp:287
+#: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::payment_method"
 msgid "Apple Pay"
 msgstr "Apple Pay"
 
-#: map-quick/osmelementinformationmodel_data.cpp:288
+#: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::payment_method"
 msgid "Diners Club"
 msgstr "Diners Club"
 
-#: map-quick/osmelementinformationmodel_data.cpp:289
+#: map-quick/osmelementinformationmodel_data.cpp:58
 msgctxt "OSM::payment_method"
 msgid "Discover Card"
 msgstr "Karta Discover"
 
-#: map-quick/osmelementinformationmodel_data.cpp:290
+#: map-quick/osmelementinformationmodel_data.cpp:59
 msgctxt "OSM::payment_method"
 msgid "JCB"
 msgstr "JCB"
 
-#: map-quick/osmelementinformationmodel_data.cpp:291
+#: map-quick/osmelementinformationmodel_data.cpp:60
 msgctxt "OSM::payment_method"
 msgid "Girocard"
 msgstr "Girocard"
 
-#: map-quick/osmelementinformationmodel_data.cpp:292
+#: map-quick/osmelementinformationmodel_data.cpp:61
 msgctxt "OSM::payment_method"
 msgid "Google Pay"
 msgstr "Google Pay"
 
-#: map-quick/osmelementinformationmodel_data.cpp:293
+#: map-quick/osmelementinformationmodel_data.cpp:62
 msgctxt "OSM::payment_method"
 msgid "Maestro"
 msgstr "Maestro"
 
-#: map-quick/osmelementinformationmodel_data.cpp:294
+#: map-quick/osmelementinformationmodel_data.cpp:63
 msgctxt "OSM::payment_method"
 msgid "Mastercard"
 msgstr "Mastercard"
 
-#: map-quick/osmelementinformationmodel_data.cpp:295
+#: map-quick/osmelementinformationmodel_data.cpp:64
 msgctxt "OSM::payment_method"
 msgid "UnionPay"
 msgstr "UnionPay"
 
-#: map-quick/osmelementinformationmodel_data.cpp:296
-#: map-quick/osmelementinformationmodel_data.cpp:297
+#: map-quick/osmelementinformationmodel_data.cpp:65
+#: map-quick/osmelementinformationmodel_data.cpp:66
 msgctxt "OSM::payment_method"
 msgid "V Pay"
 msgstr "V Pay"
 
-#: map-quick/osmelementinformationmodel_data.cpp:298
+#: map-quick/osmelementinformationmodel_data.cpp:67
 msgctxt "OSM::payment_method"
 msgid "Visa"
 msgstr "Visa"
 
-#: map-quick/osmelementinformationmodel_data.cpp:302
+#: map-quick/osmelementinformationmodel_data.cpp:71
 msgctxt "OSM::wheelchair_access"
 msgid "limited"
 msgstr "ograniczone"
 
-#: map-quick/osmelementinformationmodel_data.cpp:303
+#: map-quick/osmelementinformationmodel_data.cpp:72
 msgctxt "OSM::wheelchair_access"
 msgid "no"
 msgstr "nie"
 
-#: map-quick/osmelementinformationmodel_data.cpp:304
+#: map-quick/osmelementinformationmodel_data.cpp:73
 msgctxt "OSM::wheelchair_access"
 msgid "yes"
 msgstr "tak"
 
-#: map-quick/osmelementinformationmodel_data.cpp:316
+#: map-quick/osmelementinformationmodel_data.cpp:85
 msgctxt "OSM::charging_station_socket"
 msgid "Chademo"
 msgstr "Chademo"
 
-#: map-quick/osmelementinformationmodel_data.cpp:317
+#: map-quick/osmelementinformationmodel_data.cpp:86
 msgctxt "OSM::charging_station_socket"
 msgid "Schuko"
 msgstr "Schuko"
 
-#: map-quick/osmelementinformationmodel_data.cpp:318
+#: map-quick/osmelementinformationmodel_data.cpp:87
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla"
 msgstr "Tesla"
 
-#: map-quick/osmelementinformationmodel_data.cpp:319
+#: map-quick/osmelementinformationmodel_data.cpp:88
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla Supercharger"
 msgstr "Superładowarka Tesli"
 
-#: map-quick/osmelementinformationmodel_data.cpp:320
+#: map-quick/osmelementinformationmodel_data.cpp:89
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla Supercharger CCS"
 msgstr "Superładowarka CCS Tesli"
 
-#: map-quick/osmelementinformationmodel_data.cpp:321
+#: map-quick/osmelementinformationmodel_data.cpp:90
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2"
 msgstr "Rodzaj 2"
 
-#: map-quick/osmelementinformationmodel_data.cpp:322
+#: map-quick/osmelementinformationmodel_data.cpp:91
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2 cable"
 msgstr "Kabel rodzaju 2"
 
-#: map-quick/osmelementinformationmodel_data.cpp:323
+#: map-quick/osmelementinformationmodel_data.cpp:92
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2 CCS"
 msgstr "Rodzaj 2 CCS"
 
-#: map-quick/osmelementinformationmodel_data.cpp:324
+#: map-quick/osmelementinformationmodel_data.cpp:93
 msgctxt "OSM::charging_station_socket"
 msgid "Type E"
 msgstr "Rodzaj E"
 
-#: map-quick/osmelementinformationmodel_data.cpp:336
+#: map-quick/osmelementinformationmodel_data.cpp:105
 msgctxt "OSM::charging_station_authentication"
 msgid "app"
 msgstr "app"
 
-#: map-quick/osmelementinformationmodel_data.cpp:337
+#: map-quick/osmelementinformationmodel_data.cpp:106
 msgctxt "OSM::charging_station_authentication"
 msgid "membership card"
 msgstr "karta członkowska"
 
-#: map-quick/osmelementinformationmodel_data.cpp:338
+#: map-quick/osmelementinformationmodel_data.cpp:107
 msgctxt "OSM::charging_station_authentication"
 msgid "NFC"
 msgstr "NFC"
 
-#: map-quick/osmelementinformationmodel_data.cpp:339
+#: map-quick/osmelementinformationmodel_data.cpp:108
 msgctxt "OSM::charging_station_authentication"
 msgid "none"
 msgstr "brak"
 
-#: map-quick/osmelementinformationmodel_data.cpp:340
+#: map-quick/osmelementinformationmodel_data.cpp:109
 msgctxt "OSM::charging_station_authentication"
 msgid "phone call"
 msgstr "rozmowy telefoniczne"
 
-#: map-quick/osmelementinformationmodel_data.cpp:341
+#: map-quick/osmelementinformationmodel_data.cpp:110
 msgctxt "OSM::charging_station_authentication"
 msgid "SMS"
 msgstr "SMS"
 
-#: map-quick/osmelementinformationmodel_data.cpp:348
+#: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "OSM::bicycle_parking"
 msgid "anchors"
 msgstr "kotwice"
 
-#: map-quick/osmelementinformationmodel_data.cpp:349
+#: map-quick/osmelementinformationmodel_data.cpp:118
 msgctxt "OSM::bicycle_parking"
 msgid "bollard"
 msgstr "słupki"
 
-#: map-quick/osmelementinformationmodel_data.cpp:350
+#: map-quick/osmelementinformationmodel_data.cpp:119
 msgctxt "OSM::bicycle_parking"
 msgid "building"
 msgstr "w budowie"
 
-#: map-quick/osmelementinformationmodel_data.cpp:351
+#: map-quick/osmelementinformationmodel_data.cpp:120
 msgctxt "OSM::bicycle_parking"
 msgid "ground slots"
 msgstr "gniazda uziemienia"
 
-#: map-quick/osmelementinformationmodel_data.cpp:352
+#: map-quick/osmelementinformationmodel_data.cpp:121
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
 msgstr "z blokadami"
 
-#: map-quick/osmelementinformationmodel_data.cpp:353
+#: map-quick/osmelementinformationmodel_data.cpp:122
 msgctxt "OSM::bicycle_parking"
 msgid "racks"
 msgstr "stojaki"
 
-#: map-quick/osmelementinformationmodel_data.cpp:354
+#: map-quick/osmelementinformationmodel_data.cpp:123
 msgctxt "OSM::bicycle_parking"
 msgid "shed"
 msgstr "szopa"
 
-#: map-quick/osmelementinformationmodel_data.cpp:355
+#: map-quick/osmelementinformationmodel_data.cpp:124
 msgctxt "OSM::bicycle_parking"
 msgid "stands"
 msgstr "stojaki"
 
-#: map-quick/osmelementinformationmodel_data.cpp:356
+#: map-quick/osmelementinformationmodel_data.cpp:125
 msgctxt "OSM::bicycle_parking"
 msgid "wall loops"
 msgstr "pętle naścienne"
 
-#: map-quick/osmelementinformationmodel_data.cpp:357
+#: map-quick/osmelementinformationmodel_data.cpp:126
 msgctxt "OSM::bicycle_parking"
 msgid "wide stands"
 msgstr "szerokie stanowiska"
 
-#: map-quick/osmelementinformationmodel_data.cpp:364
+#: map-quick/osmelementinformationmodel_data.cpp:133
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 bike"
@@ -1590,7 +1784,7 @@ msgstr[0] "%1 rower"
 msgstr[1] "%1 rowery"
 msgstr[2] "%1 rowerów"
 
-#: map-quick/osmelementinformationmodel_data.cpp:365
+#: map-quick/osmelementinformationmodel_data.cpp:134
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 pedelec"
@@ -1599,7 +1793,7 @@ msgstr[0] "%1 rower elektryczny"
 msgstr[1] "%1 rowery elektryczne"
 msgstr[2] "%1 rowerów elektrycznych"
 
-#: map-quick/osmelementinformationmodel_data.cpp:366
+#: map-quick/osmelementinformationmodel_data.cpp:135
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
@@ -1608,7 +1802,7 @@ msgstr[0] "%1 hulajnoga"
 msgstr[1] "%1 hulajnogi"
 msgstr[2] "%1 hulajnóg"
 
-#: map-quick/osmelementinformationmodel_data.cpp:367
+#: map-quick/osmelementinformationmodel_data.cpp:136
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 moped"
@@ -1617,7 +1811,7 @@ msgstr[0] "%1 skuter"
 msgstr[1] "%1 skutery"
 msgstr[2] "%1 skuterów"
 
-#: map-quick/osmelementinformationmodel_data.cpp:368
+#: map-quick/osmelementinformationmodel_data.cpp:137
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 car"
@@ -1626,32 +1820,32 @@ msgstr[0] "%1 samochód"
 msgstr[1] "%1 samochody"
 msgstr[2] "%1 samochodów"
 
-#: map-quick/osmelementinformationmodel_data.cpp:379
+#: map-quick/osmelementinformationmodel_data.cpp:148
 msgctxt "OSM::gender_segregation"
 msgid "female"
 msgstr "żeński"
 
-#: map-quick/osmelementinformationmodel_data.cpp:380
+#: map-quick/osmelementinformationmodel_data.cpp:149
 msgctxt "OSM::gender_segregation"
 msgid "male"
 msgstr "męski"
 
-#: map-quick/osmelementinformationmodel_data.cpp:381
+#: map-quick/osmelementinformationmodel_data.cpp:150
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
 msgstr "dla obu płci"
 
-#: map-quick/osmelementinformationmodel_data.cpp:393
+#: map-quick/osmelementinformationmodel_data.cpp:162
 msgctxt "tactile writing"
 msgid "braille"
 msgstr "brajl"
 
-#: map-quick/osmelementinformationmodel_data.cpp:394
+#: map-quick/osmelementinformationmodel_data.cpp:163
 msgctxt "tactile writing"
 msgid "embossed printed letters"
 msgstr "druk wypukłymi literami"
 
-#: map-quick/osmelementinformationmodel_data.cpp:395
+#: map-quick/osmelementinformationmodel_data.cpp:164
 msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "druk wklęsłymi literami"
