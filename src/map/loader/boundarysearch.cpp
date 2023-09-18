@@ -36,6 +36,38 @@ static OSM::Id actualId(OSM::Element e, OSM::TagKey mxoidTag)
     return e.id();
 }
 
+static bool isPolygon(OSM::Element e)
+{
+    return (e.type() == OSM::Type::Way && e.way()->isClosed())
+        || (e.type() == OSM::Type::Relation && e.tagValue("type") == "multipolygon");
+}
+
+void BoundarySearch::resolveTagKeys(const OSM::DataSet& dataSet)
+{
+    // cache tag keys for fast lookup
+    m_tag.mxoid = dataSet.tagKey("mx:oid");
+    m_tag.building = dataSet.tagKey("building");
+    m_tag.railway = dataSet.tagKey("railway");
+    m_tag.aeroway = dataSet.tagKey("aeroway");
+    m_tag.public_transport = dataSet.tagKey("public_transport");
+    m_tag.amenity = dataSet.tagKey("amenity");
+    m_tag.tourism =  dataSet.tagKey("tourism");
+    m_tag.leisure = dataSet.tagKey("leisure");
+    m_tag.shop = dataSet.tagKey("shop");
+}
+
+bool BoundarySearch::isRelevantPolygon(const OSM::Element e) const
+{
+    if (!isPolygon(e) || !OSM::contains(e.boundingBox(), m_center)) {
+        return false;
+    }
+
+    return !e.tagValue(m_tag.amenity).isEmpty()
+        || !e.tagValue(m_tag.tourism).isEmpty()
+        || !e.tagValue(m_tag.leisure).isEmpty()
+        || !e.tagValue(m_tag.shop).isEmpty();
+}
+
 /* There's a number of critieria being considered here:
  * - a certain minimum radius around center (see BoundingBoxMargin)
  * - an upper limit (BoundingBoxMaxSize), to avoid this growing out of control
@@ -45,49 +77,47 @@ static OSM::Id actualId(OSM::Element e, OSM::TagKey mxoidTag)
  */
 OSM::BoundingBox BoundarySearch::boundingBox(const OSM::DataSet& dataSet)
 {
-    // cache tag keys for fast lookup
-    const auto buildingTag = dataSet.tagKey("building");
-    const auto railwayTag = dataSet.tagKey("railway");
-    const auto aerowayTag = dataSet.tagKey("aeroway");
-    const auto mxoidTag = dataSet.tagKey("mx:oid");
+    resolveTagKeys(dataSet);
 
     if (m_relevantIds.empty()) { // first pass over the center tile
-        OSM::for_each(dataSet, [&](OSM::Element e) {
-            const bool isRelevant = !e.tagValue(buildingTag).isEmpty()
-                || !e.tagValue(railwayTag).isEmpty()
-                || !e.tagValue(aerowayTag).isEmpty();
-
-            if (!isRelevant) {
-                return;
-            }
+        OSM::for_each(dataSet, [this, &dataSet](OSM::Element e) {
             if (!e.boundingBox().isValid()) {
                 e.recomputeBoundingBox(dataSet);
             }
 
-            m_relevantIds.insert(actualId(e, mxoidTag));
+            const bool isRelevant = !e.tagValue(m_tag.building).isEmpty()
+                || !e.tagValue(m_tag.railway).isEmpty()
+                || !e.tagValue(m_tag.aeroway).isEmpty()
+                || isRelevantPolygon(e);
+
+            if (!isRelevant) {
+                return;
+            }
+
+            m_relevantIds.insert(actualId(e, m_tag.mxoid));
             m_bbox = OSM::unite(m_bbox, e.boundingBox());
         }, OSM::IncludeRelations | OSM::IncludeWays);
     }
 
     OSM::BoundingBox bbox = m_bbox;
     OSM::for_each(dataSet, [&](OSM::Element e) {
-        // TODO cache the remaining tag keys here too
-        const auto railwayValue = e.tagValue(railwayTag);
+        const auto railwayValue = e.tagValue(m_tag.railway);
         const bool isStation = railwayValue == "station"
             || railwayValue == "platform"
-            || e.tagValue(buildingTag) == "train_station"
-            || e.tagValue("public_transport") == "platform";
-        const bool isAirport = (e.tagValue(aerowayTag) == "aerodrome");
-        if (!isStation && !isAirport) {
+            || e.tagValue(m_tag.building) == "train_station"
+            || e.tagValue(m_tag.public_transport) == "platform";
+        const bool isAirport = (e.tagValue(m_tag.aeroway) == "aerodrome");
+        const bool isRelevant = isRelevantPolygon(e);
+        if (!isStation && !isAirport && !isRelevant) {
             return;
         }
 
         e.recomputeBoundingBox(dataSet); // unconditionally as this obviously grows as we load more data
 
-        if (m_relevantIds.count(actualId(e, mxoidTag))) {
+        if (m_relevantIds.count(actualId(e, m_tag.mxoid))) {
             m_bbox = OSM::unite(m_bbox, e.boundingBox());
             bbox = OSM::unite(m_bbox, bbox);
-        } else if (OSM::intersects(e.boundingBox(), m_bbox)) {
+        } else if (!isRelevant && OSM::intersects(e.boundingBox(), m_bbox)) {
             bbox = OSM::unite(bbox, e.boundingBox());
         }
     }, OSM::IncludeRelations | OSM::IncludeWays);

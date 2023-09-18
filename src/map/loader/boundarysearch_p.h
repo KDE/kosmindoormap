@@ -11,6 +11,10 @@
 
 #include <unordered_set>
 
+namespace OSM {
+class Element;
+}
+
 namespace KOSMIndoorMap {
 
 /** Given a coordinate, this searches for the area that should be displayed on the map,
@@ -30,10 +34,26 @@ private:
     /** Clamp @p bbox to be at most @p meters in size. */
     OSM::BoundingBox clampBoundingBox(const OSM::BoundingBox &bbox, double meters) const;
 
+    /** Relevant polygon covering m_center. */
+    bool isRelevantPolygon(OSM::Element e) const;
+
     OSM::Coordinate m_center;
 
     OSM::BoundingBox m_bbox;
     std::unordered_set<OSM::Id> m_relevantIds;
+
+    void resolveTagKeys(const OSM::DataSet& dataSet);
+    struct {
+        OSM::TagKey mxoid;
+        OSM::TagKey building;
+        OSM::TagKey railway;
+        OSM::TagKey aeroway;
+        OSM::TagKey public_transport;
+        OSM::TagKey amenity;
+        OSM::TagKey tourism;
+        OSM::TagKey leisure;
+        OSM::TagKey shop;
+    } m_tag;
 };
 
 }
