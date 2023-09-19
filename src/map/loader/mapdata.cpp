@@ -295,8 +295,9 @@ QString MapData::levelName(OSM::Element e)
 void MapData::filterLevels()
 {
     // remove all levels that don't contain something we are sure would make a meaningful output
+    // always retain the base level though
     for (auto it = d->m_levelMap.begin(); it != d->m_levelMap.end();) {
-        if (d->m_dependentElementCounts[(*it).first] == (*it).second.size()) {
+        if ((*it).first.numericLevel() != 0 && d->m_dependentElementCounts[(*it).first] == (*it).second.size()) {
             it = d->m_levelMap.erase(it);
         } else {
             ++it;
