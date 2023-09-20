@@ -1,0 +1,43 @@
+/*
+    SPDX-FileCopyrightText: https://github.com/gravitystorm/openstreetmap-carto/
+    SPDX-FileCopyrightText: 2023 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: CC0-1.0
+*/
+
+line|z14-[power=line] {
+    set .power_line;
+    width: 0.5px;
+}
+line|z15-[power=line] { width: 0.6px; }
+line|z16-[power=line] { width: 0.7px; }
+line|z18-[power=line] { width: 1px; }
+line|z19-[power=line] { width: 1.2px; }
+
+line|z16-[power=minor_line] {
+    set .power_line;
+    width: 0.3px;
+}
+line|z17-[power=minor_line] { width: 0.4px; }
+line|z18-[power=minor_line] { width: 0.5px; }
+
+node|z14-[power=tower] {
+    icon-image: "power_tower_small";
+    icon-height: 3px;
+    icon-width: 3px;
+}
+node|z15-[power=tower] {
+    icon-image: "power_tower";
+    icon-height: 5px;
+    icon-width: 5px;
+}
+node|z17-[power=tower] {
+    icon-height: 7px;
+    icon-width: 7px;
+}
+
+node|z16-[power=pole] {
+    set .power_pole;
+    icon-image: "square";
+    icon-width: 3px;
+    icon-height: 3px;
+}
