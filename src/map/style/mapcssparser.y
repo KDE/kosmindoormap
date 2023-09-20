@@ -90,7 +90,6 @@ using namespace KOSMIndoorMap;
 %token T_COLON
 %token T_SEMICOLON
 %token T_COMMA
-%token T_SPACE
 %token T_DASH
 %token T_PLUS
 %token T_STAR

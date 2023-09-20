@@ -16,11 +16,17 @@ extern char* unquoteString(const char *str);
 
 using namespace KOSMIndoorMap;
 
-int yy_column = 1;
-#define YY_USER_ACTION yylloc->first_line = yylloc->last_line = yylineno + 1; \
-    yylloc->first_column = yy_column; \
-    yylloc->last_column = yy_column + yyleng - 1; \
-    yy_column += yyleng;
+#define YY_USER_ACTION \
+    yylloc->first_line = yylloc->last_line; \
+    yylloc->first_column = yylloc->last_column; \
+    for (int i = 0; i < yyleng; i++) { \
+        if(yytext[i] == '\n') { \
+            yylloc->last_line++; \
+            yylloc->last_column = 0; \
+        } else { \
+            yylloc->last_column++; \
+        } \
+    }
 
 %}
 
@@ -38,7 +44,7 @@ INITIAL     [[:alpha:]]|"_"
 SUBSEQUENT  {INITIAL}|[0-9]
 IDENTIFIER  {INITIAL}{SUBSEQUENT}*
 
-SPACE       [ \t\r]+
+SPACE       [ \t\r\n]+
 
 HEX         [a-fA-F0-9]
 HEXCOLOR8   "#"{HEX}{8}
@@ -54,7 +60,6 @@ STRING      ["]{STRING_ELEMENT}*["]
 
 %%
 
-"\n"    { yy_column = 1; }
 {SPACE} {}
 
 "[" { return T_LBRACKET; }
@@ -66,7 +71,6 @@ STRING      ["]{STRING_ELEMENT}*["]
 ":" { return T_COLON; }
 ";" { return T_SEMICOLON; }
 "," { return T_COMMA; }
-" " { return T_SPACE; }
 "-" { return T_DASH; }
 "+" { return T_PLUS; }
 "|z" { return T_ZOOM; }
@@ -123,12 +127,12 @@ STRING      ["]{STRING_ELEMENT}*["]
     return T_DOUBLE;
 }
 
-"//"[^\n]*\n { yy_column = 1; }
+"//"[^\n]*\n {}
 
 "/*"             BEGIN(comment);
 <comment>[^*\n]*
 <comment>"*"+[^*/\n]*
-<comment>\n      { yy_column = 1; }
+<comment>\n      {}
 <comment>"*"+"/" BEGIN(INITIAL);
 
 . {
