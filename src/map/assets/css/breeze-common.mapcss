@@ -588,7 +588,7 @@ line[barrier=bollard] {
     dashes: 0.2,1.2;
 }
 line[barrier=kerb] {
-    width: 0;
+    width: 1px;
     opacity: 0.5;
 }
 
@@ -1079,7 +1079,7 @@ area[stairwell=elevator],
 area[indoor=room][elevator=yes]
 {
     set .elevator;
-    width: 0;
+    width: 1px;
     z-index: 1;
 }
 

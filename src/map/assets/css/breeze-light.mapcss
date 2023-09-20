@@ -89,7 +89,7 @@ area[tunnel=yes]
     fill-color: #dad9d8;
 }
 
-area[stairwell] { color: #e0dfde; width: 0; }
+area[stairwell] { color: #e0dfde; width: 1px; }
 
 area[indoor=room],
 area[indoor=yes][amenity],
@@ -97,7 +97,7 @@ area[shop]
 {
     fill-color: #dad9d8;
     color: #31363b;
-    width: 0; // 1px
+    width: 1px;
 }
 
 line[barrier],
@@ -112,7 +112,7 @@ area[indoor=wall],
 area[man_made=column]
 {
     fill-color: #888786;
-    width: 0;
+    width: 1px;
 }
 
 line [highway=steps] {
@@ -142,7 +142,7 @@ area[public_transport=platform]
 {
     fill-color: #bdc3c7;
     color: #31363b;
-    width: 0;
+    width: 1px;
 }
 
 line[public_transport=platform][railway!=platform_edge]

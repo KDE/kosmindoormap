@@ -642,6 +642,7 @@ void SceneController::applyFontStyle(const MapCSSDeclaration *decl, QFont &font)
 void SceneController::initializePen(QPen &pen) const
 {
     pen.setColor(Qt::transparent);
+    pen.setWidthF(0.0);
 
     // default according to spec
     pen.setCapStyle(Qt::FlatCap);
@@ -657,7 +658,7 @@ void SceneController::finalizePen(QPen &pen, double opacity) const
         pen.setColor(c);
     }
 
-    if (pen.color().alphaF() == 0.0) {
+    if (pen.color().alphaF() == 0.0 || pen.widthF() == 0.0) {
         pen.setStyle(Qt::NoPen); // so the renderer can skip this entirely
     }
 
