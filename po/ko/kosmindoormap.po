@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-18 00:44+0000\n"
+"POT-Creation-Date: 2023-09-21 00:43+0000\n"
 "PO-Revision-Date: 2023-08-25 22:56+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -24,6 +24,45 @@ msgstr ""
 #, kde-format
 msgid "KDE OSM Indoor Map"
 msgstr "KDE OSM 실내 지도"
+
+#: map-quick/amenitymodel.cpp:84
+#, kde-format
+msgctxt "amenity category"
+msgid "Food & Drinks"
+msgstr ""
+
+#: map-quick/amenitymodel.cpp:86
+#, fuzzy, kde-format
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Shop"
+msgctxt "amenity category"
+msgid "Shops"
+msgstr "가게"
+
+#: map-quick/amenitymodel.cpp:88
+#, fuzzy, kde-format
+#| msgid "Toilets"
+msgctxt "amenity category"
+msgid "Toilets"
+msgstr "화장실"
+
+#: map-quick/amenitymodel.cpp:90
+#, kde-format
+msgctxt "amenity category"
+msgid "Healthcare"
+msgstr ""
+
+#: map-quick/amenitymodel.cpp:92
+#, kde-format
+msgctxt "amenity category"
+msgid "Amenities"
+msgstr ""
+
+#: map-quick/amenitymodel.cpp:94
+#, kde-format
+msgctxt "amenity category"
+msgid "Accommodations"
+msgstr ""
 
 #: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
@@ -42,397 +81,627 @@ msgid "Alcohol"
 msgstr "주류"
 
 #: map-quick/localization_data.cpp:21
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Boutique"
+msgctxt "OSM::shop"
+msgid "Antiques"
+msgstr "부티크"
+
+#: map-quick/localization_data.cpp:22
 msgctxt "OSM::amenity/shop"
 msgid "Apartment"
 msgstr "아파트"
 
-#: map-quick/localization_data.cpp:22
+#: map-quick/localization_data.cpp:23
+msgctxt "OSM::tourism"
+msgid "Aquarium"
+msgstr ""
+
+#: map-quick/localization_data.cpp:24
+msgctxt "OSM::historic"
+msgid "Archaeological Site"
+msgstr ""
+
+#: map-quick/localization_data.cpp:25
+msgctxt "OSM::shop"
+msgid "Art"
+msgstr ""
+
+#: map-quick/localization_data.cpp:26
 msgctxt "OSM::amenity/shop"
 msgid "Arts Center"
 msgstr "아트 센터"
 
-#: map-quick/localization_data.cpp:23
+#: map-quick/localization_data.cpp:27
 msgctxt "OSM::amenity/shop"
 msgid "Artwork"
 msgstr "예술 작품"
 
-#: map-quick/localization_data.cpp:24
+#: map-quick/localization_data.cpp:28
 msgctxt "OSM::amenity/shop"
 msgid "ATM"
 msgstr "ATM"
 
-#: map-quick/localization_data.cpp:25
+#: map-quick/localization_data.cpp:29
 msgctxt "OSM::amenity/shop"
 msgid "Attraction"
 msgstr "관광 명소"
 
-#: map-quick/localization_data.cpp:26
+#: map-quick/localization_data.cpp:30
+msgctxt "OSM::shop"
+msgid "Baby Goods"
+msgstr ""
+
+#: map-quick/localization_data.cpp:31
 msgctxt "OSM::amenity/shop"
 msgid "Bag"
 msgstr "가방 판매점"
 
-#: map-quick/localization_data.cpp:27
+#: map-quick/localization_data.cpp:32
 msgctxt "OSM::amenity"
 msgid "Baggage Claim"
 msgstr "수하물 수취대"
 
-#: map-quick/localization_data.cpp:28
+#: map-quick/localization_data.cpp:33
 msgctxt "OSM::amenity/shop"
 msgid "Bakery"
 msgstr "제과점"
 
-#: map-quick/localization_data.cpp:29
+#: map-quick/localization_data.cpp:34
 msgctxt "OSM::amenity/shop"
 msgid "Bank"
 msgstr "은행"
 
-#: map-quick/localization_data.cpp:30
+#: map-quick/localization_data.cpp:35
 msgctxt "OSM::amenity/shop"
 msgid "Bar"
 msgstr "주점"
 
-#: map-quick/localization_data.cpp:31
+#: map-quick/localization_data.cpp:36
 msgctxt "OSM::amenity/shop"
 msgid "Beauty"
 msgstr "미용실"
 
-#: map-quick/localization_data.cpp:32
+#: map-quick/localization_data.cpp:37
 msgctxt "OSM::amenity/shop"
 msgid "Bed"
 msgstr "민박"
 
-#: map-quick/localization_data.cpp:33
+#: map-quick/localization_data.cpp:38
 msgctxt "OSM::amenity"
 msgid "Bench"
 msgstr "벤치"
 
-#: map-quick/localization_data.cpp:34
+#: map-quick/localization_data.cpp:39
 msgctxt "OSM::amenity/shop"
 msgid "Beverages"
 msgstr "음료 가게"
 
-#: map-quick/localization_data.cpp:35
+#: map-quick/localization_data.cpp:40
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle"
 msgstr "자전거 가게"
 
-#: map-quick/localization_data.cpp:36
+#: map-quick/localization_data.cpp:41
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle Parking"
 msgstr "자전거 주차"
 
-#: map-quick/localization_data.cpp:37
+#: map-quick/localization_data.cpp:42
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle Rental"
 msgstr "자전거 대여점"
 
-#: map-quick/localization_data.cpp:38
+#: map-quick/localization_data.cpp:43
+#, fuzzy
+#| msgid "Bicycle parking"
+msgctxt "OSM::amenity"
+msgid "Bicycle Repair Station"
+msgstr "자전거 주차"
+
+#: map-quick/localization_data.cpp:44
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Garden"
+msgctxt "OSM::amenity"
+msgid "Beer Garden"
+msgstr "원예 용품점"
+
+#: map-quick/localization_data.cpp:45
 msgctxt "OSM::amenity/shop"
 msgid "Books"
 msgstr "서점"
 
-#: map-quick/localization_data.cpp:39
+#: map-quick/localization_data.cpp:46
 msgctxt "OSM::amenity/shop"
 msgid "Boutique"
 msgstr "부티크"
 
-#: map-quick/localization_data.cpp:40
+#: map-quick/localization_data.cpp:47
+msgctxt "OSM::leisure"
+msgid "Bowling Alley"
+msgstr ""
+
+#: map-quick/localization_data.cpp:48
 msgctxt "OSM::amenity/shop"
 msgid "Bureau de Change"
 msgstr "환전소"
 
-#: map-quick/localization_data.cpp:41
+#: map-quick/localization_data.cpp:49
 msgctxt "OSM::amenity/shop"
 msgid "Butcher"
 msgstr "정육점"
 
-#: map-quick/localization_data.cpp:42
+#: map-quick/localization_data.cpp:50
 msgctxt "OSM::amenity/shop"
 msgid "Cafe"
 msgstr "카페"
 
-#: map-quick/localization_data.cpp:43
+#: map-quick/localization_data.cpp:51
 msgctxt "OSM::amenity/shop"
 msgid "Car"
 msgstr "자동차 판매점"
 
-#: map-quick/localization_data.cpp:44
+#: map-quick/localization_data.cpp:52
 msgctxt "OSM::amenity/shop"
 msgid "Car Rental"
 msgstr "자동차 대여점"
 
-#: map-quick/localization_data.cpp:45
+#: map-quick/localization_data.cpp:53
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Car Rental"
+msgctxt "OSM::shop"
+msgid "Car Repair"
+msgstr "자동차 대여점"
+
+#: map-quick/localization_data.cpp:54
 msgctxt "OSM::amenity/shop"
 msgid "Car Sharing"
 msgstr "카 셰어링"
 
-#: map-quick/localization_data.cpp:46
+#: map-quick/localization_data.cpp:55
+msgctxt "OSM::amenity"
+msgid "Car Wash"
+msgstr ""
+
+#: map-quick/localization_data.cpp:56
+msgctxt "OSM::historic"
+msgid "Castle"
+msgstr ""
+
+#: map-quick/localization_data.cpp:57
 msgctxt "OSM::amenity/shop"
 msgid "Charging Station"
 msgstr "충전소"
 
-#: map-quick/localization_data.cpp:47
+#: map-quick/localization_data.cpp:58
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Copy Shop"
+msgctxt "OSM::shop"
+msgid "Charity Shop"
+msgstr "복사점"
+
+#: map-quick/localization_data.cpp:59
+msgctxt "OSM::shop"
+msgid "Cheese"
+msgstr ""
+
+#: map-quick/localization_data.cpp:60
 msgctxt "OSM::amenity/shop"
 msgid "Chemist"
 msgstr "약국"
 
-#: map-quick/localization_data.cpp:48
+#: map-quick/localization_data.cpp:61
 msgctxt "OSM::amenity/shop"
 msgid "Chocolate"
 msgstr "초콜릿"
 
-#: map-quick/localization_data.cpp:49
+#: map-quick/localization_data.cpp:62
 msgctxt "OSM::amenity/shop"
 msgid "Cinema"
 msgstr "영화관"
 
-#: map-quick/localization_data.cpp:50
+#: map-quick/localization_data.cpp:63
 msgctxt "OSM::historic"
 msgid "Citywall"
 msgstr "성벽"
 
-#: map-quick/localization_data.cpp:51 map-quick/localization_data.cpp:52
+#: map-quick/localization_data.cpp:64 map-quick/localization_data.cpp:65
 msgctxt "OSM::room"
 msgid "Classroom"
 msgstr "교실"
 
-#: map-quick/localization_data.cpp:53
+#: map-quick/localization_data.cpp:66
+msgctxt "OSM::healthcare"
+msgid "Clinic"
+msgstr ""
+
+#: map-quick/localization_data.cpp:67
 msgctxt "OSM::amenity/shop"
 msgid "Clothes"
 msgstr "의류 상점"
 
-#: map-quick/localization_data.cpp:54
+#: map-quick/localization_data.cpp:68
 msgctxt "OSM::amenity/shop"
 msgid "Coffee"
 msgstr "커피 상점"
 
-#: map-quick/localization_data.cpp:55
+#: map-quick/localization_data.cpp:69
 msgctxt "OSM::amenity"
 msgid "Community Center"
 msgstr "커뮤니티 센터"
 
-#: map-quick/localization_data.cpp:56
+#: map-quick/localization_data.cpp:70
 msgctxt "OSM::amenity/shop"
 msgid "Computer"
 msgstr "컴퓨터 상점"
 
-#: map-quick/localization_data.cpp:57
+#: map-quick/localization_data.cpp:71
 msgctxt "OSM::amenity/shop"
 msgid "Confectionery"
 msgstr "과자 가게"
 
-#: map-quick/localization_data.cpp:58
+#: map-quick/localization_data.cpp:72
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Garden Center"
+msgctxt "OSM::amenity"
+msgid "Conference Center"
+msgstr "원예 용품점"
+
+#: map-quick/localization_data.cpp:73
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Chocolate"
+msgctxt "OSM::diplomatic"
+msgid "Consulate"
+msgstr "초콜릿"
+
+#: map-quick/localization_data.cpp:74
 msgctxt "OSM::amenity/shop"
 msgid "Convenience Store"
 msgstr "편의점"
 
-#: map-quick/localization_data.cpp:59
+#: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity/shop"
 msgid "Copy Shop"
 msgstr "복사점"
 
-#: map-quick/localization_data.cpp:60
+#: map-quick/localization_data.cpp:76
 msgctxt "OSM::amenity/shop"
 msgid "Cosmetics"
 msgstr "화장품 상점"
 
-#: map-quick/localization_data.cpp:61
+#: map-quick/localization_data.cpp:77
 msgctxt "OSM::amenity/shop"
 msgid "Court House"
 msgstr "법원"
 
-#: map-quick/localization_data.cpp:62
+#: map-quick/localization_data.cpp:78 map-quick/localization_data.cpp:79
+#, fuzzy
+#| msgid "Women parking spaces"
+msgctxt "OSM::amenity"
+msgid "Coworking Space"
+msgstr "여성 전용 주차 공간"
+
+#: map-quick/localization_data.cpp:80
+msgctxt "OSM::shop"
+msgid "Art and Craft Supplies"
+msgstr ""
+
+#: map-quick/localization_data.cpp:81
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Fountain"
+msgctxt "OSM::shop"
+msgid "Curtains"
+msgstr "분수대"
+
+#: map-quick/localization_data.cpp:82
 msgctxt "OSM::amenity/shop"
 msgid "Deli"
 msgstr "델리카트슨"
 
-#: map-quick/localization_data.cpp:63
+#: map-quick/localization_data.cpp:83
+msgctxt "OSM::healthcare"
+msgid "Dentist"
+msgstr ""
+
+#: map-quick/localization_data.cpp:84
 msgctxt "OSM::amenity/shop"
 msgid "Department Store"
 msgstr "백화점"
 
-#: map-quick/localization_data.cpp:64
-msgctxt "OSM::amenity/shop"
+#: map-quick/localization_data.cpp:85 map-quick/localization_data.cpp:86
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Doctor"
+msgctxt "OSM::healthcare"
 msgid "Doctor"
 msgstr "의원"
 
-#: map-quick/localization_data.cpp:65
+#: map-quick/localization_data.cpp:87
 msgctxt "OSM::amenity/shop"
 msgid "Hardware Store"
 msgstr "철물점"
 
-#: map-quick/localization_data.cpp:66
+#: map-quick/localization_data.cpp:88
 msgctxt "OSM::amenity/shop"
 msgid "Drinking Water"
 msgstr "음수대"
 
-#: map-quick/localization_data.cpp:67
+#: map-quick/localization_data.cpp:89
 msgctxt "OSM::amenity/shop"
 msgid "Dry Cleaning"
 msgstr "드라이클리닝"
 
-#: map-quick/localization_data.cpp:68
+#: map-quick/localization_data.cpp:90
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Electronics"
+msgctxt "OSM::shop"
+msgid "Electrical"
+msgstr "전자 제품 가게"
+
+#: map-quick/localization_data.cpp:91
 msgctxt "OSM::amenity/shop"
 msgid "Electronics"
 msgstr "전자 제품 가게"
 
-#: map-quick/localization_data.cpp:69
+#: map-quick/localization_data.cpp:92
+msgctxt "OSM::diplomatic"
+msgid "Embassy"
+msgstr ""
+
+#: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity"
 msgid "Events Venue"
 msgstr "이벤트 행사장"
 
-#: map-quick/localization_data.cpp:70
+#: map-quick/localization_data.cpp:94
+msgctxt "OSM::amenity"
+msgid "Exhibition Hall"
+msgstr ""
+
+#: map-quick/localization_data.cpp:95
+msgctxt "OSM::shop"
+msgid "Fabric"
+msgstr ""
+
+#: map-quick/localization_data.cpp:96
 msgctxt "OSM::amenity/shop"
 msgid "Fashion"
 msgstr "패션 상점"
 
-#: map-quick/localization_data.cpp:71
+#: map-quick/localization_data.cpp:97
+msgctxt "OSM::shop"
+msgid "Fashion Accessories"
+msgstr ""
+
+#: map-quick/localization_data.cpp:98
 msgctxt "OSM::amenity/shop"
 msgid "Fast Food"
 msgstr "패스트 푸드"
 
-#: map-quick/localization_data.cpp:72
+#: map-quick/localization_data.cpp:99
 msgctxt "OSM::amenity/shop"
 msgid "Ferry Terminal"
 msgstr "페리 부두"
 
-#: map-quick/localization_data.cpp:73
+#: map-quick/localization_data.cpp:100
+#, fuzzy
+#| msgctxt "OSM::building"
+#| msgid "Train Station"
+msgctxt "OSM::amenity"
+msgid "Fire Station"
+msgstr "철도역"
+
+#: map-quick/localization_data.cpp:101
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Arts Center"
+msgctxt "OSM::leisure"
+msgid "Fitness Center"
+msgstr "아트 센터"
+
+#: map-quick/localization_data.cpp:102
+#, fuzzy
+#| msgctxt "OSM::building"
+#| msgid "Train Station"
+msgctxt "OSM::leisure"
+msgid "Fitness Station"
+msgstr "철도역"
+
+#: map-quick/localization_data.cpp:103
 msgctxt "OSM::amenity/shop"
 msgid "Florist"
 msgstr "꽃집"
 
-#: map-quick/localization_data.cpp:74
+#: map-quick/localization_data.cpp:104
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Fast Food"
+msgctxt "OSM::shop"
+msgid "Food"
+msgstr "패스트 푸드"
+
+#: map-quick/localization_data.cpp:105
 msgctxt "OSM::amenity/shop"
 msgid "Food Court"
 msgstr "푸드코트"
 
-#: map-quick/localization_data.cpp:75
+#: map-quick/localization_data.cpp:106
 msgctxt "OSM::amenity/shop"
 msgid "Fountain"
 msgstr "분수대"
 
-#: map-quick/localization_data.cpp:76
+#: map-quick/localization_data.cpp:107
+#, fuzzy
+#| msgctxt "OSM::building"
+#| msgid "Train Station"
+msgctxt "OSM::amenity"
+msgid "Gas Station"
+msgstr "철도역"
+
+#: map-quick/localization_data.cpp:108
 msgctxt "OSM::amenity/shop"
 msgid "Furniture"
 msgstr "가구점"
 
-#: map-quick/localization_data.cpp:77
+#: map-quick/localization_data.cpp:109
 msgctxt "OSM::amenity/shop"
 msgid "Gallery"
 msgstr "갤러리"
 
-#: map-quick/localization_data.cpp:78
+#: map-quick/localization_data.cpp:110
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Video Games"
+msgctxt "OSM::shop"
+msgid "Games"
+msgstr "비디오 게임 가게"
+
+#: map-quick/localization_data.cpp:111
 msgctxt "OSM::amenity/shop"
 msgid "Garden"
 msgstr "원예 용품점"
 
-#: map-quick/localization_data.cpp:79
+#: map-quick/localization_data.cpp:112
 msgctxt "OSM::amenity/shop"
 msgid "Garden Center"
 msgstr "원예 용품점"
 
-#: map-quick/localization_data.cpp:80
+#: map-quick/localization_data.cpp:113
 msgctxt "OSM::amenity/shop"
 msgid "Gift Shop"
 msgstr "선물 가게"
 
-#: map-quick/localization_data.cpp:81
+#: map-quick/localization_data.cpp:114
+msgctxt "OSM::leisure"
+msgid "Golf Course"
+msgstr ""
+
+#: map-quick/localization_data.cpp:115
 msgctxt "OSM::office"
 msgid "Government"
 msgstr "정부 기관"
 
-#: map-quick/localization_data.cpp:82
+#: map-quick/localization_data.cpp:116
 msgctxt "OSM::amenity/shop"
 msgid "Greengrocer"
 msgstr "청과상"
 
-#: map-quick/localization_data.cpp:83
+#: map-quick/localization_data.cpp:117
 msgctxt "OSM::amenity/shop"
 msgid "Guest House"
 msgstr "게스트 하우스"
 
-#: map-quick/localization_data.cpp:84
+#: map-quick/localization_data.cpp:118
 msgctxt "OSM::amenity/shop"
 msgid "Hairdresser"
 msgstr "미용실"
 
-#: map-quick/localization_data.cpp:85
+#: map-quick/localization_data.cpp:119
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Hardware Store"
+msgctxt "OSM::shop"
+msgid "Hardware"
+msgstr "철물점"
+
+#: map-quick/localization_data.cpp:120
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Fast Food"
+msgctxt "OSM::shop"
+msgid "Health Food"
+msgstr "패스트 푸드"
+
+#: map-quick/localization_data.cpp:121
 msgctxt "OSM::amenity/shop"
 msgid "Hearing Aids"
 msgstr "보청기"
 
-#: map-quick/localization_data.cpp:86
+#: map-quick/localization_data.cpp:122
+msgctxt "OSM::shop"
+msgid "Hi-fi"
+msgstr ""
+
+#: map-quick/localization_data.cpp:123
 msgctxt "OSM::amenity/shop"
 msgid "Hospital"
 msgstr "병원"
 
-#: map-quick/localization_data.cpp:87
+#: map-quick/localization_data.cpp:124
 msgctxt "OSM::amenity/shop"
 msgid "Hostel"
 msgstr "호스텔"
 
-#: map-quick/localization_data.cpp:88
+#: map-quick/localization_data.cpp:125
 msgctxt "OSM::amenity/shop"
 msgid "Hotel"
 msgstr "호텔"
 
-#: map-quick/localization_data.cpp:89
+#: map-quick/localization_data.cpp:126
 msgctxt "OSM::amenity/shop"
 msgid "Houseware"
 msgstr "가정용품 상점"
 
-#: map-quick/localization_data.cpp:90
+#: map-quick/localization_data.cpp:127
 msgctxt "OSM::amenity/shop"
 msgid "Ice Cream"
 msgstr "아이스크림 가게"
 
-#: map-quick/localization_data.cpp:91
+#: map-quick/localization_data.cpp:128
 msgctxt "OSM::amenity/shop"
 msgid "Information"
 msgstr "안내소"
 
-#: map-quick/localization_data.cpp:92
+#: map-quick/localization_data.cpp:129
 msgctxt "OSM::amenity/shop"
 msgid "Interior Decoration"
 msgstr "실내 장식"
 
-#: map-quick/localization_data.cpp:93
+#: map-quick/localization_data.cpp:130
 msgctxt "OSM::amenity/shop"
 msgid "Internet Cafe"
 msgstr "인터넷 카페"
 
-#: map-quick/localization_data.cpp:94
+#: map-quick/localization_data.cpp:131
 msgctxt "OSM::amenity/shop"
 msgid "Jewelry"
 msgstr "보석 상점"
 
-#: map-quick/localization_data.cpp:95
+#: map-quick/localization_data.cpp:132
 msgctxt "OSM::amenity/shop"
 msgid "Kiosk"
 msgstr "키오스크 숍"
 
-#: map-quick/localization_data.cpp:96
+#: map-quick/localization_data.cpp:133
 msgctxt "OSM::room"
 msgid "Kitchen"
 msgstr "주방"
 
-#: map-quick/localization_data.cpp:97
+#: map-quick/localization_data.cpp:134
 msgctxt "OSM::amenity/shop"
 msgid "Laundry"
 msgstr "세탁소"
 
-#: map-quick/localization_data.cpp:98 map-quick/localization_data.cpp:99
+#: map-quick/localization_data.cpp:135 map-quick/localization_data.cpp:136
 msgctxt "OSM::room"
 msgid "Lecture Hall"
 msgstr "강의실"
 
-#: map-quick/localization_data.cpp:100
+#: map-quick/localization_data.cpp:137
 msgctxt "OSM::amenity/shop"
 msgid "Library"
 msgstr "도서관"
 
-#: map-quick/localization_data.cpp:101 map-quick/localization_data.cpp:102
-#: map-quick/localization_data.cpp:106
+#: map-quick/localization_data.cpp:138 map-quick/localization_data.cpp:139
+#: map-quick/localization_data.cpp:144
 #, fuzzy
 #| msgctxt "OSM::amenity/shop"
 #| msgid "Locker"
@@ -440,358 +709,438 @@ msgctxt "OSM::amenity"
 msgid "Locker"
 msgstr "물품 보관함"
 
-#: map-quick/localization_data.cpp:103
+#: map-quick/localization_data.cpp:140
 msgctxt "OSM::amenity/shop"
 msgid "Locksmith"
 msgstr "자물쇠 상점"
 
-#: map-quick/localization_data.cpp:104 map-quick/localization_data.cpp:105
-msgctxt "OSM::amenity/shop"
+#: map-quick/localization_data.cpp:141 map-quick/localization_data.cpp:142
+#: map-quick/localization_data.cpp:143
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Lost & Found"
+msgctxt "OSM::amenity"
 msgid "Lost & Found"
 msgstr "유실물 보관소"
 
-#: map-quick/localization_data.cpp:107
+#: map-quick/localization_data.cpp:145
 msgctxt "OSM::amenity/shop"
 msgid "Mall"
 msgstr "쇼핑몰"
 
-#: map-quick/localization_data.cpp:108
+#: map-quick/localization_data.cpp:146
 msgctxt "OSM::amenity"
 msgid "Marketplace"
 msgstr "시장"
 
-#: map-quick/localization_data.cpp:109
+#: map-quick/localization_data.cpp:147
 msgctxt "OSM::amenity/shop"
 msgid "Medical Supply"
 msgstr "의료용품 공급점"
 
-#: map-quick/localization_data.cpp:110
+#: map-quick/localization_data.cpp:148
 msgctxt "OSM::historic"
 msgid "Memorial"
 msgstr "기념비"
 
-#: map-quick/localization_data.cpp:111
+#: map-quick/localization_data.cpp:149
 msgctxt "OSM::amenity/shop"
 msgid "Mobile Phone"
 msgstr "휴대폰 상점"
 
-#: map-quick/localization_data.cpp:112
+#: map-quick/localization_data.cpp:150
 msgctxt "OSM::amenity/shop"
 msgid "Money Transfer"
 msgstr "송금"
 
-#: map-quick/localization_data.cpp:113
+#: map-quick/localization_data.cpp:151
 msgctxt "OSM::historic"
 msgid "Monument"
 msgstr "기념물"
 
-#: map-quick/localization_data.cpp:114
+#: map-quick/localization_data.cpp:152
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Motorcycle Rental"
+msgctxt "OSM::shop"
+msgid "Motorcycle"
+msgstr "오토바이 대여점"
+
+#: map-quick/localization_data.cpp:153
 msgctxt "OSM::amenity/shop"
 msgid "Motorcycle Parking"
 msgstr "오토바이 주차"
 
-#: map-quick/localization_data.cpp:115
+#: map-quick/localization_data.cpp:154
 msgctxt "OSM::amenity/shop"
 msgid "Motorcycle Rental"
 msgstr "오토바이 대여점"
 
-#: map-quick/localization_data.cpp:116
+#: map-quick/localization_data.cpp:155
 msgctxt "OSM::amenity/shop"
 msgid "Museum"
 msgstr "박물관"
 
-#: map-quick/localization_data.cpp:117
+#: map-quick/localization_data.cpp:156
 msgctxt "OSM::amenity/shop"
 msgid "Music"
 msgstr "음반 가게"
 
-#: map-quick/localization_data.cpp:118
+#: map-quick/localization_data.cpp:157
 msgctxt "OSM::amenity/shop"
 msgid "Musical Instruments"
 msgstr "악기 판매점"
 
-#: map-quick/localization_data.cpp:119
+#: map-quick/localization_data.cpp:158
 msgctxt "OSM::amenity/shop"
 msgid "Newsagent"
 msgstr "신문 판매소"
 
-#: map-quick/localization_data.cpp:120
-msgctxt "OSM::amenity/shop"
-msgid "Office"
-msgstr "사옥"
-
-#: map-quick/localization_data.cpp:121
-msgctxt "OSM::amenity/shop"
-msgid "Optician"
-msgstr "안경점"
-
-#: map-quick/localization_data.cpp:122
-msgctxt "OSM::amenity/shop"
-msgid "Outdoor"
-msgstr "아웃도어 상점"
-
-#: map-quick/localization_data.cpp:123
-msgctxt "OSM::amenity/shop"
-msgid "Paint"
-msgstr "페인트 가게"
-
-#: map-quick/localization_data.cpp:124
-msgctxt "outdoor recreational area"
-msgid "Park"
-msgstr "공원"
-
-#: map-quick/localization_data.cpp:125
-msgctxt "OSM::amenity/shop"
-msgid "Parking"
-msgstr "주차장"
-
-#: map-quick/localization_data.cpp:126
-msgctxt "OSM::amenity/shop"
-msgid "Parking Tickets"
-msgstr "주차 티켓"
-
-#: map-quick/localization_data.cpp:127
-msgctxt "OSM::amenity/shop"
-msgid "Pastry"
-msgstr "제과점"
-
-#: map-quick/localization_data.cpp:128
-msgctxt "OSM::amenity/shop"
-msgid "Perfumery"
-msgstr "향수 판매점"
-
-#: map-quick/localization_data.cpp:129
-msgctxt "OSM::amenity/shop"
-msgid "Pet"
-msgstr "애완 동물 가게"
-
-#: map-quick/localization_data.cpp:130
-msgctxt "OSM::amenity/shop"
-msgid "Pharmacy"
-msgstr "약국"
-
-#: map-quick/localization_data.cpp:131
-msgctxt "OSM::amenity/shop"
-msgid "Photo"
-msgstr "사진관"
-
-# OSM 한국어 번역의 "예배당"은 기독교의 예배로 한정되어 사용되므로 종교 중립적인 명칭을 사용함.
-#: map-quick/localization_data.cpp:132
-msgctxt "OSM::amenity/shop"
-msgid "Place of Worship"
-msgstr "기도실"
-
-#: map-quick/localization_data.cpp:133
-msgid "Playground"
-msgstr "놀이터"
-
-#: map-quick/localization_data.cpp:134
-msgctxt "OSM::amenity/shop"
-msgid "Police"
-msgstr "경찰서"
-
-#: map-quick/localization_data.cpp:135
-msgctxt "OSM::amenity/shop"
-msgid "Post Box"
-msgstr "우체통"
-
-#: map-quick/localization_data.cpp:136
-msgctxt "OSM::amenity/shop"
-msgid "Post Office"
-msgstr "우체국"
-
-#: map-quick/localization_data.cpp:137
-msgctxt "OSM::amenity/shop"
-msgid "Pub"
-msgstr "술집"
-
-#: map-quick/localization_data.cpp:138
-msgctxt "OSM::amenity/shop"
-msgid "Public Transport Tickets"
-msgstr "대중 교통 매표소"
-
-#: map-quick/localization_data.cpp:139 map-quick/localization_data.cpp:166
-msgctxt "OSM::building"
-msgid "Train Station"
-msgstr "철도역"
-
-#: map-quick/localization_data.cpp:140
-msgctxt "OSM::amenity/shop"
-msgid "Recycling"
-msgstr "재활용장"
-
-#: map-quick/localization_data.cpp:141
-msgctxt "OSM::amenity"
-msgid "Research Institute"
-msgstr "연구소"
-
-#: map-quick/localization_data.cpp:142
-msgctxt "OSM::amenity/shop"
-msgid "Restaurant"
-msgstr "음식점"
-
-#: map-quick/localization_data.cpp:143
-msgctxt "OSM::amenity/shop"
-msgid "School"
-msgstr "학교"
-
-#: map-quick/localization_data.cpp:144
-msgctxt "OSM::amenity/shop"
-msgid "Kick Scooter Rental"
-msgstr "킥 스쿠터 대여점"
-
-#: map-quick/localization_data.cpp:145
-msgctxt "OSM::amenity/shop"
-msgid "Seafood"
-msgstr "해산물 가게"
-
-#: map-quick/localization_data.cpp:146
-msgctxt "OSM::amenity/shop"
-msgid "Shoes"
-msgstr "신발 가게"
-
-#: map-quick/localization_data.cpp:147
-msgctxt "OSM::amenity/shop"
-msgid "Shop"
-msgstr "가게"
-
-#: map-quick/localization_data.cpp:148
-msgctxt "OSM::amenity/shop"
-msgid "Social Facility"
-msgstr "사회 센터"
-
-#: map-quick/localization_data.cpp:149
-msgctxt "OSM::amenity/shop"
-msgid "Souvenirs"
-msgstr "기념품 가게"
-
-#: map-quick/localization_data.cpp:150
-msgctxt "OSM::amenity/shop"
-msgid "Sports"
-msgstr "스포츠용품점"
-
-#: map-quick/localization_data.cpp:151
-msgctxt "OSM::amenity"
-msgid "Sports Center"
-msgstr "스포츠 센터"
-
-#: map-quick/localization_data.cpp:152
-msgctxt "OSM::amenity"
-msgid "Sports Hall"
-msgstr "스포츠 홀"
-
-#: map-quick/localization_data.cpp:153
-msgctxt "OSM::amenity/shop"
-msgid "Stationery"
-msgstr "문구점"
-
-#: map-quick/localization_data.cpp:154
-msgctxt "OSM::amenity/shop"
-msgid "Supermarket"
-msgstr "슈퍼마켓"
-
-#: map-quick/localization_data.cpp:155
-msgctxt "OSM::amenity/shop"
-msgid "Tailor"
-msgstr "재단사"
-
-#: map-quick/localization_data.cpp:156
-msgctxt "OSM::amenity/shop"
-msgid "Tattoo"
-msgstr "문신소"
-
-#: map-quick/localization_data.cpp:157
-msgctxt "OSM::amenity/shop"
-msgid "Taxi"
-msgstr "택시 정류장"
-
-#: map-quick/localization_data.cpp:158
-msgctxt "OSM::amenity/shop"
-msgid "Tea"
-msgstr "다방"
-
 #: map-quick/localization_data.cpp:159
-msgctxt "OSM::amenity/shop"
-msgid "Theatre"
-msgstr "극장"
+msgctxt "OSM::amenity"
+msgid "Nightclub"
+msgstr ""
 
 #: map-quick/localization_data.cpp:160
-msgctxt "OSM::tourism"
-msgid "Theme Park"
+msgctxt "OSM::shop"
+msgid "Nutrition Supplements"
 msgstr ""
 
 #: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
+msgid "Office"
+msgstr "사옥"
+
+#: map-quick/localization_data.cpp:162
+msgctxt "OSM::amenity/shop"
+msgid "Optician"
+msgstr "안경점"
+
+#: map-quick/localization_data.cpp:163
+msgctxt "OSM::healthcare"
+msgid "Optometrist"
+msgstr ""
+
+#: map-quick/localization_data.cpp:164
+msgctxt "OSM::amenity/shop"
+msgid "Outdoor"
+msgstr "아웃도어 상점"
+
+#: map-quick/localization_data.cpp:165
+msgctxt "OSM::amenity/shop"
+msgid "Paint"
+msgstr "페인트 가게"
+
+#: map-quick/localization_data.cpp:166
+msgctxt "outdoor recreational area"
+msgid "Park"
+msgstr "공원"
+
+#: map-quick/localization_data.cpp:167
+msgctxt "OSM::amenity/shop"
+msgid "Parking"
+msgstr "주차장"
+
+#: map-quick/localization_data.cpp:168
+msgctxt "OSM::amenity/shop"
+msgid "Parking Tickets"
+msgstr "주차 티켓"
+
+#: map-quick/localization_data.cpp:169
+msgctxt "OSM::amenity/shop"
+msgid "Pastry"
+msgstr "제과점"
+
+#: map-quick/localization_data.cpp:170
+msgctxt "OSM::amenity/shop"
+msgid "Perfumery"
+msgstr "향수 판매점"
+
+#: map-quick/localization_data.cpp:171
+msgctxt "OSM::amenity/shop"
+msgid "Pet"
+msgstr "애완 동물 가게"
+
+#: map-quick/localization_data.cpp:172
+msgctxt "OSM::amenity/shop"
+msgid "Pharmacy"
+msgstr "약국"
+
+#: map-quick/localization_data.cpp:173
+msgctxt "OSM::amenity/shop"
+msgid "Photo"
+msgstr "사진관"
+
+#: map-quick/localization_data.cpp:174
+msgctxt "OSM::healthcare"
+msgid "Physiotherapist"
+msgstr ""
+
+# OSM 한국어 번역의 "예배당"은 기독교의 예배로 한정되어 사용되므로 종교 중립적인 명칭을 사용함.
+#: map-quick/localization_data.cpp:175
+msgctxt "OSM::amenity/shop"
+msgid "Place of Worship"
+msgstr "기도실"
+
+#: map-quick/localization_data.cpp:176
+msgid "Playground"
+msgstr "놀이터"
+
+#: map-quick/localization_data.cpp:177
+msgctxt "OSM::amenity/shop"
+msgid "Police"
+msgstr "경찰서"
+
+#: map-quick/localization_data.cpp:178
+msgctxt "OSM::amenity/shop"
+msgid "Post Box"
+msgstr "우체통"
+
+#: map-quick/localization_data.cpp:179
+msgctxt "OSM::amenity/shop"
+msgid "Post Office"
+msgstr "우체국"
+
+#: map-quick/localization_data.cpp:180
+msgctxt "OSM::shop"
+msgid "Potery"
+msgstr ""
+
+#: map-quick/localization_data.cpp:181
+msgctxt "OSM::healthcare"
+msgid "Psychotherapist"
+msgstr ""
+
+#: map-quick/localization_data.cpp:182
+msgctxt "OSM::amenity/shop"
+msgid "Pub"
+msgstr "술집"
+
+#: map-quick/localization_data.cpp:183
+msgctxt "OSM::amenity/shop"
+msgid "Public Transport Tickets"
+msgstr "대중 교통 매표소"
+
+#: map-quick/localization_data.cpp:184 map-quick/localization_data.cpp:216
+msgctxt "OSM::building"
+msgid "Train Station"
+msgstr "철도역"
+
+#: map-quick/localization_data.cpp:185
+msgctxt "OSM::amenity/shop"
+msgid "Recycling"
+msgstr "재활용장"
+
+#: map-quick/localization_data.cpp:186
+msgctxt "OSM::amenity"
+msgid "Research Institute"
+msgstr "연구소"
+
+#: map-quick/localization_data.cpp:187
+msgctxt "OSM::amenity/shop"
+msgid "Restaurant"
+msgstr "음식점"
+
+#: map-quick/localization_data.cpp:188
+msgctxt "OSM::amenity"
+msgid "Sauna"
+msgstr ""
+
+#: map-quick/localization_data.cpp:189
+msgctxt "OSM::amenity/shop"
+msgid "School"
+msgstr "학교"
+
+#: map-quick/localization_data.cpp:190
+msgctxt "OSM::amenity/shop"
+msgid "Kick Scooter Rental"
+msgstr "킥 스쿠터 대여점"
+
+#: map-quick/localization_data.cpp:191
+msgctxt "OSM::amenity/shop"
+msgid "Seafood"
+msgstr "해산물 가게"
+
+#: map-quick/localization_data.cpp:192
+msgctxt "OSM::shop"
+msgid "Second Hand"
+msgstr ""
+
+#: map-quick/localization_data.cpp:193
+msgctxt "OSM::shop"
+msgid "Shoe Repair"
+msgstr ""
+
+#: map-quick/localization_data.cpp:194
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Shoes"
+msgctxt "OSM::shop"
+msgid "Shoes"
+msgstr "신발 가게"
+
+#: map-quick/localization_data.cpp:195
+msgctxt "OSM::amenity/shop"
+msgid "Shop"
+msgstr "가게"
+
+#: map-quick/localization_data.cpp:196
+msgctxt "OSM::amenity"
+msgid "Shower"
+msgstr ""
+
+#: map-quick/localization_data.cpp:197
+msgctxt "OSM::amenity/shop"
+msgid "Social Facility"
+msgstr "사회 센터"
+
+#: map-quick/localization_data.cpp:198
+msgctxt "OSM::amenity/shop"
+msgid "Souvenirs"
+msgstr "기념품 가게"
+
+#: map-quick/localization_data.cpp:199
+msgctxt "OSM::amenity/shop"
+msgid "Sports"
+msgstr "스포츠용품점"
+
+#: map-quick/localization_data.cpp:200
+msgctxt "OSM::amenity"
+msgid "Sports Center"
+msgstr "스포츠 센터"
+
+#: map-quick/localization_data.cpp:201
+msgctxt "OSM::amenity"
+msgid "Sports Hall"
+msgstr "스포츠 홀"
+
+#: map-quick/localization_data.cpp:202
+msgctxt "OSM::amenity/shop"
+msgid "Stationery"
+msgstr "문구점"
+
+#: map-quick/localization_data.cpp:203
+msgctxt "OSM::amenity/shop"
+msgid "Supermarket"
+msgstr "슈퍼마켓"
+
+#: map-quick/localization_data.cpp:204
+msgctxt "OSM::amenity/shop"
+msgid "Tailor"
+msgstr "재단사"
+
+#: map-quick/localization_data.cpp:205
+msgctxt "OSM::amenity/shop"
+msgid "Tattoo"
+msgstr "문신소"
+
+#: map-quick/localization_data.cpp:206
+msgctxt "OSM::amenity/shop"
+msgid "Taxi"
+msgstr "택시 정류장"
+
+#: map-quick/localization_data.cpp:207
+msgctxt "OSM::amenity/shop"
+msgid "Tea"
+msgstr "다방"
+
+#: map-quick/localization_data.cpp:208
+msgctxt "OSM::shop"
+msgid "Telecommunication"
+msgstr ""
+
+#: map-quick/localization_data.cpp:209
+msgctxt "OSM::amenity/shop"
+msgid "Theatre"
+msgstr "극장"
+
+#: map-quick/localization_data.cpp:210
+msgctxt "OSM::tourism"
+msgid "Theme Park"
+msgstr ""
+
+#: map-quick/localization_data.cpp:211
+msgctxt "OSM::amenity/shop"
 msgid "Tickets"
 msgstr "매표소"
 
-#: map-quick/localization_data.cpp:162
+#: map-quick/localization_data.cpp:212
 msgctxt "OSM::amenity/shop"
 msgid "Tobacco"
 msgstr "담배 가게"
 
-#: map-quick/localization_data.cpp:163
+#: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
 msgid "Toilets"
 msgstr "화장실"
 
-#: map-quick/localization_data.cpp:164
+#: map-quick/localization_data.cpp:214
 msgctxt "OSM::amenity/shop"
 msgid "Town Hall"
 msgstr "마을 회관"
 
-#: map-quick/localization_data.cpp:165
+#: map-quick/localization_data.cpp:215
 msgctxt "OSM::amenity/shop"
 msgid "Toys"
 msgstr "완구점"
 
-#: map-quick/localization_data.cpp:167 map-quick/localization_data.cpp:168
+#: map-quick/localization_data.cpp:217 map-quick/localization_data.cpp:218
 msgctxt "OSM::amenity/shop"
 msgid "Travel Agency"
 msgstr "여행사"
 
-#: map-quick/localization_data.cpp:169
+#: map-quick/localization_data.cpp:219
 msgctxt "OSM::amenity/shop"
 msgid "University"
 msgstr "대학교"
 
-#: map-quick/localization_data.cpp:170
+#: map-quick/localization_data.cpp:220
 msgctxt "OSM::amenity/shop"
 msgid "Variety Store"
 msgstr "잡화점"
 
-#: map-quick/localization_data.cpp:171
+#: map-quick/localization_data.cpp:221
+msgctxt "OSM::amenity"
+msgid "Veterinary"
+msgstr ""
+
+#: map-quick/localization_data.cpp:222
 msgctxt "OSM::amenity/shop"
 msgid "Video Games"
 msgstr "비디오 게임 가게"
 
-#: map-quick/localization_data.cpp:172
+#: map-quick/localization_data.cpp:223
 msgctxt "OSM::tourism"
 msgid "Viewpoint"
 msgstr ""
 
-#: map-quick/localization_data.cpp:173 map-quick/localization_data.cpp:174
-#: map-quick/localization_data.cpp:175
+#: map-quick/localization_data.cpp:224 map-quick/localization_data.cpp:225
+#: map-quick/localization_data.cpp:226
 msgctxt "OSM::amenity/shop"
 msgid "Waiting Area"
 msgstr "대기실"
 
-#: map-quick/localization_data.cpp:176
+#: map-quick/localization_data.cpp:227
 msgctxt "OSM::amenity"
 msgid "Waste Basket"
 msgstr "휴지통"
 
-#: map-quick/localization_data.cpp:177
+#: map-quick/localization_data.cpp:228
+msgctxt "OSM::shop"
+msgid "Watches"
+msgstr ""
+
+#: map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"
 msgid "Wine"
 msgstr "와인 상점"
 
-#: map-quick/localization_data.cpp:178
+#: map-quick/localization_data.cpp:230
 msgctxt "OSM::tourism"
 msgid "Zoo"
 msgstr ""
 
-#: map-quick/localization_data.cpp:184
+#: map-quick/localization_data.cpp:236
 #, fuzzy
 #| msgctxt "OSM::cuisine"
 #| msgid "American"
@@ -799,37 +1148,37 @@ msgctxt "OSM::cuisine"
 msgid "African"
 msgstr "미국식"
 
-#: map-quick/localization_data.cpp:185
+#: map-quick/localization_data.cpp:237
 msgctxt "OSM::cuisine"
 msgid "American"
 msgstr "미국식"
 
-#: map-quick/localization_data.cpp:186
+#: map-quick/localization_data.cpp:238
 msgctxt "OSM::cuisine"
 msgid "Arab"
 msgstr "아랍식"
 
-#: map-quick/localization_data.cpp:187
+#: map-quick/localization_data.cpp:239
 msgctxt "OSM::cuisine"
 msgid "Argentinian"
 msgstr "아르헨티나식"
 
-#: map-quick/localization_data.cpp:188
+#: map-quick/localization_data.cpp:240
 msgctxt "OSM::cuisine"
 msgid "Asian"
 msgstr "아시아식"
 
-#: map-quick/localization_data.cpp:189
+#: map-quick/localization_data.cpp:241
 msgctxt "OSM::cuisine"
 msgid "Austrian"
 msgstr "오스트리아식"
 
-#: map-quick/localization_data.cpp:190 map-quick/localization_data.cpp:192
+#: map-quick/localization_data.cpp:242 map-quick/localization_data.cpp:244
 msgctxt "OSM::cuisine"
 msgid "BBQ"
 msgstr "바베큐"
 
-#: map-quick/localization_data.cpp:191
+#: map-quick/localization_data.cpp:243
 #, fuzzy
 #| msgctxt "OSM::diet_type"
 #| msgid "vegetarian"
@@ -837,42 +1186,42 @@ msgctxt "OSM::cuisine"
 msgid "Bavarian"
 msgstr "채식"
 
-#: map-quick/localization_data.cpp:193
+#: map-quick/localization_data.cpp:245
 msgctxt "OSM::cuisine"
 msgid "Brazilian"
 msgstr "브라질식"
 
-#: map-quick/localization_data.cpp:194
+#: map-quick/localization_data.cpp:246
 msgctxt "OSM::cuisine"
 msgid "Breakfast"
 msgstr "아침 식사"
 
-#: map-quick/localization_data.cpp:195
+#: map-quick/localization_data.cpp:247
 msgctxt "OSM::cuisine"
 msgid "Bubble Tea"
 msgstr ""
 
-#: map-quick/localization_data.cpp:196
+#: map-quick/localization_data.cpp:248
 msgctxt "OSM::cuisine"
 msgid "Burger"
 msgstr "햄버거"
 
-#: map-quick/localization_data.cpp:197
+#: map-quick/localization_data.cpp:249
 msgctxt "OSM::cuisine"
 msgid "Cake"
 msgstr "케이크"
 
-#: map-quick/localization_data.cpp:198
+#: map-quick/localization_data.cpp:250
 msgctxt "OSM::cuisine"
 msgid "Chicken"
 msgstr "치킨"
 
-#: map-quick/localization_data.cpp:199
+#: map-quick/localization_data.cpp:251
 msgctxt "OSM::cuisine"
 msgid "Chinese"
 msgstr "중국식"
 
-#: map-quick/localization_data.cpp:200
+#: map-quick/localization_data.cpp:252
 #, fuzzy
 #| msgctxt "OSM::amenity/shop"
 #| msgid "Coffee"
@@ -880,52 +1229,52 @@ msgctxt "OSM::cuisine"
 msgid "Coffee"
 msgstr "커피 상점"
 
-#: map-quick/localization_data.cpp:201
+#: map-quick/localization_data.cpp:253
 msgctxt "OSM::cuisine"
 msgid "Coffee Shop"
 msgstr "커피"
 
-#: map-quick/localization_data.cpp:202
+#: map-quick/localization_data.cpp:254
 msgctxt "OSM::cuisine"
 msgid "Cookies"
 msgstr "쿠키"
 
-#: map-quick/localization_data.cpp:203
+#: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Crêpe"
 msgstr "크레프"
 
-#: map-quick/localization_data.cpp:204
+#: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
 msgid "Czech"
 msgstr ""
 
-#: map-quick/localization_data.cpp:205
+#: map-quick/localization_data.cpp:257
 msgctxt "OSM::cuisine"
 msgid "Dessert"
 msgstr ""
 
-#: map-quick/localization_data.cpp:206
+#: map-quick/localization_data.cpp:258
 msgctxt "OSM::cuisine"
 msgid "Donut"
 msgstr "도넛"
 
-#: map-quick/localization_data.cpp:207 map-quick/localization_data.cpp:208
+#: map-quick/localization_data.cpp:259 map-quick/localization_data.cpp:260
 msgctxt "OSM::cuisine"
 msgid "Dumplings"
 msgstr ""
 
-#: map-quick/localization_data.cpp:209
+#: map-quick/localization_data.cpp:261
 msgctxt "OSM::cuisine"
 msgid "Ethiopian"
 msgstr ""
 
-#: map-quick/localization_data.cpp:210
+#: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
 msgid "Falafel"
 msgstr "팔라펠"
 
-#: map-quick/localization_data.cpp:211
+#: map-quick/localization_data.cpp:263
 #, fuzzy
 #| msgctxt "OSM::amenity/shop"
 #| msgid "Fast Food"
@@ -933,167 +1282,167 @@ msgctxt "OSM::cuisine"
 msgid "Fast Food"
 msgstr "패스트 푸드"
 
-#: map-quick/localization_data.cpp:212
+#: map-quick/localization_data.cpp:264
 msgctxt "OSM::cuisine"
 msgid "Fish"
 msgstr "생선"
 
-#: map-quick/localization_data.cpp:213
+#: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "Fish & Chips"
 msgstr "피시앤칩스"
 
-#: map-quick/localization_data.cpp:214
+#: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
 msgid "French"
 msgstr "프랑스식"
 
-#: map-quick/localization_data.cpp:215
+#: map-quick/localization_data.cpp:267
 msgctxt "OSM::cuisine"
 msgid "Fries"
 msgstr ""
 
-#: map-quick/localization_data.cpp:216
+#: map-quick/localization_data.cpp:268
 msgctxt "OSM::cuisine"
 msgid "German"
 msgstr "독일식"
 
-#: map-quick/localization_data.cpp:217
+#: map-quick/localization_data.cpp:269
 msgctxt "OSM::cuisine"
 msgid "Greek"
 msgstr "그리스식"
 
-#: map-quick/localization_data.cpp:218
+#: map-quick/localization_data.cpp:270
 msgctxt "OSM::cuisine"
 msgid "Grill"
 msgstr ""
 
-#: map-quick/localization_data.cpp:219
+#: map-quick/localization_data.cpp:271
 msgctxt "OSM::cuisine"
 msgid "Gyros"
 msgstr ""
 
-#: map-quick/localization_data.cpp:220
+#: map-quick/localization_data.cpp:272
 msgctxt "OSM::cuisine"
 msgid "Hawaiian"
 msgstr ""
 
-#: map-quick/localization_data.cpp:221
+#: map-quick/localization_data.cpp:273
 msgctxt "OSM::cuisine"
 msgid "Hot Dog"
 msgstr ""
 
-#: map-quick/localization_data.cpp:222
+#: map-quick/localization_data.cpp:274
 msgctxt "OSM::cuisine"
 msgid "Ice Cream"
 msgstr "아이스크림"
 
-#: map-quick/localization_data.cpp:223
+#: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
 msgid "Indian"
 msgstr "인도식"
 
-#: map-quick/localization_data.cpp:224
+#: map-quick/localization_data.cpp:276
 msgctxt "OSM::cuisine"
 msgid "Indonesian"
 msgstr "인도네시아식"
 
-#: map-quick/localization_data.cpp:225
+#: map-quick/localization_data.cpp:277
 msgctxt "OSM::cuisine"
 msgid "International"
 msgstr "국제"
 
-#: map-quick/localization_data.cpp:226
+#: map-quick/localization_data.cpp:278
 msgctxt "OSM::cuisine"
 msgid "Irish"
 msgstr ""
 
-#: map-quick/localization_data.cpp:227
+#: map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
 msgid "Italian"
 msgstr "이탈리아식"
 
-#: map-quick/localization_data.cpp:228 map-quick/localization_data.cpp:247
+#: map-quick/localization_data.cpp:280 map-quick/localization_data.cpp:299
 msgctxt "OSM::cuisine"
 msgid "Pizza"
 msgstr "피자"
 
-#: map-quick/localization_data.cpp:229
+#: map-quick/localization_data.cpp:281
 msgctxt "OSM::cuisine"
 msgid "Japanese"
 msgstr "일본식"
 
-#: map-quick/localization_data.cpp:230
+#: map-quick/localization_data.cpp:282
 msgctxt "OSM::cuisine"
 msgid "Juice"
 msgstr "주스"
 
-#: map-quick/localization_data.cpp:231
+#: map-quick/localization_data.cpp:283
 msgctxt "OSM::cuisine"
 msgid "Kebab"
 msgstr "케밥"
 
-#: map-quick/localization_data.cpp:232
+#: map-quick/localization_data.cpp:284
 msgctxt "OSM::cuisine"
 msgid "Korean"
 msgstr "한국식"
 
-#: map-quick/localization_data.cpp:233
+#: map-quick/localization_data.cpp:285
 msgctxt "OSM::cuisine"
 msgid "Lebanese"
 msgstr "레바논식"
 
-#: map-quick/localization_data.cpp:234
+#: map-quick/localization_data.cpp:286
 msgctxt "OSM::cuisine"
 msgid "Local"
 msgstr "지역식"
 
-#: map-quick/localization_data.cpp:235
+#: map-quick/localization_data.cpp:287
 msgctxt "OSM::cuisine"
 msgid "Meat"
 msgstr ""
 
-#: map-quick/localization_data.cpp:236
+#: map-quick/localization_data.cpp:288
 msgctxt "OSM::cuisine"
 msgid "Mediterranean"
 msgstr "지중해식"
 
-#: map-quick/localization_data.cpp:237
+#: map-quick/localization_data.cpp:289
 msgctxt "OSM::cuisine"
 msgid "Mexican"
 msgstr "멕시코식"
 
-#: map-quick/localization_data.cpp:238
+#: map-quick/localization_data.cpp:290
 msgctxt "OSM::cuisine"
 msgid "Moroccan"
 msgstr ""
 
-#: map-quick/localization_data.cpp:239
+#: map-quick/localization_data.cpp:291
 msgctxt "OSM::cuisine"
 msgid "Nepalese"
 msgstr ""
 
-#: map-quick/localization_data.cpp:240
+#: map-quick/localization_data.cpp:292
 msgctxt "OSM::cuisine"
 msgid "Noodle"
 msgstr "국수"
 
-#: map-quick/localization_data.cpp:241
+#: map-quick/localization_data.cpp:293
 msgctxt "OSM::cuisine"
 msgid "Pakistani"
 msgstr "파키스탄식"
 
-#: map-quick/localization_data.cpp:242
+#: map-quick/localization_data.cpp:294
 msgctxt "OSM::cuisine"
 msgid "Pancake"
 msgstr "팬케이크"
 
-#: map-quick/localization_data.cpp:243
+#: map-quick/localization_data.cpp:295
 msgctxt "OSM::cuisine"
 msgid "Pasta"
 msgstr "파스타"
 
-#: map-quick/localization_data.cpp:244
+#: map-quick/localization_data.cpp:296
 #, fuzzy
 #| msgctxt "OSM::amenity/shop"
 #| msgid "Pastry"
@@ -1101,7 +1450,7 @@ msgctxt "OSM::cuisine"
 msgid "Pastry"
 msgstr "제과점"
 
-#: map-quick/localization_data.cpp:245
+#: map-quick/localization_data.cpp:297
 #, fuzzy
 #| msgctxt "OSM::cuisine"
 #| msgid "Asian"
@@ -1109,42 +1458,42 @@ msgctxt "OSM::cuisine"
 msgid "Persian"
 msgstr "아시아식"
 
-#: map-quick/localization_data.cpp:246
+#: map-quick/localization_data.cpp:298
 msgctxt "OSM::cuisine"
 msgid "Peruvian"
 msgstr ""
 
-#: map-quick/localization_data.cpp:248
+#: map-quick/localization_data.cpp:300
 msgctxt "OSM::cuisine"
 msgid "Poke"
 msgstr ""
 
-#: map-quick/localization_data.cpp:249
+#: map-quick/localization_data.cpp:301
 msgctxt "OSM::cuisine"
 msgid "Polish"
 msgstr "폴란드식"
 
-#: map-quick/localization_data.cpp:250
+#: map-quick/localization_data.cpp:302
 msgctxt "OSM::cuisine"
 msgid "Portuguese"
 msgstr "포르투갈식"
 
-#: map-quick/localization_data.cpp:251
+#: map-quick/localization_data.cpp:303
 msgctxt "OSM::cuisine"
 msgid "Pretzel"
 msgstr ""
 
-#: map-quick/localization_data.cpp:252
+#: map-quick/localization_data.cpp:304
 msgctxt "OSM::cuisine"
 msgid "Ramen"
 msgstr "라멘"
 
-#: map-quick/localization_data.cpp:253
+#: map-quick/localization_data.cpp:305
 msgctxt "OSM::cuisine"
 msgid "Regional"
 msgstr "지역식"
 
-#: map-quick/localization_data.cpp:254
+#: map-quick/localization_data.cpp:306
 #, fuzzy
 #| msgctxt "OSM::cuisine"
 #| msgid "Asian"
@@ -1152,27 +1501,27 @@ msgctxt "OSM::cuisine"
 msgid "Russian"
 msgstr "아시아식"
 
-#: map-quick/localization_data.cpp:255
+#: map-quick/localization_data.cpp:307
 msgctxt "OSM::cuisine"
 msgid "Salad"
 msgstr "샐러드"
 
-#: map-quick/localization_data.cpp:256
+#: map-quick/localization_data.cpp:308
 msgctxt "OSM::cuisine"
 msgid "Sandwich"
 msgstr "샌드위치"
 
-#: map-quick/localization_data.cpp:257
+#: map-quick/localization_data.cpp:309
 msgctxt "OSM::cuisine"
 msgid "Sausage"
 msgstr "소시지"
 
-#: map-quick/localization_data.cpp:258
+#: map-quick/localization_data.cpp:310
 msgctxt "OSM::cuisine"
 msgid "Seafood"
 msgstr "해산물"
 
-#: map-quick/localization_data.cpp:259
+#: map-quick/localization_data.cpp:311
 #, fuzzy
 #| msgctxt "OSM::amenity/shop"
 #| msgid "Pharmacy"
@@ -1180,42 +1529,42 @@ msgctxt "OSM::cuisine"
 msgid "Shawarma"
 msgstr "약국"
 
-#: map-quick/localization_data.cpp:260
+#: map-quick/localization_data.cpp:312
 msgctxt "OSM::cuisine"
 msgid "Soup"
 msgstr "수프"
 
-#: map-quick/localization_data.cpp:261
+#: map-quick/localization_data.cpp:313
 msgctxt "OSM::cuisine"
 msgid "Spanish"
 msgstr "스페인식"
 
-#: map-quick/localization_data.cpp:262 map-quick/localization_data.cpp:263
+#: map-quick/localization_data.cpp:314 map-quick/localization_data.cpp:315
 msgctxt "OSM::cuisine"
 msgid "Steak"
 msgstr "스테이크"
 
-#: map-quick/localization_data.cpp:264
+#: map-quick/localization_data.cpp:316
 msgctxt "OSM::cuisine"
 msgid "Sushi"
 msgstr "스시"
 
-#: map-quick/localization_data.cpp:265
+#: map-quick/localization_data.cpp:317
 msgctxt "OSM::cuisine"
 msgid "Syrian"
 msgstr ""
 
-#: map-quick/localization_data.cpp:266
+#: map-quick/localization_data.cpp:318
 msgctxt "OSM::cuisine"
 msgid "Tacos"
 msgstr ""
 
-#: map-quick/localization_data.cpp:267
+#: map-quick/localization_data.cpp:319
 msgctxt "OSM::cuisine"
 msgid "Tapas"
 msgstr "타파스"
 
-#: map-quick/localization_data.cpp:268
+#: map-quick/localization_data.cpp:320
 #, fuzzy
 #| msgctxt "OSM::amenity/shop"
 #| msgid "Tea"
@@ -1223,37 +1572,37 @@ msgctxt "OSM::cuisine"
 msgid "Tea"
 msgstr "다방"
 
-#: map-quick/localization_data.cpp:269
+#: map-quick/localization_data.cpp:321
 msgctxt "OSM::cuisine"
 msgid "Teahouse"
 msgstr ""
 
-#: map-quick/localization_data.cpp:270
+#: map-quick/localization_data.cpp:322
 msgctxt "OSM::cuisine"
 msgid "Thai"
 msgstr "태국식"
 
-#: map-quick/localization_data.cpp:271
+#: map-quick/localization_data.cpp:323
 msgctxt "OSM::cuisine"
 msgid "Turkish"
 msgstr "튀르키예식"
 
-#: map-quick/localization_data.cpp:272
+#: map-quick/localization_data.cpp:324
 msgctxt "OSM::cuisine"
 msgid "Vegetarian"
 msgstr "채식"
 
-#: map-quick/localization_data.cpp:273
+#: map-quick/localization_data.cpp:325
 msgctxt "OSM::cuisine"
 msgid "Vietnamese"
 msgstr "베트남식"
 
-#: map-quick/localization_data.cpp:274
+#: map-quick/localization_data.cpp:326
 msgctxt "OSM::cuisine"
 msgid "Waffles"
 msgstr ""
 
-#: map-quick/localization_data.cpp:275
+#: map-quick/localization_data.cpp:327
 #, fuzzy
 #| msgctxt "OSM::cuisine"
 #| msgid "Chicken"
