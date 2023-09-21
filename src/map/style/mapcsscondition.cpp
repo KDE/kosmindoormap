@@ -37,7 +37,7 @@ bool MapCSSCondition::matches(const MapCSSState &state) const
 {
     if (m_tagKey.isNull()) {
         // if we couldn't compile the tag, it doesn't exist and thus can never be set
-        return m_op == KeyNotSet;
+        return m_op == KeyNotSet || m_op == NotEqual;
     }
 
     const auto v = state.element.tagValue(m_tagKey);
