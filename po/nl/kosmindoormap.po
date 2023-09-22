@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-21 00:43+0000\n"
-"PO-Revision-Date: 2023-09-18 11:12+0200\n"
+"PO-Revision-Date: 2023-09-21 22:44+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -26,19 +26,16 @@ msgstr "KDE OSM indoorkaart"
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
-msgstr ""
+msgstr "Eten & drinken"
 
 #: map-quick/amenitymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Shop"
+#, kde-format
 msgctxt "amenity category"
 msgid "Shops"
-msgstr "Winkel"
+msgstr "Winkels"
 
 #: map-quick/amenitymodel.cpp:88
-#, fuzzy, kde-format
-#| msgid "Toilets"
+#, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Toiletten"
@@ -47,19 +44,19 @@ msgstr "Toiletten"
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
-msgstr ""
+msgstr "Gezondheidszorg"
 
 #: map-quick/amenitymodel.cpp:92
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
-msgstr ""
+msgstr "Voorzieningen"
 
 #: map-quick/amenitymodel.cpp:94
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"
-msgstr ""
+msgstr "Accommodaties"
 
 #: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
@@ -77,12 +74,9 @@ msgid "Alcohol"
 msgstr "Alcohol"
 
 #: map-quick/localization_data.cpp:21
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Boutique"
 msgctxt "OSM::shop"
 msgid "Antiques"
-msgstr "Boetiek"
+msgstr "Antiquiteiten"
 
 #: map-quick/localization_data.cpp:22
 msgctxt "OSM::amenity/shop"
@@ -92,17 +86,17 @@ msgstr "Appartement"
 #: map-quick/localization_data.cpp:23
 msgctxt "OSM::tourism"
 msgid "Aquarium"
-msgstr ""
+msgstr "Aquarium"
 
 #: map-quick/localization_data.cpp:24
 msgctxt "OSM::historic"
 msgid "Archaeological Site"
-msgstr ""
+msgstr "Archeologische site"
 
 #: map-quick/localization_data.cpp:25
 msgctxt "OSM::shop"
 msgid "Art"
-msgstr ""
+msgstr "Kunst"
 
 #: map-quick/localization_data.cpp:26
 msgctxt "OSM::amenity/shop"
@@ -127,7 +121,7 @@ msgstr "Attractie"
 #: map-quick/localization_data.cpp:30
 msgctxt "OSM::shop"
 msgid "Baby Goods"
-msgstr ""
+msgstr "Babygoederen"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::amenity/shop"
@@ -190,19 +184,14 @@ msgid "Bicycle Rental"
 msgstr "Huurfietsen"
 
 #: map-quick/localization_data.cpp:43
-#, fuzzy
-#| msgid "Bicycle parking"
 msgctxt "OSM::amenity"
 msgid "Bicycle Repair Station"
-msgstr "Fietsstalling"
+msgstr "Fietsenwerkplaats"
 
 #: map-quick/localization_data.cpp:44
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Garden"
 msgctxt "OSM::amenity"
 msgid "Beer Garden"
-msgstr "Tuin"
+msgstr "Biertuin"
 
 #: map-quick/localization_data.cpp:45
 msgctxt "OSM::amenity/shop"
@@ -217,7 +206,7 @@ msgstr "Boetiek"
 #: map-quick/localization_data.cpp:47
 msgctxt "OSM::leisure"
 msgid "Bowling Alley"
-msgstr ""
+msgstr "Bowlinghal"
 
 #: map-quick/localization_data.cpp:48
 msgctxt "OSM::amenity/shop"
@@ -245,12 +234,9 @@ msgid "Car Rental"
 msgstr "Huurauto's"
 
 #: map-quick/localization_data.cpp:53
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Car Rental"
 msgctxt "OSM::shop"
 msgid "Car Repair"
-msgstr "Huurauto's"
+msgstr "Autoreparaties"
 
 #: map-quick/localization_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -260,12 +246,12 @@ msgstr "Auto delen"
 #: map-quick/localization_data.cpp:55
 msgctxt "OSM::amenity"
 msgid "Car Wash"
-msgstr ""
+msgstr "Autowasplaats"
 
 #: map-quick/localization_data.cpp:56
 msgctxt "OSM::historic"
 msgid "Castle"
-msgstr ""
+msgstr "Kasteel"
 
 #: map-quick/localization_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -273,17 +259,14 @@ msgid "Charging Station"
 msgstr "Oplaadstation"
 
 #: map-quick/localization_data.cpp:58
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Copy Shop"
 msgctxt "OSM::shop"
 msgid "Charity Shop"
-msgstr "Copyshop"
+msgstr "Liefdadigheidswinkel"
 
 #: map-quick/localization_data.cpp:59
 msgctxt "OSM::shop"
 msgid "Cheese"
-msgstr ""
+msgstr "Kaas"
 
 #: map-quick/localization_data.cpp:60
 msgctxt "OSM::amenity/shop"
@@ -313,7 +296,7 @@ msgstr "Klaslokaal"
 #: map-quick/localization_data.cpp:66
 msgctxt "OSM::healthcare"
 msgid "Clinic"
-msgstr ""
+msgstr "Kliniek"
 
 #: map-quick/localization_data.cpp:67
 msgctxt "OSM::amenity/shop"
@@ -341,20 +324,14 @@ msgid "Confectionery"
 msgstr "Banketbakker"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Garden Center"
 msgctxt "OSM::amenity"
 msgid "Conference Center"
-msgstr "Tuincentrum"
+msgstr "Conferentiecentrum"
 
 #: map-quick/localization_data.cpp:73
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Chocolate"
 msgctxt "OSM::diplomatic"
 msgid "Consulate"
-msgstr "Chocolate"
+msgstr "Consulaat"
 
 #: map-quick/localization_data.cpp:74
 msgctxt "OSM::amenity/shop"
@@ -377,24 +354,19 @@ msgid "Court House"
 msgstr "Rechtbank"
 
 #: map-quick/localization_data.cpp:78 map-quick/localization_data.cpp:79
-#, fuzzy
-#| msgid "Women parking spaces"
 msgctxt "OSM::amenity"
 msgid "Coworking Space"
-msgstr "Parkeerplaatsen voor vrouwen"
+msgstr "Samenwerkingsruimte"
 
 #: map-quick/localization_data.cpp:80
 msgctxt "OSM::shop"
 msgid "Art and Craft Supplies"
-msgstr ""
+msgstr "Kunst- en ambachtsbenodigdheden"
 
 #: map-quick/localization_data.cpp:81
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fountain"
 msgctxt "OSM::shop"
 msgid "Curtains"
-msgstr "Fontein"
+msgstr "Gordijnen"
 
 #: map-quick/localization_data.cpp:82
 msgctxt "OSM::amenity/shop"
@@ -404,7 +376,7 @@ msgstr "Deli"
 #: map-quick/localization_data.cpp:83
 msgctxt "OSM::healthcare"
 msgid "Dentist"
-msgstr ""
+msgstr "Tandarts"
 
 #: map-quick/localization_data.cpp:84
 msgctxt "OSM::amenity/shop"
@@ -412,9 +384,6 @@ msgid "Department Store"
 msgstr "Warenhuis"
 
 #: map-quick/localization_data.cpp:85 map-quick/localization_data.cpp:86
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Doctor"
 msgctxt "OSM::healthcare"
 msgid "Doctor"
 msgstr "Arts"
@@ -435,12 +404,9 @@ msgid "Dry Cleaning"
 msgstr "Stomerij"
 
 #: map-quick/localization_data.cpp:90
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Electronics"
 msgctxt "OSM::shop"
 msgid "Electrical"
-msgstr "Elektronica"
+msgstr "Elektrisch"
 
 #: map-quick/localization_data.cpp:91
 msgctxt "OSM::amenity/shop"
@@ -450,7 +416,7 @@ msgstr "Elektronica"
 #: map-quick/localization_data.cpp:92
 msgctxt "OSM::diplomatic"
 msgid "Embassy"
-msgstr ""
+msgstr "Ambassade"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity"
@@ -460,12 +426,12 @@ msgstr "Locatie voor evenementen"
 #: map-quick/localization_data.cpp:94
 msgctxt "OSM::amenity"
 msgid "Exhibition Hall"
-msgstr ""
+msgstr "Tentoonstellingshal"
 
 #: map-quick/localization_data.cpp:95
 msgctxt "OSM::shop"
 msgid "Fabric"
-msgstr ""
+msgstr "Stof"
 
 #: map-quick/localization_data.cpp:96
 msgctxt "OSM::amenity/shop"
@@ -475,7 +441,7 @@ msgstr "Mode"
 #: map-quick/localization_data.cpp:97
 msgctxt "OSM::shop"
 msgid "Fashion Accessories"
-msgstr ""
+msgstr "Mode-accessoires"
 
 #: map-quick/localization_data.cpp:98
 msgctxt "OSM::amenity/shop"
@@ -488,28 +454,19 @@ msgid "Ferry Terminal"
 msgstr "Ferry-terminal"
 
 #: map-quick/localization_data.cpp:100
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::amenity"
 msgid "Fire Station"
-msgstr "Treinstation"
+msgstr "Brandweergarage"
 
 #: map-quick/localization_data.cpp:101
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::leisure"
 msgid "Fitness Center"
-msgstr "Kunstcentrum"
+msgstr "Fitnesscentrum"
 
 #: map-quick/localization_data.cpp:102
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::leisure"
 msgid "Fitness Station"
-msgstr "Treinstation"
+msgstr "Fitnessstation"
 
 #: map-quick/localization_data.cpp:103
 msgctxt "OSM::amenity/shop"
@@ -517,12 +474,9 @@ msgid "Florist"
 msgstr "Bloemen"
 
 #: map-quick/localization_data.cpp:104
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fast Food"
 msgctxt "OSM::shop"
 msgid "Food"
-msgstr "Fast Food"
+msgstr "Voedsel"
 
 #: map-quick/localization_data.cpp:105
 msgctxt "OSM::amenity/shop"
@@ -535,12 +489,9 @@ msgid "Fountain"
 msgstr "Fontein"
 
 #: map-quick/localization_data.cpp:107
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::amenity"
 msgid "Gas Station"
-msgstr "Treinstation"
+msgstr "Gasstation"
 
 #: map-quick/localization_data.cpp:108
 msgctxt "OSM::amenity/shop"
@@ -553,12 +504,9 @@ msgid "Gallery"
 msgstr "Galerij"
 
 #: map-quick/localization_data.cpp:110
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Video Games"
 msgctxt "OSM::shop"
 msgid "Games"
-msgstr "Videospellen"
+msgstr "Spellen"
 
 #: map-quick/localization_data.cpp:111
 msgctxt "OSM::amenity/shop"
@@ -578,7 +526,7 @@ msgstr "Cadeaushop"
 #: map-quick/localization_data.cpp:114
 msgctxt "OSM::leisure"
 msgid "Golf Course"
-msgstr ""
+msgstr "Golfterrein"
 
 #: map-quick/localization_data.cpp:115
 msgctxt "OSM::office"
@@ -601,20 +549,14 @@ msgid "Hairdresser"
 msgstr "Kapsalon"
 
 #: map-quick/localization_data.cpp:119
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Hardware Store"
 msgctxt "OSM::shop"
 msgid "Hardware"
-msgstr "Bouwmarkt"
+msgstr "Hardware"
 
 #: map-quick/localization_data.cpp:120
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fast Food"
 msgctxt "OSM::shop"
 msgid "Health Food"
-msgstr "Fast Food"
+msgstr "Gezond eten"
 
 #: map-quick/localization_data.cpp:121
 msgctxt "OSM::amenity/shop"
@@ -624,7 +566,7 @@ msgstr "Gehoorapparaten"
 #: map-quick/localization_data.cpp:122
 msgctxt "OSM::shop"
 msgid "Hi-fi"
-msgstr ""
+msgstr "Hi-fi"
 
 #: map-quick/localization_data.cpp:123
 msgctxt "OSM::amenity/shop"
@@ -709,12 +651,9 @@ msgstr "Sleutelmaker"
 
 #: map-quick/localization_data.cpp:141 map-quick/localization_data.cpp:142
 #: map-quick/localization_data.cpp:143
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Lost & Found"
 msgctxt "OSM::amenity"
 msgid "Lost & Found"
-msgstr "Overig"
+msgstr "Gevonden voorwerpen"
 
 #: map-quick/localization_data.cpp:145
 msgctxt "OSM::amenity/shop"
@@ -752,12 +691,9 @@ msgid "Monument"
 msgstr "Monument"
 
 #: map-quick/localization_data.cpp:152
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Motorcycle Rental"
 msgctxt "OSM::shop"
 msgid "Motorcycle"
-msgstr "Motorenverhuur"
+msgstr "Motorfiets"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::amenity/shop"
@@ -792,12 +728,12 @@ msgstr "Nieuwsagent"
 #: map-quick/localization_data.cpp:159
 msgctxt "OSM::amenity"
 msgid "Nightclub"
-msgstr ""
+msgstr "Nachtclub"
 
 #: map-quick/localization_data.cpp:160
 msgctxt "OSM::shop"
 msgid "Nutrition Supplements"
-msgstr ""
+msgstr "Voedingssupplementen"
 
 #: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
@@ -812,7 +748,7 @@ msgstr "Opticiën"
 #: map-quick/localization_data.cpp:163
 msgctxt "OSM::healthcare"
 msgid "Optometrist"
-msgstr ""
+msgstr "Optometrist"
 
 #: map-quick/localization_data.cpp:164
 msgctxt "OSM::amenity/shop"
@@ -867,7 +803,7 @@ msgstr "Foto"
 #: map-quick/localization_data.cpp:174
 msgctxt "OSM::healthcare"
 msgid "Physiotherapist"
-msgstr ""
+msgstr "Fysiotherapeut"
 
 #: map-quick/localization_data.cpp:175
 msgctxt "OSM::amenity/shop"
@@ -896,12 +832,12 @@ msgstr "Postkantoor"
 #: map-quick/localization_data.cpp:180
 msgctxt "OSM::shop"
 msgid "Potery"
-msgstr ""
+msgstr "Aardewerk"
 
 #: map-quick/localization_data.cpp:181
 msgctxt "OSM::healthcare"
 msgid "Psychotherapist"
-msgstr ""
+msgstr "Psychotherapeut"
 
 #: map-quick/localization_data.cpp:182
 msgctxt "OSM::amenity/shop"
@@ -936,7 +872,7 @@ msgstr "Restaurant"
 #: map-quick/localization_data.cpp:188
 msgctxt "OSM::amenity"
 msgid "Sauna"
-msgstr ""
+msgstr "Sauna"
 
 #: map-quick/localization_data.cpp:189
 msgctxt "OSM::amenity/shop"
@@ -956,17 +892,14 @@ msgstr "Zeebanket"
 #: map-quick/localization_data.cpp:192
 msgctxt "OSM::shop"
 msgid "Second Hand"
-msgstr ""
+msgstr "Tweedehands"
 
 #: map-quick/localization_data.cpp:193
 msgctxt "OSM::shop"
 msgid "Shoe Repair"
-msgstr ""
+msgstr "Schoenmaker"
 
 #: map-quick/localization_data.cpp:194
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Shoes"
 msgctxt "OSM::shop"
 msgid "Shoes"
 msgstr "Schoenen"
@@ -979,7 +912,7 @@ msgstr "Winkel"
 #: map-quick/localization_data.cpp:196
 msgctxt "OSM::amenity"
 msgid "Shower"
-msgstr ""
+msgstr "Douche"
 
 #: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
@@ -1039,7 +972,7 @@ msgstr "Thee"
 #: map-quick/localization_data.cpp:208
 msgctxt "OSM::shop"
 msgid "Telecommunication"
-msgstr ""
+msgstr "Telecommunicatie"
 
 #: map-quick/localization_data.cpp:209
 msgctxt "OSM::amenity/shop"
@@ -1094,7 +1027,7 @@ msgstr "Variawinkel"
 #: map-quick/localization_data.cpp:221
 msgctxt "OSM::amenity"
 msgid "Veterinary"
-msgstr ""
+msgstr "Dierenarts"
 
 #: map-quick/localization_data.cpp:222
 msgctxt "OSM::amenity/shop"
@@ -1120,7 +1053,7 @@ msgstr "Prullenbak"
 #: map-quick/localization_data.cpp:228
 msgctxt "OSM::shop"
 msgid "Watches"
-msgstr ""
+msgstr "Horloges"
 
 #: map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"

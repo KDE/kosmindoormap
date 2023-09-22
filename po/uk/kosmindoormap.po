@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-21 00:43+0000\n"
-"PO-Revision-Date: 2023-09-18 22:47+0300\n"
+"PO-Revision-Date: 2023-09-21 13:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -29,19 +29,16 @@ msgstr "Внутрішня карта OSM KDE"
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
-msgstr ""
+msgstr "Їжа і напої"
 
 #: map-quick/amenitymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Shop"
+#, kde-format
 msgctxt "amenity category"
 msgid "Shops"
-msgstr "Крамниця"
+msgstr "Крамниці"
 
 #: map-quick/amenitymodel.cpp:88
-#, fuzzy, kde-format
-#| msgid "Toilets"
+#, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Туалети"
@@ -50,19 +47,19 @@ msgstr "Туалети"
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
-msgstr ""
+msgstr "Медицина"
 
 #: map-quick/amenitymodel.cpp:92
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
-msgstr ""
+msgstr "Зручності"
 
 #: map-quick/amenitymodel.cpp:94
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"
-msgstr ""
+msgstr "Місця проживання"
 
 #: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
@@ -80,12 +77,9 @@ msgid "Alcohol"
 msgstr "Алкоголь"
 
 #: map-quick/localization_data.cpp:21
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Boutique"
 msgctxt "OSM::shop"
 msgid "Antiques"
-msgstr "Бутік"
+msgstr "Старожитності"
 
 #: map-quick/localization_data.cpp:22
 msgctxt "OSM::amenity/shop"
@@ -95,17 +89,17 @@ msgstr "Житло"
 #: map-quick/localization_data.cpp:23
 msgctxt "OSM::tourism"
 msgid "Aquarium"
-msgstr ""
+msgstr "Акваріум"
 
 #: map-quick/localization_data.cpp:24
 msgctxt "OSM::historic"
 msgid "Archaeological Site"
-msgstr ""
+msgstr "Місце археологічних розкопок"
 
 #: map-quick/localization_data.cpp:25
 msgctxt "OSM::shop"
 msgid "Art"
-msgstr ""
+msgstr "Мистецтво"
 
 #: map-quick/localization_data.cpp:26
 msgctxt "OSM::amenity/shop"
@@ -130,7 +124,7 @@ msgstr "Атракціон"
 #: map-quick/localization_data.cpp:30
 msgctxt "OSM::shop"
 msgid "Baby Goods"
-msgstr ""
+msgstr "Дитячі товари"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::amenity/shop"
@@ -193,19 +187,14 @@ msgid "Bicycle Rental"
 msgstr "Прокат велосипедів"
 
 #: map-quick/localization_data.cpp:43
-#, fuzzy
-#| msgid "Bicycle parking"
 msgctxt "OSM::amenity"
 msgid "Bicycle Repair Station"
-msgstr "Паркування велосипедів"
+msgstr "Ремонтна майстерня для велосипедів"
 
 #: map-quick/localization_data.cpp:44
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Garden"
 msgctxt "OSM::amenity"
 msgid "Beer Garden"
-msgstr "Сад"
+msgstr "Пивний сад"
 
 #: map-quick/localization_data.cpp:45
 msgctxt "OSM::amenity/shop"
@@ -220,7 +209,7 @@ msgstr "Бутік"
 #: map-quick/localization_data.cpp:47
 msgctxt "OSM::leisure"
 msgid "Bowling Alley"
-msgstr ""
+msgstr "Кегельбан"
 
 #: map-quick/localization_data.cpp:48
 msgctxt "OSM::amenity/shop"
@@ -248,12 +237,9 @@ msgid "Car Rental"
 msgstr "Оренда автомобілів"
 
 #: map-quick/localization_data.cpp:53
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Car Rental"
 msgctxt "OSM::shop"
 msgid "Car Repair"
-msgstr "Оренда автомобілів"
+msgstr "Авторемонт"
 
 #: map-quick/localization_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -263,12 +249,12 @@ msgstr "Користування авто"
 #: map-quick/localization_data.cpp:55
 msgctxt "OSM::amenity"
 msgid "Car Wash"
-msgstr ""
+msgstr "Автомийка"
 
 #: map-quick/localization_data.cpp:56
 msgctxt "OSM::historic"
 msgid "Castle"
-msgstr ""
+msgstr "Замок"
 
 #: map-quick/localization_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -276,17 +262,14 @@ msgid "Charging Station"
 msgstr "Заряджальна станція"
 
 #: map-quick/localization_data.cpp:58
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Copy Shop"
 msgctxt "OSM::shop"
 msgid "Charity Shop"
-msgstr "Копіювання"
+msgstr "Благодійна крамниця"
 
 #: map-quick/localization_data.cpp:59
 msgctxt "OSM::shop"
 msgid "Cheese"
-msgstr ""
+msgstr "Сир"
 
 #: map-quick/localization_data.cpp:60
 msgctxt "OSM::amenity/shop"
@@ -316,7 +299,7 @@ msgstr "Класна кімната"
 #: map-quick/localization_data.cpp:66
 msgctxt "OSM::healthcare"
 msgid "Clinic"
-msgstr ""
+msgstr "Клініка"
 
 #: map-quick/localization_data.cpp:67
 msgctxt "OSM::amenity/shop"
@@ -344,20 +327,14 @@ msgid "Confectionery"
 msgstr "Кондитерська"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Garden Center"
 msgctxt "OSM::amenity"
 msgid "Conference Center"
-msgstr "Центр садівництва"
+msgstr "Конференц-центр"
 
 #: map-quick/localization_data.cpp:73
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Chocolate"
 msgctxt "OSM::diplomatic"
 msgid "Consulate"
-msgstr "Шоколад"
+msgstr "Консульство"
 
 #: map-quick/localization_data.cpp:74
 msgctxt "OSM::amenity/shop"
@@ -380,24 +357,19 @@ msgid "Court House"
 msgstr "Будинок суду"
 
 #: map-quick/localization_data.cpp:78 map-quick/localization_data.cpp:79
-#, fuzzy
-#| msgid "Women parking spaces"
 msgctxt "OSM::amenity"
 msgid "Coworking Space"
-msgstr "Паркувальні місця для жінок"
+msgstr "Місце для спільної праці"
 
 #: map-quick/localization_data.cpp:80
 msgctxt "OSM::shop"
 msgid "Art and Craft Supplies"
-msgstr ""
+msgstr "Матеріали для мистецтва та рукоділля"
 
 #: map-quick/localization_data.cpp:81
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fountain"
 msgctxt "OSM::shop"
 msgid "Curtains"
-msgstr "Фонтан"
+msgstr "Завіси"
 
 #: map-quick/localization_data.cpp:82
 msgctxt "OSM::amenity/shop"
@@ -407,7 +379,7 @@ msgstr "Гастроном"
 #: map-quick/localization_data.cpp:83
 msgctxt "OSM::healthcare"
 msgid "Dentist"
-msgstr ""
+msgstr "Дантист"
 
 #: map-quick/localization_data.cpp:84
 msgctxt "OSM::amenity/shop"
@@ -415,9 +387,6 @@ msgid "Department Store"
 msgstr "Районний магазин"
 
 #: map-quick/localization_data.cpp:85 map-quick/localization_data.cpp:86
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Doctor"
 msgctxt "OSM::healthcare"
 msgid "Doctor"
 msgstr "Лікар"
@@ -438,12 +407,9 @@ msgid "Dry Cleaning"
 msgstr "Хімчистка"
 
 #: map-quick/localization_data.cpp:90
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Electronics"
 msgctxt "OSM::shop"
 msgid "Electrical"
-msgstr "Електроніка"
+msgstr "Електрична"
 
 #: map-quick/localization_data.cpp:91
 msgctxt "OSM::amenity/shop"
@@ -453,7 +419,7 @@ msgstr "Електроніка"
 #: map-quick/localization_data.cpp:92
 msgctxt "OSM::diplomatic"
 msgid "Embassy"
-msgstr ""
+msgstr "Посольство"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity"
@@ -463,12 +429,12 @@ msgstr "Місце для заходів"
 #: map-quick/localization_data.cpp:94
 msgctxt "OSM::amenity"
 msgid "Exhibition Hall"
-msgstr ""
+msgstr "Виставковий павільйон"
 
 #: map-quick/localization_data.cpp:95
 msgctxt "OSM::shop"
 msgid "Fabric"
-msgstr ""
+msgstr "Тканини"
 
 #: map-quick/localization_data.cpp:96
 msgctxt "OSM::amenity/shop"
@@ -478,7 +444,7 @@ msgstr "Мода"
 #: map-quick/localization_data.cpp:97
 msgctxt "OSM::shop"
 msgid "Fashion Accessories"
-msgstr ""
+msgstr "Модні речі"
 
 #: map-quick/localization_data.cpp:98
 msgctxt "OSM::amenity/shop"
@@ -491,28 +457,19 @@ msgid "Ferry Terminal"
 msgstr "Поромний термінал"
 
 #: map-quick/localization_data.cpp:100
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::amenity"
 msgid "Fire Station"
-msgstr "Залізнична станція"
+msgstr "Пожежна станція"
 
 #: map-quick/localization_data.cpp:101
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::leisure"
 msgid "Fitness Center"
-msgstr "Художній центр"
+msgstr "Фітнес-центр"
 
 #: map-quick/localization_data.cpp:102
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::leisure"
 msgid "Fitness Station"
-msgstr "Залізнична станція"
+msgstr "Фітнес-зала"
 
 #: map-quick/localization_data.cpp:103
 msgctxt "OSM::amenity/shop"
@@ -520,12 +477,9 @@ msgid "Florist"
 msgstr "Квіткова крамниця"
 
 #: map-quick/localization_data.cpp:104
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fast Food"
 msgctxt "OSM::shop"
 msgid "Food"
-msgstr "Фастфуд"
+msgstr "Їжа"
 
 #: map-quick/localization_data.cpp:105
 msgctxt "OSM::amenity/shop"
@@ -538,12 +492,9 @@ msgid "Fountain"
 msgstr "Фонтан"
 
 #: map-quick/localization_data.cpp:107
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::amenity"
 msgid "Gas Station"
-msgstr "Залізнична станція"
+msgstr "Автозаправка"
 
 #: map-quick/localization_data.cpp:108
 msgctxt "OSM::amenity/shop"
@@ -556,12 +507,9 @@ msgid "Gallery"
 msgstr "Галерея"
 
 #: map-quick/localization_data.cpp:110
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Video Games"
 msgctxt "OSM::shop"
 msgid "Games"
-msgstr "Відеоігри"
+msgstr "Ігри"
 
 #: map-quick/localization_data.cpp:111
 msgctxt "OSM::amenity/shop"
@@ -581,7 +529,7 @@ msgstr "Подарункова крамниця"
 #: map-quick/localization_data.cpp:114
 msgctxt "OSM::leisure"
 msgid "Golf Course"
-msgstr ""
+msgstr "Поле для гольфу"
 
 #: map-quick/localization_data.cpp:115
 msgctxt "OSM::office"
@@ -604,20 +552,14 @@ msgid "Hairdresser"
 msgstr "Перукарня"
 
 #: map-quick/localization_data.cpp:119
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Hardware Store"
 msgctxt "OSM::shop"
 msgid "Hardware"
-msgstr "Магазин обладнання"
+msgstr "Обладнання"
 
 #: map-quick/localization_data.cpp:120
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fast Food"
 msgctxt "OSM::shop"
 msgid "Health Food"
-msgstr "Фастфуд"
+msgstr "Здорова їжа"
 
 #: map-quick/localization_data.cpp:121
 msgctxt "OSM::amenity/shop"
@@ -627,7 +569,7 @@ msgstr "Слухові апарати"
 #: map-quick/localization_data.cpp:122
 msgctxt "OSM::shop"
 msgid "Hi-fi"
-msgstr ""
+msgstr "Звукова апаратура"
 
 #: map-quick/localization_data.cpp:123
 msgctxt "OSM::amenity/shop"
@@ -712,9 +654,6 @@ msgstr "Слюсар"
 
 #: map-quick/localization_data.cpp:141 map-quick/localization_data.cpp:142
 #: map-quick/localization_data.cpp:143
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Lost & Found"
 msgctxt "OSM::amenity"
 msgid "Lost & Found"
 msgstr "Загублено та знайдено"
@@ -755,12 +694,9 @@ msgid "Monument"
 msgstr "Пам'ятник"
 
 #: map-quick/localization_data.cpp:152
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Motorcycle Rental"
 msgctxt "OSM::shop"
 msgid "Motorcycle"
-msgstr "Прокат мотоциклів"
+msgstr "Мотоцикл"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::amenity/shop"
@@ -795,12 +731,12 @@ msgstr "Газети"
 #: map-quick/localization_data.cpp:159
 msgctxt "OSM::amenity"
 msgid "Nightclub"
-msgstr ""
+msgstr "Нічний клуб"
 
 #: map-quick/localization_data.cpp:160
 msgctxt "OSM::shop"
 msgid "Nutrition Supplements"
-msgstr ""
+msgstr "Харчові добавки"
 
 #: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
@@ -815,7 +751,7 @@ msgstr "Оптика"
 #: map-quick/localization_data.cpp:163
 msgctxt "OSM::healthcare"
 msgid "Optometrist"
-msgstr ""
+msgstr "Оптик"
 
 #: map-quick/localization_data.cpp:164
 msgctxt "OSM::amenity/shop"
@@ -870,7 +806,7 @@ msgstr "Фото"
 #: map-quick/localization_data.cpp:174
 msgctxt "OSM::healthcare"
 msgid "Physiotherapist"
-msgstr ""
+msgstr "Фізіотерапевт"
 
 #: map-quick/localization_data.cpp:175
 msgctxt "OSM::amenity/shop"
@@ -899,12 +835,12 @@ msgstr "Поштове відділення"
 #: map-quick/localization_data.cpp:180
 msgctxt "OSM::shop"
 msgid "Potery"
-msgstr ""
+msgstr "Гончарні вироби"
 
 #: map-quick/localization_data.cpp:181
 msgctxt "OSM::healthcare"
 msgid "Psychotherapist"
-msgstr ""
+msgstr "Психотерапевт"
 
 #: map-quick/localization_data.cpp:182
 msgctxt "OSM::amenity/shop"
@@ -939,7 +875,7 @@ msgstr "Ресторан"
 #: map-quick/localization_data.cpp:188
 msgctxt "OSM::amenity"
 msgid "Sauna"
-msgstr ""
+msgstr "Сауна"
 
 #: map-quick/localization_data.cpp:189
 msgctxt "OSM::amenity/shop"
@@ -959,17 +895,14 @@ msgstr "Морська їжа"
 #: map-quick/localization_data.cpp:192
 msgctxt "OSM::shop"
 msgid "Second Hand"
-msgstr ""
+msgstr "Секонд-хенд"
 
 #: map-quick/localization_data.cpp:193
 msgctxt "OSM::shop"
 msgid "Shoe Repair"
-msgstr ""
+msgstr "Ремонт взуття"
 
 #: map-quick/localization_data.cpp:194
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Shoes"
 msgctxt "OSM::shop"
 msgid "Shoes"
 msgstr "Взуття"
@@ -982,7 +915,7 @@ msgstr "Крамниця"
 #: map-quick/localization_data.cpp:196
 msgctxt "OSM::amenity"
 msgid "Shower"
-msgstr ""
+msgstr "Душ"
 
 #: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
@@ -1042,7 +975,7 @@ msgstr "Чай"
 #: map-quick/localization_data.cpp:208
 msgctxt "OSM::shop"
 msgid "Telecommunication"
-msgstr ""
+msgstr "Телекомунікації"
 
 #: map-quick/localization_data.cpp:209
 msgctxt "OSM::amenity/shop"
@@ -1097,7 +1030,7 @@ msgstr "Магазин фіксованих цін"
 #: map-quick/localization_data.cpp:221
 msgctxt "OSM::amenity"
 msgid "Veterinary"
-msgstr ""
+msgstr "Ветеринар"
 
 #: map-quick/localization_data.cpp:222
 msgctxt "OSM::amenity/shop"
@@ -1123,7 +1056,7 @@ msgstr "Смітник"
 #: map-quick/localization_data.cpp:228
 msgctxt "OSM::shop"
 msgid "Watches"
-msgstr ""
+msgstr "Спостереження"
 
 #: map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"

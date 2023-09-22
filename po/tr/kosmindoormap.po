@@ -26,19 +26,16 @@ msgstr "KDE OSM İç Mekan Haritası"
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
-msgstr ""
+msgstr "Yiyecek ve İçecek"
 
 #: map-quick/amenitymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Shop"
+#, kde-format
 msgctxt "amenity category"
 msgid "Shops"
-msgstr "Mağaza"
+msgstr "Mağazalar"
 
 #: map-quick/amenitymodel.cpp:88
-#, fuzzy, kde-format
-#| msgid "Toilets"
+#, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Tuvaletler"
@@ -47,19 +44,19 @@ msgstr "Tuvaletler"
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
-msgstr ""
+msgstr "Sağlık"
 
 #: map-quick/amenitymodel.cpp:92
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
-msgstr ""
+msgstr "Gereksinim"
 
 #: map-quick/amenitymodel.cpp:94
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"
-msgstr ""
+msgstr "Konaklama"
 
 #: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
@@ -77,12 +74,9 @@ msgid "Alcohol"
 msgstr "Alkol"
 
 #: map-quick/localization_data.cpp:21
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Boutique"
 msgctxt "OSM::shop"
 msgid "Antiques"
-msgstr "Butik"
+msgstr "Antik Dükkanı"
 
 #: map-quick/localization_data.cpp:22
 msgctxt "OSM::amenity/shop"
@@ -92,17 +86,17 @@ msgstr "Daire"
 #: map-quick/localization_data.cpp:23
 msgctxt "OSM::tourism"
 msgid "Aquarium"
-msgstr ""
+msgstr "Akvaryum"
 
 #: map-quick/localization_data.cpp:24
 msgctxt "OSM::historic"
 msgid "Archaeological Site"
-msgstr ""
+msgstr "Sit Alanı"
 
 #: map-quick/localization_data.cpp:25
 msgctxt "OSM::shop"
 msgid "Art"
-msgstr ""
+msgstr "Sanat"
 
 #: map-quick/localization_data.cpp:26
 msgctxt "OSM::amenity/shop"
@@ -127,7 +121,7 @@ msgstr "Cazibe Merkesi"
 #: map-quick/localization_data.cpp:30
 msgctxt "OSM::shop"
 msgid "Baby Goods"
-msgstr ""
+msgstr "Bebek Malzemeleri"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::amenity/shop"
@@ -190,19 +184,14 @@ msgid "Bicycle Rental"
 msgstr "Bisiklet Kiralama"
 
 #: map-quick/localization_data.cpp:43
-#, fuzzy
-#| msgid "Bicycle parking"
 msgctxt "OSM::amenity"
 msgid "Bicycle Repair Station"
-msgstr "Bisiklet kulübesi"
+msgstr "Bisiklet Onarım İstasyonu"
 
 #: map-quick/localization_data.cpp:44
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Garden"
 msgctxt "OSM::amenity"
 msgid "Beer Garden"
-msgstr "Bahçe"
+msgstr "Bira Bahçesi"
 
 #: map-quick/localization_data.cpp:45
 msgctxt "OSM::amenity/shop"
@@ -217,12 +206,12 @@ msgstr "Butik"
 #: map-quick/localization_data.cpp:47
 msgctxt "OSM::leisure"
 msgid "Bowling Alley"
-msgstr ""
+msgstr "Bovling Salonu"
 
 #: map-quick/localization_data.cpp:48
 msgctxt "OSM::amenity/shop"
 msgid "Bureau de Change"
-msgstr "Döviz bürosu"
+msgstr "Döviz Bürosu"
 
 #: map-quick/localization_data.cpp:49
 msgctxt "OSM::amenity/shop"
@@ -245,12 +234,9 @@ msgid "Car Rental"
 msgstr "Araç Kiralama"
 
 #: map-quick/localization_data.cpp:53
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Car Rental"
 msgctxt "OSM::shop"
 msgid "Car Repair"
-msgstr "Araç Kiralama"
+msgstr "Araç Onarım"
 
 #: map-quick/localization_data.cpp:54
 msgctxt "OSM::amenity/shop"
@@ -260,12 +246,12 @@ msgstr "Araç Paylaşım"
 #: map-quick/localization_data.cpp:55
 msgctxt "OSM::amenity"
 msgid "Car Wash"
-msgstr ""
+msgstr "Araç Yıkama"
 
 #: map-quick/localization_data.cpp:56
 msgctxt "OSM::historic"
 msgid "Castle"
-msgstr ""
+msgstr "Kale"
 
 #: map-quick/localization_data.cpp:57
 msgctxt "OSM::amenity/shop"
@@ -273,17 +259,14 @@ msgid "Charging Station"
 msgstr "Şarj İstasyonu"
 
 #: map-quick/localization_data.cpp:58
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Copy Shop"
 msgctxt "OSM::shop"
 msgid "Charity Shop"
-msgstr "Fotokopici"
+msgstr "Hayır Kurumu Mağazası"
 
 #: map-quick/localization_data.cpp:59
 msgctxt "OSM::shop"
 msgid "Cheese"
-msgstr ""
+msgstr "Peynir"
 
 #: map-quick/localization_data.cpp:60
 msgctxt "OSM::amenity/shop"
@@ -313,7 +296,7 @@ msgstr "Sınıf"
 #: map-quick/localization_data.cpp:66
 msgctxt "OSM::healthcare"
 msgid "Clinic"
-msgstr ""
+msgstr "Klinik"
 
 #: map-quick/localization_data.cpp:67
 msgctxt "OSM::amenity/shop"
@@ -341,20 +324,14 @@ msgid "Confectionery"
 msgstr "Şekerlemeci"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Garden Center"
 msgctxt "OSM::amenity"
 msgid "Conference Center"
-msgstr "Bahçe Merkezi"
+msgstr "Konferans Merkezi"
 
 #: map-quick/localization_data.cpp:73
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Chocolate"
 msgctxt "OSM::diplomatic"
 msgid "Consulate"
-msgstr "Çikolatacı"
+msgstr "Konsolosluk"
 
 #: map-quick/localization_data.cpp:74
 msgctxt "OSM::amenity/shop"
@@ -377,24 +354,19 @@ msgid "Court House"
 msgstr "Adliye"
 
 #: map-quick/localization_data.cpp:78 map-quick/localization_data.cpp:79
-#, fuzzy
-#| msgid "Women parking spaces"
 msgctxt "OSM::amenity"
 msgid "Coworking Space"
-msgstr "Kadın park alanları"
+msgstr "Birlikte Çalışma Alanı"
 
 #: map-quick/localization_data.cpp:80
 msgctxt "OSM::shop"
 msgid "Art and Craft Supplies"
-msgstr ""
+msgstr "Sanat ve Elişi Malzemeleri"
 
 #: map-quick/localization_data.cpp:81
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fountain"
 msgctxt "OSM::shop"
 msgid "Curtains"
-msgstr "Çeşme"
+msgstr "Perdeci"
 
 #: map-quick/localization_data.cpp:82
 msgctxt "OSM::amenity/shop"
@@ -404,7 +376,7 @@ msgstr "Mezeci"
 #: map-quick/localization_data.cpp:83
 msgctxt "OSM::healthcare"
 msgid "Dentist"
-msgstr ""
+msgstr "Dişçi"
 
 #: map-quick/localization_data.cpp:84
 msgctxt "OSM::amenity/shop"
@@ -412,9 +384,6 @@ msgid "Department Store"
 msgstr "Bonmarşe"
 
 #: map-quick/localization_data.cpp:85 map-quick/localization_data.cpp:86
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Doctor"
 msgctxt "OSM::healthcare"
 msgid "Doctor"
 msgstr "Doktor"
@@ -435,12 +404,9 @@ msgid "Dry Cleaning"
 msgstr "Kuru Temizleme"
 
 #: map-quick/localization_data.cpp:90
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Electronics"
 msgctxt "OSM::shop"
 msgid "Electrical"
-msgstr "Elektronik"
+msgstr "Elektrikçi"
 
 #: map-quick/localization_data.cpp:91
 msgctxt "OSM::amenity/shop"
@@ -450,7 +416,7 @@ msgstr "Elektronik"
 #: map-quick/localization_data.cpp:92
 msgctxt "OSM::diplomatic"
 msgid "Embassy"
-msgstr ""
+msgstr "Büyükelçilik"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity"
@@ -460,12 +426,12 @@ msgstr "Etkinlik Salonu"
 #: map-quick/localization_data.cpp:94
 msgctxt "OSM::amenity"
 msgid "Exhibition Hall"
-msgstr ""
+msgstr "Sergi Salonu"
 
 #: map-quick/localization_data.cpp:95
 msgctxt "OSM::shop"
 msgid "Fabric"
-msgstr ""
+msgstr "Kumaş"
 
 #: map-quick/localization_data.cpp:96
 msgctxt "OSM::amenity/shop"
@@ -475,12 +441,12 @@ msgstr "Moda"
 #: map-quick/localization_data.cpp:97
 msgctxt "OSM::shop"
 msgid "Fashion Accessories"
-msgstr ""
+msgstr "Moda Aksesuarları"
 
 #: map-quick/localization_data.cpp:98
 msgctxt "OSM::amenity/shop"
 msgid "Fast Food"
-msgstr "Tez yemek"
+msgstr "Tez Yemek"
 
 #: map-quick/localization_data.cpp:99
 msgctxt "OSM::amenity/shop"
@@ -488,28 +454,19 @@ msgid "Ferry Terminal"
 msgstr "Feribot Terminali"
 
 #: map-quick/localization_data.cpp:100
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::amenity"
 msgid "Fire Station"
-msgstr "Tren İstasyonu"
+msgstr "İtfaiye"
 
 #: map-quick/localization_data.cpp:101
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Arts Center"
 msgctxt "OSM::leisure"
 msgid "Fitness Center"
-msgstr "Sanat Merkezi"
+msgstr "Spor Salonu"
 
 #: map-quick/localization_data.cpp:102
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::leisure"
 msgid "Fitness Station"
-msgstr "Tren İstasyonu"
+msgstr "Spor Alanı"
 
 #: map-quick/localization_data.cpp:103
 msgctxt "OSM::amenity/shop"
@@ -517,12 +474,9 @@ msgid "Florist"
 msgstr "Çiçekçi"
 
 #: map-quick/localization_data.cpp:104
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fast Food"
 msgctxt "OSM::shop"
 msgid "Food"
-msgstr "Tez yemek"
+msgstr "Yemek"
 
 #: map-quick/localization_data.cpp:105
 msgctxt "OSM::amenity/shop"
@@ -535,12 +489,9 @@ msgid "Fountain"
 msgstr "Çeşme"
 
 #: map-quick/localization_data.cpp:107
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::amenity"
 msgid "Gas Station"
-msgstr "Tren İstasyonu"
+msgstr "Benzinlik"
 
 #: map-quick/localization_data.cpp:108
 msgctxt "OSM::amenity/shop"
@@ -553,12 +504,9 @@ msgid "Gallery"
 msgstr "Galeri"
 
 #: map-quick/localization_data.cpp:110
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Video Games"
 msgctxt "OSM::shop"
 msgid "Games"
-msgstr "Bilgisayar Oyunları"
+msgstr "Oyun"
 
 #: map-quick/localization_data.cpp:111
 msgctxt "OSM::amenity/shop"
@@ -578,7 +526,7 @@ msgstr "Hediyelik Eşya"
 #: map-quick/localization_data.cpp:114
 msgctxt "OSM::leisure"
 msgid "Golf Course"
-msgstr ""
+msgstr "Golf Sahası"
 
 #: map-quick/localization_data.cpp:115
 msgctxt "OSM::office"
@@ -601,20 +549,14 @@ msgid "Hairdresser"
 msgstr "Kuaför"
 
 #: map-quick/localization_data.cpp:119
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Hardware Store"
 msgctxt "OSM::shop"
 msgid "Hardware"
-msgstr "Hırdavatçı"
+msgstr "Hırdavat"
 
 #: map-quick/localization_data.cpp:120
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fast Food"
 msgctxt "OSM::shop"
 msgid "Health Food"
-msgstr "Tez yemek"
+msgstr "Sağlıklı Yemek"
 
 #: map-quick/localization_data.cpp:121
 msgctxt "OSM::amenity/shop"
@@ -624,7 +566,7 @@ msgstr "İşitme Yardımı"
 #: map-quick/localization_data.cpp:122
 msgctxt "OSM::shop"
 msgid "Hi-fi"
-msgstr ""
+msgstr "Yüksek Kaliteli Ses"
 
 #: map-quick/localization_data.cpp:123
 msgctxt "OSM::amenity/shop"
@@ -709,9 +651,6 @@ msgstr "Çilingir"
 
 #: map-quick/localization_data.cpp:141 map-quick/localization_data.cpp:142
 #: map-quick/localization_data.cpp:143
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Lost & Found"
 msgctxt "OSM::amenity"
 msgid "Lost & Found"
 msgstr "Kayıp Eşya"
@@ -752,12 +691,9 @@ msgid "Monument"
 msgstr "Abide"
 
 #: map-quick/localization_data.cpp:152
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Motorcycle Rental"
 msgctxt "OSM::shop"
 msgid "Motorcycle"
-msgstr "Motorsiklet Kiralama"
+msgstr "Motorsiklet"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::amenity/shop"
@@ -792,12 +728,12 @@ msgstr "Gazete Bayisi"
 #: map-quick/localization_data.cpp:159
 msgctxt "OSM::amenity"
 msgid "Nightclub"
-msgstr ""
+msgstr "Gece Kulübü"
 
 #: map-quick/localization_data.cpp:160
 msgctxt "OSM::shop"
 msgid "Nutrition Supplements"
-msgstr ""
+msgstr "Ek Besinler"
 
 #: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
@@ -812,12 +748,12 @@ msgstr "Gözlükçü"
 #: map-quick/localization_data.cpp:163
 msgctxt "OSM::healthcare"
 msgid "Optometrist"
-msgstr ""
+msgstr "Göz Doktoru"
 
 #: map-quick/localization_data.cpp:164
 msgctxt "OSM::amenity/shop"
 msgid "Outdoor"
-msgstr "Dış alan"
+msgstr "Dış Alan"
 
 #: map-quick/localization_data.cpp:165
 msgctxt "OSM::amenity/shop"
@@ -867,7 +803,7 @@ msgstr "Fotoğrafçı"
 #: map-quick/localization_data.cpp:174
 msgctxt "OSM::healthcare"
 msgid "Physiotherapist"
-msgstr ""
+msgstr "Fizik Tedavici"
 
 #: map-quick/localization_data.cpp:175
 msgctxt "OSM::amenity/shop"
@@ -896,12 +832,12 @@ msgstr "Postane"
 #: map-quick/localization_data.cpp:180
 msgctxt "OSM::shop"
 msgid "Potery"
-msgstr ""
+msgstr "Çömlekçi"
 
 #: map-quick/localization_data.cpp:181
 msgctxt "OSM::healthcare"
 msgid "Psychotherapist"
-msgstr ""
+msgstr "Psikoterapist"
 
 #: map-quick/localization_data.cpp:182
 msgctxt "OSM::amenity/shop"
@@ -936,7 +872,7 @@ msgstr "Restoran"
 #: map-quick/localization_data.cpp:188
 msgctxt "OSM::amenity"
 msgid "Sauna"
-msgstr ""
+msgstr "Sauna"
 
 #: map-quick/localization_data.cpp:189
 msgctxt "OSM::amenity/shop"
@@ -956,20 +892,17 @@ msgstr "Deniz Ürünleri"
 #: map-quick/localization_data.cpp:192
 msgctxt "OSM::shop"
 msgid "Second Hand"
-msgstr ""
+msgstr "İkinci El"
 
 #: map-quick/localization_data.cpp:193
 msgctxt "OSM::shop"
 msgid "Shoe Repair"
-msgstr ""
+msgstr "Ayakkabıcı"
 
 #: map-quick/localization_data.cpp:194
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Shoes"
 msgctxt "OSM::shop"
 msgid "Shoes"
-msgstr "Ayakkabıcı"
+msgstr "Ayakkabı"
 
 #: map-quick/localization_data.cpp:195
 msgctxt "OSM::amenity/shop"
@@ -979,7 +912,7 @@ msgstr "Mağaza"
 #: map-quick/localization_data.cpp:196
 msgctxt "OSM::amenity"
 msgid "Shower"
-msgstr ""
+msgstr "Duş"
 
 #: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
@@ -1039,7 +972,7 @@ msgstr "Çay"
 #: map-quick/localization_data.cpp:208
 msgctxt "OSM::shop"
 msgid "Telecommunication"
-msgstr ""
+msgstr "Telekomünikasyon"
 
 #: map-quick/localization_data.cpp:209
 msgctxt "OSM::amenity/shop"
@@ -1094,7 +1027,7 @@ msgstr "Tuhafiyeci"
 #: map-quick/localization_data.cpp:221
 msgctxt "OSM::amenity"
 msgid "Veterinary"
-msgstr ""
+msgstr "Veteriner"
 
 #: map-quick/localization_data.cpp:222
 msgctxt "OSM::amenity/shop"
@@ -1120,7 +1053,7 @@ msgstr "Çöp Kutusu"
 #: map-quick/localization_data.cpp:228
 msgctxt "OSM::shop"
 msgid "Watches"
-msgstr ""
+msgstr "Saat"
 
 #: map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"
@@ -2028,7 +1961,7 @@ msgstr "NFC"
 #: map-quick/osmelementinformationmodel_data.cpp:108
 msgctxt "OSM::charging_station_authentication"
 msgid "none"
-msgstr "hiçbiri"
+msgstr "yok"
 
 #: map-quick/osmelementinformationmodel_data.cpp:109
 msgctxt "OSM::charging_station_authentication"
@@ -2043,7 +1976,7 @@ msgstr "SMS"
 #: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "OSM::bicycle_parking"
 msgid "anchors"
-msgstr "demirler"
+msgstr "demir"
 
 #: map-quick/osmelementinformationmodel_data.cpp:118
 msgctxt "OSM::bicycle_parking"
@@ -2063,17 +1996,17 @@ msgstr "yer yuvası"
 #: map-quick/osmelementinformationmodel_data.cpp:121
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
-msgstr "kilitler"
+msgstr "kilit"
 
 #: map-quick/osmelementinformationmodel_data.cpp:122
 msgctxt "OSM::bicycle_parking"
 msgid "racks"
-msgstr "raflar"
+msgstr "raf"
 
 #: map-quick/osmelementinformationmodel_data.cpp:123
 msgctxt "OSM::bicycle_parking"
 msgid "shed"
-msgstr "baraka"
+msgstr "kulübe"
 
 #: map-quick/osmelementinformationmodel_data.cpp:124
 msgctxt "OSM::bicycle_parking"
@@ -2083,12 +2016,12 @@ msgstr "ayaklar"
 #: map-quick/osmelementinformationmodel_data.cpp:125
 msgctxt "OSM::bicycle_parking"
 msgid "wall loops"
-msgstr "duvar döngüleri"
+msgstr "duvar döngüsü"
 
 #: map-quick/osmelementinformationmodel_data.cpp:126
 msgctxt "OSM::bicycle_parking"
 msgid "wide stands"
-msgstr "geniş ayaklar"
+msgstr "geniş ayak"
 
 #: map-quick/osmelementinformationmodel_data.cpp:133
 #, kde-format
@@ -2153,9 +2086,9 @@ msgstr "braille"
 #: map-quick/osmelementinformationmodel_data.cpp:163
 msgctxt "tactile writing"
 msgid "embossed printed letters"
-msgstr "kabartmalı baskı mektuplar"
+msgstr "kabartmalı baskı mektup"
 
 #: map-quick/osmelementinformationmodel_data.cpp:164
 msgctxt "tactile writing"
 msgid "engraved printed letters"
-msgstr "oymalı baskı mektuplar"
+msgstr "oymalı baskı mektup"
