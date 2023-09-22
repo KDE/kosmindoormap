@@ -129,6 +129,7 @@ void MapCSSCondition::write(QIODevice *out) const
     if (m_numericValue != NAN && m_value.isEmpty()) {
         out->write(QByteArray::number(m_numericValue));
     } else {
+        // TODO quote if m_value contains non-identifier chars
         out->write(m_value);
     }
 

@@ -172,3 +172,8 @@ area[natural=rock]
     fill-image: "rock_overlay.png";
 }
 
+line[highway=service][service=drive-through]
+{
+    color: #ffffffff;
+}
+

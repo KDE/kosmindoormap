@@ -144,3 +144,6 @@ area[landuse] { set layer = -10; }
 
 // url properties
 area[natural=rock] { fill-image: url("rock_overlay.png"); }
+
+// quoted condition value
+line[highway=service][service="drive-through"] { color: #ffffff; }
