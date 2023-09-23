@@ -8,6 +8,7 @@ Dependencies:
     'frameworks/ki18n': '@stable'
     'libraries/kpublictransport': "@same"
     'libraries/kopeninghours': "@same"
+    'libraries/kirigami-addons': "@same"
 
 - 'on': ['Android/Qt5']
   'require':
@@ -19,6 +20,7 @@ Dependencies:
     'frameworks/ki18n': '@latest-kf6'
     'libraries/kpublictransport': "@same"
     'libraries/kopeninghours': "@same"
+    'libraries/kirigami-addons': "@same"
 
 - 'on': ['Android/Qt6']
   'require':
