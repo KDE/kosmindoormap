@@ -249,6 +249,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
 
         double lineOpacity = 1.0;
         double fillOpacity = 1.0;
+        bool hasTexture = false;
         initializePen(item->pen);
         for (auto decl : result.declarations()) {
             applyGenericStyle(decl, item);
@@ -263,6 +264,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                     break;
                 case MapCSSDeclaration::FillImage:
                     item->textureBrush.setTextureImage(d->m_textureCache.image(decl->stringValue()));
+                    hasTexture = true;
                     break;
                 default:
                     break;
@@ -277,7 +279,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
         if (item->fillBrush.color().alphaF() == 0.0) {
             item->fillBrush.setStyle(Qt::NoBrush);
         }
-        if (item->textureBrush.style() != Qt::NoBrush && fillOpacity > 0.0) {
+        if (hasTexture && item->textureBrush.style() != Qt::NoBrush && fillOpacity > 0.0) {
             auto c = item->textureBrush.color();
             c.setAlphaF(fillOpacity);
             item->textureBrush.setColor(c);
