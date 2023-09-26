@@ -529,20 +529,23 @@ QPolygonF SceneController::createPolygon(OSM::Element e) const
 QPainterPath SceneController::createPath(const OSM::Element e, QPolygonF &outerPath) const
 {
     assert(e.type() == OSM::Type::Relation);
-    outerPath = createPolygon(e);
+    outerPath = createPolygon(e); // TODO this is actually not correct for the multiple outer polygon case
     QPainterPath path;
-    path.addPolygon(outerPath); // assemble the outer polygon, which can be represented as a set of unsorted lines here even
+    path.setFillRule(Qt::OddEvenFill);
 
     for (const auto &mem : e.relation()->members) {
         const bool isInner = std::strcmp(mem.role().name(), "inner") == 0;
-        if (mem.type() != OSM::Type::Way || !isInner) {
+        const bool isOuter = std::strcmp(mem.role().name(), "outer") == 0;
+        if (mem.type() != OSM::Type::Way || (!isInner && !isOuter)) {
             continue;
         }
         if (auto way = d->m_data.dataSet().way(mem.id)) {
             const auto subPoly = createPolygon(OSM::Element(way));
-            QPainterPath subPath;
-            subPath.addPolygon(subPoly);
-            path = path.subtracted(subPath);
+            if (subPoly.isEmpty()) {
+                continue;
+            }
+            path.addPolygon(subPoly);
+            path.closeSubpath();
         }
     }
 
