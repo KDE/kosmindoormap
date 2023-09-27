@@ -429,7 +429,7 @@ area[building:part=yes][layer>0]
 
 node|z21-[door][door!=no][!entrance]
 {
-    icon-image: "rect";
+    icon-image: "square";
     icon-height: 4px;
     icon-width: 4px;
     icon-color: #31363b;
