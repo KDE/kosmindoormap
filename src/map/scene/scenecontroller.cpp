@@ -334,6 +334,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             item->text.setText(text);
             item->font = d->m_defaultFont;
             item->color = d->m_defaultTextColor;
+            item->iconSize = {};
 
             double textOpacity = 1.0;
             double shieldOpacity = 1.0;
