@@ -111,7 +111,7 @@
 *[shop=wine] { icon-image: "alcohol"; }
 *[shop=wholesale] { icon-image: "trade"; }
 
-*[tourism=appartment],
+*[tourism=apartment],
 *[tourism=caravan_site],
 *[tourism=chalet],
 *[tourism=guest_house],
@@ -177,6 +177,7 @@
 *[amenity=clock][!tourism],
 *[amenity=fountain],
 *[amenity=kindergarten],
+*[amenity=loading_ramp],
 *[amenity=motorcycle_parking],
 *[amenity=parcel_locker],
 *[amenity=parking],
