@@ -633,6 +633,9 @@ void SceneController::applyPenStyle(OSM::Element e, const MapCSSDeclaration *dec
         case MapCSSProperty::Opacity:
             opacity = decl->doubleValue();
             break;
+        case MapCSSProperty::Image:
+            pen.setBrush(d->m_textureCache.image(decl->stringValue()));
+            break;
         default:
             break;
     }

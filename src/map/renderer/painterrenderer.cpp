@@ -338,6 +338,11 @@ void PainterRenderer::renderPolyline(PolylineItem *item, SceneGraphItemPayload::
     if (phase == SceneGraphItemPayload::StrokePhase) {
         auto p = item->pen;
         p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
+        if (p.brush().style() == Qt::TexturePattern) {
+            auto b = p.brush();
+            b.setTransform(brushTransform());
+            p.setBrush(b);
+        }
         m_painter->setPen(p);
         m_painter->drawPolyline(item->path);
     } else {

@@ -584,6 +584,10 @@ line[man_made=embankment]
 {
     width: 0.25m;
 }
+line[man_made=embankment]
+{
+    image: url("embankment.svg");
+}
 
 line[barrier=fence],
 area[barrier=fence] {
