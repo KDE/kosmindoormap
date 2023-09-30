@@ -22,12 +22,12 @@ struct {
 } static constexpr const property_types[] = {
     // only those properties have their corresonding flag set that actually trigger emission of a scene graph item
     // e.g. for a label we either need a text or an icon, the visual properties for those on their own would be a no-op
-    { "casing-color", MapCSSDeclaration::CasingColor, MapCSSDeclaration::LabelProperty },
+    { "casing-color", MapCSSDeclaration::CasingColor, MapCSSDeclaration::NoFlag },
     { "casing-dashes", MapCSSDeclaration::CasingDashes, MapCSSDeclaration::NoFlag },
     { "casing-linecap", MapCSSDeclaration::CasingLineCap, MapCSSDeclaration::NoFlag },
     { "casing-linejoin", MapCSSDeclaration::CasingLineJoin, MapCSSDeclaration::NoFlag },
     { "casing-opacity", MapCSSDeclaration::CasingOpacity, MapCSSDeclaration::NoFlag },
-    { "casing-width", MapCSSDeclaration::CasingWidth, MapCSSDeclaration::LineProperty },
+    { "casing-width", MapCSSDeclaration::CasingWidth, MapCSSDeclaration::NoFlag },
     { "color", MapCSSDeclaration::Color, MapCSSDeclaration::LineProperty },
     { "dashes", MapCSSDeclaration::Dashes, MapCSSDeclaration::NoFlag },
     { "fill-color", MapCSSDeclaration::FillColor, MapCSSDeclaration::AreaProperty | MapCSSDeclaration::CanvasProperty }, // TODO this also applies to lines

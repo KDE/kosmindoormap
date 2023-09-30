@@ -41,6 +41,13 @@ private:
     void renderForeground(const QColor &bgColor);
     void endRender();
 
+    template <typename T>
+    void renderPolygonFill(PolygonBaseItem *item, const T &geom);
+    template <typename T>
+    void renderPolygonLine(PolygonBaseItem *item, const T &geom);
+    template <typename T>
+    void renderPolygonCasing(PolygonBaseItem *item, const T &geom);
+
     [[nodiscard]] double mapToSceneWidth(double width, Unit unit) const;
     // inverse view transformation with translation applied
     // needed for textured brushes

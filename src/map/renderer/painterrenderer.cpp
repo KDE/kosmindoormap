@@ -128,47 +128,78 @@ void PainterRenderer::beginPhase(SceneGraphItemPayload::RenderPhase phase)
     }
 }
 
+static inline void drawGeometry(QPainter *painter, const QPolygonF &polygon) { painter->drawPolygon(polygon, Qt::OddEvenFill); }
+static inline void drawGeometry(QPainter *painter, const QPainterPath &path) { painter->drawPath(path); }
+
+template <typename T>
+inline void PainterRenderer::renderPolygonFill(PolygonBaseItem *item, const T &geom)
+{
+    if (item->fillBrush.style() != Qt::NoBrush) {
+        m_painter->setBrush(item->fillBrush);
+        drawGeometry(m_painter, geom);
+    }
+    if (item->textureBrush.style() != Qt::NoBrush) {
+        item->textureBrush.setTransform(brushTransform());
+        m_painter->setOpacity(item->textureBrush.color().alphaF());
+        m_painter->setBrush(item->textureBrush);
+        drawGeometry(m_painter, geom);
+        m_painter->setOpacity(1.0);
+    }
+}
+
+template <typename T>
+inline void PainterRenderer::renderPolygonCasing(PolygonBaseItem *item, const T &geom)
+{
+    auto p = item->casingPen;
+    p.setWidthF(mapToSceneWidth(item->casingPen.widthF(), item->casingPenWidthUnit));
+    m_painter->setPen(p);
+    drawGeometry(m_painter, geom);
+}
+
+template <typename T>
+inline void PainterRenderer::renderPolygonLine(PolygonBaseItem *item, const T &geom)
+{
+    auto p = item->pen;
+    p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
+    m_painter->setPen(p);
+    drawGeometry(m_painter, geom);
+}
+
 void PainterRenderer::renderPolygon(PolygonItem *item, SceneGraphItemPayload::RenderPhase phase)
 {
-    if (phase == SceneGraphItemPayload::FillPhase) {
-        if (item->fillBrush.style() != Qt::NoBrush) {
-            m_painter->setBrush(item->fillBrush);
-            m_painter->drawPolygon(item->polygon);
-        }
-        if (item->textureBrush.style() != Qt::NoBrush) {
-            item->textureBrush.setTransform(brushTransform());
-            m_painter->setOpacity(item->textureBrush.color().alphaF());
-            m_painter->setBrush(item->textureBrush);
-            m_painter->drawPolygon(item->polygon);
-            m_painter->setOpacity(1.0);
+    if (item->useCasingFillMode()) {
+        if (phase == SceneGraphItemPayload::CasingPhase) {
+            renderPolygonCasing(item, item->polygon);
+        } else if (phase == SceneGraphItemPayload::StrokePhase) {
+            m_painter->setPen(Qt::NoPen);
+            renderPolygonFill(item, item->polygon);
+            m_painter->setBrush(Qt::NoBrush);
         }
     } else {
-        auto p = item->pen;
-        p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
-        m_painter->setPen(p);
-        m_painter->drawPolygon(item->polygon);
+        if (phase == SceneGraphItemPayload::FillPhase) {
+            renderPolygonFill(item, item->polygon);
+        } else if (phase == SceneGraphItemPayload::StrokePhase) {
+            renderPolygonLine(item, item->polygon);
+        }
     }
 }
 
 void PainterRenderer::renderMultiPolygon(MultiPolygonItem *item, SceneGraphItemPayload::RenderPhase phase)
 {
-    if (phase == SceneGraphItemPayload::FillPhase) {
-        if (item->fillBrush.style() != Qt::NoBrush) {
-            m_painter->setBrush(item->fillBrush);
-            m_painter->drawPath(item->path);
-        }
-        if (item->textureBrush.style() != Qt::NoBrush) {
-            item->textureBrush.setTransform(brushTransform());
-            m_painter->setBrush(item->textureBrush);
-            m_painter->setOpacity(item->textureBrush.color().alphaF());
-            m_painter->drawPath(item->path);
-            m_painter->setOpacity(1.0);
+    if (item->useCasingFillMode()) {
+        if (phase == SceneGraphItemPayload::CasingPhase) {
+            renderPolygonCasing(item, item->path);
+        } else if (phase == SceneGraphItemPayload::StrokePhase) {
+            m_painter->setPen(Qt::NoPen);
+            renderPolygonFill(item, item->path);
+            m_painter->setBrush(Qt::NoBrush);
         }
     } else {
-        auto p = item->pen;
-        p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
-        m_painter->setPen(p);
-        m_painter->drawPath(item->path);
+        if (phase == SceneGraphItemPayload::FillPhase) {
+            renderPolygonFill(item, item->path);
+        } else if (phase == SceneGraphItemPayload::StrokePhase) {
+            renderPolygonLine(item, item->path);
+        }
     }
 }
 

@@ -248,13 +248,16 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
         }
 
         double lineOpacity = 1.0;
+        double casingOpacity = 1.0;
         double fillOpacity = 1.0;
         bool hasTexture = false;
         item->z = 0;
         initializePen(item->pen);
+        initializePen(item->casingPen);
         for (auto decl : result.declarations()) {
             applyGenericStyle(decl, item);
             applyPenStyle(e, decl, item->pen, lineOpacity, item->penWidthUnit);
+            applyCasingPenStyle(e, decl, item->casingPen, casingOpacity, item->casingPenWidthUnit);
             switch (decl->property()) {
                 case MapCSSDeclaration::FillColor:
                     item->fillBrush.setColor(decl->colorValue());
@@ -272,6 +275,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             }
         }
         finalizePen(item->pen, lineOpacity);
+        finalizePen(item->casingPen, casingOpacity);
         if (item->fillBrush.style() == Qt::SolidPattern && item->textureBrush.style() == Qt::NoBrush && fillOpacity < 1.0) {
             auto c = item->fillBrush.color();
             c.setAlphaF(c.alphaF() * fillOpacity);

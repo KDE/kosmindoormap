@@ -104,12 +104,17 @@ public:
 class PolygonBaseItem : public SceneGraphItemPayload
 {
 public:
-    uint8_t renderPhases() const override;
+    [[nodiscard]] uint8_t renderPhases() const override;
+
+    /** Render like lines, ie casing and filling in the stroke phase, rather than the default. */
+    [[nodiscard]] bool useCasingFillMode() const;
 
     QBrush fillBrush = Qt::NoBrush;
     QBrush textureBrush = Qt::NoBrush;
     QPen pen;
+    QPen casingPen;
     Unit penWidthUnit = Unit::Pixel;
+    Unit casingPenWidthUnit = Unit::Pixel;
 };
 
 
