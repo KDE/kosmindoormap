@@ -38,6 +38,11 @@ void SceneGraph::zSort()
     recomputeLayerIndex();
 }
 
+static inline uint64_t area(const SceneGraphItem &item)
+{
+    return (uint64_t)item.element.boundingBox().width() * (uint64_t)item.element.boundingBox().height();
+}
+
 bool SceneGraph::zOrderCompare(const SceneGraphItem &lhs, const SceneGraphItem &rhs)
 {
     /* The MapCSS spec says we have to render in the following order:
@@ -48,6 +53,9 @@ bool SceneGraph::zOrderCompare(const SceneGraphItem &lhs, const SceneGraphItem &
      */
     if (lhs.level == rhs.level) {
         if (lhs.layer == rhs.layer) {
+            if (lhs.payload->z == rhs.payload->z) {
+                return area(lhs) > area(rhs);
+            }
             return lhs.payload->z < rhs.payload->z;
         }
         return lhs.layer < rhs.layer;
