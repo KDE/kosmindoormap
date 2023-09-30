@@ -45,6 +45,7 @@ if (NOT BUILD_TOOLS_ONLY)
 
         renderer/hitdetector.cpp
         renderer/painterrenderer.cpp
+        renderer/scenegraphdumper.cpp
         renderer/stackblur.cpp
 
         scene/iconloader.cpp
