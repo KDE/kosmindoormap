@@ -250,6 +250,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
         double lineOpacity = 1.0;
         double fillOpacity = 1.0;
         bool hasTexture = false;
+        item->z = 0;
         initializePen(item->pen);
         for (auto decl : result.declarations()) {
             applyGenericStyle(decl, item);
@@ -297,6 +298,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
 
         double lineOpacity = 1.0;
         double casingOpacity = 1.0;
+        item->z = 0;
         initializePen(item->pen);
         initializePen(item->casingPen);
         for (auto decl : result.declarations()) {
@@ -335,6 +337,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             item->font = d->m_defaultFont;
             item->color = d->m_defaultTextColor;
             item->iconSize = {};
+            item->z = 0;
 
             double textOpacity = 1.0;
             double shieldOpacity = 1.0;
