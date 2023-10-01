@@ -37,7 +37,7 @@ private:
     void renderPolygon(PolygonItem *item, SceneGraphItemPayload::RenderPhase phase);
     void renderMultiPolygon(MultiPolygonItem *item, SceneGraphItemPayload::RenderPhase phase);
     void renderPolyline(PolylineItem *item, SceneGraphItemPayload::RenderPhase phase);
-    void renderLabel(LabelItem *item);
+    void renderLabel(LabelItem *item, SceneGraphItemPayload::RenderPhase phase);
     void renderForeground(const QColor &bgColor);
     void endRender();
 

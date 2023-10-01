@@ -62,7 +62,7 @@ void PainterRenderer::render(const SceneGraph &sg, View *view)
             }
         }
 
-        for (auto phase : {SceneGraphItemPayload::FillPhase, SceneGraphItemPayload::CasingPhase, SceneGraphItemPayload::StrokePhase, SceneGraphItemPayload::LabelPhase}) {
+        for (auto phase : {SceneGraphItemPayload::FillPhase, SceneGraphItemPayload::CasingPhase, SceneGraphItemPayload::StrokePhase, SceneGraphItemPayload::IconPhase, SceneGraphItemPayload::LabelPhase}) {
             beginPhase(phase);
             for (const auto item : m_renderBatch) {
                 if ((item->renderPhases() & phase) == 0) {
@@ -76,7 +76,7 @@ void PainterRenderer::render(const SceneGraph &sg, View *view)
                 } else if (auto i = dynamic_cast<PolylineItem*>(item)) {
                     renderPolyline(i, phase);
                 } else if (auto i = dynamic_cast<LabelItem*>(item)) {
-                    renderLabel(i);
+                    renderLabel(i, phase);
                 } else {
                     qCritical() << "Unsupported scene graph item!";
                 }
@@ -218,7 +218,7 @@ void PainterRenderer::renderPolyline(PolylineItem *item, SceneGraphItemPayload::
     }
 }
 
-void PainterRenderer::renderLabel(LabelItem *item)
+void PainterRenderer::renderLabel(LabelItem *item, SceneGraphItemPayload::RenderPhase phase)
 {
     m_painter->save();
     m_painter->translate(m_view->mapSceneToScreen(item->pos));
@@ -249,7 +249,7 @@ void PainterRenderer::renderLabel(LabelItem *item)
     }
 
     // draw icon
-    if (!iconOutputSize.isNull()) {
+    if (!iconOutputSize.isNull() && phase == SceneGraphItemPayload::IconPhase) {
         QRectF iconRect(QPointF(-iconOutputSize.width() / 2.0, -iconOutputSize.height() / 2.0), iconOutputSize);
         m_painter->setOpacity(item->iconOpacity);
         item->icon.paint(m_painter, iconRect.toRect());
@@ -261,25 +261,25 @@ void PainterRenderer::renderLabel(LabelItem *item)
     box.setWidth(item->text.size().width());
     box.moveCenter({0.0, box.center().y()});
 
-    // draw text halo
-    if (item->haloRadius > 0.0 && item->haloColor.alphaF() > 0.0) {
-        const auto haloBox = box.adjusted(-item->haloRadius, -item->haloRadius, item->haloRadius, item->haloRadius);
-        QImage haloBuffer(haloBox.size().toSize(), QImage::Format_ARGB32);
-        haloBuffer.fill(Qt::transparent);
-        QPainter haloPainter(&haloBuffer);
-        haloPainter.setPen(item->haloColor);
-        haloPainter.setFont(item->font);
-        auto haloTextRect = box;
-        haloTextRect.moveTopLeft({item->haloRadius, item->haloRadius});
-        haloPainter.drawStaticText(haloTextRect.topLeft(), item->text);
-        StackBlur::blur(haloBuffer, item->haloRadius);
-        haloPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
-        haloPainter.fillRect(haloBuffer.rect(), item->haloColor);
-        m_painter->drawImage(haloBox, haloBuffer);
-    }
+    if (item->hasText() && (phase == SceneGraphItemPayload::LabelPhase || item->hasShield())) {
+        // draw text halo
+        if (item->haloRadius > 0.0 && item->haloColor.alphaF() > 0.0) {
+            const auto haloBox = box.adjusted(-item->haloRadius, -item->haloRadius, item->haloRadius, item->haloRadius);
+            QImage haloBuffer(haloBox.size().toSize(), QImage::Format_ARGB32);
+            haloBuffer.fill(Qt::transparent);
+            QPainter haloPainter(&haloBuffer);
+            haloPainter.setPen(item->haloColor);
+            haloPainter.setFont(item->font);
+            auto haloTextRect = box;
+            haloTextRect.moveTopLeft({item->haloRadius, item->haloRadius});
+            haloPainter.drawStaticText(haloTextRect.topLeft(), item->text);
+            StackBlur::blur(haloBuffer, item->haloRadius);
+            haloPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+            haloPainter.fillRect(haloBuffer.rect(), item->haloColor);
+            m_painter->drawImage(haloBox, haloBuffer);
+        }
 
-    // draw text
-    if (!item->text.text().isEmpty()) {
+        // draw text
         m_painter->setPen(item->color);
         m_painter->setFont(item->font);
         m_painter->drawStaticText(box.topLeft(), item->text);

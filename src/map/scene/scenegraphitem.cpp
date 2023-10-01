@@ -21,7 +21,7 @@ bool SceneGraphItemPayload::inSceneSpace() const
 
 bool SceneGraphItemPayload::inHUDSpace() const
 {
-    return renderPhases() & LabelPhase;
+    return renderPhases() & (IconPhase | LabelPhase);
 }
 
 
@@ -83,7 +83,10 @@ QRectF MultiPolygonItem::boundingRect([[maybe_unused]] const View *view) const
 
 uint8_t LabelItem::renderPhases() const
 {
-    return LabelPhase;
+    if (hasShield()) {
+        return IconPhase;
+    }
+    return (hasIcon() ? IconPhase : NoPhase) | (hasText() ? LabelPhase : NoPhase);
 }
 
 QRectF LabelItem::boundingRect(const View *view) const

@@ -66,20 +66,21 @@ public:
         FillPhase = 1,
         CasingPhase = 2,
         StrokePhase = 4,
-        LabelPhase = 8,
+        IconPhase = 8,
+        LabelPhase = 16,
     };
     /** Returns in which phase this item needs to be rendered (can be multiple). */
-    virtual uint8_t renderPhases() const = 0;
+    [[nodiscard]] virtual uint8_t renderPhases() const = 0;
 
     /** Bounding box of this item in scene coordinates.
      *  Performance trumps precision here, so estimating this slightly larger rather than computing it expensively makes sense.
      */
-    virtual QRectF boundingRect(const View *view) const = 0;
+    [[nodiscard]] virtual QRectF boundingRect(const View *view) const = 0;
 
     /** Is this item drawn in scene coordinates (as oposed to HUD coordinates)? */
-    bool inSceneSpace() const;
+    [[nodiscard]] bool inSceneSpace() const;
     /** Is this item drawn in HUD coordinates (as oposed to scene coordinates)? */
-    bool inHUDSpace() const;
+    [[nodiscard]] bool inHUDSpace() const;
 
     int z = 0;
 };
