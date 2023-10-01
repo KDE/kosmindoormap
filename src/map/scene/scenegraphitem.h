@@ -138,12 +138,16 @@ public:
     QPainterPath path;
 };
 
-/** A text or item label */
+/** A text or icon label */
 class LabelItem : public SceneGraphItemPayload
 {
 public:
     [[nodiscard]] uint8_t renderPhases() const override;
     [[nodiscard]] QRectF boundingRect(const View *view) const override;
+
+    [[nodiscard]] QRectF iconHitBox(const View *view) const;
+    [[nodiscard]] QRectF textHitBox(const View *view) const;
+    [[nodiscard]] QRectF shieldHitBox(const View *view) const;
 
     [[nodiscard]] QSizeF iconOutputSize(const View *view) const;
     [[nodiscard]] QSizeF textOutputSize() const;
@@ -178,6 +182,8 @@ public:
 
     bool allowTextOverlap = false;
     bool allowIconOverlap = false;
+    bool iconHidden = false;
+    bool textHidden = false;
 };
 
 

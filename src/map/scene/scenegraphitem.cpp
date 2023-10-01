@@ -30,7 +30,7 @@ uint8_t PolylineItem::renderPhases() const
     return (pen.style() != Qt::NoPen ? StrokePhase : NoPhase) | (casingPen.style() != Qt::NoPen ? CasingPhase : NoPhase);
 }
 
-QRectF PolylineItem::boundingRect([[maybe_unused]] const View *view) const
+QRectF PolylineItem::boundingRect(const View *view) const
 {
     auto r = path.boundingRect(); // TODO do we need to cache this?
     double w = 0.0;
@@ -105,6 +105,33 @@ QRectF LabelItem::boundingRect(const View *view) const
     bbox.adjust(-shieldSize, -shieldSize, shieldSize, shieldSize);
 
     bbox.moveCenter(pos);
+    return bbox;
+}
+
+QRectF LabelItem::iconHitBox(const View *view) const
+{
+    auto bbox = QRectF(QPointF(0.0, 0.0), iconOutputSize(view));
+    bbox.moveCenter(view->mapSceneToScreen(pos));
+    return bbox;
+}
+
+QRectF LabelItem::textHitBox(const View *view) const
+{
+    auto bbox = QRectF(QPointF(0.0, 0.0), textOutputSize());
+    bbox.moveCenter(view->mapSceneToScreen(pos));
+    if (hasIcon()) {
+        bbox.moveTop(iconHitBox(view).top() + textOffset);
+    } else {
+        bbox.moveTop(bbox.top() + textOffset); // TODO textOffset unit
+    }
+    return bbox;
+}
+
+QRectF LabelItem::shieldHitBox(const View *view) const
+{
+    auto bbox = iconHitBox(view).united(textHitBox(view));
+    const auto w = casingAndFrameWidth();
+    bbox.adjust(-w, -w, w, w);
     return bbox;
 }
 

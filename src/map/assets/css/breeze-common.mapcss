@@ -202,6 +202,8 @@ node|z19-[natural=tree]
     icon-width: 2m;
     icon-color: #27ae60;
     icon-opacity: 0.4;
+    icon-allow-icon-overlap: true;
+    icon-allow-text-overlap: true;
 }
 node|z19-[natural=tree][diameter_crown]
 {
@@ -216,6 +218,8 @@ node|z21-[natural=shrub]
     icon-width: 0.4m;
     icon-color: #27ae60;
     icon-opacity: 0.4;
+    icon-allow-icon-overlap: true;
+    icon-allow-text-overlap: true;
 }
 node|z21-[natural=shrub][width]
 {
@@ -433,12 +437,16 @@ node|z21-[door][door!=no][!entrance]
     icon-height: 4px;
     icon-width: 4px;
     icon-color: #31363b;
+    icon-allow-icon-overlap: true;
+    icon-allow-text-overlap: true;
 }
 
 node|z21-[entrance=yes][railway!=subway_entrance],
 node|z21-[entrance=main]
 {
     icon-image: "entrance";
+    icon-allow-icon-overlap: true;
+    icon-allow-text-overlap: true;
 }
 
 /** Airports */
@@ -598,6 +606,8 @@ node|z21- [barrier=block]
     icon-image: "circle";
     icon-width: 0.5m;
     icon-height: 0.5m;
+    icon-allow-icon-overlap: true;
+    icon-allow-text-overlap: true;
 }
 
 node|z20- [amenity=bench],

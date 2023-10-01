@@ -108,14 +108,17 @@ bool HitDetector::itemContainsPoint(const PolylineItem *item, QPointF scenePos, 
 
 bool HitDetector::itemContainsPoint(const LabelItem *item, QPointF screenPos, const View *view) const
 {
-    auto hitBox = item->boundingRect(view);
-    hitBox.moveCenter(view->mapSceneToScreen(hitBox.center()));
-
-    // reposition hitBox, as it's not centered in this case
-    if (item->hasIcon() && item->hasText()) {
-        hitBox.moveTop(hitBox.top() + hitBox.height() / 2.0 - item->iconOutputSize(view).height() / 2.0 - item->casingAndFrameWidth());
+    // TODO item->angle != 0
+    if (item->iconHidden) {
+        return false;
     }
 
+    if (item->textHidden) {
+        const auto hitBox = item->iconHitBox(view);
+        return hitBox.contains(screenPos);
+    }
+
+    const auto hitBox = item->shieldHitBox(view);
     return hitBox.contains(screenPos);
 }
 

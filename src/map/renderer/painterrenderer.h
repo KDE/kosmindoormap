@@ -33,6 +33,7 @@ public:
 private:
     void beginRender();
     void beginPhase(SceneGraphItemPayload::RenderPhase phase);
+    void prepareBatch(SceneGraphItemPayload::RenderPhase phase);
     void renderBackground(const QColor &bgColor);
     void renderPolygon(PolygonItem *item, SceneGraphItemPayload::RenderPhase phase);
     void renderMultiPolygon(MultiPolygonItem *item, SceneGraphItemPayload::RenderPhase phase);

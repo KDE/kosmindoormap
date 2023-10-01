@@ -64,7 +64,9 @@ void PainterRenderer::render(const SceneGraph &sg, View *view)
 
         for (auto phase : {SceneGraphItemPayload::FillPhase, SceneGraphItemPayload::CasingPhase, SceneGraphItemPayload::StrokePhase, SceneGraphItemPayload::IconPhase, SceneGraphItemPayload::LabelPhase}) {
             beginPhase(phase);
-            for (const auto item : m_renderBatch) {
+            prepareBatch(phase);
+            for (auto it = m_renderBatch.begin(); it != m_renderBatch.end(); ++it) {
+                const auto &item = (*it);
                 if ((item->renderPhases() & phase) == 0) {
                     continue;
                 }
@@ -76,7 +78,16 @@ void PainterRenderer::render(const SceneGraph &sg, View *view)
                 } else if (auto i = dynamic_cast<PolylineItem*>(item)) {
                     renderPolyline(i, phase);
                 } else if (auto i = dynamic_cast<LabelItem*>(item)) {
-                    renderLabel(i, phase);
+                    // skip if a higher up item would overlap this one, unless that is explicitly allowed
+                    if (phase == SceneGraphItemPayload::IconPhase) {
+                        if (!i->iconHidden) {
+                            renderLabel(i, phase);
+                        }
+                    } else if (phase == SceneGraphItemPayload::LabelPhase) {
+                        if (!i->textHidden) {
+                            renderLabel(i, phase);
+                        }
+                    }
                 } else {
                     qCritical() << "Unsupported scene graph item!";
                 }
@@ -120,10 +131,129 @@ void PainterRenderer::beginPhase(SceneGraphItemPayload::RenderPhase phase)
             m_painter->setClipRect(m_view->viewport().intersected(m_view->sceneBoundingBox()));
             m_painter->setRenderHint(QPainter::Antialiasing, true);
             break;
+        case SceneGraphItemPayload::IconPhase:
         case SceneGraphItemPayload::LabelPhase:
             m_painter->setTransform(m_view->deviceTransform());
             m_painter->setRenderHint(QPainter::Antialiasing, true);
             m_painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
+            break;
+    }
+}
+
+void PainterRenderer::prepareBatch(SceneGraphItemPayload::RenderPhase phase)
+{
+    switch (phase) {
+        case SceneGraphItemPayload::NoPhase:
+            Q_UNREACHABLE();
+        case SceneGraphItemPayload::FillPhase:
+        case SceneGraphItemPayload::CasingPhase:
+        case SceneGraphItemPayload::StrokePhase:
+            break;
+        case SceneGraphItemPayload::IconPhase:
+            // place icons/shields starting at the top (== back of m_renderBatch)
+            // and hide everything they would cover (unless overlap is explicitly allowed)
+            // TODO ensure minimum repeat distance between shields here
+            for (auto it = m_renderBatch.rbegin(); it != m_renderBatch.rend(); ++it) {
+                if (((*it)->renderPhases() & SceneGraphItemPayload::IconPhase) == 0) {
+                    continue;
+                }
+                const auto item = dynamic_cast<LabelItem*>(*it);
+                if (!item) {
+                    continue;
+                }
+                item->iconHidden = false;
+                if (item->allowIconOverlap) {
+                    continue;
+                }
+
+                QRectF bbox;
+                if (item->hasShield()) {
+                    bbox = item->shieldHitBox(m_view);
+                } else {
+                    bbox = item->iconHitBox(m_view);
+                }
+
+                for (auto it2 = it.base(); it2 != m_renderBatch.end(); ++it2) {
+                    if (((*it2)->renderPhases() & SceneGraphItemPayload::IconPhase) == 0) {
+                        continue;
+                    }
+                    const auto otherItem = dynamic_cast<LabelItem*>((*it2));
+                    if (!otherItem || otherItem->allowIconOverlap) { // TODO remove the allowIconOverlap check, this is a workaround for wrong z order
+                        continue;
+                    }
+
+                    QRectF bbox2;
+                    if (otherItem->hasShield()) {
+                        bbox2 = otherItem->shieldHitBox(m_view);
+                    } else {
+                        bbox2 = otherItem->iconHitBox(m_view);
+                    }
+
+                    if (bbox.intersects(bbox2)) {
+                        item->iconHidden = true;
+                        break;
+                    }
+                }
+            }
+            break;
+        case SceneGraphItemPayload::LabelPhase:
+            // place texts starting at the top (== back of m_renderBatch)
+            // and hide everything they would cover (unless overlap is explicitly allowed)
+            // TODO this doesn't seem to work for line following labels yet
+            // TODO ensure minimum repeat distance between texts here
+            for (auto it = m_renderBatch.rbegin(); it != m_renderBatch.rend(); ++it) {
+                if (((*it)->renderPhases() & SceneGraphItemPayload::LabelPhase) == 0) {
+                    continue;
+                }
+                const auto item = dynamic_cast<LabelItem*>(*it);
+                if (!item) {
+                    continue;
+                }
+                item->textHidden = false;
+                if (item->allowTextOverlap) {
+                    continue;
+                }
+                if (item->iconHidden) {
+                    item->textHidden = true; // if the icon is already hidden don't even bother trying text
+                    continue;
+                }
+
+                const QRectF bbox = item->textHitBox(m_view);
+
+                // we need to search the full set here
+                // - icons/shields are already rendered, so we can collide with all of those
+                // - non-shield texts are being laid out, so we need to only look at things after a it.base() or later
+                for (auto it2 = m_renderBatch.begin(); it2 != m_renderBatch.end(); ++it2) {
+                    if (it2 == std::prev(it.base())) {
+                        continue;
+                    }
+                    const auto p = (*it2)->renderPhases();
+                    if ((p & SceneGraphItemPayload::IconPhase) == 0 && ((p & SceneGraphItemPayload::LabelPhase) == 0 || it2 < it.base())) {
+                        continue;
+                    }
+
+                    const auto otherItem = dynamic_cast<LabelItem*>((*it2));
+                    if (!otherItem || otherItem->iconHidden || otherItem->allowTextOverlap) { // TODO limit the allowTextOverlap check to icons, this is a workaround for wrong z order
+                        continue;
+                    }
+
+                    if (otherItem->hasShield()) {
+                        if (otherItem->shieldHitBox(m_view).intersects(bbox)) {
+                            item->textHidden = true;
+                            break;
+                        }
+                        continue;
+                    }
+                    if (it2 >= it.base() && otherItem->hasText() && !otherItem->textHidden && otherItem->textHitBox(m_view).intersects(bbox)) {
+                        item->textHidden = true;
+                        break;
+                    }
+                    if (otherItem->hasIcon() && otherItem->iconHitBox(m_view).intersects(bbox)) {
+                        item->textHidden = true;
+                        break;
+                    }
+                }
+            }
             break;
     }
 }
@@ -232,6 +362,15 @@ void PainterRenderer::renderLabel(LabelItem *item, SceneGraphItemPayload::Render
     if (!item->icon.isNull()) {
         box.moveTop(-iconOutputSize.height() / 2.0);
     }
+
+#if 0
+    m_painter->setPen(Qt::green);
+    m_painter->drawRect(item->iconHitBox(m_view).translated(-m_view->mapSceneToScreen(item->pos)));
+    m_painter->setPen(Qt::blue);
+    m_painter->drawRect(item->textHitBox(m_view).translated(-m_view->mapSceneToScreen(item->pos)));
+    m_painter->setPen(Qt::red);
+    m_painter->drawRect(item->shieldHitBox(m_view).translated(-m_view->mapSceneToScreen(item->pos)));
+#endif
 
     // draw shield
     // @see https://wiki.openstreetmap.org/wiki/MapCSS/0.2#Shield_properties
