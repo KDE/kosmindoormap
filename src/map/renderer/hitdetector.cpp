@@ -113,12 +113,14 @@ bool HitDetector::itemContainsPoint(const LabelItem *item, QPointF screenPos, co
     // so we need to compute that manually here to not end up with overly large hitboxes
     if (item->text.textWidth() > 0) {
         double width = QFontMetrics(item->font).horizontalAdvance(item->text.text());
+        double heightDelta = 0.0;
         if (!item->icon.isNull()) {
             width = std::max(width, item->iconSize.width());
+            heightDelta = item->text.size().height() / 2.0;
         }
         width += std::max(item->frameWidth, item->haloRadius) + item->casingWidth;
         const auto widthDelta = (hitBox.width() - width) / 2.0;
-        hitBox.adjust(widthDelta, 0, -widthDelta, 0);
+        hitBox.adjust(widthDelta, -heightDelta, -widthDelta, heightDelta);
     }
 
     hitBox.moveCenter(view->mapSceneToScreen(hitBox.center()));

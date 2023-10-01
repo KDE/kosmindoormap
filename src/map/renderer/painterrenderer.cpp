@@ -225,7 +225,20 @@ void PainterRenderer::renderLabel(LabelItem *item)
     m_painter->rotate(item->angle);
 
     auto box = item->boundingRect(m_view);
-    box.moveCenter({0.0, item->offset});
+    box.moveCenter({0.0, 0.0});
+
+    // compute icon output size
+    QSizeF iconOutputSize;
+    if (!item->icon.isNull()) {
+        iconOutputSize = item->iconSize;
+        if (item->iconWidthUnit == Unit::Meter) {
+            iconOutputSize.setWidth(m_view->mapMetersToScreen(item->iconSize.width()));
+        }
+        if (item->iconHeightUnit == Unit::Meter) {
+            iconOutputSize.setHeight(m_view->mapMetersToScreen(item->iconSize.height()));
+        }
+        box.moveTop(-iconOutputSize.height() / 2.0);
+    }
 
     // draw shield
     // @see https://wiki.openstreetmap.org/wiki/MapCSS/0.2#Shield_properties
@@ -243,23 +256,13 @@ void PainterRenderer::renderLabel(LabelItem *item)
     }
 
     // draw icon
-    QSizeF iconOutputSize;
-    if (!item->icon.isNull()) {
-        iconOutputSize = item->iconSize;
-        if (item->iconWidthUnit == Unit::Meter) {
-            iconOutputSize.setWidth(m_view->mapMetersToScreen(item->iconSize.width()));
-        }
-        if (item->iconHeightUnit == Unit::Meter) {
-            iconOutputSize.setHeight(m_view->mapMetersToScreen(item->iconSize.height()));
-        }
-
-        QRectF iconRect(QPointF(0.0, 0.0), iconOutputSize);
-        iconRect.moveCenter(QPointF(0.0, -((box.height() - iconOutputSize.height()) / 2.0) + item->offset));
+    if (!iconOutputSize.isNull()) {
+        QRectF iconRect(QPointF(-iconOutputSize.width() / 2.0, -iconOutputSize.height() / 2.0), iconOutputSize);
         m_painter->setOpacity(item->iconOpacity);
         item->icon.paint(m_painter, iconRect.toRect());
         m_painter->setOpacity(1.0);
     }
-    box.moveTop(box.top() + iconOutputSize.height());
+    box.moveTop(box.top() + item->textOffset);
 
     // draw text halo
     if (item->haloRadius > 0.0 && item->haloColor.alphaF() > 0.0) {

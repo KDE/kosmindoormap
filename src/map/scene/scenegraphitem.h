@@ -162,7 +162,7 @@ public:
     QColor shieldColor = Qt::transparent;
 
     double angle = 0.0;
-    double offset = 0.0;
+    double textOffset = 0.0;
 
     QColor haloColor = Qt::transparent;
     double haloRadius = 0.0;

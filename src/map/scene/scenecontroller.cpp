@@ -345,7 +345,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             item->font = d->m_defaultFont;
             item->color = d->m_defaultTextColor;
             item->iconSize = {};
-            item->offset = 0;
+            item->textOffset = 0;
             item->z = 0;
 
             double textOpacity = 1.0;
@@ -397,7 +397,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                         }
                         break;
                     case MapCSSDeclaration::TextOffset:
-                        item->offset = decl->doubleValue();
+                        item->textOffset = decl->doubleValue();
                         break;
                     case MapCSSDeclaration::MaxWidth:
                         item->text.setTextWidth(decl->intValue());
@@ -505,6 +505,11 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                     if (screenLen < item->text.size().width()) {
                         item->text = {};
                     }
+                }
+
+                // put texts below icons by default
+                if (!item->icon.isNull() && item->textOffset == 0.0) {
+                    item->textOffset = item->iconSize.height(); // ### what about heights in meters?
                 }
             }
 
