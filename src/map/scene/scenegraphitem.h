@@ -166,6 +166,9 @@ public:
 
     QColor haloColor = Qt::transparent;
     double haloRadius = 0.0;
+
+    bool allowTextOverlap = false;
+    bool allowIconOverlap = false;
 };
 
 

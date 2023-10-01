@@ -147,3 +147,9 @@ area[natural=rock] { fill-image: url("rock_overlay.png"); }
 
 // quoted condition value
 line[highway=service][service="drive-through"] { color: #ffffff; }
+
+// boolean property values
+node.amenity {
+    icon-allow-icon-overlap: false;
+    icon-allow-text-overlap: true;
+}

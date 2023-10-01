@@ -426,6 +426,12 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                     case MapCSSDeclaration::TextHaloRadius:
                         item->haloRadius = decl->doubleValue();
                         break;
+                    case MapCSSDeclaration::IconAllowIconOverlap:
+                        item->allowIconOverlap = decl->boolValue();
+                        break;
+                    case MapCSSDeclaration::IconAllowTextOverlap:
+                        item->allowTextOverlap = decl->boolValue();
+                        break;
                     default:
                         break;
                 }

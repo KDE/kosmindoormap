@@ -177,3 +177,9 @@ line[highway=service][service=drive-through]
     color: #ffffffff;
 }
 
+node.amenity
+{
+    icon-allow-icon-overlap: false;
+    icon-allow-text-overlap: true;
+}
+

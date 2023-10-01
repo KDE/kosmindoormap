@@ -38,6 +38,8 @@ struct {
     { "font-style", MapCSSDeclaration::FontStyle, MapCSSDeclaration::NoFlag },
     { "font-variant", MapCSSDeclaration::FontVariant, MapCSSDeclaration::NoFlag },
     { "font-weight", MapCSSDeclaration::FontWeight, MapCSSDeclaration::NoFlag },
+    { "icon-allow-icon-overlap", MapCSSDeclaration::IconAllowIconOverlap, MapCSSDeclaration::NoFlag },
+    { "icon-allow-text-overlap", MapCSSDeclaration::IconAllowTextOverlap, MapCSSDeclaration::NoFlag },
     { "icon-color", MapCSSDeclaration::IconColor, MapCSSDeclaration::NoFlag },
     { "icon-height", MapCSSDeclaration::IconHeight, MapCSSDeclaration::NoFlag },
     { "icon-image", MapCSSDeclaration::IconImage, MapCSSDeclaration::LabelProperty },

@@ -85,6 +85,8 @@ public:
         IconHeight, /// icon height
         IconOpacity, /// icon opacity
         IconColor, /// for colorized SVGs, non-standard extension
+        IconAllowTextOverlap, /// the equivalent to CartoCSS's allow-overlap, non-standard extension
+        IconAllowIconOverlap, /// the equivalent to CartoCSS's ignore-placement, non-standard extension
 
         // label properties
         FontFamily, /// font name
