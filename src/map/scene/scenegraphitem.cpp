@@ -8,6 +8,7 @@
 #include "view.h"
 
 #include <QDebug>
+#include <QFontMetrics>
 
 using namespace KOSMIndoorMap;
 
@@ -88,18 +89,66 @@ uint8_t LabelItem::renderPhases() const
 QRectF LabelItem::boundingRect(const View *view) const
 {
     QRectF bbox;
-    if (!text.text().isEmpty()) {
-        bbox = QRectF(QPointF(0.0, 0.0), text.size());
+    if (hasText()) {
+        bbox = QRectF(QPointF(0.0, 0.0), textOutputSize());
     }
-    if (!icon.isNull()) {
-        const auto h = iconHeightUnit == Unit::Meter ? view->mapMetersToScreen(iconSize.height()) : iconSize.height();
-        const auto w = iconWidthUnit == Unit::Meter ? view->mapMetersToScreen(iconSize.width()) : iconSize.width();
-        bbox.setHeight(bbox.height() + h);
-        bbox.setWidth(std::max(bbox.width(), w));
+    if (hasIcon()) {
+        const auto s = iconOutputSize(view);
+        bbox.setHeight(bbox.height() + s.height());
+        bbox.setWidth(std::max(bbox.width(), s.width()));
     }
 
-    bbox.moveCenter(pos);
-    const auto shieldSize = std::max(frameWidth, haloRadius) + casingWidth;
+    const auto shieldSize = casingAndFrameWidth();
     bbox.adjust(-shieldSize, -shieldSize, shieldSize, shieldSize);
+
+    bbox.moveCenter(pos);
     return bbox;
+}
+
+QSizeF LabelItem::iconOutputSize(const View *view) const
+{
+    if (!hasIcon()) {
+        return {};
+    }
+
+    const auto h = iconHeightUnit == Unit::Meter ? view->mapMetersToScreen(iconSize.height()) : iconSize.height();
+    const auto w = iconWidthUnit == Unit::Meter ? view->mapMetersToScreen(iconSize.width()) : iconSize.width();
+    return {w, h};
+}
+
+QSizeF LabelItem::textOutputSize() const
+{
+    if (!hasText()) {
+        return {};
+    }
+
+    // QStaticText::size doesn't return the actual bounding box with QStaticText::textWidth is set,
+    // so we need to compute this manually here to not end up with overly large hitboxes
+    // TODO cache this
+    if (text.textWidth() > 0) {
+        return QFontMetrics(font).boundingRect(0, 0, (int)text.textWidth(), 1000, Qt::AlignHCenter | Qt::AlignTop | Qt::TextWordWrap, text.text()).size();
+    }
+    return QFontMetrics(font).boundingRect(text.text()).size();
+}
+
+double LabelItem::casingAndFrameWidth() const
+{
+    return std::max(frameWidth, haloRadius) + casingWidth;
+}
+
+bool LabelItem::hasIcon() const
+{
+    return !icon.isNull();
+}
+
+bool LabelItem::hasText() const
+{
+    return !text.text().isEmpty();
+}
+
+bool LabelItem::hasShield() const
+{
+    return (casingWidth > 0.0 && casingColor.alpha() > 0)
+        || (frameWidth > 0.0 && frameColor.alpha() > 0)
+        || shieldColor.alpha() > 0;
 }

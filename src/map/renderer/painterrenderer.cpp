@@ -228,15 +228,8 @@ void PainterRenderer::renderLabel(LabelItem *item)
     box.moveCenter({0.0, 0.0});
 
     // compute icon output size
-    QSizeF iconOutputSize;
+    QSizeF iconOutputSize = item->iconOutputSize(m_view);
     if (!item->icon.isNull()) {
-        iconOutputSize = item->iconSize;
-        if (item->iconWidthUnit == Unit::Meter) {
-            iconOutputSize.setWidth(m_view->mapMetersToScreen(item->iconSize.width()));
-        }
-        if (item->iconHeightUnit == Unit::Meter) {
-            iconOutputSize.setHeight(m_view->mapMetersToScreen(item->iconSize.height()));
-        }
         box.moveTop(-iconOutputSize.height() / 2.0);
     }
 
@@ -263,6 +256,10 @@ void PainterRenderer::renderLabel(LabelItem *item)
         m_painter->setOpacity(1.0);
     }
     box.moveTop(box.top() + item->textOffset);
+
+    // center-align the text (item->text.size().width() != item->textOutputSize()...)
+    box.setWidth(item->text.size().width());
+    box.moveCenter({0.0, box.center().y()});
 
     // draw text halo
     if (item->haloRadius > 0.0 && item->haloColor.alphaF() > 0.0) {

@@ -109,21 +109,13 @@ bool HitDetector::itemContainsPoint(const PolylineItem *item, QPointF scenePos, 
 bool HitDetector::itemContainsPoint(const LabelItem *item, QPointF screenPos, const View *view) const
 {
     auto hitBox = item->boundingRect(view);
-    // QStaticText::size doesn't return the actual bounding box with QStaticText::textWidth is set,
-    // so we need to compute that manually here to not end up with overly large hitboxes
-    if (item->text.textWidth() > 0) {
-        double width = QFontMetrics(item->font).horizontalAdvance(item->text.text());
-        double heightDelta = 0.0;
-        if (!item->icon.isNull()) {
-            width = std::max(width, item->iconSize.width());
-            heightDelta = item->text.size().height() / 2.0;
-        }
-        width += std::max(item->frameWidth, item->haloRadius) + item->casingWidth;
-        const auto widthDelta = (hitBox.width() - width) / 2.0;
-        hitBox.adjust(widthDelta, -heightDelta, -widthDelta, heightDelta);
+    hitBox.moveCenter(view->mapSceneToScreen(hitBox.center()));
+
+    // reposition hitBox, as it's not centered in this case
+    if (item->hasIcon() && item->hasText()) {
+        hitBox.moveTop(hitBox.top() + hitBox.height() / 2.0 - item->iconOutputSize(view).height() / 2.0 - item->casingAndFrameWidth());
     }
 
-    hitBox.moveCenter(view->mapSceneToScreen(hitBox.center()));
     return hitBox.contains(screenPos);
 }
 

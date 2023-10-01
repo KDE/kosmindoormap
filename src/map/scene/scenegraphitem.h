@@ -141,8 +141,16 @@ public:
 class LabelItem : public SceneGraphItemPayload
 {
 public:
-    uint8_t renderPhases() const override;
-    QRectF boundingRect(const View *view) const override;
+    [[nodiscard]] uint8_t renderPhases() const override;
+    [[nodiscard]] QRectF boundingRect(const View *view) const override;
+
+    [[nodiscard]] QSizeF iconOutputSize(const View *view) const;
+    [[nodiscard]] QSizeF textOutputSize() const;
+    [[nodiscard]] double casingAndFrameWidth() const;
+
+    [[nodiscard]] bool hasIcon() const;
+    [[nodiscard]] bool hasText() const;
+    [[nodiscard]] bool hasShield() const;
 
     QPointF pos;
     QColor color;
