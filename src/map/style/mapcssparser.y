@@ -67,6 +67,7 @@ using namespace KOSMIndoorMap;
 %union {
     uint32_t uintVal;
     double doubleVal;
+    bool boolVal;
     ZoomRange zoomRange;
 
     char *str;
@@ -107,6 +108,7 @@ using namespace KOSMIndoorMap;
 %token <uintVal> T_HEX_COLOR
 %token <str> T_STRING
 %token <doubleVal> T_DOUBLE
+%token <boolVal> T_BOOLEAN_LITERAL
 
 %type <rule> Rule
 %type <selector> Selectors
@@ -319,6 +321,10 @@ PropertyValue:
 | T_KEYWORD_URL T_LPAREN T_STRING[S] T_RPAREN {
     $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration);
     $$->setStringValue($S);
+  }
+| T_BOOLEAN_LITERAL[B] {
+    $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration);
+    $$->setBoolValue($B);
   }
 ;
 

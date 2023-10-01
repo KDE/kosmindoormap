@@ -164,6 +164,11 @@ double MapCSSDeclaration::doubleValue() const
     return m_doubleValue;
 }
 
+bool MapCSSDeclaration::boolValue() const
+{
+    return m_boolValue;
+}
+
 QString MapCSSDeclaration::stringValue() const
 {
     return m_stringValue;
@@ -195,6 +200,11 @@ OSM::TagKey MapCSSDeclaration::tagKey() const
 void MapCSSDeclaration::setDoubleValue(double val)
 {
     m_doubleValue = val;
+}
+
+void MapCSSDeclaration::setBoolValue(bool val)
+{
+    m_boolValue = val;
 }
 
 void MapCSSDeclaration::setPropertyName(const char *name, std::size_t len)
@@ -351,12 +361,14 @@ void MapCSSDeclaration::write(QIODevice *out) const
                     out->write(QByteArray::number(d));
                     out->write(", ");
                 }
-            } else if (!m_stringValue.isEmpty()) {
+            } else if (!m_stringValue.isNull()) {
                 out->write("\"");
                 out->write(m_stringValue.toUtf8()); // this would need to be quoted...
                 out->write("\"");
-            } else {
+            } else if (!m_identValue.isEmpty()) {
                 out->write(m_identValue);
+            } else {
+                out->write(m_boolValue ? "true" : "false");
             }
 
             for (const auto &u : unit_map) {

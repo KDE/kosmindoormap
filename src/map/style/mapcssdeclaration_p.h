@@ -134,6 +134,7 @@ public:
     /** Numeric value for this property. */
     int intValue() const;
     double doubleValue() const;
+    bool boolValue() const;
     /** Quoted string value. */
     QString stringValue() const;
     /** Color value for this property. */
@@ -183,6 +184,7 @@ private:
     void setPropertyName(const char *name, std::size_t len);
     void setIdentifierValue(const char *val, int len);
     void setDoubleValue(double val);
+    void setBoolValue(bool val);
     void setStringValue(char *str);
     void setColorRgba(uint32_t argb);
     void setDashesValue(const QVector<double> &dashes);
@@ -201,6 +203,7 @@ private:
     ClassSelectorKey m_class;
     Unit m_unit = NoUnit;
     Type m_type;
+    bool m_boolValue = false;
 };
 
 }

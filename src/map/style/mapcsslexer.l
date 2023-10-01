@@ -91,6 +91,15 @@ STRING      ["]{STRING_ELEMENT}*["]
 "rgb"     { return T_KEYWORD_RGB; }
 "set"     { return T_KEYWORD_SET; }
 
+"true" {
+    yylval->boolVal = true;
+    return T_BOOLEAN_LITERAL;
+}
+"false" {
+    yylval->boolVal = false;
+    return T_BOOLEAN_LITERAL;
+}
+
 {IDENTIFIER} {
     yylval->strRef.str = yytext;
     yylval->strRef.len = yyleng;
