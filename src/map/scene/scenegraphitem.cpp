@@ -92,7 +92,7 @@ QRectF LabelItem::boundingRect(const View *view) const
         bbox = QRectF(QPointF(0.0, 0.0), text.size());
     }
     if (!icon.isNull()) {
-        const auto h = iconWidthUnit == Unit::Meter ? view->mapMetersToScreen(iconSize.height()) : iconSize.height();
+        const auto h = iconHeightUnit == Unit::Meter ? view->mapMetersToScreen(iconSize.height()) : iconSize.height();
         const auto w = iconWidthUnit == Unit::Meter ? view->mapMetersToScreen(iconSize.width()) : iconSize.width();
         bbox.setHeight(bbox.height() + h);
         bbox.setWidth(std::max(bbox.width(), w));
