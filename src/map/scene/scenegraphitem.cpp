@@ -148,17 +148,17 @@ QSizeF LabelItem::iconOutputSize(const View *view) const
 
 QSizeF LabelItem::textOutputSize() const
 {
-    if (!hasText()) {
-        return {};
+    if (textOutputSizeCache.isEmpty() &&hasText()) {
+        // QStaticText::size doesn't return the actual bounding box with QStaticText::textWidth is set,
+        // so we need to compute this manually here to not end up with overly large hitboxes
+        if (text.textWidth() > 0) {
+            textOutputSizeCache = QFontMetricsF(font).boundingRect({QPointF(0.0, 0.0), QSizeF(text.textWidth(), 1000.0)}, Qt::AlignHCenter | Qt::AlignTop | Qt::TextWordWrap, text.text()).size();
+        } else {
+            textOutputSizeCache = QFontMetricsF(font).size(0, text.text());
+        }
     }
 
-    // QStaticText::size doesn't return the actual bounding box with QStaticText::textWidth is set,
-    // so we need to compute this manually here to not end up with overly large hitboxes
-    // TODO cache this
-    if (text.textWidth() > 0) {
-        return QFontMetrics(font).boundingRect(0, 0, (int)text.textWidth(), 1000, Qt::AlignHCenter | Qt::AlignTop | Qt::TextWordWrap, text.text()).size();
-    }
-    return QFontMetrics(font).boundingRect(text.text()).size();
+    return textOutputSizeCache;
 }
 
 double LabelItem::casingAndFrameWidth() const

@@ -18,6 +18,7 @@
 #include <QPainterPath>
 #include <QPen>
 #include <QPolygonF>
+#include <QSizeF>
 #include <QStaticText>
 #include <QString>
 
@@ -161,6 +162,7 @@ public:
     QColor color;
     QFont font;
     QStaticText text;
+    mutable QSizeF textOutputSizeCache;
 
     QIcon icon;
     QSizeF iconSize;

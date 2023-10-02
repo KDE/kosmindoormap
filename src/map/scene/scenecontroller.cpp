@@ -342,6 +342,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             auto baseItem = sg.findOrCreatePayload<LabelItem>(e, level, result.layerSelector());
             auto item = static_cast<LabelItem*>(baseItem.get());
             item->text.setText(text);
+            item->textOutputSizeCache = {};
             item->font = d->m_defaultFont;
             item->color = d->m_defaultTextColor;
             item->iconSize = {};
