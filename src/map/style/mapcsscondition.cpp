@@ -31,6 +31,29 @@ void MapCSSCondition::compile(const OSM::DataSet &dataSet)
     } else {
         m_tagKey = dataSet.tagKey(m_key.constData());
     }
+
+    switch(m_op) {
+        case KeySet:
+        case KeyNotSet:
+            break;
+        case Equal:
+        case NotEqual:
+            if (m_value.isEmpty() && std::isnan(m_numericValue)) {
+                qWarning() << "Empty comparison, use key (not) set operation instead!";
+            }
+            break;
+        case LessThan:
+        case GreaterThan:
+        case LessOrEqual:
+        case GreaterOrEqual:
+            if (std::isnan(m_numericValue)) {
+                qWarning() << "Numeric comparison without numeric value set!";
+            }
+            break;
+        case IsClosed:
+        case IsNotClosed:
+            break;
+    }
 }
 
 bool MapCSSCondition::matches(const MapCSSState &state) const
@@ -40,23 +63,37 @@ bool MapCSSCondition::matches(const MapCSSState &state) const
         return m_op == KeyNotSet || m_op == NotEqual;
     }
 
-    const auto v = state.element.tagValue(m_tagKey);
+    // this method is such a hot path that even the ref/deref in QByteArray for OSM::Element::tagValue matters
+    // so we do tag lookup manually here
+    const auto tagEnd = state.element.tagsEnd();
+    const auto tagIt = std::lower_bound(state.element.tagsBegin(), tagEnd, m_tagKey);
+    const auto tagIsSet = (tagIt != tagEnd && (*tagIt).key == m_tagKey);
     switch (m_op) {
-        case KeySet: return !v.isEmpty();
-        case KeyNotSet: return v.isEmpty();
-        case Equal: return std::isnan(m_numericValue) ? v == m_value : toNumber(v) == m_numericValue;
-        case NotEqual: return std::isnan(m_numericValue) ? v != m_value : toNumber(v) != m_numericValue;
-        case LessThan: return toNumber(v) < m_numericValue;
-        case GreaterThan: return toNumber(v) > m_numericValue;
-        case LessOrEqual: return toNumber(v) <= m_numericValue;
-        case GreaterOrEqual: return toNumber(v) >= m_numericValue;
+        case KeySet:
+            return tagIsSet;
+        case KeyNotSet:
+            return !tagIsSet;
+        case Equal:
+            if (std::isnan(m_numericValue)) {
+                return !tagIsSet ? false : (*tagIt).value == m_value;
+            }
+            return !tagIsSet ? false : toNumber((*tagIt).value) == m_numericValue;
+        case NotEqual:
+            if (std::isnan(m_numericValue)) {
+                return !tagIsSet ? true : (*tagIt).value != m_value;
+            }
+            return !tagIsSet ? true : toNumber((*tagIt).value) != m_numericValue;
+        case LessThan: return !tagIsSet ? false : toNumber((*tagIt).value) < m_numericValue;
+        case GreaterThan: return !tagIsSet ? false : toNumber((*tagIt).value) > m_numericValue;
+        case LessOrEqual: return !tagIsSet ? false : toNumber((*tagIt).value) <= m_numericValue;
+        case GreaterOrEqual: return !tagIsSet ? false : toNumber((*tagIt).value) >= m_numericValue;
         case IsClosed:
         case IsNotClosed:
         {
-            if (v.isEmpty() || !state.openingHours) {
+            if (!tagIsSet || (*tagIt).value.isEmpty() || !state.openingHours) {
                 return m_op == IsNotClosed;
             }
-            const auto closed = state.openingHours->isClosed(state.element, v);
+            const auto closed = state.openingHours->isClosed(state.element, (*tagIt).value);
             return m_op == IsClosed ? closed : !closed;
         }
     }
