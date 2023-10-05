@@ -195,7 +195,7 @@ void AmenityModel::populateModel()
             filterState.element = e;
             m_style.evaluate(std::move(filterState), filterResult);
 
-            const auto res = filterResult[{}];
+            const auto &res = filterResult[{}];
             if (auto prop = res.declaration(MapCSSDeclaration::Opacity); !prop || prop->doubleValue() < 1.0) {
                 continue; // hidden element
             }

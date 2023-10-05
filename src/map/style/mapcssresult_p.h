@@ -26,6 +26,10 @@ class KOSMINDOORMAP_EXPORT MapCSSResultItem
 {
 public:
     explicit MapCSSResultItem();
+    MapCSSResultItem(const MapCSSResultItem&) = delete;
+    MapCSSResultItem(MapCSSResultItem&&) noexcept = default;
+    MapCSSResultItem& operator=(const MapCSSResultItem&) = delete;
+    MapCSSResultItem& operator=(MapCSSResultItem&&) noexcept = default;
     ~MapCSSResultItem();
 
     void clear();
@@ -68,6 +72,10 @@ class KOSMINDOORMAP_EXPORT MapCSSResult
 {
 public:
     explicit MapCSSResult();
+    MapCSSResult(const MapCSSResultItem&) = delete;
+    MapCSSResult(MapCSSResult&&) noexcept = default;
+    MapCSSResult& operator=(const MapCSSResult&) = delete;
+    MapCSSResult& operator=(MapCSSResult&&) noexcept = default;
     ~MapCSSResult();
 
     void clear();
