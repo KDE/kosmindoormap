@@ -123,8 +123,35 @@ Kirigami.ApplicationWindow {
                     id: amenityAction
                     text: "Find Amenity"
                     onTriggered: amenitySheet.open()
+                },
+                Kirigami.Action {
+                    id: equipmentAction
+                    text: "Show Elevator Status"
+                    checkable: true
+                    enabled: !map.mapLoader.isLoading
+                    onTriggered: page.queryLiveLocationData();
+                },
+                Kirigami.Action {
+                    id: rentalVehicleAction
+                    text: i18n("Show Rental Vehicles")
+                    checkable: true
+                    enabled: !map.mapLoader.isLoading
+                    onTriggered: page.queryLiveLocationData();
                 }
             ]
+        }
+
+        function queryLiveLocationData() {
+            if (rentalVehicleAction.checked || equipmentAction.checked) {
+                locationQuery.request.latitude = map.mapData.center.y;
+                locationQuery.request.longitude = map.mapData.center.x;
+                locationQuery.request.maximumDistance = map.mapData.radius;
+                locationQuery.request.types =
+                    (rentalVehicleAction.checked ? (PublicTransport.Location.RentedVehicleStation | PublicTransport.Location.RentedVehicle) : 0)
+                | (equipmentAction.checked ? PublicTransport.Location.Equipment : 0);
+            } else {
+                locationQuery.clear();
+            }
         }
 
         PlatformModel {
@@ -351,10 +378,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: page.map
         function onMapDataChanged() {
-            locationQuery.request.latitude = page.map.mapData.center.y;
-            locationQuery.request.longitude = page.map.mapData.center.x;
-            locationQuery.request.maximumDistance = page.map.mapData.radius;
-            locationQuery.request.types = PublicTransport.Location.RentedVehicleStation | PublicTransport.Location.RentedVehicle | PublicTransport.Location.Equipment;
+            queryLiveLocationData();
         }
     }
 
