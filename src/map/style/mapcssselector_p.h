@@ -22,6 +22,7 @@ namespace KOSMIndoorMap {
 
 class MapCSSCondition;
 class MapCSSConditionHolder;
+class MapCSSDeclaration;
 class MapCSSResult;
 class MapCSSState;
 
@@ -34,7 +35,7 @@ public:
     /** Resolve tag keys. */
     virtual void compile(const OSM::DataSet &dataSet) = 0;
     /** Returns @c true if this selector matches the evaluation state. */
-    virtual bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const = 0;
+    virtual bool matches(const MapCSSState &state, MapCSSResult &result, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const = 0;
     /** Selector matches the canvas element. */
     virtual bool matchesCanvas(const MapCSSState &state) const = 0;
     /** The layer selector of this style selector (invalid for union selectors). */
@@ -54,7 +55,7 @@ public:
     ~MapCSSBasicSelector();
 
     void compile(const OSM::DataSet &dataSet) override;
-    bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
+    bool matches(const MapCSSState &state, MapCSSResult &result, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
     LayerSelectorKey layerSelector() const override;
     void write(QIODevice* out) const override;
@@ -80,7 +81,7 @@ class MapCSSChainedSelector : public MapCSSSelector
 {
 public:
     void compile(const OSM::DataSet &dataSet) override;
-    bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
+    bool matches(const MapCSSState &state, MapCSSResult &result, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
     LayerSelectorKey layerSelector() const override;
     void write(QIODevice* out) const override;
@@ -95,7 +96,7 @@ public:
     ~MapCSSUnionSelector();
 
     void compile(const OSM::DataSet &dataSet) override;
-    bool matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const override;
+    bool matches(const MapCSSState &state, MapCSSResult &result, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const override;
     bool matchesCanvas(const MapCSSState &state) const override;
     LayerSelectorKey layerSelector() const override;
     void write(QIODevice* out) const override;

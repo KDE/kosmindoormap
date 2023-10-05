@@ -86,6 +86,8 @@ public:
     /** @internal */
     MapCSSResultItem& operator[](LayerSelectorKey layer);
     const MapCSSResultItem& operator[](LayerSelectorKey layer) const;
+    /** Apply @p declarations for @p layer to the result. */
+    void applyDeclarations(LayerSelectorKey layer, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations);
 
 private:
     std::vector<MapCSSResultItem> m_results;

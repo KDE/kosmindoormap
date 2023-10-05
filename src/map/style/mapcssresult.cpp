@@ -163,3 +163,25 @@ const MapCSSResultItem& MapCSSResult::operator[](LayerSelectorKey layer) const
     }
     return m_inactivePool.back();
 }
+
+void MapCSSResult::applyDeclarations(LayerSelectorKey layer, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations)
+{
+    auto &result = (*this)[layer];
+    for (const auto &decl : declarations) {
+        switch (decl->type()) {
+            case MapCSSDeclaration::PropertyDeclaration:
+                result.addDeclaration(decl.get());
+                break;
+            case MapCSSDeclaration::ClassDeclaration:
+                result.addClass(decl->classSelectorKey());
+                break;
+            case MapCSSDeclaration::TagDeclaration:
+                if (!std::isnan(decl->doubleValue())) {
+                    result.setTag(OSM::Tag{decl->tagKey(), QByteArray::number(decl->doubleValue())});
+                } else {
+                    result.setTag(OSM::Tag{decl->tagKey(), decl->stringValue().toUtf8()});
+                }
+                break;
+        }
+    }
+}

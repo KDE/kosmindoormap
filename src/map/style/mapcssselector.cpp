@@ -30,7 +30,7 @@ void MapCSSBasicSelector::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const
+bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const
 {
     // check object type
     switch (m_objectType) {
@@ -57,7 +57,7 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result
     }
 
     if (std::all_of(conditions.begin(), conditions.end(), [&state](const auto &cond) { return cond->matches(state); })) {
-        matchCallback(result, m_layer);
+        result.applyDeclarations(m_layer, declarations);
         return true;
     }
     return false;
@@ -180,7 +180,7 @@ void MapCSSChainedSelector::compile(const OSM::DataSet &dataSet)
 }
 
 bool MapCSSChainedSelector::matches([[maybe_unused]] const MapCSSState &state, [[maybe_unused]] MapCSSResult &result,
-                                    [[maybe_unused]] const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const
+                                    [[maybe_unused]] const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const
 {
     // TODO
     return false;
@@ -221,12 +221,12 @@ void MapCSSUnionSelector::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSUnionSelector::matches(const MapCSSState &state, MapCSSResult &result, const std::function<void(MapCSSResult&, LayerSelectorKey)> &matchCallback) const
+bool MapCSSUnionSelector::matches(const MapCSSState &state, MapCSSResult &result, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const
 {
     bool ret = false;
     for (const auto &ls : m_selectors) {
-        if (std::any_of(ls.selectors.begin(), ls.selectors.end(), [&state, &result, &matchCallback](const auto &selector) {
-            return selector->matches(state, result, matchCallback);
+        if (std::any_of(ls.selectors.begin(), ls.selectors.end(), [&state, &result, &declarations](const auto &selector) {
+            return selector->matches(state, result, declarations);
 
         })) {
             // no short-circuit evaluation, we want the matchCallback to be called once per matching layer!
