@@ -34,6 +34,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: "Reload Stylesheet"
                 icon.name: "view-refresh-symbolic"
+                shortcut: "F5"
                 onTriggered: {
                     var s = page.map.styleSheet;
                     page.map.styleSheet = "";
@@ -76,6 +77,7 @@ Kirigami.ApplicationWindow {
     QSettings.Settings {
         id: settings
         property alias debugMode: debugAction.checked
+        property alias stylesheet: page.map.styleSheet
     }
 
     pageStack.initialPage: IndoorMapPage {
