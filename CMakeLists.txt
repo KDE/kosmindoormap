@@ -14,6 +14,7 @@ option(BUILD_STANDALONE_APP "Build and install the stand-alone test/demo app." O
 
 find_package(ECM 5.90 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
+set(CMAKE_CXX_STANDARD 20)
 
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMAddTests)

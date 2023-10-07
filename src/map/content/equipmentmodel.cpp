@@ -210,7 +210,7 @@ void EquipmentModel::createSyntheticElement(Equipment& eq) const
                 }
                 continue;
             }
-            eq.syntheticElement.setTagValue((*tagIt).key, (*tagIt).value);
+            eq.syntheticElement.setTagValue((*tagIt).key, QByteArray((*tagIt).value));
         }
     }
 
@@ -219,6 +219,6 @@ void EquipmentModel::createSyntheticElement(Equipment& eq) const
         for (auto it = std::next(eq.levels.begin()); it != eq.levels.end(); ++it) {
             levelValue += ';' + QByteArray::number((*it) / 10.0);
         }
-        eq.syntheticElement.setTagValue(m_tagKeys.level, levelValue);
+        eq.syntheticElement.setTagValue(m_tagKeys.level, std::move(levelValue));
     }
 }

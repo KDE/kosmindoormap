@@ -182,6 +182,10 @@ class TagKey : public StringKey {};
 class Tag {
 public:
     Tag() = default;
+    inline Tag(TagKey _key, QByteArray &&_value)
+        : key(_key)
+        , value(std::move(_value))
+    {}
     Tag(const Tag&) = default;
     Tag(Tag &&Tag) noexcept = default;
     Tag& operator=(const Tag &other) = default;
@@ -477,10 +481,9 @@ inline void setTag(Elem &elem, Tag &&tag)
 
 /** Inserts a new tag, or updates an existing one. */
 template <typename Elem>
-inline void setTagValue(Elem &elem, TagKey key, const QByteArray &value)
+inline void setTagValue(Elem &elem, TagKey key, QByteArray &&value)
 {
-    Tag tag{ key, value };
-    setTag(elem, std::move(tag));
+    setTag(elem, Tag(key, std::move(value)));
 }
 
 /** Removes a tag from the given element. */

@@ -125,7 +125,7 @@ public:
     constexpr inline operator Element() const { return m_element; }
 
     void setId(Id id);
-    void setTagValue(TagKey key, const QByteArray &value);
+    void setTagValue(TagKey key, QByteArray &&value);
     void removeTag(TagKey key);
 
 private:
