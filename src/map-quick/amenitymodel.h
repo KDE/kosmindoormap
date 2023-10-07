@@ -75,6 +75,7 @@ private:
     MapData m_data;
     MapCSSStyle m_style;
     std::vector<Entry> m_entries;
+    OSM::Languages m_langs;
 };
 
 }

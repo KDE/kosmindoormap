@@ -9,11 +9,11 @@
 
 #include "kosm_export.h"
 #include "internal.h"
+#include "languages.h"
 #include "stringpool.h"
 
 #include <QByteArray>
 #include <QDebug>
-#include <QLocale>
 #include <QString>
 
 #include <cstdint>
@@ -430,30 +430,17 @@ inline QByteArray tagValue(const Elem& elem, const char *keyName)
  *  @warning This is slow due to doing a linear search and string comparissons.
  */
 template <typename Elem>
-inline QByteArray tagValue(const Elem& elem, const QLocale &locale, const char *keyName)
+[[nodiscard]] inline QByteArray tagValue(const Elem& elem, const OSM::Languages &languages, const char *keyName)
 {
-    QByteArray key(keyName);
-    key.push_back(':');
-    const auto baseLen = key.size();
-    for (const auto &lang : locale.uiLanguages()) {
-        key.resize(baseLen);
-        key.append(lang.toUtf8());
-        const auto it = std::find_if(elem.tags.begin(), elem.tags.end(), [key](const auto &tag) { return std::strcmp(tag.key.name(), key.constData()) == 0; });
-        if (it != elem.tags.end()) {
-            return (*it).value;
-        }
-
-        const auto idx = lang.indexOf(QLatin1Char('-'));
-        if (idx > 0) {
-            key.resize(baseLen);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            key.append(lang.leftRef(idx).toUtf8());
-#else
-            key.append(QStringView(lang).left(idx).toUtf8());
-#endif
-            const auto it = std::find_if(elem.tags.begin(), elem.tags.end(), [key](const auto &tag) { return std::strcmp(tag.key.name(), key.constData()) == 0; });
-            if (it != elem.tags.end()) {
-                return (*it).value;
+    const auto keyLen = std::strlen(keyName);
+    for (const auto &lang : languages.languages) {
+        for (const auto &tag : elem.tags) {
+            if (std::strlen(tag.key.name()) != keyLen + lang.size() + 1) {
+                continue;
+            }
+            if (std::strncmp(tag.key.name(), keyName, keyLen) == 0 && tag.key.name()[keyLen] == ':'
+                && std::strncmp(tag.key.name() + keyLen + 1, lang.c_str(), lang.size()) == 0) {
+                return tag.value;
             }
         }
     }
@@ -465,10 +452,10 @@ inline QByteArray tagValue(const Elem& elem, const QLocale &locale, const char *
     }
 
     // check if there is at least one in any language we can use
-    key.resize(baseLen);
-    const auto it = std::find_if(elem.tags.begin(), elem.tags.end(), [key, baseLen](const auto &tag) {
-        return std::strncmp(tag.key.name(), key.constData(), baseLen) == 0
-            && std::strlen(tag.key.name()) == key.size() + 2; // primitive check whether this is a plausible language rather than some other qualifier
+    const auto it = std::find_if(elem.tags.begin(), elem.tags.end(), [keyName, keyLen](const auto &tag) {
+        return std::strlen(tag.key.name()) == keyLen + 3 // primitive check whether this is a plausible language rather than some other qualifier
+            && std::strncmp(tag.key.name(), keyName, keyLen) == 0
+            && tag.key.name()[keyLen] == ':';
     });
     if (it != elem.tags.end()) {
         return (*it).value;

@@ -6,6 +6,8 @@
 
 #include "osmelement.h"
 
+#include <QLocale>
+
 using namespace KOSMIndoorMap;
 
 OSMElement::OSMElement() = default;
@@ -23,7 +25,7 @@ bool OSMElement::isNull() const
 
 QString OSMElement::name() const
 {
-    return QString::fromUtf8(m_element.tagValue(QLocale(), "name"));
+    return QString::fromUtf8(m_element.tagValue(OSM::Languages::fromQLocale(QLocale()), "name"));
 }
 
 QString OSMElement::url() const

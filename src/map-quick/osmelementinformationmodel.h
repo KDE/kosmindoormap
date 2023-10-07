@@ -158,6 +158,7 @@ private:
         bool operator==(Info other) const;
     };
     std::vector<Info> m_infos;
+    OSM::Languages m_langs;
     Key m_nameKey = NoKey;
     Key m_categoryKey = NoKey;
     bool m_debug = false;

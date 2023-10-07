@@ -25,6 +25,7 @@ using namespace KOSMIndoorMap;
 
 AmenityModel::AmenityModel(QObject *parent)
     : QAbstractListModel(parent)
+    , m_langs(OSM::Languages::fromQLocale(QLocale()))
 {
 }
 
@@ -111,7 +112,7 @@ QVariant AmenityModel::data(const QModelIndex &index, int role) const
     const auto &entry = m_entries[index.row()];
     switch (role) {
         case Qt::DisplayRole:
-            return QString::fromUtf8(entry.element.tagValue(QLocale(), "name", "loc_name", "int_name"));
+            return QString::fromUtf8(entry.element.tagValue(m_langs, "name", "loc_name", "int_name"));
             // TODO see name transliteration in OSM info model
         case TypeNameRole:
         {
@@ -143,7 +144,7 @@ QVariant AmenityModel::data(const QModelIndex &index, int role) const
         case CuisineRole:
             return Localization::cuisineTypes(entry.element.tagValue("cuisine"), Localization::ReturnEmptyOnUnknownKey);
         case FallbackNameRole:
-            return QString::fromUtf8(entry.element.tagValue(QLocale(), "brand", "operator", "network"));
+            return QString::fromUtf8(entry.element.tagValue(m_langs, "brand", "operator", "network"));
         case OpeningHoursRole:
             return QString::fromUtf8(entry.element.tagValue("opening_hours"));
     }

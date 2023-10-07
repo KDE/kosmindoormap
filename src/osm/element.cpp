@@ -94,17 +94,17 @@ QByteArray Element::tagValue(const char *keyName) const
     return {};
 }
 
-QByteArray Element::tagValue(const QLocale &locale, const char *keyName) const
+QByteArray Element::tagValue(const OSM::Languages &languages, const char *keyName) const
 {
     switch (type()) {
         case Type::Null:
             return {};
         case Type::Node:
-            return OSM::tagValue(*node(), locale, keyName);
+            return OSM::tagValue(*node(), languages, keyName);
         case Type::Way:
-            return OSM::tagValue(*way(), locale, keyName);
+            return OSM::tagValue(*way(), languages, keyName);
         case Type::Relation:
-            return OSM::tagValue(*relation(), locale, keyName);
+            return OSM::tagValue(*relation(), languages, keyName);
     }
 
     Q_UNREACHABLE();

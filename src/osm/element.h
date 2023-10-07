@@ -15,6 +15,7 @@
 #include <cstdint>
 
 namespace OSM {
+class Languages;
 
 /** A reference to any of OSM::Node/OSM::Way/OSM::Relation.
  *  Lifetime of the referenced object needs to extend beyond the lifetime of this.
@@ -41,13 +42,13 @@ public:
     Coordinate center() const;
     BoundingBox boundingBox() const;
     QByteArray tagValue(TagKey key) const;
-    QByteArray tagValue(const char *keyName) const;
-    QByteArray tagValue(const QLocale &locale, const char *keyName) const;
+    [[nodiscard]] QByteArray tagValue(const char *keyName) const;
+    [[nodiscard]] QByteArray tagValue(const OSM::Languages &languages, const char *keyName) const;
     /** Returns the value of the first non-empty tag.
      *  Both OSM::TagKey (fast) and const char* (slow) keys are accepted.
      */
-    template <typename K, typename ...Args> QByteArray tagValue(K key, Args... args) const;
-    template <typename K, typename ...Args> QByteArray tagValue(const QLocale &locale, K key, Args... args) const;
+    template <typename K, typename ...Args> [[nodiscard]] QByteArray tagValue(K key, Args... args) const;
+    template <typename K, typename ...Args> [[nodiscard]] QByteArray tagValue(const OSM::Languages &languages, K key, Args... args) const;
     /** Returns whether or not this element has any tags set. */
     inline bool hasTags() const { return std::distance(tagsBegin(), tagsEnd()) > 0; }
     /** Returns @c true if this element has a tag with key @p key. */
@@ -84,13 +85,13 @@ QByteArray Element::tagValue(K k, Args... args) const
 }
 
 template <typename K, typename ...Args>
-QByteArray Element::tagValue(const QLocale &locale, K key, Args... args) const
+QByteArray Element::tagValue(const OSM::Languages &languages, K key, Args... args) const
 {
-    const auto v = tagValue(locale, key);
+    const auto v = tagValue(languages, key);
     if (!v.isEmpty()) {
         return v;
     }
-    return tagValue(locale, args...);
+    return tagValue(languages, args...);
 }
 
 

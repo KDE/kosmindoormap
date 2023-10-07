@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+SPDX-FileCopyrightText: none
+SPDX-License-Identifier: CC0-1.0
+-->
+<osm>
+    <node id="1" lat="0.0" lon="0.0">
+        <tag k="name" v="local"/>
+        <tag k="name:fr" v="french"/>
+        <tag k="name:en" v="english"/>
+        <tag k="name:ko" v="korean"/>
+        <tag k="name:ko-Latn" v="romanized korean"/>
+        <tag k="name:sr-Latn" v="romanized serbian"/>
+        <tag k="name:sr" v="serbian"/>
+        <tag k="name:wikipedia" v="wikipedia"/>
+        <tag k="name:disused" v="subtag local"/>
+        <tag k="name:disused:en" v="subtag english"/>
+        <tag k="name:disused:it" v="subtag italian"/>
+        <tag k="name:disused:sr" v="subtag serbian"/>
+        <tag k="name:local:en" v="no local english"/>
+        <tag k="name:local:fr" v="no local french"/>
+    </node>
+</osm>

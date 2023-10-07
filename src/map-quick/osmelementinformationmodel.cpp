@@ -43,6 +43,7 @@ bool OSMElementInformationModel::Info::operator==(OSMElementInformationModel::In
 
 OSMElementInformationModel::OSMElementInformationModel(QObject *parent)
     : QAbstractListModel(parent)
+    , m_langs(OSM::Languages::fromQLocale(QLocale()))
 {
 }
 
@@ -547,10 +548,10 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
     switch (info.key) {
         case NoKey: return {};
         case Name: {
-            const auto n = QString::fromUtf8(m_element.tagValue(QLocale(), "name", "loc_name", "int_name", "brand", "ref", "species", "genus"));
+            const auto n = QString::fromUtf8(m_element.tagValue(m_langs, "name", "loc_name", "int_name", "brand", "ref", "species", "genus"));
             const auto script = scriptForString(n);
             if (!isSameScript(QLocale().script(), script) && script > QChar::Script_Latin) {
-                const auto transliterated = QString::fromUtf8(m_element.tagValue(QLocale(), "int_name"));
+                const auto transliterated = QString::fromUtf8(m_element.tagValue(m_langs, "int_name"));
                 if (transliterated.isEmpty() || transliterated == n) {
                     return n;
                 }
@@ -609,7 +610,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return l.join(QLatin1String(", "));
         }
         case Description:
-            return m_element.tagValue(QLocale(), "description");
+            return m_element.tagValue(m_langs, "description");
         case Routes:
         {
             auto l = QString::fromUtf8(m_element.tagValue("route_ref", "bus_routes", "bus_lines", "buses")).split(QLatin1Char(';'), Qt::SkipEmptyParts);
@@ -749,7 +750,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             }
             return QLocale().createSeparatedList(l);
         }
-        case Wikipedia: return wikipediaUrl(m_element.tagValue(QLocale(), "wikipedia", "brand:wikipedia", "species:wikipedia"));
+        case Wikipedia: return wikipediaUrl(m_element.tagValue(m_langs, "wikipedia", "brand:wikipedia", "species:wikipedia"));
         case Address: return QVariant::fromValue(OSMAddress(m_element));
         case Phone: return QString::fromUtf8(m_element.tagValue("contact:phone", "phone", "telephone", "operator:phone"));
         case Email: return QString::fromUtf8(m_element.tagValue("contact:email", "email", "operator:email"));
@@ -786,7 +787,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 wheelchair = m_element.tagValue("wheelchair");
             }
             const auto a = translateValue(wheelchair.constData(), wheelchair_map);
-            const auto d = QString::fromUtf8(m_element.tagValue(QLocale(), "wheelchair:description"));
+            const auto d = QString::fromUtf8(m_element.tagValue(m_langs, "wheelchair:description"));
             if (!d.isEmpty()) {
                 return QString(a + QLatin1String(" (") + d + QLatin1Char(')'));
             }
@@ -799,14 +800,14 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return QString::fromUtf8(m_element.tagValue("centralkey"));
         case SpeechOutput:
             // TODO: rather than as a boolean value, list the available languages here when we have that information
-            return translatedBoolValue(m_element.tagValue(QLocale(), "speech_output"));
+            return translatedBoolValue(m_element.tagValue(m_langs, "speech_output"));
         case TactileWriting:
         {
             // TODO: rather than as a boolean value, list the available languages here when we have that information
             QStringList l;
             bool explicitNo = false;
             for (const auto &writing : tactile_writing_map) {
-                const auto v = m_element.tagValue(QLocale(), writing.keyName);
+                const auto v = m_element.tagValue(m_langs, writing.keyName);
                 if (v.isEmpty()) {
                     continue;
                 }
@@ -819,7 +820,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             if (!l.isEmpty()) {
                 return QLocale().createSeparatedList(l);
             }
-            const auto v = m_element.tagValue(QLocale(), "tactile_writing");
+            const auto v = m_element.tagValue(m_langs, "tactile_writing");
             if (explicitNo && v.isEmpty()) {
                 return i18n("no");
             }
@@ -827,7 +828,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         }
         case OperatorName: return QString::fromUtf8(m_element.tagValue("operator"));
         case Network: return QString::fromUtf8(m_element.tagValue("network"));
-        case OperatorWikipedia: return wikipediaUrl(m_element.tagValue(QLocale(), "operator:wikipedia", "network:wikipedia"));
+        case OperatorWikipedia: return wikipediaUrl(m_element.tagValue(m_langs, "operator:wikipedia", "network:wikipedia"));
         case RemainingRange:
         {
             const auto range = m_element.tagValue("mx:remaining_range").toInt();

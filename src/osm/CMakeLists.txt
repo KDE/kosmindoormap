@@ -9,6 +9,7 @@ add_library(KOSM
     element.cpp
     geomath.cpp
     io.cpp
+    languages.cpp
     o5mparser.cpp
     o5mwriter.cpp
     overpassquery.cpp

@@ -53,6 +53,7 @@ public:
 
     OSM::TagKey m_layerTag;
     OSM::TagKey m_typeTag;
+    OSM::Languages m_langs;
 
     bool m_dirty = true;
     bool m_overlay = false;
@@ -61,7 +62,10 @@ public:
 
 using namespace KOSMIndoorMap;
 
-SceneController::SceneController() : d(new SceneControllerPrivate) {}
+SceneController::SceneController() : d(new SceneControllerPrivate)
+{
+    d->m_langs = OSM::Languages::fromQLocale(QLocale());
+}
 SceneController::~SceneController() = default;
 
 void SceneController::setMapData(const MapData &data)
@@ -326,7 +330,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
 
         if (textDecl) {
             if (!textDecl->keyValue().isEmpty()) {
-                text = QString::fromUtf8(e.tagValue(QLocale(), textDecl->keyValue().constData()));
+                text = QString::fromUtf8(e.tagValue(d->m_langs, textDecl->keyValue().constData()));
             } else {
                 text = textDecl->stringValue();
             }
