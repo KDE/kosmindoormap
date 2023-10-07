@@ -108,6 +108,8 @@ void MapItem::setStylesheetName(const QString &styleSheet)
             Q_EMIT errorChanged();
             return;
         }
+        m_errorMessage.clear();
+        Q_EMIT errorChanged();
     }
 
     m_style.compile(m_data.dataSet());
