@@ -7,8 +7,9 @@
 
 #include "../ioplugin.h"
 #include "../osmpbfparser.h"
+#include "../osmpbfwriter.h"
 
-class OSM_PbfIOPlugin : public QObject, public OSM::IOPlugin<OSM::OsmPbfParser>
+class OSM_PbfIOPlugin : public QObject, public OSM::IOPlugin<OSM::OsmPbfParser, OSM::OsmPbfWriter>
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID OSMIOPluginInteraface_iid FILE "osmpbfplugin.json")

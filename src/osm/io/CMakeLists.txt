@@ -13,6 +13,7 @@ if (Protobuf_FOUND AND TARGET protobuf::protoc)
         ${pbf_srcs}
         osmpbfplugin.cpp
         ../osmpbfparser.cpp
+        ../osmpbfwriter.cpp
     )
     target_include_directories(KOSM_pbfioplugin PRIVATE ${Protobuf_INCLUDE_DIRS})
     target_compile_definitions(KOSM_pbfioplugin PRIVATE -DQT_STATICPLUGIN=1)
