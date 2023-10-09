@@ -493,7 +493,11 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                 opt.setAlignment(Qt::AlignHCenter);
                 opt.setWrapMode(item->text.textWidth() > 0.0 ? QTextOption::WordWrap : QTextOption::NoWrap);
                 item->text.setTextOption(opt);
-                item->text.prepare({}, item->font);
+                // do not use QStaticText::prepare here:
+                // the vast majority of text items will likely not be shown at all for being overlapped or out of view
+                // and pre-computing them is too expensive. Instead this will happen as needed on first use, for only
+                // a smaller amounts at a time.
+                // item->text.prepare({}, item->font);
 
                 // discard labels that are longer than the line they are aligned with
                 if (result.hasLineProperties() && d->m_labelPlacementPath.size() > 1 && item->angle != 0.0) {
