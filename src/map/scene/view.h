@@ -152,11 +152,21 @@ private:
     void constrainViewToScene();
     [[nodiscard]] QRectF constrainedViewport(QRectF viewport) const;
 
+    /** Needs to be called for any update to the viewport to updates internal caches
+     *  and emits change signals.
+     */
+    void updateViewport();
+
     QRectF m_bbox;
     QRectF m_viewport;
     QSize m_screenSize;
     QTransform m_deviceTransform = {};
     int m_level = 0;
+
+    // cached values
+    double m_screenWidthInMeters = 1.0;
+    QTransform m_sceneToScreenTransform;
+    QTransform m_screenToSceneTransform;
 
     QDateTime m_beginTime;
     QDateTime m_endTime;

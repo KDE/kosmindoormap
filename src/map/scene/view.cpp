@@ -78,7 +78,7 @@ void View::setScreenSize(QSize size)
     m_viewport.setWidth(m_viewport.width() * dx);
     m_viewport.setHeight(m_viewport.height() * dy);
     constrainViewToScene();
-    Q_EMIT transformationChanged();
+    updateViewport();
 }
 
 int View::level() const
@@ -105,7 +105,7 @@ double View::zoomLevel() const
 void View::setZoomLevel(double zoom, QPointF screenCenter)
 {
     m_viewport = viewportForZoom(zoom, screenCenter);
-    Q_EMIT transformationChanged();
+    updateViewport();
 }
 
 QRectF View::viewport() const
@@ -117,6 +117,7 @@ void View::setViewport(const QRectF &viewport)
 {
     m_viewport = viewport;
     constrainViewToScene();
+    updateViewport();
 }
 
 QRectF View::viewportForZoom(double zoom, QPointF screenCenter) const
@@ -167,13 +168,13 @@ void View::setSceneBoundingBox(const QRectF &bbox)
         m_viewport.setWidth(m_viewport.width() * dy);
     }
 
-    Q_EMIT transformationChanged();
+    updateViewport();
 }
 
 
 QPointF View::mapSceneToScreen(QPointF scenePos) const
 {
-    return sceneToScreenTransform().map(scenePos);
+    return m_sceneToScreenTransform.map(scenePos);
 }
 
 QRectF View::mapSceneToScreen(const QRectF &sceneRect) const
@@ -184,7 +185,7 @@ QRectF View::mapSceneToScreen(const QRectF &sceneRect) const
 QPointF View::mapScreenToScene(QPointF screenPos) const
 {
     // TODO this can be implemented more efficiently
-    return sceneToScreenTransform().inverted().map(screenPos);
+    return m_screenToSceneTransform.map(screenPos);
 }
 
 double View::mapScreenDistanceToSceneDistance(double distance) const
@@ -201,14 +202,12 @@ void View::panScreenSpace(QPoint offset)
     auto dy = offset.y() * (m_viewport.height() / screenHeight());
     m_viewport.adjust(dx, dy, dx, dy);
     constrainViewToScene();
+    updateViewport();
 }
 
 QTransform View::sceneToScreenTransform() const
 {
-    QTransform t;
-    t.scale(screenWidth() / (m_viewport.width()), screenHeight() / (m_viewport.height()));
-    t.translate(-m_viewport.x(), -m_viewport.y());
-    return t;
+    return m_sceneToScreenTransform;
 }
 
 void View::zoomIn(QPointF screenCenter)
@@ -257,25 +256,20 @@ QRectF View::constrainedViewport(QRectF viewport) const
 
 double View::mapMetersToScene(double meters) const
 {
-    // ### this fails for distances above 180° due to OSM::distance wrapping around
-    // doesn't matter for our use-case though, we are looking at much much smaller areas
-    const auto d = OSM::distance(mapSceneToGeo(QPointF(m_viewport.left(), m_viewport.center().y())), mapSceneToGeo(QPointF(m_viewport.right(), m_viewport.center().y())));
-    const auto scale = m_viewport.width() / d;
+    const auto scale = m_viewport.width() / m_screenWidthInMeters;
     return meters * scale;
 }
 
 double View::mapMetersToScreen(double meters) const
 {
-    const auto d = OSM::distance(mapSceneToGeo(QPointF(m_viewport.left(), m_viewport.center().y())), mapSceneToGeo(QPointF(m_viewport.right(), m_viewport.center().y())));
-    const auto r = meters / d;
+    const auto r = meters / m_screenWidthInMeters;
     return r * m_screenSize.width();
 }
 
 double View::mapScreenToMeters(int pixels) const
 {
-    const auto d = OSM::distance(mapSceneToGeo(QPointF(m_viewport.left(), m_viewport.center().y())), mapSceneToGeo(QPointF(m_viewport.right(), m_viewport.center().y())));
     const auto r = (double)pixels / (double)m_screenSize.width();
-    return d * r;
+    return r * m_screenWidthInMeters;
 }
 
 double View::panX() const
@@ -307,6 +301,7 @@ void View::panTopLeft(double x, double y)
     m_viewport.moveLeft(m_bbox.x() + m_bbox.width() * (x / panWidth()));
     m_viewport.moveTop(m_bbox.y() + m_bbox.height() * (y / panHeight()));
     constrainViewToScene();
+    updateViewport();
 }
 
 QTransform View::deviceTransform() const
@@ -324,6 +319,24 @@ void View::centerOnGeoCoordinate(QPointF geoCoord)
     const auto sceneCenter = mapGeoToScene(OSM::Coordinate(geoCoord.y(), geoCoord.x()));
     m_viewport.moveCenter(sceneCenter);
     constrainViewToScene();
+    updateViewport();
+}
+
+void View::updateViewport()
+{
+    // ### this fails for distances above 180° due to OSM::distance wrapping around
+    // doesn't matter for our use-case though, we are looking at much much smaller areas
+    m_screenWidthInMeters = OSM::distance(mapSceneToGeo(QPointF(m_viewport.left(), m_viewport.center().y())), mapSceneToGeo(QPointF(m_viewport.right(), m_viewport.center().y())));
+    if (m_screenWidthInMeters == 0.0) {
+        m_screenWidthInMeters = 1.0; // ensure we don't end up with a division by zero down the line
+    }
+
+    m_sceneToScreenTransform = {};
+    m_sceneToScreenTransform.scale(screenWidth() / (m_viewport.width()), screenHeight() / (m_viewport.height()));
+    m_sceneToScreenTransform.translate(-m_viewport.x(), -m_viewport.y());
+
+    m_screenToSceneTransform = m_sceneToScreenTransform.inverted();
+
     Q_EMIT transformationChanged();
 }
 
