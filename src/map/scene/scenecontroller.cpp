@@ -227,6 +227,11 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     }
 }
 
+[[nodiscard]] static bool canWordWrap(const QString &s)
+{
+    return std::any_of(s.begin(), s.end(), [](QChar c) { return !c.isLetter(); });
+}
+
 void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultItem &result) const
 {
     if (result.hasAreaProperties()) {
@@ -402,7 +407,11 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                         item->textOffset = decl->doubleValue();
                         break;
                     case MapCSSDeclaration::MaxWidth:
-                        item->text.setTextWidth(decl->intValue());
+                        // work around for QStaticText misbehaving when we have a max width but can't actually word-wrap
+                        // far from perfect but covers the most common cases
+                        if (canWordWrap(text)) {
+                            item->text.setTextWidth(decl->intValue());
+                        }
                         break;
                     case MapCSSDeclaration::IconImage:
                         if (!decl->keyValue().isEmpty()) {
