@@ -155,7 +155,7 @@ public:
     [[nodiscard]] double casingAndFrameWidth() const;
 
     [[nodiscard]] bool hasIcon() const;
-    [[nodiscard]] bool hasText() const;
+    [[nodiscard]] inline bool hasText() const { return textIsSet; }
     [[nodiscard]] bool hasShield() const;
 
     QPointF pos;
@@ -182,10 +182,11 @@ public:
     QColor haloColor = Qt::transparent;
     double haloRadius = 0.0;
 
-    bool allowTextOverlap = false;
-    bool allowIconOverlap = false;
-    bool iconHidden = false;
-    bool textHidden = false;
+    bool allowTextOverlap : 1 = false;
+    bool allowIconOverlap : 1 = false;
+    bool iconHidden : 1 = false;
+    bool textHidden : 1 = false;
+    bool textIsSet : 1 = false;
 };
 
 

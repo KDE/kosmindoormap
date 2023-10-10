@@ -148,7 +148,7 @@ QSizeF LabelItem::iconOutputSize(const View *view) const
 
 QSizeF LabelItem::textOutputSize() const
 {
-    if (textOutputSizeCache.isEmpty() &&hasText()) {
+    if (textOutputSizeCache.isEmpty() && hasText()) {
         // QStaticText::size doesn't return the actual bounding box with QStaticText::textWidth is set,
         // so we need to compute this manually here to not end up with overly large hitboxes
         if (text.textWidth() > 0) {
@@ -169,11 +169,6 @@ double LabelItem::casingAndFrameWidth() const
 bool LabelItem::hasIcon() const
 {
     return !icon.isNull();
-}
-
-bool LabelItem::hasText() const
-{
-    return !text.text().isEmpty();
 }
 
 bool LabelItem::hasShield() const
