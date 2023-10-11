@@ -33,12 +33,13 @@ private:
     void writeWays(const OSM::DataSet &dataSet);
     void writeRelations(const OSM::DataSet &dataSet);
 
-    int32_t stringTableEntry(const char *s);
+    [[nodiscard]] int32_t stringTableEntry(const char *s);
     void createBlockIfNeeded();
-    bool blockSizeLimitReached() const;
+    [[nodiscard]] bool blockSizeLimitReached() const;
     void writeBlob();
 
     std::unique_ptr<OSMPBF::PrimitiveBlock> m_block;
+    std::size_t m_blockSizeEstimate = 0;
     QIODevice *m_io = nullptr;
 };
 

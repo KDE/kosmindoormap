@@ -61,9 +61,11 @@ void OsmPbfWriter::writeNodes(const OSM::DataSet &dataSet)
         for (const auto &tag : node.tags) {
             denseBlock->add_keys_vals(stringTableEntry(tag.key.name()));
             denseBlock->add_keys_vals(stringTableEntry(tag.value.constData()));
+            m_blockSizeEstimate += 2 * sizeof(int32_t);
         }
 
         denseBlock->add_keys_vals(0);
+        m_blockSizeEstimate += 3 * sizeof(int64_t) + sizeof(int32_t);
 
         if (blockSizeLimitReached()) {
             denseBlock = nullptr;
@@ -83,15 +85,18 @@ void OsmPbfWriter::writeWays(const OSM::DataSet &dataSet)
 
         auto w = group->add_ways();
         w->set_id(way.id);
+        m_blockSizeEstimate += sizeof(int64_t);
 
         int64_t prevId = 0;
         for (const auto &id : way.nodes) {
             w->add_refs(id - prevId);
             prevId = id;
+            m_blockSizeEstimate += sizeof(int64_t);
         }
         for (const auto &tag : way.tags) {
             w->add_keys(stringTableEntry(tag.key.name()));
             w->add_vals(stringTableEntry(tag.value.constData()));
+            m_blockSizeEstimate += 2 * sizeof(int32_t);
         }
 
         if (blockSizeLimitReached()) {
@@ -127,10 +132,12 @@ void OsmPbfWriter::writeRelations(const OSM::DataSet &dataSet)
 
         auto r = group->add_relations();
         r->set_id(rel.id);
+        m_blockSizeEstimate += sizeof(int64_t);
 
         for (const auto &tag : rel.tags) {
             r->add_keys(stringTableEntry(tag.key.name()));
             r->add_vals(stringTableEntry(tag.value.constData()));
+            m_blockSizeEstimate += 2 * sizeof(int32_t);
         }
 
         int64_t prevMemId = 0;
@@ -139,6 +146,7 @@ void OsmPbfWriter::writeRelations(const OSM::DataSet &dataSet)
             r->add_memids(mem.id - prevMemId);
             prevMemId = mem.id;
             r->add_types(pbfMemberType(mem.type()));
+            m_blockSizeEstimate += 2* sizeof(int32_t) + sizeof(int64_t);
         }
 
         if (blockSizeLimitReached()) {
@@ -159,6 +167,7 @@ int32_t OsmPbfWriter::stringTableEntry(const char *s)
     }
 
     st->add_s(s);
+    m_blockSizeEstimate += std::strlen(s) + 1 + sizeof(int32_t);
     return st->s_size() - 1;
 }
 
@@ -166,12 +175,13 @@ void OsmPbfWriter::createBlockIfNeeded()
 {
     if (!m_block) {
         m_block = std::make_unique<OSMPBF::PrimitiveBlock>();
+        m_blockSizeEstimate = 0;
     }
 }
 
 bool OsmPbfWriter::blockSizeLimitReached() const
 {
-    return m_block->ByteSizeLong() >BLOCK_SIZE_LIMIT;
+    return m_blockSizeEstimate >BLOCK_SIZE_LIMIT;
 }
 
 void OsmPbfWriter::writeBlob()
@@ -223,4 +233,5 @@ void OsmPbfWriter::writeBlob()
     m_io->write(blob.SerializeAsString().c_str(), blob.ByteSizeLong()); // TODO do this copy-free
 
     m_block.reset();
+    m_blockSizeEstimate = 0;
 }
