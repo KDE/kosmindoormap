@@ -60,6 +60,27 @@ OSM::BoundingBox Tile::boundingBox() const
     return OSM::BoundingBox(OSM::Coordinate(br.latitude, tl.longitude), OSM::Coordinate(tl.latitude, br.longitude));
 }
 
+Tile Tile::topLeftAtZ(uint8_t z) const
+{
+    if (z == this->z) {
+        return *this;
+    }
+    if (z < this->z) {
+        return Tile{ x / (1 << (this->z - z)), y / (1 << (this->z - z)), z};
+    }
+    qDebug() << x << (1 << (z - this->z)) << z << this->z;
+    return Tile{ x * (1 << (z - this->z )), y * (1 << (z - this->z)), z};
+}
+
+Tile Tile::bottomRightAtZ(uint8_t z) const
+{
+    if (z <= this->z) {
+        return topLeftAtZ(z);
+    }
+    const auto deltaZ = z - this->z;
+    const auto deltaWidth = 1 << deltaZ;
+    return Tile{ x * deltaWidth + deltaWidth - 1, y * deltaWidth + deltaWidth - 1, z};
+}
 
 TileCache::TileCache(QObject *parent)
     : QObject(parent)

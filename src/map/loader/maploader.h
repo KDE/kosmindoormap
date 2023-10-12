@@ -13,6 +13,10 @@
 
 #include <memory>
 
+namespace OSM {
+class BoundingBox;
+}
+
 /** OSM-based multi-floor indoor maps for buildings. */
 namespace KOSMIndoorMap {
 
@@ -38,6 +42,11 @@ public:
     Q_INVOKABLE void loadForCoordinate(double lat, double lon);
     /** Same as the above, but ensureing the requested data is cached until @p ttl. */
     void loadForCoordinate(double lat, double lon, const QDateTime &ttl);
+
+    /** Load map data for the given bounding box, without applying the boundary search. */
+    void loadForBoundingBox(OSM::BoundingBox box);
+    /** Load map data for the given tile. */
+    void loadForTile(Tile tile);
 
     /** Take out the completely loaded result.
      *  Do this before loading the next map with the same loader.

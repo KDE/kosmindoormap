@@ -41,6 +41,10 @@ public:
     OSM::Coordinate topLeft() const;
     OSM::BoundingBox boundingBox() const;
 
+    // move up and down the z hierarchy for the same location
+    Tile topLeftAtZ(uint8_t z) const;
+    Tile bottomRightAtZ(uint8_t z) const;
+
     uint32_t x = 0;
     uint32_t y = 0;
     uint8_t z = 0;

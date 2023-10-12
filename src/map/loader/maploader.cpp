@@ -43,7 +43,7 @@ public:
     OSM::BoundingBox m_tileBbox;
     QRect m_loadedTiles;
     std::vector<Tile> m_pendingTiles;
-    BoundarySearch m_boundarySearcher;
+    std::unique_ptr<BoundarySearch> m_boundarySearcher;
     QDateTime m_ttl;
 
     QString m_errorMessage;
@@ -100,7 +100,8 @@ void MapLoader::loadForCoordinate(double lat, double lon, const QDateTime &ttl)
     d->m_ttl = ttl;
     d->m_tileBbox = {};
     d->m_pendingTiles.clear();
-    d->m_boundarySearcher.init(OSM::Coordinate(lat, lon));
+    d->m_boundarySearcher = std::make_unique<BoundarySearch>();
+    d->m_boundarySearcher->init(OSM::Coordinate(lat, lon));
     d->m_errorMessage.clear();
     d->m_marbleMerger.setDataSet(&d->m_dataSet);
     d->m_data = MapData();
@@ -108,6 +109,50 @@ void MapLoader::loadForCoordinate(double lat, double lon, const QDateTime &ttl)
     auto tile = Tile::fromCoordinate(lat, lon, TileZoomLevel);
     d->m_loadedTiles = QRect(tile.x, tile.y, 1, 1);
     d->m_pendingTiles.push_back(std::move(tile));
+    downloadTiles();
+}
+
+void MapLoader::loadForBoundingBox(OSM::BoundingBox box)
+{
+    d->m_ttl = {};
+    d->m_tileBbox = box;
+    d->m_pendingTiles.clear();
+    d->m_errorMessage.clear();
+    d->m_marbleMerger.setDataSet(&d->m_dataSet);
+    d->m_data = MapData();
+
+    const auto topLeftTile = Tile::fromCoordinate(box.min.latF(), box.min.lonF(), TileZoomLevel);
+    const auto bottomRightTile = Tile::fromCoordinate(box.max.latF(), box.max.lonF(), TileZoomLevel);
+    for (auto x = topLeftTile.x; x <= bottomRightTile.x; ++x) {
+        for (auto y = bottomRightTile.y; y <= topLeftTile.y; ++y) {
+            d->m_pendingTiles.push_back(makeTile(x, y));
+        }
+    }
+    downloadTiles();
+}
+
+void MapLoader::loadForTile(Tile tile)
+{
+    d->m_ttl = {};
+    d->m_tileBbox = tile.boundingBox();
+    d->m_pendingTiles.clear();
+    d->m_errorMessage.clear();
+    d->m_marbleMerger.setDataSet(&d->m_dataSet);
+    d->m_data = MapData();
+
+    if (tile.z >= TileZoomLevel) {
+        d->m_pendingTiles.push_back(std::move(tile));
+    } else {
+        const auto start = tile.topLeftAtZ(TileZoomLevel);
+        const auto end = tile.bottomRightAtZ(TileZoomLevel);
+        qDebug() << start.x << start.y << end.x << end.y << tile.x << tile.y;
+        for (auto x = start.x; x <= end.x; ++x) {
+            for (auto y = start.y; y <= end.y; ++y) {
+                d->m_pendingTiles.push_back(makeTile(x, y));
+            }
+        }
+    }
+
     downloadTiles();
 }
 
@@ -162,45 +207,48 @@ void MapLoader::loadTiles()
     }
     d->m_pendingTiles.clear();
 
-    const auto bbox = d->m_boundarySearcher.boundingBox(d->m_dataSet);
-    qCDebug(Log) << "needed bbox:" << bbox << "got:" << d->m_tileBbox << d->m_loadedTiles;
+    if (d->m_boundarySearcher) {
+        const auto bbox = d->m_boundarySearcher->boundingBox(d->m_dataSet);
+        qCDebug(Log) << "needed bbox:" << bbox << "got:" << d->m_tileBbox << d->m_loadedTiles;
 
-    // expand left and right
-    if (bbox.min.longitude < d->m_tileBbox.min.longitude) {
-        d->m_loadedTiles.setLeft(d->m_loadedTiles.left() - 1);
-        for (int y = d->m_loadedTiles.top(); y <= d->m_loadedTiles.bottom(); ++y) {
-            d->m_pendingTiles.push_back(makeTile(d->m_loadedTiles.left(), y));
+        // expand left and right
+        if (bbox.min.longitude < d->m_tileBbox.min.longitude) {
+            d->m_loadedTiles.setLeft(d->m_loadedTiles.left() - 1);
+            for (int y = d->m_loadedTiles.top(); y <= d->m_loadedTiles.bottom(); ++y) {
+                d->m_pendingTiles.push_back(makeTile(d->m_loadedTiles.left(), y));
+            }
         }
-    }
-    if (bbox.max.longitude > d->m_tileBbox.max.longitude) {
-        d->m_loadedTiles.setRight(d->m_loadedTiles.right() + 1);
-        for (int y = d->m_loadedTiles.top(); y <= d->m_loadedTiles.bottom(); ++y) {
-            d->m_pendingTiles.push_back(makeTile(d->m_loadedTiles.right(), y));
+        if (bbox.max.longitude > d->m_tileBbox.max.longitude) {
+            d->m_loadedTiles.setRight(d->m_loadedTiles.right() + 1);
+            for (int y = d->m_loadedTiles.top(); y <= d->m_loadedTiles.bottom(); ++y) {
+                d->m_pendingTiles.push_back(makeTile(d->m_loadedTiles.right(), y));
+            }
         }
-    }
 
-    // expand top/bottom: note that geographics and slippy map tile coordinates have a different understanding on what is "top"
-    if (bbox.max.latitude > d->m_tileBbox.max.latitude) {
-        d->m_loadedTiles.setTop(d->m_loadedTiles.top() - 1);
-        for (int x = d->m_loadedTiles.left(); x <= d->m_loadedTiles.right(); ++x) {
-            d->m_pendingTiles.push_back(makeTile(x, d->m_loadedTiles.top()));
+        // expand top/bottom: note that geographics and slippy map tile coordinates have a different understanding on what is "top"
+        if (bbox.max.latitude > d->m_tileBbox.max.latitude) {
+            d->m_loadedTiles.setTop(d->m_loadedTiles.top() - 1);
+            for (int x = d->m_loadedTiles.left(); x <= d->m_loadedTiles.right(); ++x) {
+                d->m_pendingTiles.push_back(makeTile(x, d->m_loadedTiles.top()));
+            }
         }
-    }
-    if (bbox.min.latitude < d->m_tileBbox.min.latitude) {
-        d->m_loadedTiles.setBottom(d->m_loadedTiles.bottom() + 1);
-        for (int x = d->m_loadedTiles.left(); x <= d->m_loadedTiles.right(); ++x) {
-            d->m_pendingTiles.push_back(makeTile(x, d->m_loadedTiles.bottom()));
+        if (bbox.min.latitude < d->m_tileBbox.min.latitude) {
+            d->m_loadedTiles.setBottom(d->m_loadedTiles.bottom() + 1);
+            for (int x = d->m_loadedTiles.left(); x <= d->m_loadedTiles.right(); ++x) {
+                d->m_pendingTiles.push_back(makeTile(x, d->m_loadedTiles.bottom()));
+            }
         }
-    }
 
-    if (!d->m_pendingTiles.empty()) {
-        downloadTiles();
-        return;
+        if (!d->m_pendingTiles.empty()) {
+            downloadTiles();
+            return;
+        }
+        d->m_data.setBoundingBox(bbox);
     }
 
     d->m_marbleMerger.finalize();
     d->m_data.setDataSet(std::move(d->m_dataSet));
-    d->m_data.setBoundingBox(bbox);
+    d->m_boundarySearcher.reset();
 
     qCDebug(Log) << "o5m loading took" << loadTime.elapsed() << "ms";
     Q_EMIT isLoadingChanged();

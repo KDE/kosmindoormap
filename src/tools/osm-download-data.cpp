@@ -6,6 +6,7 @@
 
 #include <KOSMIndoorMap/MapData>
 #include <KOSMIndoorMap/MapLoader>
+#include <loader/tilecache_p.h>
 
 #include <osm/datatypes.h>
 #include <osm/io.h>
@@ -69,35 +70,63 @@ int main(int argc, char **argv)
     parser.addHelpOption();
     QCommandLineOption bboxOpt({QStringLiteral("b"), QStringLiteral("bbox")}, QStringLiteral("bounding box to download"), QStringLiteral("minlat,minlon,maxlat,maxlon"));
     parser.addOption(bboxOpt);
+    QCommandLineOption clipOpt({QStringLiteral("c"), QStringLiteral("clip")}, QStringLiteral("clip to bounding box"));
+    parser.addOption(clipOpt);
     QCommandLineOption outOpt({QStringLiteral("o"), QStringLiteral("out")}, QStringLiteral("output file"), QStringLiteral("file"));
     parser.addOption(outOpt);
+    QCommandLineOption pointOpt({QStringLiteral("p"), QStringLiteral("point")}, QStringLiteral("download area around point"), QStringLiteral("lat,lon"));
+    parser.addOption(pointOpt);
+    QCommandLineOption tileOpt({QStringLiteral("t"), QStringLiteral("tile")}, QStringLiteral("download tile"), QStringLiteral("z/x/y"));
+    parser.addOption(tileOpt);
     parser.process(app);
 
-    if (!parser.isSet(bboxOpt) || !parser.isSet(outOpt)) {
+    if ((!parser.isSet(bboxOpt) && !parser.isSet(pointOpt) && !parser.isSet(tileOpt)) || !parser.isSet(outOpt)) {
         parser.showHelp(1);
         return 1;
     }
 
     OSM::BoundingBox bbox;
-    const auto coords = QStringView(parser.value(bboxOpt)).split(QLatin1Char(','));
-    if (coords.size() == 4) {
-        bbox.min = OSM::Coordinate(coords[0].toDouble(), coords[1].toDouble());
-        bbox.max = OSM::Coordinate(coords[2].toDouble(), coords[3].toDouble());
-    }
-    if (!bbox.isValid()) {
-        qCritical() << "Invalid bounding box!";
-        return 1;
-    }
-    qDebug() << bbox << bbox.center();
-
     MapLoader loader;
-    loader.loadForCoordinate(bbox.center().latF(), bbox.center().lonF()); // TODO add the ability to load an entire bbox
-    QObject::connect(&loader, &MapLoader::done, &app, &QCoreApplication::quit);
-    app.exec();
+    if (parser.isSet(bboxOpt)) {
+        const auto coords = QStringView(parser.value(bboxOpt)).split(QLatin1Char(','));
+        if (coords.size() == 4) {
+            bbox.min = OSM::Coordinate(coords[0].toDouble(), coords[1].toDouble());
+            bbox.max = OSM::Coordinate(coords[2].toDouble(), coords[3].toDouble());
+        }
+        if (!bbox.isValid()) {
+            qCritical() << "Invalid bounding box!";
+            return 1;
+        }
+    }
 
+    if (parser.isSet(pointOpt)) {
+        const auto coords = QStringView(parser.value(pointOpt)).split(QLatin1Char(','));
+        if (coords.size() != 2) {
+            qCritical() << "Invalid coordinate!";
+            return 1;
+        }
+        OSM::Coordinate coord{coords[0].toDouble(), coords[1].toDouble()};
+        loader.loadForCoordinate(coord.latF(), coord.lonF());
+    } else if (parser.isSet(tileOpt)) {
+        const auto coords = QStringView(parser.value(tileOpt)).split(QLatin1Char('/'));
+        if (coords.size() != 3) {
+            qCritical() << "Invalid tile!";
+            return 1;
+        }
+        Tile t(coords[1].toUInt(), coords[2].toUInt(), coords[0].toUInt());
+        loader.loadForTile(t);
+    } else if (parser.isSet(bboxOpt)) {
+        loader.loadForBoundingBox(bbox);
+    }
+
+    QObject::connect(&loader, &MapLoader::done, &app, &QCoreApplication::quit);
+    QCoreApplication::exec();
     auto data = loader.takeData();
-    filterByBbox(data.dataSet(), bbox);
-    purgeDanglingReferences(data.dataSet());
+
+    if (parser.isSet(clipOpt) && parser.isSet(bboxOpt)) {
+        filterByBbox(data.dataSet(), bbox);
+        purgeDanglingReferences(data.dataSet());
+    }
 
     QFile f(parser.value(outOpt));
     if (!f.open(QFile::WriteOnly)) {
