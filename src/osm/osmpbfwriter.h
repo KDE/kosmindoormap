@@ -39,6 +39,7 @@ private:
     void writeBlob();
 
     std::unique_ptr<OSMPBF::PrimitiveBlock> m_block;
+    std::map<std::string_view, int32_t> m_stringTable;
     std::size_t m_blockSizeEstimate = 0;
     QIODevice *m_io = nullptr;
 };

@@ -159,16 +159,16 @@ void OsmPbfWriter::writeRelations(const OSM::DataSet &dataSet)
 int32_t OsmPbfWriter::stringTableEntry(const char *s)
 {
     assert(m_block);
-    auto st = m_block->mutable_stringtable();
-    for (int32_t i = 1; i < st->s_size(); ++i) {
-        if (std::strcmp(s, st->s(i).c_str()) == 0) {
-            return i;
-        }
+    const auto it = m_stringTable.find(s);
+    if (it == m_stringTable.end()) {
+        auto st = m_block->mutable_stringtable();
+        st->add_s(s);
+        m_stringTable[s] = st->s_size() - 1;
+        m_blockSizeEstimate += std::strlen(s) + 1 + sizeof(int32_t);
+        return st->s_size() - 1;
     }
 
-    st->add_s(s);
-    m_blockSizeEstimate += std::strlen(s) + 1 + sizeof(int32_t);
-    return st->s_size() - 1;
+    return (*it).second;
 }
 
 void OsmPbfWriter::createBlockIfNeeded()
@@ -176,6 +176,7 @@ void OsmPbfWriter::createBlockIfNeeded()
     if (!m_block) {
         m_block = std::make_unique<OSMPBF::PrimitiveBlock>();
         m_blockSizeEstimate = 0;
+        m_block->mutable_stringtable()->add_s(""); // dense node block tag separation marker
     }
 }
 
@@ -234,4 +235,5 @@ void OsmPbfWriter::writeBlob()
 
     m_block.reset();
     m_blockSizeEstimate = 0;
+    m_stringTable.clear();
 }
