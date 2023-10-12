@@ -41,7 +41,6 @@ else()
 endif()
 
 find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Quick)
-find_package(Qt${QT_MAJOR_VERSION} 5.15 OPTIONAL_COMPONENTS Widgets)
 find_package(KF${KF_MAJOR_VERSION} REQUIRED COMPONENTS I18n)
 find_package(KPublicTransport REQUIRED)
 find_package(KOpeningHours)
