@@ -20,7 +20,7 @@ if (Protobuf_FOUND AND TARGET protobuf::protoc)
     set_target_properties(KOSM_pbfioplugin PROPERTIES POSITION_INDEPENDENT_CODE ON)
     target_link_libraries(KOSM_pbfioplugin
         PUBLIC KOSM
-        PRIVATE protobuf::libprotobuf ZLIB::ZLIB
+        PRIVATE protobuf::libprotobuf-lite ZLIB::ZLIB
     )
 endif()
 
