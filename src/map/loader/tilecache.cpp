@@ -68,7 +68,6 @@ Tile Tile::topLeftAtZ(uint8_t z) const
     if (z < this->z) {
         return Tile{ x / (1 << (this->z - z)), y / (1 << (this->z - z)), z};
     }
-    qDebug() << x << (1 << (z - this->z)) << z << this->z;
     return Tile{ x * (1 << (z - this->z )), y * (1 << (z - this->z)), z};
 }
 

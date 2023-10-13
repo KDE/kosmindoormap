@@ -221,7 +221,7 @@ void MapData::processElements()
         const auto buildingLevels = e.tagValue(buildingLevelsTag, maxLevelTag).toInt();
         if (buildingLevels > 0) {
             const auto startLevel = e.tagValue(buildingMinLevelTag, levelTag, minLevelTag).toInt();
-            qDebug() << startLevel << buildingLevels << e.url();
+            //qDebug() << startLevel << buildingLevels << e.url();
             for (auto i = startLevel; i < startLevel + buildingLevels; ++i) {
                 addElement(i * 10, e, true);
             }

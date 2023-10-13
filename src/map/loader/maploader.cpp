@@ -149,7 +149,6 @@ void MapLoader::loadForTile(Tile tile)
     } else {
         const auto start = tile.topLeftAtZ(TileZoomLevel);
         const auto end = tile.bottomRightAtZ(TileZoomLevel);
-        qDebug() << start.x << start.y << end.x << end.y << tile.x << tile.y;
         for (auto x = start.x; x <= end.x; ++x) {
             for (auto y = start.y; y <= end.y; ++y) {
                 d->m_pendingTiles.push_back(makeTile(x, y));
