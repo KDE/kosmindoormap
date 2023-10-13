@@ -3,65 +3,68 @@
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-kosmindoormap.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kosmindoormap.h)
 
-flex_target(mapcssscanner
-    style/mapcsslexer.l
-    ${CMAKE_CURRENT_BINARY_DIR}/mapcsslexer.cpp
-    DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/mapcssscanner.h
-    COMPILE_FLAGS "--nounistd"
-)
-bison_target(mapcssparser
-    style/mapcssparser.y
-    ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_p.cpp
-    DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_p.h
-)
-add_flex_bison_dependency(mapcssscanner mapcssparser)
-set_source_files_properties(${BISON_mapcssparser_OUTPUTS} ${FLEX_mapcssscanner_OUTPUTS} PROPERTIES SKIP_AUTOMOC ON)
-
 add_library(KOSMIndoorMap)
 target_sources(KOSMIndoorMap PRIVATE
-    assets/assets.qrc
-
-    content/equipmentmodel.cpp
-    content/floorlevelmodel.cpp
-    content/gatemodel.cpp
-    content/platform.cpp
-    content/platformfinder.cpp
-    content/platformmodel.cpp
-
     loader/boundarysearch.cpp
     loader/levelparser.cpp
     loader/mapdata.cpp
     loader/maploader.cpp
     loader/marblegeometryassembler.cpp
     loader/tilecache.cpp
-
-    renderer/hitdetector.cpp
-    renderer/painterrenderer.cpp
-    renderer/stackblur.cpp
-
-    scene/iconloader.cpp
-    scene/openinghourscache.cpp
-    scene/overlaysource.cpp
-    scene/penwidthutil.cpp
-    scene/poleofinaccessibilityfinder.cpp
-    scene/scenecontroller.cpp
-    scene/scenegeometry.cpp
-    scene/scenegraph.cpp
-    scene/scenegraphitem.cpp
-    scene/texturecache.cpp
-    scene/view.cpp
-
-    style/mapcsscondition.cpp
-    style/mapcssdeclaration.cpp
-    style/mapcssparser.cpp
-    style/mapcssresult.cpp
-    style/mapcssrule.cpp
-    style/mapcssselector.cpp
-    style/mapcssstate.cpp
-    style/mapcssstyle.cpp
-    ${BISON_mapcssparser_OUTPUTS}
-    ${FLEX_mapcssscanner_OUTPUTS}
 )
+if (NOT BUILD_TOOLS_ONLY)
+    flex_target(mapcssscanner
+        style/mapcsslexer.l
+        ${CMAKE_CURRENT_BINARY_DIR}/mapcsslexer.cpp
+        DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/mapcssscanner.h
+        COMPILE_FLAGS "--nounistd"
+    )
+    bison_target(mapcssparser
+        style/mapcssparser.y
+        ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_p.cpp
+        DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_p.h
+    )
+    add_flex_bison_dependency(mapcssscanner mapcssparser)
+    set_source_files_properties(${BISON_mapcssparser_OUTPUTS} ${FLEX_mapcssscanner_OUTPUTS} PROPERTIES SKIP_AUTOMOC ON)
+
+    target_sources(KOSMIndoorMap PRIVATE
+        assets/assets.qrc
+
+        content/equipmentmodel.cpp
+        content/floorlevelmodel.cpp
+        content/gatemodel.cpp
+        content/platform.cpp
+        content/platformfinder.cpp
+        content/platformmodel.cpp
+
+        renderer/hitdetector.cpp
+        renderer/painterrenderer.cpp
+        renderer/stackblur.cpp
+
+        scene/iconloader.cpp
+        scene/openinghourscache.cpp
+        scene/overlaysource.cpp
+        scene/penwidthutil.cpp
+        scene/poleofinaccessibilityfinder.cpp
+        scene/scenecontroller.cpp
+        scene/scenegeometry.cpp
+        scene/scenegraph.cpp
+        scene/scenegraphitem.cpp
+        scene/texturecache.cpp
+        scene/view.cpp
+
+        style/mapcsscondition.cpp
+        style/mapcssdeclaration.cpp
+        style/mapcssparser.cpp
+        style/mapcssresult.cpp
+        style/mapcssrule.cpp
+        style/mapcssselector.cpp
+        style/mapcssstate.cpp
+        style/mapcssstyle.cpp
+        ${BISON_mapcssparser_OUTPUTS}
+        ${FLEX_mapcssscanner_OUTPUTS}
+    )
+endif()
 
 ecm_qt_declare_logging_category(KOSMIndoorMap
     HEADER logging.h
@@ -96,9 +99,15 @@ target_include_directories(KOSMIndoorMap PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRE
 target_include_directories(KOSMIndoorMap PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>)
 target_include_directories(KOSMIndoorMap INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(KOSMIndoorMap
-    PUBLIC Qt::Gui KOSM
-    PRIVATE KOpeningHours Qt::Network Qt::CorePrivate
+    PUBLIC Qt::Core KOSM
+    PRIVATE Qt::Network Qt::CorePrivate
 )
+if (NOT BUILD_TOOLS_ONLY)
+    target_link_libraries(KOSMIndoorMap
+        PUBLIC Qt::Gui
+        PRIVATE KOpeningHours
+    )
+endif()
 
 ecm_generate_headers(KOSMIndoorMap_Content_FORWARDING_HEADERS
     HEADER_NAMES

@@ -4,17 +4,21 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <config-kosmindoormap.h>
 #include "mapdata.h"
 #include "levelparser_p.h"
 
+#if !BUILD_TOOLS_ONLY
 #include "style/mapcssresult_p.h"
 #include "style/mapcssstate_p.h"
 
 #include <KOSMIndoorMap/MapCSSParser>
 #include <KOSMIndoorMap/MapCSSStyle>
+#endif
 
 #include <osm/geomath.h>
 
+#include <QPointF>
 #include <QTimeZone>
 
 using namespace KOSMIndoorMap;
@@ -163,6 +167,7 @@ void MapData::processElements()
     const auto minLevelTag = d->m_dataSet.tagKey("min_level");
     const auto countryTag = d->m_dataSet.tagKey("addr:country");
 
+#if !BUILD_TOOLS_ONLY
     MapCSSParser p;
     auto filter = p.parse(QStringLiteral(":/org.kde.kosmindoormap/assets/css/input-filter.mapcss"));
     if (p.hasError()) {
@@ -170,6 +175,7 @@ void MapData::processElements()
     }
     filter.compile(d->m_dataSet);
     MapCSSResult filterResult;
+#endif
 
     OSM::for_each(d->m_dataSet, [&](auto e) {
         // discard everything here that is tag-less (and thus likely part of a higher-level geometry)
@@ -187,6 +193,7 @@ void MapData::processElements()
 
         // apply the input filter, anything that explicitly got opacity 0 will be discarded
         bool isDependentElement = false;
+#if !BUILD_TOOLS_ONLY
         MapCSSState filterState;
         filterState.element = e;
         filter.evaluate(std::move(filterState), filterResult);
@@ -202,6 +209,7 @@ void MapData::processElements()
                 isDependentElement = true;
             }
         }
+#endif
 
         // bbox computation
         e.recomputeBoundingBox(d->m_dataSet);

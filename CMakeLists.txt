@@ -11,6 +11,7 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 project(KOSMIndoorMap VERSION ${RELEASE_SERVICE_VERSION})
 
 option(BUILD_STANDALONE_APP "Build and install the stand-alone test/demo app." OFF)
+option(BUILD_TOOLS_ONLY "Build only the command-line tools." OFF)
 
 find_package(ECM 5.90 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
@@ -40,11 +41,15 @@ else()
     set(KF_MAJOR_VERSION "5")
 endif()
 
-find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Quick)
-find_package(KF${KF_MAJOR_VERSION} REQUIRED COMPONENTS I18n)
-find_package(KPublicTransport REQUIRED)
-find_package(KOpeningHours)
-set_package_properties(KOpeningHours PROPERTIES TYPE REQUIRED PURPOSE "Highlight currently open amenities/shops/etc.")
+find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Core Network)
+
+if (NOT BUILD_TOOLS_ONLY)
+    find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Quick)
+    find_package(KF${KF_MAJOR_VERSION} REQUIRED COMPONENTS I18n)
+    find_package(KPublicTransport REQUIRED)
+    find_package(KOpeningHours)
+    set_package_properties(KOpeningHours PROPERTIES TYPE REQUIRED PURPOSE "Highlight currently open amenities/shops/etc.")
+endif()
 
 if (BUILD_TESTING)
     find_package(Qt${QT_MAJOR_VERSION} 5.15 REQUIRED COMPONENTS Test Widgets)
@@ -67,10 +72,12 @@ find_package(ZLIB REQUIRED)
 find_package(OsmTools)
 set_package_properties(OsmTools PROPERTIES TYPE OPTIONAL PURPOSE "Needed only for regenereating line metadata tables (ie. you most likely don't need this)")
 
-find_package(FLEX REQUIRED)
-set_package_properties(FLEX PROPERTIES PURPOSE "MapCSS parser for indoor map rendering.")
-find_package(BISON REQUIRED)
-set_package_properties(BISON PROPERTIES PURPOSE "MapCSS parser for indoor map rendering.")
+if (NOT BUILD_TOOLS_ONLY)
+    find_package(FLEX REQUIRED)
+    set_package_properties(FLEX PROPERTIES PURPOSE "MapCSS parser for indoor map rendering.")
+    find_package(BISON REQUIRED)
+    set_package_properties(BISON PROPERTIES PURPOSE "MapCSS parser for indoor map rendering.")
+endif()
 
 if (NOT WIN32)
     # try upstream cmake config first
@@ -109,4 +116,6 @@ install(FILES
 install(EXPORT KOSMIndoorMapTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KOSMIndoorMapTargets.cmake)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kosmindoormap_version.h DESTINATION ${KDE_INSTALL_INCLUDEDIR} COMPONENT Devel)
-ki18n_install(po)
+if (NOT BUILD_TOOLS_ONLY)
+    ki18n_install(po)
+endif()

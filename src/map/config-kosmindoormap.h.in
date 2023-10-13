@@ -7,4 +7,6 @@
 #ifndef KOSMINDOORMAP_CONFIG_H
 #define KOSMINDOORMAP_CONFIG_H
 
+#cmakedefine01 BUILD_TOOLS_ONLY
+
 #endif

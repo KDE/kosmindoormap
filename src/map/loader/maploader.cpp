@@ -4,6 +4,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <config-kosmindoormap.h>
+
 #include "maploader.h"
 #include "boundarysearch_p.h"
 #include "logging.h"
@@ -29,7 +31,9 @@ enum {
 
 inline void initResources()  // needs to be outside of a namespace
 {
+#if !BUILD_TOOLS_ONLY
     Q_INIT_RESOURCE(assets);
+#endif
 }
 
 namespace KOSMIndoorMap {
