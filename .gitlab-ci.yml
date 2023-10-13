@@ -12,3 +12,26 @@ include:
   - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/freebsd-qt6.yml
   - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/windows-qt6.yml
   - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/flatpak.yml
+
+# Manual job for building a fully static cli binaries
+static-tools:
+  stage: deploy
+  image: centos:centos7
+  tags:
+    - Linux
+  when: manual
+  script:
+    - export BUILD_ROOT=/builds
+    - export STAGING_ROOT=/builds/staging
+    - scripts/setup-centos.sh
+    - source /opt/rh/rh-git227/enable
+    - source /opt/rh/devtoolset-11/enable
+    - scripts/build-openssl.sh
+    - scripts/build-static-qt.sh
+    - scripts/build-cmake-modules.sh
+    - strip build/bin/osm-download-data
+  artifacts:
+    expire_in: 1 week
+    when: on_success
+    paths:
+     - build/bin/osm-download-data
