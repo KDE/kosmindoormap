@@ -21,6 +21,7 @@ public:
         qmlRegisterSingletonType("org.kde.osm.editorcontroller", 1, 0, "EditorController", [](QQmlEngine*, QJSEngine *engine) -> QJSValue {
             return engine->toScriptValue(KOSM::EditorController());
         });
+        qmlRegisterUncreatableMetaObject(KOSM::EditorController::staticMetaObject, "org.kde.osm.editorcontroller", 1, 0, "Editor", {});
     }
 };
 

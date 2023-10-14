@@ -28,7 +28,7 @@ public:
     Q_ENUM(Editor)
 
     Q_INVOKABLE static bool hasEditor(Editor editor);
-    Q_INVOKABLE static void editElement(OSM::Element element);
+    Q_INVOKABLE static void editElement(OSM::Element element, Editor editor);
 };
 
 }

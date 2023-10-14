@@ -116,14 +116,23 @@ Kirigami.OverlaySheet {
     }
 
     footer: RowLayout {
+        Item { Layout.fillWidth: true }
         QQC2.Button {
-            Layout.alignment: Qt.AlignRight
             icon.name: "document-edit"
-            text: "Edit"
-            onClicked: {
-                console.log(elementDetailsSheet.model.element.element);
-                EditorController.editElement(elementDetailsSheet.model.element.element)
-            }
+            text: "Edit with iD"
+            onClicked: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.ID)
+        }
+        QQC2.Button {
+            icon.name: "org.openstreetmap.josm"
+            text: "Edit with JOSM"
+            visible: EditorController.hasEditor(Editor.JOSM)
+            onClicked: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.JOSM)
+        }
+        QQC2.Button {
+            icon.name: "document-edit"
+            text: "Edit with Vespucci"
+            visible: EditorController.hasEditor(Editor.Vespucci)
+            onClicked: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.Vespucci)
         }
     }
 

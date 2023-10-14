@@ -175,24 +175,27 @@ bool EditorController::hasEditor(Editor editor)
     return false;
 }
 
-void EditorController::editElement(OSM::Element element)
+void EditorController::editElement(OSM::Element element, Editor editor)
 {
     if (element.type() == OSM::Type::Null) {
         return;
     }
 
-    qCDebug(EditorLog) << element.url();
-#ifdef Q_OS_ANDROID
-    if (hasEditor(Vespucci)) {
-        openElementInVespucci(element);
-    } else {
-        openElementInVespucci(element);
-    }
-#else
-    if (hasEditor(JOSM)) {
-        openElementWithJosm(element);
-    } else {
-        openElementInId(element);
-    }
+    qCDebug(EditorLog) << element.url() << editor;
+
+    switch (editor) {
+        case ID:
+            openElementInId(element);
+            break;
+        case JOSM:
+#ifndef Q_OS_ANDROID
+            openElementWithJosm(element);
 #endif
+            break;
+        case Vespucci:
+#ifdef Q_OS_ANDROID
+            openElementInVespucci(element);
+#endif
+            break;
+    }
 }
