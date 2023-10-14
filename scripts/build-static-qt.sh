@@ -27,6 +27,8 @@ function build-static-qt-module() {
     popd
 }
 
+export OPENSSL_LIBS="-L$STAGING_ROOT/lib -lssl -lcrypto -pthread -ldl"
+
 build-static-qt-module qtbase \
     -release -optimize-size \
     -qpa offscreen \
@@ -43,7 +45,7 @@ build-static-qt-module qtbase \
     -no-feature-desktopservices \
     -no-feature-proxymodel -no-feature-stringlistmodel \
     -no-feature-testlib \
-    -ssl -I $STAGING_ROOT/include \
+    -ssl -openssl-linked -I $STAGING_ROOT/include -L $STAGING_ROOT/lib \
     -static -confirm-license -opensource -make libs -make tools
 
 # Patch .prl files to use static zlib
