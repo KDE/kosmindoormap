@@ -28,6 +28,7 @@
 
 using namespace KOSM;
 
+// https://github.com/openstreetmap/iD/blob/develop/API.md
 static void openElementInId(OSM::Element element)
 {
     QUrl url;
@@ -56,21 +57,38 @@ static void openElementInId(OSM::Element element)
     QDesktopServices::openUrl(url);
 }
 
-static QUrl makeJosmLoadAndZoomCommand(OSM::Element element)
+static void openBoundBoxInId(OSM::BoundingBox box)
+{
+    QUrl url;
+    url.setScheme(QStringLiteral("https"));
+    url.setHost(QStringLiteral("www.openstreetmap.org"));
+    url.setPath(QStringLiteral("/edit"));
+
+    QUrlQuery query;
+    query.addQueryItem(QStringLiteral("editor"), QStringLiteral("id"));
+    query.addQueryItem(QStringLiteral("lat"), QString::number(box.center().latF()));
+    query.addQueryItem(QStringLiteral("lon"), QString::number(box.center().lonF()));
+    query.addQueryItem(QStringLiteral("zoom"), QStringLiteral("17")); // TODO compute zoom based on box size
+
+    url.setQuery(query);
+    QDesktopServices::openUrl(url);
+}
+
+static QUrl makeJosmLoadAndZoomCommand(OSM::BoundingBox box, OSM::Element element)
 {
     QUrl url;
     url.setPath(QStringLiteral("/load_and_zoom"));
 
     QUrlQuery query;
     // ensure bbox is not 0x0 for nodes
-    query.addQueryItem(QStringLiteral("left"), QString::number(element.boundingBox().min.lonF() - 0.0001));
-    query.addQueryItem(QStringLiteral("bottom"), QString::number(element.boundingBox().min.latF() - 0.0001));
-    query.addQueryItem(QStringLiteral("right"), QString::number(element.boundingBox().max.lonF() + 0.0001));
-    query.addQueryItem(QStringLiteral("top"), QString::number(element.boundingBox().max.latF() + 0.0001));
+    query.addQueryItem(QStringLiteral("left"), QString::number(box.min.lonF() - 0.0001));
+    query.addQueryItem(QStringLiteral("bottom"), QString::number(box.min.latF() - 0.0001));
+    query.addQueryItem(QStringLiteral("right"), QString::number(box.max.lonF() + 0.0001));
+    query.addQueryItem(QStringLiteral("top"), QString::number(box.max.latF() + 0.0001));
 
     switch (element.type()) {
         case OSM::Type::Null:
-            Q_UNREACHABLE();
+            break;
         case OSM::Type::Node:
             query.addQueryItem(QStringLiteral("select"), QLatin1String("node") + QString::number(element.id()));
             break;
@@ -87,9 +105,10 @@ static QUrl makeJosmLoadAndZoomCommand(OSM::Element element)
 }
 
 #ifdef Q_OS_ANDROID
-static void openElementInVespucci(OSM::Element element)
+// https://vespucci.io/tutorials/vespucci_intents/
+static void openVespucci(OSM::BoundingBox box, OSM::Element element = {})
 {
-    auto url = makeJosmLoadAndZoomCommand(element);
+    auto url = makeJosmLoadAndZoomCommand(box, element);
     url.setScheme(QStringLiteral("josm"));
     qCDebug(EditorLog) << url;
     QDesktopServices::openUrl(url);
@@ -116,9 +135,9 @@ static void josmRemoteCommand(const QUrl &url, QElapsedTimer timeout)
     });
 }
 
-static void openElementWithJosm(OSM::Element element)
+// https://josm.openstreetmap.de/wiki/Help/RemoteControlCommands
+static void openJosm(OSM::BoundingBox box, OSM::Element element = {})
 {
-    // TODO start josm if not yet running
 #if HAVE_KSERVICE
     QTcpSocket socket;
     socket.connectToHost(QHostAddress::LocalHost, 8111);
@@ -137,7 +156,7 @@ static void openElementWithJosm(OSM::Element element)
     socket.close();
 #endif
 
-    auto url = makeJosmLoadAndZoomCommand(element);
+    auto url = makeJosmLoadAndZoomCommand(box, element);
     url.setScheme(QStringLiteral("http"));
     url.setHost(QStringLiteral("127.0.0.1"));
     url.setPort(8111);
@@ -182,19 +201,38 @@ void EditorController::editElement(OSM::Element element, Editor editor)
     }
 
     qCDebug(EditorLog) << element.url() << editor;
-
     switch (editor) {
         case ID:
             openElementInId(element);
             break;
         case JOSM:
 #ifndef Q_OS_ANDROID
-            openElementWithJosm(element);
+            openJosm(element.boundingBox(), element);
 #endif
             break;
         case Vespucci:
 #ifdef Q_OS_ANDROID
-            openElementInVespucci(element);
+            openVespucci(element.boundingBox(), element);
+#endif
+            break;
+    }
+}
+
+void EditorController::editBoundingBox(OSM::BoundingBox box, Editor editor)
+{
+    qCDebug(EditorLog) << box << editor;
+    switch (editor) {
+        case ID:
+            openBoundBoxInId(box);
+            break;
+        case JOSM:
+#ifndef Q_OS_ANDROID
+            openJosm(box);
+#endif
+            break;
+        case Vespucci:
+#ifdef Q_OS_ANDROID
+            openVespucci(box);
 #endif
             break;
     }

@@ -44,6 +44,7 @@ class KOSMINDOORMAP_EXPORT View : public QObject
     Q_PROPERTY(double panWidth READ panWidth NOTIFY transformationChanged)
     Q_PROPERTY(double panHeight READ panHeight NOTIFY transformationChanged)
     Q_PROPERTY(int floorLevel READ level WRITE setLevel NOTIFY floorLevelChanged)
+    Q_PROPERTY(QRectF viewport READ viewport NOTIFY transformationChanged)
     Q_PROPERTY(double zoomLevel READ zoomLevel NOTIFY transformationChanged)
     Q_PROPERTY(QDateTime beginTime READ beginTime WRITE setBeginTime NOTIFY timeChanged)
     Q_PROPERTY(QDateTime endTime READ endTime WRITE setEndTime NOTIFY timeChanged)
@@ -52,11 +53,11 @@ public:
     ~View();
 
     /** Map a geographic coordinate to a scene coordinate, ie. apply the mercator projection. */
-    QPointF mapGeoToScene(OSM::Coordinate coord) const;
-    QRectF mapGeoToScene(OSM::BoundingBox box) const;
+    [[nodiscard]] static QPointF mapGeoToScene(OSM::Coordinate coord);
+    [[nodiscard]] static QRectF mapGeoToScene(OSM::BoundingBox box);
     /** Map a scene coordinate to a geographic one, ie. apply the inverse mercator projection. */
-    OSM::Coordinate mapSceneToGeo(QPointF p) const;
-    OSM::BoundingBox mapSceneToGeo(const QRectF &box) const;
+    [[nodiscard]] static OSM::Coordinate mapSceneToGeo(QPointF p);
+    Q_INVOKABLE [[nodiscard]] static OSM::BoundingBox mapSceneToGeo(const QRectF &box);
 
     /** Screen-space sizes, ie the size of the on-screen area used for displaying. */
     int screenWidth() const;
@@ -80,7 +81,7 @@ public:
     /** The sub-rect of the scene bounding box currently displayed.
      *  Specified in scene coordinates.
      */
-    QRectF viewport() const;
+    [[nodiscard]] QRectF viewport() const;
     void setViewport(const QRectF &viewport);
 
     /** Computes the viewport for the given @p zoom level and @p screenCenter.

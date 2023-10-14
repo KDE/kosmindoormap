@@ -13,6 +13,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kpublictransport 1.0 as PublicTransport
 import org.kde.kosmindoormap 1.0
 import org.kde.kosmindoormap.kpublictransport 1.0
+import org.kde.osm.editorcontroller 1.0
 import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 Kirigami.ApplicationWindow {
@@ -130,16 +131,34 @@ Kirigami.ApplicationWindow {
                     id: equipmentAction
                     text: "Show Elevator Status"
                     checkable: true
-                    enabled: !map.mapLoader.isLoading
+                    enabled: !page.map.mapLoader.isLoading
                     onTriggered: page.queryLiveLocationData();
                 },
                 Kirigami.Action {
                     id: rentalVehicleAction
                     text: i18n("Show Rental Vehicles")
                     checkable: true
-                    enabled: !map.mapLoader.isLoading
+                    enabled: !page.map.mapLoader.isLoading
                     onTriggered: page.queryLiveLocationData();
+                },
+                Kirigami.Action {
+                    text: i18n("Edit with iD")
+                    icon.name: "document-edit"
+                    onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.ID)
+                },
+                Kirigami.Action {
+                    text: i18n("Edit with JOSM")
+                    icon.name: "org.openstreetmap.josm"
+                    visible: EditorController.hasEditor(Editor.JOSM)
+                    onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.JOSM)
+                },
+                Kirigami.Action {
+                    text: i18n("Edit with Vespucci")
+                    icon.name: "document-edit"
+                    visible: EditorController.hasEditor(Editor.Vespucci)
+                    onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.Vespucci)
                 }
+
             ]
         }
 

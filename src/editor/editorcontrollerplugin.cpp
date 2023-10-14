@@ -17,6 +17,7 @@ public:
     void registerTypes(const char *uri) override
     {
         Q_UNUSED(uri);
+        qRegisterMetaType<OSM::BoundingBox>();
         qRegisterMetaType<OSM::Element>();
         qmlRegisterSingletonType("org.kde.osm.editorcontroller", 1, 0, "EditorController", [](QQmlEngine*, QJSEngine *engine) -> QJSValue {
             return engine->toScriptValue(KOSM::EditorController());

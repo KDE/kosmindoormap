@@ -507,4 +507,6 @@ inline bool operator<(const Elem &elem, Id id)
 KOSM_EXPORT QDebug operator<<(QDebug debug, OSM::Coordinate coord);
 KOSM_EXPORT QDebug operator<<(QDebug debug, OSM::BoundingBox bbox);
 
+Q_DECLARE_METATYPE(OSM::BoundingBox)
+
 #endif // OSM_DATATYPES_H

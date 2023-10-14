@@ -24,7 +24,7 @@ View::View(QObject *parent)
 
 View::~View() = default;
 
-QPointF View::mapGeoToScene(OSM::Coordinate coord) const
+QPointF View::mapGeoToScene(OSM::Coordinate coord)
 {
     const auto lat = qBound(-LatitudeLimit, coord.latF(), LatitudeLimit);
     return QPointF(
@@ -33,14 +33,14 @@ QPointF View::mapGeoToScene(OSM::Coordinate coord) const
     );
 }
 
-QRectF View::mapGeoToScene(OSM::BoundingBox box) const
+QRectF View::mapGeoToScene(OSM::BoundingBox box)
 {
     const auto p1 = mapGeoToScene(box.min);
     const auto p2 = mapGeoToScene(box.max);
     return QRectF(QPointF(p1.x(), p2.y()), QPointF(p2.x(), p1.y()));
 }
 
-OSM::Coordinate View::mapSceneToGeo(QPointF p) const
+OSM::Coordinate View::mapSceneToGeo(QPointF p)
 {
     return OSM::Coordinate(
         OSM::radToDeg(std::atan(std::sinh(M_PI * (1 - 2 * (p.y() / SceneWorldSize))))),
@@ -48,7 +48,7 @@ OSM::Coordinate View::mapSceneToGeo(QPointF p) const
     );
 }
 
-OSM::BoundingBox View::mapSceneToGeo(const QRectF &box) const
+OSM::BoundingBox View::mapSceneToGeo(const QRectF &box)
 {
     const auto c1 = mapSceneToGeo(box.bottomLeft());
     const auto c2 = mapSceneToGeo(box.topRight());
