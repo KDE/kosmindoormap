@@ -9,6 +9,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1 as QQC2
 import org.kde.kirigami 2.7 as Kirigami
 import org.kde.kosmindoormap 1.0
+import org.kde.osm.editorcontroller 1.0
 
 Kirigami.OverlaySheet {
     id: elementDetailsSheet
@@ -110,6 +111,18 @@ Kirigami.OverlaySheet {
                     default:
                         return infoStringDelegate;
                 }
+            }
+        }
+    }
+
+    footer: RowLayout {
+        QQC2.Button {
+            Layout.alignment: Qt.AlignRight
+            icon.name: "document-edit"
+            text: "Edit"
+            onClicked: {
+                console.log(elementDetailsSheet.model.element.element);
+                EditorController.editElement(elementDetailsSheet.model.element.element)
             }
         }
     }

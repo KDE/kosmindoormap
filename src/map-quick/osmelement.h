@@ -21,6 +21,7 @@ class OSMElement
     Q_PROPERTY(bool isNull READ isNull)
     Q_PROPERTY(QString name READ name)
     Q_PROPERTY(QString url READ url)
+    Q_PROPERTY(OSM::Element element READ element)
 public:
     OSMElement();
     explicit OSMElement(OSM::Element e);
