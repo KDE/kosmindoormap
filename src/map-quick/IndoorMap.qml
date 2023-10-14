@@ -4,10 +4,10 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.12
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 import org.kde.kosmindoormap 1.0
-import QtQuick.Controls 2.12 as QQC2
+import QtQuick.Controls 2.15 as QQC2
 
 /** QML item for displaying a train station or airport map. */
 Item {
@@ -108,6 +108,22 @@ Item {
             minimumRotation: 0.0
             maximumRotation: 0.0
         }
+        WheelHandler {
+            id: wheelHandler
+            target: null
+            orientation: Qt.Vertical
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+            property double initialZoom: 0.0
+            onActiveChanged: {
+                wheelHandler.initialZoom = map.view.zoomLevel
+                wheelHandler.rotation = 0;
+            }
+            onRotationChanged: {
+                // same scale as in qquickmapgestrurearea.cpp
+                map.view.setZoomLevel(wheelHandler.initialZoom + 0.05 * wheelHandler.rotation,
+                                      Qt.point(wheelHandler.point.position.x - flickable.contentX, wheelHandler.point.position.y - flickable.contentY));
+            }
+        }
     }
 
     Connections {
@@ -115,19 +131,6 @@ Item {
         function onTransformationChanged() {
             flickable.contentX = map.view.panX;
             flickable.contentY = map.view.panY;
-        }
-    }
-
-    MouseArea {
-        acceptedButtons: Qt.NoButton
-        anchors.fill: parent
-        onWheel: {
-            if (wheel.angleDelta.y > 0) {
-                map.view.zoomIn(Qt.point(wheel.x, wheel.y));
-            } else {
-                map.view.zoomOut(Qt.point(wheel.x, wheel.y));
-            }
-            wheel.accepted = true;
         }
     }
 
