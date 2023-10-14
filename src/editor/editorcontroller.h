@@ -20,6 +20,14 @@ class EditorController
 {
     Q_GADGET
 public:
+    enum Editor {
+        ID,
+        JOSM,
+        Vespucci
+    };
+    Q_ENUM(Editor)
+
+    Q_INVOKABLE static bool hasEditor(Editor editor);
     Q_INVOKABLE static void editElement(OSM::Element element);
 };
 

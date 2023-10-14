@@ -3,14 +3,26 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <config-editorcontroller.h>
+
 #include "editorcontroller.h"
 #include "logging.h"
 
+#if HAVE_KSERVICE
+#include <KService>
+#include <KShell>
+#endif
+
 #include <QCoreApplication>
 #include <QDesktopServices>
+#include <QElapsedTimer>
+#include <QHostAddress>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QProcess>
+#include <QTcpSocket>
+#include <QTimer>
 #include <QUrl>
 #include <QUrlQuery>
 
@@ -74,6 +86,7 @@ static QUrl makeJosmLoadAndZoomCommand(OSM::Element element)
     return url;
 }
 
+#ifdef Q_OS_ANDROID
 static void openElementInVespucci(OSM::Element element)
 {
     auto url = makeJosmLoadAndZoomCommand(element);
@@ -82,28 +95,85 @@ static void openElementInVespucci(OSM::Element element)
     QDesktopServices::openUrl(url);
 }
 
-#ifndef Q_OS_ANDROID
+#else
+
 static std::unique_ptr<QNetworkAccessManager> s_nam;
+
+static void josmRemoteCommand(const QUrl &url, QElapsedTimer timeout)
+{
+   if (!s_nam) {
+        s_nam = std::make_unique<QNetworkAccessManager>();
+    }
+    auto reply = s_nam->get(QNetworkRequest(url));
+    QObject::connect(reply, &QNetworkReply::finished, QCoreApplication::instance(), [reply, url, timeout]() {
+        reply->deleteLater();
+        qCDebug(EditorLog) << reply->errorString();
+        qCDebug(EditorLog) << reply->readAll();
+        // retry in case JOSM is still starting up
+        if (reply->error() != QNetworkReply::NoError && timeout.elapsed() < 30000) {
+            QTimer::singleShot(1000, QCoreApplication::instance(), [url, timeout]() { josmRemoteCommand(url, timeout); });
+        }
+    });
+}
 
 static void openElementWithJosm(OSM::Element element)
 {
+    // TODO start josm if not yet running
+#if HAVE_KSERVICE
+    QTcpSocket socket;
+    socket.connectToHost(QHostAddress::LocalHost, 8111);
+    if (!socket.waitForConnected(100)) {
+        qCDebug(EditorLog) << "JOSM not running yet, or doesn't have remote control enabled." << socket.errorString();
+        auto s = KService::serviceByDesktopName(QStringLiteral("org.openstreetmap.josm"));
+        qCDebug(EditorLog) << "JOSM not running yet, or doesn't have remote control enabled." << s->exec();
+        Q_ASSERT(s);
+        auto args = KShell::splitArgs(s->exec());
+        if (args.isEmpty()) {
+            return;
+        }
+        const auto program = args.takeFirst();
+        QProcess::startDetached(program, args);
+    }
+    socket.close();
+#endif
+
     auto url = makeJosmLoadAndZoomCommand(element);
     url.setScheme(QStringLiteral("http"));
     url.setHost(QStringLiteral("127.0.0.1"));
     url.setPort(8111);
     qCDebug(EditorLog) << url;
 
-    if (!s_nam) {
-        s_nam.reset(new QNetworkAccessManager);
-    }
-    auto reply = s_nam->get(QNetworkRequest(url));
-    QObject::connect(reply, &QNetworkReply::finished, QCoreApplication::instance(), [reply]() {
-        reply->deleteLater();
-        qCDebug(EditorLog) << reply->errorString();
-        qCDebug(EditorLog) << reply->readAll();
-    });
+    QElapsedTimer timeout;
+    timeout.start();
+    josmRemoteCommand(url, timeout);
 }
 #endif
+
+bool EditorController::hasEditor(Editor editor)
+{
+    switch (editor) {
+        case ID:
+            return true;
+        case JOSM:
+#if HAVE_KSERVICE
+        {
+            auto s = KService::serviceByDesktopName(QStringLiteral("org.openstreetmap.josm"));
+            return s;
+        }
+#else
+            return false;
+#endif
+        case Vespucci:
+#ifdef Q_OS_ANDROID
+            // TODO
+            return true;
+#else
+            return false;
+#endif
+    }
+
+    return false;
+}
 
 void EditorController::editElement(OSM::Element element)
 {
@@ -112,11 +182,17 @@ void EditorController::editElement(OSM::Element element)
     }
 
     qCDebug(EditorLog) << element.url();
-    // TODO check which editor is actually installed
 #ifdef Q_OS_ANDROID
-    openElementInVespucci(element);
+    if (hasEditor(Vespucci)) {
+        openElementInVespucci(element);
+    } else {
+        openElementInVespucci(element);
+    }
 #else
-    openElementWithJosm(element);
-    // openElementInId(element);
+    if (hasEditor(JOSM)) {
+        openElementWithJosm(element);
+    } else {
+        openElementInId(element);
+    }
 #endif
 }

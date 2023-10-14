@@ -1,11 +1,19 @@
 # SPDX-FileCopyrightText: 2023 Volker Krause <vkrause@kde.org>
 # SPDX-License-Identifier: BSD-2-Clause
 
+if (TARGET KF${KF_MAJOR_VERSION}::Service)
+    set(HAVE_KSERVICE TRUE)
+endif()
+configure_file(config-editorcontroller.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-editorcontroller.h)
+
 add_library(KOSMEditorController STATIC
     editorcontroller.cpp
 )
 set_target_properties(KOSMEditorController PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(KOSMEditorController PUBLIC KOSM PRIVATE Qt::Network Qt::Gui)
+if (TARGET KF${KF_MAJOR_VERSION}::Service)
+    target_link_libraries(KOSMEditorController PRIVATE KF${KF_MAJOR_VERSION}::Service)
+endif()
 
 ecm_qt_declare_logging_category(KOSMEditorController
     HEADER logging.h
