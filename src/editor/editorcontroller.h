@@ -8,6 +8,8 @@
 
 #include <osm/element.h>
 
+#include <memory>
+
 namespace KOSM {
 
 /** Filtering/sorting on top of the AmenityModel.
