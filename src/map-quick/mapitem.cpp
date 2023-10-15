@@ -174,6 +174,11 @@ OSMElement MapItem::elementAt(double x, double y) const
         for (auto it = item->element.tagsBegin(); it != item->element.tagsEnd(); ++it) {
             qDebug() << "    " << (*it).key.name() << (*it).value;
         }
+        if (item->element.type() == OSM::Type::Way) {
+            for (const auto node : item->element.way()->nodes) {
+                qDebug() << "    " << node;
+            }
+        }
         return OSMElement(item->element);
     }
     return {};

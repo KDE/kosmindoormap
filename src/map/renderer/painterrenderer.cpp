@@ -339,12 +339,30 @@ void PainterRenderer::renderPolyline(PolylineItem *item, SceneGraphItemPayload::
         auto p = item->pen;
         p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
         if (p.brush().style() == Qt::TexturePattern) {
+            m_painter->save();
+            const auto wt = m_painter->transform();
+            m_painter->resetTransform();
             auto b = p.brush();
-            b.setTransform(brushTransform());
-            p.setBrush(b);
+            // b.setTransform(brushTransform());
+            // p.setBrush(b);
+            // m_painter->setPen(p);
+            p.setWidth(5);
+            Q_ASSERT(item->path.size() > 1);
+            for (auto it = item->path.constBegin(); it != std::prev(item->path.constEnd()); ++it) {
+                QLineF line(wt.map(*it), wt.map(*std::next(it)));
+                // qDebug() << "XXX textured line fill" << line << line.angle(); // << b.transform();
+                b.setTransform(QTransform().translate(wt.map(*it).x(), wt.map(*it).y() - 2.5).rotate(-line.angle()));
+                // QTransform t = brushTransform().translate(-m_view->viewport().x(), -m_view->viewport().y()).rotate(line.angle()).translate(m_view->viewport().x(), m_view->viewport().y());
+                // b.setTransform(t);
+                p.setBrush(b);
+                m_painter->setPen(p);
+                m_painter->drawLine(line);
+            }
+            m_painter->restore();
+        } else {
+            m_painter->setPen(p);
+            m_painter->drawPolyline(item->path);
         }
-        m_painter->setPen(p);
-        m_painter->drawPolyline(item->path);
     } else {
         auto p = item->casingPen;
         p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit) + mapToSceneWidth(item->casingPen.widthF(), item->casingPenWidthUnit));
