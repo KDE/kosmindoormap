@@ -6,9 +6,15 @@ if (TARGET KF${KF_MAJOR_VERSION}::Service)
 endif()
 configure_file(config-editorcontroller.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-editorcontroller.h)
 
-add_library(KOSMEditorController STATIC
+if (ANDROID)
+    add_library(KOSMEditorController)
+else()
+    add_library(KOSMEditorController STATIC)
+endif()
+target_sources(KOSMEditorController PRIVATE
     editorcontroller.cpp
 )
+generate_export_header(KOSMEditorController BASE_NAME KOSMEditorController)
 set_target_properties(KOSMEditorController PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(KOSMEditorController PUBLIC KOSM PRIVATE Qt::Network Qt::Gui)
 if (TARGET KF${KF_MAJOR_VERSION}::Service)
@@ -22,6 +28,15 @@ ecm_qt_declare_logging_category(KOSMEditorController
     DESCRIPTION "KOSM Editor Controller"
     EXPORT KOSMINDOORMAP
 )
+
+if (ANDROID)
+    if (QT_MAJOR_VERSION EQUAL 5)
+        target_link_libraries(KOSMEditorController PRIVATE Qt5::AndroidExtras)
+    endif()
+    add_subdirectory(android)
+    install(TARGETS KOSMEditorController ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+endif()
+
 
 add_library(kosmeditorcontrollerplugin editorcontrollerplugin.cpp)
 target_link_libraries(kosmeditorcontrollerplugin

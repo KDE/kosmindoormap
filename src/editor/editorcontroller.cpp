@@ -13,6 +13,16 @@
 #include <KShell>
 #endif
 
+#ifdef Q_OS_ANDROID
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <QtAndroid>
+#include <QAndroidJniObject>
+#else
+#include <QCoreApplication>
+#include <QJniObject>
+#endif
+#endif
+
 #include <QCoreApplication>
 #include <QDesktopServices>
 #include <QElapsedTimer>
@@ -184,8 +194,13 @@ bool EditorController::hasEditor(Editor editor)
 #endif
         case Vespucci:
 #ifdef Q_OS_ANDROID
-            // TODO
-            return true;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+            return QAndroidJniObject::callStaticMethod<jboolean>("org.kde.osm.editorcontroller.EditorController",
+                "hasVespucci", "(Landroid/content/Context;)Z", QtAndroid::androidActivity().object());
+#else
+            return QJniObject::callStaticMethod<jboolean>("org.kde.osm.editorcontroller.EditorController",
+                "hasVespucci", "(Landroid/content/Context;)Z", QNativeInterface::QAndroidApplication::context());
+#endif
 #else
             return false;
 #endif

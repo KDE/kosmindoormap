@@ -6,6 +6,8 @@
 #ifndef KOSM_EDITORCONTROLLER_H
 #define KOSM_EDITORCONTROLLER_H
 
+#include "kosmeditorcontroller_export.h"
+
 #include <osm/element.h>
 
 #include <memory>
@@ -16,7 +18,7 @@ namespace KOSM {
  *  - filters on all visible roles
  *  - sorts while keeping the grouping intact
  */
-class EditorController
+class KOSMEDITORCONTROLLER_EXPORT EditorController
 {
     Q_GADGET
 public:
