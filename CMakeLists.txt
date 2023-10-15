@@ -55,7 +55,7 @@ if (NOT BUILD_TOOLS_ONLY)
             find_package(Qt5 5.15 REQUIRED COMPONENTS AndroidExtras)
         endif()
     else()
-        find_package(KF${KF_MAJOR_VERSION} OPTIONAL_COMPONENTS Service)
+        find_package(KF${KF_MAJOR_VERSION} OPTIONAL_COMPONENTS CoreAddons Service)
     endif()
 endif()
 
