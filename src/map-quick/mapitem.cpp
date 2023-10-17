@@ -82,7 +82,7 @@ void MapItem::setStylesheetName(const QString &styleSheet)
             auto searchPaths = QStandardPaths::standardLocations(QStandardPaths::AppLocalDataLocation);
 #endif
             searchPaths.push_back(QStringLiteral(":"));
-            for (const auto &searchPath : qAsConst(searchPaths)) {
+            for (const auto &searchPath : std::as_const(searchPaths)) {
                 const QString f = searchPath + QLatin1String("/org.kde.kosmindoormap/assets/css/") + styleSheet + QLatin1String(".mapcss");
                 if (QFile::exists(f)) {
                     qDebug() << "resolved stylesheet name to" << f;
