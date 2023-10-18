@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-09 00:41+0000\n"
-"PO-Revision-Date: 2023-10-14 18:51+0200\n"
+"PO-Revision-Date: 2023-10-16 13:51+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -89,7 +89,7 @@ msgstr "Aquarium"
 #: map-quick/localization_data.cpp:24
 msgctxt "OSM::historic"
 msgid "Archaeological Site"
-msgstr ""
+msgstr "Site archéologique"
 
 #: map-quick/localization_data.cpp:25
 msgctxt "OSM::shop"
@@ -182,11 +182,9 @@ msgid "Bicycle Rental"
 msgstr "Location de bicyclettes"
 
 #: map-quick/localization_data.cpp:43
-#, fuzzy
-#| msgid "Bicycle parking"
 msgctxt "OSM::amenity"
 msgid "Bicycle Repair Station"
-msgstr "Parc à vélos"
+msgstr "Atelier de réparation de vélos"
 
 #: map-quick/localization_data.cpp:44
 msgctxt "OSM::amenity"
@@ -361,7 +359,7 @@ msgstr "Espaces de travail collaboratif"
 #: map-quick/localization_data.cpp:80
 msgctxt "OSM::shop"
 msgid "Art and Craft Supplies"
-msgstr ""
+msgstr "Fournitures d'art et d'artisanat"
 
 #: map-quick/localization_data.cpp:81
 msgctxt "OSM::shop"
@@ -441,7 +439,7 @@ msgstr "Prêt-à-porter"
 #: map-quick/localization_data.cpp:97
 msgctxt "OSM::shop"
 msgid "Fashion Accessories"
-msgstr ""
+msgstr "Accessoires de mode"
 
 #: map-quick/localization_data.cpp:98
 msgctxt "OSM::amenity/shop"
@@ -566,7 +564,7 @@ msgstr "Aides auditives"
 #: map-quick/localization_data.cpp:122
 msgctxt "OSM::shop"
 msgid "Hi-fi"
-msgstr "Hifi"
+msgstr "Hi-fi"
 
 #: map-quick/localization_data.cpp:123
 msgctxt "OSM::amenity/shop"
@@ -733,7 +731,7 @@ msgstr "Boîte de nuit"
 #: map-quick/localization_data.cpp:160
 msgctxt "OSM::shop"
 msgid "Nutrition Supplements"
-msgstr ""
+msgstr "Compléments alimentaires"
 
 #: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
@@ -837,7 +835,7 @@ msgstr "Poterie"
 #: map-quick/localization_data.cpp:181
 msgctxt "OSM::healthcare"
 msgid "Psychotherapist"
-msgstr ""
+msgstr "Psychothérapeute"
 
 #: map-quick/localization_data.cpp:182
 msgctxt "OSM::amenity/shop"
