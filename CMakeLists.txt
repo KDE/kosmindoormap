@@ -98,6 +98,7 @@ if (NOT WIN32)
     set_package_properties(Protobuf PROPERTIES TYPE OPTIONAL PURPOSE "Parsing of OSM PBF files.")
 endif()
 
+add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 ecm_set_disabled_deprecation_versions(QT 5.15.2  KF 5.102.0)
 
 add_subdirectory(src)
