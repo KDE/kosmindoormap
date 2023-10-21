@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 00:41+0000\n"
+"POT-Creation-Date: 2023-10-21 00:41+0000\n"
 "PO-Revision-Date: 2023-09-21 17:56+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1098,412 +1098,486 @@ msgctxt "OSM::cuisine"
 msgid "Austrian"
 msgstr "avstrijska"
 
-#: map-quick/localization_data.cpp:242 map-quick/localization_data.cpp:244
+#: map-quick/localization_data.cpp:242
 msgctxt "OSM::cuisine"
-msgid "BBQ"
-msgstr "Odprti žar"
+msgid "Bagel"
+msgstr ""
 
 #: map-quick/localization_data.cpp:243
+msgctxt "OSM::cuisine"
+msgid "Balkan"
+msgstr ""
+
+#: map-quick/localization_data.cpp:244 map-quick/localization_data.cpp:245
+#: map-quick/localization_data.cpp:247
+msgctxt "OSM::cuisine"
+msgid "Barbecue"
+msgstr ""
+
+#: map-quick/localization_data.cpp:246
 msgctxt "OSM::cuisine"
 msgid "Bavarian"
 msgstr "bavarska"
 
-#: map-quick/localization_data.cpp:245
+#: map-quick/localization_data.cpp:248
+msgctxt "OSM::cuisine"
+msgid "Beef Bowl"
+msgstr ""
+
+#: map-quick/localization_data.cpp:249
+msgctxt "OSM::cuisine"
+msgid "Bolivian"
+msgstr ""
+
+#: map-quick/localization_data.cpp:250
 msgctxt "OSM::cuisine"
 msgid "Brazilian"
 msgstr "brazilska"
 
-#: map-quick/localization_data.cpp:246
+#: map-quick/localization_data.cpp:251
 msgctxt "OSM::cuisine"
 msgid "Breakfast"
 msgstr "Zajtrk"
 
-#: map-quick/localization_data.cpp:247
+#: map-quick/localization_data.cpp:252
+msgctxt "OSM::cuisine"
+msgid "British"
+msgstr ""
+
+#: map-quick/localization_data.cpp:253
+msgctxt "OSM::cuisine"
+msgid "Brunch"
+msgstr ""
+
+#: map-quick/localization_data.cpp:254
 msgctxt "OSM::cuisine"
 msgid "Bubble Tea"
 msgstr "Mehurčni čaj"
 
-#: map-quick/localization_data.cpp:248
+#: map-quick/localization_data.cpp:255
+msgctxt "OSM::cuisine"
+msgid "Buffet"
+msgstr ""
+
+#: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
 msgid "Burger"
 msgstr "Burger"
 
-#: map-quick/localization_data.cpp:249
+#: map-quick/localization_data.cpp:257
 msgctxt "OSM::cuisine"
 msgid "Cake"
 msgstr "Torta"
 
-#: map-quick/localization_data.cpp:250
+#: map-quick/localization_data.cpp:258
+msgctxt "OSM::cuisine"
+msgid "Caribbean"
+msgstr ""
+
+#: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
 msgid "Chicken"
 msgstr "Piščanec"
 
-#: map-quick/localization_data.cpp:251
+#: map-quick/localization_data.cpp:260
 msgctxt "OSM::cuisine"
 msgid "Chinese"
 msgstr "Kitajska"
 
-#: map-quick/localization_data.cpp:252
+#: map-quick/localization_data.cpp:261
 msgctxt "OSM::cuisine"
 msgid "Coffee"
 msgstr "Kava"
 
-#: map-quick/localization_data.cpp:253
+#: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
 msgid "Coffee Shop"
 msgstr "Prodajalna kave"
 
-#: map-quick/localization_data.cpp:254
+#: map-quick/localization_data.cpp:263
 msgctxt "OSM::cuisine"
 msgid "Cookies"
 msgstr "Piškoti"
 
-#: map-quick/localization_data.cpp:255
+#: map-quick/localization_data.cpp:264
 msgctxt "OSM::cuisine"
 msgid "Crêpe"
 msgstr "Palačinka"
 
-#: map-quick/localization_data.cpp:256
+#: map-quick/localization_data.cpp:265
+msgctxt "OSM::cuisine"
+msgid "Curry"
+msgstr ""
+
+#: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
 msgid "Czech"
 msgstr "češka"
 
-#: map-quick/localization_data.cpp:257
+#: map-quick/localization_data.cpp:267
 msgctxt "OSM::cuisine"
 msgid "Dessert"
 msgstr "Desert"
 
-#: map-quick/localization_data.cpp:258
+#: map-quick/localization_data.cpp:268
 msgctxt "OSM::cuisine"
 msgid "Donut"
 msgstr "Krof"
 
-#: map-quick/localization_data.cpp:259 map-quick/localization_data.cpp:260
+#: map-quick/localization_data.cpp:269 map-quick/localization_data.cpp:270
 msgctxt "OSM::cuisine"
 msgid "Dumplings"
 msgstr "Cmoki"
 
-#: map-quick/localization_data.cpp:261
+#: map-quick/localization_data.cpp:271
 msgctxt "OSM::cuisine"
 msgid "Ethiopian"
 msgstr "etiopska"
 
-#: map-quick/localization_data.cpp:262
+#: map-quick/localization_data.cpp:272
 msgctxt "OSM::cuisine"
 msgid "Falafel"
 msgstr "Falafel"
 
-#: map-quick/localization_data.cpp:263
+#: map-quick/localization_data.cpp:273
 msgctxt "OSM::cuisine"
 msgid "Fast Food"
 msgstr "Hitra hrana"
 
-#: map-quick/localization_data.cpp:264
+#: map-quick/localization_data.cpp:274
+msgctxt "OSM::cuisine"
+msgid "Filipino"
+msgstr ""
+
+#: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
 msgid "Fish"
 msgstr "Riba"
 
-#: map-quick/localization_data.cpp:265
+#: map-quick/localization_data.cpp:276
 msgctxt "OSM::cuisine"
 msgid "Fish & Chips"
 msgstr "Riba s krompirčkom"
 
-#: map-quick/localization_data.cpp:266
+#: map-quick/localization_data.cpp:277
 msgctxt "OSM::cuisine"
 msgid "French"
 msgstr "Francoska"
 
-#: map-quick/localization_data.cpp:267
+#: map-quick/localization_data.cpp:278
 msgctxt "OSM::cuisine"
 msgid "Fries"
 msgstr "Pečen krompirček"
 
-#: map-quick/localization_data.cpp:268
+#: map-quick/localization_data.cpp:279
+msgctxt "OSM::cuisine"
+msgid "Georigan"
+msgstr ""
+
+#: map-quick/localization_data.cpp:280
 msgctxt "OSM::cuisine"
 msgid "German"
 msgstr "Nemška"
 
-#: map-quick/localization_data.cpp:269
+#: map-quick/localization_data.cpp:281
 msgctxt "OSM::cuisine"
 msgid "Greek"
 msgstr "Grška"
 
-#: map-quick/localization_data.cpp:270
+#: map-quick/localization_data.cpp:282
 msgctxt "OSM::cuisine"
 msgid "Grill"
 msgstr "Raženj"
 
-#: map-quick/localization_data.cpp:271
+#: map-quick/localization_data.cpp:283
 msgctxt "OSM::cuisine"
 msgid "Gyros"
 msgstr "Gyros"
 
-#: map-quick/localization_data.cpp:272
+#: map-quick/localization_data.cpp:284
 msgctxt "OSM::cuisine"
 msgid "Hawaiian"
 msgstr "havajski"
 
-#: map-quick/localization_data.cpp:273
+#: map-quick/localization_data.cpp:285 map-quick/localization_data.cpp:286
 msgctxt "OSM::cuisine"
 msgid "Hot Dog"
 msgstr "Hot Dog"
 
-#: map-quick/localization_data.cpp:274
+#: map-quick/localization_data.cpp:287
 msgctxt "OSM::cuisine"
 msgid "Ice Cream"
 msgstr "Sladoled"
 
-#: map-quick/localization_data.cpp:275
+#: map-quick/localization_data.cpp:288
 msgctxt "OSM::cuisine"
 msgid "Indian"
 msgstr "indijska"
 
-#: map-quick/localization_data.cpp:276
+#: map-quick/localization_data.cpp:289
 msgctxt "OSM::cuisine"
 msgid "Indonesian"
 msgstr "indonezijska"
 
-#: map-quick/localization_data.cpp:277
+#: map-quick/localization_data.cpp:290
 msgctxt "OSM::cuisine"
 msgid "International"
 msgstr "Mednarodna"
 
-#: map-quick/localization_data.cpp:278
+#: map-quick/localization_data.cpp:291
 msgctxt "OSM::cuisine"
 msgid "Irish"
 msgstr "irska"
 
-#: map-quick/localization_data.cpp:279
+#: map-quick/localization_data.cpp:292
 msgctxt "OSM::cuisine"
 msgid "Italian"
 msgstr "italijanska"
 
-#: map-quick/localization_data.cpp:280 map-quick/localization_data.cpp:299
+#: map-quick/localization_data.cpp:293 map-quick/localization_data.cpp:314
 msgctxt "OSM::cuisine"
 msgid "Pizza"
 msgstr "Pizza"
 
-#: map-quick/localization_data.cpp:281
+#: map-quick/localization_data.cpp:294
 msgctxt "OSM::cuisine"
 msgid "Japanese"
 msgstr "japonska"
 
-#: map-quick/localization_data.cpp:282
+#: map-quick/localization_data.cpp:295
 msgctxt "OSM::cuisine"
 msgid "Juice"
 msgstr "Sok"
 
-#: map-quick/localization_data.cpp:283
+#: map-quick/localization_data.cpp:296
 msgctxt "OSM::cuisine"
 msgid "Kebab"
 msgstr "Kebab"
 
-#: map-quick/localization_data.cpp:284
+#: map-quick/localization_data.cpp:297
 msgctxt "OSM::cuisine"
 msgid "Korean"
 msgstr "korejska"
 
-#: map-quick/localization_data.cpp:285
+#: map-quick/localization_data.cpp:298
 msgctxt "OSM::cuisine"
 msgid "Lebanese"
 msgstr "libanonska"
 
-#: map-quick/localization_data.cpp:286
+#: map-quick/localization_data.cpp:299
 msgctxt "OSM::cuisine"
 msgid "Local"
 msgstr "Lokalna"
 
-#: map-quick/localization_data.cpp:287
+#: map-quick/localization_data.cpp:300
+msgctxt "OSM::cuisine"
+msgid "Malaysian"
+msgstr ""
+
+#: map-quick/localization_data.cpp:301
 msgctxt "OSM::cuisine"
 msgid "Meat"
 msgstr "Meso"
 
-#: map-quick/localization_data.cpp:288
+#: map-quick/localization_data.cpp:302
 msgctxt "OSM::cuisine"
 msgid "Mediterranean"
 msgstr "mediteranska"
 
-#: map-quick/localization_data.cpp:289
+#: map-quick/localization_data.cpp:303
 msgctxt "OSM::cuisine"
 msgid "Mexican"
 msgstr "mehiška"
 
-#: map-quick/localization_data.cpp:290
+#: map-quick/localization_data.cpp:304
 msgctxt "OSM::cuisine"
 msgid "Moroccan"
 msgstr "maročanska"
 
-#: map-quick/localization_data.cpp:291
+#: map-quick/localization_data.cpp:305
 msgctxt "OSM::cuisine"
 msgid "Nepalese"
 msgstr "nepalska"
 
-#: map-quick/localization_data.cpp:292
+#: map-quick/localization_data.cpp:306 map-quick/localization_data.cpp:307
 msgctxt "OSM::cuisine"
 msgid "Noodle"
 msgstr "Rezanci"
 
-#: map-quick/localization_data.cpp:293
+#: map-quick/localization_data.cpp:308
 msgctxt "OSM::cuisine"
 msgid "Pakistani"
 msgstr "Pakistanska"
 
-#: map-quick/localization_data.cpp:294
+#: map-quick/localization_data.cpp:309
 msgctxt "OSM::cuisine"
 msgid "Pancake"
 msgstr "Omleta"
 
-#: map-quick/localization_data.cpp:295
+#: map-quick/localization_data.cpp:310
 msgctxt "OSM::cuisine"
 msgid "Pasta"
 msgstr "Testenine"
 
-#: map-quick/localization_data.cpp:296
+#: map-quick/localization_data.cpp:311
 msgctxt "OSM::cuisine"
 msgid "Pastry"
 msgstr "Testo"
 
-#: map-quick/localization_data.cpp:297
+#: map-quick/localization_data.cpp:312
 msgctxt "OSM::cuisine"
 msgid "Persian"
 msgstr "perzijska"
 
-#: map-quick/localization_data.cpp:298
+#: map-quick/localization_data.cpp:313
 msgctxt "OSM::cuisine"
 msgid "Peruvian"
 msgstr "perujska"
 
-#: map-quick/localization_data.cpp:300
+#: map-quick/localization_data.cpp:315
 msgctxt "OSM::cuisine"
 msgid "Poke"
 msgstr "Nabodalo"
 
-#: map-quick/localization_data.cpp:301
+#: map-quick/localization_data.cpp:316
 msgctxt "OSM::cuisine"
 msgid "Polish"
 msgstr "poljska"
 
-#: map-quick/localization_data.cpp:302
+#: map-quick/localization_data.cpp:317
 msgctxt "OSM::cuisine"
 msgid "Portuguese"
 msgstr "portugalska"
 
-#: map-quick/localization_data.cpp:303
+#: map-quick/localization_data.cpp:318
 msgctxt "OSM::cuisine"
 msgid "Pretzel"
 msgstr "Presta"
 
-#: map-quick/localization_data.cpp:304
+#: map-quick/localization_data.cpp:319
 msgctxt "OSM::cuisine"
 msgid "Ramen"
 msgstr "Ramen"
 
-#: map-quick/localization_data.cpp:305
+#: map-quick/localization_data.cpp:320
 msgctxt "OSM::cuisine"
 msgid "Regional"
 msgstr "Regionalna"
 
-#: map-quick/localization_data.cpp:306
+#: map-quick/localization_data.cpp:321
 msgctxt "OSM::cuisine"
 msgid "Russian"
 msgstr "ruska"
 
-#: map-quick/localization_data.cpp:307
+#: map-quick/localization_data.cpp:322
 msgctxt "OSM::cuisine"
 msgid "Salad"
 msgstr "Solata"
 
-#: map-quick/localization_data.cpp:308
+#: map-quick/localization_data.cpp:323
 msgctxt "OSM::cuisine"
 msgid "Sandwich"
 msgstr "Sendvič"
 
-#: map-quick/localization_data.cpp:309
+#: map-quick/localization_data.cpp:324
 msgctxt "OSM::cuisine"
 msgid "Sausage"
 msgstr "Klobasa"
 
-#: map-quick/localization_data.cpp:310
+#: map-quick/localization_data.cpp:325
 msgctxt "OSM::cuisine"
 msgid "Seafood"
 msgstr "Morska hrana"
 
-#: map-quick/localization_data.cpp:311
+#: map-quick/localization_data.cpp:326
 msgctxt "OSM::cuisine"
 msgid "Shawarma"
 msgstr "Shawarma"
 
-#: map-quick/localization_data.cpp:312
+#: map-quick/localization_data.cpp:327
 msgctxt "OSM::cuisine"
 msgid "Soup"
 msgstr "Juha"
 
-#: map-quick/localization_data.cpp:313
+#: map-quick/localization_data.cpp:328
 msgctxt "OSM::cuisine"
 msgid "Spanish"
 msgstr "španska"
 
-#: map-quick/localization_data.cpp:314 map-quick/localization_data.cpp:315
+#: map-quick/localization_data.cpp:329 map-quick/localization_data.cpp:330
 msgctxt "OSM::cuisine"
 msgid "Steak"
 msgstr "Zrezek"
 
-#: map-quick/localization_data.cpp:316
+#: map-quick/localization_data.cpp:331
 msgctxt "OSM::cuisine"
 msgid "Sushi"
 msgstr "Suši"
 
-#: map-quick/localization_data.cpp:317
+#: map-quick/localization_data.cpp:332
 msgctxt "OSM::cuisine"
 msgid "Syrian"
 msgstr "sirska"
 
-#: map-quick/localization_data.cpp:318
+#: map-quick/localization_data.cpp:333
 msgctxt "OSM::cuisine"
 msgid "Tacos"
 msgstr "Tacos"
 
-#: map-quick/localization_data.cpp:319
+#: map-quick/localization_data.cpp:334
+#, fuzzy
+#| msgctxt "OSM::cuisine"
+#| msgid "Japanese"
+msgctxt "OSM::cuisine"
+msgid "Taiwanese"
+msgstr "japonska"
+
+#: map-quick/localization_data.cpp:335
 msgctxt "OSM::cuisine"
 msgid "Tapas"
 msgstr "Tapas"
 
-#: map-quick/localization_data.cpp:320
+#: map-quick/localization_data.cpp:336
 msgctxt "OSM::cuisine"
 msgid "Tea"
 msgstr "Čaj"
 
-#: map-quick/localization_data.cpp:321
+#: map-quick/localization_data.cpp:337
 msgctxt "OSM::cuisine"
 msgid "Teahouse"
 msgstr "Čajnica"
 
-#: map-quick/localization_data.cpp:322
+#: map-quick/localization_data.cpp:338
+msgctxt "OSM::cuisine"
+msgid "Tex-Mex"
+msgstr ""
+
+#: map-quick/localization_data.cpp:339
 msgctxt "OSM::cuisine"
 msgid "Thai"
 msgstr "Tajska"
 
-#: map-quick/localization_data.cpp:323
+#: map-quick/localization_data.cpp:340
 msgctxt "OSM::cuisine"
 msgid "Turkish"
 msgstr "Turška"
 
-#: map-quick/localization_data.cpp:324
+#: map-quick/localization_data.cpp:341
 msgctxt "OSM::cuisine"
 msgid "Vegetarian"
 msgstr "Vegetarijanska"
 
-#: map-quick/localization_data.cpp:325
+#: map-quick/localization_data.cpp:342
 msgctxt "OSM::cuisine"
 msgid "Vietnamese"
 msgstr "Vietnamska"
 
-#: map-quick/localization_data.cpp:326
+#: map-quick/localization_data.cpp:343
 msgctxt "OSM::cuisine"
 msgid "Waffles"
 msgstr "vaflji"
 
-#: map-quick/localization_data.cpp:327
+#: map-quick/localization_data.cpp:344
 msgctxt "OSM::cuisine"
 msgid "Chicken Wings"
 msgstr "Piščančje perutničke"
@@ -2105,3 +2179,7 @@ msgstr "reliefne tiskane črke"
 msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "vgravirane tiskane črke"
+
+#~ msgctxt "OSM::cuisine"
+#~ msgid "BBQ"
+#~ msgstr "Odprti žar"
