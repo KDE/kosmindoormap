@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 00:41+0000\n"
-"PO-Revision-Date: 2023-09-22 19:11+0200\n"
+"PO-Revision-Date: 2023-10-21 07:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -1098,18 +1098,18 @@ msgstr "Österrikiskt"
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::cuisine"
 msgid "Bagel"
-msgstr ""
+msgstr "Bagel"
 
 #: map-quick/localization_data.cpp:243
 msgctxt "OSM::cuisine"
 msgid "Balkan"
-msgstr ""
+msgstr "Balkanskt"
 
 #: map-quick/localization_data.cpp:244 map-quick/localization_data.cpp:245
 #: map-quick/localization_data.cpp:247
 msgctxt "OSM::cuisine"
 msgid "Barbecue"
-msgstr ""
+msgstr "Barbecue"
 
 #: map-quick/localization_data.cpp:246
 msgctxt "OSM::cuisine"
@@ -1119,12 +1119,12 @@ msgstr "Bayerskt"
 #: map-quick/localization_data.cpp:248
 msgctxt "OSM::cuisine"
 msgid "Beef Bowl"
-msgstr ""
+msgstr "Gyudon"
 
 #: map-quick/localization_data.cpp:249
 msgctxt "OSM::cuisine"
 msgid "Bolivian"
-msgstr ""
+msgstr "Bolivianskt"
 
 #: map-quick/localization_data.cpp:250
 msgctxt "OSM::cuisine"
@@ -1139,12 +1139,12 @@ msgstr "Frukost"
 #: map-quick/localization_data.cpp:252
 msgctxt "OSM::cuisine"
 msgid "British"
-msgstr ""
+msgstr "Brittiskt"
 
 #: map-quick/localization_data.cpp:253
 msgctxt "OSM::cuisine"
 msgid "Brunch"
-msgstr ""
+msgstr "Brunch"
 
 #: map-quick/localization_data.cpp:254
 msgctxt "OSM::cuisine"
@@ -1154,7 +1154,7 @@ msgstr "Bubbelte"
 #: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Buffet"
-msgstr ""
+msgstr "Buffé"
 
 #: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
@@ -1169,7 +1169,7 @@ msgstr "Tårta"
 #: map-quick/localization_data.cpp:258
 msgctxt "OSM::cuisine"
 msgid "Caribbean"
-msgstr ""
+msgstr "Karibiskt"
 
 #: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
@@ -1204,7 +1204,7 @@ msgstr "Crêpes"
 #: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "Curry"
-msgstr ""
+msgstr "Curry"
 
 #: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
@@ -1244,7 +1244,7 @@ msgstr "Snabbmat"
 #: map-quick/localization_data.cpp:274
 msgctxt "OSM::cuisine"
 msgid "Filipino"
-msgstr ""
+msgstr "Filippinskt"
 
 #: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
@@ -1269,7 +1269,7 @@ msgstr "Pommes frites"
 #: map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
 msgid "Georigan"
-msgstr ""
+msgstr "Georgiskt"
 
 #: map-quick/localization_data.cpp:280
 msgctxt "OSM::cuisine"
@@ -1369,7 +1369,7 @@ msgstr "Lokalt"
 #: map-quick/localization_data.cpp:300
 msgctxt "OSM::cuisine"
 msgid "Malaysian"
-msgstr ""
+msgstr "Malaysiskt"
 
 #: map-quick/localization_data.cpp:301
 msgctxt "OSM::cuisine"
@@ -1522,12 +1522,9 @@ msgid "Tacos"
 msgstr "Taco"
 
 #: map-quick/localization_data.cpp:334
-#, fuzzy
-#| msgctxt "OSM::cuisine"
-#| msgid "Japanese"
 msgctxt "OSM::cuisine"
 msgid "Taiwanese"
-msgstr "Japanskt"
+msgstr "Taiwanesiskt"
 
 #: map-quick/localization_data.cpp:335
 msgctxt "OSM::cuisine"
@@ -1547,7 +1544,7 @@ msgstr "Tehus"
 #: map-quick/localization_data.cpp:338
 msgctxt "OSM::cuisine"
 msgid "Tex-Mex"
-msgstr ""
+msgstr "Tex-Mex"
 
 #: map-quick/localization_data.cpp:339
 msgctxt "OSM::cuisine"

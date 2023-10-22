@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 00:41+0000\n"
-"PO-Revision-Date: 2023-09-21 13:25+0200\n"
+"PO-Revision-Date: 2023-10-21 10:27+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -1104,18 +1104,18 @@ msgstr "Austríaca"
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::cuisine"
 msgid "Bagel"
-msgstr ""
+msgstr "Bagel"
 
 #: map-quick/localization_data.cpp:243
 msgctxt "OSM::cuisine"
 msgid "Balkan"
-msgstr ""
+msgstr "Balcànica"
 
 #: map-quick/localization_data.cpp:244 map-quick/localization_data.cpp:245
 #: map-quick/localization_data.cpp:247
 msgctxt "OSM::cuisine"
 msgid "Barbecue"
-msgstr ""
+msgstr "Barbacoa"
 
 #: map-quick/localization_data.cpp:246
 msgctxt "OSM::cuisine"
@@ -1125,12 +1125,12 @@ msgstr "Bavaresa"
 #: map-quick/localization_data.cpp:248
 msgctxt "OSM::cuisine"
 msgid "Beef Bowl"
-msgstr ""
+msgstr "Bol de vedella"
 
 #: map-quick/localization_data.cpp:249
 msgctxt "OSM::cuisine"
 msgid "Bolivian"
-msgstr ""
+msgstr "Boliviana"
 
 #: map-quick/localization_data.cpp:250
 msgctxt "OSM::cuisine"
@@ -1145,12 +1145,12 @@ msgstr "Esmorzar"
 #: map-quick/localization_data.cpp:252
 msgctxt "OSM::cuisine"
 msgid "British"
-msgstr ""
+msgstr "Britànica"
 
 #: map-quick/localization_data.cpp:253
 msgctxt "OSM::cuisine"
 msgid "Brunch"
-msgstr ""
+msgstr "Esmorzar dinar"
 
 # skip-rule: da-te
 #: map-quick/localization_data.cpp:254
@@ -1161,7 +1161,7 @@ msgstr "Te de bombolles"
 #: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Buffet"
-msgstr ""
+msgstr "Bufet"
 
 #: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
@@ -1176,7 +1176,7 @@ msgstr "Pastís"
 #: map-quick/localization_data.cpp:258
 msgctxt "OSM::cuisine"
 msgid "Caribbean"
-msgstr ""
+msgstr "Caribenya"
 
 #: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
@@ -1212,7 +1212,7 @@ msgstr "Crep"
 #: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "Curry"
-msgstr ""
+msgstr "Curri"
 
 #: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
@@ -1249,10 +1249,11 @@ msgctxt "OSM::cuisine"
 msgid "Fast Food"
 msgstr "Menjar ràpid"
 
+# skip-rule: iso_639-Filipino
 #: map-quick/localization_data.cpp:274
 msgctxt "OSM::cuisine"
 msgid "Filipino"
-msgstr ""
+msgstr "Filipina"
 
 #: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
@@ -1278,7 +1279,7 @@ msgstr "Patates fregides"
 #: map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
 msgid "Georigan"
-msgstr ""
+msgstr "Georgiana"
 
 #: map-quick/localization_data.cpp:280
 msgctxt "OSM::cuisine"
@@ -1384,7 +1385,7 @@ msgstr "Local"
 #: map-quick/localization_data.cpp:300
 msgctxt "OSM::cuisine"
 msgid "Malaysian"
-msgstr ""
+msgstr "Malaia"
 
 #: map-quick/localization_data.cpp:301
 msgctxt "OSM::cuisine"
@@ -1540,12 +1541,9 @@ msgstr "Tacos"
 
 # skip-rule: iso_639-Japanese
 #: map-quick/localization_data.cpp:334
-#, fuzzy
-#| msgctxt "OSM::cuisine"
-#| msgid "Japanese"
 msgctxt "OSM::cuisine"
 msgid "Taiwanese"
-msgstr "Japonesa"
+msgstr "Taiwanesa"
 
 #: map-quick/localization_data.cpp:335
 msgctxt "OSM::cuisine"
@@ -1567,7 +1565,7 @@ msgstr "Saló de te"
 #: map-quick/localization_data.cpp:338
 msgctxt "OSM::cuisine"
 msgid "Tex-Mex"
-msgstr ""
+msgstr "Tex-mex"
 
 #: map-quick/localization_data.cpp:339
 msgctxt "OSM::cuisine"
@@ -2187,7 +2185,3 @@ msgstr "lletres impreses amb relleu"
 msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "lletres impreses gravades"
-
-#~ msgctxt "OSM::cuisine"
-#~ msgid "BBQ"
-#~ msgstr "Barbacoa"

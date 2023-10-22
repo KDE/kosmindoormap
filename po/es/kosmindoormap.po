@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 00:41+0000\n"
-"PO-Revision-Date: 2023-09-21 14:30+0200\n"
+"PO-Revision-Date: 2023-10-21 16:54+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -1100,18 +1100,18 @@ msgstr "Austríaca"
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::cuisine"
 msgid "Bagel"
-msgstr ""
+msgstr "Bagel"
 
 #: map-quick/localization_data.cpp:243
 msgctxt "OSM::cuisine"
 msgid "Balkan"
-msgstr ""
+msgstr "Balcánica"
 
 #: map-quick/localization_data.cpp:244 map-quick/localization_data.cpp:245
 #: map-quick/localization_data.cpp:247
 msgctxt "OSM::cuisine"
 msgid "Barbecue"
-msgstr ""
+msgstr "Barbacoa"
 
 #: map-quick/localization_data.cpp:246
 msgctxt "OSM::cuisine"
@@ -1121,12 +1121,12 @@ msgstr "Bávara"
 #: map-quick/localization_data.cpp:248
 msgctxt "OSM::cuisine"
 msgid "Beef Bowl"
-msgstr ""
+msgstr "Plato de carne"
 
 #: map-quick/localization_data.cpp:249
 msgctxt "OSM::cuisine"
 msgid "Bolivian"
-msgstr ""
+msgstr "Boliviana"
 
 #: map-quick/localization_data.cpp:250
 msgctxt "OSM::cuisine"
@@ -1141,12 +1141,12 @@ msgstr "Desayuno"
 #: map-quick/localization_data.cpp:252
 msgctxt "OSM::cuisine"
 msgid "British"
-msgstr ""
+msgstr "Británica"
 
 #: map-quick/localization_data.cpp:253
 msgctxt "OSM::cuisine"
 msgid "Brunch"
-msgstr ""
+msgstr "Brunch"
 
 #: map-quick/localization_data.cpp:254
 msgctxt "OSM::cuisine"
@@ -1156,7 +1156,7 @@ msgstr "Té de burbujas"
 #: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Buffet"
-msgstr ""
+msgstr "Bufé"
 
 #: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
@@ -1171,7 +1171,7 @@ msgstr "Tartas"
 #: map-quick/localization_data.cpp:258
 msgctxt "OSM::cuisine"
 msgid "Caribbean"
-msgstr ""
+msgstr "Caribeña"
 
 #: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
@@ -1206,7 +1206,7 @@ msgstr "Crêpe"
 #: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "Curry"
-msgstr ""
+msgstr "Curry"
 
 #: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
@@ -1246,7 +1246,7 @@ msgstr "Comida rápida"
 #: map-quick/localization_data.cpp:274
 msgctxt "OSM::cuisine"
 msgid "Filipino"
-msgstr ""
+msgstr "Filipina"
 
 #: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
@@ -1271,7 +1271,7 @@ msgstr "Frituras"
 #: map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
 msgid "Georigan"
-msgstr ""
+msgstr "Georgiana"
 
 #: map-quick/localization_data.cpp:280
 msgctxt "OSM::cuisine"
@@ -1371,7 +1371,7 @@ msgstr "Local"
 #: map-quick/localization_data.cpp:300
 msgctxt "OSM::cuisine"
 msgid "Malaysian"
-msgstr ""
+msgstr "Malasia"
 
 #: map-quick/localization_data.cpp:301
 msgctxt "OSM::cuisine"
@@ -1524,12 +1524,9 @@ msgid "Tacos"
 msgstr "Tacos"
 
 #: map-quick/localization_data.cpp:334
-#, fuzzy
-#| msgctxt "OSM::cuisine"
-#| msgid "Japanese"
 msgctxt "OSM::cuisine"
 msgid "Taiwanese"
-msgstr "Japonesa"
+msgstr "Taiwanesa"
 
 #: map-quick/localization_data.cpp:335
 msgctxt "OSM::cuisine"
@@ -1549,7 +1546,7 @@ msgstr "Salón de té"
 #: map-quick/localization_data.cpp:338
 msgctxt "OSM::cuisine"
 msgid "Tex-Mex"
-msgstr ""
+msgstr "Tex-mex"
 
 #: map-quick/localization_data.cpp:339
 msgctxt "OSM::cuisine"
