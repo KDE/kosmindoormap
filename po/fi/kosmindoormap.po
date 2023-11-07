@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 02:30+0000\n"
-"PO-Revision-Date: 2023-06-07 16:38+0300\n"
+"PO-Revision-Date: 2023-09-27 18:38+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -262,8 +262,7 @@ msgid "Remaining range"
 msgstr "Jäljellä oleva kulkusäde"
 
 #: map-quick/osmelementinformationmodel.cpp:556
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -507,12 +506,12 @@ msgstr "Makeiset"
 #: map-quick/osmelementinformationmodel_data.cpp:59
 msgctxt "OSM::amenity/shop"
 msgid "Convenience Store"
-msgstr ""
+msgstr "Lähikauppa"
 
 #: map-quick/osmelementinformationmodel_data.cpp:60
 msgctxt "OSM::amenity/shop"
 msgid "Copy Shop"
-msgstr ""
+msgstr "Kopiointiliike"
 
 #: map-quick/osmelementinformationmodel_data.cpp:61
 msgctxt "OSM::amenity/shop"
