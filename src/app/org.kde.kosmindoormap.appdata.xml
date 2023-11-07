@@ -30,6 +30,7 @@
   <name xml:lang="sv">KDE OSM inomhuskarta</name>
   <name xml:lang="tr">KDE OSM İç Mekan Haritası</name>
   <name xml:lang="uk">Внутрішня карта OSM KDE</name>
+  <name xml:lang="x-test">xxKDE OSM Indoor Mapxx</name>
   <name xml:lang="zh-CN">KDE OSM 室内地图</name>
   <summary>OSM indoor map demo application</summary>
   <summary xml:lang="ca">Aplicació de demostració de mapes OSM d'interiors</summary>
@@ -54,6 +55,7 @@
   <summary xml:lang="sv">Demonstrationsprogram för OSM inomhuskarta</summary>
   <summary xml:lang="tr">OSM iç mekan haritası tanıtım uygulaması</summary>
   <summary xml:lang="uk">Демонстраційна програма внутрішніх карт OSM</summary>
+  <summary xml:lang="x-test">xxOSM indoor map demo applicationxx</summary>
   <summary xml:lang="zh-CN">OSM 室内地图演示应用</summary>
   <description>
     <p>Demo application for KDE's OSM indoor map component.</p>
@@ -79,6 +81,7 @@
     <p xml:lang="sv">Demonstrationsprogram för KDE:s komponent för OSM inomhuskarta.</p>
     <p xml:lang="tr">KDE'nin OSM iç mekan haritası bileşeni için tanıtım uygulaması.</p>
     <p xml:lang="uk">Демонстраційна програма для компонента внутрішньобудинкових кар OSM KDE.</p>
+    <p xml:lang="x-test">xxDemo application for KDE's OSM indoor map component.xx</p>
     <p xml:lang="zh-CN">KDE OSM 室内地图组件的演示应用</p>
   </description>
   <categories>
