@@ -5,18 +5,18 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "mapcssparser_p.h"
+#include "mapcssparser_impl.h"
 #include "mapcssscanner.h"
 
-#include "style/mapcssparser.h"
+#include "style/mapcssparser_p.h"
 #include "style/mapcssrule_p.h"
 #include "style/mapcssselector_p.h"
 #include "style/mapcssstyle.h"
 
-void yyerror(YYLTYPE *loc, KOSMIndoorMap::MapCSSParser *parser, yyscan_t scanner, char const* msg)
+void yyerror(YYLTYPE *loc, KOSMIndoorMap::MapCSSParserPrivate *parser, yyscan_t scanner, char const* msg)
 {
     (void)scanner;
-    qWarning() << "PARSER ERROR:" << msg << "in" << parser->fileName() << "line:" << loc->first_line << "column:" << loc->first_column;
+    qWarning() << "PARSER ERROR:" << msg << "in" << parser->m_currentFileName << "line:" << loc->first_line << "column:" << loc->first_column;
     parser->setError(QString::fromUtf8(msg), loc->first_line, loc->first_column);
 }
 
@@ -31,7 +31,7 @@ using namespace KOSMIndoorMap;
 
 namespace KOSMIndoorMap {
 class MapCSSDeclaration;
-class MapCSSParser;
+class MapCSSParserPrivate;
 class MapCSSRule;
 class MapCSSStyle;
 
@@ -61,7 +61,7 @@ using namespace KOSMIndoorMap;
 
 %locations
 %lex-param { yyscan_t scanner }
-%parse-param { KOSMIndoorMap::MapCSSParser *parser }
+%parse-param { KOSMIndoorMap::MapCSSParserPrivate *parser }
 %parse-param { yyscan_t scanner }
 
 %union {

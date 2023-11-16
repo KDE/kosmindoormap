@@ -5,9 +5,10 @@
 */
 
 #include "mapcssparser.h"
+#include "mapcssparser_p.h"
 #include "logging.h"
 
-#include "mapcssparser_p.h"
+#include "mapcssparser_impl.h"
 #include "mapcssrule_p.h"
 #include "mapcssscanner.h"
 #include "mapcssstyle.h"
@@ -52,39 +53,46 @@ char* unquoteString(const char *str)
 
 using namespace KOSMIndoorMap;
 
+MapCSSParser::MapCSSParser()
+    : d(new MapCSSParserPrivate)
+{
+}
+
+MapCSSParser::~MapCSSParser() = default;
+
 bool MapCSSParser::hasError() const
 {
-    return m_error;
+    return d->m_error;
 }
 
 QString MapCSSParser::fileName() const
 {
-    return m_currentFileName;
+    return d->m_currentFileName;
 }
 
 QString MapCSSParser::errorMessage() const
 {
-    if (!m_error) {
+    if (!d->m_error) {
         return {};
     }
 
-    return m_errorMsg + QLatin1String(": ") + fileName() + QLatin1Char(':') + QString::number(m_line) + QLatin1Char(':') + QString::number(m_column);
+    return d->m_errorMsg + QLatin1String(": ") + fileName() + QLatin1Char(':') + QString::number(d->m_line) + QLatin1Char(':') + QString::number(d->m_column);
 }
 
 MapCSSStyle MapCSSParser::parse(const QString &fileName)
 {
-    m_error = true;
+    d->m_error = true;
 
     MapCSSStyle style;
-    parse(&style, fileName);
-    if (m_error) {
+    d->parse(&style, fileName);
+    if (d->m_error) {
         return MapCSSStyle();
     }
 
     return style;
 }
 
-void MapCSSParser::parse(MapCSSStyle *style, const QString &fileName)
+void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName)
 {
     QFile f(fileName);
     if (!f.open(QFile::ReadOnly)) {
@@ -116,7 +124,7 @@ void MapCSSParser::parse(MapCSSStyle *style, const QString &fileName)
     m_currentStyle = nullptr;
 }
 
-bool MapCSSParser::addImport(char* fileName)
+bool MapCSSParserPrivate::addImport(char* fileName)
 {
     auto cssFile = QString::fromUtf8(fileName);
     free(fileName);
@@ -126,20 +134,20 @@ bool MapCSSParser::addImport(char* fileName)
     }
 
     MapCSSParser p;
-    p.parse(m_currentStyle, cssFile);
+    p.d->parse(m_currentStyle, cssFile);
     if (p.hasError()) {
-        m_error = p.m_error;
+        m_error = p.d->m_error;
         m_errorMsg = p.errorMessage();
     }
     return !p.hasError();
 }
 
-void MapCSSParser::addRule(MapCSSRule *rule)
+void MapCSSParserPrivate::addRule(MapCSSRule *rule)
 {
     MapCSSStylePrivate::get(m_currentStyle)->m_rules.push_back(std::unique_ptr<MapCSSRule>(rule));
 }
 
-void MapCSSParser::setError(const QString &msg, int line, int column)
+void MapCSSParserPrivate::setError(const QString &msg, int line, int column)
 {
     m_error = true;
     m_errorMsg = msg;
@@ -147,12 +155,12 @@ void MapCSSParser::setError(const QString &msg, int line, int column)
     m_column = column;
 }
 
-ClassSelectorKey MapCSSParser::makeClassSelector(const char *str, std::size_t len)
+ClassSelectorKey MapCSSParserPrivate::makeClassSelector(const char *str, std::size_t len)
 {
     return MapCSSStylePrivate::get(m_currentStyle)->m_classSelectorRegistry.makeKey(str, len, OSM::StringMemory::Transient);
 }
 
-LayerSelectorKey MapCSSParser::makeLayerSelector(const char *str, std::size_t len)
+LayerSelectorKey MapCSSParserPrivate::makeLayerSelector(const char *str, std::size_t len)
 {
     if (!str || std::strcmp(str, "default") == 0) {
         return {};

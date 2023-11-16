@@ -5,7 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "mapcssparser_p.h"
+#include "mapcssparser_impl.h"
 #include "style/mapcssselector_p.h"
 
 // ### ugly workaround for locale-ignoring string to float conversion

@@ -26,8 +26,8 @@ class DataSet;
 class QIODevice;
 class PenWidthUtilTest;
 
-namespace KOSMIndoorMap { class MapCSSParser; }
-int yyparse(KOSMIndoorMap::MapCSSParser*, void*);
+namespace KOSMIndoorMap { class MapCSSParserPrivate; }
+int yyparse(KOSMIndoorMap::MapCSSParserPrivate*, void*);
 
 namespace KOSMIndoorMap {
 
@@ -179,7 +179,7 @@ public:
     void write(QIODevice *out) const;
 
 private:
-    friend int ::yyparse(KOSMIndoorMap::MapCSSParser*, void*);
+    friend int ::yyparse(KOSMIndoorMap::MapCSSParserPrivate*, void*);
     friend class ::PenWidthUtilTest;
 
     /** @internal, for use by the parser. */

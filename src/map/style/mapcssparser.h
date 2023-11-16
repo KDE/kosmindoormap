@@ -9,18 +9,13 @@
 
 #include "kosmindoormap_export.h"
 
-#include "mapcsstypes.h"
+#include <memory>
 
-#include <QString>
-
-namespace KOSMIndoorMap { class MapCSSParser; }
-int yyparse(KOSMIndoorMap::MapCSSParser*, void*);
-struct YYLTYPE;
-typedef void* yyscan_t;
-void yyerror(YYLTYPE*, KOSMIndoorMap::MapCSSParser*, yyscan_t, char const*);
+class QString;
 
 namespace KOSMIndoorMap {
 
+class MapCSSParserPrivate;
 class MapCSSStyle;
 class MapCSSRule;
 
@@ -28,32 +23,18 @@ class MapCSSRule;
 class KOSMINDOORMAP_EXPORT MapCSSParser
 {
 public:
+    explicit MapCSSParser();
+    ~MapCSSParser();
+
     MapCSSStyle parse(const QString &fileName);
 
-    bool hasError() const;
-    QString fileName() const;
-    QString errorMessage() const;
+    [[nodiscard]] bool hasError() const;
+    [[nodiscard]] QString fileName() const;
+    [[nodiscard]] QString errorMessage() const;
 
 private:
-    friend int ::yyparse(KOSMIndoorMap::MapCSSParser*, void*);
-    friend void ::yyerror(YYLTYPE*, KOSMIndoorMap::MapCSSParser*, yyscan_t, char const*);
-
-    void parse(MapCSSStyle *style, const QString &fileName);
-
-    /** @internal for use by the generated parser only. */
-    bool addImport(char *fileName);
-    void addRule(MapCSSRule *rule);
-    void setError(const QString &msg, int line, int column);
-
-    ClassSelectorKey makeClassSelector(const char *str, std::size_t len);
-    LayerSelectorKey makeLayerSelector(const char *str, std::size_t len);
-
-    MapCSSStyle *m_currentStyle = nullptr;
-    QString m_currentFileName;
-    bool m_error = false;
-    QString m_errorMsg;
-    int m_line = 0;
-    int m_column = 0;
+    friend class MapCSSParserPrivate;
+    std::unique_ptr<MapCSSParserPrivate> d;
 };
 
 }

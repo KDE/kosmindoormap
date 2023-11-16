@@ -21,8 +21,8 @@ if (NOT BUILD_TOOLS_ONLY)
     )
     bison_target(mapcssparser
         style/mapcssparser.y
-        ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_p.cpp
-        DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_p.h
+        ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_impl.cpp
+        DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_impl.h
     )
     add_flex_bison_dependency(mapcssscanner mapcssparser)
     set_source_files_properties(${BISON_mapcssparser_OUTPUTS} ${FLEX_mapcssscanner_OUTPUTS} PROPERTIES SKIP_AUTOMOC ON)
