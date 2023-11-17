@@ -222,3 +222,5 @@ void EquipmentModel::createSyntheticElement(Equipment& eq) const
         eq.syntheticElement.setTagValue(m_tagKeys.level, std::move(levelValue));
     }
 }
+
+#include "moc_equipmentmodel.cpp"

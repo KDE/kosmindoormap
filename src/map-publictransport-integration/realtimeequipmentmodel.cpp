@@ -217,3 +217,5 @@ void RealtimeEquipmentModel::resolveEquipmentPair(int eqRow1, int eqRow2, int rt
         }
     }
 }
+
+#include "moc_realtimeequipmentmodel.cpp"

@@ -60,3 +60,5 @@ QString OSMAddress::country() const
     const auto c = KCountry::fromLocation(m_element.center().latF(), m_element.center().lonF());
     return c.alpha2();
 }
+
+#include "moc_osmaddress.cpp"

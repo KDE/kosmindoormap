@@ -204,3 +204,5 @@ void GateModel::setGateTag(int idx, OSM::TagKey key, bool enabled)
 
     OSM::setTagValue(m_gates[idx].node, key, enabled ? "1" : "0");
 }
+
+#include "moc_gatemodel.cpp"

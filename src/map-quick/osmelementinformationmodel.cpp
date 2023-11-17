@@ -944,3 +944,5 @@ QString OSMElementInformationModel::translatedBoolValue(const QByteArray &value)
     }
     return QString::fromUtf8(value);
 }
+
+#include "moc_osmelementinformationmodel.cpp"

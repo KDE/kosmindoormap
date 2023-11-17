@@ -134,3 +134,5 @@ bool FloorLevelModel::hasFloorLevels() const
 {
     return rowCount() > 1;
 }
+
+#include "moc_floorlevelmodel.cpp"

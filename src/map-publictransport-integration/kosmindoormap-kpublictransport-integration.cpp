@@ -18,3 +18,5 @@ void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
     qmlRegisterType<LocationQueryOverlayProxyModel>("org.kde.kosmindoormap.kpublictransport", 1, 0, "LocationQueryOverlayProxyModel");
     qmlRegisterType<RealtimeEquipmentModel>("org.kde.kosmindoormap.kpublictransport", 1, 0, "RealtimeEquipmentModel");
 }
+
+#include "moc_kosmindoormap-kpublictransport-integration.cpp"

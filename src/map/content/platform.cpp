@@ -562,3 +562,5 @@ QString Platform::preferredName(const QString &lhs, const QString &rhs)
 
     return lhs.size() <= rhs.size() ? lhs: rhs;
 }
+
+#include "moc_platform.cpp"

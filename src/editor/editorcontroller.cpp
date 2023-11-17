@@ -252,3 +252,5 @@ void EditorController::editBoundingBox(OSM::BoundingBox box, Editor editor)
             break;
     }
 }
+
+#include "moc_editorcontroller.cpp"

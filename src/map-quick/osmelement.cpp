@@ -42,3 +42,5 @@ OSM::Element OSMElement::element() const
 {
     return m_element;
 }
+
+#include "moc_osmelement.cpp"

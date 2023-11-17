@@ -227,3 +227,5 @@ void OverpassQueryManagerPrivate::cancelQuery(OverpassQuery *query)
     m_tasks.erase(std::remove_if(m_tasks.begin(), m_tasks.end(), [query](const auto &task) { return task->query == query; }), m_tasks.end());
     checkQueryFinished(query);
 }
+
+#include "moc_overpassquerymanager.cpp"

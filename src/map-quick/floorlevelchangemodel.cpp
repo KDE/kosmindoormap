@@ -228,3 +228,5 @@ QString FloorLevelChangeModel::title() const
     qWarning() << "Unknown floor level change element type:" << m_element.url();
     return {};
 }
+
+#include "moc_floorlevelchangemodel.cpp"

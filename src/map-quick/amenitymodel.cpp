@@ -262,3 +262,5 @@ void AmenityModel::populateModel()
     });
     qCDebug(Log) << m_entries.size() << "amenities found";
 }
+
+#include "moc_amenitymodel.cpp"

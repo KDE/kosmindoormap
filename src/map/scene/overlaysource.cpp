@@ -113,3 +113,5 @@ void ModelOverlaySource::hiddenElements(std::vector<OSM::Element> &elems) const
         }
     }
 }
+
+#include "moc_overlaysource.cpp"

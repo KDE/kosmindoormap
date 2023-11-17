@@ -60,3 +60,5 @@ bool AmenitySortFilterProxyModel::filterMatches(const QString &s) const
 {
     return s.contains(m_filter, Qt::CaseInsensitive); // TODO ignore diacritics
 }
+
+#include "moc_amenitysortfilterproxymodel.cpp"

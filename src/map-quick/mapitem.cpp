@@ -292,3 +292,5 @@ void MapItem::setTimeZoneId(const QString &tz)
     m_data.setTimeZone(QTimeZone(tzId));
     Q_EMIT timeZoneChanged();
 }
+
+#include "moc_mapitem.cpp"

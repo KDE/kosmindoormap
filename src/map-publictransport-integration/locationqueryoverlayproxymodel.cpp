@@ -264,3 +264,5 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
     }
     return info;
 }
+
+#include "moc_locationqueryoverlayproxymodel.cpp"

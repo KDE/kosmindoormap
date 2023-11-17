@@ -369,3 +369,5 @@ void View::setEndTime(const QDateTime& endTime)
     m_endTime = alignedTime;
     Q_EMIT timeChanged();
 }
+
+#include "moc_view.cpp"

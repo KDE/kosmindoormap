@@ -98,3 +98,5 @@ OverpassQuery::Error OverpassQuery::processReply(QNetworkReply *reply)
     qDebug() << "Relations:" << m_result.relations.size();
     return NoError;
 }
+
+#include "moc_overpassquery.cpp"

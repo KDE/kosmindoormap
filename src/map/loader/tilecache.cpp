@@ -254,3 +254,5 @@ void TileCache::updateTtl(const QString &filePath, const QDateTime &ttl)
     f.open(QFile::WriteOnly | QFile::Append);
     f.setFileTime(std::max(f.fileTime(QFileDevice::FileModificationTime), ttl), QFile::FileModificationTime);
 }
+
+#include "moc_tilecache_p.cpp"

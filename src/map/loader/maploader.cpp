@@ -288,3 +288,5 @@ QString MapLoader::errorMessage() const
 {
     return d->m_errorMessage;
 }
+
+#include "moc_maploader.cpp"

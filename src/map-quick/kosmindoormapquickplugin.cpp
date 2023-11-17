@@ -43,3 +43,5 @@ void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
     qmlRegisterType<GateModel>("org.kde.kosmindoormap", 1, 0, "GateModel");
     qmlRegisterType<PlatformModel>("org.kde.kosmindoormap", 1, 0, "PlatformModel");
 }
+
+#include "moc_kosmindoormapquickplugin.cpp"
