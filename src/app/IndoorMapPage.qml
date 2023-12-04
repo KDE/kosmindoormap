@@ -25,18 +25,18 @@ Kirigami.Page {
     // TODO in theory we could make this conditional to having panned the map all the way to the right
     Kirigami.ColumnView.preventStealing: true
 
-    actions {
-        left: Kirigami.Action {
-            iconName: "go-down-symbolic"
+    actions: [
+        Kirigami.Action {
+            icon.name: "go-down-symbolic"
             enabled: map.floorLevels.hasFloorLevelBelow(map.view.floorLevel)
             onTriggered: map.view.floorLevel = map.floorLevels.floorLevelBelow(map.view.floorLevel)
-        }
-        right: Kirigami.Action {
-            iconName: "go-up-symbolic"
+        },
+        Kirigami.Action {
+            icon.name: "go-up-symbolic"
             enabled: map.floorLevels.hasFloorLevelAbove(map.view.floorLevel)
             onTriggered: map.view.floorLevel = map.floorLevels.floorLevelAbove(map.view.floorLevel)
         }
-    }
+    ]
 
     OSMElementInformationModel {
         id: infoModel
@@ -62,10 +62,11 @@ Kirigami.Page {
         }
         ListView {
             model: floorLevelChangeModel
-            delegate: Kirigami.BasicListItem {
+            // delegate: Kirigami.BasicListItem {
+            delegate: QQC2.ItemDelegate {
                 highlighted: false
                 text: model.display
-                bold: model.isCurrentFloor
+                // bold: model.isCurrentFloor
                 onClicked: {
                     elevatorSheet.sheetOpen = false;
                     map.view.floorLevel = model.floorLevel;

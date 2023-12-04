@@ -85,82 +85,79 @@ Kirigami.ApplicationWindow {
         id: page
         debug: debugAction.checked
 
-        actions {
-            main: Kirigami.Action {
+        actions: [
+            Kirigami.Action {
                 text: "Select Location"
                 icon.name: "search"
                 onTriggered: locationSheet.sheetOpen = true
+            },
+            Kirigami.Action {
+                text: "Light Style"
+                onTriggered: page.map.styleSheet = "breeze-light"
+            },
+            Kirigami.Action {
+                text: "Dark Style"
+                onTriggered: page.map.styleSheet = "breeze-dark"
+            },
+            Kirigami.Action {
+                text: "Diagnostic View"
+                onTriggered: page.map.styleSheet = "diagnostic"
+            },
+            Kirigami.Action {
+                id: debugAction
+                text: "Debug Info Model"
+                checkable: true
+                checked: false
+            },
+            Kirigami.Action {
+                id: platformAction
+                text: "Find Platform"
+                onTriggered: platformSheet.sheetOpen = true
+                visible: !platformModel.isEmpty
+            },
+            Kirigami.Action {
+                id: gateAction
+                text: "Find Gate"
+                onTriggered: gateSheet.sheetOpen = true
+                visible: !gateModel.isEmpty
+            },
+            Kirigami.Action {
+                id: amenityAction
+                text: "Find Amenity"
+                onTriggered: amenitySheet.open()
+            },
+            Kirigami.Action {
+                id: equipmentAction
+                text: "Show Elevator Status"
+                checkable: true
+                enabled: !page.map.mapLoader.isLoading
+                onTriggered: page.queryLiveLocationData();
+            },
+            Kirigami.Action {
+                id: rentalVehicleAction
+                text: i18n("Show Rental Vehicles")
+                checkable: true
+                enabled: !page.map.mapLoader.isLoading
+                onTriggered: page.queryLiveLocationData();
+            },
+            Kirigami.Action {
+                text: i18n("Edit with iD")
+                icon.name: "document-edit"
+                onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.ID)
+            },
+            Kirigami.Action {
+                text: i18n("Edit with JOSM")
+                icon.name: "org.openstreetmap.josm"
+                visible: EditorController.hasEditor(Editor.JOSM)
+                onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.JOSM)
+            },
+            Kirigami.Action {
+                text: i18n("Edit with Vespucci")
+                icon.name: "document-edit"
+                visible: EditorController.hasEditor(Editor.Vespucci)
+                onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.Vespucci)
             }
-            contextualActions: [
-                Kirigami.Action {
-                    text: "Light Style"
-                    onTriggered: page.map.styleSheet = "breeze-light"
-                },
-                Kirigami.Action {
-                    text: "Dark Style"
-                    onTriggered: page.map.styleSheet = "breeze-dark"
-                },
-                Kirigami.Action {
-                    text: "Diagnostic View"
-                    onTriggered: page.map.styleSheet = "diagnostic"
-                },
-                Kirigami.Action {
-                    id: debugAction
-                    text: "Debug Info Model"
-                    checkable: true
-                    checked: false
-                },
-                Kirigami.Action {
-                    id: platformAction
-                    text: "Find Platform"
-                    onTriggered: platformSheet.sheetOpen = true
-                    visible: !platformModel.isEmpty
-                },
-                Kirigami.Action {
-                    id: gateAction
-                    text: "Find Gate"
-                    onTriggered: gateSheet.sheetOpen = true
-                    visible: !gateModel.isEmpty
-                },
-                Kirigami.Action {
-                    id: amenityAction
-                    text: "Find Amenity"
-                    onTriggered: amenitySheet.open()
-                },
-                Kirigami.Action {
-                    id: equipmentAction
-                    text: "Show Elevator Status"
-                    checkable: true
-                    enabled: !page.map.mapLoader.isLoading
-                    onTriggered: page.queryLiveLocationData();
-                },
-                Kirigami.Action {
-                    id: rentalVehicleAction
-                    text: i18n("Show Rental Vehicles")
-                    checkable: true
-                    enabled: !page.map.mapLoader.isLoading
-                    onTriggered: page.queryLiveLocationData();
-                },
-                Kirigami.Action {
-                    text: i18n("Edit with iD")
-                    icon.name: "document-edit"
-                    onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.ID)
-                },
-                Kirigami.Action {
-                    text: i18n("Edit with JOSM")
-                    icon.name: "org.openstreetmap.josm"
-                    visible: EditorController.hasEditor(Editor.JOSM)
-                    onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.JOSM)
-                },
-                Kirigami.Action {
-                    text: i18n("Edit with Vespucci")
-                    icon.name: "document-edit"
-                    visible: EditorController.hasEditor(Editor.Vespucci)
-                    onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.Vespucci)
-                }
-
-            ]
-        }
+        ]
 
         function queryLiveLocationData() {
             if (rentalVehicleAction.checked || equipmentAction.checked) {
@@ -182,7 +179,8 @@ Kirigami.ApplicationWindow {
 
         Component {
             id: platformDelegate
-            Kirigami.AbstractListItem {
+            // Kirigami.AbstractListItem {
+            QQC2.ItemDelegate {
                 property var platform: model
                 Row {
                     QQC2.Label { text: platform.lines.length == 0 ? platform.display : (platform.display + " - "); }
@@ -269,7 +267,8 @@ Kirigami.ApplicationWindow {
             ListView {
                 model: gateModel
 
-                delegate: Kirigami.BasicListItem {
+                // delegate: Kirigami.BasicListItem {
+                delegate: QQC2.ItemDelegate {
                     text: model.display
                     highlighted: false
                     onClicked: {
@@ -323,9 +322,8 @@ Kirigami.ApplicationWindow {
                 id: amenitySearchField
                 focus: true
             }
-            onSheetOpenChanged: {
-                if (sheetOpen)
-                    amenitySearchField.clear();
+            onOpened: {
+                amenitySearchField.clear();
             }
         }
 

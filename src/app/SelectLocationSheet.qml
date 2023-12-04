@@ -109,8 +109,11 @@ Kirigami.OverlaySheet {
             clip: true
             implicitHeight: contentHeight
             model: locationModel
-            delegate: Kirigami.BasicListItem {
-                label: location.name
+            // delegate: Kirigami.BasicListItem {
+            //     label: location.name
+            // }
+            delegate: QQC2.ItemDelegate {
+                text: location.name
             }
 
             onCurrentIndexChanged: function() {

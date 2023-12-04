@@ -16,7 +16,8 @@ Kirigami.ScrollablePage {
 
     Component {
         id: attributionDelegate
-        Kirigami.AbstractListItem {
+        // Kirigami.AbstractListItem {
+        QQC2.ItemDelegate {
             width: ListView.view.width
             highlighted: false
             ColumnLayout {

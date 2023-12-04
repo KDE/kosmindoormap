@@ -136,9 +136,7 @@ Kirigami.OverlaySheet {
         }
     }
 
-    onSheetOpenChanged: {
-        if (sheetOpen == false) {
-            elementDetailsSheet.model.clear()
-        }
+    onClosed: {
+        elementDetailsSheet.model.clear()
     }
 }

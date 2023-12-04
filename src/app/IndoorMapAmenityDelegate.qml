@@ -10,7 +10,8 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kopeninghours 1.0
 import org.kde.kosmindoormap 1.0
 
-Kirigami.AbstractListItem {
+// Kirigami.AbstractListItem {
+QQC2.ItemDelegate {
     id: root
     required property string name
     required property string typeName
