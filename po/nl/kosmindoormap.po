@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:28+0000\n"
-"PO-Revision-Date: 2023-10-21 12:56+0200\n"
+"PO-Revision-Date: 2023-12-08 11:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: app/main.cpp:50
 #, kde-format
@@ -456,7 +456,7 @@ msgstr "Ferry-terminal"
 #: map-quick/localization_data.cpp:100
 msgctxt "OSM::amenity"
 msgid "Fire Station"
-msgstr "Brandweergarage"
+msgstr "Brandweerkazerne"
 
 #: map-quick/localization_data.cpp:101
 msgctxt "OSM::leisure"
@@ -491,7 +491,7 @@ msgstr "Fontein"
 #: map-quick/localization_data.cpp:107
 msgctxt "OSM::amenity"
 msgid "Gas Station"
-msgstr "Gasstation"
+msgstr "Benzinestation"
 
 #: map-quick/localization_data.cpp:108
 msgctxt "OSM::amenity/shop"
