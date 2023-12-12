@@ -84,7 +84,7 @@ int main(int argc, char **argv)
         query.setMinimumTileSize(minTileSize);
     }
 
-    QObject::connect(&query, &OSM::OverpassQuery::finished, [&]() {
+    QObject::connect(&query, &OSM::OverpassQuery::finished, &app, [&]() {
         if (query.error() != OSM::OverpassQuery::NoError) {
             std::cerr << "query error" << std::endl;
             app.exit(1);

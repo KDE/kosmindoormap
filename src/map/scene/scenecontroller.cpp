@@ -92,7 +92,7 @@ void SceneController::setStyleSheet(const MapCSSStyle *styleSheet)
 void SceneController::setView(const View *view)
 {
     d->m_view = view;
-    QObject::connect(view, &View::timeChanged, [this]() { d->m_dirty = true; });
+    QObject::connect(view, &View::timeChanged, view, [this]() { d->m_dirty = true; });
     d->m_dirty = true;
 }
 
