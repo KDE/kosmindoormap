@@ -28,6 +28,9 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(GenerateExportHeader)
 include(ECMDeprecationSettings)
+if (QT_MAJOR_VERSION EQUAL "6")
+    include(ECMAddAndroidApk)
+endif()
 
 ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     VERSION_HEADER kosmindoormap_version.h

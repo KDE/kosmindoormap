@@ -4,10 +4,10 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.13
-import QtQuick.Layouts 1.11
-import QtQuick.Controls 2.1 as QQC2
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: root
@@ -16,10 +16,10 @@ Kirigami.ScrollablePage {
 
     Component {
         id: attributionDelegate
-        Kirigami.AbstractListItem {
+        QQC2.ItemDelegate {
             width: ListView.view.width
             highlighted: false
-            ColumnLayout {
+            contentItem: ColumnLayout {
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap

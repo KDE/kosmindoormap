@@ -32,6 +32,7 @@ if (ANDROID)
     )
 
     kirigami_package_breeze_icons(ICONS
+        arrow-right
         document-open-symbolic
         edit-clear-symbolic
         edit-paste-symbolic
@@ -39,9 +40,12 @@ if (ANDROID)
         go-home
         go-up-symbolic
         help-about-symbolic
+        license
         search
         view-refresh-symbolic
     )
+
+    ecm_add_android_apk(kosmindoormap-app ANDROID_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android)
 else ()
     target_link_libraries(kosmindoormap-app PRIVATE
         Qt::Widgets

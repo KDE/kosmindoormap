@@ -4,7 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQml.Models 2.10
+import QtQml.Models
 
 // largely copied from KPublicTransport
 ListModel {

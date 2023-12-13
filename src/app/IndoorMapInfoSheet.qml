@@ -4,12 +4,12 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.1 as QQC2
-import org.kde.kirigami 2.7 as Kirigami
-import org.kde.kosmindoormap 1.0
-import org.kde.osm.editorcontroller 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import org.kde.kosmindoormap
+import org.kde.osm.editorcontroller
 
 Kirigami.OverlaySheet {
     id: elementDetailsSheet
@@ -30,10 +30,14 @@ Kirigami.OverlaySheet {
     ListView {
         id: contentView
         model: elementDetailsSheet.model
+        clip: true
+        Layout.preferredWidth: Kirigami.Units.gridUnit * 25
 
         Component {
             id: infoStringDelegate
             RowLayout {
+                x: Kirigami.Units.largeSpacing
+                width: parent.ListView.view.width - 2 * x
                 QQC2.Label {
                     visible: row && row.keyLabel != ""
                     text: row ? row.keyLabel + ":" : ""
@@ -52,6 +56,8 @@ Kirigami.OverlaySheet {
         Component {
             id: infoLinkDelegate
             RowLayout {
+                x: Kirigami.Units.largeSpacing
+                width: parent.ListView.view.width - 2 * x
                 QQC2.Label {
                     visible: row && row.keyLabel != ""
                     text: row ? row.keyLabel + ":" : ""
@@ -71,6 +77,8 @@ Kirigami.OverlaySheet {
         Component {
             id: infoAddressDelegate
             QQC2.Label {
+                x: Kirigami.Units.largeSpacing
+                width: parent.ListView.view.width - 2 * x
                 text: (row.value.street + " " + row.value.houseNumber + "\n" + row.value.postalCode + " " + row.value.city + "\n" + row.value.country).trim()
             }
         }
@@ -78,6 +86,8 @@ Kirigami.OverlaySheet {
         Component {
             id: infoOpeningHoursDelegate
             IndoorMapInfoSheetOpeningHoursDelegate {
+                x: Kirigami.Units.largeSpacing
+                width: parent.ListView.view.width - 2 * x
                 mapData: elementDetailsSheet.mapData
                 model: row
             }
@@ -97,8 +107,6 @@ Kirigami.OverlaySheet {
 
         delegate: Loader {
             property var row: model
-            x: Kirigami.Units.largeSpacing
-            width: ListView.view.width - 2 * x
             sourceComponent: {
                 switch (row.type) {
                     case OSMElementInformationModel.Link:
@@ -136,9 +144,5 @@ Kirigami.OverlaySheet {
         }
     }
 
-    onSheetOpenChanged: {
-        if (sheetOpen == false) {
-            elementDetailsSheet.model.clear()
-        }
-    }
+    onClosed: elementDetailsSheet.model.clear()
 }

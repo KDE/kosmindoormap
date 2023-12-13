@@ -4,14 +4,13 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.12
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.1 as QQC2
-import Qt.labs.platform 1.0 as QPlatform
-import org.kde.kirigami 2.0 as Kirigami
-import org.kde.kpublictransport 1.0 as PublicTransport
-import org.kde.kosmindoormap 1.0
-import org.kde.kosmindoormap.kpublictransport 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import org.kde.kpublictransport as PublicTransport
+import org.kde.kosmindoormap
+import org.kde.kosmindoormap.kpublictransport
 
 Kirigami.OverlaySheet {
     id: root
@@ -109,10 +108,12 @@ Kirigami.OverlaySheet {
             clip: true
             implicitHeight: contentHeight
             model: locationModel
-            delegate: Kirigami.BasicListItem {
-                label: location.name
+            delegate: QQC2.ItemDelegate {
+                width: ListView.view.width
+                contentItem: Kirigami.TitleSubtitle {
+                    title: location.name
+                }
             }
-
             onCurrentIndexChanged: function() {
                 var loc = locationModel.data(locationModel.index(nameSearchResultView.currentIndex, 0), PublicTransport.LocationQueryModel.LocationRole);
                 if (loc != undefined) {
@@ -128,7 +129,7 @@ Kirigami.OverlaySheet {
         enabled: root.coordinate.x != 0.0 && root.coordinate.x != NaN && root.coordinate.y != 0.0 && root.coordinate != NaN
         onClicked: {
             console.log(root.coordinate);
-            root.sheetOpen = false;
+            root.close();
             coordinateSelected();
         }
     }
