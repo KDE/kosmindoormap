@@ -4,6 +4,10 @@
 set -e
 set -x
 
+PROTOBUF_VERSION=21.x
+KF_VERSION="master"
+GEAR_VERSION="master"
+
 function build_cmake_module() {
     local repo=$1
     shift
@@ -17,13 +21,9 @@ function build_cmake_module() {
     pushd $BUILD_ROOT
 
     if ! [ -d $BUILD_ROOT/$module ]; then
-        git clone $repo $module
-        cd $module
-        git checkout $version
-    else
-        # already checked out, so we assume it's the current module set up by Gitlab for us
-        cd $module
+        git clone --branch $version --depth 1 $repo $module
     fi
+    cd $module
 
     mkdir build
     cd build
@@ -36,7 +36,7 @@ function build_cmake_module() {
         $@ -DCMAKE_BUILD_TYPE=Release ..
 
     make -j 4
-    make install
+    make install/fast
 
     popd
 }
@@ -44,20 +44,20 @@ function build_cmake_module() {
 function build_kde_module() {
     local module=$1
     shift
-    build_cmake_module https://invent.kde.org/$module $module master $@
+    build_cmake_module https://invent.kde.org/$module $module $GEAR_VERSION $@
 }
 
 function build_kf_module() {
     local module=$1
     shift
-    build_cmake_module https://invent.kde.org/$module $module kf5 $@
+    build_cmake_module https://invent.kde.org/$module $module $KF_VERSION $@
 }
 
-build_cmake_module https://github.com/protocolbuffers/protobuf protobuf 21.x \
+build_cmake_module https://github.com/protocolbuffers/protobuf protobuf $PROTOBUF_VERSION \
     -Dprotobuf_BUILD_TESTS=OFF
 
 # KDE Frameworks
 build_kf_module frameworks/extra-cmake-modules
 
 export CXXFLAGS="-static-libstdc++ -static-libgcc"
-build_kde_module $CI_PROJECT_PATH -DBUILD_TOOLS_ONLY=ON
+build_kde_module $CI_PROJECT_PATH -DBUILD_TOOLS_ONLY=ON -DBUILD_WITH_QT6=ON

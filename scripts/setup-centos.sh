@@ -4,7 +4,7 @@
 set -e
 set -x
 
-CMAKE_VERSION=3.25.1
+CMAKE_VERSION=3.27.9
 
 # install build dependencies
 yum install -y centos-release-scl
@@ -16,7 +16,9 @@ yum install -y \
     which \
     zlib-devel \
     zlib-static \
-    python3
+    python3 \
+    perl-IPC-Cmd \
+    perl-Test-Simple
 
 # get latest CMake
 CMAKE_MINOR_VERSION=`echo $CMAKE_VERSION | sed -e 's/\.[^\.]*$//'`

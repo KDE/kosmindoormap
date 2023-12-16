@@ -4,6 +4,8 @@
 set -e
 set -x
 
+QT_VERSION=6.6.1
+
 function build-static-qt-module() {
     local module=$1
     shift
@@ -12,17 +14,17 @@ function build-static-qt-module() {
     mkdir -p $STAGING_ROOT
     pushd $BUILD_ROOT
 
-    git clone --branch kde/5.15 --depth 1 https://invent.kde.org/qt/qt/$module
+    git clone --branch v$QT_VERSION --depth 1 https://invent.kde.org/qt/qt/$module
     cd $module
     mkdir build
     cd build
     if [ $module == "qtbase" ]; then
         ../configure -prefix $STAGING_ROOT $@
     else
-        $STAGING_ROOT/bin/qmake .. $@
+        cmake -DCMAKE_PREFIX_PATH=$STAGING_ROOT -DCMAKE_INSTALL_PREFIX=$STAGING_ROOT .. $@
     fi
     make -j 4
-    make install
+    make install/fast
 
     popd
 }
@@ -40,15 +42,9 @@ build-static-qt-module qtbase \
     -no-feature-sql \
     -no-widgets \
     -no-gui \
-    -no-feature-concurrent -no-feature-future -no-feature-sharedmemory -no-feature-systemsemaphore \
-    -no-feature-statemachine \
+    -no-feature-concurrent -no-feature-future -no-feature-sharedmemory \
     -no-feature-desktopservices \
     -no-feature-proxymodel -no-feature-stringlistmodel \
     -no-feature-testlib \
     -ssl -openssl-linked -I $STAGING_ROOT/include -L $STAGING_ROOT/lib \
     -static -confirm-license -opensource -make libs -make tools
-
-# Patch .prl files to use static zlib
-for i in `find $STAGING_ROOT -name "*.prl"`; do
-    sed -i -e 's,-lz,/usr/lib64/libz.a,g' $i
-done
