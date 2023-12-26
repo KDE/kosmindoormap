@@ -9,6 +9,8 @@
 
 #include <KOSMIndoorMap/EquipmentModel>
 
+#include <qqmlregistration.h>
+
 namespace KPublicTransport {
 class Equipment;
 }
@@ -22,6 +24,7 @@ class RealtimeEquipmentModel : public EquipmentModel
 {
     Q_OBJECT
     Q_PROPERTY(QObject* realtimeModel READ realtimeModel WRITE setRealtimeModel NOTIFY realtimeModelChanged)
+    QML_ELEMENT
 
 public:
     explicit RealtimeEquipmentModel(QObject *parent = nullptr);

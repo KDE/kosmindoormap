@@ -8,6 +8,7 @@
 #define KOSMINDOORMAP_LOCATIONQUERYOVERLAYPROXYMODEL_H
 
 #include <QAbstractItemModel>
+#include <qqmlregistration.h>
 
 #include <KOSMIndoorMap/MapData>
 
@@ -25,6 +26,7 @@ class LocationQueryOverlayProxyModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(KOSMIndoorMap::MapData mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
     Q_PROPERTY(QObject* sourceModel READ sourceModel WRITE setSourceModel NOTIFY sourceModelChanged)
+    QML_ELEMENT
 
 public:
     explicit LocationQueryOverlayProxyModel(QObject *parent = nullptr);

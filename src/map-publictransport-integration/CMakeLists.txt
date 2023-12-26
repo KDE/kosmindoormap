@@ -3,12 +3,9 @@
 
 ecm_add_qml_module(kosmindoormap_kpublictransport_integration_plugin
     URI "org.kde.kosmindoormap.kpublictransport"
-    CLASS_NAME "KOSMIndoorMapKPublicTransportIntegrationPlugin"
-    NO_GENERATE_PLUGIN_SOURCE
-    NO_PLUGIN_OPTIONAL
+    GENERATE_PLUGIN_SOURCE
 )
 target_sources(kosmindoormap_kpublictransport_integration_plugin PRIVATE
-    kosmindoormap-kpublictransport-integration.cpp
     locationqueryoverlayproxymodel.cpp
     realtimeequipmentmodel.cpp
 )
