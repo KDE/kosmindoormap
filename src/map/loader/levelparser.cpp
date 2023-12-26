@@ -25,11 +25,7 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
     int numStartIdx = -1;
 
     for (int i = 0; i < level.size(); ++i) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        auto c = level[i];
-#else
         auto &c = level[i];
-#endif
 
         if (c == ',') { // fix decimal separator errors
             qCDebug(Log) << "syntax error in level tag:" << level << e.url();

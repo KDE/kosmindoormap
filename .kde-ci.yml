@@ -2,23 +2,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5', 'Android/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/ki18n': '@stable'
-    'libraries/kpublictransport': "@same"
-    'libraries/kopeninghours': "@same"
-    'libraries/kirigami-addons': "@same"
-
-- 'on': ['Android/Qt5']
-  'require':
-    'frameworks/kirigami': '@stable'
-
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
-  'require':
-    'frameworks/kservice': '@stable'
-
-- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6', 'Android/Qt6']
+- 'on': ['Linux', 'FreeBSD', 'Windows', 'Android']
   'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'
     'frameworks/ki18n': '@latest-kf6'
@@ -26,11 +10,11 @@ Dependencies:
     'libraries/kopeninghours': "@same"
     'libraries/kirigami-addons': "@same"
 
-- 'on': ['Android/Qt6']
+- 'on': ['Android']
   'require':
     'frameworks/kirigami': '@latest-kf6'
 
-- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+- 'on': ['Linux', 'FreeBSD', 'Windows']
   'require':
     'frameworks/kservice': '@latest-kf6'
 

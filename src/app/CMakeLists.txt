@@ -10,7 +10,7 @@ target_include_directories(kosmindoormap-app PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(kosmindoormap-app PRIVATE
     KOSMIndoorMap
     KOSM_xmlioplugin
-    KF${KF_MAJOR_VERSION}::I18n
+    KF6::I18n
     Qt::Quick
 )
 
@@ -25,7 +25,7 @@ if (ANDROID)
     # explicitly add runtime dependencies and transitive link dependencies,
     # so androiddeployqt picks them up
     target_link_libraries(kosmindoormap-app PRIVATE
-        KF${KF_MAJOR_VERSION}::Kirigami2
+        KF6::Kirigami2
         Qt::Svg
         OpenSSL::SSL
         Qt::QuickControls2

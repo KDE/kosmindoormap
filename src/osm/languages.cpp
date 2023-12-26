@@ -9,11 +9,7 @@
 
 static bool cmpLang(const std::string &lhs, QStringView rhs)
 {
-#if QT_VERSION <QT_VERSION_CHECK(6, 0, 0)
-    return lhs.c_str() == rhs.toUtf8();
-#else
     return QAnyStringView::compare(QAnyStringView(lhs.c_str(), lhs.size()), rhs) == 0;
-#endif
 }
 
 static void addLanguage(OSM::Languages &langs, QStringView langWithScript, QStringView lang)
