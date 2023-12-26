@@ -19,7 +19,7 @@ Item {
         id: background
         color: label.palette.base
         opacity: 0.5
-        height: label.implicitHeight + 2 * __margin
+        height: label.implicitHeight + 2 * root.__margin
         width: label.implicitWidth
     }
 
@@ -29,6 +29,6 @@ Item {
         font.pointSize: 7;
         anchors.centerIn: background
 
-        onLinkActivated: Qt.openUrlExternally(link)
+        onLinkActivated: (link) => Qt.openUrlExternally(link)
     }
 }

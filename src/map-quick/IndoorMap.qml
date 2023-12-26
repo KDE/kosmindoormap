@@ -39,7 +39,7 @@ Item {
 
     MapItemImpl {
         id: map
-        anchors.fill: parent
+        anchors.fill: mapRoot
 
     }
 

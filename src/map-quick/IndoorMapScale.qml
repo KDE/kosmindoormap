@@ -30,7 +30,7 @@ Item {
         id: background
         color: scaleLabel.palette.base
         opacity: 0.5
-        height: scaleLabel.implicitHeight + scale.height + 2 * __margin
+        height: scaleLabel.implicitHeight + scale.height + 2 * root.__margin
         width: root.width
     }
 
@@ -44,7 +44,7 @@ Item {
         id: scale
         anchors.bottom: root.bottom
         anchors.left: root.left
-        anchors.margins: __margin
+        anchors.margins: root.__margin
         height: 4
         color: scaleLabel.color
     }
