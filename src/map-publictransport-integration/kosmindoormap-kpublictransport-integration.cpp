@@ -12,7 +12,7 @@
 
 using namespace KOSMIndoorMap;
 
-void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
+void KOSMIndoorMapKPublicTransportIntegrationPlugin::registerTypes(const char *uri)
 {
     Q_UNUSED(uri);
     qmlRegisterType<LocationQueryOverlayProxyModel>("org.kde.kosmindoormap.kpublictransport", 1, 0, "LocationQueryOverlayProxyModel");

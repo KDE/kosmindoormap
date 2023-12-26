@@ -1,3 +1,0 @@
-module org.kde.osm.editorcontroller
-plugin kosmeditorcontrollerplugin
-classname KOSMEditorControllerPlugin

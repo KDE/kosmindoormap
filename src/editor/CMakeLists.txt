@@ -34,12 +34,15 @@ if (ANDROID)
     install(TARGETS KOSMEditorController ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 endif()
 
-
-add_library(kosmeditorcontrollerplugin editorcontrollerplugin.cpp)
-target_link_libraries(kosmeditorcontrollerplugin
+ecm_add_qml_module(kosmeditorcontrollerplugin
+    URI "org.kde.osm.editorcontroller"
+    NO_GENERATE_PLUGIN_SOURCE
+    NO_PLUGIN_OPTIONAL
+    CLASS_NAME "KOSMEditorControllerPlugin"
+)
+target_sources(kosmeditorcontrollerplugin PRIVATE editorcontrollerplugin.cpp)
+target_link_libraries(kosmeditorcontrollerplugin PRIVATE
     KOSMEditorController
     Qt::Quick
 )
-
-install(TARGETS kosmeditorcontrollerplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/osm/editorcontroller)
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/osm/editorcontroller)
+ecm_finalize_qml_module(kosmeditorcontrollerplugin)

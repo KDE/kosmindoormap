@@ -28,28 +28,21 @@ ecm_qt_declare_logging_category(KOSMIndoorMapQuick
     EXPORT KOSMINDOORMAP
 )
 
-set(kosmindoormapquickplugin_qml
-    qmldir
-    IndoorMap.qml
-    IndoorMapAttributionLabel.qml
-    IndoorMapScale.qml
+ecm_add_qml_module(kosmindoormapquickplugin
+    URI "org.kde.kosmindoormap"
+    QML_FILES
+        IndoorMap.qml
+        IndoorMapAttributionLabel.qml
+        IndoorMapScale.qml
+    NO_GENERATE_PLUGIN_SOURCE
+    NO_PLUGIN_OPTIONAL
+    CLASS_NAME "KOSMIndoorMapQuickPlugin"
+    DEPENDENCIES
+        "QtQuick.Controls"
 )
-
-add_library(kosmindoormapquickplugin kosmindoormapquickplugin.cpp)
-target_link_libraries(kosmindoormapquickplugin
+target_sources(kosmindoormapquickplugin PRIVATE kosmindoormapquickplugin.cpp)
+target_link_libraries(kosmindoormapquickplugin PRIVATE
     KOSMIndoorMapQuick
 )
 
-# make examples work without installation
-if (NOT CMAKE_VERSION VERSION_LESS 3.14)
-    set_property(TARGET kosmindoormapquickplugin PROPERTY LIBRARY_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/org/kde/kosmindoormap)
-    file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/org/kde/kosmindoormap/)
-    foreach(f IN LISTS kosmindoormapquickplugin_qml)
-        file(CREATE_LINK ${CMAKE_CURRENT_SOURCE_DIR}/${f} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/org/kde/kosmindoormap/${f} SYMBOLIC)
-    endforeach()
-else()
-    message(WARNING "CMake is too old, cannot setup examples to work without installation")
-endif()
-
-install(TARGETS kosmindoormapquickplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kosmindoormap)
-install(FILES ${kosmindoormapquickplugin_qml} DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kosmindoormap)
+ecm_finalize_qml_module(kosmindoormapquickplugin)

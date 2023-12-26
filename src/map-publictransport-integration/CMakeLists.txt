@@ -1,32 +1,20 @@
 # SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-set(kosmindoormap_kpublictransport_integration_qml
-    qmldir
+ecm_add_qml_module(kosmindoormap_kpublictransport_integration_plugin
+    URI "org.kde.kosmindoormap.kpublictransport"
+    CLASS_NAME "KOSMIndoorMapKPublicTransportIntegrationPlugin"
+    NO_GENERATE_PLUGIN_SOURCE
+    NO_PLUGIN_OPTIONAL
 )
-
-add_library(kosmindoormap_kpublictransport_integration_plugin
+target_sources(kosmindoormap_kpublictransport_integration_plugin PRIVATE
     kosmindoormap-kpublictransport-integration.cpp
     locationqueryoverlayproxymodel.cpp
     realtimeequipmentmodel.cpp
 )
-target_link_libraries(kosmindoormap_kpublictransport_integration_plugin
+target_link_libraries(kosmindoormap_kpublictransport_integration_plugin PRIVATE
     Qt::Qml
     KOSMIndoorMap
     KPublicTransport
 )
-
-# make examples work without installation
-if (NOT CMAKE_VERSION VERSION_LESS 3.14)
-    set_property(TARGET kosmindoormap_kpublictransport_integration_plugin PROPERTY LIBRARY_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/org/kde/kosmindoormap/kpublictransport)
-    file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/org/kde/kosmindoormap/kpublictransport/)
-    foreach(f IN LISTS kosmindoormap_kpublictransport_integration_qml)
-        file(CREATE_LINK ${CMAKE_CURRENT_SOURCE_DIR}/${f} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/org/kde/kosmindoormap/kpublictransport/${f} SYMBOLIC)
-    endforeach()
-else()
-    message(WARNING "CMake is too old, cannot setup examples to work without installation")
-endif()
-
-install(TARGETS kosmindoormap_kpublictransport_integration_plugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kosmindoormap/kpublictransport)
-install(FILES ${kosmindoormap_kpublictransport_integration_qml} DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kosmindoormap/kpublictransport)
-
+ecm_finalize_qml_module(kosmindoormap_kpublictransport_integration_plugin)
