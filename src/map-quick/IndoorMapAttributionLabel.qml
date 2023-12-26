@@ -4,8 +4,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12 as QQC2
+import QtQuick
+import QtQuick.Controls as QQC2
 
 Item {
     id: root
