@@ -2,7 +2,7 @@
     "id": "org.kde.kosmindoormap",
     "branch": "master",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-22.08",
+    "runtime-version": "6.6-kf6preview",
     "sdk": "org.kde.Sdk",
     "command": "kosmindoormap",
     "tags": ["nightly"],
@@ -17,7 +17,7 @@
     "modules": [
         {
             "name": "kpublictransport",
-            "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "config-opts": [ "-DBUILD_TESTING=OFF", "-DBUILD_WITH_QT6=ON" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kpublictransport.git" } ],
@@ -25,7 +25,7 @@
         },
         {
             "name": "kopeninghours",
-            "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "config-opts": [ "-DBUILD_TESTING=OFF", "-DBUILD_WITH_QT6=ON" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kopeninghours.git" } ],
