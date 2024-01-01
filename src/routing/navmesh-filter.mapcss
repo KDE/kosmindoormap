@@ -1,0 +1,101 @@
+/*
+    SPDX-FileCopyrightText: 2024 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+/** Navigation mesh filter
+ *  The following properties are considered:
+ *  - fill-opacity: anything > 0 will emit a walkable area
+ *  - extrude: anything > 0 will emit a wall
+ *  - width: will emit a walkable area for ways
+ *  TODO areaIds
+ *
+ *  Supported layer selectors:
+ *  - ::link: emits off-mesh bidirectional links for ways and vertically for areas
+ *  - ::link_forward, ::link_backward: emits off-mesh directional links for ways
+ *
+ *  NOTE: zoom is not set for this
+ */
+
+area[indoor=area],
+area[indoor=corridor],
+area[indoor=room],
+area[indoor=yes][room],
+area[indoor=yes][building:part=elevator],
+area[highway=elevator],
+area[highway=footway],
+area[area:highway=footway],
+area[highway=pedestrian],
+area[railway=platform],
+area[stairwell=stair_landing]
+{
+    fill-opacity: 1.0;
+}
+
+area[indoor=room],
+line[indoor=wall],
+line[barrier]
+{
+    extrude: 1.0;
+}
+
+// workaround for missing elevator doors
+area[indoor=room][highway=elevator]
+{
+    extrude: 0.0;
+}
+
+line[highway=footway][!conveying],
+line[highway=footway][conveying=no],
+line[highway=steps][!conveying],
+line[highway=steps][conveying=no]
+{
+    width: 2m; // TODO seem too narrow?
+}
+
+line[highway=footway][width][!conveying],
+line[highway=footway][width][conveying=no],
+line[highway=steps][width][!conveying],
+line[highway=steps][width][conveying=no]
+{
+    width: width;
+}
+
+line[highway=footway][conveying=yes]::link,
+line[highway=footway][conveying=reversible]::link,
+line[highway=steps][conveying=yes]::link,
+line[highway=steps][conveying=reversible]::link
+{
+    width: 1;
+}
+
+line[highway=footway][conveying=forward]::link_forward,
+line[highway=steps][conveying=forward]::link_forward
+{
+    width: 1;
+}
+
+line[highway=footway][conveying=backward]::link_backward,
+line[highway=steps][conveying=backward]::link_backward
+{
+    width: 1;
+}
+
+area[highway=elevator]::link,
+area[building:part=elevator]::link
+{
+    fill-opacity: 1.0;
+}
+
+// remove things with restricted access
+area[access=no],
+area[access=private]
+{
+    fill-opacity: 0.0;
+}
+
+line[access=no],
+line[access=private]
+{
+    width: 0;
+}

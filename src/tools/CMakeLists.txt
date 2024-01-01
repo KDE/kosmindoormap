@@ -18,3 +18,8 @@ if (TARGET KOSM_pbfioplugin)
 else()
     target_compile_definitions(marble-geometry-assembler PRIVATE -DHAVE_OSM_PBF_SUPPORT=0)
 endif()
+
+if (TARGET KOSMIndoorRouting)
+    add_executable(navmesh-dump navmesh-dump.cpp)
+    target_link_libraries(navmesh-dump KOSMIndoorRouting)
+endif()
