@@ -4,48 +4,50 @@
 # This file is distributed under the same license as the kosmindoormap package.
 # Automatically generated, 2022.
 #
+# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-27 00:40+0000\n"
-"PO-Revision-Date: 2022-04-19 00:42+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-01-04 23:41+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #: app/main.cpp:46
 #, kde-format
 msgid "KDE OSM Indoor Map"
-msgstr ""
+msgstr "KDE OSM 室內地圖"
 
 #: map-quick/amenitymodel.cpp:85
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
-msgstr ""
+msgstr "餐飲"
 
 #: map-quick/amenitymodel.cpp:87
 #, kde-format
 msgctxt "amenity category"
 msgid "Shops"
-msgstr ""
+msgstr "商店"
 
 #: map-quick/amenitymodel.cpp:89
 #, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
-msgstr ""
+msgstr "廁所"
 
 #: map-quick/amenitymodel.cpp:91
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
-msgstr ""
+msgstr "健康照護"
 
 #: map-quick/amenitymodel.cpp:93
 #, kde-format
@@ -62,22 +64,22 @@ msgstr ""
 #: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
 msgid "Elevator"
-msgstr ""
+msgstr "電梯"
 
 #: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
 msgid "Staircase"
-msgstr ""
+msgstr "樓梯間"
 
 #: map-quick/localization_data.cpp:20
 msgctxt "OSM::amenity/shop"
 msgid "Alcohol"
-msgstr ""
+msgstr "酒"
 
 #: map-quick/localization_data.cpp:21
 msgctxt "OSM::shop"
 msgid "Antiques"
-msgstr ""
+msgstr "古董"
 
 #: map-quick/localization_data.cpp:22
 msgctxt "OSM::amenity/shop"
@@ -87,42 +89,42 @@ msgstr ""
 #: map-quick/localization_data.cpp:23
 msgctxt "OSM::tourism"
 msgid "Aquarium"
-msgstr ""
+msgstr "水族館"
 
 #: map-quick/localization_data.cpp:24
 msgctxt "OSM::historic"
 msgid "Archaeological Site"
-msgstr ""
+msgstr "考古遺址"
 
 #: map-quick/localization_data.cpp:25
 msgctxt "OSM::shop"
 msgid "Art"
-msgstr ""
+msgstr "藝術"
 
 #: map-quick/localization_data.cpp:26
 msgctxt "OSM::amenity/shop"
 msgid "Arts Center"
-msgstr ""
+msgstr "藝術中心"
 
 #: map-quick/localization_data.cpp:27
 msgctxt "OSM::amenity/shop"
 msgid "Artwork"
-msgstr ""
+msgstr "藝術品"
 
 #: map-quick/localization_data.cpp:28
 msgctxt "OSM::amenity/shop"
 msgid "ATM"
-msgstr ""
+msgstr "提款機"
 
 #: map-quick/localization_data.cpp:29
 msgctxt "OSM::amenity/shop"
 msgid "Attraction"
-msgstr ""
+msgstr "熱門景點"
 
 #: map-quick/localization_data.cpp:30
 msgctxt "OSM::shop"
 msgid "Baby Goods"
-msgstr ""
+msgstr "嬰兒用品"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::amenity/shop"
@@ -137,17 +139,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:33
 msgctxt "OSM::amenity/shop"
 msgid "Bakery"
-msgstr ""
+msgstr "烘焙坊"
 
 #: map-quick/localization_data.cpp:34
 msgctxt "OSM::amenity/shop"
 msgid "Bank"
-msgstr ""
+msgstr "銀行"
 
 #: map-quick/localization_data.cpp:35
 msgctxt "OSM::amenity/shop"
 msgid "Bar"
-msgstr ""
+msgstr "酒吧"
 
 #: map-quick/localization_data.cpp:36
 msgctxt "OSM::amenity/shop"
@@ -167,27 +169,27 @@ msgstr ""
 #: map-quick/localization_data.cpp:39
 msgctxt "OSM::amenity/shop"
 msgid "Beverages"
-msgstr ""
+msgstr "飲料"
 
 #: map-quick/localization_data.cpp:40
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle"
-msgstr ""
+msgstr "腳踏車"
 
 #: map-quick/localization_data.cpp:41
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle Parking"
-msgstr ""
+msgstr "腳踏車停車處"
 
 #: map-quick/localization_data.cpp:42
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle Rental"
-msgstr ""
+msgstr "腳踏車租借處"
 
 #: map-quick/localization_data.cpp:43
 msgctxt "OSM::amenity"
 msgid "Bicycle Repair Station"
-msgstr ""
+msgstr "腳踏車維修中心"
 
 #: map-quick/localization_data.cpp:44
 msgctxt "OSM::amenity"
@@ -197,7 +199,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:45
 msgctxt "OSM::amenity/shop"
 msgid "Books"
-msgstr ""
+msgstr "書局"
 
 #: map-quick/localization_data.cpp:46
 msgctxt "OSM::amenity/shop"
@@ -207,82 +209,82 @@ msgstr ""
 #: map-quick/localization_data.cpp:47
 msgctxt "OSM::leisure"
 msgid "Bowling Alley"
-msgstr ""
+msgstr "保齡球館"
 
 #: map-quick/localization_data.cpp:48
 msgctxt "OSM::amenity/shop"
 msgid "Bureau de Change"
-msgstr ""
+msgstr "貨幣兌換"
 
 #: map-quick/localization_data.cpp:49
 msgctxt "OSM::amenity/shop"
 msgid "Butcher"
-msgstr ""
+msgstr "屠宰場"
 
 #: map-quick/localization_data.cpp:50
 msgctxt "OSM::amenity/shop"
 msgid "Cafe"
-msgstr ""
+msgstr "咖啡廳"
 
 #: map-quick/localization_data.cpp:51
 msgctxt "OSM::amenity/shop"
 msgid "Car"
-msgstr ""
+msgstr "汽車"
 
 #: map-quick/localization_data.cpp:52
 msgctxt "OSM::amenity/shop"
 msgid "Car Rental"
-msgstr ""
+msgstr "汽車租借處"
 
 #: map-quick/localization_data.cpp:53
 msgctxt "OSM::shop"
 msgid "Car Repair"
-msgstr ""
+msgstr "汽車維修"
 
 #: map-quick/localization_data.cpp:54
 msgctxt "OSM::amenity/shop"
 msgid "Car Sharing"
-msgstr ""
+msgstr "共享汽車"
 
 #: map-quick/localization_data.cpp:55
 msgctxt "OSM::amenity"
 msgid "Car Wash"
-msgstr ""
+msgstr "洗車"
 
 #: map-quick/localization_data.cpp:56
 msgctxt "OSM::historic"
 msgid "Castle"
-msgstr ""
+msgstr "城堡"
 
 #: map-quick/localization_data.cpp:57
 msgctxt "OSM::amenity/shop"
 msgid "Charging Station"
-msgstr ""
+msgstr "充電站"
 
 #: map-quick/localization_data.cpp:58
 msgctxt "OSM::shop"
 msgid "Charity Shop"
-msgstr ""
+msgstr "慈善商店"
 
 #: map-quick/localization_data.cpp:59
 msgctxt "OSM::shop"
 msgid "Cheese"
-msgstr ""
+msgstr "起司"
 
 #: map-quick/localization_data.cpp:60
 msgctxt "OSM::amenity/shop"
 msgid "Chemist"
-msgstr ""
+msgstr "化學"
 
 #: map-quick/localization_data.cpp:61
 msgctxt "OSM::amenity/shop"
 msgid "Chocolate"
-msgstr ""
+msgstr "巧克力"
 
 #: map-quick/localization_data.cpp:62
 msgctxt "OSM::amenity/shop"
 msgid "Cinema"
-msgstr ""
+msgstr "電影院"
 
 #: map-quick/localization_data.cpp:63
 msgctxt "OSM::historic"
@@ -292,32 +294,32 @@ msgstr ""
 #: map-quick/localization_data.cpp:64 map-quick/localization_data.cpp:65
 msgctxt "OSM::room"
 msgid "Classroom"
-msgstr ""
+msgstr "教室"
 
 #: map-quick/localization_data.cpp:66
 msgctxt "OSM::healthcare"
 msgid "Clinic"
-msgstr ""
+msgstr "診所"
 
 #: map-quick/localization_data.cpp:67
 msgctxt "OSM::amenity/shop"
 msgid "Clothes"
-msgstr ""
+msgstr "衣服"
 
 #: map-quick/localization_data.cpp:68
 msgctxt "OSM::amenity/shop"
 msgid "Coffee"
-msgstr ""
+msgstr "咖啡"
 
 #: map-quick/localization_data.cpp:69
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "社群中心"
 
 #: map-quick/localization_data.cpp:70
 msgctxt "OSM::amenity/shop"
 msgid "Computer"
-msgstr ""
+msgstr "電腦"
 
 #: map-quick/localization_data.cpp:71
 msgctxt "OSM::amenity/shop"
@@ -327,27 +329,27 @@ msgstr ""
 #: map-quick/localization_data.cpp:72
 msgctxt "OSM::amenity"
 msgid "Conference Center"
-msgstr ""
+msgstr "展覽館"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::diplomatic"
 msgid "Consulate"
-msgstr ""
+msgstr "領事館"
 
 #: map-quick/localization_data.cpp:74
 msgctxt "OSM::amenity/shop"
 msgid "Convenience Store"
-msgstr ""
+msgstr "便利商店"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity/shop"
 msgid "Copy Shop"
-msgstr ""
+msgstr "影印店"
 
 #: map-quick/localization_data.cpp:76
 msgctxt "OSM::amenity/shop"
 msgid "Cosmetics"
-msgstr ""
+msgstr "化妝品"
 
 #: map-quick/localization_data.cpp:77
 msgctxt "OSM::amenity/shop"
@@ -357,7 +359,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:78 map-quick/localization_data.cpp:79
 msgctxt "OSM::amenity"
 msgid "Coworking Space"
-msgstr ""
+msgstr "共享辦公室"
 
 #: map-quick/localization_data.cpp:80
 msgctxt "OSM::shop"
@@ -367,7 +369,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:81
 msgctxt "OSM::shop"
 msgid "Curtains"
-msgstr ""
+msgstr "窗簾"
 
 #: map-quick/localization_data.cpp:82
 msgctxt "OSM::amenity/shop"
@@ -377,17 +379,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:83
 msgctxt "OSM::healthcare"
 msgid "Dentist"
-msgstr ""
+msgstr "牙醫"
 
 #: map-quick/localization_data.cpp:84
 msgctxt "OSM::amenity/shop"
 msgid "Department Store"
-msgstr ""
+msgstr "百貨公司"
 
 #: map-quick/localization_data.cpp:85 map-quick/localization_data.cpp:86
 msgctxt "OSM::healthcare"
 msgid "Doctor"
-msgstr ""
+msgstr "醫生"
 
 #: map-quick/localization_data.cpp:87
 msgctxt "OSM::amenity/shop"
@@ -397,12 +399,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:88
 msgctxt "OSM::amenity/shop"
 msgid "Drinking Water"
-msgstr ""
+msgstr "飲用水"
 
 #: map-quick/localization_data.cpp:89
 msgctxt "OSM::amenity/shop"
 msgid "Dry Cleaning"
-msgstr ""
+msgstr "乾洗"
 
 #: map-quick/localization_data.cpp:90
 msgctxt "OSM::shop"
@@ -417,7 +419,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:92
 msgctxt "OSM::diplomatic"
 msgid "Embassy"
-msgstr ""
+msgstr "大使館"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity"
@@ -492,12 +494,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:107
 msgctxt "OSM::amenity"
 msgid "Gas Station"
-msgstr ""
+msgstr "加油站"
 
 #: map-quick/localization_data.cpp:108
 msgctxt "OSM::amenity/shop"
 msgid "Furniture"
-msgstr ""
+msgstr "傢俱"
 
 #: map-quick/localization_data.cpp:109
 msgctxt "OSM::amenity/shop"
@@ -512,7 +514,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:111
 msgctxt "OSM::amenity/shop"
 msgid "Garden"
-msgstr ""
+msgstr "花園"
 
 #: map-quick/localization_data.cpp:112
 msgctxt "OSM::amenity/shop"
@@ -527,12 +529,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:114
 msgctxt "OSM::leisure"
 msgid "Golf Course"
-msgstr ""
+msgstr "高爾夫球場"
 
 #: map-quick/localization_data.cpp:115
 msgctxt "OSM::office"
 msgid "Government"
-msgstr ""
+msgstr "政府"
 
 #: map-quick/localization_data.cpp:116
 msgctxt "OSM::amenity/shop"
@@ -547,7 +549,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:118
 msgctxt "OSM::amenity/shop"
 msgid "Hairdresser"
-msgstr ""
+msgstr "髮廊"
 
 #: map-quick/localization_data.cpp:119
 msgctxt "OSM::shop"
@@ -572,7 +574,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:123
 msgctxt "OSM::amenity/shop"
 msgid "Hospital"
-msgstr ""
+msgstr "醫院"
 
 #: map-quick/localization_data.cpp:124
 msgctxt "OSM::amenity/shop"
@@ -582,7 +584,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:125
 msgctxt "OSM::amenity/shop"
 msgid "Hotel"
-msgstr ""
+msgstr "飯店"
 
 #: map-quick/localization_data.cpp:126
 msgctxt "OSM::amenity/shop"
@@ -592,27 +594,27 @@ msgstr ""
 #: map-quick/localization_data.cpp:127
 msgctxt "OSM::amenity/shop"
 msgid "Ice Cream"
-msgstr ""
+msgstr "冰淇淋"
 
 #: map-quick/localization_data.cpp:128
 msgctxt "OSM::amenity/shop"
 msgid "Information"
-msgstr ""
+msgstr "旅客資訊"
 
 #: map-quick/localization_data.cpp:129
 msgctxt "OSM::amenity/shop"
 msgid "Interior Decoration"
-msgstr ""
+msgstr "室內裝潢"
 
 #: map-quick/localization_data.cpp:130
 msgctxt "OSM::amenity/shop"
 msgid "Internet Cafe"
-msgstr ""
+msgstr "網咖"
 
 #: map-quick/localization_data.cpp:131
 msgctxt "OSM::amenity/shop"
 msgid "Jewelry"
-msgstr ""
+msgstr "寶石"
 
 #: map-quick/localization_data.cpp:132
 msgctxt "OSM::amenity/shop"
@@ -622,12 +624,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:133
 msgctxt "OSM::room"
 msgid "Kitchen"
-msgstr ""
+msgstr "廚房"
 
 #: map-quick/localization_data.cpp:134
 msgctxt "OSM::amenity/shop"
 msgid "Laundry"
-msgstr ""
+msgstr "洗衣店"
 
 #: map-quick/localization_data.cpp:135 map-quick/localization_data.cpp:136
 msgctxt "OSM::room"
@@ -637,7 +639,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:137
 msgctxt "OSM::amenity/shop"
 msgid "Library"
-msgstr ""
+msgstr "圖書館"
 
 #: map-quick/localization_data.cpp:138 map-quick/localization_data.cpp:139
 #: map-quick/localization_data.cpp:144
@@ -648,7 +650,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:140
 msgctxt "OSM::amenity/shop"
 msgid "Locksmith"
-msgstr ""
+msgstr "鎖匠"
 
 #: map-quick/localization_data.cpp:141 map-quick/localization_data.cpp:142
 #: map-quick/localization_data.cpp:143
@@ -659,12 +661,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:145
 msgctxt "OSM::amenity/shop"
 msgid "Mall"
-msgstr ""
+msgstr "購物中心"
 
 #: map-quick/localization_data.cpp:146
 msgctxt "OSM::amenity"
 msgid "Marketplace"
-msgstr ""
+msgstr "市場"
 
 #: map-quick/localization_data.cpp:147
 msgctxt "OSM::amenity/shop"
@@ -679,17 +681,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:149
 msgctxt "OSM::amenity/shop"
 msgid "Mobile Phone"
-msgstr ""
+msgstr "行動電話"
 
 #: map-quick/localization_data.cpp:150
 msgctxt "OSM::amenity/shop"
 msgid "Money Transfer"
-msgstr ""
+msgstr "轉賬"
 
 #: map-quick/localization_data.cpp:151
 msgctxt "OSM::historic"
 msgid "Monument"
-msgstr ""
+msgstr "紀念碑"
 
 #: map-quick/localization_data.cpp:152
 msgctxt "OSM::shop"
@@ -709,7 +711,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:155
 msgctxt "OSM::amenity/shop"
 msgid "Museum"
-msgstr ""
+msgstr "博物館"
 
 #: map-quick/localization_data.cpp:156
 msgctxt "OSM::amenity/shop"
@@ -719,7 +721,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:157
 msgctxt "OSM::amenity/shop"
 msgid "Musical Instruments"
-msgstr ""
+msgstr "樂器"
 
 #: map-quick/localization_data.cpp:158
 msgctxt "OSM::amenity/shop"
@@ -729,7 +731,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:159
 msgctxt "OSM::amenity"
 msgid "Nightclub"
-msgstr ""
+msgstr "夜店"
 
 #: map-quick/localization_data.cpp:160
 msgctxt "OSM::shop"
@@ -739,7 +741,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
 msgid "Office"
-msgstr ""
+msgstr "辦公室"
 
 #: map-quick/localization_data.cpp:162
 msgctxt "OSM::amenity/shop"
@@ -754,7 +756,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:164
 msgctxt "OSM::amenity/shop"
 msgid "Outdoor"
-msgstr ""
+msgstr "戶外"
 
 #: map-quick/localization_data.cpp:165
 msgctxt "OSM::amenity/shop"
@@ -764,7 +766,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:166
 msgctxt "outdoor recreational area"
 msgid "Park"
-msgstr ""
+msgstr "公園"
 
 #: map-quick/localization_data.cpp:167
 msgctxt "OSM::amenity/shop"
@@ -784,7 +786,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:170
 msgctxt "OSM::amenity/shop"
 msgid "Perfumery"
-msgstr ""
+msgstr "香水"
 
 #: map-quick/localization_data.cpp:171
 msgctxt "OSM::amenity/shop"
@@ -794,7 +796,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:172
 msgctxt "OSM::amenity/shop"
 msgid "Pharmacy"
-msgstr ""
+msgstr "藥局"
 
 #: map-quick/localization_data.cpp:173
 msgctxt "OSM::amenity/shop"
@@ -818,17 +820,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:177
 msgctxt "OSM::amenity/shop"
 msgid "Police"
-msgstr ""
+msgstr "警察"
 
 #: map-quick/localization_data.cpp:178
 msgctxt "OSM::amenity/shop"
 msgid "Post Box"
-msgstr ""
+msgstr "郵政信箱"
 
 #: map-quick/localization_data.cpp:179
 msgctxt "OSM::amenity/shop"
 msgid "Post Office"
-msgstr ""
+msgstr "郵局"
 
 #: map-quick/localization_data.cpp:180
 msgctxt "OSM::shop"
@@ -843,7 +845,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:182
 msgctxt "OSM::amenity/shop"
 msgid "Pub"
-msgstr ""
+msgstr "酒吧"
 
 #: map-quick/localization_data.cpp:183
 msgctxt "OSM::amenity/shop"
@@ -853,12 +855,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:184 map-quick/localization_data.cpp:216
 msgctxt "OSM::building"
 msgid "Train Station"
-msgstr ""
+msgstr "火車站"
 
 #: map-quick/localization_data.cpp:185
 msgctxt "OSM::amenity/shop"
 msgid "Recycling"
-msgstr ""
+msgstr "回收"
 
 #: map-quick/localization_data.cpp:186
 msgctxt "OSM::amenity"
@@ -868,17 +870,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:187
 msgctxt "OSM::amenity/shop"
 msgid "Restaurant"
-msgstr ""
+msgstr "餐廳"
 
 #: map-quick/localization_data.cpp:188
 msgctxt "OSM::amenity"
 msgid "Sauna"
-msgstr ""
+msgstr "三溫暖"
 
 #: map-quick/localization_data.cpp:189
 msgctxt "OSM::amenity/shop"
 msgid "School"
-msgstr ""
+msgstr "學校"
 
 #: map-quick/localization_data.cpp:190
 msgctxt "OSM::amenity/shop"
@@ -888,12 +890,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
 msgid "Seafood"
-msgstr ""
+msgstr "海產"
 
 #: map-quick/localization_data.cpp:192
 msgctxt "OSM::shop"
 msgid "Second Hand"
-msgstr ""
+msgstr "二手"
 
 #: map-quick/localization_data.cpp:193
 msgctxt "OSM::shop"
@@ -908,12 +910,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:195
 msgctxt "OSM::amenity/shop"
 msgid "Shop"
-msgstr ""
+msgstr "商店"
 
 #: map-quick/localization_data.cpp:196
 msgctxt "OSM::amenity"
 msgid "Shower"
-msgstr ""
+msgstr "沖澡"
 
 #: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
@@ -928,12 +930,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:199
 msgctxt "OSM::amenity/shop"
 msgid "Sports"
-msgstr ""
+msgstr "運動"
 
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr ""
+msgstr "運動中心"
 
 #: map-quick/localization_data.cpp:201
 msgctxt "OSM::amenity"
@@ -943,12 +945,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:202
 msgctxt "OSM::amenity/shop"
 msgid "Stationery"
-msgstr ""
+msgstr "文具"
 
 #: map-quick/localization_data.cpp:203
 msgctxt "OSM::amenity/shop"
 msgid "Supermarket"
-msgstr ""
+msgstr "超市"
 
 #: map-quick/localization_data.cpp:204
 msgctxt "OSM::amenity/shop"
@@ -958,17 +960,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:205
 msgctxt "OSM::amenity/shop"
 msgid "Tattoo"
-msgstr ""
+msgstr "刺青"
 
 #: map-quick/localization_data.cpp:206
 msgctxt "OSM::amenity/shop"
 msgid "Taxi"
-msgstr ""
+msgstr "計程車"
 
 #: map-quick/localization_data.cpp:207
 msgctxt "OSM::amenity/shop"
 msgid "Tea"
-msgstr ""
+msgstr "茶"
 
 #: map-quick/localization_data.cpp:208
 msgctxt "OSM::shop"
@@ -978,27 +980,27 @@ msgstr ""
 #: map-quick/localization_data.cpp:209
 msgctxt "OSM::amenity/shop"
 msgid "Theatre"
-msgstr ""
+msgstr "戲院"
 
 #: map-quick/localization_data.cpp:210
 msgctxt "OSM::tourism"
 msgid "Theme Park"
-msgstr ""
+msgstr "主題公園"
 
 #: map-quick/localization_data.cpp:211
 msgctxt "OSM::amenity/shop"
 msgid "Tickets"
-msgstr ""
+msgstr "票券"
 
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::amenity/shop"
 msgid "Tobacco"
-msgstr ""
+msgstr "菸品"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
 msgid "Toilets"
-msgstr ""
+msgstr "廁所"
 
 #: map-quick/localization_data.cpp:214
 msgctxt "OSM::amenity/shop"
@@ -1008,17 +1010,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:215
 msgctxt "OSM::amenity/shop"
 msgid "Toys"
-msgstr ""
+msgstr "玩具"
 
 #: map-quick/localization_data.cpp:217 map-quick/localization_data.cpp:218
 msgctxt "OSM::amenity/shop"
 msgid "Travel Agency"
-msgstr ""
+msgstr "旅行社"
 
 #: map-quick/localization_data.cpp:219
 msgctxt "OSM::amenity/shop"
 msgid "University"
-msgstr ""
+msgstr "大學"
 
 #: map-quick/localization_data.cpp:220
 msgctxt "OSM::amenity/shop"
@@ -1028,12 +1030,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:221
 msgctxt "OSM::amenity"
 msgid "Veterinary"
-msgstr ""
+msgstr "獸醫"
 
 #: map-quick/localization_data.cpp:222
 msgctxt "OSM::amenity/shop"
 msgid "Video Games"
-msgstr ""
+msgstr "電子遊戲"
 
 #: map-quick/localization_data.cpp:223
 msgctxt "OSM::tourism"
@@ -1044,62 +1046,62 @@ msgstr ""
 #: map-quick/localization_data.cpp:226
 msgctxt "OSM::amenity/shop"
 msgid "Waiting Area"
-msgstr ""
+msgstr "等待區"
 
 #: map-quick/localization_data.cpp:227
 msgctxt "OSM::amenity"
 msgid "Waste Basket"
-msgstr ""
+msgstr "垃圾籃"
 
 #: map-quick/localization_data.cpp:228
 msgctxt "OSM::shop"
 msgid "Watches"
-msgstr ""
+msgstr "手錶"
 
 #: map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"
 msgid "Wine"
-msgstr ""
+msgstr "紅酒"
 
 #: map-quick/localization_data.cpp:230
 msgctxt "OSM::tourism"
 msgid "Zoo"
-msgstr ""
+msgstr "動物園"
 
 #: map-quick/localization_data.cpp:236
 msgctxt "OSM::cuisine"
 msgid "African"
-msgstr ""
+msgstr "非洲"
 
 #: map-quick/localization_data.cpp:237
 msgctxt "OSM::cuisine"
 msgid "American"
-msgstr ""
+msgstr "美洲"
 
 #: map-quick/localization_data.cpp:238
 msgctxt "OSM::cuisine"
 msgid "Arab"
-msgstr ""
+msgstr "阿拉伯"
 
 #: map-quick/localization_data.cpp:239
 msgctxt "OSM::cuisine"
 msgid "Argentinian"
-msgstr ""
+msgstr "阿根廷"
 
 #: map-quick/localization_data.cpp:240
 msgctxt "OSM::cuisine"
 msgid "Asian"
-msgstr ""
+msgstr "亞洲"
 
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::cuisine"
 msgid "Austrian"
-msgstr ""
+msgstr "奧地利"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::cuisine"
 msgid "Bagel"
-msgstr ""
+msgstr "貝果"
 
 #: map-quick/localization_data.cpp:243
 msgctxt "OSM::cuisine"
@@ -1110,7 +1112,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:247
 msgctxt "OSM::cuisine"
 msgid "Barbecue"
-msgstr ""
+msgstr "BBQ"
 
 #: map-quick/localization_data.cpp:246
 msgctxt "OSM::cuisine"
@@ -1125,47 +1127,47 @@ msgstr ""
 #: map-quick/localization_data.cpp:249
 msgctxt "OSM::cuisine"
 msgid "Bolivian"
-msgstr ""
+msgstr "玻利維亞"
 
 #: map-quick/localization_data.cpp:250
 msgctxt "OSM::cuisine"
 msgid "Brazilian"
-msgstr ""
+msgstr "巴西"
 
 #: map-quick/localization_data.cpp:251
 msgctxt "OSM::cuisine"
 msgid "Breakfast"
-msgstr ""
+msgstr "早餐"
 
 #: map-quick/localization_data.cpp:252
 msgctxt "OSM::cuisine"
 msgid "British"
-msgstr ""
+msgstr "英國"
 
 #: map-quick/localization_data.cpp:253
 msgctxt "OSM::cuisine"
 msgid "Brunch"
-msgstr ""
+msgstr "早午餐"
 
 #: map-quick/localization_data.cpp:254
 msgctxt "OSM::cuisine"
 msgid "Bubble Tea"
-msgstr ""
+msgstr "珍珠奶茶"
 
 #: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Buffet"
-msgstr ""
+msgstr "自助餐"
 
 #: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
 msgid "Burger"
-msgstr ""
+msgstr "漢堡"
 
 #: map-quick/localization_data.cpp:257
 msgctxt "OSM::cuisine"
 msgid "Cake"
-msgstr ""
+msgstr "蛋糕"
 
 #: map-quick/localization_data.cpp:258
 msgctxt "OSM::cuisine"
@@ -1175,27 +1177,27 @@ msgstr ""
 #: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
 msgid "Chicken"
-msgstr ""
+msgstr "雞"
 
 #: map-quick/localization_data.cpp:260
 msgctxt "OSM::cuisine"
 msgid "Chinese"
-msgstr ""
+msgstr "中式"
 
 #: map-quick/localization_data.cpp:261
 msgctxt "OSM::cuisine"
 msgid "Coffee"
-msgstr ""
+msgstr "咖啡"
 
 #: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
 msgid "Coffee Shop"
-msgstr ""
+msgstr "咖啡廳"
 
 #: map-quick/localization_data.cpp:263
 msgctxt "OSM::cuisine"
 msgid "Cookies"
-msgstr ""
+msgstr "餅乾"
 
 #: map-quick/localization_data.cpp:264
 msgctxt "OSM::cuisine"
@@ -1205,32 +1207,32 @@ msgstr ""
 #: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "Curry"
-msgstr ""
+msgstr "咖哩"
 
 #: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
 msgid "Czech"
-msgstr ""
+msgstr "捷克"
 
 #: map-quick/localization_data.cpp:267
 msgctxt "OSM::cuisine"
 msgid "Dessert"
-msgstr ""
+msgstr "點心"
 
 #: map-quick/localization_data.cpp:268
 msgctxt "OSM::cuisine"
 msgid "Donut"
-msgstr ""
+msgstr "甜甜圈"
 
 #: map-quick/localization_data.cpp:269 map-quick/localization_data.cpp:270
 msgctxt "OSM::cuisine"
 msgid "Dumplings"
-msgstr ""
+msgstr "水餃"
 
 #: map-quick/localization_data.cpp:271
 msgctxt "OSM::cuisine"
 msgid "Ethiopian"
-msgstr ""
+msgstr "衣索比亞"
 
 #: map-quick/localization_data.cpp:272
 msgctxt "OSM::cuisine"
@@ -1240,12 +1242,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:273
 msgctxt "OSM::cuisine"
 msgid "Fast Food"
-msgstr ""
+msgstr "速食"
 
 #: map-quick/localization_data.cpp:274
 msgctxt "OSM::cuisine"
 msgid "Filipino"
-msgstr ""
+msgstr "菲律賓"
 
 #: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
@@ -1260,7 +1262,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:277
 msgctxt "OSM::cuisine"
 msgid "French"
-msgstr ""
+msgstr "法式"
 
 #: map-quick/localization_data.cpp:278
 msgctxt "OSM::cuisine"
@@ -1270,17 +1272,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
 msgid "Georigan"
-msgstr ""
+msgstr "喬治亞"
 
 #: map-quick/localization_data.cpp:280
 msgctxt "OSM::cuisine"
 msgid "German"
-msgstr ""
+msgstr "德式"
 
 #: map-quick/localization_data.cpp:281
 msgctxt "OSM::cuisine"
 msgid "Greek"
-msgstr ""
+msgstr "希臘"
 
 #: map-quick/localization_data.cpp:282
 msgctxt "OSM::cuisine"
@@ -1295,57 +1297,57 @@ msgstr ""
 #: map-quick/localization_data.cpp:284
 msgctxt "OSM::cuisine"
 msgid "Hawaiian"
-msgstr ""
+msgstr "夏威夷"
 
 #: map-quick/localization_data.cpp:285 map-quick/localization_data.cpp:286
 msgctxt "OSM::cuisine"
 msgid "Hot Dog"
-msgstr ""
+msgstr "熱狗"
 
 #: map-quick/localization_data.cpp:287
 msgctxt "OSM::cuisine"
 msgid "Ice Cream"
-msgstr ""
+msgstr "冰淇淋"
 
 #: map-quick/localization_data.cpp:288
 msgctxt "OSM::cuisine"
 msgid "Indian"
-msgstr ""
+msgstr "印度"
 
 #: map-quick/localization_data.cpp:289
 msgctxt "OSM::cuisine"
 msgid "Indonesian"
-msgstr ""
+msgstr "印尼"
 
 #: map-quick/localization_data.cpp:290
 msgctxt "OSM::cuisine"
 msgid "International"
-msgstr ""
+msgstr "國際"
 
 #: map-quick/localization_data.cpp:291
 msgctxt "OSM::cuisine"
 msgid "Irish"
-msgstr ""
+msgstr "愛爾蘭"
 
 #: map-quick/localization_data.cpp:292
 msgctxt "OSM::cuisine"
 msgid "Italian"
-msgstr ""
+msgstr "義大利"
 
 #: map-quick/localization_data.cpp:293 map-quick/localization_data.cpp:314
 msgctxt "OSM::cuisine"
 msgid "Pizza"
-msgstr ""
+msgstr "披薩"
 
 #: map-quick/localization_data.cpp:294
 msgctxt "OSM::cuisine"
 msgid "Japanese"
-msgstr ""
+msgstr "日式"
 
 #: map-quick/localization_data.cpp:295
 msgctxt "OSM::cuisine"
 msgid "Juice"
-msgstr ""
+msgstr "果汁"
 
 #: map-quick/localization_data.cpp:296
 msgctxt "OSM::cuisine"
@@ -1355,67 +1357,67 @@ msgstr ""
 #: map-quick/localization_data.cpp:297
 msgctxt "OSM::cuisine"
 msgid "Korean"
-msgstr ""
+msgstr "韓式"
 
 #: map-quick/localization_data.cpp:298
 msgctxt "OSM::cuisine"
 msgid "Lebanese"
-msgstr ""
+msgstr "黎巴嫩"
 
 #: map-quick/localization_data.cpp:299
 msgctxt "OSM::cuisine"
 msgid "Local"
-msgstr ""
+msgstr "本地"
 
 #: map-quick/localization_data.cpp:300
 msgctxt "OSM::cuisine"
 msgid "Malaysian"
-msgstr ""
+msgstr "馬來西亞"
 
 #: map-quick/localization_data.cpp:301
 msgctxt "OSM::cuisine"
 msgid "Meat"
-msgstr ""
+msgstr "肉"
 
 #: map-quick/localization_data.cpp:302
 msgctxt "OSM::cuisine"
 msgid "Mediterranean"
-msgstr ""
+msgstr "地中海"
 
 #: map-quick/localization_data.cpp:303
 msgctxt "OSM::cuisine"
 msgid "Mexican"
-msgstr ""
+msgstr "墨西哥"
 
 #: map-quick/localization_data.cpp:304
 msgctxt "OSM::cuisine"
 msgid "Moroccan"
-msgstr ""
+msgstr "摩洛哥"
 
 #: map-quick/localization_data.cpp:305
 msgctxt "OSM::cuisine"
 msgid "Nepalese"
-msgstr ""
+msgstr "尼泊爾"
 
 #: map-quick/localization_data.cpp:306 map-quick/localization_data.cpp:307
 msgctxt "OSM::cuisine"
 msgid "Noodle"
-msgstr ""
+msgstr "麵"
 
 #: map-quick/localization_data.cpp:308
 msgctxt "OSM::cuisine"
 msgid "Pakistani"
-msgstr ""
+msgstr "巴基斯坦"
 
 #: map-quick/localization_data.cpp:309
 msgctxt "OSM::cuisine"
 msgid "Pancake"
-msgstr ""
+msgstr "鬆餅"
 
 #: map-quick/localization_data.cpp:310
 msgctxt "OSM::cuisine"
 msgid "Pasta"
-msgstr ""
+msgstr "義大利麵"
 
 #: map-quick/localization_data.cpp:311
 msgctxt "OSM::cuisine"
@@ -1440,12 +1442,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:316
 msgctxt "OSM::cuisine"
 msgid "Polish"
-msgstr ""
+msgstr "波蘭"
 
 #: map-quick/localization_data.cpp:317
 msgctxt "OSM::cuisine"
 msgid "Portuguese"
-msgstr ""
+msgstr "葡萄牙"
 
 #: map-quick/localization_data.cpp:318
 msgctxt "OSM::cuisine"
@@ -1465,17 +1467,17 @@ msgstr ""
 #: map-quick/localization_data.cpp:321
 msgctxt "OSM::cuisine"
 msgid "Russian"
-msgstr ""
+msgstr "俄式"
 
 #: map-quick/localization_data.cpp:322
 msgctxt "OSM::cuisine"
 msgid "Salad"
-msgstr ""
+msgstr "沙拉"
 
 #: map-quick/localization_data.cpp:323
 msgctxt "OSM::cuisine"
 msgid "Sandwich"
-msgstr ""
+msgstr "三明治"
 
 #: map-quick/localization_data.cpp:324
 msgctxt "OSM::cuisine"
@@ -1485,7 +1487,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:325
 msgctxt "OSM::cuisine"
 msgid "Seafood"
-msgstr ""
+msgstr "海產"
 
 #: map-quick/localization_data.cpp:326
 msgctxt "OSM::cuisine"
@@ -1495,27 +1497,27 @@ msgstr ""
 #: map-quick/localization_data.cpp:327
 msgctxt "OSM::cuisine"
 msgid "Soup"
-msgstr ""
+msgstr "湯"
 
 #: map-quick/localization_data.cpp:328
 msgctxt "OSM::cuisine"
 msgid "Spanish"
-msgstr ""
+msgstr "西班牙"
 
 #: map-quick/localization_data.cpp:329 map-quick/localization_data.cpp:330
 msgctxt "OSM::cuisine"
 msgid "Steak"
-msgstr ""
+msgstr "牛排"
 
 #: map-quick/localization_data.cpp:331
 msgctxt "OSM::cuisine"
 msgid "Sushi"
-msgstr ""
+msgstr "壽司"
 
 #: map-quick/localization_data.cpp:332
 msgctxt "OSM::cuisine"
 msgid "Syrian"
-msgstr ""
+msgstr "敘利亞"
 
 #: map-quick/localization_data.cpp:333
 msgctxt "OSM::cuisine"
@@ -1525,7 +1527,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:334
 msgctxt "OSM::cuisine"
 msgid "Taiwanese"
-msgstr ""
+msgstr "台式"
 
 #: map-quick/localization_data.cpp:335
 msgctxt "OSM::cuisine"
@@ -1535,12 +1537,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:336
 msgctxt "OSM::cuisine"
 msgid "Tea"
-msgstr ""
+msgstr "茶"
 
 #: map-quick/localization_data.cpp:337
 msgctxt "OSM::cuisine"
 msgid "Teahouse"
-msgstr ""
+msgstr "茶坊"
 
 #: map-quick/localization_data.cpp:338
 msgctxt "OSM::cuisine"
@@ -1550,98 +1552,98 @@ msgstr ""
 #: map-quick/localization_data.cpp:339
 msgctxt "OSM::cuisine"
 msgid "Thai"
-msgstr ""
+msgstr "泰式"
 
 #: map-quick/localization_data.cpp:340
 msgctxt "OSM::cuisine"
 msgid "Turkish"
-msgstr ""
+msgstr "土耳其"
 
 #: map-quick/localization_data.cpp:341
 msgctxt "OSM::cuisine"
 msgid "Vegetarian"
-msgstr ""
+msgstr "素食"
 
 #: map-quick/localization_data.cpp:342
 msgctxt "OSM::cuisine"
 msgid "Vietnamese"
-msgstr ""
+msgstr "越南"
 
 #: map-quick/localization_data.cpp:343
 msgctxt "OSM::cuisine"
 msgid "Waffles"
-msgstr ""
+msgstr "格子鬆餅"
 
 #: map-quick/localization_data.cpp:344
 msgctxt "OSM::cuisine"
 msgid "Chicken Wings"
-msgstr ""
+msgstr "雞翅"
 
 #: map-quick/osmelementinformationmodel.cpp:22
 #, kde-format
 msgid "%1m"
-msgstr ""
+msgstr "%1m"
 
 #: map-quick/osmelementinformationmodel.cpp:25
 #: map-quick/osmelementinformationmodel.cpp:27
 #, kde-format
 msgid "%1km"
-msgstr ""
+msgstr "%1km"
 
 #: map-quick/osmelementinformationmodel.cpp:137
 #, kde-format
 msgid "Wikipedia"
-msgstr ""
+msgstr "維基百科"
 
 #: map-quick/osmelementinformationmodel.cpp:436
 #, kde-format
 msgid "Opening Hours"
-msgstr ""
+msgstr "營業時間"
 
 #: map-quick/osmelementinformationmodel.cpp:437
 #, kde-format
 msgid "Contact"
-msgstr ""
+msgstr "聯絡方式"
 
 #: map-quick/osmelementinformationmodel.cpp:438
 #, kde-format
 msgid "Payment"
-msgstr ""
+msgstr "付款方式"
 
 #: map-quick/osmelementinformationmodel.cpp:439
 #, kde-format
 msgid "Toilets"
-msgstr ""
+msgstr "廁所"
 
 #: map-quick/osmelementinformationmodel.cpp:440
 #, kde-format
 msgid "Accessibility"
-msgstr ""
+msgstr "無障礙空間"
 
 #: map-quick/osmelementinformationmodel.cpp:441
 #, kde-format
 msgid "Parking"
-msgstr ""
+msgstr "停車"
 
 #: map-quick/osmelementinformationmodel.cpp:442
 #, kde-format
 msgid "Operator"
-msgstr ""
+msgstr "營運者"
 
 #: map-quick/osmelementinformationmodel.cpp:468
 #, kde-format
 msgid "Formerly"
-msgstr ""
+msgstr "舊稱"
 
 #: map-quick/osmelementinformationmodel.cpp:469
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: map-quick/osmelementinformationmodel.cpp:470
 #, kde-format
 msgid "Routes"
-msgstr ""
+msgstr "路徑"
 
 #: map-quick/osmelementinformationmodel.cpp:471
 #, kde-format
@@ -1656,13 +1658,13 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:473
 #, kde-format
 msgid "Takeaway"
-msgstr ""
+msgstr "外帶"
 
 #: map-quick/osmelementinformationmodel.cpp:474
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
-msgstr ""
+msgstr "插座"
 
 #: map-quick/osmelementinformationmodel.cpp:476
 #, kde-format
@@ -1672,17 +1674,17 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:477
 #, kde-format
 msgid "Fee"
-msgstr ""
+msgstr "手續費"
 
 #: map-quick/osmelementinformationmodel.cpp:478
 #, kde-format
 msgid "Authentication"
-msgstr ""
+msgstr "認證"
 
 #: map-quick/osmelementinformationmodel.cpp:479
 #, kde-format
 msgid "Bicycle parking"
-msgstr ""
+msgstr "腳踏車停車處"
 
 #: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
@@ -1692,22 +1694,22 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:481
 #, kde-format
 msgid "Disabled parking spaces"
-msgstr ""
+msgstr "殘障停車空間"
 
 #: map-quick/osmelementinformationmodel.cpp:482
 #, kde-format
 msgid "Women parking spaces"
-msgstr ""
+msgstr "女性停車空間"
 
 #: map-quick/osmelementinformationmodel.cpp:483
 #, kde-format
 msgid "Parent parking spaces"
-msgstr ""
+msgstr "家長停車空間"
 
 #: map-quick/osmelementinformationmodel.cpp:484
 #, kde-format
 msgid "Parking spaces for charging"
-msgstr ""
+msgstr "充電用停車空間"
 
 #: map-quick/osmelementinformationmodel.cpp:485
 #, kde-format
@@ -1717,67 +1719,67 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:486
 #, kde-format
 msgid "Diaper changing table"
-msgstr ""
+msgstr "尿布更換台"
 
 #: map-quick/osmelementinformationmodel.cpp:487
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "性別"
 
 #: map-quick/osmelementinformationmodel.cpp:489
 #, kde-format
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #: map-quick/osmelementinformationmodel.cpp:490
 #, kde-format
 msgid "Phone"
-msgstr ""
+msgstr "電話"
 
 #: map-quick/osmelementinformationmodel.cpp:491
 #, kde-format
 msgid "Email"
-msgstr ""
+msgstr "電子郵件"
 
 #: map-quick/osmelementinformationmodel.cpp:492
 #, kde-format
 msgid "Website"
-msgstr ""
+msgstr "網站"
 
 #: map-quick/osmelementinformationmodel.cpp:493
 #, kde-format
 msgid "Cash"
-msgstr ""
+msgstr "現金"
 
 #: map-quick/osmelementinformationmodel.cpp:494
 #, kde-format
 msgid "Digital"
-msgstr ""
+msgstr "數位"
 
 #: map-quick/osmelementinformationmodel.cpp:495
 #, kde-format
 msgid "Debit cards"
-msgstr ""
+msgstr "簽帳卡"
 
 #: map-quick/osmelementinformationmodel.cpp:496
 #, kde-format
 msgid "Credit cards"
-msgstr ""
+msgstr "信用卡"
 
 #: map-quick/osmelementinformationmodel.cpp:497
 #, kde-format
 msgid "Stored value cards"
-msgstr ""
+msgstr "儲值卡"
 
 #: map-quick/osmelementinformationmodel.cpp:498
 #, kde-format
 msgid "Wheelchair access"
-msgstr ""
+msgstr "輪椅可使用"
 
 #: map-quick/osmelementinformationmodel.cpp:499
 #, kde-format
 msgid "Wheelchair lift"
-msgstr ""
+msgstr "輪椅電梯"
 
 #: map-quick/osmelementinformationmodel.cpp:500
 #, kde-format
@@ -1798,71 +1800,71 @@ msgstr ""
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
-msgstr ""
+msgstr "網路"
 
 #: map-quick/osmelementinformationmodel.cpp:506
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
-msgstr ""
+msgstr "剩餘距離"
 
 #: map-quick/osmelementinformationmodel.cpp:558
 #, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: map-quick/osmelementinformationmodel.cpp:632
 #, kde-format
 msgid "only %1"
-msgstr ""
+msgstr "僅 %1"
 
 #: map-quick/osmelementinformationmodel.cpp:634
 #, kde-format
 msgid "no %1"
-msgstr ""
+msgstr "無 %1"
 
 #: map-quick/osmelementinformationmodel.cpp:659
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
-msgstr ""
+msgstr "%1 安培"
 
 #: map-quick/osmelementinformationmodel.cpp:667
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
-msgstr ""
+msgstr "%1 kW"
 
 #: map-quick/osmelementinformationmodel.cpp:698
 #, kde-format
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: map-quick/osmelementinformationmodel.cpp:766
 #: map-quick/osmelementinformationmodel.cpp:940
 #, kde-format
 msgid "yes"
-msgstr ""
+msgstr "是"
 
 #: map-quick/osmelementinformationmodel.cpp:769
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
-msgstr ""
+msgstr "僅零錢"
 
 #: map-quick/osmelementinformationmodel.cpp:772
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
-msgstr ""
+msgstr "僅鈔票"
 
 #: map-quick/osmelementinformationmodel.cpp:774
 #: map-quick/osmelementinformationmodel.cpp:825
 #: map-quick/osmelementinformationmodel.cpp:943
 #, kde-format
 msgid "no"
-msgstr ""
+msgstr "否"
 
 #: map-quick/osmelementinformationmodel_data.cpp:22
 msgctxt "OSM::diet_type"
@@ -1902,7 +1904,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::payment_method"
 msgid "Apple Pay"
-msgstr ""
+msgstr "Apple Pay"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::payment_method"
@@ -1927,7 +1929,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:61
 msgctxt "OSM::payment_method"
 msgid "Google Pay"
-msgstr ""
+msgstr "Google Pay"
 
 #: map-quick/osmelementinformationmodel_data.cpp:62
 msgctxt "OSM::payment_method"
@@ -1958,17 +1960,17 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:71
 msgctxt "OSM::wheelchair_access"
 msgid "limited"
-msgstr ""
+msgstr "有限"
 
 #: map-quick/osmelementinformationmodel_data.cpp:72
 msgctxt "OSM::wheelchair_access"
 msgid "no"
-msgstr ""
+msgstr "不可"
 
 #: map-quick/osmelementinformationmodel_data.cpp:73
 msgctxt "OSM::wheelchair_access"
 msgid "yes"
-msgstr ""
+msgstr "可"
 
 #: map-quick/osmelementinformationmodel_data.cpp:85
 msgctxt "OSM::charging_station_socket"
@@ -2018,32 +2020,32 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:105
 msgctxt "OSM::charging_station_authentication"
 msgid "app"
-msgstr ""
+msgstr "App"
 
 #: map-quick/osmelementinformationmodel_data.cpp:106
 msgctxt "OSM::charging_station_authentication"
 msgid "membership card"
-msgstr ""
+msgstr "會員卡"
 
 #: map-quick/osmelementinformationmodel_data.cpp:107
 msgctxt "OSM::charging_station_authentication"
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 #: map-quick/osmelementinformationmodel_data.cpp:108
 msgctxt "OSM::charging_station_authentication"
 msgid "none"
-msgstr ""
+msgstr "無"
 
 #: map-quick/osmelementinformationmodel_data.cpp:109
 msgctxt "OSM::charging_station_authentication"
 msgid "phone call"
-msgstr ""
+msgstr "打電話"
 
 #: map-quick/osmelementinformationmodel_data.cpp:110
 msgctxt "OSM::charging_station_authentication"
 msgid "SMS"
-msgstr ""
+msgstr "簡訊"
 
 #: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "OSM::bicycle_parking"
@@ -2100,8 +2102,7 @@ msgstr ""
 msgctxt "available rental vehicles"
 msgid "%1 bike"
 msgid_plural "%1 bikes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 台單車"
 
 #: map-quick/osmelementinformationmodel_data.cpp:134
 #, kde-format
@@ -2109,7 +2110,6 @@ msgctxt "available rental vehicles"
 msgid "%1 pedelec"
 msgid_plural "%1 pedelecs"
 msgstr[0] ""
-msgstr[1] ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:135
 #, kde-format
@@ -2117,7 +2117,6 @@ msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
 msgid_plural "%1 kick scooters"
 msgstr[0] ""
-msgstr[1] ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:136
 #, kde-format
@@ -2125,25 +2124,23 @@ msgctxt "available rental vehicles"
 msgid "%1 moped"
 msgid_plural "%1 mopeds"
 msgstr[0] ""
-msgstr[1] ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:137
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 car"
 msgid_plural "%1 cars"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 台汽車"
 
 #: map-quick/osmelementinformationmodel_data.cpp:148
 msgctxt "OSM::gender_segregation"
 msgid "female"
-msgstr ""
+msgstr "女性"
 
 #: map-quick/osmelementinformationmodel_data.cpp:149
 msgctxt "OSM::gender_segregation"
 msgid "male"
-msgstr ""
+msgstr "男性"
 
 #: map-quick/osmelementinformationmodel_data.cpp:150
 msgctxt "OSM::gender_segregation"
@@ -2153,7 +2150,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:162
 msgctxt "tactile writing"
 msgid "braille"
-msgstr ""
+msgstr "點字"
 
 #: map-quick/osmelementinformationmodel_data.cpp:163
 msgctxt "tactile writing"
