@@ -115,6 +115,9 @@ public:
         ShieldText, /// text to render on the shield
         ShieldImage, /// background image of the shield
         ShieldShape, /// @p rounded or @p rectangular
+
+        // 3D extrusion
+        Extrude,
     };
 
     /** Checks if this is a meaningful declaration. */
@@ -130,6 +133,7 @@ public:
         LineProperty = 2,
         LabelProperty = 4,
         CanvasProperty = 8,
+        ExtrudeProperty = 16,
     };
     int propertyFlags() const;
 

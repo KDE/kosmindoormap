@@ -39,6 +39,11 @@ bool MapCSSResultItem::hasLabelProperties() const
     return m_flags & MapCSSDeclaration::LabelProperty;
 }
 
+bool MapCSSResultItem::hasExtrudeProperties() const
+{
+    return m_flags & MapCSSDeclaration::ExtrudeProperty;
+}
+
 const MapCSSDeclaration* MapCSSResultItem::declaration(MapCSSDeclaration::Property prop) const
 {
     const auto it = std::lower_bound(m_declarations.begin(), m_declarations.end(), prop, [](auto lhs, auto rhs) {

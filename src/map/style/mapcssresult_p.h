@@ -40,6 +40,8 @@ public:
     [[nodiscard]] bool hasLineProperties() const;
     /** Returns @c true if a label needs to be drawn. */
     [[nodiscard]] bool hasLabelProperties() const;
+    /** Returns @c true if a 3D extrusion is requested. */
+    [[nodiscard]] bool hasExtrudeProperties() const;
 
     /** Returns the declaration for property @prop, or @c nullptr is this property isn't set. */
     [[nodiscard]] const MapCSSDeclaration* declaration(MapCSSDeclaration::Property prop) const;

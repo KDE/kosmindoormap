@@ -30,6 +30,7 @@ struct {
     { "casing-width", MapCSSDeclaration::CasingWidth, MapCSSDeclaration::NoFlag },
     { "color", MapCSSDeclaration::Color, MapCSSDeclaration::LineProperty },
     { "dashes", MapCSSDeclaration::Dashes, MapCSSDeclaration::NoFlag },
+    { "extrude", MapCSSDeclaration::Extrude, MapCSSDeclaration::ExtrudeProperty },
     { "fill-color", MapCSSDeclaration::FillColor, MapCSSDeclaration::AreaProperty | MapCSSDeclaration::CanvasProperty }, // TODO this also applies to lines
     { "fill-image", MapCSSDeclaration::FillImage, MapCSSDeclaration::AreaProperty | MapCSSDeclaration::CanvasProperty },
     { "fill-opacity", MapCSSDeclaration::FillOpacity, MapCSSDeclaration::AreaProperty },
