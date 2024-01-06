@@ -202,10 +202,10 @@ void SceneController::updateCanvas(SceneGraph &sg) const
     d->m_styleSheet->evaluateCanvas(state, d->m_styleResult);
     for (auto decl : d->m_styleResult[{}].declarations()) {
         switch (decl->property()) {
-            case MapCSSDeclaration::FillColor:
+            case MapCSSProperty::FillColor:
                 sg.setBackgroundColor(decl->colorValue());
                 break;
-            case MapCSSDeclaration::TextColor:
+            case MapCSSProperty::TextColor:
                 d->m_defaultTextColor = decl->colorValue();
                 break;
             default:
@@ -268,14 +268,14 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             applyPenStyle(e, decl, item->pen, lineOpacity, item->penWidthUnit);
             applyCasingPenStyle(e, decl, item->casingPen, casingOpacity, item->casingPenWidthUnit);
             switch (decl->property()) {
-                case MapCSSDeclaration::FillColor:
+                case MapCSSProperty::FillColor:
                     item->fillBrush.setColor(decl->colorValue());
                     item->fillBrush.setStyle(Qt::SolidPattern);
                     break;
-                case MapCSSDeclaration::FillOpacity:
+                case MapCSSProperty::FillOpacity:
                     fillOpacity = decl->doubleValue();
                     break;
-                case MapCSSDeclaration::FillImage:
+                case MapCSSProperty::FillImage:
                     item->textureBrush.setTextureImage(d->m_textureCache.image(decl->stringValue()));
                     hasTexture = true;
                     break;
@@ -328,9 +328,9 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
 
     if (result.hasLabelProperties()) {
         QString text;
-        auto textDecl = result.declaration(MapCSSDeclaration::Text);
+        auto textDecl = result.declaration(MapCSSProperty::Text);
         if (!textDecl) {
-            textDecl = result.declaration(MapCSSDeclaration::ShieldText);
+            textDecl = result.declaration(MapCSSProperty::ShieldText);
         }
 
         if (textDecl) {
@@ -341,7 +341,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             }
         }
 
-        const auto iconDecl = result.declaration(MapCSSDeclaration::IconImage);
+        const auto iconDecl = result.declaration(MapCSSProperty::IconImage);
 
         if (!text.isEmpty() || iconDecl) {
             auto baseItem = sg.findOrCreatePayload<LabelItem>(e, level, result.layerSelector());
@@ -364,31 +364,31 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                 applyGenericStyle(decl, item);
                 applyFontStyle(decl, item->font);
                 switch (decl->property()) {
-                    case MapCSSDeclaration::TextColor:
+                    case MapCSSProperty::TextColor:
                         item->color = decl->colorValue();
                         break;
-                    case MapCSSDeclaration::TextOpacity:
+                    case MapCSSProperty::TextOpacity:
                         textOpacity = decl->doubleValue();
                         break;
-                    case MapCSSDeclaration::ShieldCasingColor:
+                    case MapCSSProperty::ShieldCasingColor:
                         item->casingColor = decl->colorValue();
                         break;
-                    case MapCSSDeclaration::ShieldCasingWidth:
+                    case MapCSSProperty::ShieldCasingWidth:
                         item->casingWidth = decl->doubleValue();
                         break;
-                    case MapCSSDeclaration::ShieldColor:
+                    case MapCSSProperty::ShieldColor:
                         item->shieldColor = decl->colorValue();
                         break;
-                    case MapCSSDeclaration::ShieldOpacity:
+                    case MapCSSProperty::ShieldOpacity:
                         shieldOpacity = decl->doubleValue();
                         break;
-                    case MapCSSDeclaration::ShieldFrameColor:
+                    case MapCSSProperty::ShieldFrameColor:
                         item->frameColor = decl->colorValue();
                         break;
-                    case MapCSSDeclaration::ShieldFrameWidth:
+                    case MapCSSProperty::ShieldFrameWidth:
                         item->frameWidth = decl->doubleValue();
                         break;
-                    case MapCSSDeclaration::TextPosition:
+                    case MapCSSProperty::TextPosition:
                         switch (decl->textPosition()) {
                             case MapCSSDeclaration::Position::Line:
                                 forceLinePosition = true;
@@ -403,49 +403,49 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                                 break;
                         }
                         break;
-                    case MapCSSDeclaration::TextOffset:
+                    case MapCSSProperty::TextOffset:
                         item->textOffset = decl->doubleValue();
                         break;
-                    case MapCSSDeclaration::MaxWidth:
+                    case MapCSSProperty::MaxWidth:
                         // work around for QStaticText misbehaving when we have a max width but can't actually word-wrap
                         // far from perfect but covers the most common cases
                         if (canWordWrap(text)) {
                             item->text.setTextWidth(decl->intValue());
                         }
                         break;
-                    case MapCSSDeclaration::IconImage:
+                    case MapCSSProperty::IconImage:
                         if (!decl->keyValue().isEmpty()) {
                             iconData.name = QString::fromUtf8(e.tagValue(decl->keyValue().constData()));
                         } else {
                             iconData.name = decl->stringValue();
                         }
                         break;
-                    case MapCSSDeclaration::IconHeight:
+                    case MapCSSProperty::IconHeight:
                         item->iconSize.setHeight(PenWidthUtil::penWidth(e, decl, item->iconHeightUnit));
                         break;
-                    case MapCSSDeclaration::IconWidth:
+                    case MapCSSProperty::IconWidth:
                         item->iconSize.setWidth(PenWidthUtil::penWidth(e, decl, item->iconWidthUnit));
                         break;
-                    case MapCSSDeclaration::IconColor:
+                    case MapCSSProperty::IconColor:
                     {
                         const auto alpha = iconData.color.alphaF();
                         iconData.color = decl->colorValue().rgb();
                         iconData.color.setAlphaF(alpha);
                         break;
                     }
-                    case MapCSSDeclaration::IconOpacity:
+                    case MapCSSProperty::IconOpacity:
                         iconData.color.setAlphaF(decl->doubleValue());
                         break;
-                    case MapCSSDeclaration::TextHaloColor:
+                    case MapCSSProperty::TextHaloColor:
                         item->haloColor = decl->colorValue();
                         break;
-                    case MapCSSDeclaration::TextHaloRadius:
+                    case MapCSSProperty::TextHaloRadius:
                         item->haloRadius = decl->doubleValue();
                         break;
-                    case MapCSSDeclaration::IconAllowIconOverlap:
+                    case MapCSSProperty::IconAllowIconOverlap:
                         item->allowIconOverlap = decl->boolValue();
                         break;
-                    case MapCSSDeclaration::IconAllowTextOverlap:
+                    case MapCSSProperty::IconAllowTextOverlap:
                         item->allowTextOverlap = decl->boolValue();
                         break;
                     default:
@@ -593,7 +593,7 @@ QPainterPath SceneController::createPath(const OSM::Element e, QPolygonF &outerP
 
 void SceneController::applyGenericStyle(const MapCSSDeclaration *decl, SceneGraphItemPayload *item) const
 {
-    if (decl->property() == MapCSSDeclaration::ZIndex) {
+    if (decl->property() == MapCSSProperty::ZIndex) {
         item->z = decl->intValue();
     }
 }
@@ -601,22 +601,22 @@ void SceneController::applyGenericStyle(const MapCSSDeclaration *decl, SceneGrap
 void SceneController::applyPenStyle(OSM::Element e, const MapCSSDeclaration *decl, QPen &pen, double &opacity, Unit &unit) const
 {
     switch (decl->property()) {
-        case MapCSSDeclaration::Color:
+        case MapCSSProperty::Color:
             pen.setColor(decl->colorValue());
             break;
-        case MapCSSDeclaration::Width:
+        case MapCSSProperty::Width:
             pen.setWidthF(PenWidthUtil::penWidth(e, decl, unit));
             break;
-        case MapCSSDeclaration::Dashes:
+        case MapCSSProperty::Dashes:
             pen.setDashPattern(decl->dashesValue());
             break;
-        case MapCSSDeclaration::LineCap:
+        case MapCSSProperty::LineCap:
             pen.setCapStyle(decl->capStyle());
             break;
-        case MapCSSDeclaration::LineJoin:
+        case MapCSSProperty::LineJoin:
             pen.setJoinStyle(decl->joinStyle());
             break;
-        case MapCSSDeclaration::Opacity:
+        case MapCSSProperty::Opacity:
             opacity = decl->doubleValue();
             break;
         default:
@@ -627,22 +627,22 @@ void SceneController::applyPenStyle(OSM::Element e, const MapCSSDeclaration *dec
 void SceneController::applyCasingPenStyle(OSM::Element e, const MapCSSDeclaration *decl, QPen &pen, double &opacity, Unit &unit) const
 {
     switch (decl->property()) {
-        case MapCSSDeclaration::CasingColor:
+        case MapCSSProperty::CasingColor:
             pen.setColor(decl->colorValue());
             break;
-        case MapCSSDeclaration::CasingWidth:
+        case MapCSSProperty::CasingWidth:
             pen.setWidthF(PenWidthUtil::penWidth(e, decl, unit));
             break;
-        case MapCSSDeclaration::CasingDashes:
+        case MapCSSProperty::CasingDashes:
             pen.setDashPattern(decl->dashesValue());
             break;
-        case MapCSSDeclaration::CasingLineCap:
+        case MapCSSProperty::CasingLineCap:
             pen.setCapStyle(decl->capStyle());
             break;
-        case MapCSSDeclaration::CasingLineJoin:
+        case MapCSSProperty::CasingLineJoin:
             pen.setJoinStyle(decl->joinStyle());
             break;
-        case MapCSSDeclaration::CasingOpacity:
+        case MapCSSProperty::CasingOpacity:
             opacity = decl->doubleValue();
             break;
         default:
@@ -653,29 +653,29 @@ void SceneController::applyCasingPenStyle(OSM::Element e, const MapCSSDeclaratio
 void SceneController::applyFontStyle(const MapCSSDeclaration *decl, QFont &font) const
 {
     switch (decl->property()) {
-        case MapCSSDeclaration::FontFamily:
+        case MapCSSProperty::FontFamily:
             font.setFamily(decl->stringValue());
             break;
-        case MapCSSDeclaration::FontSize:
+        case MapCSSProperty::FontSize:
             if (decl->unit() == MapCSSDeclaration::Pixels) {
                 font.setPixelSize(decl->doubleValue());
             } else {
                 font.setPointSizeF(decl->doubleValue());
             }
             break;
-        case MapCSSDeclaration::FontWeight:
+        case MapCSSProperty::FontWeight:
             font.setBold(decl->isBoldStyle());
             break;
-        case MapCSSDeclaration::FontStyle:
+        case MapCSSProperty::FontStyle:
             font.setItalic(decl->isItalicStyle());
             break;
-        case MapCSSDeclaration::FontVariant:
+        case MapCSSProperty::FontVariant:
             font.setCapitalization(decl->capitalizationStyle());
             break;
-        case MapCSSDeclaration::TextDecoration:
+        case MapCSSProperty::TextDecoration:
             font.setUnderline(decl->isUnderlineStyle());
             break;
-        case MapCSSDeclaration::TextTransform:
+        case MapCSSProperty::TextTransform:
             font.setCapitalization(decl->capitalizationStyle());
             break;
         default:

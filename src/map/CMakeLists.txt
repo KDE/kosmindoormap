@@ -150,6 +150,7 @@ ecm_generate_headers(KOSMIndoorMap_Scene_FORWARDING_HEADERS
 ecm_generate_headers(KOSMIndoorMap_Style_FORWARDING_HEADERS
     HEADER_NAMES
         MapCSSParser
+        MapCSSProperty
         MapCSSStyle
     PREFIX KOSMIndoorMap
     REQUIRED_HEADERS KOSMIndoorMap_Style_HEADERS

@@ -9,10 +9,12 @@
 #include "levelparser_p.h"
 
 #if !BUILD_TOOLS_ONLY
+#include "style/mapcssdeclaration_p.h"
 #include "style/mapcssresult_p.h"
 #include "style/mapcssstate_p.h"
 
 #include <KOSMIndoorMap/MapCSSParser>
+#include <KOSMIndoorMap/MapCSSProperty>
 #include <KOSMIndoorMap/MapCSSStyle>
 #endif
 
@@ -197,7 +199,7 @@ void MapData::processElements()
         MapCSSState filterState;
         filterState.element = e;
         filter.evaluate(std::move(filterState), filterResult);
-        if (auto prop = filterResult[{}].declaration(MapCSSDeclaration::Opacity)) {
+        if (auto prop = filterResult[{}].declaration(MapCSSProperty::Opacity)) {
             if (prop->doubleValue() == 0.0) {
                 qDebug() << "input filter dropped" << e.url();
                 return;

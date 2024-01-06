@@ -8,6 +8,7 @@
 #include "logging.h"
 #include "osmelement.h"
 
+#include <style/mapcssdeclaration_p.h>
 #include <style/mapcssresult_p.h>
 #include <style/mapcssstate_p.h>
 
@@ -197,7 +198,7 @@ void AmenityModel::populateModel()
             m_style.evaluate(std::move(filterState), filterResult);
 
             const auto &res = filterResult[{}];
-            if (auto prop = res.declaration(MapCSSDeclaration::Opacity); !prop || prop->doubleValue() < 1.0) {
+            if (auto prop = res.declaration(MapCSSProperty::Opacity); !prop || prop->doubleValue() < 1.0) {
                 continue; // hidden element
             }
 
@@ -212,7 +213,7 @@ void AmenityModel::populateModel()
             entry.group = (*groupIt).group;
 
             QByteArray typeKey;
-            if (auto prop = res.declaration(MapCSSDeclaration::FontFamily); prop) {
+            if (auto prop = res.declaration(MapCSSProperty::FontFamily); prop) {
                 typeKey = prop->keyValue();
             }
             if (typeKey.isEmpty()) {
@@ -231,7 +232,7 @@ void AmenityModel::populateModel()
                 continue;
             }
 
-            if (auto prop = res.declaration(MapCSSDeclaration::IconImage); prop) {
+            if (auto prop = res.declaration(MapCSSProperty::IconImage); prop) {
                 entry.icon = prop->stringValue();
                 if (entry.icon.isEmpty()) {
                     entry.icon = QString::fromUtf8(e.tagValue(prop->keyValue().constData()));

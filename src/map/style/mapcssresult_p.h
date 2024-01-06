@@ -9,10 +9,12 @@
 
 #include "kosmindoormap_export.h"
 
-#include "mapcssdeclaration_p.h"
 #include "mapcsstypes.h"
 
+#include <memory>
 #include <vector>
+
+class QByteArray;
 
 namespace OSM {
 class Tag;
@@ -20,6 +22,9 @@ class TagKey;
 }
 
 namespace KOSMIndoorMap {
+
+class MapCSSDeclaration;
+enum class MapCSSProperty;
 
 /** Result of MapCSS stylesheet evaluation for a single layer selector. */
 class KOSMINDOORMAP_EXPORT MapCSSResultItem
@@ -44,7 +49,7 @@ public:
     [[nodiscard]] bool hasExtrudeProperties() const;
 
     /** Returns the declaration for property @prop, or @c nullptr is this property isn't set. */
-    [[nodiscard]] const MapCSSDeclaration* declaration(MapCSSDeclaration::Property prop) const;
+    [[nodiscard]] const MapCSSDeclaration* declaration(MapCSSProperty prop) const;
     /** The active declarations for the queried element. */
     [[nodiscard]] const std::vector<const MapCSSDeclaration*>& declarations() const;
 

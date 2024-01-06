@@ -5,6 +5,7 @@
 */
 
 #include "mapcssresult_p.h"
+#include "mapcssdeclaration_p.h"
 
 #include <osm/datatypes.h>
 
@@ -44,7 +45,7 @@ bool MapCSSResultItem::hasExtrudeProperties() const
     return m_flags & MapCSSDeclaration::ExtrudeProperty;
 }
 
-const MapCSSDeclaration* MapCSSResultItem::declaration(MapCSSDeclaration::Property prop) const
+const MapCSSDeclaration* MapCSSResultItem::declaration(MapCSSProperty prop) const
 {
     const auto it = std::lower_bound(m_declarations.begin(), m_declarations.end(), prop, [](auto lhs, auto rhs) {
         return lhs->property() < rhs;
