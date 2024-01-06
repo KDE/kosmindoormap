@@ -4,7 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "mapcssresult_p.h"
+#include "mapcssresult.h"
 #include "mapcssdeclaration_p.h"
 
 #include <osm/datatypes.h>
@@ -13,161 +13,191 @@
 
 using namespace KOSMIndoorMap;
 
-MapCSSResultItem::MapCSSResultItem() = default;
-MapCSSResultItem::~MapCSSResultItem() = default;
-
-void MapCSSResultItem::clear()
-{
-    m_declarations.clear();
-    m_classes.clear();
-    m_tags.clear();
-    m_flags = MapCSSDeclaration::NoFlag;
-    m_layer = {};
+namespace KOSMIndoorMap {
+class MapCSSResultLayerPrivate {
+public:
+    std::vector<const MapCSSDeclaration*> m_declarations;
+    std::vector<ClassSelectorKey> m_classes;
+    std::vector<OSM::Tag> m_tags;
+    LayerSelectorKey m_layer;
+    int m_flags = 0;
+};
 }
 
-bool MapCSSResultItem::hasAreaProperties() const
+MapCSSResultLayer::MapCSSResultLayer()
+    : d(new MapCSSResultLayerPrivate)
 {
-    return m_flags & MapCSSDeclaration::AreaProperty;
+}
+MapCSSResultLayer::MapCSSResultLayer(MapCSSResultLayer&&) noexcept = default;
+MapCSSResultLayer& MapCSSResultLayer::operator=(MapCSSResultLayer&&) noexcept = default;
+MapCSSResultLayer::~MapCSSResultLayer() = default;
+
+void MapCSSResultLayer::clear()
+{
+    d->m_declarations.clear();
+    d->m_classes.clear();
+    d->m_tags.clear();
+    d->m_flags = MapCSSDeclaration::NoFlag;
+    d->m_layer = {};
 }
 
-bool MapCSSResultItem::hasLineProperties() const
+bool MapCSSResultLayer::hasAreaProperties() const
 {
-    return m_flags & MapCSSDeclaration::LineProperty;
+    return d->m_flags & MapCSSDeclaration::AreaProperty;
 }
 
-bool MapCSSResultItem::hasLabelProperties() const
+bool MapCSSResultLayer::hasLineProperties() const
 {
-    return m_flags & MapCSSDeclaration::LabelProperty;
+    return d->m_flags & MapCSSDeclaration::LineProperty;
 }
 
-bool MapCSSResultItem::hasExtrudeProperties() const
+bool MapCSSResultLayer::hasLabelProperties() const
 {
-    return m_flags & MapCSSDeclaration::ExtrudeProperty;
+    return d->m_flags & MapCSSDeclaration::LabelProperty;
 }
 
-const MapCSSDeclaration* MapCSSResultItem::declaration(MapCSSProperty prop) const
+bool MapCSSResultLayer::hasExtrudeProperties() const
 {
-    const auto it = std::lower_bound(m_declarations.begin(), m_declarations.end(), prop, [](auto lhs, auto rhs) {
+    return d->m_flags & MapCSSDeclaration::ExtrudeProperty;
+}
+
+const MapCSSDeclaration* MapCSSResultLayer::declaration(MapCSSProperty prop) const
+{
+    const auto it = std::lower_bound(d->m_declarations.begin(), d->m_declarations.end(), prop, [](auto lhs, auto rhs) {
         return lhs->property() < rhs;
     });
-    if (it == m_declarations.end() || (*it)->property() != prop) {
+    if (it == d->m_declarations.end() || (*it)->property() != prop) {
         return nullptr;
     }
     return (*it);
 }
 
-const std::vector<const MapCSSDeclaration*>& MapCSSResultItem::declarations() const
+const std::vector<const MapCSSDeclaration*>& MapCSSResultLayer::declarations() const
 {
-    return m_declarations;
+    return d->m_declarations;
 }
 
-void MapCSSResultItem::addDeclaration(const MapCSSDeclaration *decl)
+void MapCSSResultLayer::addDeclaration(const MapCSSDeclaration *decl)
 {
-    const auto it = std::lower_bound(m_declarations.begin(), m_declarations.end(), decl, [](auto lhs, auto rhs) {
+    const auto it = std::lower_bound(d->m_declarations.begin(), d->m_declarations.end(), decl, [](auto lhs, auto rhs) {
         return lhs->property() < rhs->property();
     });
-    if (it == m_declarations.end() || (*it)->property() != decl->property()) {
-        m_declarations.insert(it, decl);
+    if (it == d->m_declarations.end() || (*it)->property() != decl->property()) {
+        d->m_declarations.insert(it, decl);
     } else {
         (*it) = decl;
     }
 
-    m_flags |= decl->propertyFlags();
+    d->m_flags |= decl->propertyFlags();
 }
 
-void MapCSSResultItem::addClass(ClassSelectorKey cls)
+void MapCSSResultLayer::addClass(ClassSelectorKey cls)
 {
-    const auto it = std::lower_bound(m_classes.begin(), m_classes.end(), cls);
-    if (it == m_classes.end() || (*it) != cls) {
-        m_classes.insert(it, cls);
+    const auto it = std::lower_bound(d->m_classes.begin(), d->m_classes.end(), cls);
+    if (it == d->m_classes.end() || (*it) != cls) {
+        d->m_classes.insert(it, cls);
     }
 }
 
-bool MapCSSResultItem::hasClass(ClassSelectorKey cls) const
+bool MapCSSResultLayer::hasClass(ClassSelectorKey cls) const
 {
-    return std::binary_search(m_classes.begin(), m_classes.end(), cls);
+    return std::binary_search(d->m_classes.begin(), d->m_classes.end(), cls);
 }
 
-LayerSelectorKey MapCSSResultItem::layerSelector() const
+LayerSelectorKey MapCSSResultLayer::layerSelector() const
 {
-    return m_layer;
+    return d->m_layer;
 }
 
-QByteArray MapCSSResultItem::tagValue(OSM::TagKey key) const
+QByteArray MapCSSResultLayer::tagValue(OSM::TagKey key) const
 {
-    const auto it = std::lower_bound(m_tags.begin(), m_tags.end(), key);
-    if (it != m_tags.end() && (*it).key == key) {
+    const auto it = std::lower_bound(d->m_tags.begin(), d->m_tags.end(), key);
+    if (it != d->m_tags.end() && (*it).key == key) {
         return (*it).value;
     }
     return {};
 }
 
-void MapCSSResultItem::setLayerSelector(LayerSelectorKey layer)
+void MapCSSResultLayer::setLayerSelector(LayerSelectorKey layer)
 {
-    m_layer = layer;
+    d->m_layer = layer;
 }
 
-void MapCSSResultItem::setTag(OSM::Tag &&tag)
+void MapCSSResultLayer::setTag(OSM::Tag &&tag)
 {
-    const auto it = std::lower_bound(m_tags.begin(), m_tags.end(), tag);
-    if (it == m_tags.end() || (*it).key != tag.key) {
-        m_tags.insert(it, std::move(tag));
+    const auto it = std::lower_bound(d->m_tags.begin(), d->m_tags.end(), tag);
+    if (it == d->m_tags.end() || (*it).key != tag.key) {
+        d->m_tags.insert(it, std::move(tag));
     } else {
         (*it) = std::move(tag);
     }
 }
 
 
-MapCSSResult::MapCSSResult() = default;
+namespace KOSMIndoorMap {
+class MapCSSResultPrivate {
+public:
+    std::vector<MapCSSResultLayer> m_results;
+    std::vector<MapCSSResultLayer> m_inactivePool; // for reuse of already allocated result items
+};
+}
+
+MapCSSResult::MapCSSResult()
+    : d(new MapCSSResultPrivate)
+{
+}
+
+MapCSSResult::MapCSSResult(MapCSSResult&&) noexcept = default;
 MapCSSResult::~MapCSSResult() = default;
+MapCSSResult& MapCSSResult::operator=(MapCSSResult&&) noexcept = default;
 
 void MapCSSResult::clear()
 {
-    std::move(m_results.begin(), m_results.end(), std::back_inserter(m_inactivePool));
-    m_results.clear();
-    std::for_each(m_inactivePool.begin(), m_inactivePool.end(), std::mem_fn(&MapCSSResultItem::clear));
+    std::move(d->m_results.begin(), d->m_results.end(), std::back_inserter(d->m_inactivePool));
+    d->m_results.clear();
+    std::for_each(d->m_inactivePool.begin(), d->m_inactivePool.end(), std::mem_fn(&MapCSSResultLayer::clear));
 }
 
-const std::vector<MapCSSResultItem>& MapCSSResult::results() const
+const std::vector<MapCSSResultLayer>& MapCSSResult::results() const
 {
-    return m_results;
+    return d->m_results;
 }
 
-MapCSSResultItem& MapCSSResult::operator[](LayerSelectorKey layer)
+MapCSSResultLayer& MapCSSResult::operator[](LayerSelectorKey layer)
 {
-    const auto it = std::find_if(m_results.begin(), m_results.end(), [layer](const auto &res) {
+    const auto it = std::find_if(d->m_results.begin(), d->m_results.end(), [layer](const auto &res) {
         return res.layerSelector() == layer;
     });
-    if (it != m_results.end()) {
+    if (it != d->m_results.end()) {
         return *it;
     }
 
-    if (!m_inactivePool.empty()) {
-        auto res = std::move(m_inactivePool.back());
-        m_inactivePool.pop_back();
+    if (!d->m_inactivePool.empty()) {
+        auto res = std::move(d->m_inactivePool.back());
+        d->m_inactivePool.pop_back();
         res.setLayerSelector(layer);
-        m_results.push_back(std::move(res));
+        d->m_results.push_back(std::move(res));
     } else {
-        MapCSSResultItem res;
+        MapCSSResultLayer res;
         res.setLayerSelector(layer);
-        m_results.push_back(std::move(res));
+        d->m_results.push_back(std::move(res));
     }
-    return m_results.back();
+    return d->m_results.back();
 }
 
-const MapCSSResultItem& MapCSSResult::operator[](LayerSelectorKey layer) const
+const MapCSSResultLayer& MapCSSResult::operator[](LayerSelectorKey layer) const
 {
-    const auto it = std::find_if(m_results.begin(), m_results.end(), [layer](const auto &res) {
+    const auto it = std::find_if(d->m_results.begin(), d->m_results.end(), [layer](const auto &res) {
         return res.layerSelector() == layer;
     });
-    if (it != m_results.end()) {
+    if (it != d->m_results.end()) {
         return *it;
     }
 
-    if (m_inactivePool.empty()) {
-        m_inactivePool.push_back(MapCSSResultItem());
+    if (d->m_inactivePool.empty()) {
+        d->m_inactivePool.emplace_back();
     }
-    return m_inactivePool.back();
+    return d->m_inactivePool.back();
 }
 
 void MapCSSResult::applyDeclarations(LayerSelectorKey layer, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations)

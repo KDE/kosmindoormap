@@ -6,7 +6,7 @@
 
 #include "mapcssselector_p.h"
 #include "mapcsscondition_p.h"
-#include "mapcssresult_p.h"
+#include "mapcssresult.h"
 #include "mapcssstate_p.h"
 
 #include <QDebug>

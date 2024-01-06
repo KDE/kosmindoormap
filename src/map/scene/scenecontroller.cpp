@@ -16,9 +16,9 @@
 #include "texturecache_p.h"
 #include "../style/mapcssdeclaration_p.h"
 #include "../style/mapcssstate_p.h"
-#include "../style/mapcssresult_p.h"
 
 #include <KOSMIndoorMap/MapData>
+#include <KOSMIndoorMap/MapCSSResult>
 #include <KOSMIndoorMap/MapCSSStyle>
 #include <KOSMIndoorMap/OverlaySource>
 #include <KOSMIndoorMap/SceneGraph>
@@ -232,7 +232,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     return std::any_of(s.begin(), s.end(), [](QChar c) { return !c.isLetter(); });
 }
 
-void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultItem &result) const
+void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultLayer &result) const
 {
     if (result.hasAreaProperties()) {
         PolygonBaseItem *item = nullptr;
@@ -714,7 +714,7 @@ void SceneController::finalizePen(QPen &pen, double opacity) const
     }
 }
 
-void SceneController::addItem(SceneGraph &sg, OSM::Element e, int level, const MapCSSResultItem &result, std::unique_ptr<SceneGraphItemPayload> &&payload) const
+void SceneController::addItem(SceneGraph &sg, OSM::Element e, int level, const MapCSSResultLayer &result, std::unique_ptr<SceneGraphItemPayload> &&payload) const
 {
     SceneGraphItem item;
     item.element = e;

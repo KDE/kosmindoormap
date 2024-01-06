@@ -10,7 +10,7 @@
 
 #if !BUILD_TOOLS_ONLY
 #include "style/mapcssdeclaration_p.h"
-#include "style/mapcssresult_p.h"
+#include "style/mapcssresult.h"
 #include "style/mapcssstate_p.h"
 
 #include <KOSMIndoorMap/MapCSSParser>

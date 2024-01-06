@@ -26,7 +26,7 @@ namespace KOSMIndoorMap {
 class AbstractOverlaySource;
 class MapData;
 class MapCSSDeclaration;
-class MapCSSResultItem;
+class MapCSSResultLayer;
 class MapCSSStyle;
 class SceneControllerPrivate;
 class SceneGraph;
@@ -54,7 +54,7 @@ public:
 private:
     void updateCanvas(SceneGraph &sg) const;
     void updateElement(OSM::Element e, int level, SceneGraph &sg) const;
-    void updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultItem &result) const;
+    void updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultLayer &result) const;
 
     QPolygonF createPolygon(OSM::Element e) const;
     QPainterPath createPath(OSM::Element e, QPolygonF &outerPath) const;
@@ -67,7 +67,7 @@ private:
     void initializePen(QPen &pen) const;
     void finalizePen(QPen &pen, double opacity) const;
 
-    void addItem(SceneGraph &sg, OSM::Element e, int level, const MapCSSResultItem &result, std::unique_ptr<SceneGraphItemPayload> &&payload) const;
+    void addItem(SceneGraph &sg, OSM::Element e, int level, const MapCSSResultLayer &result, std::unique_ptr<SceneGraphItemPayload> &&payload) const;
 
     std::unique_ptr<SceneControllerPrivate> d;
 };

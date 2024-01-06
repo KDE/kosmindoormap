@@ -9,10 +9,10 @@
 #include "osmelement.h"
 
 #include <style/mapcssdeclaration_p.h>
-#include <style/mapcssresult_p.h>
 #include <style/mapcssstate_p.h>
 
 #include <KOSMIndoorMap/MapCSSParser>
+#include <KOSMIndoorMap/MapCSSResult>
 
 #include <KLocalizedString>
 

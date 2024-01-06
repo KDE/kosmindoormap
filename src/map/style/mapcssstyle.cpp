@@ -7,7 +7,7 @@
 #include "mapcssstyle.h"
 #include "mapcssstyle_p.h"
 #include "mapcssparser.h"
-#include "mapcssresult_p.h"
+#include "mapcssresult.h"
 #include "mapcssrule_p.h"
 #include "mapcssstate_p.h"
 
