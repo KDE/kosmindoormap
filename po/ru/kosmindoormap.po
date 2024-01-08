@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:40+0000\n"
+"POT-Creation-Date: 2024-01-08 00:40+0000\n"
 "PO-Revision-Date: 2023-11-10 14:43+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -23,13 +23,13 @@ msgstr ""
 msgid "KDE OSM Indoor Map"
 msgstr "Схема помещения OSM KDE"
 
-#: map-quick/amenitymodel.cpp:85
+#: map-quick/amenitymodel.cpp:86
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
 msgstr ""
 
-#: map-quick/amenitymodel.cpp:87
+#: map-quick/amenitymodel.cpp:88
 #, fuzzy, kde-format
 #| msgctxt "OSM::amenity/shop"
 #| msgid "Shop"
@@ -37,26 +37,26 @@ msgctxt "amenity category"
 msgid "Shops"
 msgstr "Магазин"
 
-#: map-quick/amenitymodel.cpp:89
+#: map-quick/amenitymodel.cpp:90
 #, fuzzy, kde-format
 #| msgid "Toilets"
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Туалеты"
 
-#: map-quick/amenitymodel.cpp:91
+#: map-quick/amenitymodel.cpp:92
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
 msgstr ""
 
-#: map-quick/amenitymodel.cpp:93
+#: map-quick/amenitymodel.cpp:94
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
 msgstr ""
 
-#: map-quick/amenitymodel.cpp:95
+#: map-quick/amenitymodel.cpp:96
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"

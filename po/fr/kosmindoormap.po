@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:40+0000\n"
+"POT-Creation-Date: 2024-01-08 00:40+0000\n"
 "PO-Revision-Date: 2023-10-21 20:22+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -20,37 +20,37 @@ msgstr ""
 msgid "KDE OSM Indoor Map"
 msgstr "Carte interne de OpenStreetMap pour KDE"
 
-#: map-quick/amenitymodel.cpp:85
+#: map-quick/amenitymodel.cpp:86
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
 msgstr "Restaurant"
 
-#: map-quick/amenitymodel.cpp:87
+#: map-quick/amenitymodel.cpp:88
 #, kde-format
 msgctxt "amenity category"
 msgid "Shops"
 msgstr "Boutiques"
 
-#: map-quick/amenitymodel.cpp:89
+#: map-quick/amenitymodel.cpp:90
 #, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Toilettes"
 
-#: map-quick/amenitymodel.cpp:91
+#: map-quick/amenitymodel.cpp:92
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
 msgstr "Soins de santé"
 
-#: map-quick/amenitymodel.cpp:93
+#: map-quick/amenitymodel.cpp:94
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
 msgstr "Services"
 
-#: map-quick/amenitymodel.cpp:95
+#: map-quick/amenitymodel.cpp:96
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"

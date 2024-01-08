@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-27 00:40+0000\n"
+"POT-Creation-Date: 2024-01-08 00:40+0000\n"
 "PO-Revision-Date: 2023-10-21 09:50+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -25,37 +25,37 @@ msgstr ""
 msgid "KDE OSM Indoor Map"
 msgstr "Внутрішня карта OSM KDE"
 
-#: map-quick/amenitymodel.cpp:85
+#: map-quick/amenitymodel.cpp:86
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
 msgstr "Їжа і напої"
 
-#: map-quick/amenitymodel.cpp:87
+#: map-quick/amenitymodel.cpp:88
 #, kde-format
 msgctxt "amenity category"
 msgid "Shops"
 msgstr "Крамниці"
 
-#: map-quick/amenitymodel.cpp:89
+#: map-quick/amenitymodel.cpp:90
 #, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Туалети"
 
-#: map-quick/amenitymodel.cpp:91
+#: map-quick/amenitymodel.cpp:92
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
 msgstr "Медицина"
 
-#: map-quick/amenitymodel.cpp:93
+#: map-quick/amenitymodel.cpp:94
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
 msgstr "Зручності"
 
-#: map-quick/amenitymodel.cpp:95
+#: map-quick/amenitymodel.cpp:96
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"
