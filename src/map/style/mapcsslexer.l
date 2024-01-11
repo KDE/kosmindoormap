@@ -68,6 +68,7 @@ STRING      ["]{STRING_ELEMENT}*["]
 "}" { return T_RBRACE; }
 "(" { return T_LPAREN; }
 ")" { return T_RPAREN; }
+"::" { return T_DOUBLE_COLON; }
 ":" { return T_COLON; }
 ";" { return T_SEMICOLON; }
 "," { return T_COMMA; }

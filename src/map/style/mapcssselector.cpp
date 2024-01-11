@@ -166,6 +166,12 @@ void MapCSSBasicSelector::setClass(ClassSelectorKey key)
     m_class = key;
 }
 
+void MapCSSBasicSelector::setPseudoClass(const char *str, std::size_t len)
+{
+    // TODO
+    qWarning() << "Unhandled pseudo class:" << QByteArrayView(str, len);
+}
+
 void MapCSSBasicSelector::setLayer(LayerSelectorKey key)
 {
     m_layer = key;

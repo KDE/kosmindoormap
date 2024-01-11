@@ -183,3 +183,14 @@ node.amenity
     icon-allow-text-overlap: true;
 }
 
+area[indoor=room]
+{
+    color: #ff0000ff;
+    width: 2px;
+}
+
+line[highway]
+{
+    color: "red";
+}
+

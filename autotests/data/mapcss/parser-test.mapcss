@@ -153,3 +153,11 @@ node.amenity {
     icon-allow-icon-overlap: false;
     icon-allow-text-overlap: true;
 }
+
+// psudo classes
+area[indoor=room]:active {
+    color: #0000ff;
+    width: 2px;
+}
+line[highway]:hover { color: "red"; }
+

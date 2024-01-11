@@ -88,6 +88,7 @@ using namespace KOSMIndoorMap;
 %token T_RBRACE
 %token T_LPAREN
 %token T_RPAREN
+%token T_DOUBLE_COLON
 %token T_COLON
 %token T_SEMICOLON
 %token T_COMMA
@@ -115,6 +116,7 @@ using namespace KOSMIndoorMap;
 %type <selector> Selector
 %type <basicSelector> BasicSelector
 %type <strRef> ClassSelector
+%type <strRef> PseudoClassSelector
 %type <conditionHolder> Tests
 %type <condition> Test
 %type <zoomRange> ZoomRange
@@ -189,9 +191,8 @@ Selector:
   }}
 ;
 
-// TODO incomplete: missing pseudo-class
 BasicSelector:
-  T_IDENT[I] ClassSelector[C] ZoomRange[Z] Tests[T] LayerSelector[L] {
+  T_IDENT[I] ClassSelector[C] ZoomRange[Z] Tests[T] PseudoClassSelector[P] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
     if ($C.str) {
         $$->setClass(parser->makeClassSelector($C.str, $C.len));
@@ -199,15 +200,21 @@ BasicSelector:
     $$->setObjectType($I.str, $I.len);
     $$->setZoomRange($Z.low, $Z.high);
     $$->setConditions($T);
+    if ($P.str) {
+        $$->setPseudoClass($P.str, $P.len);
+    }
     $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
   }
-| T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] LayerSelector[L] {
+| T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] PseudoClassSelector[P] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
     if ($C.str) {
         $$->setClass(parser->makeClassSelector($C.str, $C.len));
     }
     $$->setZoomRange($Z.low, $Z.high);
     $$->setConditions($T);
+    if ($P.str) {
+        $$->setPseudoClass($P.str, $P.len);
+    }
     $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
   }
 ;
@@ -215,6 +222,11 @@ BasicSelector:
 ClassSelector:
   %empty { $$.str = nullptr; $$.len = 0; }
 | T_DOT T_IDENT[I] { $$.str = $I.str; $$.len = $I.len; }
+;
+
+PseudoClassSelector:
+  %empty { $$.str = nullptr; $$.len = 0; }
+| T_COLON T_IDENT[I] { $$.str = $I.str; $$.len = $I.len; }
 ;
 
 ZoomRange:
@@ -246,7 +258,7 @@ BinaryOp:
 
 LayerSelector:
   %empty { $$.str = nullptr; $$.len = 0; }
-| T_COLON T_COLON T_IDENT[L] { $$ = $L; }
+| T_DOUBLE_COLON T_IDENT[L] { $$ = $L; }
 ;
 
 Key:

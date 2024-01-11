@@ -55,9 +55,9 @@ public:
     ~MapCSSBasicSelector();
 
     void compile(const OSM::DataSet &dataSet) override;
-    bool matches(const MapCSSState &state, MapCSSResult &result, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const override;
-    bool matchesCanvas(const MapCSSState &state) const override;
-    LayerSelectorKey layerSelector() const override;
+    [[nodiscard]] bool matches(const MapCSSState &state, MapCSSResult &result, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations) const override;
+    [[nodiscard]] bool matchesCanvas(const MapCSSState &state) const override;
+    [[nodiscard]] LayerSelectorKey layerSelector() const override;
     void write(QIODevice* out) const override;
 
     /** @internal only to be used by the parser */
@@ -65,6 +65,7 @@ public:
     void setZoomRange(int low, int high);
     void setConditions(MapCSSConditionHolder *conds);
     void setClass(ClassSelectorKey key);
+    void setPseudoClass(const char *str, std::size_t len);
     void setLayer(LayerSelectorKey key);
 
 private:
