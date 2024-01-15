@@ -114,6 +114,7 @@ public:
 private:
     friend int ::yyparse(KOSMIndoorMap::MapCSSParserPrivate*, void*);
     friend class ::PenWidthUtilTest;
+    friend class MapCSSParserPrivate;
 
     /** @internal, for use by the parser. */
     void setPropertyName(const char *name, std::size_t len);

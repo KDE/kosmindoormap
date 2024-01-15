@@ -1,0 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Volker Krause <vkrause@kde.org>
+ * SPDX-License-Identifier: CC0-1.0
+ */
+
+/** test file included via import with class assignment */
+node[cuisine=pizza] {
+    color: #123456;
+}

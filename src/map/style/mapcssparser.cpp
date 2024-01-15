@@ -9,6 +9,7 @@
 #include "logging.h"
 
 #include "mapcssparser_impl.h"
+#include "mapcssdeclaration_p.h"
 #include "mapcssrule_p.h"
 #include "mapcssscanner.h"
 #include "mapcssstyle.h"
@@ -84,7 +85,7 @@ MapCSSStyle MapCSSParser::parse(const QString &fileName)
     d->m_error = true;
 
     MapCSSStyle style;
-    d->parse(&style, fileName);
+    d->parse(&style, fileName, {});
     if (d->m_error) {
         return MapCSSStyle();
     }
@@ -92,7 +93,7 @@ MapCSSStyle MapCSSParser::parse(const QString &fileName)
     return style;
 }
 
-void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName)
+void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName, ClassSelectorKey importClass)
 {
     QFile f(fileName);
     if (!f.open(QFile::ReadOnly)) {
@@ -103,6 +104,7 @@ void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName)
     }
     m_currentFileName = fileName;
     m_currentStyle = style;
+    m_importClass = importClass;
 
     yyscan_t scanner;
     if (yylex_init(&scanner)) {
@@ -122,9 +124,10 @@ void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName)
 
     m_error = false;
     m_currentStyle = nullptr;
+    m_importClass = {};
 }
 
-bool MapCSSParserPrivate::addImport(char* fileName)
+bool MapCSSParserPrivate::addImport(char* fileName, ClassSelectorKey importClass)
 {
     auto cssFile = QString::fromUtf8(fileName);
     free(fileName);
@@ -134,7 +137,7 @@ bool MapCSSParserPrivate::addImport(char* fileName)
     }
 
     MapCSSParser p;
-    p.d->parse(m_currentStyle, cssFile);
+    p.d->parse(m_currentStyle, cssFile, importClass);
     if (p.hasError()) {
         m_error = p.d->m_error;
         m_errorMsg = p.errorMessage();
@@ -155,12 +158,12 @@ void MapCSSParserPrivate::setError(const QString &msg, int line, int column)
     m_column = column;
 }
 
-ClassSelectorKey MapCSSParserPrivate::makeClassSelector(const char *str, std::size_t len)
+ClassSelectorKey MapCSSParserPrivate::makeClassSelector(const char *str, std::size_t len) const
 {
     return MapCSSStylePrivate::get(m_currentStyle)->m_classSelectorRegistry.makeKey(str, len, OSM::StringMemory::Transient);
 }
 
-LayerSelectorKey MapCSSParserPrivate::makeLayerSelector(const char *str, std::size_t len)
+LayerSelectorKey MapCSSParserPrivate::makeLayerSelector(const char *str, std::size_t len) const
 {
     if (!str || std::strcmp(str, "default") == 0) {
         return {};

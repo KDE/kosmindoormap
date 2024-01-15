@@ -161,3 +161,5 @@ area[indoor=room]:active {
 }
 line[highway]:hover { color: "red"; }
 
+// importa with classes
+@import url("included-with-class.mapcss") importClass;

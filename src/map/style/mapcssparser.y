@@ -157,12 +157,16 @@ Rule:
 ;
 
 Import:
-  T_KEYWORD_IMPORT T_KEYWORD_URL T_LPAREN T_STRING T_RPAREN T_SEMICOLON {
-    if (!parser->addImport($4)) {
+  T_KEYWORD_IMPORT T_KEYWORD_URL T_LPAREN T_STRING[I] T_RPAREN T_SEMICOLON {
+    if (!parser->addImport($I, {})) {
         YYABORT;
     }
   }
-| T_KEYWORD_IMPORT T_KEYWORD_URL T_LPAREN T_STRING T_RPAREN T_IDENT T_SEMICOLON { parser->addImport($4); }
+| T_KEYWORD_IMPORT T_KEYWORD_URL T_LPAREN T_STRING[I] T_RPAREN T_IDENT[C] T_SEMICOLON {
+    if (!parser->addImport($I, parser->makeClassSelector($C.str, $C.len))) {
+        YYABORT;
+    }
+  }
 ;
 
 Selectors:
@@ -194,6 +198,9 @@ Selector:
 BasicSelector:
   T_IDENT[I] ClassSelector[C] ZoomRange[Z] Tests[T] PseudoClassSelector[P] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
+    if (!parser->m_importClass.isNull()) { // ### what should happen here if both are set?? (repeats below)
+        $$->setClass(parser->m_importClass);
+    }
     if ($C.str) {
         $$->setClass(parser->makeClassSelector($C.str, $C.len));
     }
@@ -207,6 +214,9 @@ BasicSelector:
   }
 | T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] PseudoClassSelector[P] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
+    if (!parser->m_importClass.isNull()) {
+        $$->setClass(parser->m_importClass);
+    }
     if ($C.str) {
         $$->setClass(parser->makeClassSelector($C.str, $C.len));
     }
