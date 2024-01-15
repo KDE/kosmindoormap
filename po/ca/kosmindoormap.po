@@ -1,15 +1,15 @@
 # Translation of kosmindoormap.po to Catalan
-# Copyright (C) 2020-2023 This_file_is_part_of_KDE
+# Copyright (C) 2020-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-08 00:40+0000\n"
-"PO-Revision-Date: 2023-12-08 14:15+0100\n"
+"PO-Revision-Date: 2024-01-14 12:50+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -209,7 +209,7 @@ msgstr "Botiga"
 #: map-quick/localization_data.cpp:47
 msgctxt "OSM::leisure"
 msgid "Bowling Alley"
-msgstr "Bolera"
+msgstr "Pista de bitlles"
 
 #: map-quick/localization_data.cpp:48
 msgctxt "OSM::amenity/shop"
@@ -334,7 +334,7 @@ msgstr "Centre de conferències"
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::diplomatic"
 msgid "Consulate"
-msgstr "Consulat"
+msgstr "Consolat"
 
 #: map-quick/localization_data.cpp:74
 msgctxt "OSM::amenity/shop"
@@ -1676,7 +1676,7 @@ msgstr "Dieta"
 #: map-quick/osmelementinformationmodel.cpp:473
 #, kde-format
 msgid "Takeaway"
-msgstr "Per emportar"
+msgstr "Per a emportar"
 
 #: map-quick/osmelementinformationmodel.cpp:474
 #, kde-format
@@ -2084,7 +2084,7 @@ msgstr "construcció"
 #: map-quick/osmelementinformationmodel_data.cpp:120
 msgctxt "OSM::bicycle_parking"
 msgid "ground slots"
-msgstr "ranures al terra"
+msgstr "ranures a terra"
 
 #: map-quick/osmelementinformationmodel_data.cpp:121
 msgctxt "OSM::bicycle_parking"
