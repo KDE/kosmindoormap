@@ -1,7 +1,7 @@
 # Translation for kosmindoormap.po to Euskara/Basque (eu).
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus<.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus<
 #
 # Translators:
 # SPDX-FileCopyrightText: 2024 Iñigo Salvador Azurmendi <xalba@ni.eus>
@@ -10,20 +10,20 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-08 00:40+0000\n"
-"PO-Revision-Date: 2024-01-14 22:57+0100\n"
+"PO-Revision-Date: 2024-01-16 01:09+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.4\n"
 
 #: app/main.cpp:46
 #, kde-format
 msgid "KDE OSM Indoor Map"
-msgstr ""
+msgstr "KDE OSM barruko mapa"
 
 #: map-quick/amenitymodel.cpp:86
 #, kde-format
@@ -53,13 +53,13 @@ msgstr "Osasun-laguntza"
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
-msgstr ""
+msgstr "Zerbitzuak"
 
 #: map-quick/amenitymodel.cpp:96
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"
-msgstr ""
+msgstr "Ostatua"
 
 #: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
@@ -314,7 +314,7 @@ msgstr "Kafea"
 #: map-quick/localization_data.cpp:69
 msgctxt "OSM::amenity"
 msgid "Community Center"
-msgstr ""
+msgstr "Komunitateko zentroa"
 
 #: map-quick/localization_data.cpp:70
 msgctxt "OSM::amenity/shop"
@@ -464,12 +464,12 @@ msgstr "Suhiltzaile-etxea"
 #: map-quick/localization_data.cpp:101
 msgctxt "OSM::leisure"
 msgid "Fitness Center"
-msgstr ""
+msgstr "Fitness zentroa"
 
 #: map-quick/localization_data.cpp:102
 msgctxt "OSM::leisure"
 msgid "Fitness Station"
-msgstr ""
+msgstr "Fitness geltokia"
 
 #: map-quick/localization_data.cpp:103
 msgctxt "OSM::amenity/shop"
@@ -484,7 +484,7 @@ msgstr "Janaria"
 #: map-quick/localization_data.cpp:105
 msgctxt "OSM::amenity/shop"
 msgid "Food Court"
-msgstr ""
+msgstr "Janari plaza"
 
 #: map-quick/localization_data.cpp:106
 msgctxt "OSM::amenity/shop"
@@ -559,7 +559,7 @@ msgstr "Burdindegia"
 #: map-quick/localization_data.cpp:120
 msgctxt "OSM::shop"
 msgid "Health Food"
-msgstr ""
+msgstr "Janari osasuntsua"
 
 #: map-quick/localization_data.cpp:121
 msgctxt "OSM::amenity/shop"
@@ -569,7 +569,7 @@ msgstr "Audiofonoak"
 #: map-quick/localization_data.cpp:122
 msgctxt "OSM::shop"
 msgid "Hi-fi"
-msgstr ""
+msgstr "Goi-fidelitatea"
 
 #: map-quick/localization_data.cpp:123
 msgctxt "OSM::amenity/shop"
@@ -645,7 +645,7 @@ msgstr "Liburutegia"
 #: map-quick/localization_data.cpp:144
 msgctxt "OSM::amenity"
 msgid "Locker"
-msgstr ""
+msgstr "Armairua"
 
 #: map-quick/localization_data.cpp:140
 msgctxt "OSM::amenity/shop"
@@ -726,17 +726,17 @@ msgstr "Musika-tresnak"
 #: map-quick/localization_data.cpp:158
 msgctxt "OSM::amenity/shop"
 msgid "Newsagent"
-msgstr ""
+msgstr "Aldizkari-salmenta"
 
 #: map-quick/localization_data.cpp:159
 msgctxt "OSM::amenity"
 msgid "Nightclub"
-msgstr ""
+msgstr "Gaueko kluba"
 
 #: map-quick/localization_data.cpp:160
 msgctxt "OSM::shop"
 msgid "Nutrition Supplements"
-msgstr ""
+msgstr "Nutrizio-osagarriak"
 
 #: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
@@ -781,17 +781,17 @@ msgstr "Aparkalekuko txartelak"
 #: map-quick/localization_data.cpp:169
 msgctxt "OSM::amenity/shop"
 msgid "Pastry"
-msgstr ""
+msgstr "Gozogintza"
 
 #: map-quick/localization_data.cpp:170
 msgctxt "OSM::amenity/shop"
 msgid "Perfumery"
-msgstr ""
+msgstr "Lurrin-denda"
 
 #: map-quick/localization_data.cpp:171
 msgctxt "OSM::amenity/shop"
 msgid "Pet"
-msgstr ""
+msgstr "Etxeko-animalia"
 
 #: map-quick/localization_data.cpp:172
 msgctxt "OSM::amenity/shop"
@@ -835,7 +835,7 @@ msgstr "Posta bulegoa"
 #: map-quick/localization_data.cpp:180
 msgctxt "OSM::shop"
 msgid "Potery"
-msgstr ""
+msgstr "Zeramika"
 
 #: map-quick/localization_data.cpp:181
 msgctxt "OSM::healthcare"
@@ -885,7 +885,7 @@ msgstr "Ikastetxea"
 #: map-quick/localization_data.cpp:190
 msgctxt "OSM::amenity/shop"
 msgid "Kick Scooter Rental"
-msgstr ""
+msgstr "Patinete alokairua"
 
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
@@ -920,7 +920,7 @@ msgstr "Dutxa"
 #: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
 msgid "Social Facility"
-msgstr ""
+msgstr "Gizarte zerbitzua"
 
 #: map-quick/localization_data.cpp:198
 msgctxt "OSM::amenity/shop"
@@ -945,7 +945,7 @@ msgstr "Kirol aretoa"
 #: map-quick/localization_data.cpp:202
 msgctxt "OSM::amenity/shop"
 msgid "Stationery"
-msgstr ""
+msgstr "Bulegoko materiala"
 
 #: map-quick/localization_data.cpp:203
 msgctxt "OSM::amenity/shop"
@@ -955,7 +955,7 @@ msgstr "Supermerkatua"
 #: map-quick/localization_data.cpp:204
 msgctxt "OSM::amenity/shop"
 msgid "Tailor"
-msgstr ""
+msgstr "Jostuna"
 
 #: map-quick/localization_data.cpp:205
 msgctxt "OSM::amenity/shop"
@@ -1025,7 +1025,7 @@ msgstr "Unibertsitatea"
 #: map-quick/localization_data.cpp:220
 msgctxt "OSM::amenity/shop"
 msgid "Variety Store"
-msgstr ""
+msgstr "Askotariko denda"
 
 #: map-quick/localization_data.cpp:221
 msgctxt "OSM::amenity"
@@ -1040,23 +1040,23 @@ msgstr "Bideo jokoak"
 #: map-quick/localization_data.cpp:223
 msgctxt "OSM::tourism"
 msgid "Viewpoint"
-msgstr ""
+msgstr "Begiralekua"
 
 #: map-quick/localization_data.cpp:224 map-quick/localization_data.cpp:225
 #: map-quick/localization_data.cpp:226
 msgctxt "OSM::amenity/shop"
 msgid "Waiting Area"
-msgstr "Itxaroteko eremua"
+msgstr "Itxoiteko eremua"
 
 #: map-quick/localization_data.cpp:227
 msgctxt "OSM::amenity"
 msgid "Waste Basket"
-msgstr ""
+msgstr "Hondakin ontzia"
 
 #: map-quick/localization_data.cpp:228
 msgctxt "OSM::shop"
 msgid "Watches"
-msgstr ""
+msgstr "Erloju-denda"
 
 #: map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"
@@ -1076,7 +1076,7 @@ msgstr "Afrikakoa"
 #: map-quick/localization_data.cpp:237
 msgctxt "OSM::cuisine"
 msgid "American"
-msgstr "Amerikakoa"
+msgstr "Amerikarra"
 
 #: map-quick/localization_data.cpp:238
 msgctxt "OSM::cuisine"
@@ -1101,12 +1101,12 @@ msgstr "Austriarra"
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::cuisine"
 msgid "Bagel"
-msgstr ""
+msgstr "Bagel"
 
 #: map-quick/localization_data.cpp:243
 msgctxt "OSM::cuisine"
 msgid "Balkan"
-msgstr ""
+msgstr "Balkanetakoa"
 
 #: map-quick/localization_data.cpp:244 map-quick/localization_data.cpp:245
 #: map-quick/localization_data.cpp:247
@@ -1122,7 +1122,7 @@ msgstr "Bavariakoa"
 #: map-quick/localization_data.cpp:248
 msgctxt "OSM::cuisine"
 msgid "Beef Bowl"
-msgstr ""
+msgstr "Txahal haragi katilua"
 
 #: map-quick/localization_data.cpp:249
 msgctxt "OSM::cuisine"
@@ -1152,12 +1152,12 @@ msgstr "Hamaiketakoa"
 #: map-quick/localization_data.cpp:254
 msgctxt "OSM::cuisine"
 msgid "Bubble Tea"
-msgstr ""
+msgstr "Burbuila tea"
 
 #: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Buffet"
-msgstr ""
+msgstr "Buffet"
 
 #: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
@@ -1202,12 +1202,12 @@ msgstr "Gailetak"
 #: map-quick/localization_data.cpp:264
 msgctxt "OSM::cuisine"
 msgid "Crêpe"
-msgstr ""
+msgstr "Krepe"
 
 #: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "Curry"
-msgstr ""
+msgstr "Curry"
 
 #: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
@@ -1222,12 +1222,12 @@ msgstr "Postrea"
 #: map-quick/localization_data.cpp:268
 msgctxt "OSM::cuisine"
 msgid "Donut"
-msgstr ""
+msgstr "Donut"
 
 #: map-quick/localization_data.cpp:269 map-quick/localization_data.cpp:270
 msgctxt "OSM::cuisine"
 msgid "Dumplings"
-msgstr ""
+msgstr "«Dumpling»ak"
 
 #: map-quick/localization_data.cpp:271
 msgctxt "OSM::cuisine"
@@ -1237,7 +1237,7 @@ msgstr "Etiopiarra"
 #: map-quick/localization_data.cpp:272
 msgctxt "OSM::cuisine"
 msgid "Falafel"
-msgstr ""
+msgstr "Falafel"
 
 #: map-quick/localization_data.cpp:273
 msgctxt "OSM::cuisine"
@@ -1272,7 +1272,7 @@ msgstr "Patata frijituak"
 #: map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
 msgid "Georigan"
-msgstr ""
+msgstr "Georgiarra"
 
 #: map-quick/localization_data.cpp:280
 msgctxt "OSM::cuisine"
@@ -1292,7 +1292,7 @@ msgstr "Erretegia"
 #: map-quick/localization_data.cpp:283
 msgctxt "OSM::cuisine"
 msgid "Gyros"
-msgstr ""
+msgstr "Gyros"
 
 #: map-quick/localization_data.cpp:284
 msgctxt "OSM::cuisine"
@@ -1412,7 +1412,7 @@ msgstr "Pakistandarra"
 #: map-quick/localization_data.cpp:309
 msgctxt "OSM::cuisine"
 msgid "Pancake"
-msgstr ""
+msgstr "Opil txikia"
 
 #: map-quick/localization_data.cpp:310
 msgctxt "OSM::cuisine"
@@ -1422,7 +1422,7 @@ msgstr "Pasta"
 #: map-quick/localization_data.cpp:311
 msgctxt "OSM::cuisine"
 msgid "Pastry"
-msgstr ""
+msgstr "Gozotegia"
 
 #: map-quick/localization_data.cpp:312
 msgctxt "OSM::cuisine"
@@ -1769,7 +1769,7 @@ msgstr "Kreditu-txartelak"
 #: map-quick/osmelementinformationmodel.cpp:497
 #, kde-format
 msgid "Stored value cards"
-msgstr ""
+msgstr "Balioa gordetzen duten txartelak"
 
 #: map-quick/osmelementinformationmodel.cpp:498
 #, kde-format
@@ -1784,17 +1784,17 @@ msgstr "Gurpil-aulkirako igogailua"
 #: map-quick/osmelementinformationmodel.cpp:500
 #, kde-format
 msgid "Central key"
-msgstr ""
+msgstr "Giltza zentrala"
 
 #: map-quick/osmelementinformationmodel.cpp:501
 #, kde-format
 msgid "Speech output"
-msgstr ""
+msgstr "Ahots irteera"
 
 #: map-quick/osmelementinformationmodel.cpp:502
 #, kde-format
 msgid "Tactile writing"
-msgstr ""
+msgstr "Ukimen idazketa"
 
 #: map-quick/osmelementinformationmodel.cpp:504
 #, kde-format
@@ -1806,7 +1806,7 @@ msgstr "Sarea"
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
-msgstr ""
+msgstr "Gainerako irismena"
 
 #: map-quick/osmelementinformationmodel.cpp:558
 #, kde-format
@@ -1909,12 +1909,12 @@ msgstr "Sagar-pastela"
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::payment_method"
 msgid "Diners Club"
-msgstr ""
+msgstr "Diners Club"
 
 #: map-quick/osmelementinformationmodel_data.cpp:58
 msgctxt "OSM::payment_method"
 msgid "Discover Card"
-msgstr ""
+msgstr "Discover Card"
 
 #: map-quick/osmelementinformationmodel_data.cpp:59
 msgctxt "OSM::payment_method"
@@ -1924,7 +1924,7 @@ msgstr "JCB"
 #: map-quick/osmelementinformationmodel_data.cpp:60
 msgctxt "OSM::payment_method"
 msgid "Girocard"
-msgstr ""
+msgstr "Girocard"
 
 #: map-quick/osmelementinformationmodel_data.cpp:61
 msgctxt "OSM::payment_method"
@@ -1975,7 +1975,7 @@ msgstr "bai"
 #: map-quick/osmelementinformationmodel_data.cpp:85
 msgctxt "OSM::charging_station_socket"
 msgid "Chademo"
-msgstr ""
+msgstr "Chademo"
 
 #: map-quick/osmelementinformationmodel_data.cpp:86
 msgctxt "OSM::charging_station_socket"
@@ -2050,7 +2050,7 @@ msgstr "SMS"
 #: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "OSM::bicycle_parking"
 msgid "anchors"
-msgstr ""
+msgstr "aingurak"
 
 #: map-quick/osmelementinformationmodel_data.cpp:118
 msgctxt "OSM::bicycle_parking"
@@ -2070,32 +2070,32 @@ msgstr "lurreko erretenak"
 #: map-quick/osmelementinformationmodel_data.cpp:121
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
-msgstr ""
+msgstr "armairuak"
 
 #: map-quick/osmelementinformationmodel_data.cpp:122
 msgctxt "OSM::bicycle_parking"
 msgid "racks"
-msgstr ""
+msgstr "arasak"
 
 #: map-quick/osmelementinformationmodel_data.cpp:123
 msgctxt "OSM::bicycle_parking"
 msgid "shed"
-msgstr ""
+msgstr "estalpea"
 
 #: map-quick/osmelementinformationmodel_data.cpp:124
 msgctxt "OSM::bicycle_parking"
 msgid "stands"
-msgstr ""
+msgstr "euskarriak"
 
 #: map-quick/osmelementinformationmodel_data.cpp:125
 msgctxt "OSM::bicycle_parking"
 msgid "wall loops"
-msgstr ""
+msgstr "hormako kakoak"
 
 #: map-quick/osmelementinformationmodel_data.cpp:126
 msgctxt "OSM::bicycle_parking"
 msgid "wide stands"
-msgstr ""
+msgstr "euskarri zabalak"
 
 #: map-quick/osmelementinformationmodel_data.cpp:133
 #, kde-format
@@ -2110,24 +2110,24 @@ msgstr[1] "%1 bizikleta"
 msgctxt "available rental vehicles"
 msgid "%1 pedelec"
 msgid_plural "%1 pedelecs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "bizikleta elektriko %1"
+msgstr[1] "%1 bizikleta elektriko"
 
 #: map-quick/osmelementinformationmodel_data.cpp:135
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
 msgid_plural "%1 kick scooters"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "patinete %1"
+msgstr[1] "%1 patinete"
 
 #: map-quick/osmelementinformationmodel_data.cpp:136
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 moped"
 msgid_plural "%1 mopeds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ziklomotor %1"
+msgstr[1] "%1 ziklomotor"
 
 #: map-quick/osmelementinformationmodel_data.cpp:137
 #, kde-format
@@ -2165,4 +2165,4 @@ msgstr "bozelduta inprimatutako letrak"
 #: map-quick/osmelementinformationmodel_data.cpp:164
 msgctxt "tactile writing"
 msgid "engraved printed letters"
-msgstr ""
+msgstr "grabatutako inprimatutako letrak"
