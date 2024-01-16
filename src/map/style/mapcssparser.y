@@ -198,9 +198,6 @@ Selector:
 BasicSelector:
   T_IDENT[I] ClassSelector[C] ZoomRange[Z] Tests[T] PseudoClassSelector[P] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
-    if (!parser->m_importClass.isNull()) { // ### what should happen here if both are set?? (repeats below)
-        $$->setClass(parser->m_importClass);
-    }
     if ($C.str) {
         $$->setClass(parser->makeClassSelector($C.str, $C.len));
     }
@@ -214,9 +211,6 @@ BasicSelector:
   }
 | T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] PseudoClassSelector[P] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
-    if (!parser->m_importClass.isNull()) {
-        $$->setClass(parser->m_importClass);
-    }
     if ($C.str) {
         $$->setClass(parser->makeClassSelector($C.str, $C.len));
     }

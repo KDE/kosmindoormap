@@ -25,8 +25,9 @@
 char* unquoteString(const char *str)
 {
     const auto size = strlen(str) - 2;
-    if (size <= 0)
+    if (size <= 0) {
         return nullptr;
+    }
     auto out = (char*)malloc(size + 1);
     memset(out, 0, size + 1);
     auto outIt = out;
@@ -147,6 +148,11 @@ bool MapCSSParserPrivate::addImport(char* fileName, ClassSelectorKey importClass
 
 void MapCSSParserPrivate::addRule(MapCSSRule *rule)
 {
+    if (!m_importClass.isNull()) {
+        auto decl = new MapCSSDeclaration(MapCSSDeclaration::ClassDeclaration);
+        decl->setClassSelectorKey(m_importClass);
+        rule->addDeclaration(decl);
+    }
     MapCSSStylePrivate::get(m_currentStyle)->m_rules.push_back(std::unique_ptr<MapCSSRule>(rule));
 }
 

@@ -194,8 +194,9 @@ line[highway]
     color: "red";
 }
 
-node.importClass[cuisine=pizza]
+node[cuisine=pizza]
 {
     color: #ff123456;
+    set .importClass;
 }
 
