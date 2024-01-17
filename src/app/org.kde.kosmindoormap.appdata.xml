@@ -13,6 +13,7 @@
   <name xml:lang="en-GB">KDE OSM Indoor Map</name>
   <name xml:lang="eo">KDE OSM Indoor Map</name>
   <name xml:lang="es">Planos de interiores de OSM para KDE</name>
+  <name xml:lang="eu">KDE OSM barruko mapa</name>
   <name xml:lang="fi">KDE:n OSM-sisätilakartta</name>
   <name xml:lang="fr">Carte interne de OpenStreetmap pour KDE</name>
   <name xml:lang="gl">Mapa interior de OSM de KDE</name>
@@ -39,6 +40,7 @@
   <summary xml:lang="en-GB">OSM indoor map demo application</summary>
   <summary xml:lang="eo">OSM endoma mapo demo-aplikaĵo</summary>
   <summary xml:lang="es">Aplicación de demostración de planos de interiores de OSM</summary>
+  <summary xml:lang="eu">OSM barruko maparen erakustaldi-aplikazioa</summary>
   <summary xml:lang="fi">OSM-sisätilakartan demosovellus</summary>
   <summary xml:lang="fr">Application de démonstration pour la carte interne de OpenStreetMap</summary>
   <summary xml:lang="gl">Aplicación de demostración de mapa interior de OSM.</summary>
@@ -66,6 +68,7 @@
     <p xml:lang="en-GB">Demo application for KDE's OSM indoor map component.</p>
     <p xml:lang="eo">Demonstraĵo por OSM endoma mapkomponanto de KDE.</p>
     <p xml:lang="es">Aplicación de demostración para el componente de planos de interiores de OSM para KDE.</p>
+    <p xml:lang="eu">KDEren OSM barruko mapa osagaiaren erakustaldi-aplikazioa.</p>
     <p xml:lang="fi">Demosovellus KDE:n OSM-sisätilakarttaosalle.</p>
     <p xml:lang="fr">Application de démonstration pour le composant de KDE de carte interne de OpenStreetmap.</p>
     <p xml:lang="gl">Aplicación de demostración do compoñente de mapas interiores de OSM de KDE.</p>
