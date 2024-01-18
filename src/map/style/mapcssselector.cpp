@@ -4,6 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "mapcsselementstate.h"
 #include "mapcssselector_p.h"
 #include "mapcsscondition_p.h"
 #include "mapcssresult.h"
@@ -53,6 +54,10 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result
     }
 
     if (!m_class.isNull() && !result[m_layer].hasClass(m_class)) {
+        return false;
+    }
+
+    if (state.state && m_elementState && (state.state & m_elementState) == 0) {
         return false;
     }
 
@@ -130,6 +135,13 @@ void MapCSSBasicSelector::write(QIODevice *out) const
         cond->write(out);
     }
 
+    if (m_elementState & MapCSSElementState::Active) {
+        out->write(":active");
+    }
+    if (m_elementState & MapCSSElementState::Hovered) {
+        out->write(":hovered");
+    }
+
     if (!m_layer.isNull()) {
         out->write("::");
         out->write(m_layer.name());
@@ -168,8 +180,13 @@ void MapCSSBasicSelector::setClass(ClassSelectorKey key)
 
 void MapCSSBasicSelector::setPseudoClass(const char *str, std::size_t len)
 {
-    // TODO
-    qWarning() << "Unhandled pseudo class:" << QByteArrayView(str, len);
+    if (std::strncmp(str, "active", len) == 0) {
+        m_elementState |= MapCSSElementState::Active;
+    } else if (std::strncmp(str, "hovered", len) == 0) {
+        m_elementState |= MapCSSElementState::Hovered;
+    } else {
+        qWarning() << "Unhandled pseudo class:" << QByteArrayView(str, (qsizetype)len);
+    }
 }
 
 void MapCSSBasicSelector::setLayer(LayerSelectorKey key)

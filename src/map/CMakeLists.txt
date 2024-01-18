@@ -149,6 +149,7 @@ ecm_generate_headers(KOSMIndoorMap_Scene_FORWARDING_HEADERS
 )
 ecm_generate_headers(KOSMIndoorMap_Style_FORWARDING_HEADERS
     HEADER_NAMES
+        MapCSSElementState
         MapCSSParser
         MapCSSProperty
         MapCSSResult

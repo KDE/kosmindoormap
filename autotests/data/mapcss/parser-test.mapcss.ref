@@ -183,13 +183,13 @@ node.amenity
     icon-allow-text-overlap: true;
 }
 
-area[indoor=room]
+area[indoor=room]:active
 {
     color: #ff0000ff;
     width: 2px;
 }
 
-line[highway]
+line[highway]:hovered
 {
     color: "red";
 }

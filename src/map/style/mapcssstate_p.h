@@ -7,6 +7,7 @@
 #ifndef KOSMINDOORMAP_MAPCSSSTATE_P_H
 #define KOSMINDOORMAP_MAPCSSSTATE_P_H
 
+#include "mapcsselementstate.h"
 #include "mapcssobjecttype_p.h"
 
 #include <scene/openinghourscache_p.h>
@@ -22,6 +23,7 @@ public:
     OSM::Element element;
     double zoomLevel = 0.0;
     int floorLevel = 0;
+    MapCSSElementStates state = {};
     MapCSSObjectType objectType = MapCSSObjectType::Any; // internal, set by MapCSSStyle
     OpeningHoursCache *openingHours = nullptr;
 };

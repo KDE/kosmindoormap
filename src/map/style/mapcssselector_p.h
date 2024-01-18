@@ -7,6 +7,7 @@
 #ifndef KOSMINDOORMAP_MAPCSSSELECTOR_P_H
 #define KOSMINDOORMAP_MAPCSSSELECTOR_P_H
 
+#include "mapcsselementstate.h"
 #include "mapcsstypes.h"
 #include "mapcssobjecttype_p.h"
 
@@ -70,6 +71,7 @@ public:
 
 private:
     MapCSSObjectType m_objectType = MapCSSObjectType::Any;
+    MapCSSElementStates m_elementState = {};
     std::vector<std::unique_ptr<MapCSSCondition>> conditions;
     ClassSelectorKey m_class;
     LayerSelectorKey m_layer;
