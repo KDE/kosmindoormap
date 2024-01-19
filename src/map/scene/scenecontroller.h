@@ -46,6 +46,10 @@ public:
     /** Overlay dirty state tracking. */
     void overlaySourceUpdated();
 
+    /** Set currently hovered element. */
+    [[nodiscard]] OSM::Element hoveredElement() const;
+    void setHoveredElement(OSM::Element element);
+
     /** Creates or updates @p sg based on the currently set style and view settings.
      *  When possible, provide the scene graph of the previous run to re-use scene graph elements that didn't change.
      */
@@ -56,8 +60,8 @@ private:
     void updateElement(OSM::Element e, int level, SceneGraph &sg) const;
     void updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultLayer &result) const;
 
-    QPolygonF createPolygon(OSM::Element e) const;
-    QPainterPath createPath(OSM::Element e, QPolygonF &outerPath) const;
+    [[nodiscard]] QPolygonF createPolygon(OSM::Element e) const;
+    [[nodiscard]] QPainterPath createPath(OSM::Element e, QPolygonF &outerPath) const;
 
     void applyGenericStyle(const MapCSSDeclaration *decl, SceneGraphItemPayload *item) const;
     void applyPenStyle(OSM::Element e, const MapCSSDeclaration *decl, QPen &pen, double &opacity, Unit &unit) const;

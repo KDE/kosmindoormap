@@ -9,6 +9,7 @@ Checks: >
     bugprone-*,
     -bugprone-suspicious-include,
     misc-*,
+    -misc-no-recursion,
     -misc-use-anonymous-namespace,
     modernize-*,
     -modernize-avoid-c-arrays,

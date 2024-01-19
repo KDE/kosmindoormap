@@ -41,6 +41,7 @@ public:
     const View *m_view = nullptr;
     std::vector<QPointer<AbstractOverlaySource>> m_overlaySources;
     mutable std::vector<OSM::Element> m_hiddenElements;
+    OSM::Element m_hoverElement;
 
     MapCSSResult m_styleResult;
     QColor m_defaultTextColor;
@@ -221,6 +222,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     state.zoomLevel = d->m_view->zoomLevel();
     state.floorLevel = d->m_view->level();
     state.openingHours = &d->m_openingHours;
+    state.state = d->m_hoverElement == e ? MapCSSElementState::Hovered : MapCSSElementState::NoState;
     d->m_styleSheet->evaluate(std::move(state), d->m_styleResult);
     for (const auto &result : d->m_styleResult.results()) {
         updateElement(e, level, sg, result);
@@ -754,4 +756,18 @@ void SceneController::addItem(SceneGraph &sg, OSM::Element e, int level, const M
     }
 
     sg.addItem(std::move(item));
+}
+
+OSM::Element SceneController::hoveredElement() const
+{
+    return d->m_hoverElement;
+}
+
+void SceneController::setHoveredElement(OSM::Element element)
+{
+    if (d->m_hoverElement == element) {
+        return;
+    }
+    d->m_hoverElement = element;
+    d->m_dirty = true;
 }

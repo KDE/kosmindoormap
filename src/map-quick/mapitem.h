@@ -55,28 +55,31 @@ class MapItem : public QQuickPaintedItem
      */
     Q_PROPERTY(QString timeZone READ timeZoneId WRITE setTimeZoneId NOTIFY timeZoneChanged)
 
+    /** Currently hovered element. */
+    Q_PROPERTY(KOSMIndoorMap::OSMElement hoveredElement READ hoveredElement WRITE setHoveredElement NOTIFY hoveredElementChanged)
+
 public:
     explicit MapItem(QQuickItem *parent = nullptr);
     ~MapItem();
 
     void paint(QPainter *painter) override;
 
-    MapLoader* loader() const;
-    View* view() const;
+    [[nodiscard]] MapLoader* loader() const;
+    [[nodiscard]] View* view() const;
 
-    QString styleSheetName() const;
+    [[nodiscard]] QString styleSheetName() const;
     void setStylesheetName(const QString &styleSheet);
 
-    FloorLevelModel *floorLevelModel() const;
+    [[nodiscard]] FloorLevelModel *floorLevelModel() const;
 
-    Q_INVOKABLE KOSMIndoorMap::OSMElement elementAt(double x, double y) const;
+    [[nodiscard]] Q_INVOKABLE KOSMIndoorMap::OSMElement elementAt(double x, double y) const;
 
-    bool hasError() const;
-    QString errorMessage() const;
+    [[nodiscard]] bool hasError() const;
+    [[nodiscard]] QString errorMessage() const;
 
-    QString region() const;
+    [[nodiscard]] QString region() const;
     void setRegion(const QString &region);
-    QString timeZoneId() const;
+    [[nodiscard]] QString timeZoneId() const;
     void setTimeZoneId(const QString &tz);
 
 Q_SIGNALS:
@@ -87,6 +90,7 @@ Q_SIGNALS:
     void overlaySourcesChanged();
     void regionChanged();
     void timeZoneChanged();
+    void hoveredElementChanged();
 
 protected:
     void geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry) override;
@@ -94,13 +98,16 @@ protected:
 private:
     void clear();
     void loaderDone();
-    MapData mapData() const;
-    QVariant overlaySources() const;
+    [[nodiscard]] MapData mapData() const;
+    [[nodiscard]] QVariant overlaySources() const;
     void setOverlaySources(const QVariant &overlays);
 
     void addOverlaySource(std::vector<QPointer<AbstractOverlaySource>> &overlaySources, const QVariant &source);
     void overlayUpdate();
     void overlayReset();
+
+    [[nodiscard]] OSMElement hoveredElement() const;
+    void setHoveredElement(const OSMElement &element);
 
     MapLoader *m_loader = nullptr;
     MapData m_data;

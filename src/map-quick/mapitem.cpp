@@ -5,6 +5,7 @@
 */
 
 #include "mapitem.h"
+#include "osmelement.h"
 
 #include <KOSMIndoorMap/HitDetector>
 #include <KOSMIndoorMap/MapCSSParser>
@@ -285,6 +286,21 @@ void MapItem::setTimeZoneId(const QString &tz)
 
     m_data.setTimeZone(QTimeZone(tzId));
     Q_EMIT timeZoneChanged();
+}
+
+OSMElement MapItem::hoveredElement() const
+{
+    return OSMElement(m_controller.hoveredElement());
+}
+
+void MapItem::setHoveredElement(const OSMElement &element)
+{
+    if (m_controller.hoveredElement() == element.element()) {
+        return;
+    }
+    m_controller.setHoveredElement(element.element());
+    Q_EMIT hoveredElementChanged();
+    update();
 }
 
 #include "moc_mapitem.cpp"

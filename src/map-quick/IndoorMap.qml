@@ -31,6 +31,8 @@ Item {
     property alias region: map.region
     /** IANA timezone id for opening hours interpretation. */
     property alias timeZone: map.timeZone
+    /** Currently hovered element. */
+    property alias hoveredElement: map.hoveredElement
 
     /** Emitted when a map element has been picked by clicking/tapping on it. */
     signal elementPicked(var element);
