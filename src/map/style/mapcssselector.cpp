@@ -57,7 +57,7 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result
         return false;
     }
 
-    if (state.state && m_elementState && (state.state & m_elementState) == 0) {
+    if (m_elementState && (state.state & m_elementState) == 0) {
         return false;
     }
 
