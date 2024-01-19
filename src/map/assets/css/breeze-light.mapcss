@@ -224,3 +224,13 @@ area[disused:shop]
 {
     fill-color: #888786;
 }
+
+/** Hover highlights */
+*:hovered {
+    icon-color: #f67400;
+}
+area[name]:hovered::hover {
+    color: #f67400;
+    opacity: 0.5;
+    width: 4px;
+}

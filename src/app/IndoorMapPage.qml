@@ -81,6 +81,7 @@ Kirigami.Page {
     IndoorMap {
         id: map
         anchors.fill: parent
+        hoveredElement: map.elementAt(map.mapEventPointToScreen(hoverHandler.point))
 
         IndoorMapScale {
             map: map
@@ -116,6 +117,11 @@ Kirigami.Page {
             if (infoModel.name != "" || infoModel.debug) {
                 elementDetailsSheet.open();
             }
+        }
+
+        HoverHandler {
+            id: hoverHandler
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
         }
     }
 
