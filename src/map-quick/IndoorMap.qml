@@ -39,10 +39,21 @@ Item {
     /** Emitted when a map element has been long-pressed. */
     signal elementLongPressed(var element);
 
+    /** Map an event handler EventPoint to map screen coordinates. */
+    function mapEventPointToScreen(eventPoint) {
+        let root = mapRoot.parent;
+        while (root.parent) { root = root.parent; }
+        return map.mapFromItem(root, eventPoint.scenePosition.x, eventPoint.scenePosition.y);
+    }
+
+    /** Returns the OSM element at the given screen position, if any. */
+    function elementAt(screenPosition) {
+        return map.elementAt(screenPosition.x, screenPosition.y);
+    }
+
     MapItemImpl {
         id: map
         anchors.fill: mapRoot
-
     }
 
     Flickable {
@@ -76,19 +87,13 @@ Item {
             id: tapHandler
             acceptedButtons: Qt.LeftButton
             onTapped: function(eventPoint) {
-                var root = parent;
-                while (root.parent) { root = root.parent; }
-                var localPos = map.mapFromItem(root, eventPoint.scenePosition.x, eventPoint.scenePosition.y);
-                var element = map.elementAt(localPos.x, localPos.y);
+                const element = mapRoot.elementAt(mapRoot.mapEventPointToScreen(eventPoint));
                 if (!element.isNull) {
                     elementPicked(element);
                 }
             }
             onLongPressed: function() {
-                var root = parent;
-                while (root.parent) { root = root.parent; }
-                var localPos = map.mapFromItem(root, tapHandler.point.scenePosition.x, tapHandler.point.scenePosition.y);
-                var element = map.elementAt(localPos.x, localPos.y);
+                const element = mapRoot.elementAt(mapRoot.mapEventPointToScreen(eventPoint));
                 if (!element.isNull) {
                     elementLongPressed(element);
                 }
