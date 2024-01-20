@@ -56,4 +56,6 @@ int main(int argc, char **argv)
     navMeshBuilder.setEquipmentModel(&equipmentModel);
     navMeshBuilder.writeDebugNavMesh(parser.value(outputOpt) + QLatin1Char('/') + parser.value(nameOpt) + QLatin1String(".gset"), parser.value(outputOpt) + QLatin1Char('/') + parser.value(nameOpt) + QLatin1String(".obj"));
     navMeshBuilder.start();
+    QObject::connect(&navMeshBuilder, &NavMeshBuilder::finished, &app, &QCoreApplication::quit);
+    QCoreApplication::exec();
 }

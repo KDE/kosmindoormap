@@ -28,6 +28,15 @@ target_link_libraries(KOSMIndoorRouting
     PUBLIC Qt::Core KOSM KOSMIndoorMap
     PRIVATE Qt::GuiPrivate
 )
+if (TARGET RecastNavigation::Recast AND TARGET RecastNavigation::Detour)
+    target_compile_definitions(KOSMIndoorRouting PRIVATE HAVE_RECAST=1)
+    target_link_libraries(KOSMIndoorRouting PRIVATE
+        RecastNavigation::Recast
+        RecastNavigation::Detour
+    )
+else()
+    target_compile_definitions(KOSMIndoorRouting PRIVATE HAVE_RECAST=0)
+endif()
 
 ecm_generate_headers(KOSMIndoorRouting_FORWARDING_HEADERS
     HEADER_NAMES

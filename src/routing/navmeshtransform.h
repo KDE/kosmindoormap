@@ -14,6 +14,16 @@
 
 namespace KOSMIndoorRouting {
 
+/** 3D vector type compatible with the Recast API. */
+struct rcVec3 {
+    [[nodiscard]] inline operator float*() { return &x; }
+    [[nodiscard]] inline operator const float*() const { return &x; }
+
+    float x = {};
+    float y = {};
+    float z = {};
+};
+
 class NavMeshTransform {
 public:
     void initialize(OSM::BoundingBox bbox);
@@ -29,10 +39,16 @@ public:
         return mapGeoToNav(QPointF(c.lonF(), c.latF()));
     }
 
-    [[nodiscard]] inline double mapHeightToNav(int floorLevel) const
+    [[nodiscard]] inline float mapHeightToNav(int floorLevel) const
     {
         // TODO
-        return floorLevel;
+        return (float)floorLevel;
+    }
+
+    [[nodiscard]] inline rcVec3 mapGeoHeightToNav(OSM::Coordinate c, int floorLevel) const
+    {
+        const auto p = mapGeoToNav(c);
+        return { (float)p.x(), mapHeightToNav(floorLevel), (float)p.y() };
     }
 private:
     QTransform m_transform;

@@ -57,6 +57,9 @@ if (NOT BUILD_TOOLS_ONLY)
     else()
         find_package(KF6 OPTIONAL_COMPONENTS CoreAddons Service)
     endif()
+
+    find_package(recastnavigation)
+    set_package_properties(recastnavigation PROPERTIES TYPE RECOMMENDED PURPOSE "Navigation engine." URL "https://recastnav.com/")
 endif()
 
 if (BUILD_TESTING)
