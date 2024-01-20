@@ -5,6 +5,8 @@
 
 #include "navmeshbuilder.h"
 
+#include "navmesh.h"
+#include "navmesh_p.h"
 #include "navmeshtransform.h"
 #include "recastnav_p.h"
 #include "recastnavsettings_p.h"
@@ -88,6 +90,8 @@ public:
         std::vector<uint32_t> userId;
     } m_offMeshCon;
     inline int offMeshCount() const { return (int) m_offMeshCon.rads.size(); }
+
+    NavMesh m_navMesh;
 
     // diganostic obj output
     QString m_gsetFileName;
@@ -591,6 +595,10 @@ void NavMeshBuilderPrivate::buildNavMesh()
     const auto bmin = m_transform.mapGeoHeightToNav(m_data.boundingBox().min, std::prev(m_data.levelMap().end())->first.numericLevel());
     const auto bmax = m_transform.mapGeoHeightToNav(m_data.boundingBox().max, m_data.levelMap().begin()->first.numericLevel());
 
+    NavMesh resultData;
+    const auto result = NavMeshPrivate::create(resultData);
+    result->m_transform = m_transform;
+
     // steps as defined in the Recast demo app
 #if HAVE_RECAST
     // step 1: setup
@@ -710,25 +718,28 @@ void NavMeshBuilderPrivate::buildNavMesh()
     }
     std::unique_ptr<uint8_t> navDataPtr(navData);
 
-    dtNavMeshPtr navMesh(dtAllocNavMesh());
-    auto status = navMesh->init(navData, navDataSize, DT_TILE_FREE_DATA);
+    result->m_navMesh.reset(dtAllocNavMesh());
+    auto status = result->m_navMesh->init(navData, navDataSize, DT_TILE_FREE_DATA);
     if (dtStatusFailed(status)) {
         qCWarning(Log) << "Fail to init dtNavMesh";
         return;
     }
 
-    dtNavMeshQueryPtr navMeshQuery(dtAllocNavMeshQuery());
-    status = navMeshQuery->init(navMesh.get(), 2048); // TODO what is the 2048?
+    result->m_navMeshQuery.reset(dtAllocNavMeshQuery());
+    status = result->m_navMeshQuery->init(result->m_navMesh.get(), 2048); // TODO what is the 2048?
     if (dtStatusFailed(status)) {
         qCWarning(Log) << "Failed to init dtNavMeshQuery";
         return;
     }
     (void)navDataPtr.release(); // managed by navMeshQuery now
 
-    // TODO store result
-    // pmesh?, dmesh, navMesh, navMeshQuery need to be preserved
-
+    // TODO store result do pmesh, dmesh need to be preserved?
+    m_navMesh = std::move(resultData);
     qCDebug(Log) << "done";
 #endif
+}
 
+NavMesh NavMeshBuilder::navMesh() const
+{
+    return d->m_navMesh;
 }

@@ -3,6 +3,7 @@
 
 add_library(KOSMIndoorRouting)
 target_sources(KOSMIndoorRouting PRIVATE
+    navmesh.cpp
     navmeshbuilder.cpp
     navmeshtransform.cpp
     assets.qrc
@@ -40,7 +41,9 @@ endif()
 
 ecm_generate_headers(KOSMIndoorRouting_FORWARDING_HEADERS
     HEADER_NAMES
+        NavMesh
         NavMeshBuilder
+        NavMeshTransform
     PREFIX KOSMIndoorRouting
     REQUIRED_HEADERS KOSMIndoorRouting_HEADERS
 )

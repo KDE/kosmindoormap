@@ -28,6 +28,7 @@ enum class AreaType : uint8_t {
     Walkable = 63, // RC_WALKABLE_AREA
 };
 
+class NavMesh;
 class NavMeshBuilderPrivate;
 
 /** Job for building a navigation mesh for the given building. */
@@ -44,6 +45,8 @@ public:
     void writeDebugNavMesh(const QString &gsetFile, const QString &objFile);
 
     void start();
+
+    [[nodiscard]] NavMesh navMesh() const;
 
 Q_SIGNALS:
     void finished();
