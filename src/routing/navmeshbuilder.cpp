@@ -57,7 +57,7 @@ public:
 
     void addVertex(double x, double y, double z);
     void addFace(std::size_t i, std::size_t j, std::size_t k);
-    void addOffMeshConnection(double x1, double y1, double z1, double x2, double y2, double z2, LinkDirection linkDir, AreaType areaType);
+    void addOffMeshConnection(float x1, float y1, float z1, float x2, float y2, float z2, LinkDirection linkDir, AreaType areaType);
 
     void buildNavMesh();
 
@@ -73,16 +73,25 @@ public:
     std::unordered_map<OSM::Id, int> m_nodeLevelMap;
     KOSMIndoorMap::AbstractOverlaySource *m_equipmentModel = nullptr;
 
+    // off mesh connection data
+    struct {
+        std::vector<float> verts;
+        std::vector<float> rads;
+        std::vector<uint16_t> flags;
+        std::vector<uint8_t> areas;
+        std::vector<uint8_t> dir;
+        std::vector<uint32_t> userId;
+    } m_offMeshCon;
+    inline int offMeshCount() const { return (int) m_offMeshCon.rads.size(); }
+
     // diganostic obj output
     QString m_gsetFileName;
     QString m_objFileName;
     qsizetype m_vertexOffset;
     QByteArray m_objVertices;
     QByteArray m_objFaces;
-    QByteArray m_gsetData;
     QBuffer m_objVertexBuffer;
     QBuffer m_objFaceBuffer;
-    QBuffer m_gsetBuffer;
 };
 }
 
@@ -245,10 +254,8 @@ void NavMeshBuilder::start()
     qCDebug(Log) << QThread::currentThread();
     d->m_objVertexBuffer.setBuffer(&d->m_objVertices);
     d->m_objFaceBuffer.setBuffer(&d->m_objFaces);
-    d->m_gsetBuffer.setBuffer(&d->m_gsetData);
     d->m_objVertexBuffer.open(QIODevice::WriteOnly);
     d->m_objFaceBuffer.open(QIODevice::WriteOnly);
-    d->m_gsetBuffer.open(QIODevice::WriteOnly);
     d->m_vertexOffset = 1;
 
     d->m_transform.initialize(d->m_data.boundingBox());
@@ -462,7 +469,7 @@ void NavMeshBuilderPrivate::addFace(std::size_t i, std::size_t j, std::size_t k)
     m_objFaceBuffer.write("\n");
 }
 
-void NavMeshBuilderPrivate::addOffMeshConnection(double x1, double y1, double z1, double x2, double y2, double z2, LinkDirection linkDir, AreaType areaType)
+void NavMeshBuilderPrivate::addOffMeshConnection(float x1, float y1, float z1, float x2, float y2, float z2, LinkDirection linkDir, AreaType areaType)
 {
     if (linkDir == LinkDirection::Backward) {
         std::swap(x1, x2);
@@ -471,25 +478,14 @@ void NavMeshBuilderPrivate::addOffMeshConnection(double x1, double y1, double z1
         linkDir = LinkDirection::Forward;
     }
 
-    m_gsetBuffer.write("c ");
-    m_gsetBuffer.write(QByteArray::number(x1));
-    m_gsetBuffer.write(" ");
-    m_gsetBuffer.write(QByteArray::number(y1));
-    m_gsetBuffer.write(" ");
-    m_gsetBuffer.write(QByteArray::number(z1));
-    m_gsetBuffer.write("  ");
-    m_gsetBuffer.write(QByteArray::number(x2));
-    m_gsetBuffer.write(" ");
-    m_gsetBuffer.write(QByteArray::number(y2));
-    m_gsetBuffer.write(" ");
-    m_gsetBuffer.write(QByteArray::number(z2));
-    // radius
-    m_gsetBuffer.write(" 0.6 ");
-    m_gsetBuffer.write(linkDir == LinkDirection::Bidirectional ? "1" : "0");
-    // area id, flags
-    m_gsetBuffer.write(" ");
-    m_gsetBuffer.write(QByteArray::number(qToUnderlying(areaType)));
-    m_gsetBuffer.write(" 8\n");
+    for (const auto v : { x1, y1, z1, x2, y2, z2 }) {
+        m_offMeshCon.verts.push_back(v);
+    }
+    m_offMeshCon.rads.push_back(0.6); // ???
+    m_offMeshCon.flags.push_back(8); // ???
+    m_offMeshCon.areas.push_back(qToUnderlying(areaType));
+    m_offMeshCon.dir.push_back(linkDir == LinkDirection::Bidirectional ? 1 : 0);
+    m_offMeshCon.userId.push_back(0); // ???
 }
 
 void NavMeshBuilderPrivate::writeGsetFile()
@@ -550,7 +546,21 @@ void NavMeshBuilderPrivate::writeGsetFile()
 
     f.write("0\n"); // tile size?
 
-    f.write(m_gsetData);
+    for (int i = 0; i < offMeshCount(); ++i) {
+        f.write("c ");
+        for (int j = 0; j < 6; ++j) {
+            f.write(QByteArray::number(m_offMeshCon.verts[i * 6 + j]));
+            f.write(" ");
+        }
+        f.write(QByteArray::number(m_offMeshCon.rads[i]));
+        f.write(" ");
+        f.write(QByteArray::number(m_offMeshCon.dir[i]));
+        f.write(" ");
+        f.write(QByteArray::number(m_offMeshCon.areas[i]));
+        f.write(" ");
+        f.write(QByteArray::number(m_offMeshCon.flags[i]));
+        f.write("\n");
+    }
 }
 
 void NavMeshBuilderPrivate::writeObjFile()
@@ -661,13 +671,13 @@ void NavMeshBuilderPrivate::buildNavMesh()
     params.detailVertsCount = dmesh->nverts;
     params.detailTris = dmesh->tris;
     params.detailTriCount = dmesh->ntris;
-    // params.offMeshConVerts =
-    // params.offMeshConRad =
-    // params.offMeshConDir =
-    // params.offMeshConAreas =
-    // params.offMeshConFlags =
-    // params.offMeshConUserID =
-    // params.offMeshConCount =
+    params.offMeshConVerts = m_offMeshCon.verts.data();
+    params.offMeshConRad = m_offMeshCon.rads.data();
+    params.offMeshConDir = m_offMeshCon.dir.data();
+    params.offMeshConAreas = m_offMeshCon.areas.data();
+    params.offMeshConFlags = m_offMeshCon.flags.data();
+    params.offMeshConUserID = m_offMeshCon.userId.data();
+    params.offMeshConCount = offMeshCount();
     params.walkableHeight = RECAST_AGENT_HEIGHT;
     params.walkableRadius = RECAST_AGENT_RADIUS;
     params.walkableClimb = RECAST_AGENT_MAX_CLIMB;
