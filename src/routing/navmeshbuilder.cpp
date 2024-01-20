@@ -22,8 +22,6 @@
 #include <style/mapcssdeclaration_p.h>
 #include <style/mapcssstate_p.h>
 
-#include <QBuffer>
-#include <QByteArray>
 #include <QFile>
 #include <QPolygonF>
 #include <QPainterPath>
@@ -55,8 +53,8 @@ public:
     void processGeometry(OSM::Element elem, int floorLevel, const KOSMIndoorMap::MapCSSResultLayer &res);
     void processLink(OSM::Element elem, int floorLevel, LinkDirection linkDir, const KOSMIndoorMap::MapCSSResultLayer &res);
 
-    void addVertex(double x, double y, double z);
-    void addFace(std::size_t i, std::size_t j, std::size_t k);
+    void addVertex(float x, float y, float z);
+    void addFace(std::size_t i, std::size_t j, std::size_t k, AreaType areaType);
     void addOffMeshConnection(float x1, float y1, float z1, float x2, float y2, float z2, LinkDirection linkDir, AreaType areaType);
 
     void buildNavMesh();
@@ -73,6 +71,13 @@ public:
     std::unordered_map<OSM::Id, int> m_nodeLevelMap;
     KOSMIndoorMap::AbstractOverlaySource *m_equipmentModel = nullptr;
 
+    // triangle data
+    std::vector<float> m_verts;
+    inline int numVerts() const { return (int)m_verts.size() / 3; }
+    std::vector<int> m_tris;
+    inline int numTris() const { return (int)m_tris.size() / 3; }
+    std::vector<uint8_t> m_triAreaIds;
+
     // off mesh connection data
     struct {
         std::vector<float> verts;
@@ -88,10 +93,6 @@ public:
     QString m_gsetFileName;
     QString m_objFileName;
     qsizetype m_vertexOffset;
-    QByteArray m_objVertices;
-    QByteArray m_objFaces;
-    QBuffer m_objVertexBuffer;
-    QBuffer m_objFaceBuffer;
 };
 }
 
@@ -252,10 +253,6 @@ void NavMeshBuilder::start()
 {
     // the first half of this where we access m_data runs in the main thread (as MapData isn't prepared for multi-threaded access)
     qCDebug(Log) << QThread::currentThread();
-    d->m_objVertexBuffer.setBuffer(&d->m_objVertices);
-    d->m_objFaceBuffer.setBuffer(&d->m_objFaces);
-    d->m_objVertexBuffer.open(QIODevice::WriteOnly);
-    d->m_objFaceBuffer.open(QIODevice::WriteOnly);
     d->m_vertexOffset = 1;
 
     d->m_transform.initialize(d->m_data.boundingBox());
@@ -281,12 +278,15 @@ void NavMeshBuilder::start()
         });
     }
 
-    d->m_objVertexBuffer.close();
-    d->m_objFaceBuffer.close();
     [[unlikely]] if (!d->m_gsetFileName.isEmpty()) {
         d->writeGsetFile();
         d->writeObjFile();
     }
+
+    qCDebug(Log) << "Vertex data size:" << d->m_verts.size() * sizeof(float);
+    qCDebug(Log) << "Triangle index size:" << d->m_tris.size() * sizeof(int);
+    qCDebug(Log) << "Triangle area size:" << d->m_triAreaIds.size();
+    qCDebug(Log) << "Off-mesh data size:" << d->offMeshCount() * 16;
 
     // the second half of this (which takes the majority of the time) runs in a secondary thread
     QThreadPool::globalInstance()->start([this]() {
@@ -340,13 +340,15 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
                 for (qsizetype i = 0; i <triSet.indices.size(); i += 3) {
                     addFace(*(reinterpret_cast<const uint16_t*>(triSet.indices.data()) + i) + m_vertexOffset,
                             *(reinterpret_cast<const uint16_t*>(triSet.indices.data()) + i + 1) + m_vertexOffset,
-                            *(reinterpret_cast<const uint16_t*>(triSet.indices.data()) + i + 2) + m_vertexOffset);
+                            *(reinterpret_cast<const uint16_t*>(triSet.indices.data()) + i + 2) + m_vertexOffset,
+                            AreaType::Walkable); // TODO area type from CSS
                 }
             } else if (triSet.indices.type() == QVertexIndexVector::UnsignedInt) {
                 for (qsizetype i = 0; i <triSet.indices.size(); i += 3) {
                     addFace(*(reinterpret_cast<const uint32_t*>(triSet.indices.data()) + i) + m_vertexOffset,
                             *(reinterpret_cast<const uint32_t*>(triSet.indices.data()) + i + 1) + m_vertexOffset,
-                            *(reinterpret_cast<const uint32_t*>(triSet.indices.data()) + i + 2) + m_vertexOffset);
+                            *(reinterpret_cast<const uint32_t*>(triSet.indices.data()) + i + 2) + m_vertexOffset,
+                            AreaType::Walkable); // TODO area type from CSS
                 }
             }
             m_vertexOffset += triSet.vertices.size() / 2;
@@ -386,9 +388,9 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
             for (int i = 0; i < stroker.vertexCount() / 2 - 2; ++i) {
                 // GL_TRIANGLE_STRIP winding order
                 if (i % 2) {
-                    addFace(m_vertexOffset + i, m_vertexOffset + i + 1, m_vertexOffset + i + 2);
+                    addFace(m_vertexOffset + i, m_vertexOffset + i + 1, m_vertexOffset + i + 2, AreaType::Walkable);  // TODO area type from CSS
                 } else {
-                    addFace(m_vertexOffset + i + 1, m_vertexOffset + i, m_vertexOffset + i + 2);
+                    addFace(m_vertexOffset + i + 1, m_vertexOffset + i, m_vertexOffset + i + 2, AreaType::Walkable);  // TODO area type from CSS
                 }
             }
             m_vertexOffset += stroker.vertexCount() / 2;
@@ -409,8 +411,8 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
                 addVertex(p2.x(), m_transform.mapHeightToNav(floorLevel), p2.y());
                 addVertex(p1.x(), m_transform.mapHeightToNav(floorLevel + 10), p1.y());
                 addVertex(p2.x(), m_transform.mapHeightToNav(floorLevel + 10), p2.y());
-                addFace(m_vertexOffset, m_vertexOffset + 1, m_vertexOffset + 2);
-                addFace(m_vertexOffset + 1, m_vertexOffset + 3, m_vertexOffset + 2);
+                addFace(m_vertexOffset, m_vertexOffset + 1, m_vertexOffset + 2, AreaType::Unwalkable);
+                addFace(m_vertexOffset + 1, m_vertexOffset + 3, m_vertexOffset + 2, AreaType::Unwalkable);
                 m_vertexOffset += 4;
             }
         }
@@ -447,26 +449,19 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
     }
 }
 
-void NavMeshBuilderPrivate::addVertex(double x, double y, double z)
+void NavMeshBuilderPrivate::addVertex(float x, float y, float z)
 {
-    m_objVertexBuffer.write("v ");
-    m_objVertexBuffer.write(QByteArray::number(x));
-    m_objVertexBuffer.write(" ");
-    m_objVertexBuffer.write(QByteArray::number(y));
-    m_objVertexBuffer.write(" ");
-    m_objVertexBuffer.write(QByteArray::number(z));
-    m_objVertexBuffer.write("\n");
+    for (const auto v : {x, y, z}) {
+        m_verts.push_back(v);
+    }
 }
 
-void NavMeshBuilderPrivate::addFace(std::size_t i, std::size_t j, std::size_t k)
+void NavMeshBuilderPrivate::addFace(std::size_t i, std::size_t j, std::size_t k, AreaType areaType)
 {
-    m_objFaceBuffer.write("f ");
-    m_objFaceBuffer.write(QByteArray::number(i));
-    m_objFaceBuffer.write(" ");
-    m_objFaceBuffer.write(QByteArray::number(j));
-    m_objFaceBuffer.write(" ");
-    m_objFaceBuffer.write(QByteArray::number(k));
-    m_objFaceBuffer.write("\n");
+    for (const auto v : {i, j, k}) {
+        m_tris.push_back((int)v);
+    }
+    m_triAreaIds.push_back(qToUnderlying(areaType));
 }
 
 void NavMeshBuilderPrivate::addOffMeshConnection(float x1, float y1, float z1, float x2, float y2, float z2, LinkDirection linkDir, AreaType areaType)
@@ -567,8 +562,26 @@ void NavMeshBuilderPrivate::writeObjFile()
 {
     QFile f(m_objFileName);
     f.open(QFile::WriteOnly);
-    f.write(m_objVertices);
-    f.write(m_objFaces);
+
+    for (std::size_t i = 0; i < m_verts.size(); i += 3) {
+        f.write("v ");
+        f.write(QByteArray::number(m_verts[i]));
+        f.write(" ");
+        f.write(QByteArray::number(m_verts[i+1]));
+        f.write(" ");
+        f.write(QByteArray::number(m_verts[i+2]));
+        f.write("\n");
+    }
+
+    for (std::size_t i = 0; i < m_tris.size(); i += 3) {
+        f.write("f ");
+        f.write(QByteArray::number(m_tris[i]));
+        f.write(" ");
+        f.write(QByteArray::number(m_tris[i+1]));
+        f.write(" ");
+        f.write(QByteArray::number(m_tris[i+2]));
+        f.write("\n");
+    }
 }
 
 void NavMeshBuilderPrivate::buildNavMesh()
@@ -587,19 +600,23 @@ void NavMeshBuilderPrivate::buildNavMesh()
     rcCalcGridSize(bmin, bmax, RECAST_CELL_SIZE, &width, &height);
     qCDebug(Log) << width << "x" << height << "cells";
 
-    // step 2: build input polygons (TODO this needs to happen above in the MapCSS evaluation)
+    const auto walkableHeight = (int)std::ceil(RECAST_AGENT_HEIGHT / RECAST_CELL_HEIGHT);
+    const auto walkableClimb = (int)std::floor(RECAST_AGENT_MAX_CLIMB/ RECAST_CELL_HEIGHT);
+    const auto walkableRadius = (int)std::ceil(RECAST_AGENT_RADIUS / RECAST_CELL_SIZE);
+
+    // step 2: build input polygons
     rcHeightfieldPtr solid(rcAllocHeightfield());
     if (!rcCreateHeightfield(&ctx, *solid, width, height, bmin, bmax, RECAST_CELL_SIZE, RECAST_CELL_HEIGHT)) {
         qCWarning(Log) << "Failed to create solid heightfield.";
         return;
     }
 
-    // TODO
+    if (!rcRasterizeTriangles(&ctx, m_verts.data(), numVerts(), m_tris.data(), m_triAreaIds.data(), numTris(), *solid, walkableClimb)) {
+        qCWarning(Log) << "Failed to rasterize triangles";
+        return;
+    }
 
     // step 3: filter walkable sufaces
-    const auto walkableHeight = (int)std::ceil(RECAST_AGENT_HEIGHT / RECAST_CELL_HEIGHT);
-    const auto walkableClimb = (int)std::floor(RECAST_AGENT_MAX_CLIMB/ RECAST_CELL_HEIGHT);
-    const auto walkableRadius = (int)std::ceil(RECAST_AGENT_RADIUS / RECAST_CELL_SIZE);
 
     rcFilterLowHangingWalkableObstacles(&ctx, walkableClimb, *solid);
     rcFilterLedgeSpans(&ctx, walkableHeight, walkableClimb, *solid);
