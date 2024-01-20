@@ -642,7 +642,7 @@ void NavMeshBuilderPrivate::buildNavMesh()
 
     // step 5: create contours
     rcContourSetPtr cset(rcAllocContourSet());
-    if (!rcBuildContours(&ctx, *chf, RECAST_MAX_EDGE_LEN, RECAST_DETAIL_SAMPLE_MAX_ERROR, *cset)) {
+    if (!rcBuildContours(&ctx, *chf, RECAST_MAX_SIMPLIFICATION_ERROR, RECAST_MAX_EDGE_LEN, *cset)) {
         qCWarning(Log) << "Failed to create contours.";
         return;
     }
