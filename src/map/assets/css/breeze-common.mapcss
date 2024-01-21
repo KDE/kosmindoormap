@@ -1117,3 +1117,25 @@ line[highway=steps][conveying=reversible]
     set .escalator;
     casing-linecap: none;
 }
+
+node[mx:routing=start]
+{
+    icon-image: "circle";
+    icon-width: 12px;
+    icon-height: 12px;
+    icon-color: #f67400;
+}
+node[mx:routing=end]
+{
+    icon-image: "embassy";
+    icon-width: 24px;
+    icon-height: 24px;
+    icon-color: #f67400;
+}
+line[mx:routing] {
+    width: 3px;
+    color: #f67400;
+    opacity: 0.5;
+    linecap: round;
+    linejoin: round;
+}
