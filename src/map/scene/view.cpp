@@ -370,4 +370,10 @@ void View::setEndTime(const QDateTime& endTime)
     Q_EMIT timeChanged();
 }
 
+QPointF View::mapSceneToGeoPoint(QPointF p)
+{
+    const auto c = mapSceneToGeo(p);
+    return {c.lonF(), c.latF()};
+}
+
 #include "moc_view.cpp"

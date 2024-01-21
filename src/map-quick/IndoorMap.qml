@@ -45,6 +45,10 @@ Item {
         while (root.parent) { root = root.parent; }
         return map.mapFromItem(root, eventPoint.scenePosition.x, eventPoint.scenePosition.y);
     }
+    /** Map an event handler EventPoint to geo coordinates. */
+    function mapEventPointToGeo(eventPoint) {
+        return map.view.mapSceneToGeoPoint(map.view.mapScreenToScene(mapRoot.mapEventPointToScreen(eventPoint)));
+    }
 
     /** Returns the OSM element at the given screen position, if any. */
     function elementAt(screenPosition) {

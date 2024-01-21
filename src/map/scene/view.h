@@ -101,7 +101,7 @@ public:
     /** Converts a rectangle in scene coordinates to screen coordinates. */
     QRectF mapSceneToScreen(const QRectF &sceneRect) const;
     /** Converts a point in screen coordinates to scene coordinates. */
-    QPointF mapScreenToScene(QPointF screenPos) const;
+    Q_INVOKABLE [[nodiscard]] QPointF mapScreenToScene(QPointF screenPos) const;
     /** Converts a distance in screen coordinates to a distance in scene coordinates. */
     double mapScreenDistanceToSceneDistance(double distance) const;
 
@@ -147,6 +147,10 @@ Q_SIGNALS:
     void transformationChanged();
     void floorLevelChanged();
     void timeChanged();
+
+protected:
+    /** QML only API due to lack of OSM::Coordinate support there. */
+    Q_INVOKABLE [[nodiscard]] static QPointF mapSceneToGeoPoint(QPointF p);
 
 private:
     /** Ensure we stay within the bounding box with the viewport, call after viewport modification. */
