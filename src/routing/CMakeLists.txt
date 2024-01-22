@@ -6,6 +6,8 @@ target_sources(KOSMIndoorRouting PRIVATE
     navmesh.cpp
     navmeshbuilder.cpp
     navmeshtransform.cpp
+    route.cpp
+    routeoverlay.cpp
     routingjob.cpp
     assets.qrc
 )
@@ -46,6 +48,7 @@ ecm_generate_headers(KOSMIndoorRouting_FORWARDING_HEADERS
         NavMesh
         NavMeshBuilder
         NavMeshTransform
+        Route
         RoutingJob
     PREFIX KOSMIndoorRouting
     REQUIRED_HEADERS KOSMIndoorRouting_HEADERS

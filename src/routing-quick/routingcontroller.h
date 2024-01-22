@@ -11,10 +11,14 @@
 #include <KOSMIndoorMap/OverlaySource>
 #include <KOSMIndoorMap/MapData>
 
+#include <KOSMIndoorRouting/Route>
+
 #include <qqmlregistration.h>
 #include <QObject>
 
 namespace KOSMIndoorRouting {
+
+class RouteOverlay;
 
 /** Routing interface for QML. */
 class RoutingController : public QObject
@@ -23,7 +27,7 @@ class RoutingController : public QObject
     QML_ELEMENT
     Q_PROPERTY(KOSMIndoorMap::MapData mapData MEMBER m_mapData WRITE setMapData NOTIFY mapDataChanged)
     Q_PROPERTY(KOSMIndoorMap::AbstractOverlaySource *elevatorModel MEMBER m_elevatorModel NOTIFY elevatorModelChanged)
-    // TODO route overlay source
+    Q_PROPERTY(KOSMIndoorMap::AbstractOverlaySource *routeOverlay READ routeOverlay CONSTANT)
     // TODO routing profile
 public:
     explicit RoutingController(QObject *parent = nullptr);
@@ -31,6 +35,8 @@ public:
 
     Q_INVOKABLE void setStartPosition(double lat, double lon, int floorLevel);
     Q_INVOKABLE void setEndPosition(double lat, double lon, int floorLevel);
+
+    [[nodiscard]] KOSMIndoorMap::AbstractOverlaySource* routeOverlay() const;
 
 public Q_SLOTS:
     void searchRoute();
@@ -47,11 +53,14 @@ private:
     KOSMIndoorMap::MapData m_mapData;
     KOSMIndoorMap::AbstractOverlaySource *m_elevatorModel = nullptr;
     NavMesh m_navMesh;
+    Route m_route;
 
     OSM::Coordinate m_start;
     OSM::Coordinate m_end;
     int m_startLevel = 0;
     int m_endLevel = 0;
+
+    RouteOverlay *m_routeOverlay = nullptr;
 };
 }
 

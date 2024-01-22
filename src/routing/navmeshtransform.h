@@ -12,6 +12,8 @@
 
 #include <QTransform>
 
+#include <cmath>
+
 namespace KOSMIndoorRouting {
 
 /** 3D vector type compatible with the Recast API. */
@@ -49,6 +51,17 @@ public:
     {
         const auto p = mapGeoToNav(c);
         return { (float)p.x(), mapHeightToNav(floorLevel), (float)p.y() };
+    }
+
+    [[nodiscard]] inline OSM::Coordinate mapNavToGeo(rcVec3 p) const
+    {
+        const auto c = m_transform.inverted().map(QPointF(p.x, p.z));
+        return OSM::Coordinate(c.y(), c.x());
+    }
+
+    [[nodiscard]] inline int mapNavHeightToFloorLevel(float height) const
+    {
+        return (int)std::round(height);
     }
 private:
     QTransform m_transform;

@@ -9,6 +9,7 @@
 #include "navmesh.h"
 #include "navmesh_p.h"
 #include "navmeshtransform.h"
+#include "route.h"
 
 #include <QThreadPool>
 
@@ -20,6 +21,7 @@ public:
     NavMesh m_navMesh;
     rcVec3 m_start;
     rcVec3 m_end;
+    Route m_route;
 };
 }
 
@@ -58,6 +60,11 @@ void RoutingJob::start()
     });
 }
 
+Route RoutingJob::route() const
+{
+    return d->m_route;
+}
+
 void RoutingJobPrivate::performQuery()
 {
     qCDebug(Log) << QThread::currentThread();
@@ -93,9 +100,13 @@ void RoutingJobPrivate::performQuery()
     dtPolyRef straightPathPolys[256];
     navMesh->m_navMeshQuery->findStraightPath(m_start, m_end, path, pathCount, (float*)straightPath.data(), straightPathFlags.data(), straightPathPolys, &straightPathCount, 256, 0);
     qCDebug(Log) <<straightPathCount;
+    std::vector<RouteStep> steps;
+    steps.reserve(straightPathCount);
     for (int i = 0; i <straightPathCount; ++i) {
         qCDebug(Log) << "  " << straightPath[i].x << " " <<straightPath[i].y << " " << straightPath[i].z << " " <<straightPathFlags[i];
+        steps.push_back({m_navMesh.transform().mapNavToGeo(straightPath[i]), m_navMesh.transform().mapNavHeightToFloorLevel(straightPath[i].y)});
     }
+    m_route.setSteps(std::move(steps));
 #endif
 }
 

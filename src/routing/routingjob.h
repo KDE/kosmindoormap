@@ -16,6 +16,7 @@
 namespace KOSMIndoorRouting {
 
 class NavMesh;
+class Route;
 class RoutingJobPrivate;
 
 /** Job for running a routing query on a compiled NavMesh instance. */
@@ -33,9 +34,10 @@ public:
     void setEnd(rcVec3 endPost);
 
     // TODO set routing profile
-    // TODO return result
 
     void start();
+
+    [[nodiscard]] Route route() const;
 
 Q_SIGNALS:
     void finished();
