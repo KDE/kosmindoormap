@@ -31,6 +31,11 @@ public:
 
 }
 
+AbstractOverlaySource::AbstractOverlaySource(QObject *parent)
+    : AbstractOverlaySource(new AbstractOverlaySourcePrivate, parent)
+{
+}
+
 AbstractOverlaySource::AbstractOverlaySource(AbstractOverlaySourcePrivate *dd, QObject *parent)
     : QObject(parent)
     , d_ptr(dd)
@@ -38,6 +43,10 @@ AbstractOverlaySource::AbstractOverlaySource(AbstractOverlaySourcePrivate *dd, Q
 }
 
 AbstractOverlaySource::~AbstractOverlaySource() = default;
+
+void AbstractOverlaySource::hiddenElements([[maybe_unused]] std::vector<OSM::Element> &elems) const
+{
+}
 
 
 ModelOverlaySource::ModelOverlaySource(QAbstractItemModel *model, QObject *parent)

@@ -10,6 +10,7 @@ Checks: >
     -bugprone-suspicious-include,
     misc-*,
     -misc-no-recursion,
+    -misc-non-private-member-variables-in-classes,
     -misc-use-anonymous-namespace,
     modernize-*,
     -modernize-avoid-c-arrays,

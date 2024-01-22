@@ -33,7 +33,7 @@ public:
     virtual void forEach(int floorLevel, const std::function<void(OSM::Element, int)> &func) const = 0;
 
     /** Adds hidden elements to @param elems. */
-    virtual void hiddenElements(std::vector<OSM::Element> &elems) const = 0;
+    virtual void hiddenElements(std::vector<OSM::Element> &elems) const;
 
 Q_SIGNALS:
     /** Trigger map re-rendering when the source changes. */
@@ -46,6 +46,7 @@ Q_SIGNALS:
     void reset();
 
 protected:
+    explicit AbstractOverlaySource(QObject *parent);
     explicit AbstractOverlaySource(AbstractOverlaySourcePrivate *dd, QObject *parent);
     std::unique_ptr<AbstractOverlaySourcePrivate> d_ptr;
     Q_DECLARE_PRIVATE(AbstractOverlaySource)
