@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 02:30+0000\n"
-"PO-Revision-Date: 2024-01-16 00:55+0100\n"
+"PO-Revision-Date: 2024-01-23 00:13+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -989,7 +989,7 @@ msgstr "Taxia"
 #: map-quick/osmelementinformationmodel_data.cpp:158
 msgctxt "OSM::amenity/shop"
 msgid "Tea"
-msgstr "<keyword>Tea</keyword>"
+msgstr "Tea"
 
 #: map-quick/osmelementinformationmodel_data.cpp:159
 msgctxt "OSM::amenity/shop"
