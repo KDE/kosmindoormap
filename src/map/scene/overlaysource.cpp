@@ -44,6 +44,14 @@ AbstractOverlaySource::AbstractOverlaySource(AbstractOverlaySourcePrivate *dd, Q
 
 AbstractOverlaySource::~AbstractOverlaySource() = default;
 
+void AbstractOverlaySource::beginSwap()
+{
+}
+
+void AbstractOverlaySource::endSwap()
+{
+}
+
 void AbstractOverlaySource::hiddenElements([[maybe_unused]] std::vector<OSM::Element> &elems) const
 {
 }

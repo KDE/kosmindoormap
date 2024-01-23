@@ -133,6 +133,7 @@ void SceneController::updateScene(SceneGraph &sg) const
     d->m_dirty = false;
 
     sg.beginSwap();
+    std::for_each(d->m_overlaySources.begin(), d->m_overlaySources.end(), std::mem_fn(&AbstractOverlaySource::beginSwap));
     updateCanvas(sg);
 
     if (d->m_data.isEmpty()) { // if we don't have map data yet, we just need to get canvas styling here
@@ -191,6 +192,7 @@ void SceneController::updateScene(SceneGraph &sg) const
 
     sg.zSort();
     sg.endSwap();
+    std::for_each(d->m_overlaySources.begin(), d->m_overlaySources.end(), std::mem_fn(&AbstractOverlaySource::endSwap));
 
     qCDebug(RenderLog) << "updated scenegraph took" << sgUpdateTimer.elapsed() << "ms";
 }

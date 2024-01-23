@@ -35,6 +35,15 @@ public:
     /** Adds hidden elements to @param elems. */
     virtual void hiddenElements(std::vector<OSM::Element> &elems) const;
 
+    /** Indicates the being of a scene graph update.
+     *  @see SceneGraph
+     */
+    virtual void beginSwap();
+    /** Indicates the end of a scene graph update.
+     *  At this point dynamically created and no longer needed OSM elements can safely be deleted.
+     */
+    virtual void endSwap();
+
 Q_SIGNALS:
     /** Trigger map re-rendering when the source changes. */
     void update();
