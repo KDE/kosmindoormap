@@ -34,6 +34,7 @@ if (TARGET RecastNavigation::Recast AND TARGET RecastNavigation::Detour)
     target_link_libraries(KOSMIndoorRouting PRIVATE
         RecastNavigation::Recast
         RecastNavigation::Detour
+        # RecastNavigation::DebugUtils
     )
 else()
     target_compile_definitions(KOSMIndoorRouting PRIVATE HAVE_RECAST=0)

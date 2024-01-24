@@ -9,6 +9,7 @@
 #include "navmesh_p.h"
 #include "navmeshtransform.h"
 #include "recastnav_p.h"
+// #include "recastnavdebug_p.h"
 #include "recastnavsettings_p.h"
 #include <logging.h>
 
@@ -101,6 +102,7 @@ public:
 }
 
 using namespace KOSMIndoorRouting;
+using namespace Qt::Literals::StringLiterals;
 
 //BEGIN TODO largely copied from SceneController, refactor/unify?
 static QPolygonF createPolygon(const OSM::DataSet &dataSet, OSM::Element e)
@@ -660,6 +662,13 @@ void NavMeshBuilderPrivate::buildNavMesh()
         qCWarning(Log) << "Failed to triangulate contours";
         return;
     }
+
+#if 0
+    QFile f(u"pmesh.obj"_s);
+    f.open(QFile::WriteOnly);
+    RecastDebugIoAdapter adapter(&f);
+    duDumpPolyMeshToObj(*pmesh, &adapter);
+#endif
 
     // step 7: create detail mesh
     rcPolyMeshDetailPtr dmesh(rcAllocPolyMeshDetail());
