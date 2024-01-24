@@ -96,7 +96,7 @@ public:
     // diganostic obj output
     QString m_gsetFileName;
     QString m_objFileName;
-    qsizetype m_vertexOffset;
+    qsizetype m_vertexOffset = 0;
 };
 }
 
@@ -257,7 +257,6 @@ void NavMeshBuilder::start()
 {
     // the first half of this where we access m_data runs in the main thread (as MapData isn't prepared for multi-threaded access)
     qCDebug(Log) << QThread::currentThread();
-    d->m_vertexOffset = 1;
 
     d->m_transform.initialize(d->m_data.boundingBox());
     d->indexNodeLevels();
@@ -579,11 +578,11 @@ void NavMeshBuilderPrivate::writeObjFile()
 
     for (std::size_t i = 0; i < m_tris.size(); i += 3) {
         f.write("f ");
-        f.write(QByteArray::number(m_tris[i]));
+        f.write(QByteArray::number(m_tris[i] + 1));
         f.write(" ");
-        f.write(QByteArray::number(m_tris[i+1]));
+        f.write(QByteArray::number(m_tris[i+1] + 1));
         f.write(" ");
-        f.write(QByteArray::number(m_tris[i+2]));
+        f.write(QByteArray::number(m_tris[i+2] + 1));
         f.write("\n");
     }
 }
