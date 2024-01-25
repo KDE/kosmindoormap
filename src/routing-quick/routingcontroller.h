@@ -18,6 +18,8 @@
 
 namespace KOSMIndoorRouting {
 
+class NavMeshBuilder;
+class RoutingJob;
 class RouteOverlay;
 
 /** Routing interface for QML. */
@@ -25,6 +27,8 @@ class RoutingController : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
+    Q_PROPERTY(bool available READ routingAvailable CONSTANT)
+    Q_PROPERTY(bool inProgress READ routingInProgress NOTIFY progressChanged)
     Q_PROPERTY(KOSMIndoorMap::MapData mapData MEMBER m_mapData WRITE setMapData NOTIFY mapDataChanged)
     Q_PROPERTY(KOSMIndoorMap::AbstractOverlaySource *elevatorModel MEMBER m_elevatorModel NOTIFY elevatorModelChanged)
     Q_PROPERTY(KOSMIndoorMap::AbstractOverlaySource *routeOverlay READ routeOverlay CONSTANT)
@@ -32,6 +36,11 @@ class RoutingController : public QObject
 public:
     explicit RoutingController(QObject *parent = nullptr);
     ~RoutingController();
+
+    /** Indicates that routing support is built-in at all. */
+    [[nodiscard]] bool routingAvailable() const;
+    /** Indicates an ongoing routing or navmesh compilation process. */
+    [[nodiscard]] bool routingInProgress() const;
 
     Q_INVOKABLE void setStartPosition(double lat, double lon, int floorLevel);
     Q_INVOKABLE void setEndPosition(double lat, double lon, int floorLevel);
@@ -42,6 +51,7 @@ public Q_SLOTS:
     void searchRoute();
 
 Q_SIGNALS:
+    void progressChanged();
     void mapDataChanged();
     void elevatorModelChanged();
 
@@ -59,6 +69,9 @@ private:
     OSM::Coordinate m_end;
     int m_startLevel = 0;
     int m_endLevel = 0;
+
+    KOSMIndoorRouting::NavMeshBuilder *m_builder = nullptr;
+    KOSMIndoorRouting::RoutingJob *m_routingJob = nullptr;
 
     RouteOverlay *m_routeOverlay = nullptr;
 };

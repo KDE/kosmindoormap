@@ -21,6 +21,20 @@ RoutingController::RoutingController(QObject *parent)
 
 RoutingController::~RoutingController() = default;
 
+bool RoutingController::routingAvailable() const
+{
+#if HAVE_RECAST
+    return true;
+#else
+    return false;
+#endif
+}
+
+bool RoutingController::routingInProgress() const
+{
+    return m_builder || m_routingJob;
+}
+
 void RoutingController::setMapData(const KOSMIndoorMap::MapData &mapData)
 {
     if (m_mapData == mapData) {
@@ -29,6 +43,8 @@ void RoutingController::setMapData(const KOSMIndoorMap::MapData &mapData)
     m_mapData = mapData;
     m_navMesh.clear();
     m_routeOverlay->setMapData(mapData);
+
+    // TODO cancel ongoing jobs
 
     Q_EMIT mapDataChanged();
 }
@@ -58,9 +74,13 @@ KOSMIndoorMap::AbstractOverlaySource* RoutingController::routeOverlay() const
 
 void RoutingController::searchRoute()
 {
-    // TODO state tracking, protect against double runs
+    if (m_builder) { // already running
+        return;
+    }
+
     if (m_navMesh.isNull()) {
         buildNavMesh();
+        Q_EMIT progressChanged();
         return;
     }
 
@@ -70,10 +90,15 @@ void RoutingController::searchRoute()
     router->setEnd(m_navMesh.transform().mapGeoHeightToNav(m_end, m_endLevel));
     connect(router, &RoutingJob::finished, this, [this, router]() {
         router->deleteLater();
-        m_routeOverlay->setRoute(router->route());
+        if (m_routingJob == router) {
+            m_routeOverlay->setRoute(router->route());
+            m_routingJob = nullptr;
+        }
+        Q_EMIT progressChanged();
     });
+    m_routingJob = router;
     router->start();
-
+    Q_EMIT progressChanged();
 }
 
 void RoutingController::buildNavMesh()
@@ -83,11 +108,15 @@ void RoutingController::buildNavMesh()
     builder->setEquipmentModel(m_elevatorModel);
     connect(builder, &NavMeshBuilder::finished, this, [this, builder]() {
         builder->deleteLater();
-        m_navMesh = builder->navMesh();
+        if (m_builder == builder) {
+            m_navMesh = builder->navMesh();
+            m_builder = nullptr;
+        }
         // TODO loop protection/error handling
         searchRoute();
     });
     builder->start();
+    m_builder = builder;
 }
 
 #include "moc_routingcontroller.cpp"

@@ -10,6 +10,11 @@ ecm_add_qml_module(kosmindoorroutingquickplugin
 target_sources(kosmindoorroutingquickplugin PRIVATE
     routingcontroller.cpp
 )
+if (TARGET RecastNavigation::Recast AND TARGET RecastNavigation::Detour)
+    target_compile_definitions(kosmindoorroutingquickplugin PRIVATE HAVE_RECAST=1)
+else()
+    target_compile_definitions(kosmindoorroutingquickplugin PRIVATE HAVE_RECAST=0)
+endif()
 target_link_libraries(kosmindoorroutingquickplugin PRIVATE
     KOSMIndoorRouting
 )
