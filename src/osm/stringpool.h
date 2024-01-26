@@ -21,12 +21,12 @@ class KOSM_EXPORT StringKeyRegistryBase
 {
 protected:
     explicit StringKeyRegistryBase();
-    StringKeyRegistryBase(StringKeyRegistryBase&&);
-    StringKeyRegistryBase& operator=(StringKeyRegistryBase&&);
+    StringKeyRegistryBase(StringKeyRegistryBase&&) noexcept;
+    StringKeyRegistryBase& operator=(StringKeyRegistryBase&&) noexcept;
     ~StringKeyRegistryBase();
 
-    const char* makeKeyInternal(const char *name, std::size_t len, StringMemory memOpt);
-    const char* keyInternal(const char *name) const;
+    [[nodiscard]] const char* makeKeyInternal(const char *name, std::size_t len, StringMemory memOpt);
+    [[nodiscard]] const char* keyInternal(const char *name) const;
 
     std::vector<char*> m_pool;
     std::vector<const char*> m_registry;

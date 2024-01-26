@@ -23,29 +23,29 @@ public:
         , depth(_depth)
     {}
 
-    constexpr inline bool operator<(ZTile other) const
+    [[nodiscard]] constexpr inline bool operator<(ZTile other) const
     {
         return depth == other.depth ? z < other.z : depth > other.depth;
     }
-    constexpr inline bool operator==(ZTile other) const
+    [[nodiscard]] constexpr inline bool operator==(ZTile other) const
     {
         return depth == other.depth && z == other.z;
     }
 
     /** tile size in 1e7-th degrees **/
-    constexpr inline uint32_t size() const
+    [[nodiscard]] constexpr inline uint32_t size() const
     {
         return (1ull << depth) - 1;
     }
 
-    BoundingBox boundingBox() const;
-    bool intersects(BoundingBox bbox) const;
-    bool intersects(ZTile other) const;
+    [[nodiscard]] BoundingBox boundingBox() const;
+    [[nodiscard]] bool intersects(BoundingBox bbox) const;
+    [[nodiscard]] bool intersects(ZTile other) const;
 
     /** The parent tile in a quad tree. */
-    ZTile parent() const;
+    [[nodiscard]] ZTile parent() const;
     /** Split into four sub-tiles on one level below. */
-    std::array<ZTile, 4> quadSplit() const;
+    [[nodiscard]] std::array<ZTile, 4> quadSplit() const;
 
 
     uint64_t z = 0;

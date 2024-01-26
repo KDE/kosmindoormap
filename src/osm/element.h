@@ -28,20 +28,20 @@ public:
     inline Element(const Way *way) : m_elem(way, static_cast<uint8_t>(Type::Way)) {}
     inline Element(const Relation *relation) : m_elem(relation, static_cast<uint8_t>(Type::Relation)) {}
 
-    inline bool operator==(Element other) const { return m_elem == other.m_elem; }
-    inline bool operator!=(Element other) const { return m_elem != other.m_elem; }
-    inline bool operator<(Element other) const { return m_elem < other.m_elem; }
-    explicit inline operator bool() const { return type() != OSM::Type::Null; }
+    [[nodiscard]] inline bool operator==(Element other) const { return m_elem == other.m_elem; }
+    [[nodiscard]] inline bool operator!=(Element other) const { return m_elem != other.m_elem; }
+    [[nodiscard]] inline bool operator<(Element other) const { return m_elem < other.m_elem; }
+    [[nodiscard]] explicit inline operator bool() const { return type() != OSM::Type::Null; }
 
-    inline Type type() const { return static_cast<Type>(m_elem.tag()); }
-    inline const Node* node() const { return static_cast<const Node*>(m_elem.get()); }
-    inline const Way* way() const { return static_cast<const Way*>(m_elem.get()); }
-    inline const Relation* relation() const { return static_cast<const Relation*>(m_elem.get()); }
-    Id id() const;
+    [[nodiscard]] inline Type type() const { return static_cast<Type>(m_elem.tag()); }
+    [[nodiscard]] inline const Node* node() const { return static_cast<const Node*>(m_elem.get()); }
+    [[nodiscard]] inline const Way* way() const { return static_cast<const Way*>(m_elem.get()); }
+    [[nodiscard]] inline const Relation* relation() const { return static_cast<const Relation*>(m_elem.get()); }
+    [[nodiscard]] Id id() const;
 
-    Coordinate center() const;
-    BoundingBox boundingBox() const;
-    QByteArray tagValue(TagKey key) const;
+    [[nodiscard]] Coordinate center() const;
+    [[nodiscard]] BoundingBox boundingBox() const;
+    [[nodiscard]] QByteArray tagValue(TagKey key) const;
     [[nodiscard]] QByteArray tagValue(const char *keyName) const;
     [[nodiscard]] QByteArray tagValue(const OSM::Languages &languages, const char *keyName) const;
     /** Returns the value of the first non-empty tag.
@@ -50,19 +50,19 @@ public:
     template <typename K, typename ...Args> [[nodiscard]] QByteArray tagValue(K key, Args... args) const;
     template <typename K, typename ...Args> [[nodiscard]] QByteArray tagValue(const OSM::Languages &languages, K key, Args... args) const;
     /** Returns whether or not this element has any tags set. */
-    inline bool hasTags() const { return std::distance(tagsBegin(), tagsEnd()) > 0; }
+    [[nodiscard]] inline bool hasTags() const { return std::distance(tagsBegin(), tagsEnd()) > 0; }
     /** Returns @c true if this element has a tag with key @p key. */
-    bool hasTag(TagKey key) const;
+    [[nodiscard]] bool hasTag(TagKey key) const;
 
-    std::vector<Tag>::const_iterator tagsBegin() const;
-    std::vector<Tag>::const_iterator tagsEnd() const;
-    QString url() const;
+    [[nodiscard]] std::vector<Tag>::const_iterator tagsBegin() const;
+    [[nodiscard]] std::vector<Tag>::const_iterator tagsEnd() const;
+    [[nodiscard]] QString url() const;
 
     /** Returns all nodes belonging to the outer path of this element.
      *  In the simplest case that's a single closed polygon, but it can also be a sequence of multiple
      *  closed loop polygons, or a polyline.
      */
-    std::vector<const Node*> outerPath(const DataSet &dataSet) const;
+    [[nodiscard]] std::vector<const Node*> outerPath(const DataSet &dataSet) const;
 
     /** Recompute the bounding box of this element.
      *  We usually assume those to be provided by Overpass/osmconvert, but there seem to be cases where those
@@ -105,7 +105,7 @@ public:
     explicit inline UniqueElement(Relation *rel) : m_element(rel) {}
 
     UniqueElement(const UniqueElement&) = delete;
-    inline UniqueElement(UniqueElement &&other) {
+    inline UniqueElement(UniqueElement &&other) noexcept {
         m_element = other.m_element;
         other.m_element = {};
     }
@@ -113,16 +113,16 @@ public:
     ~UniqueElement();
 
     UniqueElement& operator=(const UniqueElement&) = delete;
-    UniqueElement& operator=(UniqueElement &&other) {
+    UniqueElement& operator=(UniqueElement &&other) noexcept {
         m_element = other.m_element;
         other.m_element = {};
         return *this;
     }
 
-    explicit inline operator bool() const { return m_element.type() != OSM::Type::Null; }
+    [[nodiscard]] explicit inline operator bool() const { return m_element.type() != OSM::Type::Null; }
 
-    constexpr inline Element element() const { return m_element; }
-    constexpr inline operator Element() const { return m_element; }
+    [[nodiscard]] constexpr inline Element element() const { return m_element; }
+    [[nodiscard]] constexpr inline operator Element() const { return m_element; }
 
     void setId(Id id);
     void setTagValue(TagKey key, QByteArray &&value);
@@ -136,9 +136,9 @@ private:
 KOSM_EXPORT UniqueElement copy_element(Element e);
 
 /** Utility function similar to SQL COALESCE for OSM::Element, ie. this returns the first non-null element passed as argument. */
-constexpr Element coalesce(Element e) { return e; }
+[[nodiscard]] constexpr Element coalesce(Element e) { return e; }
 template <typename ...Args>
-constexpr Element coalesce(Element e, Args... args) { return e ? e : coalesce(args...); }
+[[nodiscard]] constexpr Element coalesce(Element e, Args... args) { return e ? e : coalesce(args...); }
 
 enum ForeachFlag : uint8_t {
     IncludeRelations = 1,

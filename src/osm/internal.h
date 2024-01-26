@@ -21,14 +21,14 @@ public:
         : m_data(reinterpret_cast<std::uintptr_t>(ptr) | (tag & TagMask))
     {}
 
-    constexpr inline T* get() const { return reinterpret_cast<T*>(m_data & ~TagMask); }
+    [[nodiscard]] constexpr inline T* get() const { return reinterpret_cast<T*>(m_data & ~TagMask); }
     constexpr inline void set(T *data) { m_data = (m_data & TagMask) | (reinterpret_cast<std::uintptr_t>(data) & ~TagMask); }
-    constexpr inline uint8_t tag() const { return m_data & TagMask; }
+    [[nodiscard]] constexpr inline uint8_t tag() const { return m_data & TagMask; }
     constexpr inline void setTag(uint8_t tag) { m_data = (tag & TagMask) | (m_data & ~TagMask); }
-    constexpr inline operator bool() const { return (m_data & ~TagMask); }
-    constexpr inline bool operator==(TaggedPointer<T> other) const { return m_data == other.m_data; }
-    constexpr inline bool operator!=(TaggedPointer<T> other) const { return m_data != other.m_data; }
-    constexpr inline bool operator<(TaggedPointer<T> other) const { return m_data < other.m_data; }
+    [[nodiscard]] constexpr inline operator bool() const { return (m_data & ~TagMask); }
+    [[nodiscard]] constexpr inline bool operator==(TaggedPointer<T> other) const { return m_data == other.m_data; }
+    [[nodiscard]] constexpr inline bool operator!=(TaggedPointer<T> other) const { return m_data != other.m_data; }
+    [[nodiscard]] constexpr inline bool operator<(TaggedPointer<T> other) const { return m_data < other.m_data; }
 
 private:
     enum { TagMask = 0x3 };

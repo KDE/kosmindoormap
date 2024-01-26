@@ -9,8 +9,8 @@
 #include <algorithm>
 
 OSM::StringKeyRegistryBase::StringKeyRegistryBase() = default;
-OSM::StringKeyRegistryBase::StringKeyRegistryBase(OSM::StringKeyRegistryBase&&) = default;
-OSM::StringKeyRegistryBase& OSM::StringKeyRegistryBase::operator=(OSM::StringKeyRegistryBase&&) = default;
+OSM::StringKeyRegistryBase::StringKeyRegistryBase(OSM::StringKeyRegistryBase&&) noexcept = default;
+OSM::StringKeyRegistryBase& OSM::StringKeyRegistryBase::operator=(OSM::StringKeyRegistryBase&&) noexcept = default;
 
 OSM::StringKeyRegistryBase::~StringKeyRegistryBase()
 {

@@ -28,7 +28,7 @@ public:
 private:
     void readFromData(const uint8_t *data, std::size_t len) override;
 
-    bool parseBlob(const uint8_t *&it, const uint8_t *end);
+    [[nodiscard]] bool parseBlob(const uint8_t *&it, const uint8_t *end);
     void parsePrimitiveBlock(const uint8_t *data, std::size_t len);
     void parseDenseNodes(const OSMPBF::PrimitiveBlock &block,  const OSMPBF::PrimitiveGroup &group);
     void parseWays(const OSMPBF::PrimitiveBlock &block, const OSMPBF::PrimitiveGroup &group);

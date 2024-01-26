@@ -23,14 +23,14 @@ namespace IO
 {
 
 /** Returns a suitable reader for the given file name. */
-KOSM_EXPORT std::unique_ptr<AbstractReader> readerForFileName(QStringView fileName, OSM::DataSet *dataSet);
+[[nodiscard]] KOSM_EXPORT std::unique_ptr<AbstractReader> readerForFileName(QStringView fileName, OSM::DataSet *dataSet);
 /** Returns a suitable reader for the given MIME type. */
-KOSM_EXPORT std::unique_ptr<AbstractReader> readerForMimeType(QStringView mimeType, OSM::DataSet *dataSet);
+[[nodiscard]] KOSM_EXPORT std::unique_ptr<AbstractReader> readerForMimeType(QStringView mimeType, OSM::DataSet *dataSet);
 
 /** Returns a suitable writer for the given file name. */
-KOSM_EXPORT std::unique_ptr<AbstractWriter> writerForFileName(QStringView fileName);
+[[nodiscard]] KOSM_EXPORT std::unique_ptr<AbstractWriter> writerForFileName(QStringView fileName);
 /** Returns a suitable writer for the given MIME type. */
-KOSM_EXPORT std::unique_ptr<AbstractWriter> writerForMimeType(QStringView mimeType);
+[[nodiscard]] KOSM_EXPORT std::unique_ptr<AbstractWriter> writerForMimeType(QStringView mimeType);
 
 }
 

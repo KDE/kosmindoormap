@@ -9,10 +9,10 @@
 using namespace OSM;
 
 DataSet::DataSet() = default;
-DataSet::DataSet(DataSet &&) = default;
+DataSet::DataSet(DataSet &&) noexcept = default;
 DataSet::~DataSet() = default;
 
-DataSet& DataSet::operator=(DataSet &&) = default;
+DataSet& DataSet::operator=(DataSet &&) noexcept = default;
 
 TagKey DataSet::makeTagKey(const char *keyName, OSM::StringMemory keyMemOpt)
 {

@@ -48,7 +48,7 @@ public:
     void read(QIODevice *io);
 
     /** Error message in case parsing failed for some reason. */
-    QString errorString() const;
+    [[nodiscard]] QString errorString() const;
 
 protected:
     explicit AbstractReader(DataSet *dataSet);

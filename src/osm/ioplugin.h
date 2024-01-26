@@ -26,20 +26,20 @@ public:
     virtual ~IOPluginInterface();
 
     /** Create a new reader instance. */
-    virtual std::unique_ptr<AbstractReader> createReader(OSM::DataSet *dataSet) = 0;
+    [[nodiscard]] virtual std::unique_ptr<AbstractReader> createReader(OSM::DataSet *dataSet) = 0;
     /** Create a new writer instance. */
-    virtual std::unique_ptr<AbstractWriter> createWriter() = 0;
+    [[nodiscard]] virtual std::unique_ptr<AbstractWriter> createWriter() = 0;
 };
 
 template <typename ReaderT, typename WriterT = std::nullptr_t>
 class IOPlugin : public IOPluginInterface
 {
 public:
-    inline std::unique_ptr<AbstractReader> createReader(OSM::DataSet *dataSet) override
+    [[nodiscard]] inline std::unique_ptr<AbstractReader> createReader(OSM::DataSet *dataSet) override
     {
         return std::make_unique<ReaderT>(dataSet);
     }
-    inline std::unique_ptr<AbstractWriter> createWriter() override
+    [[nodiscard]] inline std::unique_ptr<AbstractWriter> createWriter() override
     {
         if constexpr(!std::is_same_v<WriterT, std::nullptr_t>) {
             return std::make_unique<WriterT>();

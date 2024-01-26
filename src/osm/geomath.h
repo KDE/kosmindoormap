@@ -16,27 +16,27 @@
 namespace OSM {
 
 /** Degree to radian conversion. */
-constexpr inline double degToRad(double deg)
+[[nodiscard]] constexpr inline double degToRad(double deg)
 {
     return deg / 180.0 * M_PI;
 }
 /** Radian to degree conversion. */
-constexpr inline double radToDeg(double rad)
+[[nodiscard]] constexpr inline double radToDeg(double rad)
 {
     return rad / M_PI * 180.0;
 }
 
 /** Distance between two coordinates. */
-KOSM_EXPORT double distance(double lat1, double lon1, double lat2, double lon2);
+[[nodiscard]] KOSM_EXPORT double distance(double lat1, double lon1, double lat2, double lon2);
 
 /** Distance between @p coord1 and @p coord2 in meter. */
-KOSM_EXPORT double distance(Coordinate coord1, Coordinate coord2);
+[[nodiscard]] KOSM_EXPORT double distance(Coordinate coord1, Coordinate coord2);
 
 /** Distance in meters between a line segment defined by @p l1 and @p l2 to a point @p p. */
-double distance(Coordinate l1, Coordinate l2, Coordinate p);
+[[nodiscard]] double distance(Coordinate l1, Coordinate l2, Coordinate p);
 
 /** Distance between the given polygon and coordinate, in meter. */
-KOSM_EXPORT double distance(const std::vector<const OSM::Node*> &path, Coordinate coord);
+[[nodiscard]] KOSM_EXPORT double distance(const std::vector<const OSM::Node*> &path, Coordinate coord);
 
 }
 

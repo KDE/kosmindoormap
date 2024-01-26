@@ -35,7 +35,7 @@ public:
      *  The result should be cached in case of repeated use,
      *  QLocale::uiLanguages() is relatively expensive.
      */
-    KOSM_EXPORT static Languages fromQLocale(const QLocale &locale);
+    [[nodiscard]] KOSM_EXPORT static Languages fromQLocale(const QLocale &locale);
 
     std::vector<std::string> languages;
 };

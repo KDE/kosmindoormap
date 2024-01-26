@@ -34,13 +34,13 @@ private:
 
     friend class ::O5mParserTest;
 
-    uint64_t readUnsigned(const uint8_t *&it, const uint8_t *endIt) const;
-    int64_t readSigned(const uint8_t *&it, const uint8_t *endIt) const;
+    [[nodiscard]] uint64_t readUnsigned(const uint8_t *&it, const uint8_t *endIt) const;
+    [[nodiscard]] int64_t readSigned(const uint8_t *&it, const uint8_t *endIt) const;
     template <typename T>
-    T readDelta(const uint8_t *&it, const uint8_t *endIt, T &deltaState);
+    [[nodiscard]] T readDelta(const uint8_t *&it, const uint8_t *endIt, T &deltaState);
 
-    const char* readString(const uint8_t *&it, const uint8_t *endIt);
-    std::pair<const char*, const char*> readStringPair(const uint8_t *&it, const uint8_t *endIt);
+    [[nodiscard]] const char* readString(const uint8_t *&it, const uint8_t *endIt);
+    [[nodiscard]] std::pair<const char*, const char*> readStringPair(const uint8_t *&it, const uint8_t *endIt);
 
     void skipVersionInformation(const uint8_t *&it, const uint8_t *end);
     template <typename Elem>
