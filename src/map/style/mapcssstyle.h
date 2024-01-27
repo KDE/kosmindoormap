@@ -23,6 +23,9 @@ class MapCSSResult;
 class MapCSSState;
 class MapCSSStylePrivate;
 
+class ClassSelectorKey;
+class LayerSelectorKey;
+
 /** A parsed MapCSS style sheet.
  *  @see MapCSSParser::parse for how to obtain a valid instance
  */
@@ -59,6 +62,18 @@ public:
      *  Mainly used for testing.
      */
     void write(QIODevice *out) const;
+
+    /** Look up a class selector key for the given name, if it exists.
+     *  If no such key exists in the style sheet, an null key is returned.
+     *  Use this for checking if a class is set on an evaluation result.
+     */
+    [[nodiscard]] ClassSelectorKey classKey(const char *className) const;
+
+    /** Look up a layer selector key for the given name, if it exists.
+     *  If no such key exists in the style sheet, an null key is returned.
+     *  Use this for accessing specific result layers.
+     */
+    [[nodiscard]] LayerSelectorKey layerKey(const char *layerName) const;
 
 private:
     friend class MapCSSStylePrivate;

@@ -10,6 +10,7 @@
 #include "mapcssresult.h"
 #include "mapcssrule_p.h"
 #include "mapcssstate_p.h"
+#include "mapcsstypes.h"
 
 #include <QDebug>
 #include <QIODevice>
@@ -90,4 +91,14 @@ void MapCSSStyle::write(QIODevice *out) const
     for (const auto &rule : d->m_rules) {
         rule->write(out);
     }
+}
+
+ClassSelectorKey MapCSSStyle::classKey(const char *className) const
+{
+    return d->m_classSelectorRegistry.key(className);
+}
+
+LayerSelectorKey MapCSSStyle::layerKey(const char *layerName) const
+{
+    return d->m_layerSelectorRegistry.key(layerName);
 }

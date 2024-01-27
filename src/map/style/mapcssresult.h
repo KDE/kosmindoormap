@@ -65,7 +65,7 @@ public:
     /** Tag lookup for tags overridden by the style sheet. */
     [[nodiscard]] QByteArray tagValue(OSM::TagKey key) const;
 
-    /** Check whether this result layer has pseudo-class @p cls set. */
+    /** Check whether this result layer has class @p cls set. */
     [[nodiscard]] bool hasClass(ClassSelectorKey cls) const;
 
 private:
