@@ -47,6 +47,8 @@ enum class LinkDirection { Forward, Backward, Bidirectional };
 class NavMeshBuilderPrivate
 {
 public:
+    [[nodiscard]] std::optional<LinkDirection> linkDirection(KOSMIndoorMap::LayerSelectorKey layerKey) const;
+
     /** Look up level for a given node id. */
     [[nodiscard]] int levelForNode(OSM::Id nodeId) const;
     void addNodeToLevelIndex(OSM::Id nodeId, int level);
@@ -68,6 +70,8 @@ public:
     KOSMIndoorMap::MapData m_data;
     KOSMIndoorMap::MapCSSStyle m_style;
     KOSMIndoorMap::MapCSSResult m_filterResult;
+
+    std::array<KOSMIndoorMap::LayerSelectorKey, 3> m_linkKeys;
 
     NavMeshTransform m_transform;
 
@@ -181,6 +185,12 @@ void NavMeshBuilder::setMapData(const KOSMIndoorMap::MapData &mapData)
             qWarning() << p.errorMessage();
             return;
         }
+
+        // resolve layer and class keys
+        constexpr const char *link_direction_keys[] = { "link_forward", "link_backward", "link" };
+        for (auto dir : {LinkDirection::Forward, LinkDirection::Backward, LinkDirection::Bidirectional}) {
+            d->m_linkKeys[qToUnderlying(dir)] = d->m_style.layerKey(link_direction_keys[qToUnderlying(dir)]);
+        }
     }
 
     if (!d->m_data.isEmpty()) {
@@ -203,6 +213,16 @@ void NavMeshBuilder::writeDebugNavMesh(const QString &gsetFile, const QString &o
 static bool isDoor(const OSM::Node *node)
 {
     return !OSM::tagValue(*node, "door").isEmpty();
+}
+
+std::optional<LinkDirection> NavMeshBuilderPrivate::linkDirection(KOSMIndoorMap::LayerSelectorKey layerKey) const
+{
+    for (auto dir : {LinkDirection::Forward, LinkDirection::Backward, LinkDirection::Bidirectional}) {
+        if (!m_linkKeys[qToUnderlying(dir)].isNull() && m_linkKeys[qToUnderlying(dir)] == layerKey) {
+            return dir;
+        }
+    }
+    return {};
 }
 
 int NavMeshBuilderPrivate::levelForNode(OSM::Id nodeId) const
@@ -310,14 +330,8 @@ void NavMeshBuilderPrivate::processElement(OSM::Element elem, int floorLevel)
     for (const auto &res : m_filterResult.results()) {
         if (res.layerSelector().isNull()) {
             processGeometry(elem, floorLevel, res);
-        } else {
-            LinkDirection linkDir = LinkDirection::Bidirectional; // TODO use precompiled keys
-            if (std::strcmp(res.layerSelector().name(), "link_forward") == 0) {
-                linkDir = LinkDirection::Forward;
-            } else if (std::strcmp(res.layerSelector().name(), "link_backward") == 0) {
-                linkDir = LinkDirection::Backward;
-            }
-            processLink(elem, floorLevel, linkDir, res);
+        } else if (const auto linkDir = linkDirection(res.layerSelector()); linkDir) {
+            processLink(elem, floorLevel, *linkDir, res);
         }
     }
 }
