@@ -56,6 +56,11 @@ void AbstractOverlaySource::hiddenElements([[maybe_unused]] std::vector<OSM::Ele
 {
 }
 
+const std::vector<OSM::Node>* AbstractOverlaySource::transientNodes() const
+{
+    return nullptr;
+}
+
 
 ModelOverlaySource::ModelOverlaySource(QAbstractItemModel *model, QObject *parent)
     : AbstractOverlaySource(new ModelOverlaySourcePrivate, parent)

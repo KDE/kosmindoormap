@@ -44,6 +44,10 @@ public:
      */
     virtual void endSwap();
 
+    // HACK this still needs a proper solution for dynamic geometry
+    /** Nodes for newly created geometry. */
+    [[nodiscard]] virtual const std::vector<OSM::Node>* transientNodes() const;
+
 Q_SIGNALS:
     /** Trigger map re-rendering when the source changes. */
     void update();

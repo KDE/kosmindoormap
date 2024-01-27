@@ -47,9 +47,13 @@ Role DataSet::role(const char *roleName) const
 
 const Node* DataSet::node(Id id) const
 {
-    const auto it = std::lower_bound(nodes.begin(), nodes.end(), id);
-    if (it != nodes.end() && (*it).id == id) {
+    if (const auto it = std::lower_bound(nodes.begin(), nodes.end(), id); it != nodes.end() && (*it).id == id) {
         return &(*it);
+    }
+    if (transientNodes) {
+        if (const auto it = std::lower_bound(transientNodes->begin(), transientNodes->end(), id); it != transientNodes->end() && (*it).id == id) {
+            return &(*it);
+        }
     }
     return nullptr;
 }

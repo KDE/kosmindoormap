@@ -33,6 +33,7 @@
 #include <QElapsedTimer>
 #include <QGuiApplication>
 #include <QPalette>
+#include <QScopedValueRollback>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -182,11 +183,13 @@ void SceneController::updateScene(SceneGraph &sg) const
     // update overlay elements
     d->m_overlay = true;
     for (const auto &overlaySource : d->m_overlaySources) {
+        QScopedValueRollback tranientNodes(d->m_data.dataSet().transientNodes, overlaySource->transientNodes());
         overlaySource->forEach(d->m_view->level(), [this, &geoBbox, &sg](OSM::Element e, int floorLevel) {
             if (OSM::intersects(geoBbox, e.boundingBox()) && e.type() != OSM::Type::Null) {
                 updateElement(e, floorLevel, sg);
             }
         });
+        d->m_data.dataSet().transientNodes = nullptr;
     }
     d->m_overlay = false;
 

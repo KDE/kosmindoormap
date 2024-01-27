@@ -400,6 +400,10 @@ public:
     std::vector<Way> ways;
     std::vector<Relation> relations;
 
+    // HACK this needs a proper solution for dynamic memory management eventually
+    /** Dynamically created nodes for overlays with new geometry. */
+    const std::vector<Node> *transientNodes = nullptr;
+
 private:
     template <typename T> T stringKey(const char *name, const std::vector<T> &registry) const;
     template <typename T> T makeStringKey(const char *name, StringMemory memOpt, std::vector<T> &registry);
