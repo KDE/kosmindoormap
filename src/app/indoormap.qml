@@ -79,6 +79,7 @@ Kirigami.ApplicationWindow {
         id: settings
         property alias debugMode: debugAction.checked
         property alias stylesheet: page.map.styleSheet
+        property alias hoverMode: page.mapHoverEnabled
     }
 
     pageStack.initialPage: IndoorMapPage {
@@ -156,6 +157,13 @@ Kirigami.ApplicationWindow {
                 icon.name: "document-edit"
                 visible: EditorController.hasEditor(Editor.Vespucci)
                 onTriggered: EditorController.editBoundingBox(page.map.view.mapSceneToGeo(page.map.view.viewport), Editor.Vespucci)
+            },
+            Kirigami.Action {
+                text: i18n("Enable hover selection")
+                icon.name: "followmouse"
+                checkable: true
+                checked: page.mapHoverEnabled
+                onToggled: page.mapHoverEnabled = !page.mapHoverEnabled
             }
         ]
 

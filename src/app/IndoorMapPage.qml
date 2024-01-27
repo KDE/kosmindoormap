@@ -15,6 +15,7 @@ Kirigami.Page {
     property point coordinate
     property alias map: map
     property alias debug: infoModel.debug
+    property alias mapHoverEnabled: hoverHandler.enabled
 
     topPadding: 0
     bottomPadding: 0
@@ -121,6 +122,7 @@ Kirigami.Page {
 
         HoverHandler {
             id: hoverHandler
+            enabled: false
             acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
         }
     }
