@@ -106,16 +106,14 @@ public:
 
     UniqueElement(const UniqueElement&) = delete;
     inline UniqueElement(UniqueElement &&other) noexcept {
-        m_element = other.m_element;
-        other.m_element = {};
+        std::swap(m_element, other.m_element);
     }
 
     ~UniqueElement();
 
     UniqueElement& operator=(const UniqueElement&) = delete;
     UniqueElement& operator=(UniqueElement &&other) noexcept {
-        m_element = other.m_element;
-        other.m_element = {};
+        std::swap(m_element, other.m_element);
         return *this;
     }
 
@@ -123,6 +121,10 @@ public:
 
     [[nodiscard]] constexpr inline Element element() const { return m_element; }
     [[nodiscard]] constexpr inline operator Element() const { return m_element; }
+
+    [[nodiscard]] inline Node* node() const { return const_cast<Node*>(m_element.node()); }
+    [[nodiscard]] inline Way* way() const { return const_cast<Way*>(m_element.way()); }
+    [[nodiscard]] inline Relation* relation() const { return const_cast<Relation*>(m_element.relation()); }
 
     void setId(Id id);
     void setTagValue(TagKey key, QByteArray &&value);
