@@ -131,7 +131,9 @@ void MapItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometr
     m_view->setScreenSize(newGeometry.size().toSize());
     // the scale factor isn't automatically applied to the paint device, only to the input coordinates
     // so we need to handle this manually here
-    m_view->setDeviceTransform(QTransform::fromScale(window()->devicePixelRatio(), window()->devicePixelRatio()));
+    if (window()) {
+        m_view->setDeviceTransform(QTransform::fromScale(window()->devicePixelRatio(), window()->devicePixelRatio()));
+    }
 }
 
 void MapItem::loaderDone()
