@@ -73,7 +73,7 @@ void RoutingJobPrivate::performQuery()
     qCDebug(Log) <<m_start.x <<m_start.y << m_start.z << m_end.x << m_end.y << m_end.z;
 #if HAVE_RECAST
     dtQueryFilter filter; // TODO
-    filter.setIncludeFlags(0xffef);
+    filter.setIncludeFlags(0xffff);
     filter.setExcludeFlags(0);
     for (int i = 0; i < 8; ++i) {
         filter.setAreaCost(i, 1.0f);

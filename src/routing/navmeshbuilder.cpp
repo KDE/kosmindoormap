@@ -11,6 +11,7 @@
 #include "recastnav_p.h"
 // #include "recastnavdebug_p.h"
 #include "recastnavsettings_p.h"
+#include "routingarea.h"
 #include <logging.h>
 
 #include <KOSMIndoorMap/MapData>
@@ -44,10 +45,25 @@ namespace KOSMIndoorRouting {
 
 enum class LinkDirection { Forward, Backward, Bidirectional };
 
+// ordered by priority, must match m_areaClassKeys array below
+struct {
+    const char *name;
+    AreaType area;
+} constexpr inline const routing_area_map[] = {
+    { "escalator", AreaType::Escalator },
+    { "movingWalkway", AreaType::MovingWalkway },
+    { "stairs", AreaType::Stairs },
+    { "elevator", AreaType::Elevator },
+    { "tactilePaving", AreaType::TactilePaving },
+    { "streetCrossing", AreaType::StreetCrossing },
+    { "ramp", AreaType::Ramp },
+};
+
 class NavMeshBuilderPrivate
 {
 public:
     [[nodiscard]] std::optional<LinkDirection> linkDirection(KOSMIndoorMap::LayerSelectorKey layerKey) const;
+    [[nodiscard]] AreaType areaType(const KOSMIndoorMap::MapCSSResultLayer &result) const;
 
     /** Look up level for a given node id. */
     [[nodiscard]] int levelForNode(OSM::Id nodeId) const;
@@ -72,6 +88,7 @@ public:
     KOSMIndoorMap::MapCSSResult m_filterResult;
 
     std::array<KOSMIndoorMap::LayerSelectorKey, 3> m_linkKeys;
+    std::array<KOSMIndoorMap::ClassSelectorKey, std::size(routing_area_map)> m_areaClassKeys;
 
     NavMeshTransform m_transform;
 
@@ -182,7 +199,7 @@ void NavMeshBuilder::setMapData(const KOSMIndoorMap::MapData &mapData)
         KOSMIndoorMap::MapCSSParser p;
         d->m_style = p.parse(QStringLiteral(":/org.kde.kosmindoorrouting/navmesh-filter.mapcss"));
         if (p.hasError()) {
-            qWarning() << p.errorMessage();
+            qCWarning(Log) << p.errorMessage();
             return;
         }
 
@@ -190,6 +207,13 @@ void NavMeshBuilder::setMapData(const KOSMIndoorMap::MapData &mapData)
         constexpr const char *link_direction_keys[] = { "link_forward", "link_backward", "link" };
         for (auto dir : {LinkDirection::Forward, LinkDirection::Backward, LinkDirection::Bidirectional}) {
             d->m_linkKeys[qToUnderlying(dir)] = d->m_style.layerKey(link_direction_keys[qToUnderlying(dir)]);
+        }
+
+        for (std::size_t i = 0; i < std::size(routing_area_map); ++i) {
+            d->m_areaClassKeys[i] = d->m_style.classKey(routing_area_map[i].name);
+            if (d->m_areaClassKeys[i].isNull()) {
+                qCWarning(Log) << "area class key not found:" << routing_area_map[i].name;
+            }
         }
     }
 
@@ -223,6 +247,17 @@ std::optional<LinkDirection> NavMeshBuilderPrivate::linkDirection(KOSMIndoorMap:
         }
     }
     return {};
+}
+
+AreaType NavMeshBuilderPrivate::areaType(const KOSMIndoorMap::MapCSSResultLayer &res) const
+{
+    for (std::size_t i = 0; i < m_areaClassKeys.size(); ++i) {
+        if (!m_areaClassKeys[i].isNull() && res.hasClass(m_areaClassKeys[i])) {
+            return routing_area_map[i].area;
+        }
+    }
+
+    return AreaType::Walkable;
 }
 
 int NavMeshBuilderPrivate::levelForNode(OSM::Id nodeId) const
@@ -360,14 +395,14 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
                     addFace(*(reinterpret_cast<const uint16_t*>(triSet.indices.data()) + i) + m_vertexOffset,
                             *(reinterpret_cast<const uint16_t*>(triSet.indices.data()) + i + 1) + m_vertexOffset,
                             *(reinterpret_cast<const uint16_t*>(triSet.indices.data()) + i + 2) + m_vertexOffset,
-                            AreaType::Walkable); // TODO area type from CSS
+                            areaType(res));
                 }
             } else if (triSet.indices.type() == QVertexIndexVector::UnsignedInt) {
                 for (qsizetype i = 0; i <triSet.indices.size(); i += 3) {
                     addFace(*(reinterpret_cast<const uint32_t*>(triSet.indices.data()) + i) + m_vertexOffset,
                             *(reinterpret_cast<const uint32_t*>(triSet.indices.data()) + i + 1) + m_vertexOffset,
                             *(reinterpret_cast<const uint32_t*>(triSet.indices.data()) + i + 2) + m_vertexOffset,
-                            AreaType::Walkable); // TODO area type from CSS
+                            areaType(res));
                 }
             }
             m_vertexOffset += triSet.vertices.size() / 2;
@@ -407,9 +442,9 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
             for (int i = 0; i < stroker.vertexCount() / 2 - 2; ++i) {
                 // GL_TRIANGLE_STRIP winding order
                 if (i % 2) {
-                    addFace(m_vertexOffset + i, m_vertexOffset + i + 1, m_vertexOffset + i + 2, AreaType::Walkable);  // TODO area type from CSS
+                    addFace(m_vertexOffset + i, m_vertexOffset + i + 1, m_vertexOffset + i + 2, areaType(res));
                 } else {
-                    addFace(m_vertexOffset + i + 1, m_vertexOffset + i, m_vertexOffset + i + 2, AreaType::Walkable);  // TODO area type from CSS
+                    addFace(m_vertexOffset + i + 1, m_vertexOffset + i, m_vertexOffset + i + 2, areaType(res));
                 }
             }
             m_vertexOffset += stroker.vertexCount() / 2;
@@ -448,7 +483,7 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
             // TODO doesn't work for concave polygons!
             const QPointF p = m_transform.mapGeoToNav(elem.center());
             for (std::size_t i = 0; i < levels.size() - 1; ++i) {
-                addOffMeshConnection(p.x(), m_transform.mapHeightToNav(levels[i]), p.y(), p.x(), m_transform.mapHeightToNav(levels[i + 1]), p.y(), LinkDirection::Bidirectional, AreaType::Elevator); // TODO area type from MapCSS
+                addOffMeshConnection(p.x(), m_transform.mapHeightToNav(levels[i]), p.y(), p.x(), m_transform.mapHeightToNav(levels[i + 1]), p.y(), LinkDirection::Bidirectional, areaType(res));
             }
         }
     }
@@ -462,7 +497,7 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
                 const auto poly = createPolygon(m_data.dataSet(), elem);
                 const auto p1 = m_transform.mapGeoToNav(poly.at(0));
                 const auto p2 = m_transform.mapGeoToNav(poly.at(1));
-                addOffMeshConnection(p1.x(), m_transform.mapHeightToNav(l1), p1.y(), p2.x(), m_transform.mapHeightToNav(l2), p2.y(), linkDir, AreaType::Escalator); // TODO area type from MapCSS
+                addOffMeshConnection(p1.x(), m_transform.mapHeightToNav(l1), p1.y(), p2.x(), m_transform.mapHeightToNav(l2), p2.y(), linkDir, areaType(res));
             }
         }
     }
@@ -496,7 +531,7 @@ void NavMeshBuilderPrivate::addOffMeshConnection(float x1, float y1, float z1, f
         m_offMeshCon.verts.push_back(v);
     }
     m_offMeshCon.rads.push_back(0.6); // ???
-    m_offMeshCon.flags.push_back(8); // ???
+    m_offMeshCon.flags.push_back(flagsForAreaType(areaType));
     m_offMeshCon.areas.push_back(qToUnderlying(areaType));
     m_offMeshCon.dir.push_back(linkDir == LinkDirection::Bidirectional ? 1 : 0);
     m_offMeshCon.userId.push_back(0); // ???
@@ -697,11 +732,8 @@ void NavMeshBuilderPrivate::buildNavMesh()
     uint8_t *navData = nullptr;
     int navDataSize = 0;
 
-    // TODO proper polygon flag update
     for (int i = 0; i < pmesh->npolys; ++i) {
-        if (pmesh->areas[i] == RC_WALKABLE_AREA) {
-            pmesh->flags[i] = 0x01;
-        }
+        pmesh->flags[i] = flagsForAreaType(static_cast<AreaType>(pmesh->areas[i]));
     }
 
     dtNavMeshCreateParams params;

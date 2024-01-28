@@ -19,15 +19,6 @@ class MapData;
 
 namespace KOSMIndoorRouting {
 
-// TODO conveying walkways, tactile paving, street crossing
-enum class AreaType : uint8_t {
-    Unwalkable = 0, // RC_NULL_AREA
-    Stairs,
-    Elevator,
-    Escalator,
-    Walkable = 63, // RC_WALKABLE_AREA
-};
-
 class NavMesh;
 class NavMeshBuilderPrivate;
 

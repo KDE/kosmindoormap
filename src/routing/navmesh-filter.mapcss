@@ -61,30 +61,52 @@ line[highway=steps][width][conveying=no]
     width: width;
 }
 
+line[highway=steps][!conveying],
+line[highway=steps][conveying=no]
+{
+    set .stairs;
+}
+
 line[highway=footway][conveying=yes]::link,
-line[highway=footway][conveying=reversible]::link,
+line[highway=footway][conveying=reversible]::link
+{
+    width: 1;
+    set .movingWalkway;
+}
 line[highway=steps][conveying=yes]::link,
 line[highway=steps][conveying=reversible]::link
 {
     width: 1;
+    set .escalator;
 }
 
-line[highway=footway][conveying=forward]::link_forward,
+line[highway=footway][conveying=forward]::link_forward
+{
+    width: 1;
+    set .movingWalkway;
+}
 line[highway=steps][conveying=forward]::link_forward
 {
     width: 1;
+    set .escalator;
 }
 
-line[highway=footway][conveying=backward]::link_backward,
+line[highway=footway][conveying=backward]::link_backward
+{
+    width: 1;
+    set .movingWalkway;
+}
 line[highway=steps][conveying=backward]::link_backward
 {
     width: 1;
+    set .escalator;
 }
 
 area[highway=elevator]::link,
 area[building:part=elevator]::link
 {
     fill-opacity: 1.0;
+    set .elevator;
 }
 
 // remove things with restricted access
