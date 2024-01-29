@@ -780,7 +780,7 @@ void NavMeshBuilderPrivate::buildNavMesh()
     }
 
     result->m_navMeshQuery.reset(dtAllocNavMeshQuery());
-    status = result->m_navMeshQuery->init(result->m_navMesh.get(), 2048); // TODO what is the 2048?
+    status = result->m_navMeshQuery->init(result->m_navMesh.get(), RECAST_NAV_QUERY_MAX_NODES);
     if (dtStatusFailed(status)) {
         qCWarning(Log) << "Failed to init dtNavMeshQuery";
         return;

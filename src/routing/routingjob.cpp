@@ -89,8 +89,8 @@ void RoutingJobPrivate::performQuery()
     dtPolyRef path[256];
     int pathCount = 0;
     qCDebug(Log) <<startPoly <<endPoly;
-    navMesh->m_navMeshQuery->findPath(startPoly, endPoly, m_start, m_end, &filter, path, &pathCount, 256); // TODO
-    qCDebug(Log) << pathCount;
+    auto status = navMesh->m_navMeshQuery->findPath(startPoly, endPoly, m_start, m_end, &filter, path, &pathCount, 256); // TODO
+    qCDebug(Log) << pathCount << status;
 
     std::vector<rcVec3> straightPath;
     straightPath.resize(256);
@@ -98,8 +98,8 @@ void RoutingJobPrivate::performQuery()
     straightPathFlags.resize(256);
     int straightPathCount = 0;
     dtPolyRef straightPathPolys[256];
-    navMesh->m_navMeshQuery->findStraightPath(m_start, m_end, path, pathCount, (float*)straightPath.data(), straightPathFlags.data(), straightPathPolys, &straightPathCount, 256, 0);
-    qCDebug(Log) <<straightPathCount;
+    status = navMesh->m_navMeshQuery->findStraightPath(m_start, m_end, path, pathCount, (float*)straightPath.data(), straightPathFlags.data(), straightPathPolys, &straightPathCount, 256, 0);
+    qCDebug(Log) <<straightPathCount << status;
     std::vector<RouteStep> steps;
     steps.reserve(straightPathCount);
     for (int i = 0; i <straightPathCount; ++i) {
