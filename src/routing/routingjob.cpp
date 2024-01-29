@@ -10,6 +10,8 @@
 #include "navmesh_p.h"
 #include "navmeshtransform.h"
 #include "route.h"
+#include "routingarea.h"
+#include "routingprofile.h"
 
 #include <QThreadPool>
 
@@ -21,6 +23,7 @@ public:
     NavMesh m_navMesh;
     rcVec3 m_start;
     rcVec3 m_end;
+    RoutingProfile m_profile;
     Route m_route;
 };
 }
@@ -50,6 +53,11 @@ void RoutingJob::setEnd(rcVec3 end)
     d->m_end = end;
 }
 
+void RoutingJob::setRoutingProfile(const RoutingProfile &profile)
+{
+    d->m_profile = profile;
+}
+
 void RoutingJob::start()
 {
     qCDebug(Log) << QThread::currentThread();
@@ -72,12 +80,13 @@ void RoutingJobPrivate::performQuery()
     const auto navMesh = NavMeshPrivate::get(m_navMesh);
     qCDebug(Log) <<m_start.x <<m_start.y << m_start.z << m_end.x << m_end.y << m_end.z;
 #if HAVE_RECAST
-    dtQueryFilter filter; // TODO
-    filter.setIncludeFlags(0xffff);
-    filter.setExcludeFlags(0);
-    for (int i = 0; i < 8; ++i) {
-        filter.setAreaCost(i, 1.0f);
+    dtQueryFilter filter;
+    filter.setIncludeFlags(m_profile.flags());
+    filter.setExcludeFlags(~m_profile.flags());
+    for (int i = 1; i <AREA_TYPE_COUNT - 1; ++i) {
+        filter.setAreaCost(i, m_profile.cost(static_cast<AreaType>(i)));
     }
+    filter.setAreaCost(RC_WALKABLE_AREA, m_profile.cost(AreaType::Walkable));
     qCDebug(Log) << filter.getIncludeFlags() << filter.getExcludeFlags();
 
     rcVec3 polyPickExt({ 2.0f, 4.0f, 2.0f }); // ???

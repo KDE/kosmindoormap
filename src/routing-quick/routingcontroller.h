@@ -12,6 +12,7 @@
 #include <KOSMIndoorMap/MapData>
 
 #include <KOSMIndoorRouting/Route>
+#include <KOSMIndoorRouting/RoutingProfile>
 
 #include <qqmlregistration.h>
 #include <QObject>
@@ -32,7 +33,7 @@ class RoutingController : public QObject
     Q_PROPERTY(KOSMIndoorMap::MapData mapData MEMBER m_mapData WRITE setMapData NOTIFY mapDataChanged)
     Q_PROPERTY(KOSMIndoorMap::AbstractOverlaySource *elevatorModel MEMBER m_elevatorModel NOTIFY elevatorModelChanged)
     Q_PROPERTY(KOSMIndoorMap::AbstractOverlaySource *routeOverlay READ routeOverlay CONSTANT)
-    // TODO routing profile
+    Q_PROPERTY(KOSMIndoorRouting::RoutingProfile profile MEMBER m_routingProfile WRITE setProfile NOTIFY profileChanged)
 public:
     explicit RoutingController(QObject *parent = nullptr);
     ~RoutingController();
@@ -47,6 +48,8 @@ public:
 
     [[nodiscard]] KOSMIndoorMap::AbstractOverlaySource* routeOverlay() const;
 
+    void setProfile(const RoutingProfile &profile);
+
 public Q_SLOTS:
     void searchRoute();
 
@@ -54,6 +57,7 @@ Q_SIGNALS:
     void progressChanged();
     void mapDataChanged();
     void elevatorModelChanged();
+    void profileChanged();
 
 private:
     void setMapData(const KOSMIndoorMap::MapData &mapData);
@@ -64,6 +68,7 @@ private:
     KOSMIndoorMap::AbstractOverlaySource *m_elevatorModel = nullptr;
     NavMesh m_navMesh;
     Route m_route;
+    RoutingProfile m_routingProfile;
 
     OSM::Coordinate m_start;
     OSM::Coordinate m_end;

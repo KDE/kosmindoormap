@@ -72,6 +72,16 @@ KOSMIndoorMap::AbstractOverlaySource* RoutingController::routeOverlay() const
     return m_routeOverlay;
 }
 
+void RoutingController::setProfile(const RoutingProfile &profile)
+{
+    qDebug() << profile.flags();
+    if (profile == m_routingProfile) {
+        return;
+    }
+    m_routingProfile = profile;
+    Q_EMIT profileChanged();
+}
+
 void RoutingController::searchRoute()
 {
     if (m_builder) { // already running
@@ -88,6 +98,7 @@ void RoutingController::searchRoute()
     router->setNavMesh(m_navMesh);
     router->setStart(m_navMesh.transform().mapGeoHeightToNav(m_start, m_startLevel));
     router->setEnd(m_navMesh.transform().mapGeoHeightToNav(m_end, m_endLevel));
+    router->setRoutingProfile(m_routingProfile);
     connect(router, &RoutingJob::finished, this, [this, router]() {
         router->deleteLater();
         if (m_routingJob == router) {

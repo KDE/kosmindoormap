@@ -10,6 +10,7 @@ target_sources(KOSMIndoorRouting PRIVATE
     routeoverlay.cpp
     routingarea.cpp
     routingjob.cpp
+    routingprofile.cpp
     assets.qrc
 )
 
@@ -52,6 +53,7 @@ ecm_generate_headers(KOSMIndoorRouting_FORWARDING_HEADERS
         Route
         RoutingArea
         RoutingJob
+        RoutingProfile
     PREFIX KOSMIndoorRouting
     REQUIRED_HEADERS KOSMIndoorRouting_HEADERS
 )

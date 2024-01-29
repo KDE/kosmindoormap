@@ -18,6 +18,7 @@ namespace KOSMIndoorRouting {
 class NavMesh;
 class Route;
 class RoutingJobPrivate;
+class RoutingProfile;
 
 /** Job for running a routing query on a compiled NavMesh instance. */
 class KOSMINDOORROUTING_EXPORT RoutingJob : public QObject
@@ -33,7 +34,8 @@ public:
     void setStart(rcVec3 startPos);
     void setEnd(rcVec3 endPost);
 
-    // TODO set routing profile
+    /// routing profile
+    void setRoutingProfile(const RoutingProfile &profile);
 
     void start();
 
