@@ -174,6 +174,15 @@ Kirigami.ApplicationWindow {
                 checkable: true
                 checked: page.mapHoverEnabled
                 onToggled: page.mapHoverEnabled = !page.mapHoverEnabled
+            },
+            Kirigami.Action {
+                text: i18n("Configure routing...")
+                icon.name: "settings-configure"
+                visible: routingController.isAvailable
+                onTriggered: {
+                    routingSheet.routingProfile = routingController.profile;
+                    routingSheet.open();
+                }
             }
         ]
 
@@ -371,6 +380,13 @@ Kirigami.ApplicationWindow {
             anchors.top: parent.top
             anchors.right: parent.right
             running: routingController.inProgress
+        }
+        RoutingProfileSheet {
+            id: routingSheet
+            onApplyRoutingProfile: {
+                routingController.profile = routingSheet.routingProfile;
+                routingController.searchRoute();
+            }
         }
 
         map.overlaySources: [ gateModel, platformModel, locationModel, equipmentModel, routingController.routeOverlay ]

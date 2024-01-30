@@ -9,6 +9,7 @@
         <file>ExampleLocationModel.qml</file>
         <file>IndoorMapInfoSheet.qml</file>
         <file>IndoorMapPage.qml</file>
+        <file>RoutingProfileSheet.qml</file>
         <file>SelectLocationSheet.qml</file>
     </qresource>
 </RCC>
