@@ -26,7 +26,12 @@ public:
     NavMesh& operator=(NavMesh&&) noexcept;
     NavMesh& operator=(const NavMesh&);
 
-    [[nodiscard]] bool isNull() const;
+    /** Returns @c true if the nav mesh is neither null (ie. not built)
+     *  and hasn't been invalidated by realtime data changes.
+     *  The latter implies that this can change on existing instances.
+     */
+    [[nodiscard]] bool isValid() const;
+
     void clear();
 
     [[nodiscard]] NavMeshTransform transform() const;

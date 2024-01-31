@@ -102,6 +102,16 @@ line[highway=steps][conveying=backward]::link_backward
     set .escalator;
 }
 
+line[highway=steps][mx:realtime_status=0]::link,
+line[highway=footway][mx:realtime_status=0]::link,
+line[highway=steps][mx:realtime_status=0]::link_forward,
+line[highway=footway][mx:realtime_status=0]::link_forward,
+line[highway=steps][mx:realtime_status=0]::link_backward,
+line[highway=footway][mx:realtime_status=0]::link_backward
+{
+    width: 0;
+}
+
 area[highway=elevator]::link,
 area[building:part=elevator]::link
 {
@@ -109,9 +119,17 @@ area[building:part=elevator]::link
     set .elevator;
 }
 
+area[highway=elevator][mx:realtime_status=0]::link,
+area[building:part=elevator][mx:realtime_status=0]::link
+{
+    fill-opacity: 0.0;
+}
+
 // remove things with restricted access
 area[access=no],
-area[access=private]
+area[access=private],
+area[access=no]::link,
+area[access=private]::link
 {
     fill-opacity: 0.0;
 }

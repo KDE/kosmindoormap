@@ -43,8 +43,12 @@ void RoutingController::setMapData(const KOSMIndoorMap::MapData &mapData)
     m_mapData = mapData;
     m_navMesh.clear();
     m_routeOverlay->setMapData(mapData);
+    m_start = {};
+    m_end = {};
 
     // TODO cancel ongoing jobs
+    m_builder = nullptr;
+    m_routingJob = nullptr;
 
     Q_EMIT mapDataChanged();
 }
@@ -84,11 +88,16 @@ void RoutingController::setProfile(const RoutingProfile &profile)
 
 void RoutingController::searchRoute()
 {
+    qDebug();
     if (m_builder) { // already running
         return;
     }
 
-    if (m_navMesh.isNull()) {
+    if (!m_start.isValid() && !m_end.isValid()) {
+        return;
+    }
+
+    if (!m_navMesh.isValid()) {
         buildNavMesh();
         Q_EMIT progressChanged();
         return;
@@ -104,6 +113,11 @@ void RoutingController::searchRoute()
         if (m_routingJob == router) {
             m_routeOverlay->setRoute(router->route());
             m_routingJob = nullptr;
+
+            // navmesh became invalid during routing...
+            if (!m_navMesh.isValid()) {
+                QMetaObject::invokeMethod(this, &RoutingController::searchRoute);
+            }
         }
         Q_EMIT progressChanged();
     });

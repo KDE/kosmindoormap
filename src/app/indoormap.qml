@@ -197,6 +197,7 @@ Kirigami.ApplicationWindow {
             } else {
                 locationQuery.clear();
             }
+            routingController.searchRoute();
         }
 
         PlatformModel {
@@ -355,6 +356,7 @@ Kirigami.ApplicationWindow {
             id: equipmentModel
             mapData: page.map.mapData
             realtimeModel: locationModel.sourceModel
+            onUpdate: routingController.searchRoute()
         }
 
         SelectLocationSheet {

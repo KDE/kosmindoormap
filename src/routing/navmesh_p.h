@@ -10,10 +10,17 @@
 #include "navmeshtransform.h"
 #include "recastnav_p.h"
 
+#include <QObject>
+
 namespace KOSMIndoorRouting {
 class NavMeshPrivate
 {
 public:
+    inline ~NavMeshPrivate()
+    {
+        QObject::disconnect(m_updateSignal);
+    }
+
     [[nodiscard]] static inline NavMeshPrivate *get(const NavMesh &navMesh) {
         return navMesh.d.get();
     }
@@ -30,6 +37,9 @@ public:
 #endif
 
     NavMeshTransform m_transform;
+
+    QMetaObject::Connection m_updateSignal;
+    bool m_dirty = false;
 };
 }
 

@@ -15,9 +15,9 @@ NavMesh::~NavMesh() = default;
 NavMesh& NavMesh::operator=(NavMesh&&) noexcept = default;
 NavMesh& NavMesh::operator=(const NavMesh&) = default;
 
-bool NavMesh::isNull() const
+bool NavMesh::isValid() const
 {
-    return d == nullptr;
+    return d && !d->m_dirty;
 }
 
 void NavMesh::clear()

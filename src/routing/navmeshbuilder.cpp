@@ -319,7 +319,9 @@ void NavMeshBuilder::start()
     d->indexNodeLevels();
 
     std::vector<OSM::Element> hiddenElements;
-    d->m_equipmentModel->hiddenElements(hiddenElements);
+    if (d->m_equipmentModel) {
+        d->m_equipmentModel->hiddenElements(hiddenElements);
+    }
     std::sort(hiddenElements.begin(), hiddenElements.end());
 
     for (const auto &level : d->m_data.levelMap()) {
@@ -330,7 +332,7 @@ void NavMeshBuilder::start()
             d->processElement(elem, level.first.numericLevel());
         }
 
-        if (level.first.numericLevel() % 10) {
+        if (level.first.numericLevel() % 10 || !d->m_equipmentModel) {
             continue;
         }
         d->m_equipmentModel->forEach(level.first.numericLevel(), [this](OSM::Element elem, int floorLevel) {
@@ -476,6 +478,11 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
 void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkDirection linkDir, const KOSMIndoorMap::MapCSSResultLayer &res)
 {
     if (res.hasAreaProperties()) {
+        const auto prop = res.declaration(KOSMIndoorMap::MapCSSProperty::FillOpacity);
+        if (prop && prop->doubleValue() <= 0.0) {
+            return;
+        }
+
         std::vector<int> levels;
         KOSMIndoorMap::LevelParser::parse(elem.tagValue("level"), elem, [&levels](int level, auto) { levels.push_back(level); });
         if (levels.size() > 1) {
@@ -488,6 +495,12 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
         }
     }
     if (res.hasLineProperties() && elem.type() == OSM::Type::Way) {
+        const auto prop = res.declaration(KOSMIndoorMap::MapCSSProperty::Width);
+        KOSMIndoorMap::Unit dummyUnit;
+        if (const auto penWidth = prop ? KOSMIndoorMap::PenWidthUtil::penWidth(elem, prop, dummyUnit) : 0.0; penWidth <= 0.0) {
+            return;
+        }
+
         const auto way = elem.way();
         if (way->nodes.size() == 2) {
             const auto l1 = levelForNode(way->nodes.at(0));
@@ -648,6 +661,10 @@ void NavMeshBuilderPrivate::buildNavMesh()
     NavMesh resultData;
     const auto result = NavMeshPrivate::create(resultData);
     result->m_transform = m_transform;
+    result->m_updateSignal = QObject::connect(m_equipmentModel, &KOSMIndoorMap::AbstractOverlaySource::update, m_equipmentModel, [result]() {
+        result->m_dirty = true;
+        qCDebug(Log) << "nav mesh invalidated";
+    }, Qt::DirectConnection);
 
     // steps as defined in the Recast demo app
 #if HAVE_RECAST
@@ -787,7 +804,6 @@ void NavMeshBuilderPrivate::buildNavMesh()
     }
     (void)navDataPtr.release(); // managed by navMeshQuery now
 
-    // TODO store result do pmesh, dmesh need to be preserved?
     m_navMesh = std::move(resultData);
     qCDebug(Log) << "done";
 #endif
