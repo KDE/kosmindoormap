@@ -93,7 +93,7 @@ Item {
                 }
             }
             onLongPressed: function() {
-                const element = mapRoot.elementAt(mapRoot.mapEventPointToScreen(eventPoint));
+                const element = mapRoot.elementAt(mapRoot.mapEventPointToScreen(tapHandler.point));
                 if (!element.isNull) {
                     elementLongPressed(element);
                 }
