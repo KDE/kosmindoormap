@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-08 00:40+0000\n"
-"PO-Revision-Date: 2024-01-30 08:41+0100\n"
+"PO-Revision-Date: 2024-01-31 11:36+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -61,7 +61,7 @@ msgstr ""
 #: map-quick/floorlevelchangemodel.cpp:218
 #, kde-format
 msgid "Elevator"
-msgstr ""
+msgstr "Ascensor"
 
 #: map-quick/floorlevelchangemodel.cpp:225
 #, kde-format
@@ -96,7 +96,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:25
 msgctxt "OSM::shop"
 msgid "Art"
-msgstr ""
+msgstr "Arte"
 
 #: map-quick/localization_data.cpp:26
 msgctxt "OSM::amenity/shop"
@@ -141,7 +141,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:34
 msgctxt "OSM::amenity/shop"
 msgid "Bank"
-msgstr ""
+msgstr "Banca"
 
 #: map-quick/localization_data.cpp:35
 msgctxt "OSM::amenity/shop"
@@ -196,7 +196,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:45
 msgctxt "OSM::amenity/shop"
 msgid "Books"
-msgstr ""
+msgstr "Libros"
 
 #: map-quick/localization_data.cpp:46
 msgctxt "OSM::amenity/shop"
@@ -276,7 +276,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:61
 msgctxt "OSM::amenity/shop"
 msgid "Chocolate"
-msgstr ""
+msgstr "Chocolate"
 
 #: map-quick/localization_data.cpp:62
 msgctxt "OSM::amenity/shop"
@@ -306,7 +306,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:68
 msgctxt "OSM::amenity/shop"
 msgid "Coffee"
-msgstr ""
+msgstr "Caffe"
 
 #: map-quick/localization_data.cpp:69
 msgctxt "OSM::amenity"
@@ -501,7 +501,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:109
 msgctxt "OSM::amenity/shop"
 msgid "Gallery"
-msgstr ""
+msgstr "Galeria"
 
 #: map-quick/localization_data.cpp:110
 msgctxt "OSM::shop"
@@ -758,7 +758,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:165
 msgctxt "OSM::amenity/shop"
 msgid "Paint"
-msgstr ""
+msgstr "Pictura"
 
 #: map-quick/localization_data.cpp:166
 msgctxt "outdoor recreational area"
@@ -1017,7 +1017,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:219
 msgctxt "OSM::amenity/shop"
 msgid "University"
-msgstr ""
+msgstr "Universitate"
 
 #: map-quick/localization_data.cpp:220
 msgctxt "OSM::amenity/shop"
@@ -1058,7 +1058,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"
 msgid "Wine"
-msgstr ""
+msgstr "Wine"
 
 #: map-quick/localization_data.cpp:230
 msgctxt "OSM::tourism"
@@ -1179,12 +1179,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:260
 msgctxt "OSM::cuisine"
 msgid "Chinese"
-msgstr ""
+msgstr "Chinese"
 
 #: map-quick/localization_data.cpp:261
 msgctxt "OSM::cuisine"
 msgid "Coffee"
-msgstr ""
+msgstr "Caffe"
 
 #: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
@@ -1209,7 +1209,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
 msgid "Czech"
-msgstr ""
+msgstr "Tchech "
 
 #: map-quick/localization_data.cpp:267
 msgctxt "OSM::cuisine"
@@ -1229,7 +1229,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:271
 msgctxt "OSM::cuisine"
 msgid "Ethiopian"
-msgstr ""
+msgstr "Ethiopian"
 
 #: map-quick/localization_data.cpp:272
 msgctxt "OSM::cuisine"
@@ -1244,7 +1244,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:274
 msgctxt "OSM::cuisine"
 msgid "Filipino"
-msgstr ""
+msgstr "Filipino"
 
 #: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
@@ -1294,7 +1294,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:284
 msgctxt "OSM::cuisine"
 msgid "Hawaiian"
-msgstr ""
+msgstr "Hawaian"
 
 #: map-quick/localization_data.cpp:285 map-quick/localization_data.cpp:286
 msgctxt "OSM::cuisine"
@@ -1314,7 +1314,7 @@ msgstr "Indian"
 #: map-quick/localization_data.cpp:289
 msgctxt "OSM::cuisine"
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonesiano "
 
 #: map-quick/localization_data.cpp:290
 msgctxt "OSM::cuisine"
@@ -1324,7 +1324,7 @@ msgstr "International"
 #: map-quick/localization_data.cpp:291
 msgctxt "OSM::cuisine"
 msgid "Irish"
-msgstr ""
+msgstr "Irlandese "
 
 #: map-quick/localization_data.cpp:292
 msgctxt "OSM::cuisine"
@@ -1424,7 +1424,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:312
 msgctxt "OSM::cuisine"
 msgid "Persian"
-msgstr ""
+msgstr "Farsi (Perse)"
 
 #: map-quick/localization_data.cpp:313
 msgctxt "OSM::cuisine"
@@ -1439,7 +1439,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:316
 msgctxt "OSM::cuisine"
 msgid "Polish"
-msgstr ""
+msgstr "Polonese "
 
 #: map-quick/localization_data.cpp:317
 msgctxt "OSM::cuisine"
@@ -1524,7 +1524,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:334
 msgctxt "OSM::cuisine"
 msgid "Taiwanese"
-msgstr ""
+msgstr "Taiwanese"
 
 #: map-quick/localization_data.cpp:335
 msgctxt "OSM::cuisine"
@@ -1564,7 +1564,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:342
 msgctxt "OSM::cuisine"
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamese"
 
 #: map-quick/localization_data.cpp:343
 msgctxt "OSM::cuisine"
@@ -1605,7 +1605,7 @@ msgstr "Contacto"
 #: map-quick/osmelementinformationmodel.cpp:438
 #, kde-format
 msgid "Payment"
-msgstr ""
+msgstr "Pagamento"
 
 #: map-quick/osmelementinformationmodel.cpp:439
 #, kde-format
@@ -1671,7 +1671,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:477
 #, kde-format
 msgid "Fee"
-msgstr ""
+msgstr "Honorario"
 
 #: map-quick/osmelementinformationmodel.cpp:478
 #, kde-format
@@ -1721,7 +1721,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:487
 #, kde-format
 msgid "Gender"
-msgstr ""
+msgstr "Genere"
 
 #: map-quick/osmelementinformationmodel.cpp:489
 #, kde-format
@@ -1746,7 +1746,7 @@ msgstr "Sito Web"
 #: map-quick/osmelementinformationmodel.cpp:493
 #, kde-format
 msgid "Cash"
-msgstr ""
+msgstr "Moneta Contante"
 
 #: map-quick/osmelementinformationmodel.cpp:494
 #, kde-format
@@ -1814,7 +1814,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel.cpp:632
 #, kde-format
 msgid "only %1"
-msgstr ""
+msgstr "solmente %1"
 
 #: map-quick/osmelementinformationmodel.cpp:634
 #, kde-format
@@ -2037,7 +2037,7 @@ msgstr "nulle"
 #: map-quick/osmelementinformationmodel_data.cpp:109
 msgctxt "OSM::charging_station_authentication"
 msgid "phone call"
-msgstr ""
+msgstr "appello telephonic"
 
 #: map-quick/osmelementinformationmodel_data.cpp:110
 msgctxt "OSM::charging_station_authentication"
@@ -2127,12 +2127,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:137
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 car"
 msgid_plural "%1 cars"
-msgstr[0] "Automobile"
-msgstr[1] ""
+msgstr[0] "%1 Automobile"
+msgstr[1] "%1 Automobiles"
 
 #: map-quick/osmelementinformationmodel_data.cpp:148
 msgctxt "OSM::gender_segregation"
