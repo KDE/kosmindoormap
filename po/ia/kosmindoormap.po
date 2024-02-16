@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-08 00:40+0000\n"
-"PO-Revision-Date: 2024-01-31 11:36+0100\n"
+"PO-Revision-Date: 2024-02-15 12:26+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1896,63 +1896,63 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:55
 msgctxt "OSM::payment_method"
 msgid "American Express"
-msgstr ""
+msgstr "American Express"
 
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::payment_method"
 msgid "Apple Pay"
-msgstr ""
+msgstr "Apple Pay"
 
 #: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::payment_method"
 msgid "Diners Club"
-msgstr ""
+msgstr "Diners Club"
 
 #: map-quick/osmelementinformationmodel_data.cpp:58
 msgctxt "OSM::payment_method"
 msgid "Discover Card"
-msgstr ""
+msgstr "Discover Card"
 
 #: map-quick/osmelementinformationmodel_data.cpp:59
 msgctxt "OSM::payment_method"
 msgid "JCB"
-msgstr ""
+msgstr "JCB"
 
 #: map-quick/osmelementinformationmodel_data.cpp:60
 msgctxt "OSM::payment_method"
 msgid "Girocard"
-msgstr ""
+msgstr "Girocard"
 
 #: map-quick/osmelementinformationmodel_data.cpp:61
 msgctxt "OSM::payment_method"
 msgid "Google Pay"
-msgstr ""
+msgstr "Google Pay"
 
 #: map-quick/osmelementinformationmodel_data.cpp:62
 msgctxt "OSM::payment_method"
 msgid "Maestro"
-msgstr ""
+msgstr "Maestro"
 
 #: map-quick/osmelementinformationmodel_data.cpp:63
 msgctxt "OSM::payment_method"
 msgid "Mastercard"
-msgstr ""
+msgstr "Mastercard"
 
 #: map-quick/osmelementinformationmodel_data.cpp:64
 msgctxt "OSM::payment_method"
 msgid "UnionPay"
-msgstr ""
+msgstr "UnionPay"
 
 #: map-quick/osmelementinformationmodel_data.cpp:65
 #: map-quick/osmelementinformationmodel_data.cpp:66
 msgctxt "OSM::payment_method"
 msgid "V Pay"
-msgstr ""
+msgstr "V Pay"
 
 #: map-quick/osmelementinformationmodel_data.cpp:67
 msgctxt "OSM::payment_method"
 msgid "Visa"
-msgstr ""
+msgstr "Visa"
 
 #: map-quick/osmelementinformationmodel_data.cpp:71
 msgctxt "OSM::wheelchair_access"
@@ -2027,7 +2027,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:107
 msgctxt "OSM::charging_station_authentication"
 msgid "NFC"
-msgstr ""
+msgstr "NFC"
 
 #: map-quick/osmelementinformationmodel_data.cpp:108
 msgctxt "OSM::charging_station_authentication"
@@ -2095,12 +2095,12 @@ msgid "wide stands"
 msgstr ""
 
 #: map-quick/osmelementinformationmodel_data.cpp:133
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 bike"
 msgid_plural "%1 bikes"
-msgstr[0] "Bicycletta"
-msgstr[1] ""
+msgstr[0] "%1 bicycletta"
+msgstr[1] "%1 bicyclettas "
 
 #: map-quick/osmelementinformationmodel_data.cpp:134
 #, kde-format
