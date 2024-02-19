@@ -710,14 +710,14 @@ void NavMeshBuilderPrivate::buildNavMesh()
         return;
     }
 
-    if (!rcBuildRegionsMonotone(&ctx, *chf, 0, RECAST_REGION_MIN_AREA, RECAST_REGION_MERGE_AREA)) {
+    if (!rcBuildRegionsMonotone(&ctx, *chf, 0, (int)std::pow(RECAST_REGION_MIN_AREA, 2.0), (int)std::pow(RECAST_REGION_MERGE_AREA, 2.0))) {
         qCWarning(Log) << "Failed to build monotone regions";
         return;
     }
 
     // step 5: create contours
     rcContourSetPtr cset(rcAllocContourSet());
-    if (!rcBuildContours(&ctx, *chf, RECAST_MAX_SIMPLIFICATION_ERROR, RECAST_MAX_EDGE_LEN, *cset)) {
+    if (!rcBuildContours(&ctx, *chf, RECAST_MAX_SIMPLIFICATION_ERROR, RECAST_MAX_EDGE_LEN / RECAST_CELL_SIZE, *cset)) {
         qCWarning(Log) << "Failed to create contours.";
         return;
     }
