@@ -137,8 +137,15 @@ void RoutingController::buildNavMesh()
             m_navMesh = builder->navMesh();
             m_builder = nullptr;
         }
+
         // TODO loop protection/error handling
-        searchRoute();
+        if (m_navMesh.isValid()) {
+            searchRoute();
+        } else {
+            qWarning() << "Failed to generate nav mesh, routing not available!";
+        }
+
+        Q_EMIT progressChanged();
     });
     builder->start();
     m_builder = builder;
