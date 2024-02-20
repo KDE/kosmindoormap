@@ -112,6 +112,13 @@ line[highway=footway][mx:realtime_status=0]::link_backward
     width: 0;
 }
 
+area[indoor=area][stairs=yes]::link,
+area[indoor=room][stairs=yes]::link
+{
+    fill-opacity: 1.0;
+    set .stairs;
+}
+
 area[highway=elevator]::link,
 area[building:part=elevator]::link
 {
