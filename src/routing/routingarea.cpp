@@ -23,6 +23,7 @@ struct {
     { AreaType::TactilePaving, AreaFlag::Walkable },
     { AreaType::StreetCrossing, AreaFlag::Walkable },
     { AreaType::Ramp, AreaFlag::Walkable },
+    { AreaType::Room, AreaFlag::Walkable },
     { AreaType::Walkable, AreaFlag::Walkable },
 };
 

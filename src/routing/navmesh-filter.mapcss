@@ -8,7 +8,7 @@
  *  - fill-opacity: anything > 0 will emit a walkable area
  *  - extrude: anything > 0 will emit a wall
  *  - width: will emit a walkable area for ways
- *  TODO areaIds
+ *  - classes are used for area types
  *
  *  Supported layer selectors:
  *  - ::link: emits off-mesh bidirectional links for ways and vertically for areas
@@ -37,6 +37,12 @@ line[indoor=wall],
 line[barrier]
 {
     extrude: 1.0;
+}
+
+// areas we don't want to cross if possible'
+area[indoor=room],
+area[indoor=yes][room] {
+    set .room;
 }
 
 // workaround for missing elevator doors

@@ -57,6 +57,7 @@ struct {
     { "tactilePaving", AreaType::TactilePaving },
     { "streetCrossing", AreaType::StreetCrossing },
     { "ramp", AreaType::Ramp },
+    { "room", AreaType::Room },
 };
 
 class NavMeshBuilderPrivate

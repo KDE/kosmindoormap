@@ -83,7 +83,7 @@ void RoutingJobPrivate::performQuery()
     dtQueryFilter filter;
     filter.setIncludeFlags(m_profile.flags());
     filter.setExcludeFlags(~m_profile.flags());
-    for (int i = 1; i <AREA_TYPE_COUNT - 1; ++i) {
+    for (int i = 1; i < AREA_TYPE_COUNT - 1; ++i) {
         filter.setAreaCost(i, m_profile.cost(static_cast<AreaType>(i)));
     }
     filter.setAreaCost(RC_WALKABLE_AREA, m_profile.cost(AreaType::Walkable));

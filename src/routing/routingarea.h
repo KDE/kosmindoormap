@@ -25,10 +25,11 @@ enum class AreaType : uint8_t {
     TactilePaving,
     StreetCrossing,
     Ramp,
+    Room,
     Walkable = 63, // RC_WALKABLE_AREA
 };
 
-constexpr inline int AREA_TYPE_COUNT = 9;
+constexpr inline int AREA_TYPE_COUNT = 10;
 
 /** Area flags used for routing profiles.
  *  There are 16 possible values, mapped to from AreaType.

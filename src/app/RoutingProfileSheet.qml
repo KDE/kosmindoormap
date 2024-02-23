@@ -83,6 +83,11 @@ Kirigami.OverlaySheet {
             text: routingProfile.cost(7)
         }
         QQC2.TextField {
+            id: roomCost
+            Kirigami.FormData.label: i18n("Room")
+            text: routingProfile.cost(8)
+        }
+        QQC2.TextField {
             id: walkingCost
             Kirigami.FormData.label: i18n("Walking")
             text: routingProfile.cost(63)
@@ -108,6 +113,7 @@ Kirigami.OverlaySheet {
             root.routingProfile.setCost(5, tactilePavingCost.text);
             root.routingProfile.setCost(6, streetCrossingCost.text);
             root.routingProfile.setCost(7, rampCost.text);
+            root.routingProfile.setCost(8, roomCost.text);
             root.routingProfile.setCost(63, walkingCost.text);
 
             root.close()

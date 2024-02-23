@@ -32,6 +32,7 @@ RoutingProfile::RoutingProfile()
         1.5f, // tactile paving
         10.0f, // street crossing
         4.0f, // ramp
+        10.0f, // rooms (in order to prefer corridors)
         1.5f, // walkable area
     };
 }
