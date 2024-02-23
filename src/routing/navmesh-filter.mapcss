@@ -132,6 +132,15 @@ area[building:part=elevator][mx:realtime_status=0]::link
     fill-opacity: 0.0;
 }
 
+// doors
+node[door] {
+    opacity: 1.0;
+}
+node [door][entrance=emergency],
+node [door][exit=emergency] {
+    opacity: 0.0;
+}
+
 // remove things with restricted access
 area[access=no],
 area[access=private],
@@ -145,4 +154,9 @@ line[access=no],
 line[access=private]
 {
     width: 0;
+}
+
+node[access=no],
+node[access=private] {
+    opacity: 0;
 }

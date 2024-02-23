@@ -74,6 +74,9 @@ public:
     void processGeometry(OSM::Element elem, int floorLevel, const KOSMIndoorMap::MapCSSResultLayer &res);
     void processLink(OSM::Element elem, int floorLevel, LinkDirection linkDir, const KOSMIndoorMap::MapCSSResultLayer &res);
 
+    [[nodiscard]] bool isDoor(const OSM::Node *node);
+    void extrudeWall(const std::vector<const OSM::Node*> &way, int floorLevel);
+
     void addVertex(float x, float y, float z);
     void addFace(std::size_t i, std::size_t j, std::size_t k, AreaType areaType);
     void addOffMeshConnection(float x1, float y1, float z1, float x2, float y2, float z2, LinkDirection linkDir, AreaType areaType);
@@ -234,11 +237,6 @@ void NavMeshBuilder::writeDebugNavMesh(const QString &gsetFile, const QString &o
     d->m_objFileName = objFile;
 }
 
-static bool isDoor(const OSM::Node *node)
-{
-    return !OSM::tagValue(*node, "door").isEmpty();
-}
-
 std::optional<LinkDirection> NavMeshBuilderPrivate::linkDirection(KOSMIndoorMap::LayerSelectorKey layerKey) const
 {
     for (auto dir : {LinkDirection::Forward, LinkDirection::Backward, LinkDirection::Bidirectional}) {
@@ -359,6 +357,10 @@ void NavMeshBuilder::start()
 
 void NavMeshBuilderPrivate::processElement(OSM::Element elem, int floorLevel)
 {
+    if (!elem.hasTags()) {
+        return;
+    }
+
     KOSMIndoorMap::MapCSSState filterState;
     filterState.element = elem;
     m_style.initializeState(filterState);
@@ -456,21 +458,8 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
     if (res.hasExtrudeProperties()) {
         const auto prop = res.declaration(KOSMIndoorMap::MapCSSProperty::Extrude);
         if (prop && prop->doubleValue() > 0.0) {
-            const auto way = elem.outerPath(m_data.dataSet());
-            for (std::size_t i = 0; i < way.size() - 1; ++i) {
-                if (isDoor(way[i]) || isDoor(way[i + 1])) {
-                    continue;
-                }
-                const auto p1 = m_transform.mapGeoToNav(way[i]->coordinate);
-                const auto p2 = m_transform.mapGeoToNav(way[i + 1]->coordinate);
-                addVertex(p1.x(), m_transform.mapHeightToNav(floorLevel), p1.y());
-                addVertex(p2.x(), m_transform.mapHeightToNav(floorLevel), p2.y());
-                addVertex(p1.x(), m_transform.mapHeightToNav(floorLevel + 10), p1.y());
-                addVertex(p2.x(), m_transform.mapHeightToNav(floorLevel + 10), p2.y());
-                addFace(m_vertexOffset, m_vertexOffset + 1, m_vertexOffset + 2, AreaType::Unwalkable);
-                addFace(m_vertexOffset + 1, m_vertexOffset + 3, m_vertexOffset + 2, AreaType::Unwalkable);
-                m_vertexOffset += 4;
-            }
+            // TODO support multi polygons
+            extrudeWall(elem.outerPath(m_data.dataSet()), floorLevel);
         }
     }
 }
@@ -513,6 +502,39 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
                 addOffMeshConnection(p1.x(), m_transform.mapHeightToNav(l1), p1.y(), p2.x(), m_transform.mapHeightToNav(l2), p2.y(), linkDir, areaType(res));
             }
         }
+    }
+}
+
+bool NavMeshBuilderPrivate::isDoor(const OSM::Node *node)
+{
+    if (node->tags.empty()) {
+        return false;
+    }
+
+    KOSMIndoorMap::MapCSSState state;
+    state.element = node;
+    KOSMIndoorMap::MapCSSResult res;
+    m_style.evaluate(std::move(state), res);
+
+    const auto prop = res[{}].declaration(KOSMIndoorMap::MapCSSProperty::Opacity);
+    return prop && prop->doubleValue() > 0;
+}
+
+void NavMeshBuilderPrivate::extrudeWall(const std::vector<const OSM::Node*> &way, int floorLevel)
+{
+    for (std::size_t i = 0; i < way.size() - 1; ++i) {
+        if (isDoor(way[i]) || isDoor(way[i + 1])) {
+            continue;
+        }
+        const auto p1 = m_transform.mapGeoToNav(way[i]->coordinate);
+        const auto p2 = m_transform.mapGeoToNav(way[i + 1]->coordinate);
+        addVertex(p1.x(), m_transform.mapHeightToNav(floorLevel), p1.y());
+        addVertex(p2.x(), m_transform.mapHeightToNav(floorLevel), p2.y());
+        addVertex(p1.x(), m_transform.mapHeightToNav(floorLevel + 10), p1.y());
+        addVertex(p2.x(), m_transform.mapHeightToNav(floorLevel + 10), p2.y());
+        addFace(m_vertexOffset, m_vertexOffset + 1, m_vertexOffset + 2, AreaType::Unwalkable);
+        addFace(m_vertexOffset + 1, m_vertexOffset + 3, m_vertexOffset + 2, AreaType::Unwalkable);
+        m_vertexOffset += 4;
     }
 }
 
