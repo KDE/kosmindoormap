@@ -522,19 +522,32 @@ bool NavMeshBuilderPrivate::isDoor(const OSM::Node *node)
 
 void NavMeshBuilderPrivate::extrudeWall(const std::vector<const OSM::Node*> &way, int floorLevel)
 {
+    bool reuseEdge = false;
     for (std::size_t i = 0; i < way.size() - 1; ++i) {
         if (isDoor(way[i]) || isDoor(way[i + 1])) {
+            reuseEdge = false;
             continue;
         }
-        const auto p1 = m_transform.mapGeoToNav(way[i]->coordinate);
+
+        qsizetype offset = m_vertexOffset;
+        if (!reuseEdge) {
+            const auto p1 = m_transform.mapGeoToNav(way[i]->coordinate);
+            addVertex((float)p1.x(), m_transform.mapHeightToNav(floorLevel), (float)p1.y());
+            addVertex((float)p1.x(), m_transform.mapHeightToNav(floorLevel + 10), (float)p1.y());
+            m_vertexOffset += 2;
+            reuseEdge = true;
+        } else {
+            assert(m_vertexOffset >= 2);
+            offset -= 2;
+        }
+
         const auto p2 = m_transform.mapGeoToNav(way[i + 1]->coordinate);
-        addVertex(p1.x(), m_transform.mapHeightToNav(floorLevel), p1.y());
-        addVertex(p2.x(), m_transform.mapHeightToNav(floorLevel), p2.y());
-        addVertex(p1.x(), m_transform.mapHeightToNav(floorLevel + 10), p1.y());
-        addVertex(p2.x(), m_transform.mapHeightToNav(floorLevel + 10), p2.y());
-        addFace(m_vertexOffset, m_vertexOffset + 1, m_vertexOffset + 2, AreaType::Unwalkable);
-        addFace(m_vertexOffset + 1, m_vertexOffset + 3, m_vertexOffset + 2, AreaType::Unwalkable);
-        m_vertexOffset += 4;
+        addVertex((float)p2.x(), m_transform.mapHeightToNav(floorLevel), (float)p2.y());
+        addVertex((float)p2.x(), m_transform.mapHeightToNav(floorLevel + 10), (float)p2.y());
+        m_vertexOffset += 2;
+
+        addFace(offset, offset + 2, offset + 1, AreaType::Unwalkable);
+        addFace(offset + 2, offset + 3, offset + 1, AreaType::Unwalkable);
     }
 }
 
