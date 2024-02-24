@@ -75,7 +75,8 @@ public:
     void processGeometry(OSM::Element elem, int floorLevel, const KOSMIndoorMap::MapCSSResultLayer &res);
     void processLink(OSM::Element elem, int floorLevel, LinkDirection linkDir, const KOSMIndoorMap::MapCSSResultLayer &res);
 
-    [[nodiscard]] bool isDoor(const OSM::Node *node);
+    /** 0 if @p node is not a door, the width of the door when specified, otherwise a default assumption. */
+    [[nodiscard]] double doorWidth(const OSM::Node *node);
     void extrudeWall(const std::vector<const OSM::Node*> &way, int floorLevel);
 
     void addVertex(float x, float y, float z);
@@ -90,6 +91,7 @@ public:
     KOSMIndoorMap::MapData m_data;
     KOSMIndoorMap::MapCSSStyle m_style;
     KOSMIndoorMap::MapCSSResult m_filterResult;
+    KOSMIndoorMap::MapCSSResult m_filterResultL2;
 
     std::array<KOSMIndoorMap::LayerSelectorKey, 3> m_linkKeys;
     std::array<KOSMIndoorMap::ClassSelectorKey, std::size(routing_area_map)> m_areaClassKeys;
@@ -506,19 +508,25 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
     }
 }
 
-bool NavMeshBuilderPrivate::isDoor(const OSM::Node *node)
+double NavMeshBuilderPrivate::doorWidth(const OSM::Node *node)
 {
     if (node->tags.empty()) {
-        return false;
+        return 0.0;
     }
 
     KOSMIndoorMap::MapCSSState state;
     state.element = node;
-    KOSMIndoorMap::MapCSSResult res;
-    m_style.evaluate(std::move(state), res);
+    m_filterResultL2.clear();
+    m_style.initializeState(state);
+    m_style.evaluate(state, m_filterResultL2);
 
-    const auto prop = res[{}].declaration(KOSMIndoorMap::MapCSSProperty::Opacity);
-    return prop && prop->doubleValue() > 0;
+    const auto &layer = m_filterResultL2[{}];
+    auto prop = layer.declaration(KOSMIndoorMap::MapCSSProperty::Opacity);
+    if (!prop || prop->doubleValue() <= 0.0) {
+        return 0.0;
+    }
+    prop = layer.declaration(KOSMIndoorMap::MapCSSProperty::Width);
+    return prop ? std::max(prop->doubleValue(), 0.0) : 1.0;
 }
 
 void NavMeshBuilderPrivate::extrudeWall(const std::vector<const OSM::Node*> &way, int floorLevel)
@@ -529,22 +537,22 @@ void NavMeshBuilderPrivate::extrudeWall(const std::vector<const OSM::Node*> &way
         auto p2 = m_transform.mapGeoToNav(way[i + 1]->coordinate);
 
         QLineF line(p1, p2);
-        if (isDoor(way[i])) {
+        if (const auto w = doorWidth(way[i]); w >= 0.0) {
             reuseEdge = false;
-            if (line.length() < 1.0) { // TODO variable door width
+            if (line.length() < w) {
                 continue;
             }
             QLineF reverseLine(p2, p1);
-            reverseLine.setLength(line.length() - 1.0);
+            reverseLine.setLength(line.length() - w);
             p1 = reverseLine.p2();
         }
 
-        if (isDoor(way[i + 1])) {
+        if (auto w = doorWidth(way[i + 1]); w >= 0.0) {
             reuseEdge = false;
-            if (line.length() < 1.0) {
+            if (line.length() < w) {
                 continue;
             }
-            line.setLength(line.length() - 1.0);
+            line.setLength(line.length() - w);
             p2 = line.p2();
         }
 

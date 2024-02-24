@@ -141,7 +141,13 @@ area[building:part=elevator][mx:realtime_status=0]::link
 // doors
 node[door] {
     opacity: 1.0;
+    width: 1.0m;
 }
+
+node[door][width] {
+    width: width;
+}
+
 node [door][entrance=emergency],
 node [door][exit=emergency] {
     opacity: 0.0;
