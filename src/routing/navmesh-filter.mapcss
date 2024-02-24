@@ -139,6 +139,13 @@ area[building:part=elevator][mx:realtime_status=0]::link
     fill-opacity: 0.0;
 }
 
+// possible obstacles on walkable areas
+// if this is put on top of a walkable area setting fill-opacity to 0.0
+// this wont remove the area, so put a wall around it instead.
+area[tourism=artwork] {
+    extrude: 1.0;
+}
+
 // doors
 node[door],
 node[entrance=yes],
