@@ -34,7 +34,7 @@ area[stairwell=stair_landing]
 
 area[indoor=room],
 line[indoor=wall],
-line[barrier]
+line[barrier][barrier!=turnstile]
 {
     extrude: 1.0;
 }
