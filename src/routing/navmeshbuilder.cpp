@@ -770,9 +770,22 @@ void NavMeshBuilderPrivate::buildNavMesh()
         return;
     }
 
-    if (!rcBuildRegionsMonotone(&ctx, *chf, 0, (int)std::pow(RECAST_REGION_MIN_AREA, 2.0), (int)std::pow(RECAST_REGION_MERGE_AREA, 2.0))) {
-        qCWarning(Log) << "Failed to build monotone regions";
-        return;
+    if constexpr (RECAST_PARTITION_TYPE == RecastPartitionType::Monotone) {
+        if (!rcBuildRegionsMonotone(&ctx, *chf, 0, (int)std::pow(RECAST_REGION_MIN_AREA, 2.0), (int)std::pow(RECAST_REGION_MERGE_AREA, 2.0))) {
+            qCWarning(Log) << "Failed to build monotone regions";
+            return;
+        }
+    } else if constexpr (RECAST_PARTITION_TYPE == RecastPartitionType::Watershed) {
+        if (!rcBuildDistanceField(&ctx, *chf)) {
+            qCWarning(Log) << "Failed to build distance field.";
+            return;
+        }
+        if (!rcBuildRegions(&ctx, *chf, 0, (int)std::pow(RECAST_REGION_MIN_AREA, 2.0), (int)std::pow(RECAST_REGION_MERGE_AREA, 2.0))) {
+            qCWarning(Log) << "Failed to build watershed regions.";
+            return;
+        }
+    } else {
+        static_assert("partition type not yet implemented");
     }
 
     // step 5: create contours
