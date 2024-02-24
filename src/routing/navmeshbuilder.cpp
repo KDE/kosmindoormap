@@ -122,6 +122,15 @@ public:
 
     NavMesh m_navMesh;
 
+    struct {
+        OSM::TagKey door;
+        OSM::TagKey entrance;
+        OSM::TagKey indoor;
+        OSM::TagKey highway;
+        OSM::TagKey room;
+        OSM::TagKey stairs;
+    } m_tagKeys;
+
     // diganostic obj output
     QString m_gsetFileName;
     QString m_objFileName;
@@ -226,6 +235,13 @@ void NavMeshBuilder::setMapData(const KOSMIndoorMap::MapData &mapData)
 
     if (!d->m_data.isEmpty()) {
         d->m_style.compile(d->m_data.dataSet());
+
+        d->m_tagKeys.door = d->m_data.dataSet().tagKey("door");
+        d->m_tagKeys.entrance = d->m_data.dataSet().tagKey("entrance");
+        d->m_tagKeys.indoor = d->m_data.dataSet().tagKey("indoor");
+        d->m_tagKeys.highway = d->m_data.dataSet().tagKey("highway");
+        d->m_tagKeys.room = d->m_data.dataSet().tagKey("room");
+        d->m_tagKeys.stairs = d->m_data.dataSet().tagKey("stairs");
     }
 }
 
@@ -463,7 +479,21 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
         const auto prop = res.declaration(KOSMIndoorMap::MapCSSProperty::Extrude);
         if (prop && prop->doubleValue() > 0.0) {
             // TODO support multi polygons
-            extrudeWall(elem.outerPath(m_data.dataSet()), floorLevel);
+            const auto way = elem.outerPath(m_data.dataSet());
+
+            // ### HACK work around staircases and elevators that are mapped with walls but without doors
+            // this is fairly common in train stations in one way or the other
+            if (elem.tagValue(m_tagKeys.highway) == "elevator" || elem.tagValue(m_tagKeys.room) == "stairs" ||
+               (elem.tagValue(m_tagKeys.indoor) == "room" && elem.tagValue(m_tagKeys.stairs) == "yes")) {
+                const auto isDoor = [this](const OSM::Node *node) {
+                    return !OSM::tagValue(*node, m_tagKeys.door).isEmpty() || !OSM::tagValue(*node, m_tagKeys.entrance).isEmpty();
+                };
+                if (std::none_of(way.begin(), way.end(), isDoor)) {
+                    qCDebug(Log) << "skipping walls for door-less room" << elem.url();
+                    return;
+                }
+            }
+            extrudeWall(way, floorLevel);
         }
     }
 }
