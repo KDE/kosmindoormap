@@ -41,8 +41,8 @@ line[barrier]
 
 // areas we don't want to cross if possible'
 area[indoor=room][!room],
-area[indoor=room][room!=entrance],
-area[indoor=yes][room][room!=entrance] {
+area[indoor=room][room!=entrance][room!=hall],
+area[indoor=yes][room][room!=entrance][room!=hall] {
     set .room;
 }
 
@@ -140,7 +140,9 @@ area[building:part=elevator][mx:realtime_status=0]::link
 }
 
 // doors
-node[door] {
+node[door],
+node[entrance=yes],
+node[entrance=main] {
     opacity: 1.0;
     width: 1.0m;
 }
