@@ -525,14 +525,31 @@ void NavMeshBuilderPrivate::extrudeWall(const std::vector<const OSM::Node*> &way
 {
     bool reuseEdge = false;
     for (std::size_t i = 0; i < way.size() - 1; ++i) {
-        if (isDoor(way[i]) || isDoor(way[i + 1])) {
+        auto p1 = m_transform.mapGeoToNav(way[i]->coordinate);
+        auto p2 = m_transform.mapGeoToNav(way[i + 1]->coordinate);
+
+        QLineF line(p1, p2);
+        if (isDoor(way[i])) {
             reuseEdge = false;
-            continue;
+            if (line.length() < 1.0) { // TODO variable door width
+                continue;
+            }
+            QLineF reverseLine(p2, p1);
+            reverseLine.setLength(line.length() - 1.0);
+            p1 = reverseLine.p2();
+        }
+
+        if (isDoor(way[i + 1])) {
+            reuseEdge = false;
+            if (line.length() < 1.0) {
+                continue;
+            }
+            line.setLength(line.length() - 1.0);
+            p2 = line.p2();
         }
 
         qsizetype offset = m_vertexOffset;
         if (!reuseEdge) {
-            const auto p1 = m_transform.mapGeoToNav(way[i]->coordinate);
             addVertex((float)p1.x(), m_transform.mapHeightToNav(floorLevel), (float)p1.y());
             addVertex((float)p1.x(), m_transform.mapHeightToNav(floorLevel + 10), (float)p1.y());
             m_vertexOffset += 2;
@@ -542,7 +559,6 @@ void NavMeshBuilderPrivate::extrudeWall(const std::vector<const OSM::Node*> &way
             offset -= 2;
         }
 
-        const auto p2 = m_transform.mapGeoToNav(way[i + 1]->coordinate);
         addVertex((float)p2.x(), m_transform.mapHeightToNav(floorLevel), (float)p2.y());
         addVertex((float)p2.x(), m_transform.mapHeightToNav(floorLevel + 10), (float)p2.y());
         m_vertexOffset += 2;
