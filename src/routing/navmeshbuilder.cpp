@@ -21,6 +21,7 @@
 #include <KOSMIndoorMap/OverlaySource>
 
 #include <loader/levelparser_p.h>
+#include <qloggingcategory.h>
 #include <scene/penwidthutil_p.h>
 #include <scene/scenegraphitem.h>
 #include <style/mapcssdeclaration_p.h>
@@ -811,7 +812,7 @@ void NavMeshBuilderPrivate::buildNavMesh()
 
     // step 7: create detail mesh
     rcPolyMeshDetailPtr dmesh(rcAllocPolyMeshDetail());
-    if (!rcBuildPolyMeshDetail(&ctx, *pmesh, *chf, RECAST_DETAIL_SAMPLE_DIST, RECAST_DETAIL_SAMPLE_MAX_ERROR, *dmesh)) {
+    if (!rcBuildPolyMeshDetail(&ctx, *pmesh, *chf, RECAST_DETAIL_SAMPLE_DIST * RECAST_CELL_SIZE, RECAST_DETAIL_SAMPLE_MAX_ERROR * RECAST_CELL_HEIGHT, *dmesh)) {
         qCWarning(Log) << "Failed to build detail mesh";
         return;
     }
