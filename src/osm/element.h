@@ -207,6 +207,17 @@ inline void for_each_member(const DataSet &dataSet, const Relation &rel, Func fu
 
 }
 
+template<>
+struct std::hash<OSM::Element>
+{
+    std::size_t operator()(OSM::Element e) const noexcept
+    {
+        std::size_t h1 = std::hash<OSM::Id>{}(e.id());
+        std::size_t h2 = std::hash<int>{}(qToUnderlying(e.type()));
+        return h1 ^ (h2 << 1);
+    }
+};
+
 Q_DECLARE_METATYPE(OSM::Element)
 
 #endif // OSM_ELEMENT_H
