@@ -91,4 +91,8 @@ ListModel {
     ListElement { label: "Luxembourg Gare Centrale"; lat: 49.59962; lon: 6.13473 }
 
     ListElement { label: "Singapore Changi Airport"; lat: 1.36028; lon: 103.98932 }
+
+    ListElement { label: "Paris Gare de l'Est"; lat: 48.87683; lon: 2.35944 }
+    ListElement { label: "Karlsruhe Hauptbahnhof"; lat: 48.99370; lon: 8.40067 }
+    ListElement { label: "TU Dresden"; lat: 51.02548; lon: 13.72308 }
 }
