@@ -35,7 +35,14 @@ area[stairwell=stair_landing]
 
 area[indoor=room],
 line[indoor=wall],
-line[barrier][barrier!=turnstile]
+line[barrier=city_wall],
+line[barrier=ditch],
+line[barrier=fence],
+line[barrier=guard_rail],
+line[barrier=handrail],
+line[barrier=hedge],
+line[barrier=retaining_wall],
+line[barrier=wall]
 {
     extrude: 1.0;
 }
