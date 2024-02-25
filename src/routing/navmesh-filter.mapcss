@@ -48,24 +48,32 @@ area[indoor=yes][room][room!=entrance][room!=hall] {
 }
 
 line[highway=footway][!conveying],
-line[highway=footway][conveying=no],
+line[highway=footway][conveying=no] {
+    width: 2m;
+}
+
+line[highway=footway][width][!conveying],
+line[highway=footway][width][conveying=no] {
+    width: width;
+}
+
+/* Stairs as polygons.
 line[highway=steps][!conveying],
 line[highway=steps][conveying=no]
 {
     width: 2m; // TODO seem too narrow?
 }
 
-line[highway=footway][width][!conveying],
-line[highway=footway][width][conveying=no],
 line[highway=steps][width][!conveying],
-line[highway=steps][width][conveying=no]
-{
+line[highway=steps][width][conveying=no] {
     width: width;
-}
+}*/
 
-line[highway=steps][!conveying],
-line[highway=steps][conveying=no]
+/* Stairs as off-mesh links. */
+line[highway=steps][!conveying]::link,
+line[highway=steps][conveying=no]::link
 {
+    width: 1;
     set .stairs;
 }
 

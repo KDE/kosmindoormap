@@ -12,7 +12,7 @@ constexpr inline float RECAST_CELL_SIZE = 0.2f;
 constexpr inline float RECAST_CELL_HEIGHT = 0.2f;
 
 constexpr inline float RECAST_AGENT_HEIGHT = 2.0f;
-constexpr inline float RECAST_AGENT_RADIUS = 0.3f;
+constexpr inline float RECAST_AGENT_RADIUS = 0.2f;
 constexpr inline float RECAST_AGENT_MAX_CLIMB = 0.9f;
 constexpr inline float RECAST_AGENT_MAX_SLOPE = 75.0f;
 
