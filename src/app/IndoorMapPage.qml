@@ -31,11 +31,13 @@ Kirigami.Page {
             icon.name: "go-down-symbolic"
             enabled: map.floorLevels.hasFloorLevelBelow(map.view.floorLevel)
             onTriggered: map.view.floorLevel = map.floorLevels.floorLevelBelow(map.view.floorLevel)
+            shortcut: "PgDown"
         },
         Kirigami.Action {
             icon.name: "go-up-symbolic"
             enabled: map.floorLevels.hasFloorLevelAbove(map.view.floorLevel)
             onTriggered: map.view.floorLevel = map.floorLevels.floorLevelAbove(map.view.floorLevel)
+            shortcut: "PgUp"
         }
     ]
 
