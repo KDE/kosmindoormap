@@ -41,6 +41,7 @@
 
 #include <cmath>
 #include <unordered_map>
+#include <unordered_set>
 
 namespace KOSMIndoorRouting {
 
@@ -101,6 +102,8 @@ public:
 
     std::unordered_map<OSM::Id, int> m_nodeLevelMap;
     KOSMIndoorMap::AbstractOverlaySource *m_equipmentModel = nullptr;
+
+    std::unordered_set<OSM::Element> m_processedLinks;
 
     // triangle data
     std::vector<float> m_verts;
@@ -504,6 +507,10 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
 
 void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkDirection linkDir, const KOSMIndoorMap::MapCSSResultLayer &res)
 {
+    if (m_processedLinks.contains(elem)) {
+        return;
+    }
+
     if (res.hasAreaProperties()) {
         const auto prop = res.declaration(KOSMIndoorMap::MapCSSProperty::FillOpacity);
         if (prop && prop->doubleValue() <= 0.0) {
@@ -519,6 +526,7 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
             for (std::size_t i = 0; i < levels.size() - 1; ++i) {
                 addOffMeshConnection(p.x(), m_transform.mapHeightToNav(levels[i]), p.y(), p.x(), m_transform.mapHeightToNav(levels[i + 1]), p.y(), LinkDirection::Bidirectional, areaType(res));
             }
+            m_processedLinks.insert(elem);
         }
     }
     if (res.hasLineProperties() && elem.type() == OSM::Type::Way) {
@@ -539,6 +547,7 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
                 const auto p2 = m_transform.mapGeoToNav(poly.at(1));
                 addOffMeshConnection(p1.x(), m_transform.mapHeightToNav(l1), p1.y(), p2.x(), m_transform.mapHeightToNav(l2), p2.y(), linkDir, areaType(res));
             }
+            m_processedLinks.insert(elem);
         }
     }
 }
