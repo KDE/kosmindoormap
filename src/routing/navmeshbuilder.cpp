@@ -538,14 +538,32 @@ void NavMeshBuilderPrivate::processLink(OSM::Element elem, int floorLevel, LinkD
 
         const auto way = elem.way();
         if (way->nodes.size() == 2) {
-            const auto l1 = levelForNode(way->nodes.at(0));
-            const auto l2 = levelForNode(way->nodes.at(1));
-            qCDebug(Log) << "  LINK" << elem.url() << floorLevel << l1 << l2;
+            auto l1 = levelForNode(way->nodes.at(0));
+            auto l2 = levelForNode(way->nodes.at(1));
+
+            std::vector<int> levels;
+            KOSMIndoorMap::LevelParser::parse(elem.tagValue("level"), elem, [&levels](int level, auto) { levels.push_back(level); });
+            if (levels.size() == 2) {
+                auto l1b = levels[0];
+                auto l2b = levels[1];
+                if (l1 == l2b) {
+                    std::swap(l1b, l2b);
+                }
+                if (l1 == l1b && l2 != l2b && (l2 == 0 || l2 == std::numeric_limits<int>::min())) {
+                    l2 = l2b;
+                } else if (l2 == l2b && l1 != l1b && (l1 == 0 || l1 == std::numeric_limits<int>::min())) {
+                    l1 = l1b;
+                }
+            }
+
             if (l1 != l2 && l1 != std::numeric_limits<int>::min() && l2 != std::numeric_limits<int>::min()) {
+                qCDebug(Log) << "  LINK" << elem.url() << floorLevel << l1 << l2 << levels;
                 const auto poly = createPolygon(m_data.dataSet(), elem);
                 const auto p1 = m_transform.mapGeoToNav(poly.at(0));
                 const auto p2 = m_transform.mapGeoToNav(poly.at(1));
                 addOffMeshConnection(p1.x(), m_transform.mapHeightToNav(l1), p1.y(), p2.x(), m_transform.mapHeightToNav(l2), p2.y(), linkDir, areaType(res));
+            } else {
+                qCDebug(Log) << "  failed to determin levels for link" << elem.url() <<floorLevel << l1 << l2 << levels;
             }
             m_processedLinks.insert(elem);
         }
