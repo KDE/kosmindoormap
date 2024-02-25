@@ -22,6 +22,7 @@ area[indoor=corridor],
 area[indoor=room],
 area[indoor=yes][room],
 area[indoor=yes][building:part=elevator],
+area[indoor=yes][highway=steps],
 area[highway=elevator],
 area[highway=footway],
 area[area:highway=footway],
@@ -114,7 +115,12 @@ line[highway=footway][mx:realtime_status=0]::link_backward
 }
 
 area[indoor=area][stairs=yes]::link,
-area[indoor=room][stairs=yes]::link
+area[indoor=room][stairs=yes]::link,
+area[indoor=room][room=stairs]::link,
+area[indoor=room][room=steps]::link,
+area[indoor=yes][highway=steps]::link,
+area[indoor=yes][room=stairs]::link,
+area[indoor=yes][room=steps]::link
 {
     fill-opacity: 1.0;
     set .stairs;

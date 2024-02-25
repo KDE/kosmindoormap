@@ -483,8 +483,12 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
 
             // ### HACK work around staircases and elevators that are mapped with walls but without doors
             // this is fairly common in train stations in one way or the other
-            if (elem.tagValue(m_tagKeys.highway) == "elevator" || elem.tagValue(m_tagKeys.room) == "stairs" ||
-               (elem.tagValue(m_tagKeys.indoor) == "room" && elem.tagValue(m_tagKeys.stairs) == "yes")) {
+            const auto highway = elem.tagValue(m_tagKeys.highway);
+            const auto indoor = elem.tagValue(m_tagKeys.indoor);
+            const auto room = elem.tagValue(m_tagKeys.room);
+            if (highway == "elevator" || room == "stairs" || room == "steps" ||
+               (indoor == "room" && elem.tagValue(m_tagKeys.stairs) == "yes") ||
+               (indoor == "yes" && highway == "steps")) {
                 const auto isDoor = [this](const OSM::Node *node) {
                     return !OSM::tagValue(*node, m_tagKeys.door).isEmpty() || !OSM::tagValue(*node, m_tagKeys.entrance).isEmpty();
                 };
