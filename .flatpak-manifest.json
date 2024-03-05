@@ -2,7 +2,7 @@
     "id": "org.kde.kosmindoormap",
     "branch": "master",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.6-kf6preview",
+    "runtime-version": "6.6",
     "sdk": "org.kde.Sdk",
     "command": "kosmindoormap",
     "tags": ["nightly"],
@@ -17,7 +17,7 @@
     "modules": [
         {
             "name": "kpublictransport",
-            "config-opts": [ "-DBUILD_TESTING=OFF", "-DBUILD_WITH_QT6=ON" ],
+            "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kpublictransport.git" } ],
