@@ -32,12 +32,9 @@ There's two test applications included:
 The latter is also available as nightly build:
 * Flatpak:
 ```
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
-flatpak install kdeapps org.kde.kosmindoormap
+flatpak install https://cdn.kde.org/flatpak/kosmindoormap-nightly/org.kde.kosmindoormap.flatpakref
 ```
 * [KDE nightly F-Droid repository](https://community.kde.org/Android/FDroid)
-* [Raw APKs from binary factory](https://binary-factory.kde.org/view/Android/job/KOSMIndoorMap_android/)
 
 ### Dynamic MapCSS
 
