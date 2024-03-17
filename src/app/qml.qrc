@@ -4,8 +4,6 @@
 -->
 <RCC>
     <qresource prefix="/">
-        <file>qtquickcontrols2.conf</file>
-
         <file>indoormap.qml</file>
         <file>AttributionPage.qml</file>
         <file>ExampleLocationModel.qml</file>

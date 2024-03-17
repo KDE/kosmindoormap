@@ -14,3 +14,7 @@ lib/qml/org/kde/kirigamiaddons/(settings|sounds|treeview)/.*
 
 # unused image formats
 plugins/imageformats/.*_(qico|qgif)_.*\.so
+
+# we use the Breeze style, so anything related to Material is unnecessary
+qml/QtQuick/Controls/Material/.*
+lib/qml/org/kde/kirigami/styles/Material/.*
