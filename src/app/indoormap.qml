@@ -427,15 +427,16 @@ Kirigami.ApplicationWindow {
                 "shortDescription": "OSM Indoor Map Demo",
                 "homepage": "https://kde.org/",
                 "bugAddress": "submit@bugs.kde.org",
-                "version": "23.08",
+                "version": Application.version,
                 "licenses": [
                     {
                         "name": "LGPL 2.0 or later",
                         "spdx": "LGPL-2.0-or-later"
                     }
                 ],
-                "copyrightStatement": "© 2020-2023 The KDE Team",
-                "desktopFileName": "kosmindoormap"
+                "copyrightStatement": "© 2020-2024 The KDE Community",
+                "desktopFileName": "org.kde.kosmindoormap",
+                "otherText": ""
             }
         }
     }
