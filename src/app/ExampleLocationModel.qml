@@ -95,4 +95,5 @@ ListModel {
     ListElement { label: "Paris Gare de l'Est"; lat: 48.87683; lon: 2.35944 }
     ListElement { label: "Karlsruhe Hauptbahnhof"; lat: 48.99370; lon: 8.40067 }
     ListElement { label: "TU Dresden"; lat: 51.02548; lon: 13.72308 }
+    ListElement { label: "Uni Würzburg"; lat: 49.78112; lon: 9.97323 }
 }
