@@ -5,5 +5,6 @@
 <RCC>
     <qresource prefix="/org.kde.kosmindoormap/assets/quick/">
         <file>amenity-model.mapcss</file>
+        <file>room-model.mapcss</file>
     </qresource>
 </RCC>

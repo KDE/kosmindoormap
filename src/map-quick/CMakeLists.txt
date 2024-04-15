@@ -11,6 +11,8 @@ add_library(KOSMIndoorMapQuick STATIC
     osmaddress.cpp
     osmelement.cpp
     osmelementinformationmodel.cpp
+    roommodel.cpp
+    roomsortfilterproxymodel.cpp
 )
 set_target_properties(KOSMIndoorMapQuick PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(KOSMIndoorMapQuick PUBLIC

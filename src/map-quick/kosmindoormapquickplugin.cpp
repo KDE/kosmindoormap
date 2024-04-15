@@ -13,6 +13,8 @@
 #include "osmaddress.h"
 #include "osmelement.h"
 #include "osmelementinformationmodel.h"
+#include "roommodel.h"
+#include "roomsortfilterproxymodel.h"
 
 #include <KOSMIndoorMap/EquipmentModel>
 #include <KOSMIndoorMap/GateModel>
@@ -42,6 +44,8 @@ void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
     qmlRegisterType<EquipmentModel>("org.kde.kosmindoormap", 1, 0, "EquipmentModel");
     qmlRegisterType<GateModel>("org.kde.kosmindoormap", 1, 0, "GateModel");
     qmlRegisterType<PlatformModel>("org.kde.kosmindoormap", 1, 0, "PlatformModel");
+    qmlRegisterType<RoomModel>("org.kde.kosmindoormap", 1, 0, "RoomModel");
+    qmlRegisterType<RoomSortFilterProxyModel>("org.kde.kosmindoormap", 1, 0, "RoomSortFilterProxyModel");
 }
 
 #include "moc_kosmindoormapquickplugin.cpp"

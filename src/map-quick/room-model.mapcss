@@ -1,0 +1,46 @@
+/*
+    SPDX-FileCopyrightText: 2024 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+/* Room model content selection and classification
+ * - opacity is used to include/exclude elements
+ *
+ * Note: Zoom levels are not set for this.
+ */
+
+// any named or numbered room
+*[room][name],
+*[room][ref],
+*[indoor=room][name],
+*[indoor=room][ref] {
+    opacity: 1;
+}
+
+// hide "pass-through" room types
+*[room=entrance],
+*[room=corridor],
+*[highway=elevator],
+*[room=elevator],
+*[room=stairs],
+*[stairs=yes] {
+    opacity: 0;
+}
+
+// hide amenities (we have a dedicated model for that)
+*[amenity=restaurant],
+*[amenity=toilets],
+*[room=restaurant],
+*[room=shop],
+*[room=toilet],
+*[room=toilets],
+*[shop] {
+    opacity: 0;
+}
+
+// hide inaccessible rooms
+*[access=no],
+*[access=private]
+{
+    opacity: 0;
+}
