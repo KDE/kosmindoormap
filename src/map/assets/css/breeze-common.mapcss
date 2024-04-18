@@ -775,6 +775,7 @@ node|z20-[amenity=shower]
     icon-image: "shower";
 }
 area|z18-[amenity=toilets],
+area|z18-[room=toilet],
 area|z18-[room=toilets]
 {
     icon-image: "toilets";
