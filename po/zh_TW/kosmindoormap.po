@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-08 00:40+0000\n"
-"PO-Revision-Date: 2024-04-06 01:19+0900\n"
+"PO-Revision-Date: 2024-04-19 02:38+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -434,7 +434,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:95
 msgctxt "OSM::shop"
 msgid "Fabric"
-msgstr ""
+msgstr "布料"
 
 #: map-quick/localization_data.cpp:96
 msgctxt "OSM::amenity/shop"
@@ -539,12 +539,12 @@ msgstr "政府"
 #: map-quick/localization_data.cpp:116
 msgctxt "OSM::amenity/shop"
 msgid "Greengrocer"
-msgstr ""
+msgstr "蔬果"
 
 #: map-quick/localization_data.cpp:117
 msgctxt "OSM::amenity/shop"
 msgid "Guest House"
-msgstr ""
+msgstr "民宿"
 
 #: map-quick/localization_data.cpp:118
 msgctxt "OSM::amenity/shop"
@@ -554,7 +554,7 @@ msgstr "髮廊"
 #: map-quick/localization_data.cpp:119
 msgctxt "OSM::shop"
 msgid "Hardware"
-msgstr ""
+msgstr "五金"
 
 #: map-quick/localization_data.cpp:120
 msgctxt "OSM::shop"
@@ -569,7 +569,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:122
 msgctxt "OSM::shop"
 msgid "Hi-fi"
-msgstr ""
+msgstr "Hi-fi"
 
 #: map-quick/localization_data.cpp:123
 msgctxt "OSM::amenity/shop"
@@ -781,7 +781,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:169
 msgctxt "OSM::amenity/shop"
 msgid "Pastry"
-msgstr ""
+msgstr "糕餅"
 
 #: map-quick/localization_data.cpp:170
 msgctxt "OSM::amenity/shop"
@@ -791,7 +791,7 @@ msgstr "香水"
 #: map-quick/localization_data.cpp:171
 msgctxt "OSM::amenity/shop"
 msgid "Pet"
-msgstr ""
+msgstr "寵物"
 
 #: map-quick/localization_data.cpp:172
 msgctxt "OSM::amenity/shop"
@@ -840,7 +840,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:181
 msgctxt "OSM::healthcare"
 msgid "Psychotherapist"
-msgstr ""
+msgstr "心理治療"
 
 #: map-quick/localization_data.cpp:182
 msgctxt "OSM::amenity/shop"
@@ -865,7 +865,7 @@ msgstr "回收"
 #: map-quick/localization_data.cpp:186
 msgctxt "OSM::amenity"
 msgid "Research Institute"
-msgstr ""
+msgstr "研究機構"
 
 #: map-quick/localization_data.cpp:187
 msgctxt "OSM::amenity/shop"
@@ -900,12 +900,12 @@ msgstr "二手"
 #: map-quick/localization_data.cpp:193
 msgctxt "OSM::shop"
 msgid "Shoe Repair"
-msgstr ""
+msgstr "修鞋"
 
 #: map-quick/localization_data.cpp:194
 msgctxt "OSM::shop"
 msgid "Shoes"
-msgstr ""
+msgstr "鞋子"
 
 #: map-quick/localization_data.cpp:195
 msgctxt "OSM::amenity/shop"
@@ -940,7 +940,7 @@ msgstr "運動中心"
 #: map-quick/localization_data.cpp:201
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr ""
+msgstr "體育館"
 
 #: map-quick/localization_data.cpp:202
 msgctxt "OSM::amenity/shop"
@@ -1005,7 +1005,7 @@ msgstr "廁所"
 #: map-quick/localization_data.cpp:214
 msgctxt "OSM::amenity/shop"
 msgid "Town Hall"
-msgstr ""
+msgstr "市政廳"
 
 #: map-quick/localization_data.cpp:215
 msgctxt "OSM::amenity/shop"
@@ -1172,7 +1172,7 @@ msgstr "蛋糕"
 #: map-quick/localization_data.cpp:258
 msgctxt "OSM::cuisine"
 msgid "Caribbean"
-msgstr ""
+msgstr "加勒比海"
 
 #: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
@@ -1689,7 +1689,7 @@ msgstr "腳踏車停車處"
 #: map-quick/osmelementinformationmodel.cpp:480
 #, kde-format
 msgid "Capacity"
-msgstr ""
+msgstr "空間"
 
 #: map-quick/osmelementinformationmodel.cpp:481
 #, kde-format
@@ -1714,7 +1714,7 @@ msgstr "充電用停車空間"
 #: map-quick/osmelementinformationmodel.cpp:485
 #, kde-format
 msgid "Maximum stay"
-msgstr ""
+msgstr "最大利用時間"
 
 #: map-quick/osmelementinformationmodel.cpp:486
 #, kde-format
@@ -1884,17 +1884,17 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:25
 msgctxt "OSM::diet_type"
 msgid "lactose free"
-msgstr ""
+msgstr "無乳糖"
 
 #: map-quick/osmelementinformationmodel_data.cpp:26
 msgctxt "OSM::diet_type"
 msgid "vegan"
-msgstr ""
+msgstr "全素"
 
 #: map-quick/osmelementinformationmodel_data.cpp:27
 msgctxt "OSM::diet_type"
 msgid "vegetarian"
-msgstr ""
+msgstr "素食"
 
 #: map-quick/osmelementinformationmodel_data.cpp:55
 msgctxt "OSM::payment_method"
