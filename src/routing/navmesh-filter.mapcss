@@ -54,6 +54,7 @@ area[indoor=yes][room][room!=entrance][room!=hall] {
     set .room;
 }
 
+line[highway=corridor],
 line[highway=footway][!conveying],
 line[highway=footway][conveying=no] {
     width: 2m;
