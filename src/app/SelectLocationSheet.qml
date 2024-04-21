@@ -12,18 +12,23 @@ import org.kde.kpublictransport as PublicTransport
 import org.kde.kosmindoormap
 import org.kde.kosmindoormap.kpublictransport
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: root
     property point coordinate;
     property var publicTransportManager
 
     signal coordinateSelected()
 
-    header: Kirigami.Heading {
-        text: "Select Location"
-    }
+    title: i18nc("@title:dialog", "Select Location")
 
-    ColumnLayout {
+    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+
+    leftPadding: Kirigami.Units.largeSpacing
+    topPadding: Kirigami.Units.largeSpacing
+    rightPadding: Kirigami.Units.largeSpacing
+    bottomPadding: Kirigami.Units.largeSpacing
+
+    contentItem: ColumnLayout {
         Kirigami.Heading {
             text: "Examples"
             level: 4
@@ -124,13 +129,16 @@ Kirigami.OverlaySheet {
         }
     }
 
-    footer: QQC2.Button {
-        text: "Show"
-        enabled: root.coordinate.x != 0.0 && root.coordinate.x != NaN && root.coordinate.y != 0.0 && root.coordinate != NaN
-        onClicked: {
-            console.log(root.coordinate);
-            root.close();
-            coordinateSelected();
+    customFooterActions: [
+        Kirigami.Action {
+            text: "Show"
+            enabled: root.coordinate.x != 0.0 && root.coordinate.x != NaN && root.coordinate.y != 0.0 && root.coordinate != NaN
+            onTriggered: {
+                console.log(root.coordinate);
+                root.close();
+                coordinateSelected();
+            }
         }
-    }
+    ]
+
 }
