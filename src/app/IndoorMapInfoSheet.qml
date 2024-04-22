@@ -11,27 +11,28 @@ import org.kde.kirigami as Kirigami
 import org.kde.kosmindoormap
 import org.kde.osm.editorcontroller
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: elementDetailsSheet
+
     property var model
     property var mapData
 
-    header: Column {
-        Kirigami.Heading {
-            text: elementDetailsSheet.model.name
-        }
-        Kirigami.Heading {
-            text: elementDetailsSheet.model.category
-            level: 4
-            visible: text != ""
-        }
-    }
+    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
 
-    ListView {
+    title: elementDetailsSheet.model.name + (elementDetailsSheet.model.category.length > 0 ? (" - " + elementDetailsSheet.model.category) : "")
+
+    contentItem: ListView {
         id: contentView
         model: elementDetailsSheet.model
         clip: true
         Layout.preferredWidth: Kirigami.Units.gridUnit * 25
+
+        Kirigami.PlaceholderMessage {
+            visible: contentView.count === 0
+            text: i18nc("@info", "No information available")
+            anchors.centerIn: parent
+        }
 
         Component {
             id: infoStringDelegate
@@ -123,26 +124,25 @@ Kirigami.OverlaySheet {
         }
     }
 
-    footer: RowLayout {
-        Item { Layout.fillWidth: true }
-        QQC2.Button {
+    customFooterActions: [
+        Kirigami.Action {
             icon.name: "document-edit"
             text: "Edit with iD"
-            onClicked: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.ID)
-        }
-        QQC2.Button {
+            onTriggered: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.ID)
+        },
+        Kirigami.Action {
             icon.name: "org.openstreetmap.josm"
             text: "Edit with JOSM"
             visible: EditorController.hasEditor(Editor.JOSM)
-            onClicked: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.JOSM)
-        }
-        QQC2.Button {
+            onTriggered: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.JOSM)
+        },
+        Kirigami.Action {
             icon.name: "document-edit"
             text: "Edit with Vespucci"
             visible: EditorController.hasEditor(Editor.Vespucci)
-            onClicked: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.Vespucci)
+            onTriggered: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.Vespucci)
         }
-    }
+    ]
 
     onClosed: elementDetailsSheet.model.clear()
 }
