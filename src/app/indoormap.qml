@@ -44,9 +44,11 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action { separator: true },
             Kirigami.Action {
-                text: "Data Sources"
+                text: i18nc("@action", "Data Sources")
                 icon.name: "help-about-symbolic"
-                onTriggered: function() { applicationWindow().pageStack.push(attributionPage); }
+                onTriggered: pageStack.pushDialogLayer(attributionPage, {}, {
+                    title: i18nc("@title:window", "Data Sources")
+                })
             },
             Kirigami.Action {
                 id: aboutAction

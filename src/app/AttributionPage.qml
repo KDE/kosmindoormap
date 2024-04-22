@@ -11,28 +11,19 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: root
-    title: "Data Sources"
-    property var publicTransportManager
+    title: i18nc("@title:page", "Data Sources")
+
+    required property var publicTransportManager
 
     Component {
         id: attributionDelegate
         QQC2.ItemDelegate {
             width: ListView.view.width
-            highlighted: false
-            contentItem: ColumnLayout {
-                QQC2.Label {
-                    Layout.fillWidth: true
-                    wrapMode: Text.WordWrap
-                    text: "<a href=\"" + modelData.url + "\">" + modelData.name + "</a>"
-                    onLinkActivated: Qt.openUrlExternally(link)
-                }
-                QQC2.Label {
-                    Layout.fillWidth: true
-                    text: "License: <a href=\"" + modelData.liceseUrl + "\">" + (modelData.license != "" ? modelData.license : modelData.licenseUrl) + "</a>"
-                    onLinkActivated: Qt.openUrlExternally(link)
-                    visible: modelData.hasLicense
-                    wrapMode: Text.WordWrap
-                }
+            onClicked: Qt.openUrlExternally(modelData.url)
+            contentItem: Kirigami.TitleSubtitle {
+                title: modelData.name
+                subtitle: (modelData.license.length > 0 || modelData.licenseUrl.length > 0) ? i18n("License: <a href=\"%1\">%2</a>", modelData.licenseUrl, modelData.license.length > 0 ? modelData.license : modelData.licenseUrl) : i18n("License: Other")
+                onLinkActivated: link => Qt.openUrlExternally(link)
             }
         }
     }
