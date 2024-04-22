@@ -11,7 +11,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kosmindoormap
 
 Kirigami.Page {
-    title: map.floorLevels.hasName(map.view.floorLevel) ? map.floorLevels.name(map.view.floorLevel) : ("Floor " + map.floorLevels.name(map.view.floorLevel));
+    title: map.floorLevels.hasName(map.view.floorLevel) && isNaN(parseInt(map.floorLevels.name(map.view.floorLevel))) ? map.floorLevels.name(map.view.floorLevel) : ("Floor " + map.floorLevels.name(map.view.floorLevel));
     property point coordinate
     property alias map: map
     property alias debug: infoModel.debug
