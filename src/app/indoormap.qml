@@ -229,14 +229,15 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: platformSheet
 
-            header: Kirigami.Heading {
-                text: "Find Platform"
-            }
+            title: i18nc("@title", "Find Platform")
 
-            ListView {
+            width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+            height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
+
+            contentItem: ListView {
                 model: platformModel
                 clip: true
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 25
@@ -263,14 +264,15 @@ Kirigami.ApplicationWindow {
             mapData: page.map.mapData
         }
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: gateSheet
 
-            header: Kirigami.Heading {
-                text: "Find Gate"
-            }
+            title: i18nc("@title", "Find Gate")
 
-            ListView {
+            width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+            height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
+
+            contentItem: ListView {
                 model: gateModel
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
                 delegate: QQC2.ItemDelegate {
@@ -294,19 +296,36 @@ Kirigami.ApplicationWindow {
             mapData: page.map.mapData
         }
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: amenitySheet
-            header: Kirigami.Heading {
-                text: "Find Amenity"
-            }
+            title: i18nc("@title", "Find Amenity")
 
-            ListView {
+            width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+            height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
+
+            contentItem: ListView {
                 clip: true
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 25
                 model: AmenitySortFilterProxyModel {
+                    id: amenitySortModel
                     sourceModel: amenitySheet.visible ? amenityModel : null
                     filterCaseSensitivity: Qt.CaseInsensitive
-                    filterString: amenitySearchField.text
+                }
+
+                header: QQC2.Control {
+                    property alias searchText: amenitySearchField.text
+                    width: parent.width
+                    contentItem: Kirigami.SearchField {
+                        id: amenitySearchField
+
+                        Connections {
+                            target: amenitySheet
+                            function onVisibleChanged() {
+                                amenitySearchField.text = "";
+                            }
+                        }
+                        onTextChanged: amenitySortModel.filterString = text
+                        focus: true
+                    }
                 }
 
                 delegate: IndoorMapAmenityDelegate {
@@ -328,12 +347,6 @@ Kirigami.ApplicationWindow {
                     width: ListView.view.width
                 }
             }
-
-            footer: Kirigami.SearchField {
-                id: amenitySearchField
-                focus: true
-            }
-            onOpened: amenitySearchField.clear()
         }
 
         LocationQueryOverlayProxyModel {
