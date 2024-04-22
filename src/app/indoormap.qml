@@ -52,7 +52,9 @@ Kirigami.ApplicationWindow {
                 id: aboutAction
                 text: "About"
                 icon.name: "help-about-symbolic"
-                onTriggered: function() { applicationWindow().pageStack.push(aboutPage); }
+                onTriggered: pageStack.pushDialogLayer(aboutPage, {}, {
+                    title: i18nc("@title:window", "About")
+                })
             }
         ]
     }
