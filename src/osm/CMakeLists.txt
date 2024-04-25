@@ -32,8 +32,11 @@ target_link_libraries(KOSM PUBLIC Qt::Core PRIVATE Qt::Network)
 
 ecm_generate_headers(KOSM_FORWARDING_HEADERS
     HEADER_NAMES
+        AbstractReader
+        AbstractWriter
         Datatypes
         Element
+        IO
         Languages
     PREFIX KOSM
     REQUIRED_HEADERS KOSM_HEADERS

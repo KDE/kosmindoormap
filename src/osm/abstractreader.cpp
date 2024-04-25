@@ -113,6 +113,11 @@ void AbstractReader::readFromIODevice(QIODevice *io)
     readFromData(reinterpret_cast<const uint8_t*>(data.constData()), data.size());
 }
 
+bool AbstractReader::hasError() const
+{
+    return !m_error.isEmpty();
+}
+
 QString AbstractReader::errorString() const
 {
     return m_error;

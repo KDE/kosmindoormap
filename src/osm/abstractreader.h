@@ -49,6 +49,7 @@ public:
 
     /** Error message in case parsing failed for some reason. */
     [[nodiscard]] QString errorString() const;
+    [[nodiscard]] bool hasError() const;
 
 protected:
     explicit AbstractReader(DataSet *dataSet);
