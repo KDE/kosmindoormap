@@ -22,9 +22,9 @@
             "builddir": true,
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://invent.kde.org/libraries/kirigami-addons",
-                    "branch": "master"
+                    "type": "archive",
+                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-1.1.0.tar.xz",
+                    "sha256": "8ef352499139616b3142a6d7a92ab23749c568403ece8d854f064a941d085536"
                 }
             ],
             "cleanup": [
@@ -36,7 +36,7 @@
             "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kpublictransport.git" } ],
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kpublictransport.git", "branch": "master" } ],
             "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories5" ]
         },
         {
@@ -44,7 +44,7 @@
             "config-opts": [ "-DBUILD_TESTING=OFF", "-DBUILD_WITH_QT6=ON" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kopeninghours.git" } ],
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kopeninghours.git", "branch": "master" } ],
             "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories5" ]
         },
         {
