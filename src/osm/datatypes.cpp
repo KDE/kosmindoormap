@@ -8,6 +8,17 @@
 
 using namespace OSM;
 
+const char* OSM::typeName(Type type)
+{
+    switch(type) {
+        case OSM::Type::Null: Q_UNREACHABLE();
+        case OSM::Type::Node: return "node";
+        case OSM::Type::Way: return "way";
+        case OSM::Type::Relation: return "relation";
+    }
+    return nullptr;
+}
+
 DataSet::DataSet() = default;
 DataSet::DataSet(DataSet &&) noexcept = default;
 DataSet::~DataSet() = default;

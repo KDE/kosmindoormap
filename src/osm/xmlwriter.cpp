@@ -10,6 +10,7 @@
 
 #include <QXmlStreamWriter>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace OSM;
 
 template <typename T>
@@ -71,12 +72,7 @@ void XmlWriter::writeToIODevice(const DataSet &dataSet, QIODevice *out)
         writer.writeAttribute(QStringLiteral("id"), QString::number(rel.id));
         for (const auto &mem : rel.members) {
             writer.writeStartElement(QStringLiteral("member"));
-            switch (mem.type()) {
-                case OSM::Type::Null: Q_UNREACHABLE();
-                case OSM::Type::Node: writer.writeAttribute(QStringLiteral("type"), QStringLiteral("node")); break;
-                case OSM::Type::Way: writer.writeAttribute(QStringLiteral("type"), QStringLiteral("way")); break;
-                case OSM::Type::Relation: writer.writeAttribute(QStringLiteral("type"), QStringLiteral("relation")); break;
-            }
+            writer.writeAttribute(u"type"_s, QLatin1StringView(OSM::typeName(mem.type())));
             writer.writeAttribute(QStringLiteral("ref"), QString::number(mem.id));
             if (!mem.role().isNull()) {
                 writer.writeAttribute(QStringLiteral("role"), QString::fromUtf8(mem.role().name()));

@@ -266,6 +266,9 @@ enum class Type : uint8_t {
     Relation
 };
 
+/** Element type name. */
+[[nodiscard]] KOSM_EXPORT const char* typeName(Type type);
+
 /** A relation role name key.
  *  See DataSet::role().
  */

@@ -30,6 +30,7 @@
 #include <QUrl>
 #include <QUrlQuery>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace KOSM;
 
 // https://github.com/openstreetmap/iD/blob/develop/API.md
@@ -42,19 +43,7 @@ static void openElementInId(OSM::Element element)
 
     QUrlQuery query;
     query.addQueryItem(QStringLiteral("editor"), QStringLiteral("id"));
-    switch (element.type()) {
-        case OSM::Type::Null:
-            Q_UNREACHABLE();
-        case OSM::Type::Node:
-            query.addQueryItem(QStringLiteral("node"), QString::number(element.id()));
-            break;
-        case OSM::Type::Way:
-            query.addQueryItem(QStringLiteral("way"), QString::number(element.id()));
-            break;
-        case OSM::Type::Relation:
-            query.addQueryItem(QStringLiteral("relation"), QString::number(element.id()));
-            break;
-    }
+    query.addQueryItem(QLatin1StringView(OSM::typeName(element.type())), QString::number(element.id()));
 
     url.setQuery(query);
     qCDebug(EditorLog) << url;
@@ -89,20 +78,7 @@ static QUrl makeJosmLoadAndZoomCommand(OSM::BoundingBox box, OSM::Element elemen
     query.addQueryItem(QStringLiteral("bottom"), QString::number(box.min.latF() - 0.0001));
     query.addQueryItem(QStringLiteral("right"), QString::number(box.max.lonF() + 0.0001));
     query.addQueryItem(QStringLiteral("top"), QString::number(box.max.latF() + 0.0001));
-
-    switch (element.type()) {
-        case OSM::Type::Null:
-            break;
-        case OSM::Type::Node:
-            query.addQueryItem(QStringLiteral("select"), QLatin1String("node") + QString::number(element.id()));
-            break;
-        case OSM::Type::Way:
-            query.addQueryItem(QStringLiteral("select"), QLatin1String("way") + QString::number(element.id()));
-            break;
-        case OSM::Type::Relation:
-            query.addQueryItem(QStringLiteral("select"), QLatin1String("relation") + QString::number(element.id()));
-            break;
-    }
+    query.addQueryItem(QStringLiteral("select"), QLatin1StringView(OSM::typeName(element.type())) + QString::number(element.id()));
 
     url.setQuery(query);
     return url;
