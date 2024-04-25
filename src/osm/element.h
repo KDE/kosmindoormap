@@ -142,6 +142,31 @@ KOSM_EXPORT UniqueElement copy_element(Element e);
 template <typename ...Args>
 [[nodiscard]] constexpr Element coalesce(Element e, Args... args) { return e ? e : coalesce(args...); }
 
+/** Lookup element of given @p type and @p id in @p dataSet. */
+inline Element lookupElement(const DataSet &dataSet, OSM::Type type, OSM::Id id)
+{
+    switch (type) {
+        case Type::Null:
+            break;
+        case Type::Node:
+            if (auto node = dataSet.node(id)) {
+                return {node};
+            }
+            break;
+        case Type::Way:
+            if (auto way = dataSet.way(id)) {
+                return {way};
+            }
+            break;
+        case Type::Relation:
+            if (auto rel = dataSet.relation(id)) {
+                return {rel};
+            }
+            break;
+    }
+    return {};
+}
+
 enum ForeachFlag : uint8_t {
     IncludeRelations = 1,
     IncludeWays = 2,
@@ -183,24 +208,8 @@ template <typename Func>
 inline void for_each_member(const DataSet &dataSet, const Relation &rel, Func func)
 {
     for (const auto &mem : rel.members) {
-        switch (mem.type()) {
-            case Type::Null:
-                break;
-            case Type::Node:
-                if (auto node = dataSet.node(mem.id)) {
-                    func(Element(node));
-                }
-                break;
-            case Type::Way:
-                if (auto way = dataSet.way(mem.id)) {
-                    func(Element(way));
-                }
-                break;
-            case Type::Relation:
-                if (auto rel = dataSet.relation(mem.id)) {
-                    func(Element(rel));
-                }
-                break;
+        if (auto elem = lookupElement(dataSet, mem.type(), mem.id); elem.type() != OSM::Type::Null) {
+            func(elem);
         }
     }
 }
