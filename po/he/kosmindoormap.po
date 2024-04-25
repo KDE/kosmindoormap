@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 00:40+0000\n"
+"POT-Creation-Date: 2024-04-25 00:37+0000\n"
 "PO-Revision-Date: 2024-04-20 07:53+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -120,1459 +120,1510 @@ msgid "Attraction"
 msgstr "אטרקציה"
 
 #: map-quick/localization_data.cpp:30
+#, fuzzy
+#| msgctxt "OSM::tourism"
+#| msgid "Aquarium"
+msgctxt "OSM::room"
+msgid "Auditorium"
+msgstr "אקווריום"
+
+#: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
 msgid "Baby Goods"
 msgstr "אביזרים לתינוקות"
 
-#: map-quick/localization_data.cpp:31
+#: map-quick/localization_data.cpp:32
 msgctxt "OSM::amenity/shop"
 msgid "Bag"
 msgstr "תיק"
 
-#: map-quick/localization_data.cpp:32
+#: map-quick/localization_data.cpp:33
 msgctxt "OSM::amenity"
 msgid "Baggage Claim"
 msgstr "קבלת מזוודות"
 
-#: map-quick/localization_data.cpp:33
+#: map-quick/localization_data.cpp:34
 msgctxt "OSM::amenity/shop"
 msgid "Bakery"
 msgstr "מאפייה"
 
-#: map-quick/localization_data.cpp:34
+#: map-quick/localization_data.cpp:35
 msgctxt "OSM::amenity/shop"
 msgid "Bank"
 msgstr "בנק"
 
-#: map-quick/localization_data.cpp:35
+#: map-quick/localization_data.cpp:36
 msgctxt "OSM::amenity/shop"
 msgid "Bar"
 msgstr "בר"
 
-#: map-quick/localization_data.cpp:36
+#: map-quick/localization_data.cpp:37
 msgctxt "OSM::amenity/shop"
 msgid "Beauty"
 msgstr "טיפוח"
 
-#: map-quick/localization_data.cpp:37
+#: map-quick/localization_data.cpp:38
 msgctxt "OSM::amenity/shop"
 msgid "Bed"
 msgstr "מיטה"
 
-#: map-quick/localization_data.cpp:38
+#: map-quick/localization_data.cpp:39
 msgctxt "OSM::amenity"
 msgid "Bench"
 msgstr "ספסל"
 
-#: map-quick/localization_data.cpp:39
+#: map-quick/localization_data.cpp:40
 msgctxt "OSM::amenity/shop"
 msgid "Beverages"
 msgstr "משקאות"
 
-#: map-quick/localization_data.cpp:40
+#: map-quick/localization_data.cpp:41
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle"
 msgstr "אופניים"
 
-#: map-quick/localization_data.cpp:41
+#: map-quick/localization_data.cpp:42
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle Parking"
 msgstr "חניית אופניים"
 
-#: map-quick/localization_data.cpp:42
+#: map-quick/localization_data.cpp:43
 msgctxt "OSM::amenity/shop"
 msgid "Bicycle Rental"
 msgstr "השכרת אופניים"
 
-#: map-quick/localization_data.cpp:43
+#: map-quick/localization_data.cpp:44
 msgctxt "OSM::amenity"
 msgid "Bicycle Repair Station"
 msgstr "תחנת תיקון אופניים"
 
-#: map-quick/localization_data.cpp:44
+#: map-quick/localization_data.cpp:45
 msgctxt "OSM::amenity"
 msgid "Beer Garden"
 msgstr "גן בירה"
 
-#: map-quick/localization_data.cpp:45
+#: map-quick/localization_data.cpp:46
 msgctxt "OSM::amenity/shop"
 msgid "Books"
 msgstr "ספרים"
 
-#: map-quick/localization_data.cpp:46
+#: map-quick/localization_data.cpp:47
 msgctxt "OSM::amenity/shop"
 msgid "Boutique"
 msgstr "בוטיק"
 
-#: map-quick/localization_data.cpp:47
+#: map-quick/localization_data.cpp:48
 msgctxt "OSM::leisure"
 msgid "Bowling Alley"
 msgstr "רחבת באולינג"
 
-#: map-quick/localization_data.cpp:48
+#: map-quick/localization_data.cpp:49
 msgctxt "OSM::amenity/shop"
 msgid "Bureau de Change"
 msgstr "חלפנות כספים"
 
-#: map-quick/localization_data.cpp:49
+#: map-quick/localization_data.cpp:50
 msgctxt "OSM::amenity/shop"
 msgid "Butcher"
 msgstr "קָצב"
 
-#: map-quick/localization_data.cpp:50
+#: map-quick/localization_data.cpp:51
 msgctxt "OSM::amenity/shop"
 msgid "Cafe"
 msgstr "בית קפה"
 
-#: map-quick/localization_data.cpp:51
+#: map-quick/localization_data.cpp:52
 msgctxt "OSM::amenity/shop"
 msgid "Car"
 msgstr "מכונית"
 
-#: map-quick/localization_data.cpp:52
+#: map-quick/localization_data.cpp:53
 msgctxt "OSM::amenity/shop"
 msgid "Car Rental"
 msgstr "השכרת מכוניות"
 
-#: map-quick/localization_data.cpp:53
+#: map-quick/localization_data.cpp:54
 msgctxt "OSM::shop"
 msgid "Car Repair"
 msgstr "תיקון מכוניות"
 
-#: map-quick/localization_data.cpp:54
+#: map-quick/localization_data.cpp:55
 msgctxt "OSM::amenity/shop"
 msgid "Car Sharing"
 msgstr "שיתוף מכוניות"
 
-#: map-quick/localization_data.cpp:55
+#: map-quick/localization_data.cpp:56
 msgctxt "OSM::amenity"
 msgid "Car Wash"
 msgstr "שטיפת מכוניות"
 
-#: map-quick/localization_data.cpp:56
+#: map-quick/localization_data.cpp:57
 msgctxt "OSM::historic"
 msgid "Castle"
 msgstr "טירה"
 
-#: map-quick/localization_data.cpp:57
+#: map-quick/localization_data.cpp:58
 msgctxt "OSM::amenity/shop"
 msgid "Charging Station"
 msgstr "תחנת טעינה"
 
-#: map-quick/localization_data.cpp:58
+#: map-quick/localization_data.cpp:59
 msgctxt "OSM::shop"
 msgid "Charity Shop"
 msgstr "חנות צדקה"
 
-#: map-quick/localization_data.cpp:59
+#: map-quick/localization_data.cpp:60
 msgctxt "OSM::shop"
 msgid "Cheese"
 msgstr "גבינות"
 
-#: map-quick/localization_data.cpp:60
+#: map-quick/localization_data.cpp:61
 msgctxt "OSM::amenity/shop"
 msgid "Chemist"
 msgstr "כימיה"
 
-#: map-quick/localization_data.cpp:61
+#: map-quick/localization_data.cpp:62
 msgctxt "OSM::amenity/shop"
 msgid "Chocolate"
 msgstr "שוקולד"
 
-#: map-quick/localization_data.cpp:62
+#: map-quick/localization_data.cpp:63
 msgctxt "OSM::amenity/shop"
 msgid "Cinema"
 msgstr "קולנוע"
 
-#: map-quick/localization_data.cpp:63
+#: map-quick/localization_data.cpp:64
 msgctxt "OSM::historic"
 msgid "Citywall"
 msgstr "חומות העיר"
 
-#: map-quick/localization_data.cpp:64 map-quick/localization_data.cpp:65
+#: map-quick/localization_data.cpp:65 map-quick/localization_data.cpp:66
 msgctxt "OSM::room"
 msgid "Classroom"
 msgstr "כיתת לימוד"
 
-#: map-quick/localization_data.cpp:66
+#: map-quick/localization_data.cpp:67
 msgctxt "OSM::healthcare"
 msgid "Clinic"
 msgstr "מרפאה"
 
-#: map-quick/localization_data.cpp:67
+#: map-quick/localization_data.cpp:68
 msgctxt "OSM::amenity/shop"
 msgid "Clothes"
 msgstr "בגדים"
 
-#: map-quick/localization_data.cpp:68
+#: map-quick/localization_data.cpp:69
 msgctxt "OSM::amenity/shop"
 msgid "Coffee"
 msgstr "קפה"
 
-#: map-quick/localization_data.cpp:69
+#: map-quick/localization_data.cpp:70
 msgctxt "OSM::amenity"
 msgid "Community Center"
 msgstr "מרכז קהילתי"
 
-#: map-quick/localization_data.cpp:70
+#: map-quick/localization_data.cpp:71
 msgctxt "OSM::amenity/shop"
 msgid "Computer"
 msgstr "מחשב"
 
-#: map-quick/localization_data.cpp:71
+#: map-quick/localization_data.cpp:72
+#, fuzzy
+#| msgctxt "OSM::amenity/shop"
+#| msgid "Computer"
+msgctxt "OSM::room"
+msgid "Computer Lab"
+msgstr "מחשב"
+
+#: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
 msgid "Confectionery"
 msgstr "חנות ממתקים"
 
-#: map-quick/localization_data.cpp:72
+#: map-quick/localization_data.cpp:74
+#, fuzzy
+#| msgctxt "OSM::amenity"
+#| msgid "Conference Center"
+msgctxt "OSM::room"
+msgid "Conference Room"
+msgstr "מרכז כנסים"
+
+#: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
 msgid "Conference Center"
 msgstr "מרכז כנסים"
 
-#: map-quick/localization_data.cpp:73
+#: map-quick/localization_data.cpp:76
 msgctxt "OSM::diplomatic"
 msgid "Consulate"
 msgstr "קונסוליה"
 
-#: map-quick/localization_data.cpp:74
+#: map-quick/localization_data.cpp:77
 msgctxt "OSM::amenity/shop"
 msgid "Convenience Store"
 msgstr "חנות נוחות"
 
-#: map-quick/localization_data.cpp:75
+#: map-quick/localization_data.cpp:78
 msgctxt "OSM::amenity/shop"
 msgid "Copy Shop"
 msgstr "חנות העתקות"
 
-#: map-quick/localization_data.cpp:76
+#: map-quick/localization_data.cpp:79
 msgctxt "OSM::amenity/shop"
 msgid "Cosmetics"
 msgstr "קוסמטיקה"
 
-#: map-quick/localization_data.cpp:77
+#: map-quick/localization_data.cpp:80
 msgctxt "OSM::amenity/shop"
 msgid "Court House"
 msgstr "בית משפט"
 
-#: map-quick/localization_data.cpp:78 map-quick/localization_data.cpp:79
+#: map-quick/localization_data.cpp:81 map-quick/localization_data.cpp:82
 msgctxt "OSM::amenity"
 msgid "Coworking Space"
 msgstr "מתחם עבודה משותף"
 
-#: map-quick/localization_data.cpp:80
+#: map-quick/localization_data.cpp:83
 msgctxt "OSM::shop"
 msgid "Art and Craft Supplies"
 msgstr "חנות מלאכת יד"
 
-#: map-quick/localization_data.cpp:81
+#: map-quick/localization_data.cpp:84
 msgctxt "OSM::shop"
 msgid "Curtains"
 msgstr "וילונות"
 
-#: map-quick/localization_data.cpp:82
+#: map-quick/localization_data.cpp:85
 msgctxt "OSM::amenity/shop"
 msgid "Deli"
 msgstr "מעדנייה"
 
-#: map-quick/localization_data.cpp:83
+#: map-quick/localization_data.cpp:86
 msgctxt "OSM::healthcare"
 msgid "Dentist"
 msgstr "רופא שיניים"
 
-#: map-quick/localization_data.cpp:84
+#: map-quick/localization_data.cpp:87
 msgctxt "OSM::amenity/shop"
 msgid "Department Store"
 msgstr "כלבו"
 
-#: map-quick/localization_data.cpp:85 map-quick/localization_data.cpp:86
+#: map-quick/localization_data.cpp:88 map-quick/localization_data.cpp:89
 msgctxt "OSM::healthcare"
 msgid "Doctor"
 msgstr "רופא/ה"
 
-#: map-quick/localization_data.cpp:87
+#: map-quick/localization_data.cpp:90
 msgctxt "OSM::amenity/shop"
 msgid "Hardware Store"
 msgstr "חנות אספקה טכנית"
 
-#: map-quick/localization_data.cpp:88
+#: map-quick/localization_data.cpp:91
 msgctxt "OSM::amenity/shop"
 msgid "Drinking Water"
 msgstr "מי שתייה"
 
-#: map-quick/localization_data.cpp:89
+#: map-quick/localization_data.cpp:92
 msgctxt "OSM::amenity/shop"
 msgid "Dry Cleaning"
 msgstr "ניקוי יבש"
 
-#: map-quick/localization_data.cpp:90
+#: map-quick/localization_data.cpp:93
 msgctxt "OSM::shop"
 msgid "Electrical"
 msgstr "ציוד חשמלי"
 
-#: map-quick/localization_data.cpp:91
+#: map-quick/localization_data.cpp:94
 msgctxt "OSM::amenity/shop"
 msgid "Electronics"
 msgstr "מוצרי חשמל"
 
-#: map-quick/localization_data.cpp:92
+#: map-quick/localization_data.cpp:95
 msgctxt "OSM::diplomatic"
 msgid "Embassy"
 msgstr "שגרירות"
 
-#: map-quick/localization_data.cpp:93
+#: map-quick/localization_data.cpp:96
 msgctxt "OSM::amenity"
 msgid "Events Venue"
 msgstr "מתחם אירועים"
 
-#: map-quick/localization_data.cpp:94
+#: map-quick/localization_data.cpp:97
 msgctxt "OSM::amenity"
 msgid "Exhibition Hall"
 msgstr "אולם תערוכה"
 
-#: map-quick/localization_data.cpp:95
+#: map-quick/localization_data.cpp:98
 msgctxt "OSM::shop"
 msgid "Fabric"
 msgstr "בדים"
 
-#: map-quick/localization_data.cpp:96
+#: map-quick/localization_data.cpp:99
 msgctxt "OSM::amenity/shop"
 msgid "Fashion"
 msgstr "אופנה"
 
-#: map-quick/localization_data.cpp:97
+#: map-quick/localization_data.cpp:100
 msgctxt "OSM::shop"
 msgid "Fashion Accessories"
 msgstr "אביזרי אופנה"
 
-#: map-quick/localization_data.cpp:98
+#: map-quick/localization_data.cpp:101
 msgctxt "OSM::amenity/shop"
 msgid "Fast Food"
 msgstr "מזון מהיר"
 
-#: map-quick/localization_data.cpp:99
+#: map-quick/localization_data.cpp:102
 msgctxt "OSM::amenity/shop"
 msgid "Ferry Terminal"
 msgstr "מסוף מעבורות"
 
-#: map-quick/localization_data.cpp:100
+#: map-quick/localization_data.cpp:103
 msgctxt "OSM::amenity"
 msgid "Fire Station"
 msgstr "תחנת כיבוי אש"
 
-#: map-quick/localization_data.cpp:101
+#: map-quick/localization_data.cpp:104
 msgctxt "OSM::leisure"
 msgid "Fitness Center"
 msgstr "מרכז חיטוב"
 
-#: map-quick/localization_data.cpp:102
+#: map-quick/localization_data.cpp:105
 msgctxt "OSM::leisure"
 msgid "Fitness Station"
 msgstr "תחנת חיטוב"
 
-#: map-quick/localization_data.cpp:103
+#: map-quick/localization_data.cpp:106
 msgctxt "OSM::amenity/shop"
 msgid "Florist"
 msgstr "חנות פרחים"
 
-#: map-quick/localization_data.cpp:104
+#: map-quick/localization_data.cpp:107
 msgctxt "OSM::shop"
 msgid "Food"
 msgstr "מזון"
 
-#: map-quick/localization_data.cpp:105
+#: map-quick/localization_data.cpp:108
 msgctxt "OSM::amenity/shop"
 msgid "Food Court"
 msgstr "מתחם מזון"
 
-#: map-quick/localization_data.cpp:106
+#: map-quick/localization_data.cpp:109
 msgctxt "OSM::amenity/shop"
 msgid "Fountain"
 msgstr "מזרקות"
 
-#: map-quick/localization_data.cpp:107
+#: map-quick/localization_data.cpp:110
 msgctxt "OSM::amenity"
 msgid "Gas Station"
 msgstr "תחנת דלק"
 
-#: map-quick/localization_data.cpp:108
+#: map-quick/localization_data.cpp:111
 msgctxt "OSM::amenity/shop"
 msgid "Furniture"
 msgstr "ריהוט"
 
-#: map-quick/localization_data.cpp:109
+#: map-quick/localization_data.cpp:112
 msgctxt "OSM::amenity/shop"
 msgid "Gallery"
 msgstr "גלריה"
 
-#: map-quick/localization_data.cpp:110
+#: map-quick/localization_data.cpp:113
 msgctxt "OSM::shop"
 msgid "Games"
 msgstr "משחקים"
 
-#: map-quick/localization_data.cpp:111
+#: map-quick/localization_data.cpp:114
 msgctxt "OSM::amenity/shop"
 msgid "Garden"
 msgstr "ציוד לגינה"
 
-#: map-quick/localization_data.cpp:112
+#: map-quick/localization_data.cpp:115
 msgctxt "OSM::amenity/shop"
 msgid "Garden Center"
 msgstr "מרכז גינון"
 
-#: map-quick/localization_data.cpp:113
+#: map-quick/localization_data.cpp:116
 msgctxt "OSM::amenity/shop"
 msgid "Gift Shop"
 msgstr "חנות מתנות"
 
-#: map-quick/localization_data.cpp:114
+#: map-quick/localization_data.cpp:117
 msgctxt "OSM::leisure"
 msgid "Golf Course"
 msgstr "מסלול גולף"
 
-#: map-quick/localization_data.cpp:115
+#: map-quick/localization_data.cpp:118
 msgctxt "OSM::office"
 msgid "Government"
 msgstr "ממשל"
 
-#: map-quick/localization_data.cpp:116
+#: map-quick/localization_data.cpp:119
 msgctxt "OSM::amenity/shop"
 msgid "Greengrocer"
 msgstr "ירקן"
 
-#: map-quick/localization_data.cpp:117
+#: map-quick/localization_data.cpp:120
 msgctxt "OSM::amenity/shop"
 msgid "Guest House"
 msgstr "בית הארחה"
 
-#: map-quick/localization_data.cpp:118
+#: map-quick/localization_data.cpp:121
 msgctxt "OSM::amenity/shop"
 msgid "Hairdresser"
 msgstr "ספר/ית"
 
-#: map-quick/localization_data.cpp:119
+#: map-quick/localization_data.cpp:122
 msgctxt "OSM::shop"
 msgid "Hardware"
 msgstr "ציוד טכני"
 
-#: map-quick/localization_data.cpp:120
+#: map-quick/localization_data.cpp:123
 msgctxt "OSM::shop"
 msgid "Health Food"
 msgstr "חנות מוצרי בריאות"
 
-#: map-quick/localization_data.cpp:121
+#: map-quick/localization_data.cpp:124
 msgctxt "OSM::amenity/shop"
 msgid "Hearing Aids"
 msgstr "עזרי שמיעה"
 
-#: map-quick/localization_data.cpp:122
+#: map-quick/localization_data.cpp:125
 msgctxt "OSM::shop"
 msgid "Hi-fi"
 msgstr "ציוד הגברה"
 
-#: map-quick/localization_data.cpp:123
+#: map-quick/localization_data.cpp:126
 msgctxt "OSM::amenity/shop"
 msgid "Hospital"
 msgstr "בית חולים"
 
-#: map-quick/localization_data.cpp:124
+#: map-quick/localization_data.cpp:127
 msgctxt "OSM::amenity/shop"
 msgid "Hostel"
 msgstr "מלונית"
 
-#: map-quick/localization_data.cpp:125
+#: map-quick/localization_data.cpp:128
 msgctxt "OSM::amenity/shop"
 msgid "Hotel"
 msgstr "מלון"
 
-#: map-quick/localization_data.cpp:126
+#: map-quick/localization_data.cpp:129
 msgctxt "OSM::amenity/shop"
 msgid "Houseware"
 msgstr "כלי בית"
 
-#: map-quick/localization_data.cpp:127
+#: map-quick/localization_data.cpp:130
 msgctxt "OSM::amenity/shop"
 msgid "Ice Cream"
 msgstr "גלידה"
 
-#: map-quick/localization_data.cpp:128
+#: map-quick/localization_data.cpp:131
 msgctxt "OSM::amenity/shop"
 msgid "Information"
 msgstr "מידע"
 
-#: map-quick/localization_data.cpp:129
+#: map-quick/localization_data.cpp:132
 msgctxt "OSM::amenity/shop"
 msgid "Interior Decoration"
 msgstr "עיצוב פנים"
 
-#: map-quick/localization_data.cpp:130
+#: map-quick/localization_data.cpp:133
 msgctxt "OSM::amenity/shop"
 msgid "Internet Cafe"
 msgstr "בית קפה אינטרנט"
 
-#: map-quick/localization_data.cpp:131
+#: map-quick/localization_data.cpp:134
 msgctxt "OSM::amenity/shop"
 msgid "Jewelry"
 msgstr "תכשיטים"
 
-#: map-quick/localization_data.cpp:132
+#: map-quick/localization_data.cpp:135
 msgctxt "OSM::amenity/shop"
 msgid "Kiosk"
 msgstr "דוכן"
 
-#: map-quick/localization_data.cpp:133
+#: map-quick/localization_data.cpp:136
 msgctxt "OSM::room"
 msgid "Kitchen"
 msgstr "מטבח"
 
-#: map-quick/localization_data.cpp:134
+#: map-quick/localization_data.cpp:137
+msgctxt "OSM::room"
+msgid "Laboratory"
+msgstr ""
+
+#: map-quick/localization_data.cpp:138
 msgctxt "OSM::amenity/shop"
 msgid "Laundry"
 msgstr "כביסה"
 
-#: map-quick/localization_data.cpp:135 map-quick/localization_data.cpp:136
+#: map-quick/localization_data.cpp:139 map-quick/localization_data.cpp:140
 msgctxt "OSM::room"
 msgid "Lecture Hall"
 msgstr "אולם הרצאות"
 
-#: map-quick/localization_data.cpp:137
+#: map-quick/localization_data.cpp:141
 msgctxt "OSM::amenity/shop"
 msgid "Library"
 msgstr "ספרייה"
 
-#: map-quick/localization_data.cpp:138 map-quick/localization_data.cpp:139
-#: map-quick/localization_data.cpp:144
+#: map-quick/localization_data.cpp:142 map-quick/localization_data.cpp:143
+#: map-quick/localization_data.cpp:148
 msgctxt "OSM::amenity"
 msgid "Locker"
 msgstr "תא אחסון"
 
-#: map-quick/localization_data.cpp:140
+#: map-quick/localization_data.cpp:144
 msgctxt "OSM::amenity/shop"
 msgid "Locksmith"
 msgstr "מנעולן"
 
-#: map-quick/localization_data.cpp:141 map-quick/localization_data.cpp:142
-#: map-quick/localization_data.cpp:143
+#: map-quick/localization_data.cpp:145 map-quick/localization_data.cpp:146
+#: map-quick/localization_data.cpp:147
 msgctxt "OSM::amenity"
 msgid "Lost & Found"
 msgstr "אבידות ומציאות"
 
-#: map-quick/localization_data.cpp:145
+#: map-quick/localization_data.cpp:149
 msgctxt "OSM::amenity/shop"
 msgid "Mall"
 msgstr "קניון"
 
-#: map-quick/localization_data.cpp:146
+#: map-quick/localization_data.cpp:150
 msgctxt "OSM::amenity"
 msgid "Marketplace"
 msgstr "שוק"
 
-#: map-quick/localization_data.cpp:147
+#: map-quick/localization_data.cpp:151
 msgctxt "OSM::amenity/shop"
 msgid "Medical Supply"
 msgstr "ציוד רפואי"
 
-#: map-quick/localization_data.cpp:148
+#: map-quick/localization_data.cpp:152
+msgctxt "OSM::room"
+msgid "Meeting Room"
+msgstr ""
+
+#: map-quick/localization_data.cpp:153
 msgctxt "OSM::historic"
 msgid "Memorial"
 msgstr "אנדרטה"
 
-#: map-quick/localization_data.cpp:149
+#: map-quick/localization_data.cpp:154
 msgctxt "OSM::amenity/shop"
 msgid "Mobile Phone"
 msgstr "טלפונים סלולריים"
 
-#: map-quick/localization_data.cpp:150
+#: map-quick/localization_data.cpp:155
 msgctxt "OSM::amenity/shop"
 msgid "Money Transfer"
 msgstr "העברת כסף"
 
-#: map-quick/localization_data.cpp:151
+#: map-quick/localization_data.cpp:156
 msgctxt "OSM::historic"
 msgid "Monument"
 msgstr "מונומנט"
 
-#: map-quick/localization_data.cpp:152
+#: map-quick/localization_data.cpp:157
 msgctxt "OSM::shop"
 msgid "Motorcycle"
 msgstr "אופנועים"
 
-#: map-quick/localization_data.cpp:153
+#: map-quick/localization_data.cpp:158
 msgctxt "OSM::amenity/shop"
 msgid "Motorcycle Parking"
 msgstr "חניית אופנועים"
 
-#: map-quick/localization_data.cpp:154
+#: map-quick/localization_data.cpp:159
 msgctxt "OSM::amenity/shop"
 msgid "Motorcycle Rental"
 msgstr "השכרת אופנועים"
 
-#: map-quick/localization_data.cpp:155
+#: map-quick/localization_data.cpp:160
 msgctxt "OSM::amenity/shop"
 msgid "Museum"
 msgstr "מוזיאון"
 
-#: map-quick/localization_data.cpp:156
+#: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
 msgid "Music"
 msgstr "מוזיקה"
 
-#: map-quick/localization_data.cpp:157
+#: map-quick/localization_data.cpp:162
 msgctxt "OSM::amenity/shop"
 msgid "Musical Instruments"
 msgstr "כלי נגינה"
 
-#: map-quick/localization_data.cpp:158
+#: map-quick/localization_data.cpp:163
 msgctxt "OSM::amenity/shop"
 msgid "Newsagent"
 msgstr "סוכנות חדשות"
 
-#: map-quick/localization_data.cpp:159
+#: map-quick/localization_data.cpp:164
 msgctxt "OSM::amenity"
 msgid "Nightclub"
 msgstr "מועדון לילה"
 
-#: map-quick/localization_data.cpp:160
+#: map-quick/localization_data.cpp:165
 msgctxt "OSM::shop"
 msgid "Nutrition Supplements"
 msgstr "תוספי תזונה"
 
-#: map-quick/localization_data.cpp:161
+#: map-quick/localization_data.cpp:166
 msgctxt "OSM::amenity/shop"
 msgid "Office"
 msgstr "ציוד משרדי"
 
-#: map-quick/localization_data.cpp:162
+#: map-quick/localization_data.cpp:167
 msgctxt "OSM::amenity/shop"
 msgid "Optician"
 msgstr "אופטיקאי/ת"
 
-#: map-quick/localization_data.cpp:163
+#: map-quick/localization_data.cpp:168
 msgctxt "OSM::healthcare"
 msgid "Optometrist"
 msgstr "אופטומטריסט/ית"
 
-#: map-quick/localization_data.cpp:164
+#: map-quick/localization_data.cpp:169
 msgctxt "OSM::amenity/shop"
 msgid "Outdoor"
 msgstr "ציוד שטח"
 
-#: map-quick/localization_data.cpp:165
+#: map-quick/localization_data.cpp:170
 msgctxt "OSM::amenity/shop"
 msgid "Paint"
 msgstr "צבע"
 
-#: map-quick/localization_data.cpp:166
+#: map-quick/localization_data.cpp:171
 msgctxt "outdoor recreational area"
 msgid "Park"
 msgstr "פארק"
 
-#: map-quick/localization_data.cpp:167
+#: map-quick/localization_data.cpp:172
 msgctxt "OSM::amenity/shop"
 msgid "Parking"
 msgstr "חנייה"
 
-#: map-quick/localization_data.cpp:168
+#: map-quick/localization_data.cpp:173
 msgctxt "OSM::amenity/shop"
 msgid "Parking Tickets"
 msgstr "כרטיסי חנייה"
 
-#: map-quick/localization_data.cpp:169
+#: map-quick/localization_data.cpp:174
 msgctxt "OSM::amenity/shop"
 msgid "Pastry"
 msgstr "מאפים"
 
-#: map-quick/localization_data.cpp:170
+#: map-quick/localization_data.cpp:175
 msgctxt "OSM::amenity/shop"
 msgid "Perfumery"
 msgstr "חנות בשמים"
 
-#: map-quick/localization_data.cpp:171
+#: map-quick/localization_data.cpp:176
 msgctxt "OSM::amenity/shop"
 msgid "Pet"
 msgstr "חיות מחמד"
 
-#: map-quick/localization_data.cpp:172
+#: map-quick/localization_data.cpp:177
 msgctxt "OSM::amenity/shop"
 msgid "Pharmacy"
 msgstr "בית מרקחת"
 
-#: map-quick/localization_data.cpp:173
+#: map-quick/localization_data.cpp:178
 msgctxt "OSM::amenity/shop"
 msgid "Photo"
 msgstr "צילום"
 
-#: map-quick/localization_data.cpp:174
+#: map-quick/localization_data.cpp:179
 msgctxt "OSM::healthcare"
 msgid "Physiotherapist"
 msgstr "פיזיותרפיסט/ית"
 
-#: map-quick/localization_data.cpp:175
+#: map-quick/localization_data.cpp:180
 msgctxt "OSM::amenity/shop"
 msgid "Place of Worship"
 msgstr "מקום סגידה"
 
-#: map-quick/localization_data.cpp:176
+#: map-quick/localization_data.cpp:181
 msgid "Playground"
 msgstr "מגרש משחקים"
 
-#: map-quick/localization_data.cpp:177
+#: map-quick/localization_data.cpp:182
 msgctxt "OSM::amenity/shop"
 msgid "Police"
 msgstr "משטרה"
 
-#: map-quick/localization_data.cpp:178
+#: map-quick/localization_data.cpp:183
 msgctxt "OSM::amenity/shop"
 msgid "Post Box"
 msgstr "תיבת דואר"
 
-#: map-quick/localization_data.cpp:179
+#: map-quick/localization_data.cpp:184
 msgctxt "OSM::amenity/shop"
 msgid "Post Office"
 msgstr "סניף דואר"
 
-#: map-quick/localization_data.cpp:180
+#: map-quick/localization_data.cpp:185
 msgctxt "OSM::shop"
 msgid "Potery"
 msgstr "כדרות"
 
-#: map-quick/localization_data.cpp:181
+#: map-quick/localization_data.cpp:186
 msgctxt "OSM::healthcare"
 msgid "Psychotherapist"
 msgstr "פסיכותרפיסט/ית"
 
-#: map-quick/localization_data.cpp:182
+#: map-quick/localization_data.cpp:187
 msgctxt "OSM::amenity/shop"
 msgid "Pub"
 msgstr "פאב"
 
-#: map-quick/localization_data.cpp:183
+#: map-quick/localization_data.cpp:188
 msgctxt "OSM::amenity/shop"
 msgid "Public Transport Tickets"
 msgstr "כרטיסי תחבורה ציבורית"
 
-#: map-quick/localization_data.cpp:184 map-quick/localization_data.cpp:216
+#: map-quick/localization_data.cpp:189 map-quick/localization_data.cpp:225
 msgctxt "OSM::building"
 msgid "Train Station"
 msgstr "תחנת רכבת"
 
-#: map-quick/localization_data.cpp:185
+#: map-quick/localization_data.cpp:190
+#, fuzzy
+#| msgid "Description"
+msgctxt "place to welcome guests, e.g. in a hotel"
+msgid "Reception"
+msgstr "תיאור"
+
+#: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
 msgid "Recycling"
 msgstr "מיחזור"
 
-#: map-quick/localization_data.cpp:186
+#: map-quick/localization_data.cpp:192
 msgctxt "OSM::amenity"
 msgid "Research Institute"
 msgstr "מכון מחקר"
 
-#: map-quick/localization_data.cpp:187
+#: map-quick/localization_data.cpp:193
 msgctxt "OSM::amenity/shop"
 msgid "Restaurant"
 msgstr "מסעדה"
 
-#: map-quick/localization_data.cpp:188
+#: map-quick/localization_data.cpp:194
 msgctxt "OSM::amenity"
 msgid "Sauna"
 msgstr "סאונה"
 
-#: map-quick/localization_data.cpp:189
+#: map-quick/localization_data.cpp:195
 msgctxt "OSM::amenity/shop"
 msgid "School"
 msgstr "בית ספר"
 
-#: map-quick/localization_data.cpp:190
+#: map-quick/localization_data.cpp:196
 msgctxt "OSM::amenity/shop"
 msgid "Kick Scooter Rental"
 msgstr "השכרת קורקינטים"
 
-#: map-quick/localization_data.cpp:191
+#: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
 msgid "Seafood"
 msgstr "מאכלי ים"
 
-#: map-quick/localization_data.cpp:192
+#: map-quick/localization_data.cpp:198
 msgctxt "OSM::shop"
 msgid "Second Hand"
 msgstr "יד שנייה"
 
-#: map-quick/localization_data.cpp:193
+#: map-quick/localization_data.cpp:199
+msgctxt "OSM::room"
+msgid "Seminar Room"
+msgstr ""
+
+#: map-quick/localization_data.cpp:200
 msgctxt "OSM::shop"
 msgid "Shoe Repair"
 msgstr "סנדלר"
 
-#: map-quick/localization_data.cpp:194
+#: map-quick/localization_data.cpp:201
 msgctxt "OSM::shop"
 msgid "Shoes"
 msgstr "נעליים"
 
-#: map-quick/localization_data.cpp:195
+#: map-quick/localization_data.cpp:202
 msgctxt "OSM::amenity/shop"
 msgid "Shop"
 msgstr "חנות"
 
-#: map-quick/localization_data.cpp:196
+#: map-quick/localization_data.cpp:203
 msgctxt "OSM::amenity"
 msgid "Shower"
 msgstr "מקלחת"
 
-#: map-quick/localization_data.cpp:197
+#: map-quick/localization_data.cpp:204
 msgctxt "OSM::amenity/shop"
 msgid "Social Facility"
 msgstr "מתחם חברתי"
 
-#: map-quick/localization_data.cpp:198
+#: map-quick/localization_data.cpp:205
 msgctxt "OSM::amenity/shop"
 msgid "Souvenirs"
 msgstr "מזכרות"
 
-#: map-quick/localization_data.cpp:199
+#: map-quick/localization_data.cpp:206
 msgctxt "OSM::amenity/shop"
 msgid "Sports"
 msgstr "ציוד ספורט"
 
-#: map-quick/localization_data.cpp:200
+#: map-quick/localization_data.cpp:207
 msgctxt "OSM::amenity"
 msgid "Sports Center"
 msgstr "מרכז ספורט"
 
-#: map-quick/localization_data.cpp:201
+#: map-quick/localization_data.cpp:208
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
 msgstr "אולם ספורט"
 
-#: map-quick/localization_data.cpp:202
+#: map-quick/localization_data.cpp:209
 msgctxt "OSM::amenity/shop"
 msgid "Stationery"
 msgstr "ציוד משרדי"
 
-#: map-quick/localization_data.cpp:203
+#: map-quick/localization_data.cpp:210
 msgctxt "OSM::amenity/shop"
 msgid "Supermarket"
 msgstr "סופרמרקט"
 
-#: map-quick/localization_data.cpp:204
+#: map-quick/localization_data.cpp:211
 msgctxt "OSM::amenity/shop"
 msgid "Tailor"
 msgstr "חייט"
 
-#: map-quick/localization_data.cpp:205
+#: map-quick/localization_data.cpp:212
 msgctxt "OSM::amenity/shop"
 msgid "Tattoo"
 msgstr "קעקועים"
 
-#: map-quick/localization_data.cpp:206
+#: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
 msgid "Taxi"
 msgstr "מונית"
 
-#: map-quick/localization_data.cpp:207
+#: map-quick/localization_data.cpp:214
 msgctxt "OSM::amenity/shop"
 msgid "Tea"
 msgstr "תה"
 
-#: map-quick/localization_data.cpp:208
+#: map-quick/localization_data.cpp:215
 msgctxt "OSM::shop"
 msgid "Telecommunication"
 msgstr "ציוד תקשורת"
 
-#: map-quick/localization_data.cpp:209
+#: map-quick/localization_data.cpp:216
+msgctxt "OSM::room"
+msgid "Terrace"
+msgstr ""
+
+#: map-quick/localization_data.cpp:217
 msgctxt "OSM::amenity/shop"
 msgid "Theatre"
 msgstr "תיאטרון"
 
-#: map-quick/localization_data.cpp:210
+#: map-quick/localization_data.cpp:218
 msgctxt "OSM::tourism"
 msgid "Theme Park"
 msgstr "פארק שעשועים"
 
-#: map-quick/localization_data.cpp:211
+#: map-quick/localization_data.cpp:219
 msgctxt "OSM::amenity/shop"
 msgid "Tickets"
 msgstr "כרטיסים"
 
-#: map-quick/localization_data.cpp:212
+#: map-quick/localization_data.cpp:220
 msgctxt "OSM::amenity/shop"
 msgid "Tobacco"
 msgstr "טבק"
 
-#: map-quick/localization_data.cpp:213
+#: map-quick/localization_data.cpp:221 map-quick/localization_data.cpp:222
 msgctxt "OSM::amenity/shop"
 msgid "Toilets"
 msgstr "בתי שימוש"
 
-#: map-quick/localization_data.cpp:214
+#: map-quick/localization_data.cpp:223
 msgctxt "OSM::amenity/shop"
 msgid "Town Hall"
 msgstr "בניין העירייה"
 
-#: map-quick/localization_data.cpp:215
+#: map-quick/localization_data.cpp:224
 msgctxt "OSM::amenity/shop"
 msgid "Toys"
 msgstr "צעצועים"
 
-#: map-quick/localization_data.cpp:217 map-quick/localization_data.cpp:218
+#: map-quick/localization_data.cpp:226 map-quick/localization_data.cpp:227
 msgctxt "OSM::amenity/shop"
 msgid "Travel Agency"
 msgstr "סוכנות נסיעות"
 
-#: map-quick/localization_data.cpp:219
+#: map-quick/localization_data.cpp:228
 msgctxt "OSM::amenity/shop"
 msgid "University"
 msgstr "אוניברסיטה"
 
-#: map-quick/localization_data.cpp:220
+#: map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"
 msgid "Variety Store"
 msgstr "חנות כלבו"
 
-#: map-quick/localization_data.cpp:221
+#: map-quick/localization_data.cpp:230
 msgctxt "OSM::amenity"
 msgid "Veterinary"
 msgstr "וטרינר"
 
-#: map-quick/localization_data.cpp:222
+#: map-quick/localization_data.cpp:231
 msgctxt "OSM::amenity/shop"
 msgid "Video Games"
 msgstr "משחקי וידאו"
 
-#: map-quick/localization_data.cpp:223
+#: map-quick/localization_data.cpp:232
 msgctxt "OSM::tourism"
 msgid "Viewpoint"
 msgstr "אשנב"
 
-#: map-quick/localization_data.cpp:224 map-quick/localization_data.cpp:225
-#: map-quick/localization_data.cpp:226
+#: map-quick/localization_data.cpp:233 map-quick/localization_data.cpp:234
+#: map-quick/localization_data.cpp:235
 msgctxt "OSM::amenity/shop"
 msgid "Waiting Area"
 msgstr "אזור המתנה"
 
-#: map-quick/localization_data.cpp:227
+#: map-quick/localization_data.cpp:236
 msgctxt "OSM::amenity"
 msgid "Waste Basket"
 msgstr "סל אשפה"
 
-#: map-quick/localization_data.cpp:228
+#: map-quick/localization_data.cpp:237
 msgctxt "OSM::shop"
 msgid "Watches"
 msgstr "שעונים"
 
-#: map-quick/localization_data.cpp:229
+#: map-quick/localization_data.cpp:238
 msgctxt "OSM::amenity/shop"
 msgid "Wine"
 msgstr "יינות"
 
-#: map-quick/localization_data.cpp:230
+#: map-quick/localization_data.cpp:239
 msgctxt "OSM::tourism"
 msgid "Zoo"
 msgstr "גן חניות"
 
-#: map-quick/localization_data.cpp:236
+#: map-quick/localization_data.cpp:245
 msgctxt "OSM::cuisine"
 msgid "African"
 msgstr "אפריקאי"
 
-#: map-quick/localization_data.cpp:237
+#: map-quick/localization_data.cpp:246
 msgctxt "OSM::cuisine"
 msgid "American"
 msgstr "אמריקאי"
 
-#: map-quick/localization_data.cpp:238
+#: map-quick/localization_data.cpp:247
 msgctxt "OSM::cuisine"
 msgid "Arab"
 msgstr "ערבי"
 
-#: map-quick/localization_data.cpp:239
+#: map-quick/localization_data.cpp:248
 msgctxt "OSM::cuisine"
 msgid "Argentinian"
 msgstr "ארגנטינאי"
 
-#: map-quick/localization_data.cpp:240
+#: map-quick/localization_data.cpp:249
 msgctxt "OSM::cuisine"
 msgid "Asian"
 msgstr "אסיאתי"
 
-#: map-quick/localization_data.cpp:241
+#: map-quick/localization_data.cpp:250
 msgctxt "OSM::cuisine"
 msgid "Austrian"
 msgstr "אוסטרי"
 
-#: map-quick/localization_data.cpp:242
+#: map-quick/localization_data.cpp:251
 msgctxt "OSM::cuisine"
 msgid "Bagel"
 msgstr "כעכים"
 
-#: map-quick/localization_data.cpp:243
+#: map-quick/localization_data.cpp:252
 msgctxt "OSM::cuisine"
 msgid "Balkan"
 msgstr "בלקני"
 
-#: map-quick/localization_data.cpp:244 map-quick/localization_data.cpp:245
-#: map-quick/localization_data.cpp:247
+#: map-quick/localization_data.cpp:253 map-quick/localization_data.cpp:254
+#: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
 msgid "Barbecue"
 msgstr "על האש"
 
-#: map-quick/localization_data.cpp:246
+#: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Bavarian"
 msgstr "בווארי"
 
-#: map-quick/localization_data.cpp:248
+#: map-quick/localization_data.cpp:257
 msgctxt "OSM::cuisine"
 msgid "Beef Bowl"
 msgstr "קערת בשר"
 
-#: map-quick/localization_data.cpp:249
+#: map-quick/localization_data.cpp:258
 msgctxt "OSM::cuisine"
 msgid "Bolivian"
 msgstr "בוליביאני"
 
-#: map-quick/localization_data.cpp:250
+#: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
 msgid "Brazilian"
 msgstr "ברזילאי"
 
-#: map-quick/localization_data.cpp:251
+#: map-quick/localization_data.cpp:260
 msgctxt "OSM::cuisine"
 msgid "Breakfast"
 msgstr "ארוחת בוקר"
 
-#: map-quick/localization_data.cpp:252
+#: map-quick/localization_data.cpp:261
 msgctxt "OSM::cuisine"
 msgid "British"
 msgstr "בריטי"
 
-#: map-quick/localization_data.cpp:253
+#: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
 msgid "Brunch"
 msgstr "ארוחת בוהריים"
 
-#: map-quick/localization_data.cpp:254
+#: map-quick/localization_data.cpp:263
 msgctxt "OSM::cuisine"
 msgid "Bubble Tea"
 msgstr "באבל טי"
 
-#: map-quick/localization_data.cpp:255
+#: map-quick/localization_data.cpp:264
 msgctxt "OSM::cuisine"
 msgid "Buffet"
 msgstr "בופה"
 
-#: map-quick/localization_data.cpp:256
+#: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "Burger"
 msgstr "המבורגר"
 
-#: map-quick/localization_data.cpp:257
+#: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
 msgid "Cake"
 msgstr "עוגה"
 
-#: map-quick/localization_data.cpp:258
+#: map-quick/localization_data.cpp:267
 msgctxt "OSM::cuisine"
 msgid "Caribbean"
 msgstr "קריבי"
 
-#: map-quick/localization_data.cpp:259
+#: map-quick/localization_data.cpp:268
 msgctxt "OSM::cuisine"
 msgid "Chicken"
 msgstr "עוף"
 
-#: map-quick/localization_data.cpp:260
+#: map-quick/localization_data.cpp:269
 msgctxt "OSM::cuisine"
 msgid "Chinese"
 msgstr "סיני"
 
-#: map-quick/localization_data.cpp:261
+#: map-quick/localization_data.cpp:270
 msgctxt "OSM::cuisine"
 msgid "Coffee"
 msgstr "קפה"
 
-#: map-quick/localization_data.cpp:262
+#: map-quick/localization_data.cpp:271
 msgctxt "OSM::cuisine"
 msgid "Coffee Shop"
 msgstr "חנות קפה"
 
-#: map-quick/localization_data.cpp:263
+#: map-quick/localization_data.cpp:272
 msgctxt "OSM::cuisine"
 msgid "Cookies"
 msgstr "עוגיות"
 
-#: map-quick/localization_data.cpp:264
+#: map-quick/localization_data.cpp:273
 msgctxt "OSM::cuisine"
 msgid "Crêpe"
 msgstr "קרפ"
 
-#: map-quick/localization_data.cpp:265
+#: map-quick/localization_data.cpp:274
 msgctxt "OSM::cuisine"
 msgid "Curry"
 msgstr "קארי"
 
-#: map-quick/localization_data.cpp:266
+#: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
 msgid "Czech"
 msgstr "צ׳כי"
 
-#: map-quick/localization_data.cpp:267
+#: map-quick/localization_data.cpp:276
 msgctxt "OSM::cuisine"
 msgid "Dessert"
 msgstr "קינוח"
 
-#: map-quick/localization_data.cpp:268
+#: map-quick/localization_data.cpp:277
 msgctxt "OSM::cuisine"
 msgid "Donut"
 msgstr "סופגניות"
 
-#: map-quick/localization_data.cpp:269 map-quick/localization_data.cpp:270
+#: map-quick/localization_data.cpp:278 map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
 msgid "Dumplings"
 msgstr "דאמפלינגס"
 
-#: map-quick/localization_data.cpp:271
+#: map-quick/localization_data.cpp:280
 msgctxt "OSM::cuisine"
 msgid "Ethiopian"
 msgstr "אתיופי"
 
-#: map-quick/localization_data.cpp:272
+#: map-quick/localization_data.cpp:281
 msgctxt "OSM::cuisine"
 msgid "Falafel"
 msgstr "פלאפל"
 
-#: map-quick/localization_data.cpp:273
+#: map-quick/localization_data.cpp:282
 msgctxt "OSM::cuisine"
 msgid "Fast Food"
 msgstr "מזון מהיר"
 
-#: map-quick/localization_data.cpp:274
+#: map-quick/localization_data.cpp:283
 msgctxt "OSM::cuisine"
 msgid "Filipino"
 msgstr "פיליפיני"
 
-#: map-quick/localization_data.cpp:275
+#: map-quick/localization_data.cpp:284
 msgctxt "OSM::cuisine"
 msgid "Fish"
 msgstr "דגים"
 
-#: map-quick/localization_data.cpp:276
+#: map-quick/localization_data.cpp:285
 msgctxt "OSM::cuisine"
 msgid "Fish & Chips"
 msgstr "דגים וטוגנים"
 
-#: map-quick/localization_data.cpp:277
+#: map-quick/localization_data.cpp:286
 msgctxt "OSM::cuisine"
 msgid "French"
 msgstr "צרפתי"
 
-#: map-quick/localization_data.cpp:278
+#: map-quick/localization_data.cpp:287
 msgctxt "OSM::cuisine"
 msgid "Fries"
 msgstr "טוגנים"
 
-#: map-quick/localization_data.cpp:279
+#: map-quick/localization_data.cpp:288
 msgctxt "OSM::cuisine"
 msgid "Georigan"
 msgstr "גאורגי"
 
-#: map-quick/localization_data.cpp:280
+#: map-quick/localization_data.cpp:289
 msgctxt "OSM::cuisine"
 msgid "German"
 msgstr "גרמני"
 
-#: map-quick/localization_data.cpp:281
+#: map-quick/localization_data.cpp:290
 msgctxt "OSM::cuisine"
 msgid "Greek"
 msgstr "יווני"
 
-#: map-quick/localization_data.cpp:282
+#: map-quick/localization_data.cpp:291
 msgctxt "OSM::cuisine"
 msgid "Grill"
 msgstr "מנגל"
 
-#: map-quick/localization_data.cpp:283
+#: map-quick/localization_data.cpp:292
 msgctxt "OSM::cuisine"
 msgid "Gyros"
 msgstr "גירוס"
 
-#: map-quick/localization_data.cpp:284
+#: map-quick/localization_data.cpp:293
 msgctxt "OSM::cuisine"
 msgid "Hawaiian"
 msgstr "הוואיי"
 
-#: map-quick/localization_data.cpp:285 map-quick/localization_data.cpp:286
+#: map-quick/localization_data.cpp:294 map-quick/localization_data.cpp:295
 msgctxt "OSM::cuisine"
 msgid "Hot Dog"
 msgstr "נקניקיות"
 
-#: map-quick/localization_data.cpp:287
+#: map-quick/localization_data.cpp:296
 msgctxt "OSM::cuisine"
 msgid "Ice Cream"
 msgstr "גלידה"
 
-#: map-quick/localization_data.cpp:288
+#: map-quick/localization_data.cpp:297
 msgctxt "OSM::cuisine"
 msgid "Indian"
 msgstr "הודי"
 
-#: map-quick/localization_data.cpp:289
+#: map-quick/localization_data.cpp:298
 msgctxt "OSM::cuisine"
 msgid "Indonesian"
 msgstr "אינדונזי"
 
-#: map-quick/localization_data.cpp:290
+#: map-quick/localization_data.cpp:299
 msgctxt "OSM::cuisine"
 msgid "International"
 msgstr "בינלאומי"
 
-#: map-quick/localization_data.cpp:291
+#: map-quick/localization_data.cpp:300
 msgctxt "OSM::cuisine"
 msgid "Irish"
 msgstr "אירי"
 
-#: map-quick/localization_data.cpp:292
+#: map-quick/localization_data.cpp:301
 msgctxt "OSM::cuisine"
 msgid "Italian"
 msgstr "איטלקי"
 
-#: map-quick/localization_data.cpp:293 map-quick/localization_data.cpp:314
+#: map-quick/localization_data.cpp:302 map-quick/localization_data.cpp:323
 msgctxt "OSM::cuisine"
 msgid "Pizza"
 msgstr "פיצה"
 
-#: map-quick/localization_data.cpp:294
+#: map-quick/localization_data.cpp:303
 msgctxt "OSM::cuisine"
 msgid "Japanese"
 msgstr "יפני"
 
-#: map-quick/localization_data.cpp:295
+#: map-quick/localization_data.cpp:304
 msgctxt "OSM::cuisine"
 msgid "Juice"
 msgstr "מיץ"
 
-#: map-quick/localization_data.cpp:296
+#: map-quick/localization_data.cpp:305
 msgctxt "OSM::cuisine"
 msgid "Kebab"
 msgstr "קבב"
 
-#: map-quick/localization_data.cpp:297
+#: map-quick/localization_data.cpp:306
 msgctxt "OSM::cuisine"
 msgid "Korean"
 msgstr "קוריאני"
 
-#: map-quick/localization_data.cpp:298
+#: map-quick/localization_data.cpp:307
 msgctxt "OSM::cuisine"
 msgid "Lebanese"
 msgstr "לבנוני"
 
-#: map-quick/localization_data.cpp:299
+#: map-quick/localization_data.cpp:308
 msgctxt "OSM::cuisine"
 msgid "Local"
 msgstr "מקומי"
 
-#: map-quick/localization_data.cpp:300
+#: map-quick/localization_data.cpp:309
 msgctxt "OSM::cuisine"
 msgid "Malaysian"
 msgstr "מלזי"
 
-#: map-quick/localization_data.cpp:301
+#: map-quick/localization_data.cpp:310
 msgctxt "OSM::cuisine"
 msgid "Meat"
 msgstr "בשר"
 
-#: map-quick/localization_data.cpp:302
+#: map-quick/localization_data.cpp:311
 msgctxt "OSM::cuisine"
 msgid "Mediterranean"
 msgstr "ים תיכוני"
 
-#: map-quick/localization_data.cpp:303
+#: map-quick/localization_data.cpp:312
 msgctxt "OSM::cuisine"
 msgid "Mexican"
 msgstr "מקסיקני"
 
-#: map-quick/localization_data.cpp:304
+#: map-quick/localization_data.cpp:313
 msgctxt "OSM::cuisine"
 msgid "Moroccan"
 msgstr "מרוקאי"
 
-#: map-quick/localization_data.cpp:305
+#: map-quick/localization_data.cpp:314
 msgctxt "OSM::cuisine"
 msgid "Nepalese"
 msgstr "נפאלי"
 
-#: map-quick/localization_data.cpp:306 map-quick/localization_data.cpp:307
+#: map-quick/localization_data.cpp:315 map-quick/localization_data.cpp:316
 msgctxt "OSM::cuisine"
 msgid "Noodle"
 msgstr "אטריות"
 
-#: map-quick/localization_data.cpp:308
+#: map-quick/localization_data.cpp:317
 msgctxt "OSM::cuisine"
 msgid "Pakistani"
 msgstr "פקיסטני"
 
-#: map-quick/localization_data.cpp:309
+#: map-quick/localization_data.cpp:318
 msgctxt "OSM::cuisine"
 msgid "Pancake"
 msgstr "פנקייק"
 
-#: map-quick/localization_data.cpp:310
+#: map-quick/localization_data.cpp:319
 msgctxt "OSM::cuisine"
 msgid "Pasta"
 msgstr "פסטה"
 
-#: map-quick/localization_data.cpp:311
+#: map-quick/localization_data.cpp:320
 msgctxt "OSM::cuisine"
 msgid "Pastry"
 msgstr "מאפים"
 
-#: map-quick/localization_data.cpp:312
+#: map-quick/localization_data.cpp:321
 msgctxt "OSM::cuisine"
 msgid "Persian"
 msgstr "פרסי"
 
-#: map-quick/localization_data.cpp:313
+#: map-quick/localization_data.cpp:322
 msgctxt "OSM::cuisine"
 msgid "Peruvian"
 msgstr "פרואני"
 
-#: map-quick/localization_data.cpp:315
+#: map-quick/localization_data.cpp:324
 msgctxt "OSM::cuisine"
 msgid "Poke"
 msgstr "פוקה"
 
-#: map-quick/localization_data.cpp:316
+#: map-quick/localization_data.cpp:325
 msgctxt "OSM::cuisine"
 msgid "Polish"
 msgstr "פולני"
 
-#: map-quick/localization_data.cpp:317
+#: map-quick/localization_data.cpp:326
 msgctxt "OSM::cuisine"
 msgid "Portuguese"
 msgstr "פורטוגלי"
 
-#: map-quick/localization_data.cpp:318
+#: map-quick/localization_data.cpp:327
 msgctxt "OSM::cuisine"
 msgid "Pretzel"
 msgstr "כעכים"
 
-#: map-quick/localization_data.cpp:319
+#: map-quick/localization_data.cpp:328
 msgctxt "OSM::cuisine"
 msgid "Ramen"
 msgstr "ראמן"
 
-#: map-quick/localization_data.cpp:320
+#: map-quick/localization_data.cpp:329
 msgctxt "OSM::cuisine"
 msgid "Regional"
 msgstr "אזורי"
 
-#: map-quick/localization_data.cpp:321
+#: map-quick/localization_data.cpp:330
 msgctxt "OSM::cuisine"
 msgid "Russian"
 msgstr "רוסי"
 
-#: map-quick/localization_data.cpp:322
+#: map-quick/localization_data.cpp:331
 msgctxt "OSM::cuisine"
 msgid "Salad"
 msgstr "סלט"
 
-#: map-quick/localization_data.cpp:323
+#: map-quick/localization_data.cpp:332
 msgctxt "OSM::cuisine"
 msgid "Sandwich"
 msgstr "כריכים"
 
-#: map-quick/localization_data.cpp:324
+#: map-quick/localization_data.cpp:333
 msgctxt "OSM::cuisine"
 msgid "Sausage"
 msgstr "נקניקים"
 
-#: map-quick/localization_data.cpp:325
+#: map-quick/localization_data.cpp:334
 msgctxt "OSM::cuisine"
 msgid "Seafood"
 msgstr "מאכלי ים"
 
-#: map-quick/localization_data.cpp:326
+#: map-quick/localization_data.cpp:335
 msgctxt "OSM::cuisine"
 msgid "Shawarma"
 msgstr "שווארמה"
 
-#: map-quick/localization_data.cpp:327
+#: map-quick/localization_data.cpp:336
 msgctxt "OSM::cuisine"
 msgid "Soup"
 msgstr "מרק"
 
-#: map-quick/localization_data.cpp:328
+#: map-quick/localization_data.cpp:337
 msgctxt "OSM::cuisine"
 msgid "Spanish"
 msgstr "ספרדי"
 
-#: map-quick/localization_data.cpp:329 map-quick/localization_data.cpp:330
+#: map-quick/localization_data.cpp:338 map-quick/localization_data.cpp:339
 msgctxt "OSM::cuisine"
 msgid "Steak"
 msgstr "אומצה"
 
-#: map-quick/localization_data.cpp:331
+#: map-quick/localization_data.cpp:340
 msgctxt "OSM::cuisine"
 msgid "Sushi"
 msgstr "סושי"
 
-#: map-quick/localization_data.cpp:332
+#: map-quick/localization_data.cpp:341
 msgctxt "OSM::cuisine"
 msgid "Syrian"
 msgstr "סורי"
 
-#: map-quick/localization_data.cpp:333
+#: map-quick/localization_data.cpp:342
 msgctxt "OSM::cuisine"
 msgid "Tacos"
 msgstr "טאקוס"
 
-#: map-quick/localization_data.cpp:334
+#: map-quick/localization_data.cpp:343
 msgctxt "OSM::cuisine"
 msgid "Taiwanese"
 msgstr "טאיוואני"
 
-#: map-quick/localization_data.cpp:335
+#: map-quick/localization_data.cpp:344
 msgctxt "OSM::cuisine"
 msgid "Tapas"
 msgstr "טפאס"
 
-#: map-quick/localization_data.cpp:336
+#: map-quick/localization_data.cpp:345
 msgctxt "OSM::cuisine"
 msgid "Tea"
 msgstr "תה"
 
-#: map-quick/localization_data.cpp:337
+#: map-quick/localization_data.cpp:346
 msgctxt "OSM::cuisine"
 msgid "Teahouse"
 msgstr "בית תה"
 
-#: map-quick/localization_data.cpp:338
+#: map-quick/localization_data.cpp:347
 msgctxt "OSM::cuisine"
 msgid "Tex-Mex"
 msgstr "טקס-מקס"
 
-#: map-quick/localization_data.cpp:339
+#: map-quick/localization_data.cpp:348
 msgctxt "OSM::cuisine"
 msgid "Thai"
 msgstr "תאילנדי"
 
-#: map-quick/localization_data.cpp:340
+#: map-quick/localization_data.cpp:349
 msgctxt "OSM::cuisine"
 msgid "Turkish"
 msgstr "טורקי"
 
-#: map-quick/localization_data.cpp:341
+#: map-quick/localization_data.cpp:350
 msgctxt "OSM::cuisine"
 msgid "Vegetarian"
 msgstr "צמחוני"
 
-#: map-quick/localization_data.cpp:342
+#: map-quick/localization_data.cpp:351
 msgctxt "OSM::cuisine"
 msgid "Vietnamese"
 msgstr "וייטנאמי"
 
-#: map-quick/localization_data.cpp:343
+#: map-quick/localization_data.cpp:352
 msgctxt "OSM::cuisine"
 msgid "Waffles"
 msgstr "וואפל"
 
-#: map-quick/localization_data.cpp:344
+#: map-quick/localization_data.cpp:353
 msgctxt "OSM::cuisine"
 msgid "Chicken Wings"
 msgstr "כנפי עוף"
@@ -2174,3 +2225,15 @@ msgstr "אותיות מודפסות מובלטות"
 msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "אותיות מודפסות חרוטות"
+
+#: map-quick/roommodel.cpp:128
+#, fuzzy, kde-format
+#| msgctxt "OSM::bicycle_parking"
+#| msgid "ground slots"
+msgid "Ground floor"
+msgstr "חריצים בקרקע"
+
+#: map-quick/roommodel.cpp:130
+#, kde-format
+msgid "Floor %1"
+msgstr ""
