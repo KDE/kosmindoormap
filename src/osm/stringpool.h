@@ -7,7 +7,7 @@
 #ifndef KOSM_STRINGPOOL_H
 #define KOSM_STRINGPOOL_H
 
-#include <kosm_export.h>
+#include "kosm_export.h"
 
 #include <cstring>
 #include <vector>

@@ -34,6 +34,7 @@ ecm_generate_headers(KOSM_FORWARDING_HEADERS
     HEADER_NAMES
         Datatypes
         Element
+        Languages
     PREFIX KOSM
     REQUIRED_HEADERS KOSM_HEADERS
 )
