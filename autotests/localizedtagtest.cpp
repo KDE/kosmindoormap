@@ -11,7 +11,6 @@
 #include <QFile>
 #include <QLocale>
 #include <QTest>
-#include <QtPlugin>
 
 QDebug operator<<(QDebug debug, const OSM::Languages &langs)
 {
@@ -20,8 +19,6 @@ QDebug operator<<(QDebug debug, const OSM::Languages &langs)
     debug << l;
     return debug;
 }
-
-Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
 
 class LocalizedTagTest : public QObject
 {

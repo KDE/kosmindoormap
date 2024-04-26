@@ -15,7 +15,6 @@
 #include <QFile>
 #include <QtPlugin>
 
-Q_IMPORT_PLUGIN(OSM_XmlIOPlugin)
 #if HAVE_OSM_PBF_SUPPORT
 Q_IMPORT_PLUGIN(OSM_PbfIOPlugin)
 #endif

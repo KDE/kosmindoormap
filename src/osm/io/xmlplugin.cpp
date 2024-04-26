@@ -3,6 +3,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#define QT_STATICPLUGIN 1
+
 #include "../ioplugin.h"
 #include "../xmlparser.h"
 #include "../xmlwriter.h"

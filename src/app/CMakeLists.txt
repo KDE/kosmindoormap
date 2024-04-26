@@ -9,7 +9,6 @@ add_executable(kosmindoormap-app
 target_include_directories(kosmindoormap-app PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(kosmindoormap-app PRIVATE
     KOSMIndoorMap
-    KOSM_xmlioplugin
     KF6::I18n
     Qt::Quick
 )

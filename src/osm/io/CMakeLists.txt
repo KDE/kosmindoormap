@@ -23,13 +23,3 @@ if (Protobuf_FOUND AND TARGET protobuf::protoc)
         PRIVATE protobuf::libprotobuf-lite ZLIB::ZLIB
     )
 endif()
-
-add_library(KOSM_xmlioplugin STATIC)
-target_sources(KOSM_xmlioplugin PRIVATE
-    xmlplugin.cpp
-    ../xmlparser.cpp
-    ../xmlwriter.cpp
-)
-set_target_properties(KOSM_xmlioplugin PROPERTIES POSITION_INDEPENDENT_CODE ON)
-target_compile_definitions(KOSM_xmlioplugin PRIVATE -DQT_STATICPLUGIN=1)
-target_link_libraries(KOSM_xmlioplugin PUBLIC KOSM)
