@@ -108,6 +108,10 @@ Kirigami.ApplicationWindow {
                 onTriggered: page.map.styleSheet = "breeze-dark"
             },
             Kirigami.Action {
+                text: "OSM Carto"
+                onTriggered: page.map.styleSheet = "carto"
+            },
+            Kirigami.Action {
                 text: "Diagnostic View"
                 onTriggered: page.map.styleSheet = "diagnostic"
             },
