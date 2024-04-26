@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-25 00:37+0000\n"
-"PO-Revision-Date: 2023-10-23 06:09+0200\n"
+"PO-Revision-Date: 2024-04-25 10:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: app/main.cpp:46
 #, kde-format
@@ -120,12 +120,9 @@ msgid "Attraction"
 msgstr "ღირსშესანიშნაობა"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "აკვარიუმი"
+msgstr "აუდიტორია"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -328,12 +325,9 @@ msgid "Computer"
 msgstr "ჩემი კომპიუტერი"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "ჩემი კომპიუტერი"
+msgstr "კომპიუტერული ლაბორატორია"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -341,12 +335,9 @@ msgid "Confectionery"
 msgstr "კონფეკტიონერია"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "საკონფერენციო ცენტრი"
+msgstr "საკონფერენციო ოთახი"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -651,7 +642,7 @@ msgstr "სამზარეულო"
 #: map-quick/localization_data.cpp:137
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "ლაბორატორია"
 
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::amenity/shop"
@@ -703,7 +694,7 @@ msgstr "სამედიცინო ცენტრი"
 #: map-quick/localization_data.cpp:152
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "შეხვედრების ოთახი"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::historic"
@@ -890,11 +881,9 @@ msgid "Train Station"
 msgstr "რკინიგზის სადგური"
 
 #: map-quick/localization_data.cpp:190
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "აღწერა"
+msgstr "მისაღები"
 
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
@@ -939,7 +928,7 @@ msgstr "მეორადი ტანსაცმელი"
 #: map-quick/localization_data.cpp:199
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "სემინარების ოთახი"
 
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::shop"
@@ -1024,7 +1013,7 @@ msgstr "ტელეკომუნიკაცია"
 #: map-quick/localization_data.cpp:216
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "ტერასა"
 
 #: map-quick/localization_data.cpp:217
 msgctxt "OSM::amenity/shop"
@@ -2217,16 +2206,14 @@ msgid "engraved printed letters"
 msgstr "ამოკვეთილი დაბეჭდილი სიმბოლოები"
 
 #: map-quick/roommodel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "OSM::bicycle_parking"
-#| msgid "ground slots"
+#, kde-format
 msgid "Ground floor"
-msgstr "მიწისქვეშა პარკინგი"
+msgstr "მიწის სართული"
 
 #: map-quick/roommodel.cpp:130
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "სართული %1"
 
 #~ msgctxt "OSM::cuisine"
 #~ msgid "BBQ"

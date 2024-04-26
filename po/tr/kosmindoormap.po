@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-25 00:37+0000\n"
-"PO-Revision-Date: 2023-10-21 13:02+0300\n"
+"PO-Revision-Date: 2024-04-25 13:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: app/main.cpp:46
 #, kde-format
@@ -119,12 +119,9 @@ msgid "Attraction"
 msgstr "Cazibe Merkesi"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "Akvaryum"
+msgstr "Dinleme Salonu"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -327,12 +324,9 @@ msgid "Computer"
 msgstr "Bilgisayarcı"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "Bilgisayarcı"
+msgstr "Bilgisayar Laboratuvarı"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -340,12 +334,9 @@ msgid "Confectionery"
 msgstr "Şekerlemeci"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "Konferans Merkezi"
+msgstr "Konferans Odası"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -650,7 +641,7 @@ msgstr "Mutfak"
 #: map-quick/localization_data.cpp:137
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "Laboratuvar"
 
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::amenity/shop"
@@ -702,7 +693,7 @@ msgstr "Medikal"
 #: map-quick/localization_data.cpp:152
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "Toplantı Odası"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::historic"
@@ -889,11 +880,9 @@ msgid "Train Station"
 msgstr "Tren İstasyonu"
 
 #: map-quick/localization_data.cpp:190
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "Açıklama"
+msgstr "Resepsiyon"
 
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
@@ -938,7 +927,7 @@ msgstr "İkinci El"
 #: map-quick/localization_data.cpp:199
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "Seminar Odası"
 
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::shop"
@@ -1023,7 +1012,7 @@ msgstr "Telekomünikasyon"
 #: map-quick/localization_data.cpp:216
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "Teras"
 
 #: map-quick/localization_data.cpp:217
 msgctxt "OSM::amenity/shop"
@@ -2216,16 +2205,14 @@ msgid "engraved printed letters"
 msgstr "oymalı baskı mektup"
 
 #: map-quick/roommodel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "OSM::bicycle_parking"
-#| msgid "ground slots"
+#, kde-format
 msgid "Ground floor"
-msgstr "yer yuvası"
+msgstr "Zemin Kat"
 
 #: map-quick/roommodel.cpp:130
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "%1. Kat"
 
 #~ msgctxt "OSM::cuisine"
 #~ msgid "BBQ"

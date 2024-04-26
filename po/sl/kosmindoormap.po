@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-25 00:37+0000\n"
-"PO-Revision-Date: 2023-10-21 09:57+0200\n"
+"PO-Revision-Date: 2024-04-25 15:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: app/main.cpp:46
 #, kde-format
@@ -122,12 +122,9 @@ msgid "Attraction"
 msgstr "Atrakcija"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "Akvarij"
+msgstr "Avditorij"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -330,12 +327,9 @@ msgid "Computer"
 msgstr "Računalnik"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "Računalnik"
+msgstr "Računalniški laboratorij"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -343,12 +337,9 @@ msgid "Confectionery"
 msgstr "Slaščičarna"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "Konferenčni center"
+msgstr "Konferenčna soba"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -653,7 +644,7 @@ msgstr "Kuhinja"
 #: map-quick/localization_data.cpp:137
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "Laboratorij"
 
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::amenity/shop"
@@ -705,7 +696,7 @@ msgstr "Medicinska oprema"
 #: map-quick/localization_data.cpp:152
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "Soba za sestanke"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::historic"
@@ -892,11 +883,9 @@ msgid "Train Station"
 msgstr "Železniška postaja"
 
 #: map-quick/localization_data.cpp:190
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "Opis"
+msgstr "Recepcija"
 
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
@@ -941,7 +930,7 @@ msgstr "Trgovina druga roka"
 #: map-quick/localization_data.cpp:199
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "Seminarska soba"
 
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::shop"
@@ -1026,7 +1015,7 @@ msgstr "Telekomunikacije"
 #: map-quick/localization_data.cpp:216
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "Terasa"
 
 #: map-quick/localization_data.cpp:217
 msgctxt "OSM::amenity/shop"
@@ -2229,16 +2218,14 @@ msgid "engraved printed letters"
 msgstr "vgravirane tiskane črke"
 
 #: map-quick/roommodel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "OSM::bicycle_parking"
-#| msgid "ground slots"
+#, kde-format
 msgid "Ground floor"
-msgstr "talne reže"
+msgstr "Pritličje"
 
 #: map-quick/roommodel.cpp:130
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "Nadstropje %1"
 
 #~ msgctxt "OSM::cuisine"
 #~ msgid "BBQ"

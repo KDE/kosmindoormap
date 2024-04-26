@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-25 00:37+0000\n"
-"PO-Revision-Date: 2024-04-20 07:53+0300\n"
+"PO-Revision-Date: 2024-04-25 08:01+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -120,12 +120,9 @@ msgid "Attraction"
 msgstr "אטרקציה"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "אקווריום"
+msgstr "אודיטוריום"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -328,12 +325,9 @@ msgid "Computer"
 msgstr "מחשב"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "מחשב"
+msgstr "מעבדת מחשבים"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -341,12 +335,9 @@ msgid "Confectionery"
 msgstr "חנות ממתקים"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "מרכז כנסים"
+msgstr "חדר דיונים"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -651,7 +642,7 @@ msgstr "מטבח"
 #: map-quick/localization_data.cpp:137
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "מעבדה"
 
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::amenity/shop"
@@ -703,7 +694,7 @@ msgstr "ציוד רפואי"
 #: map-quick/localization_data.cpp:152
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "חדר ישיבות"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::historic"
@@ -890,11 +881,9 @@ msgid "Train Station"
 msgstr "תחנת רכבת"
 
 #: map-quick/localization_data.cpp:190
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "תיאור"
+msgstr "קבלה"
 
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
@@ -939,7 +928,7 @@ msgstr "יד שנייה"
 #: map-quick/localization_data.cpp:199
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "חדר כנסים"
 
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::shop"
@@ -1024,7 +1013,7 @@ msgstr "ציוד תקשורת"
 #: map-quick/localization_data.cpp:216
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "אמפי"
 
 #: map-quick/localization_data.cpp:217
 msgctxt "OSM::amenity/shop"
@@ -2227,13 +2216,11 @@ msgid "engraved printed letters"
 msgstr "אותיות מודפסות חרוטות"
 
 #: map-quick/roommodel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "OSM::bicycle_parking"
-#| msgid "ground slots"
+#, kde-format
 msgid "Ground floor"
-msgstr "חריצים בקרקע"
+msgstr "קומת קרקע"
 
 #: map-quick/roommodel.cpp:130
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "קומה %1"

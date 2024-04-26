@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-25 00:37+0000\n"
-"PO-Revision-Date: 2023-12-08 11:53+0100\n"
+"PO-Revision-Date: 2024-04-25 13:10+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: app/main.cpp:46
 #, kde-format
@@ -119,12 +119,9 @@ msgid "Attraction"
 msgstr "Attractie"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "Aquarium"
+msgstr "Auditorium"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -327,12 +324,9 @@ msgid "Computer"
 msgstr "Computer"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "Computer"
+msgstr "Computerlab"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -340,12 +334,9 @@ msgid "Confectionery"
 msgstr "Banketbakker"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "Conferentiecentrum"
+msgstr "Conferentiezaal"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -650,7 +641,7 @@ msgstr "Kitchen"
 #: map-quick/localization_data.cpp:137
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "Laboratorium"
 
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::amenity/shop"
@@ -697,12 +688,12 @@ msgstr "Marktplein"
 #: map-quick/localization_data.cpp:151
 msgctxt "OSM::amenity/shop"
 msgid "Medical Supply"
-msgstr "medische voorziening"
+msgstr "Medische voorziening"
 
 #: map-quick/localization_data.cpp:152
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "Vergaderzaal"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::historic"
@@ -889,11 +880,9 @@ msgid "Train Station"
 msgstr "Treinstation"
 
 #: map-quick/localization_data.cpp:190
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "Beschrijving"
+msgstr "Receptie"
 
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
@@ -938,7 +927,7 @@ msgstr "Tweedehands"
 #: map-quick/localization_data.cpp:199
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "Seminarzaal"
 
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::shop"
@@ -1023,7 +1012,7 @@ msgstr "Telecommunicatie"
 #: map-quick/localization_data.cpp:216
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "Terras"
 
 #: map-quick/localization_data.cpp:217
 msgctxt "OSM::amenity/shop"
@@ -2216,16 +2205,14 @@ msgid "engraved printed letters"
 msgstr "gegraveerde afgedrukte letters"
 
 #: map-quick/roommodel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "OSM::bicycle_parking"
-#| msgid "ground slots"
+#, kde-format
 msgid "Ground floor"
-msgstr "grondsleuven"
+msgstr "Begane grond"
 
 #: map-quick/roommodel.cpp:130
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "Verdieping %1"
 
 #~ msgctxt "OSM::cuisine"
 #~ msgid "BBQ"
