@@ -6,7 +6,7 @@ set -x
 
 PROTOBUF_VERSION=21.x
 KF_VERSION="v6.1.0"
-GEAR_VERSION="master"
+GEAR_VERSION="release/24.05"
 
 function build_cmake_module() {
     local repo=$1
