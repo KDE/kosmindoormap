@@ -115,6 +115,19 @@ area[man_made=column]
     width: 1px;
 }
 
+node[indoor=column]
+{
+    icon-image: "circle";
+    icon-height: 0.4m;
+    icon-width: 0.4m;
+    icon-color: #7f8c8d;
+}
+node[indoor=column][width]
+{
+    icon-height: width;
+    icon-width: width;
+}
+
 line [highway=steps] {
     color: #e0dfde;
     casing-width: 1.5;
