@@ -12,7 +12,8 @@
 // std::from_chars offers that with C++17, but isn't actually implemented yet for floats/doubles...
 #include <private/qlocale_tools_p.h>
 
-extern char* unquoteString(const char *str);
+[[nodiscard]] extern char* unquoteSingleQuotedString(const char *str);
+[[nodiscard]] extern char* unquoteDoubleQuotedString(const char *str);
 
 using namespace KOSMIndoorMap;
 
@@ -53,8 +54,10 @@ HEXCOLOR3   "#"{HEX}{3}
 
 INTEGER     [0-9]+
 DOUBLE      {INTEGER}|([0-9]+[.][0-9]*|[0-9]*[.][0-9]+)([eE][-+]?[0-9]+)?
-STRING_ELEMENT  [^\\"]|"\\\""|"\\\\"|"\\n"|"\\t"
-STRING      ["]{STRING_ELEMENT}*["]
+STRING1_ELEMENT  [^']|"\\\'"|"\\\\"|"\\n"|"\\t"
+STRING1      [']{STRING1_ELEMENT}*[']
+STRING2_ELEMENT  [^\\"]|"\\\""|"\\\\"|"\\n"|"\\t"
+STRING2      ["]{STRING2_ELEMENT}*["]
 
 %x comment
 
@@ -127,8 +130,12 @@ STRING      ["]{STRING_ELEMENT}*["]
     return T_HEX_COLOR;
 }
 
-{STRING} {
-    yylval->str = unquoteString(yytext);
+{STRING1} {
+    yylval->str = unquoteSingleQuotedString(yytext);
+    return T_STRING;
+}
+{STRING2} {
+    yylval->str = unquoteDoubleQuotedString(yytext);
     return T_STRING;
 }
 

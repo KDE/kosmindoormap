@@ -200,3 +200,8 @@ node[cuisine=pizza]
     set .importClass;
 }
 
+*[service=drive-through]
+{
+    text: "abc\"def\nghi'jkl";
+}
+

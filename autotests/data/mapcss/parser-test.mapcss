@@ -163,3 +163,8 @@ line[highway]:hover { color: "red"; }
 
 // importa with classes
 @import url("included-with-class.mapcss") importClass;
+
+// single quoted strings
+*[service='drive-through'] {
+    text: 'abc"def\nghi\'jkl';
+}

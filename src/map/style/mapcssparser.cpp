@@ -22,7 +22,8 @@
 
 #include <cstring>
 
-char* unquoteString(const char *str)
+template <char Q>
+[[nodiscard]] static char* unquoteString(const char *str)
 {
     const auto size = strlen(str) - 2;
     if (size <= 0) {
@@ -36,7 +37,7 @@ char* unquoteString(const char *str)
             ++it;
             switch (*it) {
                 case '\\':
-                case '"':
+                case Q:
                     *outIt = *it; break;
                 case 'n':
                     *outIt = '\n'; break;
@@ -51,6 +52,16 @@ char* unquoteString(const char *str)
         }
     }
     return out;
+}
+
+[[nodiscard]] char* unquoteSingleQuotedString(const char *str)
+{
+    return unquoteString<'\''>(str);
+}
+
+[[nodiscard]] char* unquoteDoubleQuotedString(const char *str)
+{
+    return unquoteString<'"'>(str);
 }
 
 using namespace KOSMIndoorMap;

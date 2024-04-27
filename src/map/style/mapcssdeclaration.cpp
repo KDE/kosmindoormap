@@ -342,6 +342,27 @@ void MapCSSDeclaration::compile(const OSM::DataSet &dataSet)
     }
 }
 
+static void writeQuotedString(QIODevice *out, QByteArrayView str)
+{
+    out->write("\"");
+    for (const auto c : str) {
+        switch (c) {
+            case '"':
+                out->write("\\\"");
+                break;
+            case '\n':
+                out->write("\\n");
+                break;
+            case '\t':
+                out->write("\\t");
+                break;
+            default:
+                out->write(&c, 1);
+        }
+    }
+    out->write("\"");
+}
+
 void MapCSSDeclaration::write(QIODevice *out) const
 {
     out->write("    ");
@@ -366,9 +387,7 @@ void MapCSSDeclaration::write(QIODevice *out) const
                     out->write(", ");
                 }
             } else if (!m_stringValue.isNull()) {
-                out->write("\"");
-                out->write(m_stringValue.toUtf8()); // this would need to be quoted...
-                out->write("\"");
+                writeQuotedString(out, m_stringValue.toUtf8());
             } else if (!m_identValue.isEmpty()) {
                 out->write(m_identValue);
             } else {
@@ -389,9 +408,8 @@ void MapCSSDeclaration::write(QIODevice *out) const
                 out->write(" = ");
                 out->write(QByteArray::number(m_doubleValue));
             } else if (!m_stringValue.isEmpty()) {
-                out->write(" = \"");
-                out->write(m_stringValue.toUtf8()); // this would need to be quoted...
-                out->write("\"");
+                out->write(" = ");
+                writeQuotedString(out, m_stringValue.toUtf8());
             }
             break;
         case ClassDeclaration:
