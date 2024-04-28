@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:37+0000\n"
-"PO-Revision-Date: 2024-01-12 07:21+0100\n"
+"PO-Revision-Date: 2024-04-27 17:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -120,12 +120,9 @@ msgid "Attraction"
 msgstr "Vidindaĵo"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "Akvario"
+msgstr "Aŭditorio"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -328,12 +325,9 @@ msgid "Computer"
 msgstr "Komputilo"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "Komputilo"
+msgstr "Komputilumejo"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -341,12 +335,9 @@ msgid "Confectionery"
 msgstr "Sukeraĵejo"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "Konferenca Centro"
+msgstr "Konferenca Ĉambro"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -651,7 +642,7 @@ msgstr "Kuirejo"
 #: map-quick/localization_data.cpp:137
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "Laboratorio"
 
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::amenity/shop"
@@ -703,7 +694,7 @@ msgstr "Medicina Provizo"
 #: map-quick/localization_data.cpp:152
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "Renkontoĉambo"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::historic"
@@ -890,11 +881,9 @@ msgid "Train Station"
 msgstr "Trajnstacio"
 
 #: map-quick/localization_data.cpp:190
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "Priskribo"
+msgstr "Akceptejo"
 
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
@@ -939,7 +928,7 @@ msgstr "Duamanaĵoj"
 #: map-quick/localization_data.cpp:199
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "Seminaria Ĉambro"
 
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::shop"
@@ -1024,7 +1013,7 @@ msgstr "Telekomunikado"
 #: map-quick/localization_data.cpp:216
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "Teraso"
 
 #: map-quick/localization_data.cpp:217
 msgctxt "OSM::amenity/shop"
@@ -2217,13 +2206,11 @@ msgid "engraved printed letters"
 msgstr "gravuritaj presitaj literoj"
 
 #: map-quick/roommodel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "OSM::bicycle_parking"
-#| msgid "ground slots"
+#, kde-format
 msgid "Ground floor"
-msgstr "teraj fendoj"
+msgstr "Teretaĝo"
 
 #: map-quick/roommodel.cpp:130
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "Etaĝo %1"
