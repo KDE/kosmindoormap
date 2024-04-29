@@ -249,11 +249,33 @@ Test: T_LBRACKET Condition T_RBRACKET { $$ = $2; };
 
 // TODO incomplete: quoted names, regexps
 Condition:
-  Key BinaryOp T_IDENT { $$ = new MapCSSCondition; $$->setKey($1.str, $1.len); $$->setOperation($2); $$->setValue($3.str, $3.len); }
-| Key BinaryOp T_STRING { $$ = new MapCSSCondition; $$->setKey($1.str, $1.len); $$->setOperation($2); $$->setValue($3, std::strlen($3)); }
-| Key BinaryOp DoubleValue { $$ = new MapCSSCondition; $$->setKey($1.str, $1.len); $$->setOperation($2); $$->setValue($3); }
-| T_EXCLAMATION_MARK Key { $$ = new MapCSSCondition; $$->setOperation(MapCSSCondition::KeyNotSet); $$->setKey($2.str, $2.len); }
-| Key { $$ = new MapCSSCondition; $$->setOperation(MapCSSCondition::KeySet); $$->setKey($1.str, $1.len); }
+  Key BinaryOp T_IDENT {
+    $$ = new MapCSSCondition; $$->setKey($1.str, $1.len);
+    $$->setOperation($2);
+    $$->setValue($3.str, $3.len);
+  }
+| Key BinaryOp T_STRING[S] {
+    $$ = new MapCSSCondition;
+    $$->setKey($1.str, $1.len);
+    $$->setOperation($2);
+    $$->setValue($3, std::strlen($S));
+  }
+| Key BinaryOp DoubleValue {
+    $$ = new MapCSSCondition;
+    $$->setKey($1.str, $1.len);
+    $$->setOperation($2);
+    $$->setValue($3);
+  }
+| T_EXCLAMATION_MARK Key {
+    $$ = new MapCSSCondition;
+    $$->setOperation(MapCSSCondition::KeyNotSet);
+    $$->setKey($2.str, $2.len);
+  }
+| Key {
+    $$ = new MapCSSCondition;
+    $$->setOperation(MapCSSCondition::KeySet);
+    $$->setKey($1.str, $1.len);
+  }
 ;
 
 BinaryOp:
