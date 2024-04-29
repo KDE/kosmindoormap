@@ -211,6 +211,24 @@ void MapCSSDeclaration::setBoolValue(bool val)
     m_boolValue = val;
 }
 
+bool MapCSSDeclaration::hasExpression() const
+{
+    return m_evalExpression.isValid();
+}
+
+MapCSSProperty MapCSSDeclaration::propertyFromName(const char *name, std::size_t len)
+{
+    const auto it = std::lower_bound(std::begin(property_types), std::end(property_types), name, [len](const auto &lhs, const char *rhs) {
+        const auto lhsLen = std::strlen(lhs.name);
+        const auto cmp = std::strncmp(lhs.name, rhs, std::min(lhsLen, len));
+        return cmp < 0 || (cmp == 0 && lhsLen < len);
+    });
+    if (it == std::end(property_types) || std::strncmp((*it).name, name, std::max(len, std::strlen((*it).name))) != 0) {
+        return MapCSSProperty::Unknown;
+    }
+    return (*it).property;
+}
+
 void MapCSSDeclaration::setPropertyName(const char *name, std::size_t len)
 {
     const auto it = std::lower_bound(std::begin(property_types), std::end(property_types), name, [len](const auto &lhs, const char *rhs) {
@@ -334,11 +352,14 @@ void MapCSSDeclaration::setClassSelectorKey(ClassSelectorKey key)
 
 void MapCSSDeclaration::compile(const OSM::DataSet &dataSet)
 {
-    Q_UNUSED(dataSet);
     // TODO resolve tag key if m_identValue is one
     if (m_type == TagDeclaration) {
         // TODO handle the case that the tag isn't actually available in dataSet
         m_tagKey = dataSet.tagKey(m_identValue.constData());
+    }
+
+    if (m_evalExpression.isValid()) {
+        m_evalExpression.compile(dataSet);
     }
 }
 
@@ -390,6 +411,10 @@ void MapCSSDeclaration::write(QIODevice *out) const
                 writeQuotedString(out, m_stringValue.toUtf8());
             } else if (!m_identValue.isEmpty()) {
                 out->write(m_identValue);
+            } else if (m_evalExpression.isValid()) {
+                out->write("eval(");
+                m_evalExpression.write(out);
+                out->write(")");
             } else {
                 out->write(m_boolValue ? "true" : "false");
             }
@@ -410,6 +435,10 @@ void MapCSSDeclaration::write(QIODevice *out) const
             } else if (!m_stringValue.isEmpty()) {
                 out->write(" = ");
                 writeQuotedString(out, m_stringValue.toUtf8());
+            } else if (m_evalExpression.isValid()) {
+                out->write(" = eval(");
+                m_evalExpression.write(out);
+                out->write(")");
             }
             break;
         case ClassDeclaration:

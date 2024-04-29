@@ -168,3 +168,17 @@ line[highway]:hover { color: "red"; }
 *[service='drive-through'] {
     text: 'abc"def\nghi\'jkl';
 }
+
+// string-wrapped eval expressions
+* {
+    extrude: eval('zmetric(tag("height"))');
+    opacity: eval("tag('population')/100000");
+    set width_in_metres=eval("tag('lanes')*3");
+}
+
+// non-string wrapped eval expression
+* {
+    extrude: eval(zmetric(tag("height")));
+    opacity: eval(tag('population')/100000);
+    set width_in_metres=eval(tag('lanes')*3);
+}

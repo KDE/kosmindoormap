@@ -205,3 +205,17 @@ node[cuisine=pizza]
     text: "abc\"def\nghi'jkl";
 }
 
+*
+{
+    extrude: eval(zmetric(tag(height)));
+    opacity: eval((tag(population)/100000));
+    set width_in_metres = eval((tag(lanes)*3));
+}
+
+*
+{
+    extrude: eval(zmetric(tag(height)));
+    opacity: eval((tag(population)/100000));
+    set width_in_metres = eval((tag(lanes)*3));
+}
+

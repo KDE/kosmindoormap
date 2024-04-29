@@ -10,6 +10,7 @@
 #include "kosmindoormap_export.h"
 #include "mapcssproperty.h"
 #include "mapcsstypes.h"
+#include "mapcssexpression_p.h"
 
 #include <osm/datatypes.h>
 
@@ -108,8 +109,13 @@ public:
 
     ClassSelectorKey classSelectorKey() const;
 
+    /** Property is a valid eval() expression. */
+    [[nodiscard]] bool hasExpression() const;
+
     void compile(const OSM::DataSet &dataSet);
     void write(QIODevice *out) const;
+
+    [[nodiscard]] static MapCSSProperty propertyFromName(const char *name, std::size_t len);
 
 private:
     friend int ::yyparse(KOSMIndoorMap::MapCSSParserContext*, void*);
@@ -137,6 +143,7 @@ private:
     QString m_stringValue;
     OSM::TagKey m_tagKey;
     ClassSelectorKey m_class;
+    MapCSSExpression m_evalExpression;
     Unit m_unit = NoUnit;
     Type m_type;
     bool m_boolValue = false;

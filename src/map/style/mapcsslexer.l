@@ -65,6 +65,15 @@ STRING2      ["]{STRING2_ELEMENT}*["]
 
 %%
 
+%{
+    // select entry point for the parser by starting with a dummy token
+    // https://www.gnu.org/software/bison/manual/html_node/Multiple-start_002dsymbols.html
+    if (!yyextra->m_init) {
+        yyextra->m_init = true;
+        return yyextra->m_mode == MapCSSParserContext::ParseMapCSS ? T_MAPCSS_START : T_EVAL_EXPRESSION_START;
+    }
+%}
+
 {SPACE} {}
 
 "[" { return T_LBRACKET; }
@@ -84,6 +93,7 @@ STRING2      ["]{STRING2_ELEMENT}*["]
 "!" { return T_EXCLAMATION_MARK; }
 "=" { return T_EQUALS; }
 "." { return T_DOT; }
+"/" { return T_SLASH; }
 
 "==" { return T_COMPARE_EQUAL; }
 "!=" { return T_COMPARE_NOT_EQUAL; }
@@ -92,11 +102,15 @@ STRING2      ["]{STRING2_ELEMENT}*["]
 "<=" { return T_COMPARE_LE; }
 ">=" { return T_COMPARE_GE; }
 
+"&&" { return T_LOGICAL_AND; }
+"||" { return T_LOGICAL_OR; }
+
 "@import" { return T_KEYWORD_IMPORT; }
 "url"     { return T_KEYWORD_URL; }
 "rgba"    { return T_KEYWORD_RGBA; }
 "rgb"     { return T_KEYWORD_RGB; }
 "set"     { return T_KEYWORD_SET; }
+"eval"    { return T_KEYWORD_EVAL; }
 
 "true" {
     yylval->boolVal = true;

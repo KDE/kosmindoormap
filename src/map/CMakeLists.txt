@@ -55,6 +55,7 @@ if (NOT BUILD_TOOLS_ONLY)
 
         style/mapcsscondition.cpp
         style/mapcssdeclaration.cpp
+        style/mapcssexpression.cpp
         style/mapcssparser.cpp
         style/mapcssparsercontext.cpp
         style/mapcssresult.cpp
@@ -62,6 +63,8 @@ if (NOT BUILD_TOOLS_ONLY)
         style/mapcssselector.cpp
         style/mapcssstate.cpp
         style/mapcssstyle.cpp
+        style/mapcssterm.cpp
+        style/mapcssvalue.cpp
         ${BISON_mapcssparser_OUTPUTS}
         ${FLEX_mapcssscanner_OUTPUTS}
     )

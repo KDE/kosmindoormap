@@ -8,10 +8,12 @@
 #include "mapcssparser_impl.h"
 #include "mapcssscanner.h"
 
+#include "style/mapcssexpression_p.h"
 #include "style/mapcssparsercontext_p.h"
 #include "style/mapcssrule_p.h"
 #include "style/mapcssselector_p.h"
 #include "style/mapcssstyle.h"
+#include "style/mapcssterm_p.h"
 
 void yyerror(YYLTYPE *loc, KOSMIndoorMap::MapCSSParserContext *context, yyscan_t scanner, char const* msg)
 {
@@ -34,6 +36,7 @@ class MapCSSDeclaration;
 class MapCSSParserContext;
 class MapCSSRule;
 class MapCSSStyle;
+class MapCSSTerm;
 
 struct StringRef {
     const char *str;
@@ -80,7 +83,11 @@ using namespace KOSMIndoorMap;
     MapCSSConditionHolder *conditionHolder;
     MapCSSCondition::Operator binaryOp;
     MapCSSDeclaration *declaration;
+    MapCSSTerm *term;
 }
+
+%token T_MAPCSS_START
+%token T_EVAL_EXPRESSION_START
 
 %token T_LBRACKET
 %token T_RBRACKET
@@ -99,17 +106,21 @@ using namespace KOSMIndoorMap;
 %token T_EXCLAMATION_MARK
 %token T_EQUALS
 %token T_DOT
+%token T_SLASH
 %token T_COMPARE_EQUAL
 %token T_COMPARE_NOT_EQUAL
 %token T_COMPARE_LT
 %token T_COMPARE_GT
 %token T_COMPARE_LE
 %token T_COMPARE_GE
+%token T_LOGICAL_AND
+%token T_LOGICAL_OR
 %token T_KEYWORD_IMPORT
 %token T_KEYWORD_URL
 %token T_KEYWORD_RGBA
 %token T_KEYWORD_RGB
 %token T_KEYWORD_SET
+%token T_KEYWORD_EVAL
 %token <strRef> T_IDENT
 %token <uintVal> T_HEX_COLOR
 %token <str> T_STRING
@@ -134,6 +145,9 @@ using namespace KOSMIndoorMap;
 %type <strRef> PropertyName
 %type <declaration> PropertyValue
 %type <doubleVal> DoubleValue
+%type <term> EvalExpression
+%type <term> EvalFunction
+%type <term> EvalArguments
 
 %destructor { free($$); } <str>
 %destructor { delete $$; } <rule>
@@ -141,12 +155,31 @@ using namespace KOSMIndoorMap;
 %destructor { delete $$; } <conditionHolder>
 %destructor { delete $$; } <condition>
 %destructor { delete $$; } <declaration>
+%destructor { delete $$; } <term>
+
+// precendence order from low to high
+%left T_DOT
+%nonassoc T_COMPARE_EQUAL T_COMPARE_NOT_EQUAL T_COMPARE_LT T_COMPARE_GT T_COMPARE_LE T_COMPARE_GE
+%left T_LOGICAL_OR
+%left T_LOGICAL_AND
+%left T_EXCLAMATION_MARK
+%left T_PLUS T_DASH
+%left T_STAR T_SLASH
 
 %verbose
 
 %%
 // see https://wiki.openstreetmap.org/wiki/MapCSS/0.2/BNF
+// Dummy start rule to allow multiple entry points
+// https://www.gnu.org/software/bison/manual/html_node/Multiple-start_002dsymbols.html
+Start:
+  T_MAPCSS_START Ruleset
+| T_EVAL_EXPRESSION_START EvalExpression[E] {
+    context->m_term = $E;
+  }
+;
 
+// see https://wiki.openstreetmap.org/wiki/MapCSS/0.2/BNF
 Ruleset:
   Rule
 | Ruleset Rule { Q_UNUSED($2); }
@@ -304,11 +337,21 @@ Key:
 
 Declarations:
   %empty { $$ = new MapCSSRule; }
-| Declarations Declaration { $$ = $1; $$->addDeclaration($2); }
+| Declarations Declaration {
+    $$ = $1;
+    if ($2) {
+        $$->addDeclaration($2);
+    }
+  }
 ;
 
 Declaration:
-  PropertyName T_COLON PropertyValue T_SEMICOLON { $$ = $3; $$->setPropertyName($1.str, $1.len); }
+  PropertyName T_COLON PropertyValue T_SEMICOLON {
+    $$ = $3;
+    if ($$) {
+        $$->setPropertyName($1.str, $1.len);
+    }
+  }
 | T_KEYWORD_SET Key[K] T_EQUALS T_STRING[V] T_SEMICOLON {
     $$ = new MapCSSDeclaration(MapCSSDeclaration::TagDeclaration);
     $$->setIdentifierValue($K.str, $K.len);
@@ -332,6 +375,22 @@ Declaration:
     $$ = new MapCSSDeclaration(MapCSSDeclaration::ClassDeclaration);
     $$->setClassSelectorKey(context->makeClassSelector($C.str, $C.len));
   }
+| T_KEYWORD_SET Key[K] T_EQUALS T_KEYWORD_EVAL T_LPAREN T_STRING[E] T_RPAREN T_SEMICOLON {
+    auto exp = MapCSSExpression::fromString($E);
+    free($E);
+    if (!exp.isValid()) {
+        qWarning() << "invalid string-wrapped eval expression"; // TODO error details propgation
+        YYABORT;
+    }
+    $$ = new MapCSSDeclaration(MapCSSDeclaration::TagDeclaration);
+    $$->setIdentifierValue($K.str, $K.len);
+    $$->m_evalExpression = std::move(exp);
+  }
+| T_KEYWORD_SET Key[K] T_EQUALS T_KEYWORD_EVAL T_LPAREN EvalFunction[E] T_RPAREN T_SEMICOLON {
+    $$ = new MapCSSDeclaration(MapCSSDeclaration::TagDeclaration);
+    $$->setIdentifierValue($K.str, $K.len);
+    $$->m_evalExpression = MapCSSExpression($E);
+  }
 ;
 
 PropertyName:
@@ -339,7 +398,7 @@ PropertyName:
 | T_IDENT T_DASH PropertyName { $$.str = $1.str; $$.len = $3.str - $1.str + $3.len; }
 ;
 
-// TODO incomplete: missing size, eval
+// TODO incomplete: missing size
 // TODO url does not preserve type, and argument quoting differs from spec
 PropertyValue:
   Key { $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration); $$->setIdentifierValue($1.str, $1.len); }
@@ -374,6 +433,20 @@ PropertyValue:
     $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration);
     $$->setBoolValue($B);
   }
+| T_KEYWORD_EVAL T_LPAREN T_STRING[E] T_RPAREN {
+    auto exp = MapCSSExpression::fromString($E);
+    free($E);
+    if (!exp.isValid()) {
+        qWarning() << "invalid string-wrapped eval expression"; // TODO error details propgation
+        YYABORT;
+    }
+    $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration);
+    $$->m_evalExpression = std::move(exp);
+  }
+| T_KEYWORD_EVAL T_LPAREN EvalFunction[E] T_RPAREN {
+    $$ = new MapCSSDeclaration(MapCSSDeclaration::PropertyDeclaration);
+    $$->m_evalExpression = MapCSSExpression($E);
+  }
 ;
 
 DoubleValue:
@@ -382,4 +455,98 @@ DoubleValue:
 | T_PLUS T_DOUBLE { $$ = $2; }
 ;
 
+EvalExpression:
+  T_STRING[S] {
+    $$ = new MapCSSTerm(MapCSSTerm::Literal);
+    $$->m_literal = MapCSSValue(QByteArray($S));
+    free($S);
+  }
+| T_DOUBLE[N] {
+    $$ = new MapCSSTerm(MapCSSTerm::Literal);
+    $$->m_literal = MapCSSValue($N);
+  }
+| T_BOOLEAN_LITERAL[B] {
+    $$ = new MapCSSTerm(MapCSSTerm::Literal);
+    $$->m_literal = MapCSSValue($B);
+  }
+| EvalFunction {
+    $$ = $1;
+  }
+| T_LPAREN EvalExpression[E] T_RPAREN {
+    $$ = $E;
+  }
+;
+
+EvalFunction:
+  T_IDENT[F] T_LPAREN EvalArguments[A] T_RPAREN {
+    $$ = $A;
+    $$->m_op = MapCSSTerm::parseOperation($F.str, $F.len);
+    if ($$->m_op == MapCSSTerm::Unknown) {
+        qWarning() << "eval expression with unknown function:" << QByteArrayView($F.str, $F.len);
+        YYABORT;
+    }
+    if (!$$->validChildCount()) {
+        qWarning() << "wrong number of arguments for function:" << QByteArrayView($F.str, $F.len);
+        YYABORT;
+    }
+  }
+| EvalExpression[OP1] T_PLUS EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::Addition, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_DASH EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::Subtraction, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_STAR EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::Multiplication, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_SLASH EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::Division, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_DOT EvalExpression[OP2] {
+    if ($OP1->m_op == MapCSSTerm::Concatenate) { // collapse chained dot operators
+        $$ = $OP1;
+        $$->addChildTerm($OP2);
+    } else {
+        $$ = new MapCSSTerm(MapCSSTerm::Concatenate, {$OP1, $OP2});
+    }
+  }
+| T_EXCLAMATION_MARK EvalExpression[OP] {
+    $$ = new MapCSSTerm(MapCSSTerm::LogicalNot, {$OP});
+  }
+| EvalExpression[OP1] T_LOGICAL_AND EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::LogicalAnd, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_LOGICAL_OR EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::LogicalOr, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_COMPARE_EQUAL EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::CompareEqual, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_COMPARE_NOT_EQUAL EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::CompareNotEqual, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_COMPARE_LT EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::CompareLess, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_COMPARE_GT EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::CompareGreater, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_COMPARE_LE EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::CompareLessOrEqual, {$OP1, $OP2});
+  }
+| EvalExpression[OP1] T_COMPARE_GE EvalExpression[OP2] {
+    $$ = new MapCSSTerm(MapCSSTerm::CompareGreaterOrEqual, {$OP1, $OP2});
+  }
+;
+
+EvalArguments:
+  EvalExpression[E] {
+    $$ = new MapCSSTerm;
+    $$->addChildTerm($E);
+  }
+| EvalArguments[A] T_COMMA EvalExpression[E] {
+    $$ = $A;
+    $$->addChildTerm($E);
+  }
+;
 %%
