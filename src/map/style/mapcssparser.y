@@ -259,6 +259,7 @@ Condition:
     $$->setKey($1.str, $1.len);
     $$->setOperation($2);
     $$->setValue($3, std::strlen($S));
+    free($S);
   }
 | Key BinaryOp DoubleValue {
     $$ = new MapCSSCondition;
