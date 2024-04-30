@@ -119,7 +119,7 @@ void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName, Cla
     m_importClass = importClass;
 
     yyscan_t scanner;
-    if (yylex_init(&scanner)) {
+    if (yylex_init_extra(this, &scanner)) {
         return;
     }
     const auto lexerCleanup = qScopeGuard([&scanner]{ yylex_destroy(scanner); });
@@ -137,53 +137,4 @@ void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName, Cla
     m_error = false;
     m_currentStyle = nullptr;
     m_importClass = {};
-}
-
-bool MapCSSParserPrivate::addImport(char* fileName, ClassSelectorKey importClass)
-{
-    auto cssFile = QString::fromUtf8(fileName);
-    free(fileName);
-
-    if (QFileInfo(cssFile).isRelative()) {
-        cssFile = QFileInfo(m_currentFileName).absolutePath() + QLatin1Char('/') + cssFile;
-    }
-
-    MapCSSParser p;
-    p.d->parse(m_currentStyle, cssFile, importClass);
-    if (p.hasError()) {
-        m_error = p.d->m_error;
-        m_errorMsg = p.errorMessage();
-    }
-    return !p.hasError();
-}
-
-void MapCSSParserPrivate::addRule(MapCSSRule *rule)
-{
-    if (!m_importClass.isNull()) {
-        auto decl = new MapCSSDeclaration(MapCSSDeclaration::ClassDeclaration);
-        decl->setClassSelectorKey(m_importClass);
-        rule->addDeclaration(decl);
-    }
-    MapCSSStylePrivate::get(m_currentStyle)->m_rules.push_back(std::unique_ptr<MapCSSRule>(rule));
-}
-
-void MapCSSParserPrivate::setError(const QString &msg, int line, int column)
-{
-    m_error = true;
-    m_errorMsg = msg;
-    m_line = line;
-    m_column = column;
-}
-
-ClassSelectorKey MapCSSParserPrivate::makeClassSelector(const char *str, std::size_t len) const
-{
-    return MapCSSStylePrivate::get(m_currentStyle)->m_classSelectorRegistry.makeKey(str, len, OSM::StringMemory::Transient);
-}
-
-LayerSelectorKey MapCSSParserPrivate::makeLayerSelector(const char *str, std::size_t len) const
-{
-    if (!str || std::strcmp(str, "default") == 0) {
-        return {};
-    }
-    return MapCSSStylePrivate::get(m_currentStyle)->m_layerSelectorRegistry.makeKey(str, len, OSM::StringMemory::Transient);
 }

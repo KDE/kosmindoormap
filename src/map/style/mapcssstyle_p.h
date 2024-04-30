@@ -7,6 +7,7 @@
 #ifndef KOSMINDOORMAP_MAPCSSSTYLE_P_H
 #define KOSMINDOORMAP_MAPCSSSTYLE_P_H
 
+#include "mapcssstyle.h"
 #include "mapcsstypes.h"
 
 #include <osm/element.h>

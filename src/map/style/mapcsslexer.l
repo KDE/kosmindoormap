@@ -6,6 +6,7 @@
 */
 
 #include "mapcssparser_impl.h"
+#include "style/mapcssparsercontext_p.h"
 #include "style/mapcssselector_p.h"
 
 // ### ugly workaround for locale-ignoring string to float conversion
@@ -40,6 +41,7 @@ using namespace KOSMIndoorMap;
 %option bison-bridge
 %option bison-locations
 %option yylineno
+%option extra-type="MapCSSParserContext*"
 
 INITIAL     [[:alpha:]]|"_"
 SUBSEQUENT  {INITIAL}|[0-9]

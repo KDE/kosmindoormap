@@ -56,6 +56,7 @@ if (NOT BUILD_TOOLS_ONLY)
         style/mapcsscondition.cpp
         style/mapcssdeclaration.cpp
         style/mapcssparser.cpp
+        style/mapcssparsercontext.cpp
         style/mapcssresult.cpp
         style/mapcssrule.cpp
         style/mapcssselector.cpp

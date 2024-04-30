@@ -8,16 +8,16 @@
 #include "mapcssparser_impl.h"
 #include "mapcssscanner.h"
 
-#include "style/mapcssparser_p.h"
+#include "style/mapcssparsercontext_p.h"
 #include "style/mapcssrule_p.h"
 #include "style/mapcssselector_p.h"
 #include "style/mapcssstyle.h"
 
-void yyerror(YYLTYPE *loc, KOSMIndoorMap::MapCSSParserPrivate *parser, yyscan_t scanner, char const* msg)
+void yyerror(YYLTYPE *loc, KOSMIndoorMap::MapCSSParserContext *context, yyscan_t scanner, char const* msg)
 {
     (void)scanner;
-    qWarning() << "PARSER ERROR:" << msg << "in" << parser->m_currentFileName << "line:" << loc->first_line << "column:" << loc->first_column;
-    parser->setError(QString::fromUtf8(msg), loc->first_line, loc->first_column);
+    qWarning() << "PARSER ERROR:" << msg << "in" << context->m_currentFileName << "line:" << loc->first_line << "column:" << loc->first_column;
+    context->setError(QString::fromUtf8(msg), loc->first_line, loc->first_column);
 }
 
 using namespace KOSMIndoorMap;
@@ -31,7 +31,7 @@ using namespace KOSMIndoorMap;
 
 namespace KOSMIndoorMap {
 class MapCSSDeclaration;
-class MapCSSParserPrivate;
+class MapCSSParserContext;
 class MapCSSRule;
 class MapCSSStyle;
 
@@ -61,7 +61,7 @@ using namespace KOSMIndoorMap;
 
 %locations
 %lex-param { yyscan_t scanner }
-%parse-param { KOSMIndoorMap::MapCSSParserPrivate *parser }
+%parse-param { KOSMIndoorMap::MapCSSParserContext *context }
 %parse-param { yyscan_t scanner }
 
 %union {
@@ -150,7 +150,7 @@ Ruleset:
 Rule:
   Selectors T_LBRACE Declarations T_RBRACE {
     $3->setSelector($1);
-    parser->addRule($3);
+    context->addRule($3);
     $$ = nullptr;
   }
 | Import { $$ = nullptr; }
@@ -158,12 +158,12 @@ Rule:
 
 Import:
   T_KEYWORD_IMPORT T_KEYWORD_URL T_LPAREN T_STRING[I] T_RPAREN T_SEMICOLON {
-    if (!parser->addImport($I, {})) {
+    if (!context->addImport($I, {})) {
         YYABORT;
     }
   }
 | T_KEYWORD_IMPORT T_KEYWORD_URL T_LPAREN T_STRING[I] T_RPAREN T_IDENT[C] T_SEMICOLON {
-    if (!parser->addImport($I, parser->makeClassSelector($C.str, $C.len))) {
+    if (!context->addImport($I, context->makeClassSelector($C.str, $C.len))) {
         YYABORT;
     }
   }
@@ -199,7 +199,7 @@ BasicSelector:
   T_IDENT[I] ClassSelector[C] ZoomRange[Z] Tests[T] PseudoClassSelector[P] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
     if ($C.str) {
-        $$->setClass(parser->makeClassSelector($C.str, $C.len));
+        $$->setClass(context->makeClassSelector($C.str, $C.len));
     }
     $$->setObjectType($I.str, $I.len);
     $$->setZoomRange($Z.low, $Z.high);
@@ -207,19 +207,19 @@ BasicSelector:
     if ($P.str) {
         $$->setPseudoClass($P.str, $P.len);
     }
-    $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
+    $$->setLayer(context->makeLayerSelector($L.str, $L.len));
   }
 | T_STAR ClassSelector[C] ZoomRange[Z] Tests[T] PseudoClassSelector[P] LayerSelector[L] {
     $$ = new MapCSSBasicSelector;
     if ($C.str) {
-        $$->setClass(parser->makeClassSelector($C.str, $C.len));
+        $$->setClass(context->makeClassSelector($C.str, $C.len));
     }
     $$->setZoomRange($Z.low, $Z.high);
     $$->setConditions($T);
     if ($P.str) {
         $$->setPseudoClass($P.str, $P.len);
     }
-    $$->setLayer(parser->makeLayerSelector($L.str, $L.len));
+    $$->setLayer(context->makeLayerSelector($L.str, $L.len));
   }
 ;
 
@@ -321,7 +321,7 @@ Declaration:
   }
 | T_KEYWORD_SET T_DOT T_IDENT[C] T_SEMICOLON {
     $$ = new MapCSSDeclaration(MapCSSDeclaration::ClassDeclaration);
-    $$->setClassSelectorKey(parser->makeClassSelector($C.str, $C.len));
+    $$->setClassSelectorKey(context->makeClassSelector($C.str, $C.len));
   }
 ;
 
