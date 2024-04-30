@@ -99,7 +99,12 @@ using namespace KOSMIndoorMap;
 %token T_EXCLAMATION_MARK
 %token T_EQUALS
 %token T_DOT
-%token <binaryOp> T_BINARY_OP
+%token T_COMPARE_EQUAL
+%token T_COMPARE_NOT_EQUAL
+%token T_COMPARE_LT
+%token T_COMPARE_GT
+%token T_COMPARE_LE
+%token T_COMPARE_GE
 %token T_KEYWORD_IMPORT
 %token T_KEYWORD_URL
 %token T_KEYWORD_RGBA
@@ -280,7 +285,11 @@ Condition:
 ;
 
 BinaryOp:
-  T_BINARY_OP { $$ = $1; }
+  T_COMPARE_NOT_EQUAL { $$ = MapCSSCondition::NotEqual; }
+| T_COMPARE_LT { $$ = MapCSSCondition::LessThan; }
+| T_COMPARE_GT { $$ = MapCSSCondition::GreaterThan; }
+| T_COMPARE_LE { $$ = MapCSSCondition::LessOrEqual; }
+| T_COMPARE_GE { $$ = MapCSSCondition::GreaterOrEqual; }
 | T_EQUALS    { $$ = MapCSSCondition::Equal; }
 
 LayerSelector:

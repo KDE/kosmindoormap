@@ -85,11 +85,12 @@ STRING2      ["]{STRING2_ELEMENT}*["]
 "=" { return T_EQUALS; }
 "." { return T_DOT; }
 
-"!=" { yylval->binaryOp = MapCSSCondition::NotEqual; return T_BINARY_OP; }
-"<"  { yylval->binaryOp = MapCSSCondition::LessThan; return T_BINARY_OP; }
-">"  { yylval->binaryOp = MapCSSCondition::GreaterThan; return T_BINARY_OP; }
-"<=" { yylval->binaryOp = MapCSSCondition::LessOrEqual; return T_BINARY_OP; }
-">=" { yylval->binaryOp = MapCSSCondition::GreaterOrEqual; return T_BINARY_OP; }
+"==" { return T_COMPARE_EQUAL; }
+"!=" { return T_COMPARE_NOT_EQUAL; }
+"<"  { return T_COMPARE_LT; }
+">"  { return T_COMPARE_GT; }
+"<=" { return T_COMPARE_LE; }
+">=" { return T_COMPARE_GE; }
 
 "@import" { return T_KEYWORD_IMPORT; }
 "url"     { return T_KEYWORD_URL; }
