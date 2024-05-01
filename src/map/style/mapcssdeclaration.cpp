@@ -5,8 +5,10 @@
 */
 
 #include "mapcssdeclaration_p.h"
+
 #include "logging.h"
 #include "mapcssproperty.h"
+#include "mapcssvalue_p.h"
 
 #include <QDebug>
 #include <QIODevice>
@@ -214,6 +216,11 @@ void MapCSSDeclaration::setBoolValue(bool val)
 bool MapCSSDeclaration::hasExpression() const
 {
     return m_evalExpression.isValid();
+}
+
+MapCSSValue MapCSSDeclaration::evaluateExpression(const MapCSSState &state, const MapCSSResultLayer &result) const
+{
+    return m_evalExpression.evaluate(state, result);
 }
 
 MapCSSProperty MapCSSDeclaration::propertyFromName(const char *name, std::size_t len)

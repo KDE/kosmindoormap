@@ -16,6 +16,7 @@
 #include "texturecache_p.h"
 #include "../style/mapcssdeclaration_p.h"
 #include "../style/mapcssstate_p.h"
+#include "../style/mapcssvalue_p.h"
 
 #include <KOSMIndoorMap/MapData>
 #include <KOSMIndoorMap/MapCSSResult>
@@ -336,7 +337,11 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
         }
 
         if (textDecl) {
-            if (!textDecl->keyValue().isEmpty()) {
+            if (textDecl->hasExpression()) {
+                MapCSSState state;
+                state.element = e;
+                text = QString::fromUtf8(textDecl->evaluateExpression(state, result).asString());
+            } else if (!textDecl->keyValue().isEmpty()) {
                 text = QString::fromUtf8(e.tagValue(d->m_langs, textDecl->keyValue().constData()));
             } else {
                 text = textDecl->stringValue();
