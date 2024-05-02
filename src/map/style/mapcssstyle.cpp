@@ -39,10 +39,8 @@ void MapCSSStyle::compile(const OSM::DataSet &dataSet)
     }
 }
 
-void MapCSSStyle::evaluate(MapCSSState &&state, MapCSSResult &result) const
+void MapCSSStyle::initializeState(MapCSSState &state) const
 {
-    result.clear();
-
     // determine object type of the input element
     // This involves tag lookups (and thus cost), but as long as there is at least
     // one area and one line selector for each zoom level this is break-even. In practice
@@ -72,6 +70,12 @@ void MapCSSStyle::evaluate(MapCSSState &&state, MapCSSResult &result) const
             state.objectType = state.element.tagValue(d->m_typeKey) == "multipolygon" ? MapCSSObjectType::Area : MapCSSObjectType::Relation;
             break;
     }
+}
+
+void MapCSSStyle::evaluate(MapCSSState &&state, MapCSSResult &result) const
+{
+    result.clear();
+    initializeState(state);
 
     for (const auto &rule : d->m_rules) {
         rule->evaluate(state, result);

@@ -49,9 +49,19 @@ public:
      */
     void compile(const OSM::DataSet &dataSet);
 
+    /** Initializes the evaluation state.
+     *  Call this on a MapCSSState instance for each element being evaluated.
+     *  The state object can be reused for multiple elements to reduce allocations.
+     *  The state object can also be reused for expression evaluations on the style
+     *  sheet evaluation result.
+     */
+    void initializeState(MapCSSState &state) const;
+
     /** Evaluates the style sheet for a given state @p state (OSM element, view state, element state, etc).
      *  The result is not returned but added to @p result for reusing allocated memory
      *  between evaluations.
+     *  @note @p state has to be initialized using MapCSSStyle initializeState() for this
+     *  to produce correct results.
      */
     void evaluate(MapCSSState &&state, MapCSSResult &result) const;
 
