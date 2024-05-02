@@ -4,6 +4,7 @@
 */
 
 #include <map/style/mapcssexpression_p.h>
+#include <map/style/mapcssexpressioncontext_p.h>
 #include <map/style/mapcssresult.h>
 #include <map/style/mapcssstate_p.h>
 #include <map/style/mapcssvalue_p.h>
@@ -60,7 +61,7 @@ private Q_SLOTS:
         MapCSSState state;
         state.element = OSM::Element(&node);
         MapCSSResultLayer cssResult;
-        QCOMPARE(exp.evaluate(state, cssResult).asString(), result.toUtf8());
+        QCOMPARE(exp.evaluate({state, cssResult}).asString(), result.toUtf8());
     }
 
     void testNumeric_data()
@@ -115,7 +116,7 @@ private Q_SLOTS:
 
         MapCSSState state;
         MapCSSResultLayer cssResult;
-        QCOMPARE(exp.evaluate(state, cssResult).asNumber(), result);
+        QCOMPARE(exp.evaluate({state, cssResult}).asNumber(), result);
     }
 
     void testBoolean_data()
@@ -176,7 +177,7 @@ private Q_SLOTS:
 
         MapCSSState state;
         MapCSSResultLayer cssResult;
-        QCOMPARE(exp.evaluate(state, cssResult).asBoolean(), result);
+        QCOMPARE(exp.evaluate({state, cssResult}).asBoolean(), result);
     }
 
     void testNone_data()
@@ -202,7 +203,7 @@ private Q_SLOTS:
 
         MapCSSState state;
         MapCSSResultLayer cssResult;
-        QVERIFY(exp.evaluate(state, cssResult).isNone());
+        QVERIFY(exp.evaluate({state, cssResult}).isNone());
     }
 
     void testInvalid_data()

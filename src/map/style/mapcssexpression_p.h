@@ -16,8 +16,7 @@ namespace OSM { class DataSet; }
 
 namespace KOSMIndoorMap {
 
-class MapCSSResultLayer;
-class MapCSSState;
+class MapCSSExpressionContext;
 class MapCSSTerm;
 class MapCSSValue;
 
@@ -43,7 +42,7 @@ public:
      *  - the currently evaluated element and view state
      *  - the style evaluation result
      */
-    [[nodiscard]] MapCSSValue evaluate(const MapCSSState &state, const MapCSSResultLayer &result) const;
+    [[nodiscard]] MapCSSValue evaluate(const MapCSSExpressionContext &context) const;
 
     /** Parse a stand-alone eval() expression. */
     // TODO error reporting

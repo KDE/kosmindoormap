@@ -17,8 +17,7 @@ namespace OSM { class DataSet; }
 
 namespace KOSMIndoorMap {
 
-class MapCSSResultLayer;
-class MapCSSState;
+class MapCSSExpressionContext;
 
 /** Part of a MapCSS eval() expression. */
 class MapCSSTerm {
@@ -96,7 +95,7 @@ public:
     void compile(const OSM::DataSet &dataSet);
 
     /** Evaluate this sub-expression under the given context. */
-    [[nodiscard]] MapCSSValue evaluate(const MapCSSState &state, const MapCSSResultLayer &result) const;
+    [[nodiscard]] MapCSSValue evaluate(const MapCSSExpressionContext &context) const;
 
     void write(QIODevice *out) const;
 

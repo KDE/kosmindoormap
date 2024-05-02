@@ -41,9 +41,9 @@ void MapCSSExpression::compile(const OSM::DataSet &dataSet)
     m_term->compile(dataSet);
 }
 
-MapCSSValue MapCSSExpression::evaluate(const MapCSSState &state, const MapCSSResultLayer &result) const
+MapCSSValue MapCSSExpression::evaluate(const MapCSSExpressionContext &context) const
 {
-    return m_term->evaluate(state, result);
+    return m_term->evaluate(context);
 }
 
 void MapCSSExpression::write(QIODevice *out) const

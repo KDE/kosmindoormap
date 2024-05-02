@@ -112,7 +112,7 @@ public:
     /** Property is a valid eval() expression. */
     [[nodiscard]] bool hasExpression() const;
     /** Evaluate the expression in this declaration. */
-    [[nodiscard]] MapCSSValue evaluateExpression(const MapCSSState &state, const MapCSSResultLayer &result) const;
+    [[nodiscard]] MapCSSValue evaluateExpression(const MapCSSExpressionContext &context) const;
 
     void compile(const OSM::DataSet &dataSet);
     void write(QIODevice *out) const;

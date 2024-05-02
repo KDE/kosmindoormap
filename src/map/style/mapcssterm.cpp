@@ -6,6 +6,7 @@
 #include "mapcssterm_p.h"
 
 #include "mapcssdeclaration_p.h"
+#include "mapcssexpressioncontext_p.h"
 #include "mapcssresult.h"
 #include "mapcssstate_p.h"
 #include "logging.h"
@@ -123,7 +124,7 @@ void MapCSSTerm::compile(const OSM::DataSet &dataSet)
     // TODO resolve property name in case of m_op == ReadProperty and m_children[0] being a constant expression
 }
 
-MapCSSValue MapCSSTerm::evaluate(const MapCSSState &state, const MapCSSResultLayer &result) const
+MapCSSValue MapCSSTerm::evaluate(const MapCSSExpressionContext &context) const
 {
     switch (m_op) {
         case Unknown:
@@ -132,56 +133,56 @@ MapCSSValue MapCSSTerm::evaluate(const MapCSSState &state, const MapCSSResultLay
             return m_literal;
 
         case Addition:
-            return m_children[0]->evaluate(state, result).asNumber() + m_children[1]->evaluate(state, result).asNumber();
+            return m_children[0]->evaluate(context).asNumber() + m_children[1]->evaluate(context).asNumber();
         case Subtraction:
-            return m_children[0]->evaluate(state, result).asNumber() - m_children[1]->evaluate(state, result).asNumber();
+            return m_children[0]->evaluate(context).asNumber() - m_children[1]->evaluate(context).asNumber();
         case Multiplication:
-            return m_children[0]->evaluate(state, result).asNumber() * m_children[1]->evaluate(state, result).asNumber();
+            return m_children[0]->evaluate(context).asNumber() * m_children[1]->evaluate(context).asNumber();
         case Division: {
-            const auto divisor = m_children[1]->evaluate(state, result);
+            const auto divisor = m_children[1]->evaluate(context);
             if (!divisor.isNone() && divisor.asNumber() != 0.0) {
-                return m_children[0]->evaluate(state, result).asNumber() / divisor.asNumber();
+                return m_children[0]->evaluate(context).asNumber() / divisor.asNumber();
             }
             return {};
         }
 
         case LogicalAnd:
-            return m_children[0]->evaluate(state, result).asBoolean() && m_children[1]->evaluate(state, result).asBoolean();
+            return m_children[0]->evaluate(context).asBoolean() && m_children[1]->evaluate(context).asBoolean();
         case LogicalOr:
-            return m_children[0]->evaluate(state, result).asBoolean() || m_children[1]->evaluate(state, result).asBoolean();
+            return m_children[0]->evaluate(context).asBoolean() || m_children[1]->evaluate(context).asBoolean();
         case LogicalNot:
-            return !m_children[0]->evaluate(state, result).asBoolean();
+            return !m_children[0]->evaluate(context).asBoolean();
 
         case CompareEqual:
-            return m_children[0]->evaluate(state, result).compareEqual(m_children[1]->evaluate(state, result));
+            return m_children[0]->evaluate(context).compareEqual(m_children[1]->evaluate(context));
         case CompareNotEqual:
-            return !m_children[0]->evaluate(state, result).compareEqual(m_children[1]->evaluate(state, result));
+            return !m_children[0]->evaluate(context).compareEqual(m_children[1]->evaluate(context));
         case CompareLess:
-            return m_children[0]->evaluate(state, result).asNumber() < m_children[1]->evaluate(state, result).asNumber();
+            return m_children[0]->evaluate(context).asNumber() < m_children[1]->evaluate(context).asNumber();
         case CompareGreater:
-            return m_children[0]->evaluate(state, result).asNumber() > m_children[1]->evaluate(state, result).asNumber();
+            return m_children[0]->evaluate(context).asNumber() > m_children[1]->evaluate(context).asNumber();
         case CompareLessOrEqual:
-            return m_children[0]->evaluate(state, result).asNumber() <= m_children[1]->evaluate(state, result).asNumber();
+            return m_children[0]->evaluate(context).asNumber() <= m_children[1]->evaluate(context).asNumber();
         case CompareGreaterOrEqual:
-            return m_children[0]->evaluate(state, result).asNumber() >= m_children[1]->evaluate(state, result).asNumber();
+            return m_children[0]->evaluate(context).asNumber() >= m_children[1]->evaluate(context).asNumber();
 
         case NumericalCast:
-            return m_children[0]->evaluate(state, result).asNumber();
+            return m_children[0]->evaluate(context).asNumber();
         case StringCast:
-            return m_children[0]->evaluate(state, result).asString();
+            return m_children[0]->evaluate(context).asString();
         case BooleanCast:
-            return m_children[0]->evaluate(state, result).asBoolean();
+            return m_children[0]->evaluate(context).asBoolean();
 
         case Conditional:
-            if (m_children[0]->evaluate(state, result).asBoolean()) {
-                return m_children[1]->evaluate(state, result);
+            if (m_children[0]->evaluate(context).asBoolean()) {
+                return m_children[1]->evaluate(context);
             } else {
-                return m_children[2]->evaluate(state, result);
+                return m_children[2]->evaluate(context);
             }
             break;
         case Any: {
             for (const auto &child : m_children) {
-                auto r = child->evaluate(state, result);
+                auto r = child->evaluate(context);
                 if (!r.isNone()) {
                     return r;
                 }
@@ -193,40 +194,40 @@ MapCSSValue MapCSSTerm::evaluate(const MapCSSState &state, const MapCSSResultLay
         {
             QByteArray s;
             for (const auto &child : m_children) {
-                s += child->evaluate(state, result).asString();
+                s += child->evaluate(context).asString();
             }
             return s;
         }
 
         case Integer: {
-            const auto i = (int)m_children[0]->evaluate(state, result).asNumber();
+            const auto i = (int)m_children[0]->evaluate(context).asNumber();
             return (double)i;
         }
         case Maximum: {
             double r = std::numeric_limits<double>::lowest();
             for (const auto &child : m_children) {
-                r = std::max(r, child->evaluate(state, result).asNumber());
+                r = std::max(r, child->evaluate(context).asNumber());
             }
             return r;
         }
         case Minimum: {
             double r = std::numeric_limits<double>::max();
             for (const auto &child : m_children) {
-                r = std::min(r, child->evaluate(state, result).asNumber());
+                r = std::min(r, child->evaluate(context).asNumber());
             }
             return r;
         }
         case Sqrt:
-            return std::sqrt(m_children[0]->evaluate(state, result).asNumber());
+            return std::sqrt(m_children[0]->evaluate(context).asNumber());
 
         case Metric:
         case ZMetric:
-            return m_children[0]->evaluate(state, result); // our unit handling should deal with this already
+            return m_children[0]->evaluate(context); // our unit handling should deal with this already
 
         case ReadProperty: {
-            const auto propName = m_children[0]->evaluate(state, result).asString();
+            const auto propName = m_children[0]->evaluate(context).asString();
             const auto prop = MapCSSDeclaration::propertyFromName(propName.constData(), propName.size());
-            const auto decl = result.declaration(prop);
+            const auto decl = context.result.declaration(prop);
             if (!decl || !decl->isValid()) {
                 return {};
             }
@@ -237,7 +238,7 @@ MapCSSValue MapCSSTerm::evaluate(const MapCSSState &state, const MapCSSResultLay
             return decl->stringValue().toUtf8(); // TODO support other property types
         }
         case ReadTag:
-            return state.element.tagValue(m_children[0]->evaluate(state, result).asString().constData());
+            return context.state.element.tagValue(m_children[0]->evaluate(context).asString().constData());
     }
 
     return {};

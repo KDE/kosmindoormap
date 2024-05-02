@@ -218,9 +218,9 @@ bool MapCSSDeclaration::hasExpression() const
     return m_evalExpression.isValid();
 }
 
-MapCSSValue MapCSSDeclaration::evaluateExpression(const MapCSSState &state, const MapCSSResultLayer &result) const
+MapCSSValue MapCSSDeclaration::evaluateExpression(const MapCSSExpressionContext &context) const
 {
-    return m_evalExpression.evaluate(state, result);
+    return m_evalExpression.evaluate(context);
 }
 
 MapCSSProperty MapCSSDeclaration::propertyFromName(const char *name, std::size_t len)
