@@ -56,6 +56,7 @@ public:
 
         // string functions
         Concatenate,
+        Replace, // JOSM extension
 
         // numerical functions
         Integer,

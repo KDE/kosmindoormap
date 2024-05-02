@@ -46,6 +46,7 @@ struct {
     { "min", MapCSSTerm::Minimum },
     { "num", MapCSSTerm::NumericalCast },
     { "prop", MapCSSTerm::ReadProperty },
+    { "replace", MapCSSTerm::Replace },
     { "sqrt", MapCSSTerm::Sqrt },
     { "str", MapCSSTerm::StringCast },
     { "tag", MapCSSTerm::ReadTag },
@@ -95,6 +96,7 @@ struct {
     { 1, std::numeric_limits<uint16_t>::max() },
     // string functions
     { 2, std::numeric_limits<uint16_t>::max() },
+    { 3, 3 },
     // numerical functions
     { 1, 1 },
     { 2, std::numeric_limits<uint16_t>::max() },
@@ -198,6 +200,8 @@ MapCSSValue MapCSSTerm::evaluate(const MapCSSExpressionContext &context) const
             }
             return s;
         }
+        case Replace:
+            return m_children[0]->evaluate(context).asString().replace(m_children[1]->evaluate(context).asString(), m_children[2]->evaluate(context).asString());
 
         case Integer: {
             const auto i = (int)m_children[0]->evaluate(context).asNumber();

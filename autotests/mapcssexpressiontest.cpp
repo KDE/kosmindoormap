@@ -42,6 +42,8 @@ private Q_SLOTS:
         QTest::newRow("any3") << "any(\"\", \"\", \"KDE\")" << "KDE";
 
         QTest::newRow("tag") << "tag(\"name\")" << "M2 Building";
+
+        QTest::newRow("replace") << "replace(\"B2;B5\", \";\", '\\n')" << "B2\nB5";
     }
 
     void testString()
