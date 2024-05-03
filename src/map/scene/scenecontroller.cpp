@@ -228,7 +228,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     d->m_styleSheet->initializeState(state);
     d->m_styleSheet->evaluate(state, d->m_styleResult);
     for (const auto &result : d->m_styleResult.results()) {
-        updateElement(e, level, sg, result);
+        updateElement(state, level, sg, result);
     }
 }
 
@@ -237,25 +237,25 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     return std::any_of(s.begin(), s.end(), [](QChar c) { return !c.isLetter(); });
 }
 
-void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultLayer &result) const
+void SceneController::updateElement(const MapCSSState &state, int level, SceneGraph &sg, const MapCSSResultLayer &result) const
 {
     if (result.hasAreaProperties()) {
         PolygonBaseItem *item = nullptr;
         std::unique_ptr<SceneGraphItemPayload> baseItem;
-        if (e.type() == OSM::Type::Relation && e.tagValue(d->m_typeTag) == "multipolygon") {
-            baseItem = sg.findOrCreatePayload<MultiPolygonItem>(e, level, result.layerSelector());
+        if (state.element.type() == OSM::Type::Relation && state.element.tagValue(d->m_typeTag) == "multipolygon") {
+            baseItem = sg.findOrCreatePayload<MultiPolygonItem>(state.element, level, result.layerSelector());
             auto i = static_cast<MultiPolygonItem*>(baseItem.get());
             if (i->path.isEmpty()) {
-                i->path = createPath(e, d->m_labelPlacementPath);
+                i->path = createPath(state.element, d->m_labelPlacementPath);
             } else if (result.hasLabelProperties()) {
                 SceneGeometry::outerPolygonFromPath(i->path, d->m_labelPlacementPath);
             }
             item = i;
         } else {
-            baseItem = sg.findOrCreatePayload<PolygonItem>(e, level, result.layerSelector());
+            baseItem = sg.findOrCreatePayload<PolygonItem>(state.element, level, result.layerSelector());
             auto i = static_cast<PolygonItem*>(baseItem.get());
             if (i->polygon.isEmpty()) {
-                i->polygon = createPolygon(e);
+                i->polygon = createPolygon(state.element);
             }
             d->m_labelPlacementPath = i->polygon;
             item = i;
@@ -270,8 +270,8 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
         initializePen(item->casingPen);
         for (auto decl : result.declarations()) {
             applyGenericStyle(decl, item);
-            applyPenStyle(e, decl, item->pen, lineOpacity, item->penWidthUnit);
-            applyCasingPenStyle(e, decl, item->casingPen, casingOpacity, item->casingPenWidthUnit);
+            applyPenStyle(state.element, decl, item->pen, lineOpacity, item->penWidthUnit);
+            applyCasingPenStyle(state.element, decl, item->casingPen, casingOpacity, item->casingPenWidthUnit);
             switch (decl->property()) {
                 case MapCSSProperty::FillColor:
                     item->fillBrush.setColor(decl->colorValue());
@@ -306,12 +306,12 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             item->textureBrush.setStyle(Qt::NoBrush);
         }
 
-        addItem(sg, e, level, result, std::move(baseItem));
+        addItem(sg, state.element, level, result, std::move(baseItem));
     } else if (result.hasLineProperties()) {
-        auto baseItem = sg.findOrCreatePayload<PolylineItem>(e, level, result.layerSelector());
+        auto baseItem = sg.findOrCreatePayload<PolylineItem>(state.element, level, result.layerSelector());
         auto item = static_cast<PolylineItem*>(baseItem.get());
         if (item->path.isEmpty()) {
-            item->path = createPolygon(e);
+            item->path = createPolygon(state.element);
         }
 
         double lineOpacity = 1.0;
@@ -321,14 +321,14 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
         initializePen(item->casingPen);
         for (auto decl : result.declarations()) {
             applyGenericStyle(decl, item);
-            applyPenStyle(e, decl, item->pen, lineOpacity, item->penWidthUnit);
-            applyCasingPenStyle(e, decl, item->casingPen, casingOpacity, item->casingPenWidthUnit);
+            applyPenStyle(state.element, decl, item->pen, lineOpacity, item->penWidthUnit);
+            applyCasingPenStyle(state.element, decl, item->casingPen, casingOpacity, item->casingPenWidthUnit);
         }
         finalizePen(item->pen, lineOpacity);
         finalizePen(item->casingPen, casingOpacity);
 
         d->m_labelPlacementPath = item->path;
-        addItem(sg, e, level, result, std::move(baseItem));
+        addItem(sg, state.element, level, result, std::move(baseItem));
     }
 
     if (result.hasLabelProperties()) {
@@ -340,11 +340,9 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
 
         if (textDecl) {
             if (textDecl->hasExpression()) {
-                MapCSSState state;
-                state.element = e;
                 text = QString::fromUtf8(textDecl->evaluateExpression({state, result}).asString());
             } else if (!textDecl->keyValue().isEmpty()) {
-                text = QString::fromUtf8(e.tagValue(d->m_langs, textDecl->keyValue().constData()));
+                text = QString::fromUtf8(state.element.tagValue(d->m_langs, textDecl->keyValue().constData()));
             } else {
                 text = textDecl->stringValue();
             }
@@ -353,7 +351,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
         const auto iconDecl = result.declaration(MapCSSProperty::IconImage);
 
         if (!text.isEmpty() || iconDecl) {
-            auto baseItem = sg.findOrCreatePayload<LabelItem>(e, level, result.layerSelector());
+            auto baseItem = sg.findOrCreatePayload<LabelItem>(state.element, level, result.layerSelector());
             auto item = static_cast<LabelItem*>(baseItem.get());
             item->text.setText(text);
             item->textIsSet = !text.isEmpty();
@@ -424,16 +422,16 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                         break;
                     case MapCSSProperty::IconImage:
                         if (!decl->keyValue().isEmpty()) {
-                            iconData.name = QString::fromUtf8(e.tagValue(decl->keyValue().constData()));
+                            iconData.name = QString::fromUtf8(state.element.tagValue(decl->keyValue().constData()));
                         } else {
                             iconData.name = decl->stringValue();
                         }
                         break;
                     case MapCSSProperty::IconHeight:
-                        item->iconSize.setHeight(PenWidthUtil::penWidth(e, decl, item->iconHeightUnit));
+                        item->iconSize.setHeight(PenWidthUtil::penWidth(state.element, decl, item->iconHeightUnit));
                         break;
                     case MapCSSProperty::IconWidth:
-                        item->iconSize.setWidth(PenWidthUtil::penWidth(e, decl, item->iconWidthUnit));
+                        item->iconSize.setWidth(PenWidthUtil::penWidth(state.element, decl, item->iconWidthUnit));
                         break;
                     case MapCSSProperty::IconColor:
                     {
@@ -474,7 +472,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
                     item->pos = SceneGeometry::polylineMidPoint(d->m_labelPlacementPath);
                 }
                 if (item->pos.isNull()) {
-                    item->pos = d->m_view->mapGeoToScene(e.center()); // node or something failed above
+                    item->pos = d->m_view->mapGeoToScene(state.element.center()); // node or something failed above
                 }
             }
 
@@ -538,7 +536,7 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg, c
             }
 
             if (!item->icon.isNull() || !item->text.text().isEmpty()) {
-                addItem(sg, e, level, result, std::move(baseItem));
+                addItem(sg, state.element, level, result, std::move(baseItem));
             }
         }
     }

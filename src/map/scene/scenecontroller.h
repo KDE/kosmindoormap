@@ -28,6 +28,7 @@ class MapData;
 class MapCSSDeclaration;
 class MapCSSResultLayer;
 class MapCSSStyle;
+class MapCSSState;
 class SceneControllerPrivate;
 class SceneGraph;
 class View;
@@ -58,7 +59,7 @@ public:
 private:
     void updateCanvas(SceneGraph &sg) const;
     void updateElement(OSM::Element e, int level, SceneGraph &sg) const;
-    void updateElement(OSM::Element e, int level, SceneGraph &sg, const MapCSSResultLayer &result) const;
+    void updateElement(const MapCSSState &state, int level, SceneGraph &sg, const MapCSSResultLayer &result) const;
 
     [[nodiscard]] QPolygonF createPolygon(OSM::Element e) const;
     [[nodiscard]] QPainterPath createPath(OSM::Element e, QPolygonF &outerPath) const;
