@@ -218,7 +218,8 @@ void RoomModel::populateModel()
 
             MapCSSState filterState;
             filterState.element = e;
-            m_style.evaluate(std::move(filterState), filterResult);
+            m_style.initializeState(filterState);
+            m_style.evaluate(filterState, filterResult);
 
             const auto &res = filterResult[{}];
             if (auto prop = res.declaration(MapCSSProperty::Opacity); !prop || prop->doubleValue() < 1.0) {

@@ -225,7 +225,8 @@ void SceneController::updateElement(OSM::Element e, int level, SceneGraph &sg) c
     state.floorLevel = d->m_view->level();
     state.openingHours = &d->m_openingHours;
     state.state = d->m_hoverElement == e ? MapCSSElementState::Hovered : MapCSSElementState::NoState;
-    d->m_styleSheet->evaluate(std::move(state), d->m_styleResult);
+    d->m_styleSheet->initializeState(state);
+    d->m_styleSheet->evaluate(state, d->m_styleResult);
     for (const auto &result : d->m_styleResult.results()) {
         updateElement(e, level, sg, result);
     }

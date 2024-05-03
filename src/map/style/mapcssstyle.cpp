@@ -72,10 +72,9 @@ void MapCSSStyle::initializeState(MapCSSState &state) const
     }
 }
 
-void MapCSSStyle::evaluate(MapCSSState &&state, MapCSSResult &result) const
+void MapCSSStyle::evaluate(const MapCSSState &state, MapCSSResult &result) const
 {
     result.clear();
-    initializeState(state);
 
     for (const auto &rule : d->m_rules) {
         rule->evaluate(state, result);

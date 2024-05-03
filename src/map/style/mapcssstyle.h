@@ -63,7 +63,7 @@ public:
      *  @note @p state has to be initialized using MapCSSStyle initializeState() for this
      *  to produce correct results.
      */
-    void evaluate(MapCSSState &&state, MapCSSResult &result) const;
+    void evaluate(const MapCSSState &state, MapCSSResult &result) const;
 
     /** Evaluate canvas style rules. */
     void evaluateCanvas(const MapCSSState &state, MapCSSResult &result) const;
