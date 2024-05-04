@@ -39,6 +39,7 @@ private Q_SLOTS:
 
         QTest::newRow("0;2-3") << "0;2-3" << LV{0,20,30};
         QTest::newRow("0;2-3;5") << "0;2-3;5" << LV{0,20,30,50};
+        QTest::newRow("-1;0;1;2") << "-1;0;1;2" << LV{-10,0,10,20};
 
         // invalid but we have workarounds for this
         QTest::newRow("1,5") << "1,5" << LV{15};

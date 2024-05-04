@@ -238,20 +238,20 @@ void MapData::processElements()
 
         // element with explicit level specified
         auto level = e.tagValue(levelTag);
-        if (level.isEmpty()) {
-            level = e.tagValue(repeatOnTag);
-        }
-        if (!level.isEmpty()) { // level-less -> outdoor
+        auto repeatOn = e.tagValue(repeatOnTag);
+        if (level.isEmpty() && repeatOn.isEmpty()) {
+            // no level information available
+            d->m_levelMap[MapLevel{}].push_back(e);
+            if (isDependentElement) {
+                d->m_dependentElementCounts[MapLevel{}]++;
+            }
+        } else {
             LevelParser::parse(std::move(level), e, [this, isDependentElement](int level, OSM::Element e) {
                 addElement(level, e, isDependentElement);
             });
-            return;
-        }
-
-        // no level information available
-        d->m_levelMap[MapLevel{}].push_back(e);
-        if (isDependentElement) {
-            d->m_dependentElementCounts[MapLevel{}]++;
+            LevelParser::parse(std::move(repeatOn), e, [this, isDependentElement](int level, OSM::Element e) {
+                addElement(level, e, isDependentElement);
+            });
         }
     });
 }

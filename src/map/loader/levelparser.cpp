@@ -53,7 +53,7 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
             continue;
         }
 
-        if (c == QLatin1Char('-')) {
+        if (c == '-') {
             if (numStartIdx < 0) {
                 numStartIdx = i;
             } else {
