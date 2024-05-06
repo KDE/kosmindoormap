@@ -9,17 +9,15 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kosmindoorrouting
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: root
 
     property var routingProfile
     signal applyRoutingProfile()
 
-    header: Kirigami.Heading {
-        text: i18n("Configure Routing Profile")
-    }
+    title: i18n("Configure Routing Profile")
 
-    Kirigami.FormLayout {
+    contentItem: Kirigami.FormLayout {
         Layout.preferredWidth: Kirigami.Units.gridUnit * 25
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
@@ -94,30 +92,32 @@ Kirigami.OverlaySheet {
         }
     }
 
-    footer: QQC2.Button {
-        text: i18n("Apply")
-        icon.name: "dialog-ok-apply"
-        onClicked: {
-            root.routingProfile.flags = AreaFlag.Walkable;
-            if (stairFlag.checked)
-                root.routingProfile.flags |= AreaFlag.Stairs;
-            if (escalatorFlag.checked)
-                root.routingProfile.flags |= AreaFlag.Escalator;
-            if (elevatorFlag.checked)
-                root.routingProfile.flags |= AreaFlag.Elevator;
+    customFooterActions: [
+        Kirigami.Action {
+            text: i18n("Apply")
+            icon.name: "dialog-ok-apply"
+            onTriggered: {
+                root.routingProfile.flags = AreaFlag.Walkable;
+                if (stairFlag.checked)
+                    root.routingProfile.flags |= AreaFlag.Stairs;
+                if (escalatorFlag.checked)
+                    root.routingProfile.flags |= AreaFlag.Escalator;
+                if (elevatorFlag.checked)
+                    root.routingProfile.flags |= AreaFlag.Elevator;
 
-            root.routingProfile.setCost(AreaType.Stairs, stairCost.text);
-            root.routingProfile.setCost(AreaType.Elevator, elevatorCost.text);
-            root.routingProfile.setCost(AreaType.Escalator, escalatorCost.text);
-            root.routingProfile.setCost(AreaType.MovingWalkway, movingWalkwayCost.text);
-            root.routingProfile.setCost(AreaType.TactilePaving, tactilePavingCost.text);
-            root.routingProfile.setCost(AreaType.StreetCrossing, streetCrossingCost.text);
-            root.routingProfile.setCost(AreaType.Ramp, rampCost.text);
-            root.routingProfile.setCost(AreaType.Room, roomCost.text);
-            root.routingProfile.setCost(AreaType.Walkable, walkingCost.text);
+                root.routingProfile.setCost(AreaType.Stairs, stairCost.text);
+                root.routingProfile.setCost(AreaType.Elevator, elevatorCost.text);
+                root.routingProfile.setCost(AreaType.Escalator, escalatorCost.text);
+                root.routingProfile.setCost(AreaType.MovingWalkway, movingWalkwayCost.text);
+                root.routingProfile.setCost(AreaType.TactilePaving, tactilePavingCost.text);
+                root.routingProfile.setCost(AreaType.StreetCrossing, streetCrossingCost.text);
+                root.routingProfile.setCost(AreaType.Ramp, rampCost.text);
+                root.routingProfile.setCost(AreaType.Room, roomCost.text);
+                root.routingProfile.setCost(AreaType.Walkable, walkingCost.text);
 
-            root.close()
-            root.applyRoutingProfile()
+                root.close()
+                root.applyRoutingProfile()
+            }
         }
-    }
+    ]
 }
