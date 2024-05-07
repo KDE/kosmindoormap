@@ -9,7 +9,6 @@
         <file>ExampleLocationModel.qml</file>
         <file>IndoorMapAmenityDelegate.qml</file>
         <file>IndoorMapInfoSheet.qml</file>
-        <file>IndoorMapInfoSheetOpeningHoursDelegate.qml</file>
         <file>IndoorMapPage.qml</file>
         <file>SelectLocationSheet.qml</file>
     </qresource>

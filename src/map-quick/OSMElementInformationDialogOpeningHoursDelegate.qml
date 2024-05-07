@@ -1,6 +1,5 @@
 /*
     SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
-
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
@@ -10,18 +9,29 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kopeninghours
 
+/** OSM element info dialog delegate for graphically displaying opening hours. */
 ColumnLayout {
     id: root
-    property var model
-    property var mapData
 
-    property var oh: {
-        var v = OpeningHoursParser.parse(model.value);
-        v.region = root.mapData.regionCode;
-        v.timeZone = root.mapData.timeZone;
-        v.setLocation(root.mapData.center.y, root.mapData.center.x);
+    /** The opening hours expression to display. */
+    property string openingHours
+    /** The ISO 3166-1/2 region code of the location the opening hours expression should be evaluated. */
+    property string regionCode
+    /** The IANA timezone identifier of the timezone in which the opening hours expression should be evaluated. */
+    property string timeZoneId
+    /** The latitude of the location the opening hours expression refers to. */
+    property double latitude: NaN
+    /** The longitude of the location the opening hours expression refers to. */
+    property double longitude: NaN
+
+    // internal
+    readonly property var oh: {
+        var v = OpeningHoursParser.parse(root.openingHours);
+        v.region = root.regionCode;
+        v.timeZone = root.timeZoneId;
+        v.setLocation(root.latitude, root.longitude);
         if (v.error != OpeningHours.NoError) {
-            console.log("Opening hours parsing error:", v.error, root.mapData.region, root.mapData.timeZone)
+            console.log("Opening hours parsing error:", v.error, root.regionCode, root.timeZoneId)
         }
         return v;
     }
@@ -70,7 +80,7 @@ ColumnLayout {
                             return "transparent";
                         }
                         width: {
-                            var ratio = (interval.estimatedEnd - interval.begin) / (24 * 60 * 60 * 1000);
+                            const ratio = (interval.estimatedEnd - interval.begin + interval.dstOffset * 1000) / (24 * 60 * 60 * 1000);
                             return ratio * (delegateRoot.ListView.view.width - delegateRoot.ListView.view.labelWidth - Kirigami.Units.smallSpacing);
                         }
                         height: Kirigami.Units.gridUnit
@@ -147,6 +157,6 @@ ColumnLayout {
     QQC2.Label {
         id: fallbackLabel
         visible: !intervalView.visible
-        text: model.value.replace(/;\s*/g, "\n")
+        text: root.openingHours.replace(/;\s*/g, "\n")
     }
 }
