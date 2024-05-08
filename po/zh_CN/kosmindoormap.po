@@ -324,12 +324,9 @@ msgid "Computer"
 msgstr "电脑店"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "电脑店"
+msgstr ""
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -337,12 +334,9 @@ msgid "Confectionery"
 msgstr "糖果店"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Convenience Store"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "便利店"
+msgstr ""
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"

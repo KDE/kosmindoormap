@@ -119,12 +119,9 @@ msgid "Attraction"
 msgstr "Atrakce"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "Akvárium"
+msgstr ""
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -327,12 +324,9 @@ msgid "Computer"
 msgstr "Počítač"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "Počítač"
+msgstr ""
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -340,12 +334,9 @@ msgid "Confectionery"
 msgstr "Konfekce"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "Konferenční centrum"
+msgstr ""
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -889,11 +880,9 @@ msgid "Train Station"
 msgstr "Vlakové nádraží"
 
 #: map-quick/localization_data.cpp:190
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "Popis"
+msgstr ""
 
 #: map-quick/localization_data.cpp:191
 msgctxt "OSM::amenity/shop"
@@ -2230,4 +2219,4 @@ msgstr ""
 #: map-quick/roommodel.cpp:130
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "Patro %1"
