@@ -33,6 +33,8 @@ enum class RecastPartitionType {
 
 constexpr inline RecastPartitionType RECAST_PARTITION_TYPE = RecastPartitionType::Watershed;
 
+constexpr inline int RECAST_TILE_SIZE = 1024;
+
 // if this is too small findPath() will returns DT_OUT_OF_NODES
 constexpr inline int  RECAST_NAV_QUERY_MAX_NODES = 8192;
 

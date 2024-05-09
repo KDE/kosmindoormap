@@ -43,6 +43,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+class rcContext;
+
 namespace KOSMIndoorRouting {
 
 enum class LinkDirection { Forward, Backward, Bidirectional };
@@ -86,6 +88,7 @@ public:
     void addOffMeshConnection(float x1, float y1, float z1, float x2, float y2, float z2, LinkDirection linkDir, AreaType areaType);
 
     void buildNavMesh();
+    [[nodiscard]] bool buildNavMeshTile(rcContext *ctx, int tx, int ty, NavMeshPrivate *result);
 
     void writeGsetFile();
     void writeObjFile();
@@ -797,54 +800,123 @@ void NavMeshBuilderPrivate::buildNavMesh()
     rcCalcGridSize(bmin, bmax, RECAST_CELL_SIZE, &width, &height);
     qCDebug(Log) << width << "x" << height << "cells";
 
-    const auto walkableHeight = (int)std::ceil(RECAST_AGENT_HEIGHT / RECAST_CELL_HEIGHT);
-    const auto walkableClimb = (int)std::floor(RECAST_AGENT_MAX_CLIMB/ RECAST_CELL_HEIGHT);
-    const auto walkableRadius = (int)std::ceil(RECAST_AGENT_RADIUS / RECAST_CELL_SIZE);
+    const auto tileWidth = (width + RECAST_TILE_SIZE - 1) / RECAST_TILE_SIZE;
+    const auto tileHeight = (height + RECAST_TILE_SIZE - 1) / RECAST_TILE_SIZE;
+    qCDebug(Log) << tileWidth << "x" << tileHeight << "tiles";
 
-    // step 2: build input polygons
-    rcHeightfieldPtr solid(rcAllocHeightfield());
-    if (!rcCreateHeightfield(&ctx, *solid, width, height, bmin, bmax, RECAST_CELL_SIZE, RECAST_CELL_HEIGHT)) {
-        qCWarning(Log) << "Failed to create solid heightfield.";
+    // from Sample_TileMesh.cpp of Recast:
+    // Max tiles and max polys affect how the tile IDs are caculated.
+    // There are 22 bits available for identifying a tile and a polygon.
+    const auto tileBits = std::min<int>(std::ceil(std::log2(tileWidth * tileHeight)), 14);
+    const auto polyBits = 22 - tileBits;
+    qCDebug(Log) << "using" << tileBits << "bits for tiles and" << polyBits << "bits for polygons";
+
+    result->m_navMesh.reset(dtAllocNavMesh());
+    {
+        dtNavMeshParams params;
+        rcVcopy(params.orig, bmin);
+        params.tileWidth = RECAST_TILE_SIZE * RECAST_CELL_SIZE;
+        params.tileHeight = RECAST_TILE_SIZE * RECAST_CELL_SIZE;
+        params.maxTiles = (1 << tileBits);
+        params.maxPolys = (1 << polyBits);
+
+        result->m_navMesh->init(&params);
+    }
+
+    for (int tx = 0; tx < tileWidth; ++tx) {
+        for (int ty = 0; ty < tileHeight; ++ty) {
+            if (!buildNavMeshTile(&ctx, tx, ty, result)) {
+                return;
+            }
+        }
+    }
+
+    result->m_navMeshQuery.reset(dtAllocNavMeshQuery());
+    const auto status = result->m_navMeshQuery->init(result->m_navMesh.get(), RECAST_NAV_QUERY_MAX_NODES);
+    if (dtStatusFailed(status)) {
+        qCWarning(Log) << "Failed to init dtNavMeshQuery";
         return;
     }
 
-    if (!rcRasterizeTriangles(&ctx, m_verts.data(), numVerts(), m_tris.data(), m_triAreaIds.data(), numTris(), *solid, walkableClimb)) {
+    m_navMesh = std::move(resultData);
+    qCDebug(Log) << "done";
+#endif
+}
+
+bool NavMeshBuilderPrivate::buildNavMeshTile(rcContext *ctx, int tx, int ty, NavMeshPrivate *result)
+{
+    qCDebug(Log) << "  building tile" << tx << ty;
+
+    const auto walkableHeight = (int)std::ceil(RECAST_AGENT_HEIGHT / RECAST_CELL_HEIGHT);
+    const auto walkableClimb = (int)std::floor(RECAST_AGENT_MAX_CLIMB/ RECAST_CELL_HEIGHT);
+    const auto walkableRadius = (int)std::ceil(RECAST_AGENT_RADIUS / RECAST_CELL_SIZE);
+    const auto borderSize = (float)walkableRadius + 3.0f;
+
+    // tile boundaries
+    auto bmin = m_transform.mapGeoHeightToNav(m_data.boundingBox().min, std::prev(m_data.levelMap().end())->first.numericLevel());
+    bmin.x += (float)tx * RECAST_TILE_SIZE * RECAST_CELL_SIZE;
+    bmin.z += (float)ty * RECAST_TILE_SIZE * RECAST_CELL_SIZE;
+
+    auto bmax = m_transform.mapGeoHeightToNav(m_data.boundingBox().max, m_data.levelMap().begin()->first.numericLevel());
+    bmax.x = std::min(bmax.x, bmin.x + RECAST_TILE_SIZE * RECAST_CELL_SIZE);
+    bmax.z = std::min(bmax.z, bmin.z + RECAST_TILE_SIZE * RECAST_CELL_SIZE);
+
+    // expand tile to slightly overlap with neighboring tiles for get things to connect properly
+    bmin.x -= borderSize * RECAST_CELL_SIZE;
+    bmin.z -= borderSize * RECAST_CELL_SIZE;
+    bmax.x += borderSize * RECAST_CELL_SIZE;
+    bmax.z += borderSize * RECAST_CELL_SIZE;
+
+#if HAVE_RECAST
+    // step 1: setup
+    int width = 0;
+    int height = 0;
+    rcCalcGridSize(bmin, bmax, RECAST_CELL_SIZE, &width, &height);
+
+    // step 2: build input polygons
+    rcHeightfieldPtr solid(rcAllocHeightfield());
+    if (!rcCreateHeightfield(ctx, *solid, width, height, bmin, bmax, RECAST_CELL_SIZE, RECAST_CELL_HEIGHT)) {
+        qCWarning(Log) << "Failed to create solid heightfield.";
+        return false;
+    }
+
+    if (!rcRasterizeTriangles(ctx, m_verts.data(), numVerts(), m_tris.data(), m_triAreaIds.data(), numTris(), *solid, walkableClimb)) {
         qCWarning(Log) << "Failed to rasterize triangles";
-        return;
+        return false;
     }
 
     // step 3: filter walkable sufaces
 
-    rcFilterLowHangingWalkableObstacles(&ctx, walkableClimb, *solid);
-    rcFilterLedgeSpans(&ctx, walkableHeight, walkableClimb, *solid);
-    rcFilterWalkableLowHeightSpans(&ctx, walkableHeight, *solid);
+    rcFilterLowHangingWalkableObstacles(ctx, walkableClimb, *solid);
+    rcFilterLedgeSpans(ctx, walkableHeight, walkableClimb, *solid);
+    rcFilterWalkableLowHeightSpans(ctx, walkableHeight, *solid);
 
     // step 4: partition surface into regions
     rcCompactHeightfieldPtr chf(rcAllocCompactHeightfield());
-    if (!rcBuildCompactHeightfield(&ctx, walkableHeight, walkableClimb, *solid, *chf)) {
+    if (!rcBuildCompactHeightfield(ctx, walkableHeight, walkableClimb, *solid, *chf)) {
         qCWarning(Log) << "Failed to build compact height field.";
-        return;
+        return false;
     }
     solid.reset();
 
-    if (!rcErodeWalkableArea(&ctx, walkableRadius, *chf)) {
+    if (!rcErodeWalkableArea(ctx, walkableRadius, *chf)) {
         qCWarning(Log) << "Failed to erode walkable area";
-        return;
+        return false;
     }
 
     if constexpr (RECAST_PARTITION_TYPE == RecastPartitionType::Monotone) {
-        if (!rcBuildRegionsMonotone(&ctx, *chf, 0, (int)std::pow(RECAST_REGION_MIN_AREA, 2.0), (int)std::pow(RECAST_REGION_MERGE_AREA, 2.0))) {
+        if (!rcBuildRegionsMonotone(ctx, *chf, (int)borderSize, (int)std::pow(RECAST_REGION_MIN_AREA, 2.0), (int)std::pow(RECAST_REGION_MERGE_AREA, 2.0))) {
             qCWarning(Log) << "Failed to build monotone regions";
-            return;
+            return false;
         }
     } else if constexpr (RECAST_PARTITION_TYPE == RecastPartitionType::Watershed) {
-        if (!rcBuildDistanceField(&ctx, *chf)) {
+        if (!rcBuildDistanceField(ctx, *chf)) {
             qCWarning(Log) << "Failed to build distance field.";
-            return;
+            return false;
         }
-        if (!rcBuildRegions(&ctx, *chf, 0, (int)std::pow(RECAST_REGION_MIN_AREA, 2.0), (int)std::pow(RECAST_REGION_MERGE_AREA, 2.0))) {
+        if (!rcBuildRegions(ctx, *chf, (int)borderSize, (int)std::pow(RECAST_REGION_MIN_AREA, 2.0), (int)std::pow(RECAST_REGION_MERGE_AREA, 2.0))) {
             qCWarning(Log) << "Failed to build watershed regions.";
-            return;
+            return false;
         }
     } else {
         static_assert("partition type not yet implemented");
@@ -852,16 +924,20 @@ void NavMeshBuilderPrivate::buildNavMesh()
 
     // step 5: create contours
     rcContourSetPtr cset(rcAllocContourSet());
-    if (!rcBuildContours(&ctx, *chf, RECAST_MAX_SIMPLIFICATION_ERROR, RECAST_MAX_EDGE_LEN / RECAST_CELL_SIZE, *cset)) {
+    if (!rcBuildContours(ctx, *chf, RECAST_MAX_SIMPLIFICATION_ERROR, RECAST_MAX_EDGE_LEN / RECAST_CELL_SIZE, *cset)) {
         qCWarning(Log) << "Failed to create contours.";
-        return;
+        return false;
     }
 
     // step 6: create polygon mesh from countours
     rcPolyMeshPtr pmesh(rcAllocPolyMesh());
-    if (!rcBuildPolyMesh(&ctx, *cset, DT_VERTS_PER_POLYGON, *pmesh)) {
+    if (!rcBuildPolyMesh(ctx, *cset, DT_VERTS_PER_POLYGON, *pmesh)) {
         qCWarning(Log) << "Failed to triangulate contours";
-        return;
+        return false;
+    }
+    if (pmesh->npolys == 0) {
+        qCDebug(Log) << "skipping empty tile"; // TODO can we do this even earlier?
+        return true;
     }
 
 #if 0
@@ -873,9 +949,9 @@ void NavMeshBuilderPrivate::buildNavMesh()
 
     // step 7: create detail mesh
     rcPolyMeshDetailPtr dmesh(rcAllocPolyMeshDetail());
-    if (!rcBuildPolyMeshDetail(&ctx, *pmesh, *chf, RECAST_DETAIL_SAMPLE_DIST * RECAST_CELL_SIZE, RECAST_DETAIL_SAMPLE_MAX_ERROR * RECAST_CELL_HEIGHT, *dmesh)) {
+    if (!rcBuildPolyMeshDetail(ctx, *pmesh, *chf, RECAST_DETAIL_SAMPLE_DIST * RECAST_CELL_SIZE, RECAST_DETAIL_SAMPLE_MAX_ERROR * RECAST_CELL_HEIGHT, *dmesh)) {
         qCWarning(Log) << "Failed to build detail mesh";
-        return;
+        return false;
     }
     chf.reset();
     cset.reset();
@@ -912,6 +988,9 @@ void NavMeshBuilderPrivate::buildNavMesh()
     params.walkableHeight = RECAST_AGENT_HEIGHT;
     params.walkableRadius = RECAST_AGENT_RADIUS;
     params.walkableClimb = RECAST_AGENT_MAX_CLIMB;
+    params.tileX = tx;
+    params.tileY = ty;
+    params.tileLayer = 0;
     rcVcopy(params.bmin, pmesh->bmin);
     rcVcopy(params.bmax, pmesh->bmax);
     params.cs = RECAST_CELL_SIZE;
@@ -919,29 +998,21 @@ void NavMeshBuilderPrivate::buildNavMesh()
     params.buildBvTree = true;
 
     if (!dtCreateNavMeshData(&params, &navData, &navDataSize)) {
-        qCWarning(Log) << "dtCreateNavMeshData failed";
-        return;
+        qCWarning(Log) << "dtCreateNavMeshData failed"; // TODO error propagation
+        return false;
     }
     std::unique_ptr<uint8_t> navDataPtr(navData);
 
-    result->m_navMesh.reset(dtAllocNavMesh());
-    auto status = result->m_navMesh->init(navData, navDataSize, DT_TILE_FREE_DATA);
+    result->m_navMesh->removeTile(result->m_navMesh->getTileRefAt(tx, ty, 0), {}, nullptr);
+    auto status = result->m_navMesh->addTile(navData, navDataSize, DT_TILE_FREE_DATA, {}, nullptr);
     if (dtStatusFailed(status)) {
-        qCWarning(Log) << "Fail to init dtNavMesh";
-        return;
+        qCWarning(Log) << "Failed to add tile to dtNavMesh";
+        return false;
     }
 
-    result->m_navMeshQuery.reset(dtAllocNavMeshQuery());
-    status = result->m_navMeshQuery->init(result->m_navMesh.get(), RECAST_NAV_QUERY_MAX_NODES);
-    if (dtStatusFailed(status)) {
-        qCWarning(Log) << "Failed to init dtNavMeshQuery";
-        return;
-    }
-    (void)navDataPtr.release(); // managed by navMeshQuery now
-
-    m_navMesh = std::move(resultData);
-    qCDebug(Log) << "done";
+    (void)navDataPtr.release(); // managed by navMesh now
 #endif
+    return true;
 }
 
 NavMesh NavMeshBuilder::navMesh() const
