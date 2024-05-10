@@ -10,6 +10,8 @@
 
 #include <memory>
 
+class QString;
+
 namespace KOSMIndoorRouting {
 
 class NavMeshTransform;
@@ -35,6 +37,12 @@ public:
     void clear();
 
     [[nodiscard]] NavMeshTransform transform() const;
+
+    /** Write nav mesh data to the given file.
+     *  Uses the file format used by the Recast demo, so this is primarily
+     *  for debugging.
+     */
+    void writeToFile(const QString &fileName) const;
 
 private:
     friend class NavMeshPrivate;

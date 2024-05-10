@@ -3,6 +3,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include <KOSMIndoorRouting/NavMesh>
 #include <KOSMIndoorRouting/NavMeshBuilder>
 
 #include <KOSMIndoorMap/EquipmentModel>
@@ -56,6 +57,9 @@ int main(int argc, char **argv)
     navMeshBuilder.setEquipmentModel(&equipmentModel);
     navMeshBuilder.writeDebugNavMesh(parser.value(outputOpt) + QLatin1Char('/') + parser.value(nameOpt) + QLatin1String(".gset"), parser.value(outputOpt) + QLatin1Char('/') + parser.value(nameOpt) + QLatin1String(".obj"));
     navMeshBuilder.start();
-    QObject::connect(&navMeshBuilder, &NavMeshBuilder::finished, &app, &QCoreApplication::quit);
+    QObject::connect(&navMeshBuilder, &NavMeshBuilder::finished, &app, [&] {
+        navMeshBuilder.navMesh().writeToFile(parser.value(outputOpt) + QLatin1Char('/') + parser.value(nameOpt) + QLatin1String(".bin"));
+        QCoreApplication::quit();
+    });
     QCoreApplication::exec();
 }
