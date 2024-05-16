@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kopeninghours
 import org.kde.kosmindoormap
 
+/** Delegate for use on an AmenityModel. */
 QQC2.ItemDelegate {
     id: root
     required property string name
@@ -18,8 +19,9 @@ QQC2.ItemDelegate {
     required property string cuisine
     required property string fallbackName
     required property string openingHours
-
-    required property var mapData
+    required property point coordinate
+    required property string timeZone
+    required property string regionCode
 
     required property int index // for Kirigami
 
@@ -28,11 +30,11 @@ QQC2.ItemDelegate {
 
     property var oh: {
         let v = OpeningHoursParser.parse(root.openingHours);
-        v.region = root.mapData.regionCode;
-        v.timeZone = root.mapData.timeZone;
-        v.setLocation(root.mapData.center.y, root.mapData.center.x);
+        v.region = root.regionCode;
+        v.timeZone = root.timeZone;
+        v.setLocation(root.coordinate.y, root.coordinate.x);
         if (v.error != OpeningHours.Null && v.error != OpeningHours.NoError) {
-            console.log("Opening hours parsing error:", v.error, root.mapData.region, root.mapData.timeZone)
+            console.log("Opening hours parsing error:", root.openingHours, v.error, root.regionCode, root.timeZone)
         }
         return v;
     }

@@ -39,6 +39,8 @@ public:
         CuisineRole, ///< details on entries in the FoodGroup
         FallbackNameRole, ///< Brand/operator/network name, better than nothing but not the first choice to display
         OpeningHoursRole, ///< opening hours expression
+        TimeZoneRole, ///< IANA timezone id this amenity is in (relevant for opening hours interpretation)
+        RegionCodeRole, ///< ISO 3166-1/2 code of the region this amenity is in (relevant for opening hours interpretation)
     };
     Q_ENUM(Role)
 

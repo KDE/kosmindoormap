@@ -339,7 +339,6 @@ Kirigami.ApplicationWindow {
 
                 delegate: IndoorMapAmenityDelegate {
                     id: item
-                    mapData: page.map.mapData
                     required property QtObject model
                     onClicked: {
                         page.map.view.floorLevel = item.model.level

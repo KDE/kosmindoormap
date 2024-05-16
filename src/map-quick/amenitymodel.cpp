@@ -19,6 +19,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QPointF>
+#include <QTimeZone>
 
 #include <limits>
 
@@ -148,6 +149,10 @@ QVariant AmenityModel::data(const QModelIndex &index, int role) const
             return QString::fromUtf8(entry.element.tagValue(m_langs, "brand", "operator", "network"));
         case OpeningHoursRole:
             return QString::fromUtf8(entry.element.tagValue("opening_hours"));
+        case TimeZoneRole:
+            return QString::fromUtf8(m_data.timeZone().id());
+        case RegionCodeRole:
+            return m_data.regionCode();
     }
 
     return {};
@@ -167,6 +172,8 @@ QHash<int, QByteArray> AmenityModel::roleNames() const
     r.insert(CuisineRole, "cuisine");
     r.insert(FallbackNameRole, "fallbackName");
     r.insert(OpeningHoursRole, "openingHours");
+    r.insert(TimeZoneRole, "timeZone");
+    r.insert(RegionCodeRole, "regionCode");
     return r;
 }
 
