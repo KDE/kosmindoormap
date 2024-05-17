@@ -14,6 +14,8 @@
 #include <KOSMIndoorMap/MapCSSParser>
 #include <KOSMIndoorMap/MapCSSResult>
 
+#include <KCountry>
+#include <KCountrySubdivision>
 #include <KLocalizedString>
 
 #include <QDebug>
@@ -152,6 +154,15 @@ QVariant AmenityModel::data(const QModelIndex &index, int role) const
         case TimeZoneRole:
             return QString::fromUtf8(m_data.timeZone().id());
         case RegionCodeRole:
+            if (m_data.regionCode().size() > 3) {
+                return m_data.regionCode();
+            }
+            if (const auto subdiv = KCountrySubdivision::fromLocation((float)entry.element.center().latF(), (float)entry.element.center().lonF()); subdiv.isValid()) {
+                return subdiv.code();
+            }
+            if (const auto c = KCountry::fromLocation((float)entry.element.center().latF(), (float)entry.element.center().lonF()); c.isValid()) {
+                return c.alpha2();
+            }
             return m_data.regionCode();
     }
 
