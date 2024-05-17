@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:37+0000\n"
+"POT-Creation-Date: 2024-05-17 00:38+0000\n"
 "PO-Revision-Date: 2024-02-11 01:01+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -25,37 +25,37 @@ msgstr ""
 msgid "KDE OSM Indoor Map"
 msgstr "KDE OSM 실내 지도"
 
-#: map-quick/amenitymodel.cpp:86
+#: map-quick/amenitymodel.cpp:87
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
 msgstr "식품과 음료"
 
-#: map-quick/amenitymodel.cpp:88
+#: map-quick/amenitymodel.cpp:89
 #, kde-format
 msgctxt "amenity category"
 msgid "Shops"
 msgstr "가게"
 
-#: map-quick/amenitymodel.cpp:90
+#: map-quick/amenitymodel.cpp:91
 #, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "화장실"
 
-#: map-quick/amenitymodel.cpp:92
+#: map-quick/amenitymodel.cpp:93
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
 msgstr "건강 관리"
 
-#: map-quick/amenitymodel.cpp:94
+#: map-quick/amenitymodel.cpp:95
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
 msgstr "시설"
 
-#: map-quick/amenitymodel.cpp:96
+#: map-quick/amenitymodel.cpp:97
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"
