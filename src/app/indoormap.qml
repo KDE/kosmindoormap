@@ -337,7 +337,7 @@ Kirigami.ApplicationWindow {
                     }
                 }
 
-                delegate: IndoorMapAmenityDelegate {
+                delegate: AmenityListDelegate {
                     id: item
                     required property QtObject model
                     onClicked: {
