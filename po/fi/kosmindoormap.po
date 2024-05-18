@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-17 00:38+0000\n"
+"POT-Creation-Date: 2024-05-18 00:37+0000\n"
 "PO-Revision-Date: 2023-09-27 18:38+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -22,37 +22,37 @@ msgstr ""
 msgid "KDE OSM Indoor Map"
 msgstr "KDE:n OSM-sisätilakartta"
 
-#: map-quick/amenitymodel.cpp:87
+#: map-quick/amenitymodel.cpp:89
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
 msgstr "Ruoka ja juoma"
 
-#: map-quick/amenitymodel.cpp:89
+#: map-quick/amenitymodel.cpp:91
 #, kde-format
 msgctxt "amenity category"
 msgid "Shops"
 msgstr "Kaupat"
 
-#: map-quick/amenitymodel.cpp:91
+#: map-quick/amenitymodel.cpp:93
 #, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Vessat"
 
-#: map-quick/amenitymodel.cpp:93
+#: map-quick/amenitymodel.cpp:95
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
 msgstr "Terveydenhoito"
 
-#: map-quick/amenitymodel.cpp:95
+#: map-quick/amenitymodel.cpp:97
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
 msgstr ""
 
-#: map-quick/amenitymodel.cpp:97
+#: map-quick/amenitymodel.cpp:99
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"

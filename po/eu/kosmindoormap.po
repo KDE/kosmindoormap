@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-17 00:38+0000\n"
+"POT-Creation-Date: 2024-05-18 00:37+0000\n"
 "PO-Revision-Date: 2024-01-16 01:09+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -25,37 +25,37 @@ msgstr ""
 msgid "KDE OSM Indoor Map"
 msgstr "KDE OSM barruko mapa"
 
-#: map-quick/amenitymodel.cpp:87
+#: map-quick/amenitymodel.cpp:89
 #, kde-format
 msgctxt "amenity category"
 msgid "Food & Drinks"
 msgstr "Jatekoa eta edatekoak"
 
-#: map-quick/amenitymodel.cpp:89
+#: map-quick/amenitymodel.cpp:91
 #, kde-format
 msgctxt "amenity category"
 msgid "Shops"
 msgstr "Dendak"
 
-#: map-quick/amenitymodel.cpp:91
+#: map-quick/amenitymodel.cpp:93
 #, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Komunak"
 
-#: map-quick/amenitymodel.cpp:93
+#: map-quick/amenitymodel.cpp:95
 #, kde-format
 msgctxt "amenity category"
 msgid "Healthcare"
 msgstr "Osasun-laguntza"
 
-#: map-quick/amenitymodel.cpp:95
+#: map-quick/amenitymodel.cpp:97
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
 msgstr "Zerbitzuak"
 
-#: map-quick/amenitymodel.cpp:97
+#: map-quick/amenitymodel.cpp:99
 #, kde-format
 msgctxt "amenity category"
 msgid "Accommodations"
