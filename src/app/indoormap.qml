@@ -305,55 +305,14 @@ Kirigami.ApplicationWindow {
             mapData: page.map.mapData
         }
 
-        Kirigami.Dialog {
+        AmenitySearchDialog {
             id: amenitySheet
-            title: i18nc("@title", "Find Amenity")
-
-            width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
-            height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
-
-            contentItem: ListView {
-                clip: true
-                model: AmenitySortFilterProxyModel {
-                    id: amenitySortModel
-                    sourceModel: amenitySheet.visible ? amenityModel : null
-                    filterCaseSensitivity: Qt.CaseInsensitive
-                }
-
-                header: QQC2.Control {
-                    property alias searchText: amenitySearchField.text
-                    width: parent.width
-                    contentItem: Kirigami.SearchField {
-                        id: amenitySearchField
-
-                        Connections {
-                            target: amenitySheet
-                            function onVisibleChanged() {
-                                amenitySearchField.text = "";
-                            }
-                        }
-                        onTextChanged: amenitySortModel.filterString = text
-                        focus: true
-                    }
-                }
-
-                delegate: AmenityListDelegate {
-                    id: item
-                    required property QtObject model
-                    onClicked: {
-                        page.map.view.floorLevel = item.model.level
-                        page.map.view.centerOnGeoCoordinate(item.model.coordinate);
-                        page.map.view.setZoomLevel(21, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
-                        console.log(item.model.element.url);
-                        amenitySheet.close();
-                    }
-                }
-
-                section.property: "groupName"
-                section.delegate: Kirigami.ListSectionHeader {
-                    label: section
-                    width: ListView.view.width
-                }
+            amenityModel: amenityModel
+            onAmenitySelected: (amenity) => {
+                page.map.view.floorLevel = amenity.level;
+                page.map.view.setZoomLevel(21, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
+                page.map.view.centerOnGeoCoordinate(amenity.element.center);
+                console.log(amenity.element.url);
             }
         }
 

@@ -24,7 +24,7 @@ if (ANDROID)
     # explicitly add runtime dependencies and transitive link dependencies,
     # so androiddeployqt picks them up
     target_link_libraries(kosmindoormap-app PRIVATE
-        KF6::Kirigami2
+        KF6::Kirigami
         Qt::Svg
         OpenSSL::SSL
         Qt::QuickControls2

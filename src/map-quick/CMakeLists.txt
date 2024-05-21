@@ -35,6 +35,7 @@ ecm_add_qml_module(kosmindoormapquickplugin
     URI "org.kde.kosmindoormap"
     QML_FILES
         AmenityListDelegate.qml
+        AmenitySearchDialog.qml
         IndoorMap.qml
         IndoorMapAttributionLabel.qml
         IndoorMapScale.qml
