@@ -33,6 +33,12 @@ QString OSMElement::url() const
     return m_element.url();
 }
 
+QPointF OSMElement::center() const
+{
+    const auto c = m_element.center();
+    return {c.lonF(), c.latF() };
+}
+
 QString OSMElement::tagValue(const QString &key) const
 {
     return QString::fromUtf8(m_element.tagValue(key.toUtf8().constData()));

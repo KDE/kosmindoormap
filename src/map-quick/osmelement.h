@@ -10,6 +10,7 @@
 #include <osm/element.h>
 
 #include <QMetaType>
+#include <QPointF>
 #include <QUrl>
 
 namespace KOSMIndoorMap {
@@ -22,6 +23,7 @@ class OSMElement
     Q_PROPERTY(QString name READ name)
     Q_PROPERTY(QString url READ url)
     Q_PROPERTY(OSM::Element element READ element)
+    Q_PROPERTY(QPointF center READ center)
 public:
     OSMElement();
     explicit OSMElement(OSM::Element e);
@@ -30,6 +32,7 @@ public:
     [[nodiscard]] bool isNull() const;
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString url() const;
+    [[nodiscard]] QPointF center() const;
 
     [[nodiscard]] Q_INVOKABLE QString tagValue(const QString &key) const;
 
