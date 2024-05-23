@@ -411,7 +411,11 @@ void PainterRenderer::renderLabel(LabelItem *item, SceneGraphItemPayload::Render
             haloPainter.setFont(item->font);
             auto haloTextRect = box;
             haloTextRect.moveTopLeft({item->haloRadius, item->haloRadius});
-            haloPainter.drawStaticText(haloTextRect.topLeft(), item->text);
+            if (!item->isComplexText) {
+                haloPainter.drawStaticText(haloTextRect.topLeft(), item->text);
+            } else {
+                haloPainter.drawText(haloTextRect, item->text.text(), item->text.textOption());
+            }
             StackBlur::blur(haloBuffer, item->haloRadius);
             haloPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
             haloPainter.fillRect(haloBuffer.rect(), item->haloColor);
@@ -421,7 +425,11 @@ void PainterRenderer::renderLabel(LabelItem *item, SceneGraphItemPayload::Render
         // draw text
         m_painter->setPen(item->color);
         m_painter->setFont(item->font);
-        m_painter->drawStaticText(box.topLeft(), item->text);
+        if (!item->isComplexText) {
+            m_painter->drawStaticText(box.topLeft(), item->text);
+        } else {
+            m_painter->drawText(box, item->text.text(), item->text.textOption());
+        }
     }
 
     m_painter->restore();

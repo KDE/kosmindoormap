@@ -187,6 +187,7 @@ public:
     bool iconHidden : 1 = false;
     bool textHidden : 1 = false;
     bool textIsSet : 1 = false;
+    bool isComplexText : 1 = false; // means: don't render QStaticText
 };
 
 

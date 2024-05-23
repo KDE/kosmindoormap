@@ -34,6 +34,8 @@
 #include <QGuiApplication>
 #include <QPalette>
 
+using namespace Qt::Literals::StringLiterals;
+
 namespace KOSMIndoorMap {
 class SceneControllerPrivate
 {
@@ -510,6 +512,11 @@ void SceneController::updateElement(const MapCSSState &state, int level, SceneGr
                 opt.setAlignment(Qt::AlignHCenter);
                 opt.setWrapMode(item->text.textWidth() > 0.0 ? QTextOption::WordWrap : QTextOption::NoWrap);
                 item->text.setTextOption(opt);
+
+                if (item->text.text().contains('\n'_L1) || item->text.textWidth() > 0) {
+                    item->isComplexText = true;
+                }
+
                 // do not use QStaticText::prepare here:
                 // the vast majority of text items will likely not be shown at all for being overlapped or out of view
                 // and pre-computing them is too expensive. Instead this will happen as needed on first use, for only
