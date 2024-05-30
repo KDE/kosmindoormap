@@ -30,7 +30,7 @@ ColumnLayout {
         v.region = root.regionCode;
         v.timeZone = root.timeZoneId;
         v.setLocation(root.latitude, root.longitude);
-        if (v.error != OpeningHours.NoError) {
+        if (v.error != OpeningHours.NoError && root.openingHours !== "") {
             console.log("Opening hours parsing error:", v.error, root.regionCode, root.timeZoneId)
         }
         return v;

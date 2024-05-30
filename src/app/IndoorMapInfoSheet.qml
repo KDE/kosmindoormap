@@ -36,42 +36,24 @@ Kirigami.Dialog {
 
         Component {
             id: infoStringDelegate
-            RowLayout {
+            OSMElementInformationDialogStringDelegate {
                 x: Kirigami.Units.largeSpacing
                 width: parent.ListView.view.width - 2 * x
-                QQC2.Label {
-                    visible: row && row.keyLabel != ""
-                    text: row ? row.keyLabel + ":" : ""
-                    color: (row && row.category == OSMElementInformationModel.DebugCategory) ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-                    Layout.alignment: Qt.AlignTop
-                }
-                QQC2.Label {
-                    text: row ? row.value : ""
-                    color: (row && row.category == OSMElementInformationModel.DebugCategory) ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                }
+                keyLabel: row?.keyLabel ?? ""
+                value: row?.value ?? ""
+                category: row?.category ?? -1
             }
         }
 
         Component {
             id: infoLinkDelegate
-            RowLayout {
+            OSMElementInformationDialogLinkDelegate {
                 x: Kirigami.Units.largeSpacing
                 width: parent.ListView.view.width - 2 * x
-                QQC2.Label {
-                    visible: row && row.keyLabel != ""
-                    text: row ? row.keyLabel + ":" : ""
-                    color: (row && row.category == OSMElementInformationModel.DebugCategory) ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-                    Layout.alignment: Qt.AlignTop
-                }
-                QQC2.Label {
-                    text: row ? "<a href=\"" + row.url + "\">" + row.value + "</a>" : ""
-                    color: (row && row.category == OSMElementInformationModel.DebugCategory) ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-                    onLinkActivated: Qt.openUrlExternally(link)
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                }
+                keyLabel: row?.keyLabel ?? ""
+                value: row?.value ?? ""
+                category: row?.category ?? -1
+                url: row?.url ?? ""
             }
         }
 
@@ -93,7 +75,7 @@ Kirigami.Dialog {
                 timeZoneId: elementDetailsSheet.mapData.timeZone
                 latitude: elementDetailsSheet.mapData.center.y
                 longitude: elementDetailsSheet.mapData.center.x
-                openingHours: row.value
+                openingHours: row?.value ?? ""
             }
         }
 
