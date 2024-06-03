@@ -47,7 +47,8 @@ Kirigami.Page {
     IndoorMapInfoSheet {
         id: elementDetailsSheet
         model: infoModel
-        mapData: page.map.mapData
+        regionCode: page.map.mapData.regionCode
+        timeZone: page.map.mapData.timeZone
     }
 
     FloorLevelChangeModel {

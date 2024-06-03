@@ -14,8 +14,9 @@ import org.kde.osm.editorcontroller
 Kirigami.Dialog {
     id: elementDetailsSheet
 
-    property var model
-    property var mapData
+    required property var model
+    required property string regionCode
+    required property string timeZone
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
     height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
@@ -71,10 +72,10 @@ Kirigami.Dialog {
             OSMElementInformationDialogOpeningHoursDelegate {
                 x: Kirigami.Units.largeSpacing
                 width: parent.ListView.view.width - 2 * x
-                regionCode: elementDetailsSheet.mapData.regionCode
-                timeZoneId: elementDetailsSheet.mapData.timeZone
-                latitude: elementDetailsSheet.mapData.center.y
-                longitude: elementDetailsSheet.mapData.center.x
+                regionCode: elementDetailsSheet.regionCode
+                timeZoneId: elementDetailsSheet.timeZone
+                latitude: elementDetailsSheet.model.element?.center.y ?? NaN
+                longitude: elementDetailsSheet.model.element?.center.x ?? NaN
                 openingHours: row?.value ?? ""
             }
         }
