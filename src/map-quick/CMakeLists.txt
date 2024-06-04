@@ -37,6 +37,7 @@ ecm_add_qml_module(kosmindoormapquickplugin
         IndoorMap.qml
         IndoorMapAttributionLabel.qml
         IndoorMapScale.qml
+        OSMElementInformationDialog.qml
         OSMElementInformationDialogLinkDelegate.qml
         OSMElementInformationDialogOpeningHoursDelegate.qml
         OSMElementInformationDialogStringDelegate.qml
