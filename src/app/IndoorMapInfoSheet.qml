@@ -30,6 +30,13 @@ OSMElementInformationDialog {
             text: "Edit with Vespucci"
             visible: EditorController.hasEditor(Editor.Vespucci)
             onTriggered: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.Vespucci)
+        },
+        Kirigami.Action {
+            property string wikidataId: elementDetailsSheet.model.element.tagValue(["wikidata", "brand:wikidata"])
+            icon.name: "document-edit"
+            text: "Edit Wikidata"
+            visible: wikidataId.match(/^Q\d+$/)
+            onTriggered: Qt.openUrlExternally("https://wikidata.org/wiki/" + wikidataId)
         }
     ]
 }
