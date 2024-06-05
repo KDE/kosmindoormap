@@ -9,6 +9,7 @@
 
 #include <osm/element.h>
 
+#include <QJSValue>
 #include <QMetaType>
 #include <QPointF>
 #include <QUrl>
@@ -34,7 +35,7 @@ public:
     [[nodiscard]] QString url() const;
     [[nodiscard]] QPointF center() const;
 
-    [[nodiscard]] Q_INVOKABLE QString tagValue(const QString &key) const;
+    [[nodiscard]] Q_INVOKABLE QString tagValue(const QJSValue &key) const;
 
     // @internal
     [[nodiscard]] OSM::Element element() const;

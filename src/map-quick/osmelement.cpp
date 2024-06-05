@@ -6,6 +6,7 @@
 
 #include "osmelement.h"
 
+#include <QJSValueIterator>
 #include <QLocale>
 
 using namespace KOSMIndoorMap;
@@ -39,9 +40,22 @@ QPointF OSMElement::center() const
     return {c.lonF(), c.latF() };
 }
 
-QString OSMElement::tagValue(const QString &key) const
+QString OSMElement::tagValue(const QJSValue &key) const
 {
-    return QString::fromUtf8(m_element.tagValue(key.toUtf8().constData()));
+    if (key.isString()) {
+        return QString::fromUtf8(m_element.tagValue(key.toString().toUtf8().constData()));
+    }
+    if (key.isArray()) {
+        for (QJSValueIterator it(key); it.hasNext();) {
+            it.next();
+            auto v = m_element.tagValue(it.value().toString().toUtf8().constData());
+            if (!v.isEmpty()) {
+                return QString::fromUtf8(v);
+            }
+        }
+    }
+
+    return {};
 }
 
 OSM::Element OSMElement::element() const
