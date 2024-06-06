@@ -32,7 +32,7 @@ OSMElementInformationDialog {
             onTriggered: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.Vespucci)
         },
         Kirigami.Action {
-            property string wikidataId: elementDetailsSheet.model.element.tagValue(["wikidata", "brand:wikidata"])
+            property string wikidataId: elementDetailsSheet.model.element.tagValue(["wikidata", "brand:wikidata", "species:wikidata", "subject:wikidata"])
             icon.name: "document-edit"
             text: "Edit Wikidata"
             visible: wikidataId.match(/^Q\d+$/)
