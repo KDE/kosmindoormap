@@ -108,16 +108,16 @@ public:
     };
     Q_ENUM(Type)
 
-    OSMElement element() const;
+    [[nodiscard]] OSMElement element() const;
     void setElement(const OSMElement &element);
     Q_INVOKABLE void clear();
 
-    QString name() const;
-    QString category() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QString category() const;
 
-    int rowCount(const QModelIndex &parent = {}) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = {}) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
 Q_SIGNALS:
     void elementChanged();
@@ -130,18 +130,18 @@ private:
     void resolveCategories();
     /** Make sure we have at least one naming element. */
     void resolveHeaders();
-    bool promoteMainCategory(KeyCategory cat);
-    QString categoryLabel(KeyCategory cat) const;
-    QString debugTagKey(int row) const;
-    QString debugTagValue(int row) const;
-    QString keyName(Key key) const;
-    QVariant valueForKey(Info info) const;
-    QVariant urlify(const QVariant &v, Key key) const;
-    QString paymentMethodList(Key key) const;
-    QString paymentMethodValue(Key key) const;
-    QUrl wikipediaUrl(const QByteArray &wp) const;
-    QString capacitryValue(const char *prop) const;
-    QString translatedBoolValue(const QByteArray &value) const;
+    [[nodiscard]] bool promoteMainCategory(KeyCategory cat);
+    [[nodiscard]] QString categoryLabel(KeyCategory cat) const;
+    [[nodiscard]] QString debugTagKey(int row) const;
+    [[nodiscard]] QString debugTagValue(int row) const;
+    [[nodiscard]] QString keyName(Key key) const;
+    [[nodiscard]] QVariant valueForKey(Info info) const;
+    [[nodiscard]] QVariant urlify(const QVariant &v, Key key) const;
+    [[nodiscard]] QString paymentMethodList(Key key) const;
+    [[nodiscard]] QString paymentMethodValue(Key key) const;
+    [[nodiscard]] QUrl wikipediaUrl(const QByteArray &wp) const;
+    [[nodiscard]] QString capacitryValue(const char *prop) const;
+    [[nodiscard]] QString translatedBoolValue(const QByteArray &value) const;
 
     template <typename KeyMapEntry, std::size_t N>
     void addEntryForKey(const char *keyName, const KeyMapEntry(&map)[N]);
@@ -154,8 +154,8 @@ private:
         Key key;
         KeyCategory category;
 
-        bool operator<(Info other) const;
-        bool operator==(Info other) const;
+        [[nodiscard]] bool operator<(Info other) const;
+        [[nodiscard]] bool operator==(Info other) const;
     };
     std::vector<Info> m_infos;
     OSM::Languages m_langs;

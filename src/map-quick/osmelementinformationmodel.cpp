@@ -16,7 +16,7 @@
 
 using namespace KOSMIndoorMap;
 
-static QString formatDistance(int meter)
+[[nodiscard]] static QString formatDistance(int meter)
 {
     if (meter < 1000) {
         return i18n("%1m", meter);
@@ -97,7 +97,7 @@ int OSMElementInformationModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid() || m_element.type() == OSM::Type::Null) {
         return 0;
     }
-    return m_infos.size();
+    return (int)m_infos.size();
 }
 
 QVariant OSMElementInformationModel::data(const QModelIndex &index, int role) const
@@ -167,8 +167,8 @@ struct KeyCategoryMapEntry {
     OSMElementInformationModel::Key m_key;
     OSMElementInformationModel::KeyCategory m_category;
 
-    constexpr inline OSMElementInformationModel::Key key() const { return m_key; }
-    constexpr inline OSMElementInformationModel::KeyCategory category() const { return m_category; }
+    [[nodiscard]] constexpr inline OSMElementInformationModel::Key key() const { return m_key; }
+    [[nodiscard]] constexpr inline OSMElementInformationModel::KeyCategory category() const { return m_category; }
 };
 
 static constexpr const KeyCategoryMapEntry simple_key_map[] = {
@@ -523,7 +523,7 @@ static void appendNonEmpty(const QByteArray &tagValue, QList<QByteArray> &l)
     }
 }
 
-static QChar::Script scriptForString(QStringView s)
+[[nodiscard]] static QChar::Script scriptForString(QStringView s)
 {
     return std::accumulate(s.begin(), s.end(), QChar::Script_Unknown, [](QChar::Script script, QChar c) { return std::max(script, c.script());});
 }
@@ -538,7 +538,7 @@ struct {
     { QLocale::CyrillicScript, QChar::Script_Cyrillic },
 };
 
-static bool isSameScript(QLocale::Script ls, QChar::Script cs)
+[[nodiscard]] static bool isSameScript(QLocale::Script ls, QChar::Script cs)
 {
     return std::find_if(std::begin(script_map), std::end(script_map), [ls, cs](const auto &m) { return m.localeScript == ls && m.charScript == cs; }) != std::end(script_map);
 }
