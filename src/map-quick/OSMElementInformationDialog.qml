@@ -154,6 +154,15 @@ Kirigami.Dialog {
             }
         }
 
+        Component {
+            id: infoImageDelegate
+            OSMElementInformationDialogImageDelegate {
+                width: Math.min(parent.ListView.view.width, implicitWidth)
+                source: row?.value ?? ""
+                url: row?.url ?? ""
+            }
+        }
+
         section.property: "categoryLabel"
         section.delegate: Kirigami.Heading {
             x: Kirigami.Units.largeSpacing
@@ -176,6 +185,8 @@ Kirigami.Dialog {
                         return infoAddressDelegate;
                     case OSMElementInformationModel.OpeningHoursType:
                         return infoOpeningHoursDelegate;
+                    case OSMElementInformationModel.ImageType:
+                        return infoImageDelegate;
                     case OSMElementInformationModel.String:
                     default:
                         return infoStringDelegate;

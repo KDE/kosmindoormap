@@ -12,8 +12,11 @@
 
 #include <KLocalizedString>
 
+#include <QUrlQuery>
+
 #include <cctype>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace KOSMIndoorMap;
 
 [[nodiscard]] static QString formatDistance(int meter)
@@ -121,6 +124,8 @@ QVariant OSMElementInformationModel::data(const QModelIndex &index, int role) co
                     return PostalAddress;
                 case OpeningHours:
                     return OpeningHoursType;
+                case Image:
+                    return ImageType;
                 default:
                     return String;
             }
@@ -203,6 +208,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("fee", Fee, UnresolvedCategory),
     M("genus", Name, Header),
     M("historic", Category, Header),
+    M("image", Image, Main),
     M("int_name", Name, Header),
     M("leisure", Category, Header),
     M("maxstay", MaxStay, Parking),
@@ -300,6 +306,7 @@ void OSMElementInformationModel::reload()
 
     std::sort(m_infos.begin(), m_infos.end());
     m_infos.erase(std::unique(m_infos.begin(), m_infos.end()), m_infos.end());
+    resolveOnlineContent();
     resolveCategories();
     resolveHeaders();
 
@@ -324,6 +331,25 @@ void OSMElementInformationModel::reload()
         const auto count = std::distance(m_element.tagsBegin(), m_element.tagsEnd());
         std::fill_n(std::back_inserter(m_infos), count, Info{ DebugKey, DebugCategory });
     }
+}
+
+void OSMElementInformationModel::resolveOnlineContent()
+{
+    if (!m_allowOnlineContent) {
+        m_infos.erase(std::remove_if(m_infos.begin(), m_infos.end(), [](const auto &info) { return info.key == Image; }), m_infos.end());
+        return;
+    }
+
+    m_infos.erase(std::remove_if(m_infos.begin(), m_infos.end(), [this](const auto &info) {
+        if (info.key == Image) {
+            // drop anything but Wikimedia Commons
+            const auto v = m_element.tagValue("image");
+            if (!v.isEmpty() && !v.contains("//commons.wikimedia.org/")) {
+                return true;
+            }
+        }
+        return false;
+    }), m_infos.end());
 }
 
 void OSMElementInformationModel::resolveCategories()
@@ -464,7 +490,9 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
     switch (key) {
         case NoKey:
         case Name:
-        case Category: return {};
+        case Category:
+        case Image:
+            return {};
         case OldName: return i18n("Formerly");
         case Description: return i18n("Description");
         case Routes: return i18n("Routes");
@@ -603,6 +631,23 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             std::sort(out.begin(), out.end());
             out.erase(std::unique(out.begin(), out.end()), out.end());
             return QLocale().createSeparatedList(out);
+        }
+        case Image:
+        {
+            const QUrl url(QString::fromUtf8(m_element.tagValue("image")));
+            if (url.host() == "commons.wikimedia.org"_L1) {
+                QUrl redirectUrl;
+                redirectUrl.setScheme(u"https"_s);
+                redirectUrl.setHost(u"commons.wikimedia.org"_s);
+                redirectUrl.setPath(u"/wiki/Special:Redirect/file"_s);
+                QUrlQuery query;
+                query.addQueryItem(u"wptype"_s, u"file"_s);
+                query.addQueryItem(u"wpvalue"_s, url.fileName());
+                query.addQueryItem(u"width"_s, u"512"_s);
+                redirectUrl.setQuery(query);
+                return redirectUrl;
+            }
+            return {};
         }
         case OldName:
         {
@@ -842,12 +887,14 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
 
 QVariant OSMElementInformationModel::urlify(const QVariant& v, OSMElementInformationModel::Key key) const
 {
-    if (v.userType() != QMetaType::QString) {
+    if (v.userType() != QMetaType::QString && key != Image) {
         return v;
     }
     const auto s = v.toString();
 
     switch (key) {
+        case Image:
+            return QString::fromUtf8(m_element.tagValue("image"));
         case Email:
             if (!s.startsWith(QLatin1String("mailto:"))) {
                 return QString(QLatin1String("mailto:") + s);

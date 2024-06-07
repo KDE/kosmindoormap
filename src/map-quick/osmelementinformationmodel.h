@@ -24,6 +24,7 @@ class OSMElementInformationModel : public QAbstractListModel
     Q_PROPERTY(KOSMIndoorMap::OSMElement element READ element WRITE setElement NOTIFY elementChanged)
     Q_PROPERTY(QString name READ name NOTIFY elementChanged)
     Q_PROPERTY(QString category READ category NOTIFY elementChanged)
+    Q_PROPERTY(bool allowOnlineContent MEMBER m_allowOnlineContent NOTIFY allowOnlineContentChanged)
     Q_PROPERTY(bool debug MEMBER m_debug)
 
 public:
@@ -57,6 +58,7 @@ public:
         NoKey,
         Name,
         Category,
+        Image,
         OldName,
         Description,
         Routes,
@@ -105,6 +107,7 @@ public:
         Link,
         PostalAddress,
         OpeningHoursType,
+        ImageType,
     };
     Q_ENUM(Type)
 
@@ -121,11 +124,14 @@ public:
 
 Q_SIGNALS:
     void elementChanged();
+    void allowOnlineContentChanged();
 
 private:
     struct Info;
 
     void reload();
+    /** Process online content, filter out things we don't want, etc. */
+    void resolveOnlineContent();
     /** Resolve elements who's group depends on context. */
     void resolveCategories();
     /** Make sure we have at least one naming element. */
@@ -161,6 +167,7 @@ private:
     OSM::Languages m_langs;
     Key m_nameKey = NoKey;
     Key m_categoryKey = NoKey;
+    bool m_allowOnlineContent = false;
     bool m_debug = false;
 };
 
