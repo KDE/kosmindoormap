@@ -41,6 +41,7 @@ Kirigami.Page {
 
     OSMElementInformationModel {
         id: infoModel
+        allowOnlineContent: true
         debug: true
     }
 

@@ -9,8 +9,12 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
+#include <QNetworkAccessManager>
+#include <QNetworkDiskCache>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQmlNetworkAccessManagerFactory>
+#include <QStandardPaths>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -25,6 +29,25 @@
 #if HAVE_OSM_PBF_SUPPORT
 Q_IMPORT_PLUGIN(OSM_PbfIOPlugin)
 #endif
+
+class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
+{
+public:
+    QNetworkAccessManager* create(QObject *parent) override
+    {
+        auto nam = new QNetworkAccessManager(parent);
+        nam->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
+
+        nam->enableStrictTransportSecurityStore(true, QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/hsts/"));
+        nam->setStrictTransportSecurityEnabled(true);
+
+        auto namDiskCache = new QNetworkDiskCache(nam);
+        namDiskCache->setCacheDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/nam/"));
+        nam->setCache(namDiskCache);
+
+        return nam;
+    }
+};
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -46,6 +69,7 @@ int main(int argc, char **argv)
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("go-home")));
 
     QQmlApplicationEngine engine;
+    engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
     auto l10nContext = new KLocalizedContext(&engine);
     l10nContext->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
     engine.rootContext()->setContextObject(l10nContext);
