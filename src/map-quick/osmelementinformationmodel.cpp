@@ -10,6 +10,8 @@
 #include "localization.h"
 #include "osmaddress.h"
 
+#include <wikidata/wikidataquery.h>
+
 #include <KLocalizedString>
 
 #include <QUrlQuery>
@@ -48,6 +50,7 @@ OSMElementInformationModel::OSMElementInformationModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_langs(OSM::Languages::fromQLocale(QLocale()))
 {
+    m_wikidataMgr.setUserAgentEmailAddress(u"kde-pim@kde.org"_s);
 }
 
 OSMElementInformationModel::~OSMElementInformationModel() = default;
@@ -242,6 +245,8 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("website", Website, Contact),
     M("wheelchair", Wheelchair, Accessibility),
     M("wheelchair:lift", WheelchairLift, Accessibility),
+    M("wikidata", Image, Main),
+    M("wikimedia_commons", Image, Main),
 };
 static_assert(isSortedLookupTable(simple_key_map), "key map is not sorted!");
 
@@ -340,16 +345,33 @@ void OSMElementInformationModel::resolveOnlineContent()
         return;
     }
 
-    m_infos.erase(std::remove_if(m_infos.begin(), m_infos.end(), [this](const auto &info) {
-        if (info.key == Image) {
-            // drop anything but Wikimedia Commons
-            const auto v = m_element.tagValue("image");
-            if (!v.isEmpty() && !v.contains("//commons.wikimedia.org/")) {
-                return true;
+    const auto commons = m_element.tagValue("wikimedia_commons");
+    const auto hasValidCommons = commons.startsWith("File:");
+    const auto image = m_element.tagValue("image");
+    const auto hasValidImage = image.contains("://commons.wikimedia.org/");
+    const auto wdId = m_element.tagValue("wikidata");
+
+    // query Wikidata content
+    if (!hasValidCommons && !hasValidImage && !wdId.isEmpty()) {
+        auto query = new Wikidata::EntitiesQuery(this);
+        query->setItems({Wikidata::Q{wdId}});
+        connect(query, &Wikidata::EntitiesQuery::finished, this, [query, this]() {
+            query->deleteLater();
+            auto res = query->takeResult();
+            for (const auto &item : res) {
+                // TODO handle other image property variants
+                m_wikidataImageMap.insert(item.id(), item.value<QString>(Wikidata::P::image));
+                const auto it = std::find_if(m_infos.begin(), m_infos.end(), [](const auto &info) { return info.key == Image; });
+                const auto idx = index(std::distance(m_infos.begin(), it), 0);
+                Q_EMIT dataChanged(idx, idx);
             }
-        }
-        return false;
-    }), m_infos.end());
+        });
+        m_wikidataMgr.execute(query);
+    }
+
+    if (!hasValidCommons && !hasValidImage && wdId.isEmpty()) {
+        m_infos.erase(std::remove_if(m_infos.begin(), m_infos.end(), [](const auto &info) { return info.key == Image; }), m_infos.end());
+    }
 }
 
 void OSMElementInformationModel::resolveCategories()
@@ -571,6 +593,24 @@ struct {
     return std::find_if(std::begin(script_map), std::end(script_map), [ls, cs](const auto &m) { return m.localeScript == ls && m.charScript == cs; }) != std::end(script_map);
 }
 
+[[nodiscard]] static QUrl wikimediaCommondRedirect(const QString &fileName)
+{
+    if (fileName.isEmpty()) {
+        return {};
+    }
+
+    QUrl redirectUrl;
+    redirectUrl.setScheme(u"https"_s);
+    redirectUrl.setHost(u"commons.wikimedia.org"_s);
+    redirectUrl.setPath(u"/wiki/Special:Redirect/file"_s);
+    QUrlQuery query;
+    query.addQueryItem(u"wptype"_s, u"file"_s);
+    query.addQueryItem(u"wpvalue"_s, fileName);
+    query.addQueryItem(u"width"_s, u"512"_s);
+    redirectUrl.setQuery(query);
+    return redirectUrl;
+}
+
 QVariant OSMElementInformationModel::valueForKey(Info info) const
 {
     switch (info.key) {
@@ -634,20 +674,16 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         }
         case Image:
         {
+            const auto commons = m_element.tagValue("wikimedia_commons");
+            if (commons.startsWith("File:")) {
+                return wikimediaCommondRedirect(QString::fromUtf8(QByteArrayView(commons).mid(5)));
+            }
             const QUrl url(QString::fromUtf8(m_element.tagValue("image")));
             if (url.host() == "commons.wikimedia.org"_L1) {
-                QUrl redirectUrl;
-                redirectUrl.setScheme(u"https"_s);
-                redirectUrl.setHost(u"commons.wikimedia.org"_s);
-                redirectUrl.setPath(u"/wiki/Special:Redirect/file"_s);
-                QUrlQuery query;
-                query.addQueryItem(u"wptype"_s, u"file"_s);
-                query.addQueryItem(u"wpvalue"_s, url.fileName());
-                query.addQueryItem(u"width"_s, u"512"_s);
-                redirectUrl.setQuery(query);
-                return redirectUrl;
+                return wikimediaCommondRedirect(url.fileName());
             }
-            return {};
+            const auto wdId = m_element.tagValue("wikidata");
+            return wikimediaCommondRedirect(m_wikidataImageMap.value(Wikidata::Q{wdId}));
         }
         case OldName:
         {
@@ -894,7 +930,18 @@ QVariant OSMElementInformationModel::urlify(const QVariant& v, OSMElementInforma
 
     switch (key) {
         case Image:
-            return QString::fromUtf8(m_element.tagValue("image"));
+        {
+            if (const auto commons = m_element.tagValue("wikimedia_commons"); commons.startsWith("File:")) {
+                return QUrl(u"https://commons.wikimedia.org/wiki/"_s + QString::fromUtf8(commons));
+            }
+            if (const QUrl url(QString::fromUtf8(m_element.tagValue("image"))); url.host() == "commons.wikimedia.org"_L1) {
+                return wikimediaCommondRedirect(url.fileName());
+            }
+            if (const auto wdId = m_element.tagValue("wikidata"); !wdId.isEmpty()) {
+                return QUrl(u"https://wikidata.org/wiki/" + QString::fromUtf8(wdId));
+            }
+            return {};
+        }
         case Email:
             if (!s.startsWith(QLatin1String("mailto:"))) {
                 return QString(QLatin1String("mailto:") + s);

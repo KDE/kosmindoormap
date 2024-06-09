@@ -20,6 +20,7 @@ target_link_libraries(KOSMIndoorMapQuick PUBLIC
     KF6::I18n
     KF6::I18nLocaleData
     KOSMIndoorMap
+    KWikidata
 )
 
 ecm_qt_declare_logging_category(KOSMIndoorMapQuick

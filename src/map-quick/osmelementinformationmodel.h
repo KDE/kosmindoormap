@@ -11,6 +11,9 @@
 
 #include <osm/element.h>
 
+#include <wikidata/entities.h>
+#include <wikidata/wikidataquerymanager.h>
+
 #include <QAbstractListModel>
 
 namespace KOSMIndoorMap {
@@ -169,6 +172,9 @@ private:
     Key m_categoryKey = NoKey;
     bool m_allowOnlineContent = false;
     bool m_debug = false;
+
+    Wikidata::QueryManager m_wikidataMgr;
+    QHash<Wikidata::Q, QString> m_wikidataImageMap;
 };
 
 }
