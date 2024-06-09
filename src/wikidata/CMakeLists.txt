@@ -15,6 +15,7 @@ target_link_libraries(KWikidata
     PUBLIC Qt::Gui
     PRIVATE Qt::Network
 )
+set_target_properties(KWikidata PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 ecm_qt_declare_logging_category(KWikidata
     HEADER logging.h
