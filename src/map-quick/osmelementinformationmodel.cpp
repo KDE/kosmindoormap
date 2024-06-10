@@ -185,6 +185,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("amenity", Category, Header),
     M("bicycle_parking", BicycleParking, Parking),
     M("brand", Name, Header),
+    M("brand:wikidata", Image, Main),
     M("brand:wikipedia", Wikipedia, UnresolvedCategory),
     M("building", Category, Header),
     M("bus_lines", Routes, Main),
@@ -210,15 +211,18 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("email", Email, Contact),
     M("fee", Fee, UnresolvedCategory),
     M("genus", Name, Header),
+    M("genus:wikidata", Image, Main),
     M("historic", Category, Header),
     M("image", Image, Main),
     M("int_name", Name, Header),
     M("leisure", Category, Header),
     M("maxstay", MaxStay, Parking),
+    M("memorial:text", Description, Main),
     M("mx:realtime_available", AvailableVehicles, Main),
     M("mx:remaining_range", RemainingRange, Main),
     M("mx:vehicle", Category, Header),
     M("network", Network, Operator),
+    M("network:wikidata", Image, Main),
     M("network:wikipedia", OperatorWikipedia, Operator),
     M("office", Category, Header),
     M("old_name", OldName, UnresolvedCategory),
@@ -227,6 +231,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("operator:email", Email, Contact),
     M("operator:phone", Phone, Contact),
     M("operator:website", Website, Contact),
+    M("operator:wikidata", Image, Main),
     M("operator:wikipedia", OperatorWikipedia, Operator),
     M("parking:fee", Fee, Parking),
     M("payment:cash", PaymentCash, Payment),
@@ -236,6 +241,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("room", Category, Header),
     M("route_ref", Routes, Main),
     M("shop", Category, Header),
+    M("species:wikidata", Image, Main),
     M("tactile_writing", TactileWriting, Accessibility), // occurs also unqualified
     M("takeaway", Takeaway, Main),
     M("toilets:fee", Fee, Toilets),
@@ -349,7 +355,7 @@ void OSMElementInformationModel::resolveOnlineContent()
     const auto hasValidCommons = commons.startsWith("File:");
     const auto image = m_element.tagValue("image");
     const auto hasValidImage = image.contains("://commons.wikimedia.org/");
-    const auto wdId = m_element.tagValue("wikidata");
+    const auto wdId = m_element.tagValue("wikidata", "species:wikidata", "genus:wikidata", "subject:wikidata", "operator:wikidata", "network:wikidata", "brand:wikidata");
 
     // query Wikidata content
     if (!hasValidCommons && !hasValidImage && !wdId.isEmpty()) {
@@ -359,11 +365,37 @@ void OSMElementInformationModel::resolveOnlineContent()
             query->deleteLater();
             auto res = query->takeResult();
             for (const auto &item : res) {
-                // TODO handle other image property variants
-                m_wikidataImageMap.insert(item.id(), item.value<QString>(Wikidata::P::image));
-                const auto it = std::find_if(m_infos.begin(), m_infos.end(), [](const auto &info) { return info.key == Image; });
-                const auto idx = index(std::distance(m_infos.begin(), it), 0);
-                Q_EMIT dataChanged(idx, idx);
+                std::vector<Wikidata::P> props({Wikidata::P::image, Wikidata::P::imageOfInterior, Wikidata::P::aerialView, Wikidata::P::view, Wikidata::P::modelImage});
+                // prefer night time view images at night
+                if (const auto now = QTime::currentTime(); now.hour() >= 22 || now.hour() <= 6) {
+                    props.insert(props.begin(), Wikidata::P::nighttimeView);
+                } else {
+                    props.emplace_back(Wikidata::P::nighttimeView);
+                }
+                // same for winter view
+                if (const auto today = QDate::currentDate(); today.month() > 10 || today.month() < 3) {
+                    props.insert(props.begin(), Wikidata::P::winterView);
+                } else {
+                    props.emplace_back(Wikidata::P::nighttimeView);
+                }
+                // prefer the logo for brand/operator/network
+                if (item.id() == Wikidata::Q(m_element.tagValue("operator:wikidata", "network:wikidata", "brand:wikidata"))) {
+                    props.insert(props.begin(), Wikidata::P::logoImage);
+                } else {
+                    props.emplace_back(Wikidata::P::logoImage);
+                }
+
+                for (const auto p : props) {
+                    const auto img = item.value<QString>(p);
+                    if (img.isEmpty()) {
+                        continue;
+                    }
+                    m_wikidataImageMap.insert(item.id(), img);
+                    const auto it = std::find_if(m_infos.begin(), m_infos.end(), [](const auto &info) { return info.key == Image; });
+                    const auto idx = index((int)std::distance(m_infos.begin(), it), 0);
+                    Q_EMIT dataChanged(idx, idx);
+                    break;
+                }
             }
         });
         m_wikidataMgr.execute(query);
@@ -682,7 +714,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             if (url.host() == "commons.wikimedia.org"_L1) {
                 return wikimediaCommondRedirect(url.fileName());
             }
-            const auto wdId = m_element.tagValue("wikidata");
+            const auto wdId = m_element.tagValue("wikidata", "species:wikidata", "genus:wikidata", "subject:wikidata", "operator:wikidata", "network:wikidata", "brand:wikidata");
             return wikimediaCommondRedirect(m_wikidataImageMap.value(Wikidata::Q{wdId}));
         }
         case OldName:
@@ -691,7 +723,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return l.join(QLatin1String(", "));
         }
         case Description:
-            return m_element.tagValue(m_langs, "description");
+            return m_element.tagValue(m_langs, "description", "memorial:text");
         case Routes:
         {
             auto l = QString::fromUtf8(m_element.tagValue("route_ref", "bus_routes", "bus_lines", "buses")).split(QLatin1Char(';'), Qt::SkipEmptyParts);
@@ -937,7 +969,7 @@ QVariant OSMElementInformationModel::urlify(const QVariant& v, OSMElementInforma
             if (const QUrl url(QString::fromUtf8(m_element.tagValue("image"))); url.host() == "commons.wikimedia.org"_L1) {
                 return wikimediaCommondRedirect(url.fileName());
             }
-            if (const auto wdId = m_element.tagValue("wikidata"); !wdId.isEmpty()) {
+            if (const auto wdId = m_element.tagValue("wikidata", "species:wikidata", "genus:wikidata", "subject:wikidata", "operator:wikidata", "network:wikidata", "brand:wikidata"); !wdId.isEmpty()) {
                 return QUrl(u"https://wikidata.org/wiki/" + QString::fromUtf8(wdId));
             }
             return {};

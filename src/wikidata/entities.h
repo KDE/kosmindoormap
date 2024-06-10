@@ -94,6 +94,7 @@ public:
         partOf = 361,
         nighttimeView = 3451,
         winterView = 5252,
+        imageOfInterior = 5775,
         view = 8517,
         aerialView = 8592,
         modelImage = 11101,
