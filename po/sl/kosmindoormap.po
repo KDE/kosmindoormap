@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-10 00:38+0000\n"
+"POT-Creation-Date: 2024-06-11 00:38+0000\n"
 "PO-Revision-Date: 2024-04-25 15:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1635,273 +1635,273 @@ msgstr "%1km"
 msgid "Wikipedia"
 msgstr "Wikipedija"
 
-#: map-quick/osmelementinformationmodel.cpp:484
+#: map-quick/osmelementinformationmodel.cpp:516
 #, kde-format
 msgid "Opening Hours"
 msgstr "Delovni čas"
 
-#: map-quick/osmelementinformationmodel.cpp:485
+#: map-quick/osmelementinformationmodel.cpp:517
 #, kde-format
 msgid "Contact"
 msgstr "Stik"
 
-#: map-quick/osmelementinformationmodel.cpp:486
+#: map-quick/osmelementinformationmodel.cpp:518
 #, kde-format
 msgid "Payment"
 msgstr "Plačilo"
 
-#: map-quick/osmelementinformationmodel.cpp:487
+#: map-quick/osmelementinformationmodel.cpp:519
 #, kde-format
 msgid "Toilets"
 msgstr "WC"
 
-#: map-quick/osmelementinformationmodel.cpp:488
+#: map-quick/osmelementinformationmodel.cpp:520
 #, kde-format
 msgid "Accessibility"
 msgstr "Dostopnost"
 
-#: map-quick/osmelementinformationmodel.cpp:489
+#: map-quick/osmelementinformationmodel.cpp:521
 #, kde-format
 msgid "Parking"
 msgstr "Parkirišče"
 
-#: map-quick/osmelementinformationmodel.cpp:490
+#: map-quick/osmelementinformationmodel.cpp:522
 #, kde-format
 msgid "Operator"
 msgstr "Operater"
 
-#: map-quick/osmelementinformationmodel.cpp:518
+#: map-quick/osmelementinformationmodel.cpp:550
 #, kde-format
 msgid "Formerly"
 msgstr "Nekoč"
 
-#: map-quick/osmelementinformationmodel.cpp:519
+#: map-quick/osmelementinformationmodel.cpp:551
 #, kde-format
 msgid "Description"
 msgstr "Opis"
 
-#: map-quick/osmelementinformationmodel.cpp:520
+#: map-quick/osmelementinformationmodel.cpp:552
 #, kde-format
 msgid "Routes"
 msgstr "Poti"
 
-#: map-quick/osmelementinformationmodel.cpp:521
+#: map-quick/osmelementinformationmodel.cpp:553
 #, kde-format
 msgid "Cuisine"
 msgstr "Kuhinja"
 
-#: map-quick/osmelementinformationmodel.cpp:522
+#: map-quick/osmelementinformationmodel.cpp:554
 #, kde-format
 msgid "Diet"
 msgstr "Prehrana"
 
-#: map-quick/osmelementinformationmodel.cpp:523
+#: map-quick/osmelementinformationmodel.cpp:555
 #, kde-format
 msgid "Takeaway"
 msgstr "Za s seboj"
 
-#: map-quick/osmelementinformationmodel.cpp:524
+#: map-quick/osmelementinformationmodel.cpp:556
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
 msgstr "El. vtičnica"
 
-#: map-quick/osmelementinformationmodel.cpp:526
+#: map-quick/osmelementinformationmodel.cpp:558
 #, kde-format
 msgid "Available vehicles"
 msgstr "Razpoložljiva vozila"
 
-#: map-quick/osmelementinformationmodel.cpp:527
+#: map-quick/osmelementinformationmodel.cpp:559
 #, kde-format
 msgid "Fee"
 msgstr "Pristojbina"
 
-#: map-quick/osmelementinformationmodel.cpp:528
+#: map-quick/osmelementinformationmodel.cpp:560
 #, kde-format
 msgid "Authentication"
 msgstr "Preverjanje pristnosti"
 
-#: map-quick/osmelementinformationmodel.cpp:529
+#: map-quick/osmelementinformationmodel.cpp:561
 #, kde-format
 msgid "Bicycle parking"
 msgstr "Parkirišče koles"
 
-#: map-quick/osmelementinformationmodel.cpp:530
+#: map-quick/osmelementinformationmodel.cpp:562
 #, kde-format
 msgid "Capacity"
 msgstr "Zmogljivost"
 
-#: map-quick/osmelementinformationmodel.cpp:531
+#: map-quick/osmelementinformationmodel.cpp:563
 #, kde-format
 msgid "Disabled parking spaces"
 msgstr "Parkirišče za invalide"
 
-#: map-quick/osmelementinformationmodel.cpp:532
+#: map-quick/osmelementinformationmodel.cpp:564
 #, kde-format
 msgid "Women parking spaces"
 msgstr "Parkirišče za dame"
 
-#: map-quick/osmelementinformationmodel.cpp:533
+#: map-quick/osmelementinformationmodel.cpp:565
 #, kde-format
 msgid "Parent parking spaces"
 msgstr "Parkirišče za družine"
 
-#: map-quick/osmelementinformationmodel.cpp:534
+#: map-quick/osmelementinformationmodel.cpp:566
 #, kde-format
 msgid "Parking spaces for charging"
 msgstr "Parkirišča za polnenje"
 
-#: map-quick/osmelementinformationmodel.cpp:535
+#: map-quick/osmelementinformationmodel.cpp:567
 #, kde-format
 msgid "Maximum stay"
 msgstr "Najdaljše zadrževanje"
 
-#: map-quick/osmelementinformationmodel.cpp:536
+#: map-quick/osmelementinformationmodel.cpp:568
 #, kde-format
 msgid "Diaper changing table"
 msgstr "Previjalna miza"
 
-#: map-quick/osmelementinformationmodel.cpp:537
+#: map-quick/osmelementinformationmodel.cpp:569
 #, kde-format
 msgid "Gender"
 msgstr "Spol"
 
-#: map-quick/osmelementinformationmodel.cpp:539
+#: map-quick/osmelementinformationmodel.cpp:571
 #, kde-format
 msgid "Address"
 msgstr "Naslov"
 
-#: map-quick/osmelementinformationmodel.cpp:540
+#: map-quick/osmelementinformationmodel.cpp:572
 #, kde-format
 msgid "Phone"
 msgstr "Telefon"
 
-#: map-quick/osmelementinformationmodel.cpp:541
+#: map-quick/osmelementinformationmodel.cpp:573
 #, kde-format
 msgid "Email"
 msgstr "E-pošta"
 
-#: map-quick/osmelementinformationmodel.cpp:542
+#: map-quick/osmelementinformationmodel.cpp:574
 #, kde-format
 msgid "Website"
 msgstr "Spletno mesto"
 
-#: map-quick/osmelementinformationmodel.cpp:543
+#: map-quick/osmelementinformationmodel.cpp:575
 #, kde-format
 msgid "Cash"
 msgstr "Gotovina"
 
-#: map-quick/osmelementinformationmodel.cpp:544
+#: map-quick/osmelementinformationmodel.cpp:576
 #, kde-format
 msgid "Digital"
 msgstr "Digitalno"
 
-#: map-quick/osmelementinformationmodel.cpp:545
+#: map-quick/osmelementinformationmodel.cpp:577
 #, kde-format
 msgid "Debit cards"
 msgstr "Debetne kartice"
 
-#: map-quick/osmelementinformationmodel.cpp:546
+#: map-quick/osmelementinformationmodel.cpp:578
 #, kde-format
 msgid "Credit cards"
 msgstr "Kreditne kartice"
 
-#: map-quick/osmelementinformationmodel.cpp:547
+#: map-quick/osmelementinformationmodel.cpp:579
 #, kde-format
 msgid "Stored value cards"
 msgstr "Predplačilne kartice"
 
-#: map-quick/osmelementinformationmodel.cpp:548
+#: map-quick/osmelementinformationmodel.cpp:580
 #, kde-format
 msgid "Wheelchair access"
 msgstr "Dostop z invalidskimi vozički"
 
-#: map-quick/osmelementinformationmodel.cpp:549
+#: map-quick/osmelementinformationmodel.cpp:581
 #, kde-format
 msgid "Wheelchair lift"
 msgstr "Dvigalo za invalidske vozičke"
 
-#: map-quick/osmelementinformationmodel.cpp:550
+#: map-quick/osmelementinformationmodel.cpp:582
 #, kde-format
 msgid "Central key"
 msgstr "Centralni ključ"
 
-#: map-quick/osmelementinformationmodel.cpp:551
+#: map-quick/osmelementinformationmodel.cpp:583
 #, kde-format
 msgid "Speech output"
 msgstr "Izgovarjaj izhod"
 
-#: map-quick/osmelementinformationmodel.cpp:552
+#: map-quick/osmelementinformationmodel.cpp:584
 #, kde-format
 msgid "Tactile writing"
 msgstr "Taktilni napisi"
 
-#: map-quick/osmelementinformationmodel.cpp:554
+#: map-quick/osmelementinformationmodel.cpp:586
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
 msgstr "Omrežje"
 
-#: map-quick/osmelementinformationmodel.cpp:556
+#: map-quick/osmelementinformationmodel.cpp:588
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
 msgstr "Preostali doseg"
 
-#: map-quick/osmelementinformationmodel.cpp:626
+#: map-quick/osmelementinformationmodel.cpp:658
 #, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:713
+#: map-quick/osmelementinformationmodel.cpp:745
 #, kde-format
 msgid "only %1"
 msgstr "samo %1"
 
-#: map-quick/osmelementinformationmodel.cpp:715
+#: map-quick/osmelementinformationmodel.cpp:747
 #, kde-format
 msgid "no %1"
 msgstr "št. %1"
 
-#: map-quick/osmelementinformationmodel.cpp:740
+#: map-quick/osmelementinformationmodel.cpp:772
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
 msgstr "%1 A"
 
-#: map-quick/osmelementinformationmodel.cpp:748
+#: map-quick/osmelementinformationmodel.cpp:780
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
 msgstr "%1 KW"
 
-#: map-quick/osmelementinformationmodel.cpp:779
+#: map-quick/osmelementinformationmodel.cpp:811
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:847
-#: map-quick/osmelementinformationmodel.cpp:1034
+#: map-quick/osmelementinformationmodel.cpp:879
+#: map-quick/osmelementinformationmodel.cpp:1066
 #, kde-format
 msgid "yes"
 msgstr "da"
 
-#: map-quick/osmelementinformationmodel.cpp:850
+#: map-quick/osmelementinformationmodel.cpp:882
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "samo kovanci"
 
-#: map-quick/osmelementinformationmodel.cpp:853
+#: map-quick/osmelementinformationmodel.cpp:885
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "samo bankovci"
 
-#: map-quick/osmelementinformationmodel.cpp:855
-#: map-quick/osmelementinformationmodel.cpp:906
-#: map-quick/osmelementinformationmodel.cpp:1037
+#: map-quick/osmelementinformationmodel.cpp:887
+#: map-quick/osmelementinformationmodel.cpp:938
+#: map-quick/osmelementinformationmodel.cpp:1069
 #, kde-format
 msgid "no"
 msgstr "ne"
