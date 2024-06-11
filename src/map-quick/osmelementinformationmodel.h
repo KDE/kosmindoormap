@@ -62,6 +62,7 @@ public:
         Name,
         Category,
         Image,
+        Logo,
         OldName,
         Description,
         Routes,

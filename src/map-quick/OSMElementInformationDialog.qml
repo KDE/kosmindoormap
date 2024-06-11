@@ -157,9 +157,14 @@ Kirigami.Dialog {
         Component {
             id: infoImageDelegate
             OSMElementInformationDialogImageDelegate {
-                width: Math.min(parent.ListView.view.width, implicitWidth)
+                // logos needs margings, images can be shown full width
+                x: (row?.key === OSMElementInformationModel.Logo ?? false) ? Kirigami.Units.largeSpacing : 0
+                width: parent.ListView.view.width - 2 * x
                 source: row?.value ?? ""
                 url: row?.url ?? ""
+                maximumHeight: (row?.key === OSMElementInformationModel.Logo ?? false) ? Kirigami.Units.gridUnit * 6 : implicitHeight
+                topMargin: x
+                bottomMargin: x
             }
         }
 

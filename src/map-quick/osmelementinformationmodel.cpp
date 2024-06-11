@@ -128,6 +128,7 @@ QVariant OSMElementInformationModel::data(const QModelIndex &index, int role) co
                 case OpeningHours:
                     return OpeningHoursType;
                 case Image:
+                case Logo:
                     return ImageType;
                 default:
                     return String;
@@ -347,7 +348,9 @@ void OSMElementInformationModel::reload()
 void OSMElementInformationModel::resolveOnlineContent()
 {
     if (!m_allowOnlineContent) {
-        m_infos.erase(std::remove_if(m_infos.begin(), m_infos.end(), [](const auto &info) { return info.key == Image; }), m_infos.end());
+        m_infos.erase(std::remove_if(m_infos.begin(), m_infos.end(), [](const auto &info) {
+            return info.key == Image || info.key == Logo;
+        }), m_infos.end());
         return;
     }
 
@@ -379,8 +382,10 @@ void OSMElementInformationModel::resolveOnlineContent()
                     props.emplace_back(Wikidata::P::nighttimeView);
                 }
                 // prefer the logo for brand/operator/network
+                bool isLogo = false;
                 if (item.id() == Wikidata::Q(m_element.tagValue("operator:wikidata", "network:wikidata", "brand:wikidata"))) {
-                    props.insert(props.begin(), Wikidata::P::logoImage);
+                    props = {Wikidata::P::logoImage};
+                    isLogo = true;
                 } else {
                     props.emplace_back(Wikidata::P::logoImage);
                 }
@@ -392,6 +397,9 @@ void OSMElementInformationModel::resolveOnlineContent()
                     }
                     m_wikidataImageMap.insert(item.id(), img);
                     const auto it = std::find_if(m_infos.begin(), m_infos.end(), [](const auto &info) { return info.key == Image; });
+                    if (isLogo) {
+                        (*it).key = Logo;
+                    }
                     const auto idx = index((int)std::distance(m_infos.begin(), it), 0);
                     Q_EMIT dataChanged(idx, idx);
                     break;
@@ -546,6 +554,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case Name:
         case Category:
         case Image:
+        case Logo:
             return {};
         case OldName: return i18n("Formerly");
         case Description: return i18n("Description");
@@ -705,6 +714,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return QLocale().createSeparatedList(out);
         }
         case Image:
+        case Logo:
         {
             const auto commons = m_element.tagValue("wikimedia_commons");
             if (commons.startsWith("File:")) {
@@ -955,13 +965,14 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
 
 QVariant OSMElementInformationModel::urlify(const QVariant& v, OSMElementInformationModel::Key key) const
 {
-    if (v.userType() != QMetaType::QString && key != Image) {
+    if (v.userType() != QMetaType::QString && key != Image && key != Logo) {
         return v;
     }
     const auto s = v.toString();
 
     switch (key) {
         case Image:
+        case Logo:
         {
             if (const auto commons = m_element.tagValue("wikimedia_commons"); commons.startsWith("File:")) {
                 return QUrl(u"https://commons.wikimedia.org/wiki/"_s + QString::fromUtf8(commons));
