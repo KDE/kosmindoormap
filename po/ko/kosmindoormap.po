@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:38+0000\n"
+"POT-Creation-Date: 2024-06-12 00:38+0000\n"
 "PO-Revision-Date: 2024-02-11 01:01+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1643,278 +1643,278 @@ msgstr "%1 m"
 msgid "%1km"
 msgstr "%1 km"
 
-#: map-quick/osmelementinformationmodel.cpp:145
+#: map-quick/osmelementinformationmodel.cpp:146
 #, kde-format
 msgid "Wikipedia"
 msgstr "위키백과"
 
-#: map-quick/osmelementinformationmodel.cpp:516
+#: map-quick/osmelementinformationmodel.cpp:524
 #, kde-format
 msgid "Opening Hours"
 msgstr "개점 시간"
 
-#: map-quick/osmelementinformationmodel.cpp:517
+#: map-quick/osmelementinformationmodel.cpp:525
 #, kde-format
 msgid "Contact"
 msgstr "연락처"
 
-#: map-quick/osmelementinformationmodel.cpp:518
+#: map-quick/osmelementinformationmodel.cpp:526
 #, kde-format
 msgid "Payment"
 msgstr "지불"
 
-#: map-quick/osmelementinformationmodel.cpp:519
+#: map-quick/osmelementinformationmodel.cpp:527
 #, kde-format
 msgid "Toilets"
 msgstr "화장실"
 
-#: map-quick/osmelementinformationmodel.cpp:520
+#: map-quick/osmelementinformationmodel.cpp:528
 #, kde-format
 msgid "Accessibility"
 msgstr "접근성"
 
-#: map-quick/osmelementinformationmodel.cpp:521
+#: map-quick/osmelementinformationmodel.cpp:529
 #, kde-format
 msgid "Parking"
 msgstr "주차"
 
-#: map-quick/osmelementinformationmodel.cpp:522
+#: map-quick/osmelementinformationmodel.cpp:530
 #, kde-format
 msgid "Operator"
 msgstr "운영자"
 
-#: map-quick/osmelementinformationmodel.cpp:550
+#: map-quick/osmelementinformationmodel.cpp:559
 #, kde-format
 msgid "Formerly"
 msgstr "과거 명칭"
 
-#: map-quick/osmelementinformationmodel.cpp:551
+#: map-quick/osmelementinformationmodel.cpp:560
 #, kde-format
 msgid "Description"
 msgstr "설명"
 
-#: map-quick/osmelementinformationmodel.cpp:552
+#: map-quick/osmelementinformationmodel.cpp:561
 #, kde-format
 msgid "Routes"
 msgstr "경로"
 
-#: map-quick/osmelementinformationmodel.cpp:553
+#: map-quick/osmelementinformationmodel.cpp:562
 #, kde-format
 msgid "Cuisine"
 msgstr "요리"
 
-#: map-quick/osmelementinformationmodel.cpp:554
+#: map-quick/osmelementinformationmodel.cpp:563
 #, kde-format
 msgid "Diet"
 msgstr "식단"
 
-#: map-quick/osmelementinformationmodel.cpp:555
+#: map-quick/osmelementinformationmodel.cpp:564
 #, kde-format
 msgid "Takeaway"
 msgstr "포장"
 
-#: map-quick/osmelementinformationmodel.cpp:556
+#: map-quick/osmelementinformationmodel.cpp:565
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
 msgstr "전원 플러그"
 
-#: map-quick/osmelementinformationmodel.cpp:558
+#: map-quick/osmelementinformationmodel.cpp:567
 #, kde-format
 msgid "Available vehicles"
 msgstr "사용 가능한 이동 수단"
 
-#: map-quick/osmelementinformationmodel.cpp:559
+#: map-quick/osmelementinformationmodel.cpp:568
 #, kde-format
 msgid "Fee"
 msgstr "요금"
 
-#: map-quick/osmelementinformationmodel.cpp:560
+#: map-quick/osmelementinformationmodel.cpp:569
 #, kde-format
 msgid "Authentication"
 msgstr "인증"
 
-#: map-quick/osmelementinformationmodel.cpp:561
+#: map-quick/osmelementinformationmodel.cpp:570
 #, kde-format
 msgid "Bicycle parking"
 msgstr "자전거 주차"
 
-#: map-quick/osmelementinformationmodel.cpp:562
+#: map-quick/osmelementinformationmodel.cpp:571
 #, kde-format
 msgid "Capacity"
 msgstr "규모"
 
-#: map-quick/osmelementinformationmodel.cpp:563
+#: map-quick/osmelementinformationmodel.cpp:572
 #, kde-format
 msgid "Disabled parking spaces"
 msgstr "장애인 주차장"
 
-#: map-quick/osmelementinformationmodel.cpp:564
+#: map-quick/osmelementinformationmodel.cpp:573
 #, kde-format
 msgid "Women parking spaces"
 msgstr "여성 전용 주차 공간"
 
-#: map-quick/osmelementinformationmodel.cpp:565
+#: map-quick/osmelementinformationmodel.cpp:574
 #, kde-format
 msgid "Parent parking spaces"
 msgstr "부모 전용 주차 공간"
 
-#: map-quick/osmelementinformationmodel.cpp:566
+#: map-quick/osmelementinformationmodel.cpp:575
 #, kde-format
 msgid "Parking spaces for charging"
 msgstr "전기차 충전 가능 주차 공간"
 
-#: map-quick/osmelementinformationmodel.cpp:567
+#: map-quick/osmelementinformationmodel.cpp:576
 #, kde-format
 msgid "Maximum stay"
 msgstr "최대 체류 시간"
 
-#: map-quick/osmelementinformationmodel.cpp:568
+#: map-quick/osmelementinformationmodel.cpp:577
 #, kde-format
 msgid "Diaper changing table"
 msgstr "기저귀 교환대"
 
-#: map-quick/osmelementinformationmodel.cpp:569
+#: map-quick/osmelementinformationmodel.cpp:578
 #, kde-format
 msgid "Gender"
 msgstr "성별"
 
-#: map-quick/osmelementinformationmodel.cpp:571
+#: map-quick/osmelementinformationmodel.cpp:580
 #, kde-format
 msgid "Address"
 msgstr "주소"
 
-#: map-quick/osmelementinformationmodel.cpp:572
+#: map-quick/osmelementinformationmodel.cpp:581
 #, kde-format
 msgid "Phone"
 msgstr "전화"
 
-#: map-quick/osmelementinformationmodel.cpp:573
+#: map-quick/osmelementinformationmodel.cpp:582
 #, kde-format
 msgid "Email"
 msgstr "이메일"
 
-#: map-quick/osmelementinformationmodel.cpp:574
+#: map-quick/osmelementinformationmodel.cpp:583
 #, kde-format
 msgid "Website"
 msgstr "웹사이트"
 
-#: map-quick/osmelementinformationmodel.cpp:575
+#: map-quick/osmelementinformationmodel.cpp:584
 #, kde-format
 msgid "Cash"
 msgstr "현금"
 
-#: map-quick/osmelementinformationmodel.cpp:576
+#: map-quick/osmelementinformationmodel.cpp:585
 #, kde-format
 msgid "Digital"
 msgstr "디지털"
 
-#: map-quick/osmelementinformationmodel.cpp:577
+#: map-quick/osmelementinformationmodel.cpp:586
 #, kde-format
 msgid "Debit cards"
 msgstr "직불 카드"
 
-#: map-quick/osmelementinformationmodel.cpp:578
+#: map-quick/osmelementinformationmodel.cpp:587
 #, kde-format
 msgid "Credit cards"
 msgstr "신용 카드"
 
-#: map-quick/osmelementinformationmodel.cpp:579
+#: map-quick/osmelementinformationmodel.cpp:588
 #, kde-format
 msgid "Stored value cards"
 msgstr "선불형 카드"
 
-#: map-quick/osmelementinformationmodel.cpp:580
+#: map-quick/osmelementinformationmodel.cpp:589
 #, kde-format
 msgid "Wheelchair access"
 msgstr "휠체어 접근"
 
-#: map-quick/osmelementinformationmodel.cpp:581
+#: map-quick/osmelementinformationmodel.cpp:590
 #, kde-format
 msgid "Wheelchair lift"
 msgstr "휠체어 리프트"
 
-#: map-quick/osmelementinformationmodel.cpp:582
+#: map-quick/osmelementinformationmodel.cpp:591
 #, kde-format
 msgid "Central key"
 msgstr "중앙 키"
 
-#: map-quick/osmelementinformationmodel.cpp:583
+#: map-quick/osmelementinformationmodel.cpp:592
 #, kde-format
 msgid "Speech output"
 msgstr "발성 출력"
 
-#: map-quick/osmelementinformationmodel.cpp:584
+#: map-quick/osmelementinformationmodel.cpp:593
 #, kde-format
 msgid "Tactile writing"
 msgstr "점자 설명"
 
-#: map-quick/osmelementinformationmodel.cpp:586
+#: map-quick/osmelementinformationmodel.cpp:595
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
 msgstr "네트워크"
 
-#: map-quick/osmelementinformationmodel.cpp:588
+#: map-quick/osmelementinformationmodel.cpp:597
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
 msgstr "이동 가능 범위"
 
-#: map-quick/osmelementinformationmodel.cpp:658
+#: map-quick/osmelementinformationmodel.cpp:667
 #, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:745
+#: map-quick/osmelementinformationmodel.cpp:755
 #, kde-format
 msgid "only %1"
 msgstr "%1만"
 
-#: map-quick/osmelementinformationmodel.cpp:747
+#: map-quick/osmelementinformationmodel.cpp:757
 #, kde-format
 msgid "no %1"
 msgstr "%1 없음"
 
-#: map-quick/osmelementinformationmodel.cpp:772
+#: map-quick/osmelementinformationmodel.cpp:782
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
 msgstr "%1 A"
 
-#: map-quick/osmelementinformationmodel.cpp:780
+#: map-quick/osmelementinformationmodel.cpp:790
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
 msgstr "%1 kW"
 
-#: map-quick/osmelementinformationmodel.cpp:811
+#: map-quick/osmelementinformationmodel.cpp:821
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:879
-#: map-quick/osmelementinformationmodel.cpp:1066
+#: map-quick/osmelementinformationmodel.cpp:889
+#: map-quick/osmelementinformationmodel.cpp:1077
 #, kde-format
 msgid "yes"
 msgstr "예"
 
-#: map-quick/osmelementinformationmodel.cpp:882
+#: map-quick/osmelementinformationmodel.cpp:892
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "동전만"
 
-#: map-quick/osmelementinformationmodel.cpp:885
+#: map-quick/osmelementinformationmodel.cpp:895
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "지폐만"
 
-#: map-quick/osmelementinformationmodel.cpp:887
-#: map-quick/osmelementinformationmodel.cpp:938
-#: map-quick/osmelementinformationmodel.cpp:1069
+#: map-quick/osmelementinformationmodel.cpp:897
+#: map-quick/osmelementinformationmodel.cpp:948
+#: map-quick/osmelementinformationmodel.cpp:1080
 #, kde-format
 msgid "no"
 msgstr "아니요"
