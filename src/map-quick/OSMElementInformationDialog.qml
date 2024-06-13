@@ -133,11 +133,10 @@ Kirigami.Dialog {
 
         Component {
             id: infoAddressDelegate
-            // TODO use proper address formatting delegate once KF6.3 provides the necessary API
-            QQC2.Label {
+            OSMElementInformationDialogAddressDelegate {
                 x: Kirigami.Units.largeSpacing
                 width: parent.ListView.view.width - 2 * x
-                text: (row.value.street + " " + row.value.houseNumber + "\n" + row.value.postalCode + " " + row.value.city + "\n" + row.value.country).trim()
+                address: row?.value ?? ""
             }
         }
 
