@@ -130,6 +130,8 @@ QVariant OSMElementInformationModel::data(const QModelIndex &index, int role) co
                 case Image:
                 case Logo:
                     return ImageType;
+                case DebugKey:
+                    return debugTagUrl(index.row()).isValid() ? Link : String;
                 default:
                     return String;
             }
@@ -147,6 +149,9 @@ QVariant OSMElementInformationModel::data(const QModelIndex &index, int role) co
                 default: return valueForKey(info);
             }
         case ValueUrlRole:
+            if (info.key == DebugKey) {
+                return debugTagUrl(index.row());
+            }
             return urlify(valueForKey(info), info.key);
         case CategoryRole:
             return info.category;
@@ -545,6 +550,24 @@ QString OSMElementInformationModel::debugTagValue(int row) const
     const auto tagCount = std::distance(m_element.tagsBegin(), m_element.tagsEnd());
     const auto tagIdx = row - (rowCount() - tagCount);
     return QString::fromUtf8((*(m_element.tagsBegin() + tagIdx)).value);
+}
+
+QUrl OSMElementInformationModel::debugTagUrl(int row) const
+{
+    const auto tagCount = std::distance(m_element.tagsBegin(), m_element.tagsEnd());
+    const auto tagIdx = row - (rowCount() - tagCount);
+    const auto key = QByteArrayView((*(m_element.tagsBegin() + tagIdx)).key.name());
+    const auto value = (*(m_element.tagsBegin() + tagIdx)).value;
+    if (key.endsWith(":wikipedia") || key == "wikipedia") {
+        return wikipediaUrl(value);
+    }
+    if (key.endsWith(":wikidata") || key == "wikidata") {
+        return QUrl(u"https://wikidata.org/wiki/" + QString::fromUtf8(value));
+    }
+    if (value.startsWith("http"_L1)) {
+        return QUrl(QString::fromUtf8(value));
+    }
+    return {};
 }
 
 QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key) const

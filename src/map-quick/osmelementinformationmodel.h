@@ -144,6 +144,7 @@ private:
     [[nodiscard]] QString categoryLabel(KeyCategory cat) const;
     [[nodiscard]] QString debugTagKey(int row) const;
     [[nodiscard]] QString debugTagValue(int row) const;
+    [[nodiscard]] QUrl debugTagUrl(int row) const;
     [[nodiscard]] QString keyName(Key key) const;
     [[nodiscard]] QVariant valueForKey(Info info) const;
     [[nodiscard]] QVariant urlify(const QVariant &v, Key key) const;
