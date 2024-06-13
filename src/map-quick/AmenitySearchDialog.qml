@@ -15,7 +15,7 @@ Kirigami.SearchDialog {
 
     property var amenityModel: null
 
-    searchFieldPlaceholderText: i18n("Search amenity…")
+    searchFieldPlaceholderText: i18nd("kosmindoormap", "Search amenity…")
 
     model: AmenitySortFilterProxyModel {
         id: amenitySortModel
@@ -30,7 +30,7 @@ Kirigami.SearchDialog {
         id: item
         required property QtObject model
         onClicked: {
-            root.amenitySelected(item.model.element, item.model.level);
+            root.amenitySelected({ element: item.model.element, level: item.model.level });
             root.accept();
         }
 

@@ -321,68 +321,14 @@ Kirigami.ApplicationWindow {
             mapData: page.map.mapData
         }
 
-        Kirigami.Dialog {
+        RoomSearchDialog {
             id: roomSheet
-            title: i18nc("@title", "Find Room")
-
-            width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
-            height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
-
-            header: QQC2.Control {
-                width: parent.width
-                contentItem: Kirigami.SearchField {
-                    id: roomSearchField
-                    focus: true
-                    Connections {
-                        target: roomSheet
-                        function onVisibleChanged() {
-                            roomSearchField.clear();
-                        }
-                    }
-                }
-            }
-
-            contentItem: ListView {
-                clip: true
-                model: RoomSortFilterProxyModel {
-                    sourceModel: roomSheet.visible ? roomModel : null
-                    filterCaseSensitivity: Qt.CaseInsensitive
-                    filterString: roomSearchField.text
-                }
-
-                delegate: QQC2.ItemDelegate {
-                    id: item
-                    width: ListView.view.width
-                    contentItem: Kirigami.TitleSubtitle {
-                        title: {
-                            if (model.name === "")
-                                return model.number;
-                            if (model.number === "")
-                                return model.name;
-                            return i18n("%1 (%2)", model.name, model.number);
-                        }
-                        subtitle: {
-                            if (roomModel.buildingCount === 1)
-                                return model.typeName;
-                            if (model.typeName === "")
-                                return model.levelLongName;
-                            return i18n("%1 (%2)", model.typeName, model.levelLongName);
-                        }
-                    }
-                    onClicked: {
-                        page.map.view.floorLevel = model.level
-                        page.map.view.centerOnGeoCoordinate(model.coordinate);
-                        page.map.view.setZoomLevel(21, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
-                        console.log(model.element.url);
-                        roomSheet.close();
-                    }
-                }
-
-                section.property: roomModel.buildingCount !== 1 ? "buildingName" : "levelLongName"
-                section.delegate: Kirigami.ListSectionHeader {
-                    label: section
-                    width: ListView.view.width
-                }
+            roomModel: roomModel
+            onRoomSelected: (room) => {
+                page.map.view.floorLevel = room.level;
+                page.map.view.setZoomLevel(21, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
+                page.map.view.centerOnGeoCoordinate(room.element.center);
+                console.log(room.element.url);
             }
         }
 
