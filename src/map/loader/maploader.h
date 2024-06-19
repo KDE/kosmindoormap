@@ -45,6 +45,9 @@ public:
 
     /** Load map data for the given bounding box, without applying the boundary search. */
     void loadForBoundingBox(OSM::BoundingBox box);
+    /** QML-compatible overload of the above. */
+    Q_INVOKABLE void loadForBoundingBox(double minLat, double minLon, double maxLat, double maxLon);
+
     /** Load map data for the given tile. */
     void loadForTile(Tile tile);
 

@@ -138,6 +138,11 @@ void MapLoader::loadForBoundingBox(OSM::BoundingBox box)
     downloadTiles();
 }
 
+void MapLoader::loadForBoundingBox(double minLat, double minLon, double maxLat, double maxLon)
+{
+    loadForBoundingBox(OSM::BoundingBox(OSM::Coordinate{minLat, minLon}, OSM::Coordinate{maxLat, maxLon}));
+}
+
 void MapLoader::loadForTile(Tile tile)
 {
     d->m_ttl = {};
