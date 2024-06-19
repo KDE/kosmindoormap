@@ -199,10 +199,16 @@ void MapLoader::loadTiles()
         qCDebug(Log) << "loading tile" << fileName;
         QFile f(fileName);
         if (!f.open(QFile::ReadOnly)) {
-            qWarning() << f.fileName() << f.errorString();
-            break;
+            qWarning() << "Failed to open tile!" << f.fileName() << f.errorString();
+            continue;
         }
+
         const auto data = f.map(0, f.size());
+        if (!data) {
+            qCritical() << "Failed to mmap tile!" << f.fileName() << f.size() << f.errorString();
+            continue;
+        }
+
         p.read(data, f.size());
         d->m_marbleMerger.merge(&d->m_mergeBuffer);
 
