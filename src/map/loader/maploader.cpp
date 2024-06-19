@@ -45,6 +45,7 @@ public:
     MapData m_data;
     TileCache m_tileCache;
     OSM::BoundingBox m_tileBbox;
+    OSM::BoundingBox m_targetBbox;
     QRect m_loadedTiles;
     std::vector<Tile> m_pendingTiles;
     std::unique_ptr<BoundarySearch> m_boundarySearcher;
@@ -103,6 +104,7 @@ void MapLoader::loadForCoordinate(double lat, double lon, const QDateTime &ttl)
 {
     d->m_ttl = ttl;
     d->m_tileBbox = {};
+    d->m_targetBbox = {};
     d->m_pendingTiles.clear();
     d->m_boundarySearcher = std::make_unique<BoundarySearch>();
     d->m_boundarySearcher->init(OSM::Coordinate(lat, lon));
@@ -120,6 +122,7 @@ void MapLoader::loadForBoundingBox(OSM::BoundingBox box)
 {
     d->m_ttl = {};
     d->m_tileBbox = box;
+    d->m_targetBbox = box;
     d->m_pendingTiles.clear();
     d->m_errorMessage.clear();
     d->m_marbleMerger.setDataSet(&d->m_dataSet);
@@ -139,6 +142,7 @@ void MapLoader::loadForTile(Tile tile)
 {
     d->m_ttl = {};
     d->m_tileBbox = tile.boundingBox();
+    d->m_targetBbox = {};
     d->m_pendingTiles.clear();
     d->m_errorMessage.clear();
     d->m_marbleMerger.setDataSet(&d->m_dataSet);
@@ -252,11 +256,14 @@ void MapLoader::loadTiles()
             downloadTiles();
             return;
         }
-        d->m_data.setBoundingBox(bbox);
+        d->m_targetBbox = bbox;
     }
 
     d->m_marbleMerger.finalize();
     d->m_data.setDataSet(std::move(d->m_dataSet));
+    if (d->m_targetBbox.isValid()) {
+        d->m_data.setBoundingBox(d->m_targetBbox);
+    }
     d->m_boundarySearcher.reset();
 
     qCDebug(Log) << "o5m loading took" << loadTime.elapsed() << "ms";
