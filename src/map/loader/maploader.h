@@ -53,10 +53,10 @@ public:
      */
     MapData&& takeData();
 
-    bool isLoading() const;
+    [[nodiscard]] bool isLoading() const;
 
-    bool hasError() const;
-    QString errorMessage() const;
+    [[nodiscard]] bool hasError() const;
+    [[nodiscard]] QString errorMessage() const;
 
 Q_SIGNALS:
     /** Emitted when the requested data has been loaded. */
@@ -68,7 +68,7 @@ private:
     void downloadFinished();
     void downloadFailed(Tile tile, const QString &errorMessage);
     void loadTiles();
-    Tile makeTile(uint32_t x, uint32_t y) const;
+    [[nodiscard]] Tile makeTile(uint32_t x, uint32_t y) const;
 
     std::unique_ptr<MapLoaderPrivate> d;
 };
