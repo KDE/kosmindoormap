@@ -21,7 +21,7 @@ Kirigami.SearchDialog {
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
     height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
 
-    searchFieldPlaceholderText: i18n("Search room…")
+    searchFieldPlaceholderText: i18nd("kosmindoormap", "Search room…")
     model: RoomSortFilterProxyModel {
         id: roomSortModel
         sourceModel: root.visible ? root.roomModel : null
@@ -45,7 +45,7 @@ Kirigami.SearchDialog {
                     return model.typeName;
                 if (model.typeName === "")
                     return model.levelLongName;
-                return i18n("kosmindoormap", "%1 (%2)", model.typeName, model.levelLongName);
+                return i18nd("kosmindoormap", "%1 (%2)", model.typeName, model.levelLongName);
             }
         }
         onClicked: {
