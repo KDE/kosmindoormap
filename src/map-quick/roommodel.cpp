@@ -163,6 +163,11 @@ int RoomModel::buildingCount() const
     return (int)m_buildings.size();
 }
 
+bool RoomModel::isEmpty() const
+{
+    return rowCount() == 0;
+}
+
 void RoomModel::populateModel()
 {
     // find all buildings

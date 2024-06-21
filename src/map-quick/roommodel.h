@@ -23,6 +23,11 @@ class RoomModel : public QAbstractListModel
     Q_PROPERTY(KOSMIndoorMap::MapData mapData READ mapData WRITE setMapData NOTIFY mapDataChanged)
     /** Number of buildings found in the model data. */
     Q_PROPERTY(int buildingCount READ buildingCount NOTIFY populated)
+    /** Returns @c true if there are no rooms in the current map data.
+     *  @note Binding to this will disable lazy model population.
+     */
+    Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY mapDataChanged)
+
 public:
     explicit RoomModel(QObject *parent = nullptr);
     ~RoomModel();
@@ -48,6 +53,7 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     [[nodiscard]] int buildingCount() const;
+    [[nodiscard]] bool isEmpty() const;
 
 Q_SIGNALS:
     void mapDataChanged();
