@@ -28,6 +28,7 @@
 }
 
 // hide amenities (we have a dedicated model for that)
+*[amenity=parking],
 *[amenity=restaurant],
 *[amenity=toilets],
 *[room=restaurant],
@@ -35,6 +36,11 @@
 *[room=toilet],
 *[room=toilets],
 *[shop] {
+    opacity: 0;
+}
+
+// hide single building rooms
+*[building=yes][room] {
     opacity: 0;
 }
 
