@@ -23,7 +23,7 @@ class MapCSSParserPrivate : public MapCSSParserContext
 public:
     MapCSSParserPrivate() : MapCSSParserContext(ParseMapCSS) {};
 
-    void parse(MapCSSStyle *style, const QString &fileName, ClassSelectorKey importClass);
+    void parse(MapCSSStyle *style, const QUrl &url, ClassSelectorKey importClass);
 
     [[nodiscard]] inline static MapCSSParserPrivate* get(MapCSSParser *parser) { return parser->d.get(); }
 };

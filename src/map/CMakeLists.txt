@@ -37,6 +37,9 @@ if (NOT BUILD_TOOLS_ONLY)
         content/platformfinder.cpp
         content/platformmodel.cpp
 
+        network/networkaccessmanagerfactory.cpp
+        network/useragent.cpp
+
         renderer/hitdetector.cpp
         renderer/painterrenderer.cpp
         renderer/stackblur.cpp
@@ -56,6 +59,7 @@ if (NOT BUILD_TOOLS_ONLY)
         style/mapcsscondition.cpp
         style/mapcssdeclaration.cpp
         style/mapcssexpression.cpp
+        style/mapcssloader.cpp
         style/mapcssparser.cpp
         style/mapcssparsercontext.cpp
         style/mapcssresult.cpp
@@ -132,6 +136,13 @@ ecm_generate_headers(KOSMIndoorMap_Loader_FORWARDING_HEADERS
     REQUIRED_HEADERS KOSMIndoorMap_Loader_HEADERS
     RELATIVE loader
 )
+ecm_generate_headers(KOSMIndoorMap_Network_FORWARDING_HEADERS
+    HEADER_NAMES
+        NetworkAccessManagerFactory
+    PREFIX KOSMIndoorMap
+    REQUIRED_HEADERS KOSMIndoorMap_Network_HEADERS
+    RELATIVE network
+)
 ecm_generate_headers(KOSMIndoorMap_Renderer_FORWARDING_HEADERS
     HEADER_NAMES
         HitDetector
@@ -154,6 +165,7 @@ ecm_generate_headers(KOSMIndoorMap_Scene_FORWARDING_HEADERS
 ecm_generate_headers(KOSMIndoorMap_Style_FORWARDING_HEADERS
     HEADER_NAMES
         MapCSSElementState
+        MapCSSLoader
         MapCSSParser
         MapCSSProperty
         MapCSSResult
@@ -168,6 +180,8 @@ install(TARGETS KOSMIndoorMap EXPORT KOSMIndoorMapTargets ${KDE_INSTALL_TARGETS_
 install(FILES
     ${KOSMIndoorMap_Content_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Loader_FORWARDING_HEADERS}
+    ${KOSMIndoorMap_Loader_FORWARDING_HEADERS}
+    ${KOSMIndoorMap_Network_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Renderer_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Scene_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Style_FORWARDING_HEADERS}
@@ -176,6 +190,7 @@ install(FILES
 install(FILES
     ${KOSMIndoorMap_Content_HEADERS}
     ${KOSMIndoorMap_Loader_HEADERS}
+    ${KOSMIndoorMap_Network_HEADERS}
     ${KOSMIndoorMap_Renderer_HEADERS}
     ${KOSMIndoorMap_Scene_HEADERS}
     ${KOSMIndoorMap_Style_HEADERS}

@@ -60,6 +60,23 @@ private Q_SLOTS:
         QVERIFY(!p.hasError());
         QVERIFY(p.errorMessage().isEmpty());
     }
+
+    void testSyntaxError()
+    {
+        MapCSSParser p;
+        const auto style = p.parse(QStringLiteral(SOURCE_DIR "/data/mapcss/parser-test.mapcss.ref.license"));
+        QVERIFY(p.hasError());
+        QCOMPARE(p.error(), MapCSSParser::SyntaxError);
+        QVERIFY(!p.errorMessage().isEmpty());
+        QVERIFY(!p.url().isEmpty());
+    }
+    void testFileNotFound()
+    {
+        MapCSSParser p;
+        const auto style = p.parse(QStringLiteral(SOURCE_DIR "/data/mapcss/does-not-exist.mapcss"));
+        QVERIFY(p.hasError());
+        QCOMPARE(p.error(), MapCSSParser::FileNotFoundError);
+    }
 };
 
 QTEST_GUILESS_MAIN(MapCSSParserTest)

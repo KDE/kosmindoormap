@@ -22,6 +22,7 @@
 
 namespace KOSMIndoorMap {
 
+class MapCSSLoader;
 class MapData;
 
 /** Map renderer for the IndoorMap QML item.
@@ -113,7 +114,8 @@ private:
     MapData m_data;
     SceneGraph m_sg;
     View *m_view = nullptr;
-    QString m_styleSheetName;
+    QUrl m_styleSheetUrl;
+    MapCSSLoader *m_styleLoader = nullptr;
     MapCSSStyle m_style;
     SceneController m_controller;
     PainterRenderer m_renderer;

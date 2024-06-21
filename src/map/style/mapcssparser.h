@@ -12,6 +12,7 @@
 #include <memory>
 
 class QString;
+class QUrl;
 
 namespace KOSMIndoorMap {
 
@@ -26,10 +27,34 @@ public:
     explicit MapCSSParser();
     ~MapCSSParser();
 
-    MapCSSStyle parse(const QString &fileName);
+    [[nodiscard]] MapCSSStyle parse(const QString &fileName);
+    /** Parse MapCSS style sheet at @p url.
+     *  This can be a local file, qrc resource or a HTTP URL.
+     *  @note Attempting to parse a HTTP URL that isn't already downloaded will fail
+     *  with FileNotFoundError. When using remote MapCSS files, don't use this directly
+     *  but use MapCSSLoader which will handle necesary downloads itself.
+     *  @see MapCSSLoader.
+     */
+    [[nodiscard]] MapCSSStyle parse(const QUrl &url);
 
+    /** Returns @c true if an error occured during parsing and the returned style
+     *  is invalid.
+     */
     [[nodiscard]] bool hasError() const;
-    [[nodiscard]] QString fileName() const;
+
+    enum Error {
+        NoError,
+        SyntaxError,
+        FileNotFoundError,
+        FileIOError,
+        NetworkError,
+    };
+    [[nodiscard]] Error error() const;
+
+    /** URL of the parsed MapCSS style sheet.
+     *  This can be a local file, QRC asset or HTTP remote content.
+     */
+    [[nodiscard]] QUrl url() const;
     [[nodiscard]] QString errorMessage() const;
 
 private:

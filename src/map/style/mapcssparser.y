@@ -18,7 +18,7 @@
 void yyerror(YYLTYPE *loc, KOSMIndoorMap::MapCSSParserContext *context, yyscan_t scanner, char const* msg)
 {
     (void)scanner;
-    qWarning() << "PARSER ERROR:" << msg << "in" << context->m_currentFileName << "line:" << loc->first_line << "column:" << loc->first_column;
+    qWarning() << "PARSER ERROR:" << msg << "in" << context->m_currentUrl.toString() << "line:" << loc->first_line << "column:" << loc->first_column;
     context->setError(QString::fromUtf8(msg), loc->first_line, loc->first_column);
 }
 

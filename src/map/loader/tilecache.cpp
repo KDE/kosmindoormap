@@ -6,6 +6,7 @@
 
 #include "tilecache_p.h"
 #include "logging.h"
+#include "network/useragent_p.h"
 
 #include <osm/datatypes.h>
 #include <osm/geomath.h>
@@ -83,11 +84,8 @@ Tile Tile::bottomRightAtZ(uint8_t z) const
 
 TileCache::TileCache(QObject *parent)
     : QObject(parent)
-    , m_nam(new QNetworkAccessManager(this))
+    , m_nam(KOSMIndoorMap::defaultNetworkAccessManagerFactory) // TODO make this externally changeable
 {
-    m_nam->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
-    m_nam->enableStrictTransportSecurityStore(true, QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/org.kde.osm/hsts/"));
-    m_nam->setStrictTransportSecurityEnabled(true);
 }
 
 TileCache::~TileCache() = default;
@@ -168,8 +166,12 @@ void TileCache::downloadNext()
 
     QNetworkRequest req(url);
     req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
-    req.setHeader(QNetworkRequest::UserAgentHeader, (QCoreApplication::applicationName() + QLatin1Char('/') + QCoreApplication::applicationVersion()).toUtf8());
-    auto reply = m_nam->get(req);
+    req.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    // bypass cache, we manage that ourselves
+    req.setAttribute(QNetworkRequest::CacheLoadControlAttribute,  QNetworkRequest::AlwaysNetwork);
+    req.setAttribute(QNetworkRequest::CacheSaveControlAttribute,  false);
+    req.setHeader(QNetworkRequest::UserAgentHeader, KOSMIndoorMap::userAgent());
+    auto reply = m_nam()->get(req);
     connect(reply, &QNetworkReply::readyRead, this, [this, reply]() { dataReceived(reply); });
     connect(reply, &QNetworkReply::finished, this, [this, reply, tile]() { downloadFinished(reply, tile); });
     connect(reply, &QNetworkReply::sslErrors, this, [reply](const auto &sslErrors) { reply->setProperty("_ssl_errors", QVariant::fromValue(sslErrors)); });

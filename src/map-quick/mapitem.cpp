@@ -8,16 +8,15 @@
 #include "osmelement.h"
 
 #include <KOSMIndoorMap/HitDetector>
+#include <KOSMIndoorMap/MapCSSLoader>
 #include <KOSMIndoorMap/MapCSSParser>
 #include <KOSMIndoorMap/OverlaySource>
 
 #include <QDebug>
-#include <QFile>
 #include <QGuiApplication>
 #include <QPainter>
 #include <QPalette>
 #include <QQuickWindow>
-#include <QStandardPaths>
 #include <QTimeZone>
 
 using namespace KOSMIndoorMap;
@@ -37,6 +36,8 @@ MapItem::MapItem(QQuickItem *parent)
     connect(m_view, &View::transformationChanged, this, [this]() { update(); });
 
     setStylesheetName({}); // set default stylesheet
+
+    MapCSSLoader::expire();
 }
 
 MapItem::~MapItem() = default;
@@ -60,64 +61,43 @@ View* MapItem::view() const
 
 QString MapItem::styleSheetName() const
 {
-    return m_styleSheetName;
+    return m_styleSheetUrl.toString();
 }
 
 void MapItem::setStylesheetName(const QString &styleSheet)
 {
-    QString styleFile;
-
-    if (styleSheet.isEmpty() || styleSheet == QLatin1String("default")) {
-        if (QGuiApplication::palette().base().color().value() > 128) {
-            setStylesheetName(QStringLiteral("breeze-light"));
-        } else {
-            setStylesheetName(QStringLiteral("breeze-dark"));
-        }
-        return;
-    } else {
-        styleFile = styleSheet.contains(QLatin1Char(':')) ? QUrl::fromUserInput(styleSheet).toLocalFile() : styleSheet;
-        if (!QFile::exists(styleFile)) {
-#ifndef Q_OS_ANDROID
-            auto searchPaths = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
-#else
-            auto searchPaths = QStandardPaths::standardLocations(QStandardPaths::AppLocalDataLocation);
-#endif
-            searchPaths.push_back(QStringLiteral(":"));
-            for (const auto &searchPath : std::as_const(searchPaths)) {
-                const QString f = searchPath + QLatin1String("/org.kde.kosmindoormap/assets/css/") + styleSheet + QLatin1String(".mapcss");
-                if (QFile::exists(f)) {
-                    qDebug() << "resolved stylesheet name to" << f;
-                    styleFile = f;
-                    break;
-                }
-            }
-        }
-    }
-
-    if (m_styleSheetName == styleFile) {
+    QUrl styleFile = MapCSSLoader::resolve(styleSheet);
+    if (m_styleSheetUrl == styleFile) {
         return;
     }
-    m_styleSheetName = styleFile;
+    m_styleSheetUrl = styleFile;
     m_style = MapCSSStyle();
 
-    if (!m_styleSheetName.isEmpty()) {
-        MapCSSParser cssParser;
-        m_style = cssParser.parse(m_styleSheetName);
-
-        if (cssParser.hasError()) {
-            m_errorMessage = cssParser.errorMessage();
-            Q_EMIT errorChanged();
-            return;
-        }
-        m_errorMessage.clear();
-        Q_EMIT errorChanged();
+    if (m_styleLoader) { // cancel an ongoing style load
+        disconnect(m_styleLoader, nullptr, this, nullptr);
+        delete m_styleLoader;
+        m_styleLoader = nullptr;
     }
 
-    m_style.compile(m_data.dataSet());
-    m_controller.setStyleSheet(&m_style);
+    m_styleLoader = new MapCSSLoader(m_styleSheetUrl, KOSMIndoorMap::defaultNetworkAccessManagerFactory, this);
+    connect(m_styleLoader, &MapCSSLoader::finished, this, [this]() {
+        if (m_styleLoader->hasError()) {
+            m_errorMessage = m_styleLoader->errorMessage();
+        } else {
+            m_style = m_styleLoader->takeStyle();
+            m_errorMessage.clear();
+
+            m_style.compile(m_data.dataSet());
+            m_controller.setStyleSheet(&m_style);
+            update();
+        }
+        Q_EMIT errorChanged();
+        m_styleLoader->deleteLater();
+        m_styleLoader = nullptr;
+    });
+    m_styleLoader->start();
 
     Q_EMIT styleSheetChanged();
-    update();
 }
 
 FloorLevelModel* MapItem::floorLevelModel() const

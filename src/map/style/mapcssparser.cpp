@@ -8,12 +8,11 @@
 #include "mapcssparser_p.h"
 #include "logging.h"
 
+#include "mapcssloader.h"
 #include "mapcssparser_impl.h"
 #include "mapcssdeclaration_p.h"
-#include "mapcssrule_p.h"
 #include "mapcssscanner.h"
 #include "mapcssstyle.h"
-#include "mapcssstyle_p.h"
 
 #include <QDebug>
 #include <QFile>
@@ -75,12 +74,17 @@ MapCSSParser::~MapCSSParser() = default;
 
 bool MapCSSParser::hasError() const
 {
+    return d->m_error != MapCSSParser::NoError;
+}
+
+MapCSSParser::Error MapCSSParser::error() const
+{
     return d->m_error;
 }
 
-QString MapCSSParser::fileName() const
+QUrl MapCSSParser::url() const
 {
-    return d->m_currentFileName;
+    return d->m_currentUrl;
 }
 
 QString MapCSSParser::errorMessage() const
@@ -89,15 +93,18 @@ QString MapCSSParser::errorMessage() const
         return {};
     }
 
-    return d->m_errorMsg + QLatin1String(": ") + fileName() + QLatin1Char(':') + QString::number(d->m_line) + QLatin1Char(':') + QString::number(d->m_column);
+    return d->m_errorMsg + QLatin1String(": ") + url().toString() + QLatin1Char(':') + QString::number(d->m_line) + QLatin1Char(':') + QString::number(d->m_column);
 }
 
 MapCSSStyle MapCSSParser::parse(const QString &fileName)
 {
-    d->m_error = true;
+    return parse(MapCSSLoader::resolve(fileName));
+}
 
+MapCSSStyle MapCSSParser::parse(const QUrl &url)
+{
     MapCSSStyle style;
-    d->parse(&style, fileName, {});
+    d->parse(&style, url, {});
     if (d->m_error) {
         return MapCSSStyle();
     }
@@ -105,16 +112,22 @@ MapCSSStyle MapCSSParser::parse(const QString &fileName)
     return style;
 }
 
-void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName, ClassSelectorKey importClass)
+void MapCSSParserPrivate::parse(MapCSSStyle *style, const QUrl &url, ClassSelectorKey importClass)
 {
+    const auto fileName = MapCSSLoader::toLocalFile(url);
     QFile f(fileName);
     if (!f.open(QFile::ReadOnly)) {
         qCWarning(Log) << f.fileName() << f.errorString();
-        m_error = true;
+        if (!QFile::exists(fileName)) {
+            m_error = MapCSSParser::FileNotFoundError;
+            m_currentUrl = url;
+        } else {
+            m_error = MapCSSParser::FileIOError;
+        }
         m_errorMsg = f.errorString();
         return;
     }
-    m_currentFileName = fileName;
+    m_currentUrl = url;
     m_currentStyle = style;
     m_importClass = importClass;
 
@@ -127,14 +140,14 @@ void MapCSSParserPrivate::parse(MapCSSStyle *style, const QString &fileName, Cla
     const auto b = f.readAll();
     YY_BUFFER_STATE state;
     state = yy_scan_string(b.constData(), scanner);
+    m_error = MapCSSParser::SyntaxError;
     if (yyparse(this, scanner)) {
-        m_error = true;
         return;
     }
 
     yy_delete_buffer(state, scanner);
 
-    m_error = false;
+    m_error = MapCSSParser::NoError;
     m_currentStyle = nullptr;
     m_importClass = {};
 }

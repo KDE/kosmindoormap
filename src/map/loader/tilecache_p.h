@@ -9,6 +9,8 @@
 
 #include "kosmindoormap_export.h"
 
+#include <KOSMIndoorMap/NetworkAccessManagerFactory>
+
 #include <QDateTime>
 #include <QFile>
 #include <QObject>
@@ -88,7 +90,7 @@ private:
     void downloadFinished(QNetworkReply *reply, Tile tile);
     void updateTtl(const QString &filePath, const QDateTime &ttl);
 
-    QNetworkAccessManager *m_nam;
+    NetworkAccessManagerFactory m_nam;
     QFile m_output;
     std::deque<Tile> m_pendingDownloads;
 };

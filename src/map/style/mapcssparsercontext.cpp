@@ -6,30 +6,27 @@
 #include "mapcssparsercontext_p.h"
 
 #include "mapcssdeclaration_p.h"
+#include "mapcssloader.h"
 #include "mapcssparser.h"
 #include "mapcssparser_p.h"
 #include "mapcssrule_p.h"
 #include "mapcssstyle_p.h"
-#include "logging.h"
-
-#include <QFileInfo>
 
 using namespace KOSMIndoorMap;
 
 bool MapCSSParserContext::addImport(char* fileName, ClassSelectorKey importClass)
 {
-    auto cssFile = QString::fromUtf8(fileName);
+    const auto cssUrl = MapCSSLoader::resolve(QString::fromUtf8(fileName), m_currentUrl);
     free(fileName);
 
-    if (QFileInfo(cssFile).isRelative()) {
-        cssFile = QFileInfo(m_currentFileName).absolutePath() + QLatin1Char('/') + cssFile;
-    }
-
     MapCSSParser p;
-    MapCSSParserPrivate::get(&p)->parse(m_currentStyle, cssFile, importClass);
+    MapCSSParserPrivate::get(&p)->parse(m_currentStyle, cssUrl, importClass);
     if (p.hasError()) {
-        m_error = true;
+        m_error = p.error();
         m_errorMsg = p.errorMessage();
+        if (m_error == MapCSSParser::FileNotFoundError) {
+            m_currentUrl = p.url();
+        }
     }
     return !p.hasError();
 }
@@ -46,7 +43,7 @@ void MapCSSParserContext::addRule(MapCSSRule *rule)
 
 void MapCSSParserContext::setError(const QString &msg, int line, int column)
 {
-    m_error = true;
+    m_error = MapCSSParser::SyntaxError;
     m_errorMsg = msg;
     m_line = line;
     m_column = column;
