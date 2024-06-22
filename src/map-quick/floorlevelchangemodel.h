@@ -25,7 +25,11 @@ class MapLevel;
 class FloorLevelChangeModel : public QAbstractListModel
 {
     Q_OBJECT
+    /** The current floor level. */
     Q_PROPERTY(int currentFloorLevel READ currentFloorLevel WRITE setCurrentFloorLevel NOTIFY contentChanged)
+    /** The model row representing the current floor level. */
+    Q_PROPERTY(int currentFloorLevelRow READ currentFloorLevelRow NOTIFY contentChanged)
+
     Q_PROPERTY(KOSMIndoorMap::FloorLevelModel* floorLevelModel READ floorLevelModel WRITE setFloorLevelModel NOTIFY contentChanged)
     Q_PROPERTY(KOSMIndoorMap::OSMElement element READ element WRITE setElement NOTIFY contentChanged)
 
@@ -59,6 +63,7 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     [[nodiscard]] int currentFloorLevel() const;
+    [[nodiscard]] int currentFloorLevelRow() const;
     void setCurrentFloorLevel(int level);
     [[nodiscard]] FloorLevelModel* floorLevelModel() const;
     void setFloorLevelModel(FloorLevelModel *floorLevelModel);

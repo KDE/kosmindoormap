@@ -36,6 +36,7 @@ ecm_add_qml_module(kosmindoormapquickplugin
     QML_FILES
         AmenityListDelegate.qml
         AmenitySearchDialog.qml
+        FloorLevelSelector.qml
         IndoorMap.qml
         IndoorMapAttributionLabel.qml
         IndoorMapScale.qml

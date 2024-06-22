@@ -58,27 +58,10 @@ Kirigami.Page {
         floorLevelModel: map.floorLevels
     }
 
-    Kirigami.OverlaySheet {
+    FloorLevelSelector {
         id: elevatorSheet
-        header: Kirigami.Heading {
-            text: floorLevelChangeModel.title
-        }
-        ListView {
-            model: floorLevelChangeModel
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 10
-            delegate: QQC2.ItemDelegate {
-                highlighted: false
-                width: ListView.view.width
-                contentItem: Kirigami.TitleSubtitle {
-                    title: model.display
-                    font.bold: model.isCurrentFloor
-                }
-                onClicked: {
-                    elevatorSheet.close();
-                    map.view.floorLevel = model.floorLevel;
-                }
-            }
-        }
+        model: floorLevelChangeModel
+        onFloorLevelSelected: (level) => { map.view.floorLevel = level; }
     }
 
     IndoorMap {

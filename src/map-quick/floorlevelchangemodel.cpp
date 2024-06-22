@@ -60,6 +60,12 @@ int FloorLevelChangeModel::currentFloorLevel() const
     return m_currentFloorLevel;
 }
 
+int FloorLevelChangeModel::currentFloorLevelRow() const
+{
+    const auto it = std::find_if(m_levels.begin(), m_levels.end(), [this](const auto &level) { return level.numericLevel() == m_currentFloorLevel; });
+    return it != m_levels.end() ? (int)std::distance(m_levels.begin(), it) : -1;
+}
+
 void FloorLevelChangeModel::setCurrentFloorLevel(int level)
 {
     if (m_currentFloorLevel == level) {
@@ -225,7 +231,9 @@ QString FloorLevelChangeModel::title() const
         return i18n("Staircase");
     }
 
-    qWarning() << "Unknown floor level change element type:" << m_element.url();
+    if (m_levels.size() > 2) {
+        qWarning() << "Unknown floor level change element type:" << m_element.url();
+    }
     return {};
 }
 
