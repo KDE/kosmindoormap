@@ -54,29 +54,29 @@ public:
         CurrentFloorRole,
     };
 
-    int rowCount(const QModelIndex &parent = {}) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = {}) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    int currentFloorLevel() const;
+    [[nodiscard]] int currentFloorLevel() const;
     void setCurrentFloorLevel(int level);
-    FloorLevelModel* floorLevelModel() const;
+    [[nodiscard]] FloorLevelModel* floorLevelModel() const;
     void setFloorLevelModel(FloorLevelModel *floorLevelModel);
-    OSMElement element() const;
+    [[nodiscard]] OSMElement element() const;
     void setElement(const OSMElement &element);
 
-    bool hasSingleLevelChange() const;
-    int destinationLevel() const;
-    QString destinationLevelName() const;
-    bool hasMultipleLevelChanges() const;
+    [[nodiscard]] bool hasSingleLevelChange() const;
+    [[nodiscard]] int destinationLevel() const;
+    [[nodiscard]] QString destinationLevelName() const;
+    [[nodiscard]] bool hasMultipleLevelChanges() const;
 
-    QString title() const;
+    [[nodiscard]] QString title() const;
 
 Q_SIGNALS:
     void contentChanged();
 
 private:
-    bool isLevelChangeElement(OSM::Element element) const;
+    [[nodiscard]] bool isLevelChangeElement(OSM::Element element) const;
     void appendFloorLevel(int level);
     void appendFullFloorLevel(int level);
 
