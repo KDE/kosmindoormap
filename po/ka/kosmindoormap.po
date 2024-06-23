@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:38+0000\n"
+"POT-Creation-Date: 2024-06-23 00:38+0000\n"
 "PO-Revision-Date: 2024-04-25 10:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -59,12 +59,12 @@ msgctxt "amenity category"
 msgid "Accommodations"
 msgstr "სასტუმროები"
 
-#: map-quick/floorlevelchangemodel.cpp:218
+#: map-quick/floorlevelchangemodel.cpp:224
 #, kde-format
 msgid "Elevator"
 msgstr "ლიფტი"
 
-#: map-quick/floorlevelchangemodel.cpp:225
+#: map-quick/floorlevelchangemodel.cpp:231
 #, kde-format
 msgid "Staircase"
 msgstr "კიბე"

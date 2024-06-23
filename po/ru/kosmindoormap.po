@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:38+0000\n"
+"POT-Creation-Date: 2024-06-23 00:38+0000\n"
 "PO-Revision-Date: 2023-11-10 14:43+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -62,12 +62,12 @@ msgctxt "amenity category"
 msgid "Accommodations"
 msgstr ""
 
-#: map-quick/floorlevelchangemodel.cpp:218
+#: map-quick/floorlevelchangemodel.cpp:224
 #, kde-format
 msgid "Elevator"
 msgstr "Лифт"
 
-#: map-quick/floorlevelchangemodel.cpp:225
+#: map-quick/floorlevelchangemodel.cpp:231
 #, kde-format
 msgid "Staircase"
 msgstr "Лестница"

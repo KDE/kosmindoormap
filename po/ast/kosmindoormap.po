@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-14 00:38+0000\n"
+"POT-Creation-Date: 2024-06-23 00:38+0000\n"
 "PO-Revision-Date: 2024-03-27 22:34+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -58,12 +58,12 @@ msgctxt "amenity category"
 msgid "Accommodations"
 msgstr ""
 
-#: map-quick/floorlevelchangemodel.cpp:218
+#: map-quick/floorlevelchangemodel.cpp:224
 #, kde-format
 msgid "Elevator"
 msgstr ""
 
-#: map-quick/floorlevelchangemodel.cpp:225
+#: map-quick/floorlevelchangemodel.cpp:231
 #, kde-format
 msgid "Staircase"
 msgstr ""
