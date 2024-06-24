@@ -48,6 +48,20 @@
             "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories5" ]
         },
         {
+            "name": "recast",
+            "config-opts": [
+                "-DBUILD_SHARED_LIBS=OFF",
+                "-DRECASTNAVIGATION_DEMO=OFF",
+                "-DRECASTNAVIGATION_EXAMPLES=OFF",
+                "-DRECASTNAVIGATION_TESTS=OFF",
+                "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
+            ],
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "sources": [ { "type": "git", "url": "https://github.com/recastnavigation/recastnavigation", "branch": "main" } ],
+            "cleanup": [ "/include", "/lib" ]
+        },
+        {
             "name": "kosmindoormap",
             "buildsystem": "cmake-ninja",
             "builddir": true,
