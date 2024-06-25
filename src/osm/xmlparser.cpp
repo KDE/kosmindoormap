@@ -30,11 +30,11 @@ void XmlParser::readFromIODevice(QIODevice *io)
         }
 
         if (reader.name() == QLatin1String("node")) {
-            parseNode(reader);
+            addNode(parseNode(reader));
         } else if (reader.name() == QLatin1String("way")) {
-            parseWay(reader);
+            addWay(parseWay(reader));
         } else if (reader.name() == QLatin1String("relation")) {
-            parseRelation(reader);
+            addRelation(parseRelation(reader));
         } else if (reader.name() == QLatin1String("remark")) {
             m_error = reader.readElementText();
             return;
@@ -64,7 +64,7 @@ uint32_t parseCoordinateValue(QStringView s, int offset)
     return result;
 }
 
-void XmlParser::parseNode(QXmlStreamReader &reader)
+OSM::Node XmlParser::parseNode(QXmlStreamReader &reader) const
 {
     Node node;
     node.id = reader.attributes().value(QLatin1String("id")).toLongLong();
@@ -80,10 +80,10 @@ void XmlParser::parseNode(QXmlStreamReader &reader)
         reader.skipCurrentElement();
     }
 
-    addNode(std::move(node));
+    return node;
 }
 
-void XmlParser::parseWay(QXmlStreamReader &reader)
+OSM::Way XmlParser::parseWay(QXmlStreamReader &reader) const
 {
     Way way;
     way.id = reader.attributes().value(QLatin1String("id")).toLongLong();
@@ -104,10 +104,10 @@ void XmlParser::parseWay(QXmlStreamReader &reader)
         reader.skipCurrentElement();
     }
 
-    addWay(std::move(way));
+    return way;
 }
 
-void XmlParser::parseRelation(QXmlStreamReader &reader)
+OSM::Relation XmlParser::parseRelation(QXmlStreamReader &reader) const
 {
     Relation rel;
     rel.id = reader.attributes().value(QLatin1String("id")).toLongLong();
@@ -137,18 +137,18 @@ void XmlParser::parseRelation(QXmlStreamReader &reader)
         reader.skipCurrentElement();
     }
 
-    addRelation(std::move(rel));
+    return rel;
 }
 
 template <typename T>
-void XmlParser::parseTag(QXmlStreamReader &reader, T &elem)
+void XmlParser::parseTag(QXmlStreamReader &reader, T &elem) const
 {
     const auto key = m_dataSet->makeTagKey(reader.attributes().value(QLatin1String("k")).toString().toUtf8().constData(), OSM::StringMemory::Transient);
     OSM::setTagValue(elem, key, reader.attributes().value(QLatin1String("v")).toUtf8());
 }
 
 template <typename T>
-void XmlParser::parseTagOrBounds(QXmlStreamReader &reader, T &elem)
+void XmlParser::parseTagOrBounds(QXmlStreamReader &reader, T &elem) const
 {
     if (reader.attributes().value(QLatin1String("k")) == QLatin1String("bBox")) { // osmconvert style bounding box
         const auto v = reader.attributes().value(QLatin1String("v")).split(QLatin1Char(','));
@@ -162,7 +162,7 @@ void XmlParser::parseTagOrBounds(QXmlStreamReader &reader, T &elem)
 }
 
 template<typename T>
-void XmlParser::parseBounds(QXmlStreamReader &reader, T &elem)
+void XmlParser::parseBounds(QXmlStreamReader &reader, T &elem) const
 {
     // overpass style bounding box
     elem.bbox.min = Coordinate(reader.attributes().value(QLatin1String("minlat")).toDouble(), reader.attributes().value(QLatin1String("minlon")).toDouble());

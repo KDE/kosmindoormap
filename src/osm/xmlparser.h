@@ -23,18 +23,20 @@ class XmlParser : public AbstractReader
 public:
     explicit XmlParser(DataSet *dataSet);
 
+protected: // for reuse by the OSC parser
+    [[nodiscard]] OSM::Node parseNode(QXmlStreamReader &reader) const;
+    [[nodiscard]] OSM::Way parseWay(QXmlStreamReader &reader) const;
+    [[nodiscard]] OSM::Relation parseRelation(QXmlStreamReader &reader) const;
+
 private:
     void readFromIODevice(QIODevice *io) override;
 
-    void parseNode(QXmlStreamReader &reader);
-    void parseWay(QXmlStreamReader &reader);
-    void parseRelation(QXmlStreamReader &reader);
     template <typename T>
-    void parseTag(QXmlStreamReader &reader, T &elem);
+    void parseTag(QXmlStreamReader &reader, T &elem) const;
     template <typename T>
-    void parseTagOrBounds(QXmlStreamReader &reader, T&elem);
+    void parseTagOrBounds(QXmlStreamReader &reader, T&elem) const;
     template <typename T>
-    void parseBounds(QXmlStreamReader &reader, T &elem);
+    void parseBounds(QXmlStreamReader &reader, T &elem) const;
 };
 
 }
