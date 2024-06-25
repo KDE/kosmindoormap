@@ -12,6 +12,7 @@ add_library(KOSM
     languages.cpp
     o5mparser.cpp
     o5mwriter.cpp
+    oscparser.cpp
     overpassquery.cpp
     overpassquerymanager.cpp
     pathutil.cpp
@@ -21,6 +22,7 @@ add_library(KOSM
     ztile.cpp
 
     io/o5mplugin.cpp
+    io/oscplugin.cpp
     io/xmlplugin.cpp
 )
 generate_export_header(KOSM BASE_NAME KOSM)
