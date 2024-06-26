@@ -49,6 +49,8 @@ ecm_add_qml_module(kosmindoormapquickplugin
         OSMElementInformationDialogOpeningHoursDelegate.qml
         OSMElementInformationDialogStringDelegate.qml
         RoomSearchDialog.qml
+    SOURCES
+        mappointerevent.cpp
     NO_GENERATE_PLUGIN_SOURCE
     NO_PLUGIN_OPTIONAL
     CLASS_NAME "KOSMIndoorMapQuickPlugin"

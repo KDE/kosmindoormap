@@ -4,6 +4,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+pragma ValueTypeBehavior: Addressable
+
 import QtQuick
 import QtQuick.Layouts
 import org.kde.kosmindoormap
@@ -34,10 +36,19 @@ Item {
     /** Currently hovered element. */
     property alias hoveredElement: map.hoveredElement
 
-    /** Emitted when a map element has been picked by clicking/tapping on it. */
+    /** Emitted when a map element has been picked by clicking/tapping on it.
+     *  @deprecated Use tapped() instead.
+     */
     signal elementPicked(var element);
-    /** Emitted when a map element has been long-pressed. */
+    /** Emitted when a map element has been long-pressed.
+     *  @deprecated Use longPressed() instead.
+     */
     signal elementLongPressed(var element);
+
+    /** Emitted on a tap or click event on the map. */
+    signal tapped(mapPointerEvent event);
+    /** Emitted on a long press event on the map. */
+    signal longPressed(mapPointerEvent event);
 
     /** Map an event handler EventPoint to map screen coordinates. */
     function mapEventPointToScreen(eventPoint) {
@@ -89,18 +100,32 @@ Item {
 
         TapHandler {
             id: tapHandler
-            acceptedButtons: Qt.LeftButton
-            onTapped: function(eventPoint) {
-                const element = mapRoot.elementAt(mapRoot.mapEventPointToScreen(eventPoint));
-                if (!element.isNull) {
-                    elementPicked(element);
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            onTapped: (eventPoint, button) => {
+                const ev = {
+                    element: mapRoot.elementAt(mapRoot.mapEventPointToScreen(eventPoint)),
+                    geoPosition: mapRoot.mapEventPointToGeo(eventPoint),
+                    screenPosition: mapRoot.mapEventPointToScreen(eventPoint),
+                    button: button,
+                    modifiers: tapHandler.point.modifiers,
+                } as mapPointerEvent;
+                if (!ev.element.isNull) {
+                    elementPicked(ev.element);
                 }
+                mapRoot.tapped(ev);
             }
             onLongPressed: function() {
-                const element = mapRoot.elementAt(mapRoot.mapEventPointToScreen(tapHandler.point));
-                if (!element.isNull) {
-                    elementLongPressed(element);
+                const ev = {
+                    element: mapRoot.elementAt(mapRoot.mapEventPointToScreen(tapHandler.point)),
+                    geoPosition: mapRoot.mapEventPointToGeo(tapHandler.point),
+                    screenPosition: mapRoot.mapEventPointToScreen(tapHandler.point),
+                    button: tapHandler.point.pressedButtons,
+                    modifiers: tapHandler.point.modifiers,
+                } as mapPointerEvent;
+                if (!ev.element.isNull) {
+                    elementLongPressed(ev.element);
                 }
+                mapRoot.longPressed(ev);
             }
         }
         PinchHandler {

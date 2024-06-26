@@ -90,6 +90,7 @@ Kirigami.ApplicationWindow {
     pageStack.initialPage: IndoorMapPage {
         id: page
         debug: debugAction.checked
+        routingController: routingController
 
         actions: [
             Kirigami.Action {
@@ -393,35 +394,6 @@ Kirigami.ApplicationWindow {
 
         map.overlaySources: [ gateModel, platformModel, locationModel, equipmentModel, routingController.routeOverlay ]
         map.timeZone: "Europe/Berlin"
-
-        TapHandler {
-            id: tapHandler
-            enabled: routingController.isAvailable
-            acceptedButtons: Qt.RightButton
-            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
-            onTapped: function(eventPoint) {
-                contextMenu.pos = page.map.mapEventPointToGeo(eventPoint)
-                contextMenu.popup()
-            }
-        }
-        QQC2.Menu {
-            id: contextMenu
-            property point pos
-            QQC2.MenuItem {
-                text: i18n("Navigate from here")
-                onTriggered: {
-                    routingController.setStartPosition(contextMenu.pos.y, contextMenu.pos.x, page.map.view.floorLevel);
-                    routingController.searchRoute();
-                }
-            }
-            QQC2.MenuItem {
-                text: i18n("Navigate to here")
-                onTriggered: {
-                    routingController.setEndPosition(contextMenu.pos.y, contextMenu.pos.x, page.map.view.floorLevel);
-                    routingController.searchRoute();
-                }
-            }
-        }
 
         header: RowLayout {
             QQC2.Label { text: "Floor Level:" }
