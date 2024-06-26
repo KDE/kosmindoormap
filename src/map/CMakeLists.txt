@@ -72,6 +72,7 @@ if (NOT BUILD_TOOLS_ONLY)
         ${BISON_mapcssparser_OUTPUTS}
         ${FLEX_mapcssscanner_OUTPUTS}
     )
+    qt_extract_metatypes(KOSMIndoorMap)
 endif()
 
 ecm_qt_declare_logging_category(KOSMIndoorMap

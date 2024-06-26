@@ -22,6 +22,7 @@ target_link_libraries(KOSMIndoorMapQuick PUBLIC
     KOSMIndoorMap
     KWikidata
 )
+qt_extract_metatypes(KOSMIndoorMapQuick)
 
 ecm_qt_declare_logging_category(KOSMIndoorMapQuick
     HEADER logging.h
@@ -33,6 +34,7 @@ ecm_qt_declare_logging_category(KOSMIndoorMapQuick
 
 ecm_add_qml_module(kosmindoormapquickplugin
     URI "org.kde.kosmindoormap"
+    VERSION 1.0
     QML_FILES
         AmenityListDelegate.qml
         AmenitySearchDialog.qml
@@ -56,7 +58,10 @@ ecm_add_qml_module(kosmindoormapquickplugin
         "org.kde.kirigami"
         "org.kde.kopeninghours"
 )
-target_sources(kosmindoormapquickplugin PRIVATE kosmindoormapquickplugin.cpp)
+target_sources(kosmindoormapquickplugin PRIVATE
+    kosmindoormapquickplugin.cpp
+    types.h
+)
 target_link_libraries(kosmindoormapquickplugin PRIVATE
     KOSMIndoorMapQuick
 )

@@ -6,20 +6,13 @@
 
 #include "kosmindoormapquickplugin.h"
 
-#include "amenitymodel.h"
-#include "amenitysortfilterproxymodel.h"
-#include "floorlevelchangemodel.h"
-#include "mapitem.h"
 #include "osmaddress.h"
 #include "osmelement.h"
-#include "osmelementinformationmodel.h"
-#include "roommodel.h"
-#include "roomsortfilterproxymodel.h"
 
-#include <KOSMIndoorMap/EquipmentModel>
-#include <KOSMIndoorMap/GateModel>
 #include <KOSMIndoorMap/MapData>
 #include <KOSMIndoorMap/PlatformModel>
+
+#include <QQmlEngine>
 
 using namespace KOSMIndoorMap;
 
@@ -35,17 +28,6 @@ void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
     qRegisterMetaType<Platform::Mode>();
 
     qmlRegisterUncreatableMetaObject(Platform::staticMetaObject, "org.kde.kosmindoormap", 1, 0, "Platform", {});
-
-    qmlRegisterType<AmenityModel>("org.kde.kosmindoormap", 1, 0, "AmenityModel");
-    qmlRegisterType<AmenitySortFilterProxyModel>("org.kde.kosmindoormap", 1, 0, "AmenitySortFilterProxyModel");
-    qmlRegisterType<FloorLevelChangeModel>("org.kde.kosmindoormap", 1, 0, "FloorLevelChangeModel");
-    qmlRegisterType<MapItem>("org.kde.kosmindoormap", 1, 0, "MapItemImpl");
-    qmlRegisterType<OSMElementInformationModel>("org.kde.kosmindoormap", 1, 0, "OSMElementInformationModel");
-    qmlRegisterType<EquipmentModel>("org.kde.kosmindoormap", 1, 0, "EquipmentModel");
-    qmlRegisterType<GateModel>("org.kde.kosmindoormap", 1, 0, "GateModel");
-    qmlRegisterType<PlatformModel>("org.kde.kosmindoormap", 1, 0, "PlatformModel");
-    qmlRegisterType<RoomModel>("org.kde.kosmindoormap", 1, 0, "RoomModel");
-    qmlRegisterType<RoomSortFilterProxyModel>("org.kde.kosmindoormap", 1, 0, "RoomSortFilterProxyModel");
 }
 
 #include "moc_kosmindoormapquickplugin.cpp"
