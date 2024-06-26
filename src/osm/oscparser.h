@@ -24,6 +24,7 @@ public:
 private:
     void readFromIODevice(QIODevice *io) override;
     void parseCreate(QXmlStreamReader &reader);
+    void parseModify(QXmlStreamReader &reader);
 
     template <typename T>
     void assignNewId(T &elem, std::unordered_map<OSM::Id, OSM::Id> &idMap);

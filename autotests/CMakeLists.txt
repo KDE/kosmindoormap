@@ -5,6 +5,7 @@ add_definitions(-DSOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 
 ecm_add_test(osmtypetest.cpp LINK_LIBRARIES Qt::Test KOSM)
 ecm_add_test(o5mparsertest.cpp LINK_LIBRARIES Qt::Test KOSM)
+ecm_add_test(oscparsertest.cpp LINK_LIBRARIES Qt::Test KOSM)
 ecm_add_test(localizedtagtest.cpp LINK_LIBRARIES Qt::Test KOSM)
 
 add_subdirectory(data/platforms)

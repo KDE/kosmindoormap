@@ -24,17 +24,16 @@ void OscParser::readFromIODevice(QIODevice *io)
 {
     QXmlStreamReader reader(io);
     while (!reader.atEnd() && !reader.hasError()) {
-        reader.readNextStartElement();
+        reader.readNext();
+        if (reader.tokenType() != QXmlStreamReader::StartElement) {
+            continue;
+        }
         if (reader.name() == "create"_L1) {
             parseCreate(reader);
         } else if (reader.name() == "modify"_L1) {
-            // TODO
-            qWarning() << "element modification is not implemented yet!";
-            reader.skipCurrentElement();
+            parseModify(reader);
         } else if (reader.name() == "delete"_L1){
             qWarning() << "element deletion is not supported yet!";
-            reader.skipCurrentElement();
-        } else {
             reader.skipCurrentElement();
         }
     }
@@ -61,7 +60,13 @@ OSM::Id OscParser::mapId(OSM::Id id, const std::unordered_map<OSM::Id, OSM::Id> 
 void OscParser::parseCreate(QXmlStreamReader &reader)
 {
     while (!reader.atEnd() && !reader.hasError()) {
-        reader.readNextStartElement();
+        reader.readNext();
+        if (reader.tokenType() == QXmlStreamReader::EndElement && reader.name() == "create"_L1) {
+            return;
+        }
+        if (reader.tokenType() != QXmlStreamReader::StartElement) {
+            continue;
+        }
         if (reader.name() == "node"_L1) {
             auto node = parseNode(reader);
             assignNewId(node, m_nodeIdMap);
@@ -96,4 +101,10 @@ void OscParser::parseCreate(QXmlStreamReader &reader)
             reader.skipCurrentElement();
         }
     }
+}
+
+void OscParser::parseModify(QXmlStreamReader &reader)
+{
+    qWarning() << "element modification is not implemented yet!";
+    reader.skipCurrentElement();
 }

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+ SPDX-FileCopyrightText: OpenStreetMap contributors
+ SPDX-License-Identifier: ODbL-1.0
+-->
+<osm version="0.6">
+  <node id='1237008573' timestamp='2011-04-08T08:15:09Z' visible='true' version='1' changeset='7801836' lat='49.7811279' lon='9.9730795' />
+  <node id='1237008218' timestamp='2011-04-08T08:15:00Z' visible='true' version='1' changeset='7801836' lat='49.781033' lon='9.9730823' />
+  <node id='1237008071' timestamp='2011-04-08T08:14:55Z' visible='true' version='1' changeset='7801836' lat='49.7810322' lon='9.9730669' />
+  <node id='1237008670' timestamp='2021-08-09T16:40:50Z' visible='true' version='6' changeset='109419407' lat='49.7809939' lon='9.9730574'>
+    <tag k='door' v='yes' />
+    <tag k='indoor' v='door' />
+    <tag k='level' v='-1' />
+  </node>
+  <node id='11871120631' timestamp='2024-05-01T07:40:24Z' visible='true' version='1' changeset='150737053' lat='49.7809901' lon='9.9730564' />
+  <node id='1237008165' timestamp='2011-04-08T08:14:59Z' visible='true' version='1' changeset='7801836' lat='49.7809615' lon='9.9730492' />
+  <node id='1237008296' timestamp='2011-04-08T08:15:03Z' visible='true' version='1' changeset='7801836' lat='49.7809592' lon='9.9729062' />
+  <node id='1237008455' timestamp='2011-04-08T08:15:06Z' visible='true' version='1' changeset='7801836' lat='49.7810285' lon='9.9728456' />
+  <node id='1237008595' timestamp='2011-04-08T08:15:10Z' visible='true' version='1' changeset='7801836' lat='49.7810295' lon='9.9728252' />
+  <node id='1237008703' timestamp='2011-04-08T08:15:13Z' visible='true' version='1' changeset='7801836' lat='49.7811278' lon='9.9728218' />
+
+  <way id='107673516' timestamp='2024-05-01T07:40:24Z' visible='true' version='5' changeset='150737053'>
+    <nd ref='1237008573' />
+    <nd ref='1237008218' />
+    <nd ref='1237008071' />
+    <nd ref='1237008670' />
+    <nd ref='11871120631' />
+    <nd ref='1237008165' />
+    <nd ref='1237008296' />
+    <nd ref='1237008455' />
+    <nd ref='1237008595' />
+    <nd ref='1237008703' />
+    <nd ref='1237008573' />
+    <tag k='indoor' v='room' />
+    <tag k='level' v='-1' />
+    <tag k='ref' v='A 007' />
+    <tag k='room' v='lecture_hall' />
+  </way>
+</osm>

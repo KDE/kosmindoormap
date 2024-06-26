@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+ SPDX-FileCopyrightText: OpenStreetMap contributors
+ SPDX-License-Identifier: ODbL-1.0
+-->
+<osmChange version="0.6">
+  <create>
+    <node id="-1" lat='49.780980' lon='9.97306'>
+      <tag k="amenity" v="cafe"/>
+      <tag k="name" v="Coffee Bar"/>
+    </node>
+  </create>
+  <modify>
+    <node id="1237008670" lat='49.7809939' lon='9.9730574'>
+      <tag k='door' v='yes' />
+      <tag k='indoor' v='door' />
+      <tag k='level' v='-1' />
+      <tag k="access" v="private"/>
+    </node>
+    <way id="107673516">
+      <tag k='indoor' v='room' />
+      <tag k='level' v='-1' />
+      <tag k='ref' v='A 007' />
+      <tag k='room' v='lecture_hall' />
+      <tag k="name" v="Track 1"/>
+    </way>
+  </modify>
+</osmChange>
