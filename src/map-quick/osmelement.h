@@ -30,6 +30,8 @@ public:
     explicit OSMElement(OSM::Element e);
     ~OSMElement();
 
+    [[nodiscard]] bool operator==(const OSMElement&) const = default;
+
     [[nodiscard]] bool isNull() const;
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString url() const;
