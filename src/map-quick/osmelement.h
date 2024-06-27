@@ -21,6 +21,7 @@ class OSMElement
 {
     Q_GADGET
     Q_PROPERTY(bool isNull READ isNull)
+    Q_PROPERTY(qint64 id READ id)
     Q_PROPERTY(QString name READ name)
     Q_PROPERTY(QString url READ url)
     Q_PROPERTY(OSM::Element element READ element)
@@ -33,6 +34,7 @@ public:
     [[nodiscard]] bool operator==(const OSMElement&) const = default;
 
     [[nodiscard]] bool isNull() const;
+    [[nodiscard]] qint64 id() const;
     [[nodiscard]] QString name() const;
     [[nodiscard]] QString url() const;
     [[nodiscard]] QPointF center() const;

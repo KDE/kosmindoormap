@@ -24,6 +24,11 @@ bool OSMElement::isNull() const
     return m_element.type() == OSM::Type::Null;
 }
 
+qint64 OSMElement::id() const
+{
+    return m_element.id();
+}
+
 QString OSMElement::name() const
 {
     return QString::fromUtf8(m_element.tagValue(OSM::Languages::fromQLocale(QLocale()), "name"));

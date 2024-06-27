@@ -17,18 +17,19 @@ OSMElementInformationDialog {
         Kirigami.Action {
             icon.name: "document-edit"
             text: "Edit with iD"
+            visible: elementDetailsSheet.model.element.id > 0
             onTriggered: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.ID)
         },
         Kirigami.Action {
             icon.name: "org.openstreetmap.josm"
             text: "Edit with JOSM"
-            visible: EditorController.hasEditor(Editor.JOSM)
+            visible: elementDetailsSheet.model.element.id > 0 && EditorController.hasEditor(Editor.JOSM)
             onTriggered: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.JOSM)
         },
         Kirigami.Action {
             icon.name: "document-edit"
             text: "Edit with Vespucci"
-            visible: EditorController.hasEditor(Editor.Vespucci)
+            visible: elementDetailsSheet.model.element.id > 0 && EditorController.hasEditor(Editor.Vespucci)
             onTriggered: EditorController.editElement(elementDetailsSheet.model.element.element, Editor.Vespucci)
         },
         Kirigami.Action {
