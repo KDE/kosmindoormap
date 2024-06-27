@@ -5,7 +5,7 @@
 -->
 <osmChange version="0.6">
   <create>
-    <node id="-1" lat='49.780980' lon='9.97306'>
+    <node id="-1" lat='49.78124' lon='9.9733'>
       <tag k="amenity" v="cafe"/>
       <tag k="name" v="Coffee Bar"/>
     </node>

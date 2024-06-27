@@ -51,6 +51,12 @@ public:
     /** Load map data for the given tile. */
     void loadForTile(Tile tile);
 
+    /** Add a changeset to be applied on top of the data loaded by any of the load() methods.
+     *  Needs to be called after any of the load methods and before returning to the event loop.
+     *  @param url can be a local file or a HTTP URL which is downloaded if needed.
+     */
+    Q_INVOKABLE void addChangeSet(const QUrl &url);
+
     /** Take out the completely loaded result.
      *  Do this before loading the next map with the same loader.
      */
@@ -72,6 +78,8 @@ private:
     void downloadFailed(Tile tile, const QString &errorMessage);
     void loadTiles();
     [[nodiscard]] Tile makeTile(uint32_t x, uint32_t y) const;
+    void applyNextChangeSet();
+    void applyChangeSet(const QUrl &url, QIODevice *io);
 
     std::unique_ptr<MapLoaderPrivate> d;
 };

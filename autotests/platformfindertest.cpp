@@ -11,6 +11,7 @@
 
 #include <QMetaEnum>
 #include <QProcess>
+#include <QSignalSpy>
 #include <QTest>
 
 using namespace KOSMIndoorMap;
@@ -90,7 +91,9 @@ private Q_SLOTS:
         QFETCH(QString, expected);
 
         MapLoader loader;
+        QSignalSpy doneSpy(&loader, &MapLoader::done);
         loader.loadFromFile(input);
+        QVERIFY(doneSpy.wait());
         QCOMPARE(loader.isLoading(), false);
         QCOMPARE(loader.hasError(), false);
 

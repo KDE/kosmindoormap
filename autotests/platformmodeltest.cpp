@@ -21,7 +21,9 @@ private Q_SLOTS:
     void testPlatformModel()
     {
         MapLoader loader;
+        QSignalSpy doneSpy(&loader, &MapLoader::done);
         loader.loadFromFile(QStringLiteral(SOURCE_DIR "/data/platforms/hamburg-altona.osm"));
+        QVERIFY(doneSpy.wait());
         QCOMPARE(loader.isLoading(), false);
         QCOMPARE(loader.hasError(), false);
 

@@ -25,6 +25,10 @@
 #include <QRect>
 #include <QUrl>
 
+#include <deque>
+
+using namespace Qt::Literals::StringLiterals;
+
 enum {
     TileZoomLevel = 17
 };
@@ -51,6 +55,7 @@ public:
     std::vector<Tile> m_pendingTiles;
     std::unique_ptr<BoundarySearch> m_boundarySearcher;
     QDateTime m_ttl;
+    std::deque<QUrl> m_pendingChangeSets;
 
     QString m_errorMessage;
 };
@@ -83,17 +88,15 @@ void MapLoader::loadFromFile(const QString &fileName)
     }
     const auto data = f.map(0, f.size());
 
-    OSM::DataSet ds;
-    auto reader = OSM::IO::readerForFileName(fileName, &ds);
+    auto reader = OSM::IO::readerForFileName(fileName, &d->m_dataSet);
     if (!reader) {
         qCWarning(Log) << "no file reader for" << fileName;
         return;
     }
     reader->read(data, f.size());
     d->m_data = MapData();
-    d->m_data.setDataSet(std::move(ds));
     qCDebug(Log) << "o5m loading took" << loadTime.elapsed() << "ms";
-    Q_EMIT done();
+    QMetaObject::invokeMethod(this, &MapLoader::applyNextChangeSet, Qt::QueuedConnection);
 }
 
 void MapLoader::loadForCoordinate(double lat, double lon)
@@ -167,6 +170,11 @@ void MapLoader::loadForTile(Tile tile)
     }
 
     downloadTiles();
+}
+
+void MapLoader::addChangeSet(const QUrl &url)
+{
+    d->m_pendingChangeSets.push_back(url);
 }
 
 MapData&& MapLoader::takeData()
@@ -266,15 +274,13 @@ void MapLoader::loadTiles()
     }
 
     d->m_marbleMerger.finalize();
-    d->m_data.setDataSet(std::move(d->m_dataSet));
     if (d->m_targetBbox.isValid()) {
         d->m_data.setBoundingBox(d->m_targetBbox);
     }
     d->m_boundarySearcher.reset();
 
     qCDebug(Log) << "o5m loading took" << loadTime.elapsed() << "ms";
-    Q_EMIT isLoadingChanged();
-    Q_EMIT done();
+    applyNextChangeSet();
 }
 
 Tile MapLoader::makeTile(uint32_t x, uint32_t y) const
@@ -295,7 +301,7 @@ void MapLoader::downloadFailed(Tile tile, const QString& errorMessage)
 
 bool MapLoader::isLoading() const
 {
-    return d->m_tileCache.pendingDownloads() > 0;
+    return d->m_tileCache.pendingDownloads() > 0 || !d->m_pendingChangeSets.empty();
 }
 
 bool MapLoader::hasError() const
@@ -306,6 +312,46 @@ bool MapLoader::hasError() const
 QString MapLoader::errorMessage() const
 {
     return d->m_errorMessage;
+}
+
+void MapLoader::applyNextChangeSet()
+{
+    if (d->m_pendingChangeSets.empty() || hasError()) {
+        d->m_data.setDataSet(std::move(d->m_dataSet));
+        Q_EMIT isLoadingChanged();
+        Q_EMIT done();
+        return;
+    }
+
+    const auto &url = d->m_pendingChangeSets.front();
+    if (url.isLocalFile()) {
+        QFile f(url.toLocalFile());
+        if (!f.open(QFile::ReadOnly)) {
+            qCWarning(Log) << f.fileName() << f.errorString();
+            d->m_errorMessage = f.errorString();
+        } else {
+            applyChangeSet(url, &f);
+        }
+    } else if (url.scheme() == "https"_L1) {
+        // TODO
+    }
+
+    d->m_pendingChangeSets.pop_front();
+    applyNextChangeSet();
+}
+
+void MapLoader::applyChangeSet(const QUrl &url, QIODevice *io)
+{
+    auto reader = OSM::IO::readerForFileName(url.fileName(), &d->m_dataSet);
+    if (!reader) {
+        qCWarning(Log) << "unable to find reader for" << url;
+        return;
+    }
+
+    reader->read(io);
+    if (reader->hasError()) {
+        d->m_errorMessage = reader->errorString();
+    }
 }
 
 #include "moc_maploader.cpp"
