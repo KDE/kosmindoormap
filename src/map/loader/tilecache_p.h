@@ -58,7 +58,7 @@ class TileCache : public QObject
 {
     Q_OBJECT
 public:
-    explicit TileCache(QObject *parent = nullptr);
+    explicit TileCache(const NetworkAccessManagerFactory &namFactory,  QObject *parent = nullptr);
     ~TileCache();
 
     /** Returns the path to the cached content of @p tile, if present locally. */

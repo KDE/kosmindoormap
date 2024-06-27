@@ -39,11 +39,12 @@ inline void initResources()  // needs to be outside of a namespace
 namespace KOSMIndoorMap {
 class MapLoaderPrivate {
 public:
+    NetworkAccessManagerFactory m_nam = KOSMIndoorMap::defaultNetworkAccessManagerFactory; // TODO make externally configurable
     OSM::DataSet m_dataSet;
     OSM::DataSetMergeBuffer m_mergeBuffer;
     MarbleGeometryAssembler m_marbleMerger;
     MapData m_data;
-    TileCache m_tileCache;
+    TileCache m_tileCache{m_nam};
     OSM::BoundingBox m_tileBbox;
     OSM::BoundingBox m_targetBbox;
     QRect m_loadedTiles;

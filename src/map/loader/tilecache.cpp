@@ -82,9 +82,9 @@ Tile Tile::bottomRightAtZ(uint8_t z) const
     return Tile{ x * deltaWidth + deltaWidth - 1, y * deltaWidth + deltaWidth - 1, z};
 }
 
-TileCache::TileCache(QObject *parent)
+TileCache::TileCache(const NetworkAccessManagerFactory &namFactory, QObject *parent)
     : QObject(parent)
-    , m_nam(KOSMIndoorMap::defaultNetworkAccessManagerFactory) // TODO make this externally changeable
+    , m_nam(namFactory)
 {
 }
 
