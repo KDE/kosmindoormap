@@ -13,6 +13,8 @@
 #include "marblegeometryassembler_p.h"
 #include "tilecache_p.h"
 
+#include "network/useragent_p.h"
+
 #include <osm/datatypes.h>
 #include <osm/datasetmergebuffer.h>
 #include <osm/element.h>
@@ -22,6 +24,8 @@
 #include <QDateTime>
 #include <QElapsedTimer>
 #include <QFile>
+#include <QNetworkReply>
+#include <QNetworkRequest>
 #include <QRect>
 #include <QUrl>
 
@@ -333,7 +337,22 @@ void MapLoader::applyNextChangeSet()
             applyChangeSet(url, &f);
         }
     } else if (url.scheme() == "https"_L1) {
-        // TODO
+        QNetworkRequest req(url);
+        req.setHeader(QNetworkRequest::UserAgentHeader, KOSMIndoorMap::userAgent());
+        auto reply = d->m_nam()->get(req);
+        connect(reply, &QNetworkReply::finished, this, [this, reply, url]() {
+            reply->deleteLater();
+
+            if (reply->error() != QNetworkReply::NoError) {
+                d->m_errorMessage = reply->errorString();
+            } else {
+                applyChangeSet(url, reply);
+            }
+
+            d->m_pendingChangeSets.pop_front();
+            applyNextChangeSet();
+        });
+        return;
     }
 
     d->m_pendingChangeSets.pop_front();
