@@ -116,9 +116,8 @@ Kirigami.Page {
         function showContextMenu(ev) {
             infoModel.element = ev.element;
             contextMenuInfoAction.enabled = !ev.element.isNull && (infoModel.name !== "" || infoModel.debug);
-            console.log(ev.element.isNull, infoModel.name, infoModel.debug, contextMenuInfoAction.enabled, (!ev.element.isNull && (infoModel.name !== "" || infoModel.debug)));
             contextMenu.ev = ev;
-            contextMenu.popup(map, ev.screenPos);
+            contextMenu.popup(map, ev.screenPosition);
         }
 
         onTapped: (ev) => {
