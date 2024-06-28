@@ -41,6 +41,10 @@ private Q_SLOTS:
         QCOMPARE(dataSet.ways.size(), 1);
         QCOMPARE(dataSet.nodes.size(), 11);
         QCOMPARE(OSM::tagValue(dataSet.nodes[0], "name"), "Coffee Bar");
+
+        auto modifiedNode = dataSet.node(1237008670);
+        QVERIFY(modifiedNode);
+        QCOMPARE(OSM::tagValue(*modifiedNode, "access"), "private");
     }
 };
 

@@ -105,6 +105,33 @@ void OscParser::parseCreate(QXmlStreamReader &reader)
 
 void OscParser::parseModify(QXmlStreamReader &reader)
 {
-    qWarning() << "element modification is not implemented yet!";
+    while (!reader.atEnd() && !reader.hasError()) {
+        reader.readNext();
+        if (reader.tokenType() == QXmlStreamReader::EndElement && reader.name() == "modify"_L1) {
+            return;
+        }
+        if (reader.tokenType() != QXmlStreamReader::StartElement) {
+            continue;
+        }
+        if (reader.name() == "node"_L1) {
+            auto modifiedNode = parseNode(reader);
+            if (const auto it = std::lower_bound(m_dataSet->nodes.begin(), m_dataSet->nodes.end(), modifiedNode.id); it != m_dataSet->nodes.end() && (*it).id == modifiedNode.id) {
+                if (modifiedNode.coordinate.isValid()) {
+                    (*it).coordinate = modifiedNode.coordinate;
+                }
+                (*it).tags = std::move(modifiedNode.tags);
+            } else {
+                qDebug() << "modified node not in data set:" <<modifiedNode.url();
+            }
+        } else if (reader.name() == "way"_L1) {
+            qWarning() << "way modification is not implemented yet!";
+            reader.skipCurrentElement();
+        } else if (reader.name() == "releation"_L1) {
+            qWarning() << "relation modification is not implemented yet!";
+            reader.skipCurrentElement();
+        } else {
+            reader.skipCurrentElement();
+        }
+    }
     reader.skipCurrentElement();
 }
