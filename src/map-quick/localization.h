@@ -29,6 +29,11 @@ bool hasAmenityTypeTranslation(const char *value);
  */
 QString amenityType(const char *value, Localization::TranslationOption opt = Localization::ReturnUnknownKey);
 
+/** Translated list of amenity tag values (including list splitting).
+ *  This also covers values of similar/overlapping tags (office, tourism, leisure, historic, room, building, etc).
+ */
+QString amenityTypes(const QByteArray &value, Localization::TranslationOption opt = Localization::ReturnUnknownKey);
+
 /** Translated values of the cuisine tag (does list splitting). */
 QString cuisineTypes(const QByteArray &value, Localization::TranslationOption opt = Localization::ReturnUnknownKey);
 }

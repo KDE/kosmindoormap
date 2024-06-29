@@ -119,17 +119,7 @@ QVariant AmenityModel::data(const QModelIndex &index, int role) const
             return QString::fromUtf8(entry.element.tagValue(m_langs, "name", "loc_name", "int_name"));
             // TODO see name transliteration in OSM info model
         case TypeNameRole:
-        {
-            const auto types = entry.element.tagValue(entry.typeKey.constData()).split(';');
-            QStringList l;
-            for (const auto &type : types) {
-                auto s = Localization::amenityType(type.trimmed().constData(), Localization::ReturnEmptyOnUnknownKey);
-                if (!s.isEmpty()) {
-                    l.push_back(std::move(s));
-                }
-            }
-            return QLocale().createSeparatedList(l);
-        }
+            return Localization::amenityTypes(entry.element.tagValue(entry.typeKey.constData()), Localization::ReturnEmptyOnUnknownKey);
         case CoordinateRole:
         {
             const auto center = entry.element.center();
