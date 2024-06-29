@@ -1,0 +1,36 @@
+{
+    "category": "Drinks",
+    "content": [
+        {
+            "categoryLabel": "Contact",
+            "keyLabel": "Phone",
+            "url": "tel:+498003638385",
+            "value": "+49 800 36 38 38 5"
+        },
+        {
+            "categoryLabel": "Payment",
+            "keyLabel": "Cash",
+            "value": "no"
+        },
+        {
+            "categoryLabel": "Payment",
+            "keyLabel": "Digital",
+            "value": "Apple Pay"
+        },
+        {
+            "categoryLabel": "Payment",
+            "keyLabel": "Debit cards",
+            "value": "yes"
+        },
+        {
+            "categoryLabel": "Payment",
+            "keyLabel": "Credit cards",
+            "value": "American Express, Diners Club, JCB, Mastercard, and Visa"
+        },
+        {
+            "categoryLabel": "Operator",
+            "value": "Selecta Deutschland GmbH"
+        }
+    ],
+    "name": "Selecta"
+}

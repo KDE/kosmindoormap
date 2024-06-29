@@ -1,0 +1,39 @@
+<osm version="0.6" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+    <node id="1213925603" visible="true" version="11" changeset="141344694" timestamp="2023-09-16T14:09:56Z" lat="48.9933562" lon="8.4018431">
+        <tag k="amenity" v="vending_machine"/>
+        <tag k="brand" v="Selecta"/>
+        <tag k="brand:wikidata" v="Q472153"/>
+        <tag k="check_date" v="2023-09-16"/>
+        <tag k="contact:phone" v="+49 800 36 38 38 5"/>
+        <tag k="covered" v="yes"/>
+        <tag k="direction" v="250"/>
+        <tag k="level" v="1"/>
+        <tag k="manufacturer" v="Selecta Deutschland GmbH"/>
+        <tag k="model" v="St. Tropez"/>
+        <tag k="note" v="im März 2016 durch Selecta Automaten ersetzt"/>
+        <tag k="old_operator" v="Automaten Hofmann"/>
+        <tag k="old_ref" v="1412"/>
+        <tag k="operator" v="Selecta Deutschland GmbH"/>
+        <tag k="owner" v="Selecta Deutschland GmbH"/>
+        <tag k="payment:american_express" v="yes"/>
+        <tag k="payment:apple_pay" v="yes"/>
+        <tag k="payment:cards" v="yes"/>
+        <tag k="payment:coins" v="5c;10c;20c;50c;1€;2€"/>
+        <tag k="payment:contactless" v="yes"/>
+        <tag k="payment:credit_cards" v="yes"/>
+        <tag k="payment:debit_cards" v="yes"/>
+        <tag k="payment:diners_club" v="yes"/>
+        <tag k="payment:jcb" v="yes"/>
+        <tag k="payment:mastercard" v="yes"/>
+        <tag k="payment:mastercard_contactless" v="yes"/>
+        <tag k="payment:notes" v="no"/>
+        <tag k="payment:others" v="no"/>
+        <tag k="payment:visa" v="yes"/>
+        <tag k="payment:visa:contactless" v="yes"/>
+        <tag k="ref" v="160419"/>
+        <tag k="source" v="survey"/>
+        <tag k="start_date" v="2016-03"/>
+        <tag k="surveillance" v="indoor"/>
+        <tag k="vending" v="drinks"/>
+    </node>
+</osm>

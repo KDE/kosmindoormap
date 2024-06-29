@@ -67,6 +67,7 @@ public:
         Description,
         Routes,
         Cuisine,
+        VendingMachineOffer,
         Diet,
         Takeaway,
         Socket,

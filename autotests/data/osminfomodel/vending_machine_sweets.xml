@@ -1,0 +1,8 @@
+<osm version="0.6" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+    <node id="1172790432" visible="true" version="4" changeset="141771344" timestamp="2023-09-26T11:59:19Z" lat="49.7812718" lon="9.9727860">
+        <tag k="amenity" v="vending_machine"/>
+        <tag k="check_date" v="2023-09-26"/>
+        <tag k="level" v="0"/>
+        <tag k="vending" v="sweets"/>
+    </node>
+</osm>

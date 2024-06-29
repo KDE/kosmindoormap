@@ -136,7 +136,13 @@ QVariant AmenityModel::data(const QModelIndex &index, int role) const
         case IconSourceRole:
             return iconSource(entry);
         case CuisineRole:
-            return Localization::cuisineTypes(entry.element.tagValue("cuisine"), Localization::ReturnEmptyOnUnknownKey);
+        {
+            auto s = Localization::cuisineTypes(entry.element.tagValue("cuisine"), Localization::ReturnEmptyOnUnknownKey);
+            if (!s.isEmpty()) {
+                return s;
+            }
+            return Localization::amenityTypes(entry.element.tagValue("vending"), Localization::ReturnEmptyOnUnknownKey);
+        }
         case FallbackNameRole:
             return QString::fromUtf8(entry.element.tagValue(m_langs, "brand", "operator", "network"));
         case OpeningHoursRole:

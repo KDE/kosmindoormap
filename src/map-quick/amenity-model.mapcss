@@ -168,6 +168,18 @@
     set layer = "food";
 }
 
+/** Food related vending machines. */
+*[amenity=vending_machine] { opacity: 0; }
+*[vending=coffee],
+*[vending=drinks],
+*[vending=food],
+*[vending=sweets],
+*[vending=water]
+{
+    set layer = "food";
+    opacity: 1;
+}
+
 *[amenity=bench],
 *[amenity=bicycle_parking],
 *[amenity=bicycle_rental],
@@ -191,7 +203,6 @@
 *[amenity=taxi],
 *[amenity=telephone],
 *[amenity=ticket_validator],
-*[amenity=vending_machine],
 *[amenity=waiting_area],
 *[amenity=waste_basket],
 *[amenity=waste_disposal],

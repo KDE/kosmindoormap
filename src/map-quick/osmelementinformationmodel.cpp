@@ -254,6 +254,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("toilets:wheelchair", Wheelchair, Toilets),
     M("tourism", Category, Header),
     M("url", Website, Contact),
+    M("vending", VendingMachineOffer, Header),
     M("website", Website, Contact),
     M("wheelchair", Wheelchair, Accessibility),
     M("wheelchair:lift", WheelchairLift, Accessibility),
@@ -467,7 +468,8 @@ void OSMElementInformationModel::resolveCategories()
 
 void OSMElementInformationModel::resolveHeaders()
 {
-    for (auto key : { Name, Network, OperatorName, Category }) {
+    // find the best name candidate
+    for (auto key : { Name, VendingMachineOffer, Network, OperatorName, Category }) {
         if (m_nameKey != NoKey) {
             break;
         }
@@ -484,16 +486,21 @@ void OSMElementInformationModel::resolveHeaders()
         break;
     }
 
-    // we use the categories as header if there is no name, so don't duplicate that
-    const auto it = std::find_if(m_infos.begin(), m_infos.end(), [](Info info) {
-        return info.key == Category;
-    });
-    if (it == m_infos.end() || m_nameKey == Category) {
-        return;
-    }
+    // same again for the category header
+    for (auto key : { VendingMachineOffer, Category }) {
+        const auto it = std::find_if(m_infos.begin(), m_infos.end(), [key](Info info) {
+            return info.key == key;
+        });
+        if (it == m_infos.end()) {
+            continue;
+        }
 
-    m_infos.erase(it);
-    m_categoryKey = Category;
+        if (m_categoryKey == NoKey && m_nameKey != key) {
+            m_categoryKey = (*it).key;
+        }
+
+        m_infos.erase(it);
+    }
 }
 
 bool OSMElementInformationModel::promoteMainCategory(OSMElementInformationModel::KeyCategory cat)
@@ -576,6 +583,7 @@ QString OSMElementInformationModel::keyName(OSMElementInformationModel::Key key)
         case NoKey:
         case Name:
         case Category:
+        case VendingMachineOffer:
         case Image:
         case Logo:
             return {};
@@ -697,7 +705,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             appendNonEmpty(m_element.tagValue("amenity"), l);
             appendNonEmpty(m_element.tagValue("shop"), l);
             appendNonEmpty(m_element.tagValue("tourism"), l);
-            appendNonEmpty(m_element.tagValue("vending"), l);
+            // appendNonEmpty(m_element.tagValue("vending"), l);
             const auto diplomatic = m_element.tagValue("diplomatic");
             appendNonEmpty(diplomatic, l);
             if (diplomatic.isEmpty()) {
@@ -716,7 +724,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             // TODO drop general categories if specific ones are available (e.g. restaurant vs fast_food)
 
             for (auto it = l.begin(); it != l.end();++it) {
-                if ((*it).isEmpty() || (*it) == "yes" || (*it) == "no" || (*it) == "vending_machine" || (*it) == "building") {
+                if ((*it).isEmpty() || (*it) == "yes" || (*it) == "no" || (*it) == "building") {
                     continue;
                 }
                 out.push_back(Localization::amenityType((*it).constData()));
@@ -766,6 +774,8 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             return QLocale().createSeparatedList(l);
         }
         case Cuisine: return Localization::cuisineTypes(m_element.tagValue("cuisine"));
+        case VendingMachineOffer:
+            return Localization::amenityTypes(m_element.tagValue("vending"), Localization::ReturnEmptyOnUnknownKey);
         case Diet:
         {
             QStringList l;
