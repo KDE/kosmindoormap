@@ -278,9 +278,6 @@ void MapLoader::loadTiles()
     }
 
     d->m_marbleMerger.finalize();
-    if (d->m_targetBbox.isValid()) {
-        d->m_data.setBoundingBox(d->m_targetBbox);
-    }
     d->m_boundarySearcher.reset();
 
     qCDebug(Log) << "o5m loading took" << loadTime.elapsed() << "ms";
@@ -322,6 +319,10 @@ void MapLoader::applyNextChangeSet()
 {
     if (d->m_pendingChangeSets.empty() || hasError()) {
         d->m_data.setDataSet(std::move(d->m_dataSet));
+        if (d->m_targetBbox.isValid()) {
+            d->m_data.setBoundingBox(d->m_targetBbox);
+        }
+
         Q_EMIT isLoadingChanged();
         Q_EMIT done();
         return;
