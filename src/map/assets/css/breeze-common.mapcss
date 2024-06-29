@@ -999,7 +999,8 @@ node|z20- [amenity=post_box],
 node|z20- [amenity=telephone],
 *|z19- [amenity=theatre],
 *|z20- [amenity=townhall],
-*|z19- [amenity=vehicle_inspection]
+*|z19- [amenity=vehicle_inspection],
+*|z21- [amenity=vending_machine]
 {
     icon-image: amenity;
     set .amenity;
