@@ -45,6 +45,11 @@ private Q_SLOTS:
         auto modifiedNode = dataSet.node(1237008670);
         QVERIFY(modifiedNode);
         QCOMPARE(OSM::tagValue(*modifiedNode, "access"), "private");
+
+        auto modifiedWay = dataSet.way(107673516);
+        QVERIFY(modifiedWay);
+        QCOMPARE(OSM::tagValue(*modifiedWay, "name"), "Track 1");
+        QCOMPARE(modifiedWay->nodes.size(), 11);
     }
 };
 
