@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-23 00:38+0000\n"
+"POT-Creation-Date: 2024-06-30 00:38+0000\n"
 "PO-Revision-Date: 2024-04-25 10:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -415,1204 +415,1227 @@ msgid "Drinking Water"
 msgstr "სასმელი წყალი"
 
 #: map-quick/localization_data.cpp:92
+#, fuzzy
+#| msgctxt "amenity category"
+#| msgid "Food & Drinks"
+msgctxt "OSM::vending"
+msgid "Drinks"
+msgstr "საჭმელი & სასმელი"
+
+#: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
 msgid "Dry Cleaning"
 msgstr "ქიმწმენდა"
 
-#: map-quick/localization_data.cpp:93
+#: map-quick/localization_data.cpp:94
 msgctxt "OSM::shop"
 msgid "Electrical"
 msgstr "ელექტრონიკა"
 
-#: map-quick/localization_data.cpp:94
+#: map-quick/localization_data.cpp:95
 msgctxt "OSM::amenity/shop"
 msgid "Electronics"
 msgstr "ელექტრონიკა"
 
-#: map-quick/localization_data.cpp:95
+#: map-quick/localization_data.cpp:96
 msgctxt "OSM::diplomatic"
 msgid "Embassy"
 msgstr "საელჩო"
 
-#: map-quick/localization_data.cpp:96
+#: map-quick/localization_data.cpp:97
 msgctxt "OSM::amenity"
 msgid "Events Venue"
 msgstr "აღნიშვნის ადგილი"
 
-#: map-quick/localization_data.cpp:97
+#: map-quick/localization_data.cpp:98
 msgctxt "OSM::amenity"
 msgid "Exhibition Hall"
 msgstr "გამოფენის ოთახი"
 
-#: map-quick/localization_data.cpp:98
+#: map-quick/localization_data.cpp:99
 msgctxt "OSM::shop"
 msgid "Fabric"
 msgstr "ნაჭერი"
 
-#: map-quick/localization_data.cpp:99
+#: map-quick/localization_data.cpp:100
 msgctxt "OSM::amenity/shop"
 msgid "Fashion"
 msgstr "მოდა"
 
-#: map-quick/localization_data.cpp:100
+#: map-quick/localization_data.cpp:101
 msgctxt "OSM::shop"
 msgid "Fashion Accessories"
 msgstr "Მოდური აქსესუარები"
 
-#: map-quick/localization_data.cpp:101
+#: map-quick/localization_data.cpp:102
 msgctxt "OSM::amenity/shop"
 msgid "Fast Food"
 msgstr "სწრაფი საჭმელი"
 
-#: map-quick/localization_data.cpp:102
+#: map-quick/localization_data.cpp:103
 msgctxt "OSM::amenity/shop"
 msgid "Ferry Terminal"
 msgstr "ბორანი"
 
-#: map-quick/localization_data.cpp:103
+#: map-quick/localization_data.cpp:104
 msgctxt "OSM::amenity"
 msgid "Fire Station"
 msgstr "სახანძრო სადგური"
 
-#: map-quick/localization_data.cpp:104
+#: map-quick/localization_data.cpp:105
 msgctxt "OSM::leisure"
 msgid "Fitness Center"
 msgstr "ფიტნესის ცენტრი"
 
-#: map-quick/localization_data.cpp:105
+#: map-quick/localization_data.cpp:106
 msgctxt "OSM::leisure"
 msgid "Fitness Station"
 msgstr "ფიტნესის სადგური"
 
-#: map-quick/localization_data.cpp:106
+#: map-quick/localization_data.cpp:107
 msgctxt "OSM::amenity/shop"
 msgid "Florist"
 msgstr "ფლორისტი"
 
-#: map-quick/localization_data.cpp:107
+#: map-quick/localization_data.cpp:108
 msgctxt "OSM::shop"
 msgid "Food"
 msgstr "საჭმელი"
 
-#: map-quick/localization_data.cpp:108
+#: map-quick/localization_data.cpp:109
 msgctxt "OSM::amenity/shop"
 msgid "Food Court"
 msgstr "ფუდკორტი"
 
-#: map-quick/localization_data.cpp:109
+#: map-quick/localization_data.cpp:110
 msgctxt "OSM::amenity/shop"
 msgid "Fountain"
 msgstr "ფანტანი"
 
-#: map-quick/localization_data.cpp:110
+#: map-quick/localization_data.cpp:111
 msgctxt "OSM::amenity"
 msgid "Gas Station"
 msgstr "ბენზინ-გასამართი სადგური"
 
-#: map-quick/localization_data.cpp:111
+#: map-quick/localization_data.cpp:112
 msgctxt "OSM::amenity/shop"
 msgid "Furniture"
 msgstr "ჭურჭელი"
 
-#: map-quick/localization_data.cpp:112
+#: map-quick/localization_data.cpp:113
 msgctxt "OSM::amenity/shop"
 msgid "Gallery"
 msgstr "გალერეა"
 
-#: map-quick/localization_data.cpp:113
+#: map-quick/localization_data.cpp:114
 msgctxt "OSM::shop"
 msgid "Games"
 msgstr "თამაშები"
 
-#: map-quick/localization_data.cpp:114
+#: map-quick/localization_data.cpp:115
 msgctxt "OSM::amenity/shop"
 msgid "Garden"
 msgstr "ბაღი"
 
-#: map-quick/localization_data.cpp:115
+#: map-quick/localization_data.cpp:116
 msgctxt "OSM::amenity/shop"
 msgid "Garden Center"
 msgstr "ბაღის ცენტრი"
 
-#: map-quick/localization_data.cpp:116
+#: map-quick/localization_data.cpp:117
 msgctxt "OSM::amenity/shop"
 msgid "Gift Shop"
 msgstr "საჩუქრების მაღაზია"
 
-#: map-quick/localization_data.cpp:117
+#: map-quick/localization_data.cpp:118
 msgctxt "OSM::leisure"
 msgid "Golf Course"
 msgstr "გოლფის კურსი"
 
-#: map-quick/localization_data.cpp:118
+#: map-quick/localization_data.cpp:119
 msgctxt "OSM::office"
 msgid "Government"
 msgstr "მთავრობა"
 
-#: map-quick/localization_data.cpp:119
+#: map-quick/localization_data.cpp:120
 msgctxt "OSM::amenity/shop"
 msgid "Greengrocer"
 msgstr "მემწვანილე"
 
-#: map-quick/localization_data.cpp:120
+#: map-quick/localization_data.cpp:121
 msgctxt "OSM::amenity/shop"
 msgid "Guest House"
 msgstr "გესტჰაუსი"
 
-#: map-quick/localization_data.cpp:121
+#: map-quick/localization_data.cpp:122
 msgctxt "OSM::amenity/shop"
 msgid "Hairdresser"
 msgstr "პარიკმახერი"
 
-#: map-quick/localization_data.cpp:122
+#: map-quick/localization_data.cpp:123
 msgctxt "OSM::shop"
 msgid "Hardware"
 msgstr "აპარატურა"
 
-#: map-quick/localization_data.cpp:123
+#: map-quick/localization_data.cpp:124
 msgctxt "OSM::shop"
 msgid "Health Food"
 msgstr "ჯანმრთელი საჭმელი"
 
-#: map-quick/localization_data.cpp:124
+#: map-quick/localization_data.cpp:125
 msgctxt "OSM::amenity/shop"
 msgid "Hearing Aids"
 msgstr "სმენის აპარატი"
 
-#: map-quick/localization_data.cpp:125
+#: map-quick/localization_data.cpp:126
 msgctxt "OSM::shop"
 msgid "Hi-fi"
 msgstr "Hi-fi"
 
-#: map-quick/localization_data.cpp:126
+#: map-quick/localization_data.cpp:127
 msgctxt "OSM::amenity/shop"
 msgid "Hospital"
 msgstr "საავადმყოფო"
 
-#: map-quick/localization_data.cpp:127
+#: map-quick/localization_data.cpp:128
 msgctxt "OSM::amenity/shop"
 msgid "Hostel"
 msgstr "ჰოსტელი"
 
-#: map-quick/localization_data.cpp:128
+#: map-quick/localization_data.cpp:129
 msgctxt "OSM::amenity/shop"
 msgid "Hotel"
 msgstr "სასტუმრო"
 
-#: map-quick/localization_data.cpp:129
+#: map-quick/localization_data.cpp:130
 msgctxt "OSM::amenity/shop"
 msgid "Houseware"
 msgstr "ჭურჭელი"
 
-#: map-quick/localization_data.cpp:130
+#: map-quick/localization_data.cpp:131
 msgctxt "OSM::amenity/shop"
 msgid "Ice Cream"
 msgstr "ნაყინი"
 
-#: map-quick/localization_data.cpp:131
+#: map-quick/localization_data.cpp:132
 msgctxt "OSM::amenity/shop"
 msgid "Information"
 msgstr "ინფორმაცია"
 
-#: map-quick/localization_data.cpp:132
+#: map-quick/localization_data.cpp:133
 msgctxt "OSM::amenity/shop"
 msgid "Interior Decoration"
 msgstr "შიდა დეკორაცია"
 
-#: map-quick/localization_data.cpp:133
+#: map-quick/localization_data.cpp:134
 msgctxt "OSM::amenity/shop"
 msgid "Internet Cafe"
 msgstr "ინტერნეტ კაფე"
 
-#: map-quick/localization_data.cpp:134
+#: map-quick/localization_data.cpp:135
 msgctxt "OSM::amenity/shop"
 msgid "Jewelry"
 msgstr "სამკაულები"
 
-#: map-quick/localization_data.cpp:135
+#: map-quick/localization_data.cpp:136
 msgctxt "OSM::amenity/shop"
 msgid "Kiosk"
 msgstr "კიოსკი"
 
-#: map-quick/localization_data.cpp:136
+#: map-quick/localization_data.cpp:137
 msgctxt "OSM::room"
 msgid "Kitchen"
 msgstr "სამზარეულო"
 
-#: map-quick/localization_data.cpp:137
+#: map-quick/localization_data.cpp:138
 msgctxt "OSM::room"
 msgid "Laboratory"
 msgstr "ლაბორატორია"
 
-#: map-quick/localization_data.cpp:138
+#: map-quick/localization_data.cpp:139
 msgctxt "OSM::amenity/shop"
 msgid "Laundry"
 msgstr "სამრეცხაო"
 
-#: map-quick/localization_data.cpp:139 map-quick/localization_data.cpp:140
+#: map-quick/localization_data.cpp:140 map-quick/localization_data.cpp:141
 msgctxt "OSM::room"
 msgid "Lecture Hall"
 msgstr "ლექციის ოთახი"
 
-#: map-quick/localization_data.cpp:141
+#: map-quick/localization_data.cpp:142
 msgctxt "OSM::amenity/shop"
 msgid "Library"
 msgstr "ბიბლიოთეკა"
 
-#: map-quick/localization_data.cpp:142 map-quick/localization_data.cpp:143
-#: map-quick/localization_data.cpp:148
+#: map-quick/localization_data.cpp:143 map-quick/localization_data.cpp:144
+#: map-quick/localization_data.cpp:149
 msgctxt "OSM::amenity"
 msgid "Locker"
 msgstr "ჩასაკეტი პატარა კარადა"
 
-#: map-quick/localization_data.cpp:144
+#: map-quick/localization_data.cpp:145
 msgctxt "OSM::amenity/shop"
 msgid "Locksmith"
 msgstr "ზეინკალი"
 
-#: map-quick/localization_data.cpp:145 map-quick/localization_data.cpp:146
-#: map-quick/localization_data.cpp:147
+#: map-quick/localization_data.cpp:146 map-quick/localization_data.cpp:147
+#: map-quick/localization_data.cpp:148
 msgctxt "OSM::amenity"
 msgid "Lost & Found"
 msgstr "დაკარგული და ნაპოვნი"
 
-#: map-quick/localization_data.cpp:149
+#: map-quick/localization_data.cpp:150
 msgctxt "OSM::amenity/shop"
 msgid "Mall"
 msgstr "სასეირნო ხეივანი"
 
-#: map-quick/localization_data.cpp:150
+#: map-quick/localization_data.cpp:151
 msgctxt "OSM::amenity"
 msgid "Marketplace"
 msgstr "ბაზარი"
 
-#: map-quick/localization_data.cpp:151
+#: map-quick/localization_data.cpp:152
 msgctxt "OSM::amenity/shop"
 msgid "Medical Supply"
 msgstr "სამედიცინო ცენტრი"
 
-#: map-quick/localization_data.cpp:152
+#: map-quick/localization_data.cpp:153
 msgctxt "OSM::room"
 msgid "Meeting Room"
 msgstr "შეხვედრების ოთახი"
 
-#: map-quick/localization_data.cpp:153
+#: map-quick/localization_data.cpp:154
 msgctxt "OSM::historic"
 msgid "Memorial"
 msgstr "მემორიალი"
 
-#: map-quick/localization_data.cpp:154
+#: map-quick/localization_data.cpp:155
 msgctxt "OSM::amenity/shop"
 msgid "Mobile Phone"
 msgstr "მობილური ტელეფონი"
 
-#: map-quick/localization_data.cpp:155
+#: map-quick/localization_data.cpp:156
 msgctxt "OSM::amenity/shop"
 msgid "Money Transfer"
 msgstr "ფულის გადარიცხვა"
 
-#: map-quick/localization_data.cpp:156
+#: map-quick/localization_data.cpp:157
 msgctxt "OSM::historic"
 msgid "Monument"
 msgstr "ძეგლი"
 
-#: map-quick/localization_data.cpp:157
+#: map-quick/localization_data.cpp:158
 msgctxt "OSM::shop"
 msgid "Motorcycle"
 msgstr "მოტოციკლეტი"
 
-#: map-quick/localization_data.cpp:158
+#: map-quick/localization_data.cpp:159
 msgctxt "OSM::amenity/shop"
 msgid "Motorcycle Parking"
 msgstr "მოტოციკლის პარკინგი"
 
-#: map-quick/localization_data.cpp:159
+#: map-quick/localization_data.cpp:160
 msgctxt "OSM::amenity/shop"
 msgid "Motorcycle Rental"
 msgstr "მოტოციკლის ქირაობა"
 
-#: map-quick/localization_data.cpp:160
+#: map-quick/localization_data.cpp:161
 msgctxt "OSM::amenity/shop"
 msgid "Museum"
 msgstr "მუზეუმი"
 
-#: map-quick/localization_data.cpp:161
+#: map-quick/localization_data.cpp:162
 msgctxt "OSM::amenity/shop"
 msgid "Music"
 msgstr "მუსიკა"
 
-#: map-quick/localization_data.cpp:162
+#: map-quick/localization_data.cpp:163
 msgctxt "OSM::amenity/shop"
 msgid "Musical Instruments"
 msgstr "მუსიკალური ინსტრუმენტები"
 
-#: map-quick/localization_data.cpp:163
+#: map-quick/localization_data.cpp:164
 msgctxt "OSM::amenity/shop"
 msgid "Newsagent"
 msgstr "გამყიდველი საგაზეთო კიოსკში"
 
-#: map-quick/localization_data.cpp:164
+#: map-quick/localization_data.cpp:165
 msgctxt "OSM::amenity"
 msgid "Nightclub"
 msgstr "ღამის კლუბი"
 
-#: map-quick/localization_data.cpp:165
+#: map-quick/localization_data.cpp:166
 msgctxt "OSM::shop"
 msgid "Nutrition Supplements"
 msgstr "საკვების ჩამნაცვლებლები"
 
-#: map-quick/localization_data.cpp:166
+#: map-quick/localization_data.cpp:167
 msgctxt "OSM::amenity/shop"
 msgid "Office"
 msgstr "ოფისი"
 
-#: map-quick/localization_data.cpp:167
+#: map-quick/localization_data.cpp:168
 msgctxt "OSM::amenity/shop"
 msgid "Optician"
 msgstr "ოპტიკოსი"
 
-#: map-quick/localization_data.cpp:168
+#: map-quick/localization_data.cpp:169
 msgctxt "OSM::healthcare"
 msgid "Optometrist"
 msgstr "ოპტიკოსი"
 
-#: map-quick/localization_data.cpp:169
+#: map-quick/localization_data.cpp:170
 msgctxt "OSM::amenity/shop"
 msgid "Outdoor"
 msgstr "სახლგარეთ"
 
-#: map-quick/localization_data.cpp:170
+#: map-quick/localization_data.cpp:171
 msgctxt "OSM::amenity/shop"
 msgid "Paint"
 msgstr "დახატვა"
 
-#: map-quick/localization_data.cpp:171
+#: map-quick/localization_data.cpp:172
 msgctxt "outdoor recreational area"
 msgid "Park"
 msgstr "პარკი"
 
-#: map-quick/localization_data.cpp:172
+#: map-quick/localization_data.cpp:173
 msgctxt "OSM::amenity/shop"
 msgid "Parking"
 msgstr "მიმდინარეობს დამაგრება"
 
-#: map-quick/localization_data.cpp:173
+#: map-quick/localization_data.cpp:174
 msgctxt "OSM::amenity/shop"
 msgid "Parking Tickets"
 msgstr "საჯარიმო ტალონი"
 
-#: map-quick/localization_data.cpp:174
+#: map-quick/localization_data.cpp:175
 msgctxt "OSM::amenity/shop"
 msgid "Pastry"
 msgstr "ცომეული"
 
-#: map-quick/localization_data.cpp:175
+#: map-quick/localization_data.cpp:176
 msgctxt "OSM::amenity/shop"
 msgid "Perfumery"
 msgstr "პერფიუმერია"
 
-#: map-quick/localization_data.cpp:176
+#: map-quick/localization_data.cpp:177
 msgctxt "OSM::amenity/shop"
 msgid "Pet"
 msgstr "ცხოველისთვის"
 
-#: map-quick/localization_data.cpp:177
+#: map-quick/localization_data.cpp:178
 msgctxt "OSM::amenity/shop"
 msgid "Pharmacy"
 msgstr "ფარმაცია"
 
-#: map-quick/localization_data.cpp:178
+#: map-quick/localization_data.cpp:179
 msgctxt "OSM::amenity/shop"
 msgid "Photo"
 msgstr "სურათი"
 
-#: map-quick/localization_data.cpp:179
+#: map-quick/localization_data.cpp:180
 msgctxt "OSM::healthcare"
 msgid "Physiotherapist"
 msgstr "ფიზიოთერაპევტი"
 
-#: map-quick/localization_data.cpp:180
+#: map-quick/localization_data.cpp:181
 msgctxt "OSM::amenity/shop"
 msgid "Place of Worship"
 msgstr "სალოცავი ადგილი"
 
-#: map-quick/localization_data.cpp:181
+#: map-quick/localization_data.cpp:182
 msgid "Playground"
 msgstr "საცდელი ფუნქციები"
 
-#: map-quick/localization_data.cpp:182
+#: map-quick/localization_data.cpp:183
 msgctxt "OSM::amenity/shop"
 msgid "Police"
 msgstr "პოლიცია"
 
-#: map-quick/localization_data.cpp:183
+#: map-quick/localization_data.cpp:184
 msgctxt "OSM::amenity/shop"
 msgid "Post Box"
 msgstr "საფოსტო ყუთი"
 
-#: map-quick/localization_data.cpp:184
+#: map-quick/localization_data.cpp:185
 msgctxt "OSM::amenity/shop"
 msgid "Post Office"
 msgstr "ფოსტა"
 
-#: map-quick/localization_data.cpp:185
+#: map-quick/localization_data.cpp:186
 msgctxt "OSM::shop"
 msgid "Potery"
 msgstr "მეთუნეობა"
 
-#: map-quick/localization_data.cpp:186
+#: map-quick/localization_data.cpp:187
 msgctxt "OSM::healthcare"
 msgid "Psychotherapist"
 msgstr "ფსიქოთერაპია"
 
-#: map-quick/localization_data.cpp:187
+#: map-quick/localization_data.cpp:188
 msgctxt "OSM::amenity/shop"
 msgid "Pub"
 msgstr "პაბი"
 
-#: map-quick/localization_data.cpp:188
+#: map-quick/localization_data.cpp:189
 msgctxt "OSM::amenity/shop"
 msgid "Public Transport Tickets"
 msgstr "საჯარო ტრანსპორტის ბილეთები"
 
-#: map-quick/localization_data.cpp:189 map-quick/localization_data.cpp:225
+#: map-quick/localization_data.cpp:190 map-quick/localization_data.cpp:227
 msgctxt "OSM::building"
 msgid "Train Station"
 msgstr "რკინიგზის სადგური"
 
-#: map-quick/localization_data.cpp:190
+#: map-quick/localization_data.cpp:191
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
 msgstr "მისაღები"
 
-#: map-quick/localization_data.cpp:191
+#: map-quick/localization_data.cpp:192
 msgctxt "OSM::amenity/shop"
 msgid "Recycling"
 msgstr "გადამუშავება"
 
-#: map-quick/localization_data.cpp:192
+#: map-quick/localization_data.cpp:193
 msgctxt "OSM::amenity"
 msgid "Research Institute"
 msgstr "კვლევის ინსტიტუტი"
 
-#: map-quick/localization_data.cpp:193
+#: map-quick/localization_data.cpp:194
 msgctxt "OSM::amenity/shop"
 msgid "Restaurant"
 msgstr "რესტორანი"
 
-#: map-quick/localization_data.cpp:194
+#: map-quick/localization_data.cpp:195
 msgctxt "OSM::amenity"
 msgid "Sauna"
 msgstr "საუნა"
 
-#: map-quick/localization_data.cpp:195
+#: map-quick/localization_data.cpp:196
 msgctxt "OSM::amenity/shop"
 msgid "School"
 msgstr "სკოლა"
 
-#: map-quick/localization_data.cpp:196
+#: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
 msgid "Kick Scooter Rental"
 msgstr "სკუტერის გაქირავება"
 
-#: map-quick/localization_data.cpp:197
+#: map-quick/localization_data.cpp:198
 msgctxt "OSM::amenity/shop"
 msgid "Seafood"
 msgstr "ზღვის პროდუქტები"
 
-#: map-quick/localization_data.cpp:198
+#: map-quick/localization_data.cpp:199
 msgctxt "OSM::shop"
 msgid "Second Hand"
 msgstr "მეორადი ტანსაცმელი"
 
-#: map-quick/localization_data.cpp:199
+#: map-quick/localization_data.cpp:200
 msgctxt "OSM::room"
 msgid "Seminar Room"
 msgstr "სემინარების ოთახი"
 
-#: map-quick/localization_data.cpp:200
+#: map-quick/localization_data.cpp:201
 msgctxt "OSM::shop"
 msgid "Shoe Repair"
 msgstr "ფეხსაცმლის შეკეთება"
 
-#: map-quick/localization_data.cpp:201
+#: map-quick/localization_data.cpp:202
 msgctxt "OSM::shop"
 msgid "Shoes"
 msgstr "ფეხსაცმელი"
 
-#: map-quick/localization_data.cpp:202
+#: map-quick/localization_data.cpp:203
 msgctxt "OSM::amenity/shop"
 msgid "Shop"
 msgstr "მაღაზია"
 
-#: map-quick/localization_data.cpp:203
+#: map-quick/localization_data.cpp:204
 msgctxt "OSM::amenity"
 msgid "Shower"
 msgstr "შხაპი"
 
-#: map-quick/localization_data.cpp:204
+#: map-quick/localization_data.cpp:205
 msgctxt "OSM::amenity/shop"
 msgid "Social Facility"
 msgstr "სოციალური დაწესებულება"
 
-#: map-quick/localization_data.cpp:205
+#: map-quick/localization_data.cpp:206
 msgctxt "OSM::amenity/shop"
 msgid "Souvenirs"
 msgstr "სუვენირები"
 
-#: map-quick/localization_data.cpp:206
+#: map-quick/localization_data.cpp:207
 msgctxt "OSM::amenity/shop"
 msgid "Sports"
 msgstr "სპორტი"
 
-#: map-quick/localization_data.cpp:207
+#: map-quick/localization_data.cpp:208
 msgctxt "OSM::amenity"
 msgid "Sports Center"
 msgstr "სპორტის დარბაზი"
 
-#: map-quick/localization_data.cpp:208
+#: map-quick/localization_data.cpp:209
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
 msgstr "სპორტის დარბაზი"
 
-#: map-quick/localization_data.cpp:209
+#: map-quick/localization_data.cpp:210
 msgctxt "OSM::amenity/shop"
 msgid "Stationery"
 msgstr "საკანცელარიო საქონელი"
 
-#: map-quick/localization_data.cpp:210
+#: map-quick/localization_data.cpp:211
 msgctxt "OSM::amenity/shop"
 msgid "Supermarket"
 msgstr "სუპერმარკეტი"
 
-#: map-quick/localization_data.cpp:211
+#: map-quick/localization_data.cpp:212
+msgctxt "OSM::vending"
+msgid "Sweets"
+msgstr ""
+
+#: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
 msgid "Tailor"
 msgstr "მკერავი"
 
-#: map-quick/localization_data.cpp:212
+#: map-quick/localization_data.cpp:214
 msgctxt "OSM::amenity/shop"
 msgid "Tattoo"
 msgstr "ტატუ"
 
-#: map-quick/localization_data.cpp:213
+#: map-quick/localization_data.cpp:215
 msgctxt "OSM::amenity/shop"
 msgid "Taxi"
 msgstr "ტაქსი"
 
-#: map-quick/localization_data.cpp:214
+#: map-quick/localization_data.cpp:216
 msgctxt "OSM::amenity/shop"
 msgid "Tea"
 msgstr "ჩაი"
 
-#: map-quick/localization_data.cpp:215
+#: map-quick/localization_data.cpp:217
 msgctxt "OSM::shop"
 msgid "Telecommunication"
 msgstr "ტელეკომუნიკაცია"
 
-#: map-quick/localization_data.cpp:216
+#: map-quick/localization_data.cpp:218
 msgctxt "OSM::room"
 msgid "Terrace"
 msgstr "ტერასა"
 
-#: map-quick/localization_data.cpp:217
+#: map-quick/localization_data.cpp:219
 msgctxt "OSM::amenity/shop"
 msgid "Theatre"
 msgstr "თეატრი"
 
-#: map-quick/localization_data.cpp:218
+#: map-quick/localization_data.cpp:220
 msgctxt "OSM::tourism"
 msgid "Theme Park"
 msgstr "თემატური პარკი"
 
-#: map-quick/localization_data.cpp:219
+#: map-quick/localization_data.cpp:221
 msgctxt "OSM::amenity/shop"
 msgid "Tickets"
 msgstr "ბილეთები"
 
-#: map-quick/localization_data.cpp:220
+#: map-quick/localization_data.cpp:222
 msgctxt "OSM::amenity/shop"
 msgid "Tobacco"
 msgstr "თამბაქო"
 
-#: map-quick/localization_data.cpp:221 map-quick/localization_data.cpp:222
+#: map-quick/localization_data.cpp:223 map-quick/localization_data.cpp:224
 msgctxt "OSM::amenity/shop"
 msgid "Toilets"
 msgstr "ტუალეტები"
 
-#: map-quick/localization_data.cpp:223
+#: map-quick/localization_data.cpp:225
 msgctxt "OSM::amenity/shop"
 msgid "Town Hall"
 msgstr "მერია"
 
-#: map-quick/localization_data.cpp:224
+#: map-quick/localization_data.cpp:226
 msgctxt "OSM::amenity/shop"
 msgid "Toys"
 msgstr "სათამაშოები"
 
-#: map-quick/localization_data.cpp:226 map-quick/localization_data.cpp:227
+#: map-quick/localization_data.cpp:228 map-quick/localization_data.cpp:229
 msgctxt "OSM::amenity/shop"
 msgid "Travel Agency"
 msgstr "სამოგზაურო ბიურო"
 
-#: map-quick/localization_data.cpp:228
+#: map-quick/localization_data.cpp:230
 msgctxt "OSM::amenity/shop"
 msgid "University"
 msgstr "უნივერსიტეტი"
 
-#: map-quick/localization_data.cpp:229
+#: map-quick/localization_data.cpp:231
 msgctxt "OSM::amenity/shop"
 msgid "Variety Store"
 msgstr "ფართო პროფილის უნივერსამი"
 
-#: map-quick/localization_data.cpp:230
+#: map-quick/localization_data.cpp:232
+msgctxt "OSM::amenity"
+msgid "Vending Machine"
+msgstr ""
+
+#: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
 msgid "Veterinary"
 msgstr "ვეტერინარია"
 
-#: map-quick/localization_data.cpp:231
+#: map-quick/localization_data.cpp:234
 msgctxt "OSM::amenity/shop"
 msgid "Video Games"
 msgstr "ვიდეო თამაშები"
 
-#: map-quick/localization_data.cpp:232
+#: map-quick/localization_data.cpp:235
 msgctxt "OSM::tourism"
 msgid "Viewpoint"
 msgstr "ხედის წერტილი"
 
-#: map-quick/localization_data.cpp:233 map-quick/localization_data.cpp:234
-#: map-quick/localization_data.cpp:235
+#: map-quick/localization_data.cpp:236 map-quick/localization_data.cpp:237
+#: map-quick/localization_data.cpp:238
 msgctxt "OSM::amenity/shop"
 msgid "Waiting Area"
 msgstr "მოსაცდელი ადგილი"
 
-#: map-quick/localization_data.cpp:236
+#: map-quick/localization_data.cpp:239
 msgctxt "OSM::amenity"
 msgid "Waste Basket"
 msgstr "ნაგვის კალათა"
 
-#: map-quick/localization_data.cpp:237
+#: map-quick/localization_data.cpp:240
 msgctxt "OSM::shop"
 msgid "Watches"
 msgstr "საათები"
 
-#: map-quick/localization_data.cpp:238
+#: map-quick/localization_data.cpp:241
+msgctxt "OSM::vending"
+msgid "Water"
+msgstr ""
+
+#: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
 msgid "Wine"
 msgstr "ღვინო"
 
-#: map-quick/localization_data.cpp:239
+#: map-quick/localization_data.cpp:243
 msgctxt "OSM::tourism"
 msgid "Zoo"
 msgstr "ზოოპარკი"
 
-#: map-quick/localization_data.cpp:245
+#: map-quick/localization_data.cpp:249
 msgctxt "OSM::cuisine"
 msgid "African"
 msgstr "აფრიკული"
 
-#: map-quick/localization_data.cpp:246
+#: map-quick/localization_data.cpp:250
 msgctxt "OSM::cuisine"
 msgid "American"
 msgstr "ამერიკული"
 
-#: map-quick/localization_data.cpp:247
+#: map-quick/localization_data.cpp:251
 msgctxt "OSM::cuisine"
 msgid "Arab"
 msgstr "არაბული"
 
-#: map-quick/localization_data.cpp:248
+#: map-quick/localization_data.cpp:252
 msgctxt "OSM::cuisine"
 msgid "Argentinian"
 msgstr "არგენტინული"
 
-#: map-quick/localization_data.cpp:249
+#: map-quick/localization_data.cpp:253
 msgctxt "OSM::cuisine"
 msgid "Asian"
 msgstr "აზიური"
 
-#: map-quick/localization_data.cpp:250
+#: map-quick/localization_data.cpp:254
 msgctxt "OSM::cuisine"
 msgid "Austrian"
 msgstr "ავსტრიული"
 
-#: map-quick/localization_data.cpp:251
+#: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Bagel"
 msgstr "ბეიგლი"
 
-#: map-quick/localization_data.cpp:252
+#: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
 msgid "Balkan"
 msgstr "ბალკანი"
 
-#: map-quick/localization_data.cpp:253 map-quick/localization_data.cpp:254
-#: map-quick/localization_data.cpp:256
+#: map-quick/localization_data.cpp:257 map-quick/localization_data.cpp:258
+#: map-quick/localization_data.cpp:260
 msgctxt "OSM::cuisine"
 msgid "Barbecue"
 msgstr "მწვადი"
 
-#: map-quick/localization_data.cpp:255
+#: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
 msgid "Bavarian"
 msgstr "ბავარიული"
 
-#: map-quick/localization_data.cpp:257
+#: map-quick/localization_data.cpp:261
 msgctxt "OSM::cuisine"
 msgid "Beef Bowl"
 msgstr "გიუდონი"
 
-#: map-quick/localization_data.cpp:258
+#: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
 msgid "Bolivian"
 msgstr "ბოლივიური"
 
-#: map-quick/localization_data.cpp:259
+#: map-quick/localization_data.cpp:263
 msgctxt "OSM::cuisine"
 msgid "Brazilian"
 msgstr "ბრაზილიური"
 
-#: map-quick/localization_data.cpp:260
+#: map-quick/localization_data.cpp:264
 msgctxt "OSM::cuisine"
 msgid "Breakfast"
 msgstr "საუზმე"
 
-#: map-quick/localization_data.cpp:261
+#: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "British"
 msgstr "ბრიტანული"
 
-#: map-quick/localization_data.cpp:262
+#: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
 msgid "Brunch"
 msgstr "ბრანჩი"
 
-#: map-quick/localization_data.cpp:263
+#: map-quick/localization_data.cpp:267
 msgctxt "OSM::cuisine"
 msgid "Bubble Tea"
 msgstr "ბურთულებიანი ჩაი"
 
-#: map-quick/localization_data.cpp:264
+#: map-quick/localization_data.cpp:268
 msgctxt "OSM::cuisine"
 msgid "Buffet"
 msgstr "ბუფეტი"
 
-#: map-quick/localization_data.cpp:265
+#: map-quick/localization_data.cpp:269
 msgctxt "OSM::cuisine"
 msgid "Burger"
 msgstr "ბურგერი"
 
-#: map-quick/localization_data.cpp:266
+#: map-quick/localization_data.cpp:270
 msgctxt "OSM::cuisine"
 msgid "Cake"
 msgstr "ნამცხვარი"
 
-#: map-quick/localization_data.cpp:267
+#: map-quick/localization_data.cpp:271
 msgctxt "OSM::cuisine"
 msgid "Caribbean"
 msgstr "კარიბული"
 
-#: map-quick/localization_data.cpp:268
+#: map-quick/localization_data.cpp:272
 msgctxt "OSM::cuisine"
 msgid "Chicken"
 msgstr "ქათამი"
 
-#: map-quick/localization_data.cpp:269
+#: map-quick/localization_data.cpp:273
 msgctxt "OSM::cuisine"
 msgid "Chinese"
 msgstr "ჩინური"
 
-#: map-quick/localization_data.cpp:270
+#: map-quick/localization_data.cpp:274
 msgctxt "OSM::cuisine"
 msgid "Coffee"
 msgstr "ყავა"
 
-#: map-quick/localization_data.cpp:271
+#: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
 msgid "Coffee Shop"
 msgstr "ყავა"
 
-#: map-quick/localization_data.cpp:272
+#: map-quick/localization_data.cpp:276
 msgctxt "OSM::cuisine"
 msgid "Cookies"
 msgstr "Cookie ფაილები"
 
-#: map-quick/localization_data.cpp:273
+#: map-quick/localization_data.cpp:277
 msgctxt "OSM::cuisine"
 msgid "Crêpe"
 msgstr "კრეპი"
 
-#: map-quick/localization_data.cpp:274
+#: map-quick/localization_data.cpp:278
 msgctxt "OSM::cuisine"
 msgid "Curry"
 msgstr "ქარი"
 
-#: map-quick/localization_data.cpp:275
+#: map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
 msgid "Czech"
 msgstr "ჩეხური"
 
-#: map-quick/localization_data.cpp:276
+#: map-quick/localization_data.cpp:280
 msgctxt "OSM::cuisine"
 msgid "Dessert"
 msgstr "დესერტი"
 
-#: map-quick/localization_data.cpp:277
+#: map-quick/localization_data.cpp:281
 msgctxt "OSM::cuisine"
 msgid "Donut"
 msgstr "დონატი"
 
-#: map-quick/localization_data.cpp:278 map-quick/localization_data.cpp:279
+#: map-quick/localization_data.cpp:282 map-quick/localization_data.cpp:283
 msgctxt "OSM::cuisine"
 msgid "Dumplings"
 msgstr "პელმენი"
 
-#: map-quick/localization_data.cpp:280
+#: map-quick/localization_data.cpp:284
 msgctxt "OSM::cuisine"
 msgid "Ethiopian"
 msgstr "ეთიოპიური"
 
-#: map-quick/localization_data.cpp:281
+#: map-quick/localization_data.cpp:285
 msgctxt "OSM::cuisine"
 msgid "Falafel"
 msgstr "ფალაფელი"
 
-#: map-quick/localization_data.cpp:282
+#: map-quick/localization_data.cpp:286
 msgctxt "OSM::cuisine"
 msgid "Fast Food"
 msgstr "სწრაფი საჭმელი"
 
-#: map-quick/localization_data.cpp:283
+#: map-quick/localization_data.cpp:287
 msgctxt "OSM::cuisine"
 msgid "Filipino"
 msgstr "ფილიპინური"
 
-#: map-quick/localization_data.cpp:284
+#: map-quick/localization_data.cpp:288
 msgctxt "OSM::cuisine"
 msgid "Fish"
 msgstr "Fish"
 
-#: map-quick/localization_data.cpp:285
+#: map-quick/localization_data.cpp:289
 msgctxt "OSM::cuisine"
 msgid "Fish & Chips"
 msgstr "ფიშნჩიპსი"
 
-#: map-quick/localization_data.cpp:286
+#: map-quick/localization_data.cpp:290
 msgctxt "OSM::cuisine"
 msgid "French"
 msgstr "ფრანგული"
 
-#: map-quick/localization_data.cpp:287
+#: map-quick/localization_data.cpp:291
 msgctxt "OSM::cuisine"
 msgid "Fries"
 msgstr "ფრანგულად შემწვარი კარტოფილი"
 
-#: map-quick/localization_data.cpp:288
+#: map-quick/localization_data.cpp:292
 msgctxt "OSM::cuisine"
 msgid "Georigan"
 msgstr "ქართული"
 
-#: map-quick/localization_data.cpp:289
+#: map-quick/localization_data.cpp:293
 msgctxt "OSM::cuisine"
 msgid "German"
 msgstr "გერმანული"
 
-#: map-quick/localization_data.cpp:290
+#: map-quick/localization_data.cpp:294
 msgctxt "OSM::cuisine"
 msgid "Greek"
 msgstr "ბერძნული"
 
-#: map-quick/localization_data.cpp:291
+#: map-quick/localization_data.cpp:295
 msgctxt "OSM::cuisine"
 msgid "Grill"
 msgstr "გრილი"
 
-#: map-quick/localization_data.cpp:292
+#: map-quick/localization_data.cpp:296
 msgctxt "OSM::cuisine"
 msgid "Gyros"
 msgstr "გირო"
 
-#: map-quick/localization_data.cpp:293
+#: map-quick/localization_data.cpp:297
 msgctxt "OSM::cuisine"
 msgid "Hawaiian"
 msgstr "ჰავაიური"
 
-#: map-quick/localization_data.cpp:294 map-quick/localization_data.cpp:295
+#: map-quick/localization_data.cpp:298 map-quick/localization_data.cpp:299
 msgctxt "OSM::cuisine"
 msgid "Hot Dog"
 msgstr "ჰოთ დოგი"
 
-#: map-quick/localization_data.cpp:296
+#: map-quick/localization_data.cpp:300
 msgctxt "OSM::cuisine"
 msgid "Ice Cream"
 msgstr "ნაყინი"
 
-#: map-quick/localization_data.cpp:297
+#: map-quick/localization_data.cpp:301
 msgctxt "OSM::cuisine"
 msgid "Indian"
 msgstr "ინდური"
 
-#: map-quick/localization_data.cpp:298
+#: map-quick/localization_data.cpp:302
 msgctxt "OSM::cuisine"
 msgid "Indonesian"
 msgstr "ინდონეზიური"
 
-#: map-quick/localization_data.cpp:299
+#: map-quick/localization_data.cpp:303
 msgctxt "OSM::cuisine"
 msgid "International"
 msgstr "საერთაშორისო"
 
-#: map-quick/localization_data.cpp:300
+#: map-quick/localization_data.cpp:304
 msgctxt "OSM::cuisine"
 msgid "Irish"
 msgstr "ირლანდიური"
 
-#: map-quick/localization_data.cpp:301
+#: map-quick/localization_data.cpp:305
 msgctxt "OSM::cuisine"
 msgid "Italian"
 msgstr "იტალიური"
 
-#: map-quick/localization_data.cpp:302 map-quick/localization_data.cpp:323
+#: map-quick/localization_data.cpp:306 map-quick/localization_data.cpp:327
 msgctxt "OSM::cuisine"
 msgid "Pizza"
 msgstr "პიცა"
 
-#: map-quick/localization_data.cpp:303
+#: map-quick/localization_data.cpp:307
 msgctxt "OSM::cuisine"
 msgid "Japanese"
 msgstr "იაპონური"
 
-#: map-quick/localization_data.cpp:304
+#: map-quick/localization_data.cpp:308
 msgctxt "OSM::cuisine"
 msgid "Juice"
 msgstr "წვენი"
 
-#: map-quick/localization_data.cpp:305
+#: map-quick/localization_data.cpp:309
 msgctxt "OSM::cuisine"
 msgid "Kebab"
 msgstr "ქაბაბი"
 
-#: map-quick/localization_data.cpp:306
+#: map-quick/localization_data.cpp:310
 msgctxt "OSM::cuisine"
 msgid "Korean"
 msgstr "კორეული"
 
-#: map-quick/localization_data.cpp:307
+#: map-quick/localization_data.cpp:311
 msgctxt "OSM::cuisine"
 msgid "Lebanese"
 msgstr "ლებანური"
 
-#: map-quick/localization_data.cpp:308
+#: map-quick/localization_data.cpp:312
 msgctxt "OSM::cuisine"
 msgid "Local"
 msgstr "ლოკალური"
 
-#: map-quick/localization_data.cpp:309
+#: map-quick/localization_data.cpp:313
 msgctxt "OSM::cuisine"
 msgid "Malaysian"
 msgstr "მალაიზიური"
 
-#: map-quick/localization_data.cpp:310
+#: map-quick/localization_data.cpp:314
 msgctxt "OSM::cuisine"
 msgid "Meat"
 msgstr "ხორცი"
 
-#: map-quick/localization_data.cpp:311
+#: map-quick/localization_data.cpp:315
 msgctxt "OSM::cuisine"
 msgid "Mediterranean"
 msgstr "ხმელთაშუა ზღვის"
 
-#: map-quick/localization_data.cpp:312
+#: map-quick/localization_data.cpp:316
 msgctxt "OSM::cuisine"
 msgid "Mexican"
 msgstr "მექსიკური"
 
-#: map-quick/localization_data.cpp:313
+#: map-quick/localization_data.cpp:317
 msgctxt "OSM::cuisine"
 msgid "Moroccan"
 msgstr "მაროკოული"
 
-#: map-quick/localization_data.cpp:314
+#: map-quick/localization_data.cpp:318
 msgctxt "OSM::cuisine"
 msgid "Nepalese"
 msgstr "ნეპალური"
 
-#: map-quick/localization_data.cpp:315 map-quick/localization_data.cpp:316
+#: map-quick/localization_data.cpp:319 map-quick/localization_data.cpp:320
 msgctxt "OSM::cuisine"
 msgid "Noodle"
 msgstr "ნუდლი"
 
-#: map-quick/localization_data.cpp:317
+#: map-quick/localization_data.cpp:321
 msgctxt "OSM::cuisine"
 msgid "Pakistani"
 msgstr "პაკისტანური"
 
-#: map-quick/localization_data.cpp:318
+#: map-quick/localization_data.cpp:322
 msgctxt "OSM::cuisine"
 msgid "Pancake"
 msgstr "ბლინი"
 
-#: map-quick/localization_data.cpp:319
+#: map-quick/localization_data.cpp:323
 msgctxt "OSM::cuisine"
 msgid "Pasta"
 msgstr "ცომეული"
 
-#: map-quick/localization_data.cpp:320
+#: map-quick/localization_data.cpp:324
 msgctxt "OSM::cuisine"
 msgid "Pastry"
 msgstr "ცომეული"
 
-#: map-quick/localization_data.cpp:321
+#: map-quick/localization_data.cpp:325
 msgctxt "OSM::cuisine"
 msgid "Persian"
 msgstr "სპარსული"
 
-#: map-quick/localization_data.cpp:322
+#: map-quick/localization_data.cpp:326
 msgctxt "OSM::cuisine"
 msgid "Peruvian"
 msgstr "პერუული"
 
-#: map-quick/localization_data.cpp:324
+#: map-quick/localization_data.cpp:328
 msgctxt "OSM::cuisine"
 msgid "Poke"
 msgstr "პოკე"
 
-#: map-quick/localization_data.cpp:325
+#: map-quick/localization_data.cpp:329
 msgctxt "OSM::cuisine"
 msgid "Polish"
 msgstr "პოლონური"
 
-#: map-quick/localization_data.cpp:326
+#: map-quick/localization_data.cpp:330
 msgctxt "OSM::cuisine"
 msgid "Portuguese"
 msgstr "პორტუგალიური"
 
-#: map-quick/localization_data.cpp:327
+#: map-quick/localization_data.cpp:331
 msgctxt "OSM::cuisine"
 msgid "Pretzel"
 msgstr "პრეცელი"
 
-#: map-quick/localization_data.cpp:328
+#: map-quick/localization_data.cpp:332
 msgctxt "OSM::cuisine"
 msgid "Ramen"
 msgstr "რამენი"
 
-#: map-quick/localization_data.cpp:329
+#: map-quick/localization_data.cpp:333
 msgctxt "OSM::cuisine"
 msgid "Regional"
 msgstr "რეგიონალური"
 
-#: map-quick/localization_data.cpp:330
+#: map-quick/localization_data.cpp:334
 msgctxt "OSM::cuisine"
 msgid "Russian"
 msgstr "რუსული"
 
-#: map-quick/localization_data.cpp:331
+#: map-quick/localization_data.cpp:335
 msgctxt "OSM::cuisine"
 msgid "Salad"
 msgstr "სალათი"
 
-#: map-quick/localization_data.cpp:332
+#: map-quick/localization_data.cpp:336
 msgctxt "OSM::cuisine"
 msgid "Sandwich"
 msgstr "სენდვიჩი"
 
-#: map-quick/localization_data.cpp:333
+#: map-quick/localization_data.cpp:337
 msgctxt "OSM::cuisine"
 msgid "Sausage"
 msgstr "სოსისი"
 
-#: map-quick/localization_data.cpp:334
+#: map-quick/localization_data.cpp:338
 msgctxt "OSM::cuisine"
 msgid "Seafood"
 msgstr "ზღვის პროდუქტები"
 
-#: map-quick/localization_data.cpp:335
+#: map-quick/localization_data.cpp:339
 msgctxt "OSM::cuisine"
 msgid "Shawarma"
 msgstr "შაურმა"
 
-#: map-quick/localization_data.cpp:336
+#: map-quick/localization_data.cpp:340
 msgctxt "OSM::cuisine"
 msgid "Soup"
 msgstr "სუპი"
 
-#: map-quick/localization_data.cpp:337
+#: map-quick/localization_data.cpp:341
 msgctxt "OSM::cuisine"
 msgid "Spanish"
 msgstr "ესპანური"
 
-#: map-quick/localization_data.cpp:338 map-quick/localization_data.cpp:339
+#: map-quick/localization_data.cpp:342 map-quick/localization_data.cpp:343
 msgctxt "OSM::cuisine"
 msgid "Steak"
 msgstr "სტეიკი"
 
-#: map-quick/localization_data.cpp:340
+#: map-quick/localization_data.cpp:344
 msgctxt "OSM::cuisine"
 msgid "Sushi"
 msgstr "Sushi"
 
-#: map-quick/localization_data.cpp:341
+#: map-quick/localization_data.cpp:345
 msgctxt "OSM::cuisine"
 msgid "Syrian"
 msgstr "სირიული"
 
-#: map-quick/localization_data.cpp:342
+#: map-quick/localization_data.cpp:346
 msgctxt "OSM::cuisine"
 msgid "Tacos"
 msgstr "ტაკო"
 
-#: map-quick/localization_data.cpp:343
+#: map-quick/localization_data.cpp:347
 msgctxt "OSM::cuisine"
 msgid "Taiwanese"
 msgstr "ტაივანური"
 
-#: map-quick/localization_data.cpp:344
+#: map-quick/localization_data.cpp:348
 msgctxt "OSM::cuisine"
 msgid "Tapas"
 msgstr "ტაპასი"
 
-#: map-quick/localization_data.cpp:345
+#: map-quick/localization_data.cpp:349
 msgctxt "OSM::cuisine"
 msgid "Tea"
 msgstr "ჩაი"
 
-#: map-quick/localization_data.cpp:346
+#: map-quick/localization_data.cpp:350
 msgctxt "OSM::cuisine"
 msgid "Teahouse"
 msgstr "ჩაის სახლი"
 
-#: map-quick/localization_data.cpp:347
+#: map-quick/localization_data.cpp:351
 msgctxt "OSM::cuisine"
 msgid "Tex-Mex"
 msgstr "Tex-Mex"
 
-#: map-quick/localization_data.cpp:348
+#: map-quick/localization_data.cpp:352
 msgctxt "OSM::cuisine"
 msgid "Thai"
 msgstr "ტაილანდური"
 
-#: map-quick/localization_data.cpp:349
+#: map-quick/localization_data.cpp:353
 msgctxt "OSM::cuisine"
 msgid "Turkish"
 msgstr "თურქული"
 
-#: map-quick/localization_data.cpp:350
+#: map-quick/localization_data.cpp:354
 msgctxt "OSM::cuisine"
 msgid "Vegetarian"
 msgstr "ვეგეტარიანული"
 
-#: map-quick/localization_data.cpp:351
+#: map-quick/localization_data.cpp:355
 msgctxt "OSM::cuisine"
 msgid "Vietnamese"
 msgstr "ვიეტნამური"
 
-#: map-quick/localization_data.cpp:352
+#: map-quick/localization_data.cpp:356
 msgctxt "OSM::cuisine"
 msgid "Waffles"
 msgstr "ვაფლი"
 
-#: map-quick/localization_data.cpp:353
+#: map-quick/localization_data.cpp:357
 msgctxt "OSM::cuisine"
 msgid "Chicken Wings"
 msgstr "ქათმის ფრთები"
@@ -1633,273 +1656,273 @@ msgstr "%1კმ"
 msgid "Wikipedia"
 msgstr "Wikipedia - უფასო ენციკლოპედია"
 
-#: map-quick/osmelementinformationmodel.cpp:529
+#: map-quick/osmelementinformationmodel.cpp:536
 #, kde-format
 msgid "Opening Hours"
 msgstr "სამუშაო საათები"
 
-#: map-quick/osmelementinformationmodel.cpp:530
+#: map-quick/osmelementinformationmodel.cpp:537
 #, kde-format
 msgid "Contact"
 msgstr "კონტაქტი"
 
-#: map-quick/osmelementinformationmodel.cpp:531
+#: map-quick/osmelementinformationmodel.cpp:538
 #, kde-format
 msgid "Payment"
 msgstr "გადახდა"
 
-#: map-quick/osmelementinformationmodel.cpp:532
+#: map-quick/osmelementinformationmodel.cpp:539
 #, kde-format
 msgid "Toilets"
 msgstr "ტუალეტები"
 
-#: map-quick/osmelementinformationmodel.cpp:533
+#: map-quick/osmelementinformationmodel.cpp:540
 #, kde-format
 msgid "Accessibility"
 msgstr "წვდომადობა"
 
-#: map-quick/osmelementinformationmodel.cpp:534
+#: map-quick/osmelementinformationmodel.cpp:541
 #, kde-format
 msgid "Parking"
 msgstr "მიმდინარეობს დამაგრება"
 
-#: map-quick/osmelementinformationmodel.cpp:535
+#: map-quick/osmelementinformationmodel.cpp:542
 #, kde-format
 msgid "Operator"
 msgstr "ოპერატორი"
 
-#: map-quick/osmelementinformationmodel.cpp:582
+#: map-quick/osmelementinformationmodel.cpp:590
 #, kde-format
 msgid "Formerly"
 msgstr "ყოფილ"
 
-#: map-quick/osmelementinformationmodel.cpp:583
+#: map-quick/osmelementinformationmodel.cpp:591
 #, kde-format
 msgid "Description"
 msgstr "აღწერა"
 
-#: map-quick/osmelementinformationmodel.cpp:584
+#: map-quick/osmelementinformationmodel.cpp:592
 #, kde-format
 msgid "Routes"
 msgstr "რაუტები"
 
-#: map-quick/osmelementinformationmodel.cpp:585
+#: map-quick/osmelementinformationmodel.cpp:593
 #, kde-format
 msgid "Cuisine"
 msgstr "სამზარეულო"
 
-#: map-quick/osmelementinformationmodel.cpp:586
+#: map-quick/osmelementinformationmodel.cpp:594
 #, kde-format
 msgid "Diet"
 msgstr "რაციონი"
 
-#: map-quick/osmelementinformationmodel.cpp:587
+#: map-quick/osmelementinformationmodel.cpp:595
 #, kde-format
 msgid "Takeaway"
 msgstr "წასაღები"
 
-#: map-quick/osmelementinformationmodel.cpp:588
+#: map-quick/osmelementinformationmodel.cpp:596
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
 msgstr "სოკეტი"
 
-#: map-quick/osmelementinformationmodel.cpp:590
+#: map-quick/osmelementinformationmodel.cpp:598
 #, kde-format
 msgid "Available vehicles"
 msgstr "ხელმისაწვდომი ტრანსპორტი"
 
-#: map-quick/osmelementinformationmodel.cpp:591
+#: map-quick/osmelementinformationmodel.cpp:599
 #, kde-format
 msgid "Fee"
 msgstr "გადასახადი"
 
-#: map-quick/osmelementinformationmodel.cpp:592
+#: map-quick/osmelementinformationmodel.cpp:600
 #, kde-format
 msgid "Authentication"
 msgstr "ავთენტიკაცია"
 
-#: map-quick/osmelementinformationmodel.cpp:593
+#: map-quick/osmelementinformationmodel.cpp:601
 #, kde-format
 msgid "Bicycle parking"
 msgstr "ველოსიპედის პარკინგი"
 
-#: map-quick/osmelementinformationmodel.cpp:594
+#: map-quick/osmelementinformationmodel.cpp:602
 #, kde-format
 msgid "Capacity"
 msgstr "მოცულობა"
 
-#: map-quick/osmelementinformationmodel.cpp:595
+#: map-quick/osmelementinformationmodel.cpp:603
 #, kde-format
 msgid "Disabled parking spaces"
 msgstr "შშმ პირების პარკინგი"
 
-#: map-quick/osmelementinformationmodel.cpp:596
+#: map-quick/osmelementinformationmodel.cpp:604
 #, kde-format
 msgid "Women parking spaces"
 msgstr "ქალების პარკინგის ადგილები"
 
-#: map-quick/osmelementinformationmodel.cpp:597
+#: map-quick/osmelementinformationmodel.cpp:605
 #, kde-format
 msgid "Parent parking spaces"
 msgstr "მშობლის პარკინგის ადგილი"
 
-#: map-quick/osmelementinformationmodel.cpp:598
+#: map-quick/osmelementinformationmodel.cpp:606
 #, kde-format
 msgid "Parking spaces for charging"
 msgstr "სატენი პარკინგის ადგლი"
 
-#: map-quick/osmelementinformationmodel.cpp:599
+#: map-quick/osmelementinformationmodel.cpp:607
 #, kde-format
 msgid "Maximum stay"
 msgstr "დარჩენის მაქსიმალური დრო"
 
-#: map-quick/osmelementinformationmodel.cpp:600
+#: map-quick/osmelementinformationmodel.cpp:608
 #, kde-format
 msgid "Diaper changing table"
 msgstr "საფენების შესაცვლელი მაგიდა"
 
-#: map-quick/osmelementinformationmodel.cpp:601
+#: map-quick/osmelementinformationmodel.cpp:609
 #, kde-format
 msgid "Gender"
 msgstr "სქესი"
 
-#: map-quick/osmelementinformationmodel.cpp:603
+#: map-quick/osmelementinformationmodel.cpp:611
 #, kde-format
 msgid "Address"
 msgstr "მისამართი"
 
-#: map-quick/osmelementinformationmodel.cpp:604
+#: map-quick/osmelementinformationmodel.cpp:612
 #, kde-format
 msgid "Phone"
 msgstr "ტელეფონი"
 
-#: map-quick/osmelementinformationmodel.cpp:605
+#: map-quick/osmelementinformationmodel.cpp:613
 #, kde-format
 msgid "Email"
 msgstr "ელ-ფოსტა"
 
-#: map-quick/osmelementinformationmodel.cpp:606
+#: map-quick/osmelementinformationmodel.cpp:614
 #, kde-format
 msgid "Website"
 msgstr "ვებსაიტი"
 
-#: map-quick/osmelementinformationmodel.cpp:607
+#: map-quick/osmelementinformationmodel.cpp:615
 #, kde-format
 msgid "Cash"
 msgstr "ნაღდი ფული"
 
-#: map-quick/osmelementinformationmodel.cpp:608
+#: map-quick/osmelementinformationmodel.cpp:616
 #, kde-format
 msgid "Digital"
 msgstr "ციფრული"
 
-#: map-quick/osmelementinformationmodel.cpp:609
+#: map-quick/osmelementinformationmodel.cpp:617
 #, kde-format
 msgid "Debit cards"
 msgstr "სადებეტო ბარათები"
 
-#: map-quick/osmelementinformationmodel.cpp:610
+#: map-quick/osmelementinformationmodel.cpp:618
 #, kde-format
 msgid "Credit cards"
 msgstr "საკრედიტო ბარათები"
 
-#: map-quick/osmelementinformationmodel.cpp:611
+#: map-quick/osmelementinformationmodel.cpp:619
 #, kde-format
 msgid "Stored value cards"
 msgstr "დამახსოვერებული ფასიანი ბარათები"
 
-#: map-quick/osmelementinformationmodel.cpp:612
+#: map-quick/osmelementinformationmodel.cpp:620
 #, kde-format
 msgid "Wheelchair access"
 msgstr "სავარძლით წვდომა"
 
-#: map-quick/osmelementinformationmodel.cpp:613
+#: map-quick/osmelementinformationmodel.cpp:621
 #, kde-format
 msgid "Wheelchair lift"
 msgstr "სავარძლის აწევა"
 
-#: map-quick/osmelementinformationmodel.cpp:614
+#: map-quick/osmelementinformationmodel.cpp:622
 #, kde-format
 msgid "Central key"
 msgstr "ცენტრალური გასაღბი"
 
-#: map-quick/osmelementinformationmodel.cpp:615
+#: map-quick/osmelementinformationmodel.cpp:623
 #, kde-format
 msgid "Speech output"
 msgstr "საუბრის გამოტანა"
 
-#: map-quick/osmelementinformationmodel.cpp:616
+#: map-quick/osmelementinformationmodel.cpp:624
 #, kde-format
 msgid "Tactile writing"
 msgstr "ტაქტილური წერა"
 
-#: map-quick/osmelementinformationmodel.cpp:618
+#: map-quick/osmelementinformationmodel.cpp:626
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
 msgstr "ქსელი"
 
-#: map-quick/osmelementinformationmodel.cpp:620
+#: map-quick/osmelementinformationmodel.cpp:628
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
 msgstr "დარჩენილი დიაპაზონი"
 
-#: map-quick/osmelementinformationmodel.cpp:690
+#: map-quick/osmelementinformationmodel.cpp:698
 #, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:778
+#: map-quick/osmelementinformationmodel.cpp:788
 #, kde-format
 msgid "only %1"
 msgstr "მხოლოდ %1"
 
-#: map-quick/osmelementinformationmodel.cpp:780
+#: map-quick/osmelementinformationmodel.cpp:790
 #, kde-format
 msgid "no %1"
 msgstr "არა %1"
 
-#: map-quick/osmelementinformationmodel.cpp:805
+#: map-quick/osmelementinformationmodel.cpp:815
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
 msgstr "%1 ა"
 
-#: map-quick/osmelementinformationmodel.cpp:813
+#: map-quick/osmelementinformationmodel.cpp:823
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
 msgstr "%1 კვ"
 
-#: map-quick/osmelementinformationmodel.cpp:844
+#: map-quick/osmelementinformationmodel.cpp:854
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:912
-#: map-quick/osmelementinformationmodel.cpp:1100
+#: map-quick/osmelementinformationmodel.cpp:922
+#: map-quick/osmelementinformationmodel.cpp:1110
 #, kde-format
 msgid "yes"
 msgstr "yes"
 
-#: map-quick/osmelementinformationmodel.cpp:915
+#: map-quick/osmelementinformationmodel.cpp:925
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "მხოლოდ მონეტები"
 
-#: map-quick/osmelementinformationmodel.cpp:918
+#: map-quick/osmelementinformationmodel.cpp:928
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "მხოლოდ კუპიურები"
 
-#: map-quick/osmelementinformationmodel.cpp:920
-#: map-quick/osmelementinformationmodel.cpp:971
-#: map-quick/osmelementinformationmodel.cpp:1103
+#: map-quick/osmelementinformationmodel.cpp:930
+#: map-quick/osmelementinformationmodel.cpp:981
+#: map-quick/osmelementinformationmodel.cpp:1113
 #, kde-format
 msgid "no"
 msgstr "არა"
