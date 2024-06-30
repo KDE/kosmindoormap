@@ -63,7 +63,7 @@ if (NOT BUILD_TOOLS_ONLY)
 endif()
 
 if (BUILD_TESTING)
-    find_package(Qt6 6.5 REQUIRED COMPONENTS Test Widgets)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test Widgets)
 endif()
 
 if (BUILD_STANDALONE_APP)
