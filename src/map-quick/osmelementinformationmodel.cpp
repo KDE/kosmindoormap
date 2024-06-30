@@ -913,18 +913,19 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
         case Website: return QString::fromUtf8(m_element.tagValue("website", "contact:website", "url", "operator:website"));
         case PaymentCash:
         {
+            // TODO deal with the case that the tag value is a list of supported coins/notes (e.g. on vending machines)
             const auto coins = m_element.tagValue("payment:coins");
             const auto notes = m_element.tagValue("payment:notes");
             if (coins.isEmpty() && notes.isEmpty()) {
                 return translatedBoolValue(m_element.tagValue("payment:cash"));
             }
-            if (coins == "yes" && notes == "yes") {
+            if (!coins.isEmpty() && !notes.isEmpty() && coins != "no" && notes != "no") {
                 return i18n("yes");
             }
-            if (coins == "yes") {
+            if (!coins.isEmpty() && coins != "no" && (notes == "no" || notes.isEmpty())) {
                 return i18nc("payment option", "coins only");
             }
-            if (notes == "yes") {
+            if (!notes.isEmpty() && notes != "no" && (coins == "no" || coins.isEmpty())) {
                 return i18nc("payment option", "notes only");
             }
             return i18n("no");

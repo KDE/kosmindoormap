@@ -10,7 +10,7 @@
         {
             "categoryLabel": "Payment",
             "keyLabel": "Cash",
-            "value": "no"
+            "value": "coins only"
         },
         {
             "categoryLabel": "Payment",
