@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:38+0000\n"
-"PO-Revision-Date: 2024-04-25 08:01+0300\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
+"PO-Revision-Date: 2024-06-30 08:55+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: app/main.cpp:68
 #, kde-format
@@ -415,12 +415,9 @@ msgid "Drinking Water"
 msgstr "מי שתייה"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "מזון ומשקאות"
+msgstr "משקאות"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -996,7 +993,7 @@ msgstr "סופרמרקט"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "ממתקים"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1081,7 +1078,7 @@ msgstr "חנות כלבו"
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "מכונת ממכר"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1117,7 +1114,7 @@ msgstr "שעונים"
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "מים"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
@@ -1902,27 +1899,27 @@ msgstr "%1 קילו־ואט"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:922
-#: map-quick/osmelementinformationmodel.cpp:1110
+#: map-quick/osmelementinformationmodel.cpp:923
+#: map-quick/osmelementinformationmodel.cpp:1111
 #, kde-format
 msgid "yes"
 msgstr "יש"
 
-#: map-quick/osmelementinformationmodel.cpp:925
+#: map-quick/osmelementinformationmodel.cpp:926
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "מטבעות בלבד"
 
-#: map-quick/osmelementinformationmodel.cpp:928
+#: map-quick/osmelementinformationmodel.cpp:929
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "שטרות בלבד"
 
-#: map-quick/osmelementinformationmodel.cpp:930
-#: map-quick/osmelementinformationmodel.cpp:981
-#: map-quick/osmelementinformationmodel.cpp:1113
+#: map-quick/osmelementinformationmodel.cpp:931
+#: map-quick/osmelementinformationmodel.cpp:982
+#: map-quick/osmelementinformationmodel.cpp:1114
 #, kde-format
 msgid "no"
 msgstr "אין"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:38+0000\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
 "PO-Revision-Date: 2024-04-19 02:38+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1916,27 +1916,27 @@ msgstr "%1 kW"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:922
-#: map-quick/osmelementinformationmodel.cpp:1110
+#: map-quick/osmelementinformationmodel.cpp:923
+#: map-quick/osmelementinformationmodel.cpp:1111
 #, kde-format
 msgid "yes"
 msgstr "是"
 
-#: map-quick/osmelementinformationmodel.cpp:925
+#: map-quick/osmelementinformationmodel.cpp:926
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "僅零錢"
 
-#: map-quick/osmelementinformationmodel.cpp:928
+#: map-quick/osmelementinformationmodel.cpp:929
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "僅鈔票"
 
-#: map-quick/osmelementinformationmodel.cpp:930
-#: map-quick/osmelementinformationmodel.cpp:981
-#: map-quick/osmelementinformationmodel.cpp:1113
+#: map-quick/osmelementinformationmodel.cpp:931
+#: map-quick/osmelementinformationmodel.cpp:982
+#: map-quick/osmelementinformationmodel.cpp:1114
 #, kde-format
 msgid "no"
 msgstr "否"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:38+0000\n"
-"PO-Revision-Date: 2024-04-25 15:48+0200\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
+"PO-Revision-Date: 2024-06-30 11:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: app/main.cpp:68
 #, kde-format
@@ -417,12 +417,9 @@ msgid "Drinking Water"
 msgstr "Pitna voda"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "Hrana in pijača"
+msgstr "Pijače"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -998,7 +995,7 @@ msgstr "Supermarket"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "Sladice"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1083,7 +1080,7 @@ msgstr "Trgovina z mešanim blagom"
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "Prodajni avtomat"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1119,7 +1116,7 @@ msgstr "Ure"
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "Voda"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
@@ -1904,27 +1901,27 @@ msgstr "%1 KW"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:922
-#: map-quick/osmelementinformationmodel.cpp:1110
+#: map-quick/osmelementinformationmodel.cpp:923
+#: map-quick/osmelementinformationmodel.cpp:1111
 #, kde-format
 msgid "yes"
 msgstr "da"
 
-#: map-quick/osmelementinformationmodel.cpp:925
+#: map-quick/osmelementinformationmodel.cpp:926
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "samo kovanci"
 
-#: map-quick/osmelementinformationmodel.cpp:928
+#: map-quick/osmelementinformationmodel.cpp:929
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "samo bankovci"
 
-#: map-quick/osmelementinformationmodel.cpp:930
-#: map-quick/osmelementinformationmodel.cpp:981
-#: map-quick/osmelementinformationmodel.cpp:1113
+#: map-quick/osmelementinformationmodel.cpp:931
+#: map-quick/osmelementinformationmodel.cpp:982
+#: map-quick/osmelementinformationmodel.cpp:1114
 #, kde-format
 msgid "no"
 msgstr "ne"

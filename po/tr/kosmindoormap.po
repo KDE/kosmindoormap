@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:38+0000\n"
-"PO-Revision-Date: 2024-04-25 13:51+0300\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
+"PO-Revision-Date: 2024-06-30 18:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -414,12 +414,9 @@ msgid "Drinking Water"
 msgstr "İçme Suyu"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "Yiyecek ve İçecek"
+msgstr "İçecekler"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -995,7 +992,7 @@ msgstr "Süpermarket"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "Tatlılar"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1080,7 +1077,7 @@ msgstr "Tuhafiyeci"
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "Otomat"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1116,7 +1113,7 @@ msgstr "Saat"
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "Su"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
@@ -1607,7 +1604,7 @@ msgstr "Çayevi"
 #: map-quick/localization_data.cpp:351
 msgctxt "OSM::cuisine"
 msgid "Tex-Mex"
-msgstr "Teksas-Meksika"
+msgstr "Teksas–Meksika"
 
 #: map-quick/localization_data.cpp:352
 msgctxt "OSM::cuisine"
@@ -1901,27 +1898,27 @@ msgstr "%1 kW"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:922
-#: map-quick/osmelementinformationmodel.cpp:1110
+#: map-quick/osmelementinformationmodel.cpp:923
+#: map-quick/osmelementinformationmodel.cpp:1111
 #, kde-format
 msgid "yes"
 msgstr "evet"
 
-#: map-quick/osmelementinformationmodel.cpp:925
+#: map-quick/osmelementinformationmodel.cpp:926
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "yalnızca madeni para"
 
-#: map-quick/osmelementinformationmodel.cpp:928
+#: map-quick/osmelementinformationmodel.cpp:929
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "yalnızca kağıt para"
 
-#: map-quick/osmelementinformationmodel.cpp:930
-#: map-quick/osmelementinformationmodel.cpp:981
-#: map-quick/osmelementinformationmodel.cpp:1113
+#: map-quick/osmelementinformationmodel.cpp:931
+#: map-quick/osmelementinformationmodel.cpp:982
+#: map-quick/osmelementinformationmodel.cpp:1114
 #, kde-format
 msgid "no"
 msgstr "hayır"

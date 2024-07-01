@@ -1,16 +1,16 @@
 # translation of kosmindoormap.pot to Esperanto
 # Copyright (C) 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the kosmindoormap package.
-# Oliver Kellogg <okellogg.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:38+0000\n"
-"PO-Revision-Date: 2024-04-27 17:28+0100\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
+"PO-Revision-Date: 2024-06-30 09:00+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
-"Language-Team: Esperanto <kde-i18n-eo.org>\n"
+"Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -415,12 +415,9 @@ msgid "Drinking Water"
 msgstr "Trinkakvo"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "Manĝaĵoj & Trinkaĵoj"
+msgstr "Trinkaĵoj"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -986,7 +983,7 @@ msgstr "Sportejo"
 #: map-quick/localization_data.cpp:210
 msgctxt "OSM::amenity/shop"
 msgid "Stationery"
-msgstr "Stationery"
+msgstr "Paperaĵoj"
 
 #: map-quick/localization_data.cpp:211
 msgctxt "OSM::amenity/shop"
@@ -996,7 +993,7 @@ msgstr "Superbazaro"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "Dolĉaĵoj"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1081,7 +1078,7 @@ msgstr "Varieta Vendejo"
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "Vendaŭtomato"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1117,7 +1114,7 @@ msgstr "Horloĝoj"
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "Akvo"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
@@ -1902,27 +1899,27 @@ msgstr "%1 kW"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:922
-#: map-quick/osmelementinformationmodel.cpp:1110
+#: map-quick/osmelementinformationmodel.cpp:923
+#: map-quick/osmelementinformationmodel.cpp:1111
 #, kde-format
 msgid "yes"
 msgstr "yes"
 
-#: map-quick/osmelementinformationmodel.cpp:925
+#: map-quick/osmelementinformationmodel.cpp:926
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "nur moneroj"
 
-#: map-quick/osmelementinformationmodel.cpp:928
+#: map-quick/osmelementinformationmodel.cpp:929
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "nur notoj"
 
-#: map-quick/osmelementinformationmodel.cpp:930
-#: map-quick/osmelementinformationmodel.cpp:981
-#: map-quick/osmelementinformationmodel.cpp:1113
+#: map-quick/osmelementinformationmodel.cpp:931
+#: map-quick/osmelementinformationmodel.cpp:982
+#: map-quick/osmelementinformationmodel.cpp:1114
 #, kde-format
 msgid "no"
 msgstr "ne"
