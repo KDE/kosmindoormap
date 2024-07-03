@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-01 00:38+0000\n"
-"PO-Revision-Date: 2024-05-03 14:56+0200\n"
+"PO-Revision-Date: 2024-07-01 11:17+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -412,12 +412,9 @@ msgid "Drinking Water"
 msgstr "Eau potable"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "Restaurant"
+msgstr "Boissons"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -993,7 +990,7 @@ msgstr "Supermarché"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "Bonbons"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1078,7 +1075,7 @@ msgstr "Dépanneur"
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "Distributeur automatique"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1114,7 +1111,7 @@ msgstr "Montres"
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "Eau"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
