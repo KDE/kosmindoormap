@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-01 00:38+0000\n"
-"PO-Revision-Date: 2024-05-24 17:11+0100\n"
+"PO-Revision-Date: 2024-07-05 13:47+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: app/main.cpp:68
 #, kde-format
@@ -414,12 +414,9 @@ msgid "Drinking Water"
 msgstr "Drinking Water"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "Food & Drinks"
+msgstr "Drinks"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -995,7 +992,7 @@ msgstr "Supermarket"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "Sweets"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1080,7 +1077,7 @@ msgstr "Variety Store"
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "Vending Machine"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1116,7 +1113,7 @@ msgstr "Watches"
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "Water"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
