@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-01 00:38+0000\n"
-"PO-Revision-Date: 2024-01-16 01:09+0100\n"
+"PO-Revision-Date: 2024-07-10 19:16+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: app/main.cpp:68
 #, kde-format
@@ -122,12 +122,9 @@ msgid "Attraction"
 msgstr "Erakargarria"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "Akuarioa"
+msgstr "Auditorioa"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -330,12 +327,9 @@ msgid "Computer"
 msgstr "Ordenagailua"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "Ordenagailua"
+msgstr "Ordenagailu laborategia"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -343,12 +337,9 @@ msgid "Confectionery"
 msgstr "Gozogintza"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "Konferentzia zentroa"
+msgstr "Biltzar aretoa"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -426,12 +417,9 @@ msgid "Drinking Water"
 msgstr "Edateko ura"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "Jatekoa eta edatekoak"
+msgstr "Edariak"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -661,7 +649,7 @@ msgstr "Sukaldea"
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "Laborategia"
 
 #: map-quick/localization_data.cpp:139
 msgctxt "OSM::amenity/shop"
@@ -713,7 +701,7 @@ msgstr "Medikuntza hornidurak"
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "Bilera gela"
 
 #: map-quick/localization_data.cpp:154
 msgctxt "OSM::historic"
@@ -900,11 +888,9 @@ msgid "Train Station"
 msgstr "Tren geltokia"
 
 #: map-quick/localization_data.cpp:191
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "Deskribapena"
+msgstr "Harrera-lekua"
 
 #: map-quick/localization_data.cpp:192
 msgctxt "OSM::amenity/shop"
@@ -949,7 +935,7 @@ msgstr "Bigarren eskua"
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "Mintegi aretoa"
 
 #: map-quick/localization_data.cpp:201
 msgctxt "OSM::shop"
@@ -1009,7 +995,7 @@ msgstr "Supermerkatua"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "Goxokiak"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1039,7 +1025,7 @@ msgstr "Telekomunikazioa"
 #: map-quick/localization_data.cpp:218
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "Terraza"
 
 #: map-quick/localization_data.cpp:219
 msgctxt "OSM::amenity/shop"
@@ -1094,7 +1080,7 @@ msgstr "Askotariko denda"
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "Saltzeko makina"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1130,7 +1116,7 @@ msgstr "Erloju-denda"
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "Ura"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
@@ -2242,13 +2228,11 @@ msgid "engraved printed letters"
 msgstr "grabatutako inprimatutako letrak"
 
 #: map-quick/roommodel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "OSM::bicycle_parking"
-#| msgid "ground slots"
+#, kde-format
 msgid "Ground floor"
-msgstr "lurreko erretenak"
+msgstr "Beheko solairua"
 
 #: map-quick/roommodel.cpp:130
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "%1 solairua"
