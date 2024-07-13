@@ -314,12 +314,14 @@ void OSMElementInformationModel::reload()
         addEntryForKey((*it).key.name(), diet_type_map);
         addEntryForKey((*it).key.name(), socket_type_map);
         addEntryForKey((*it).key.name(), authentication_type_map);
-        addEntryForKey((*it).key.name(), gender_type_map);
         addEntryForLocalizedKey((*it).key.name(), tactile_writing_map);
 
         if (isRoom && std::strcmp((*it).key.name(), "ref") == 0) {
             m_infos.push_back(Info{Name, Header});
         }
+    }
+    if (Localization::hasGenderSegregrationKey(m_element)) {
+         m_infos.emplace_back(Gender, UnresolvedCategory);
     }
 
     std::sort(m_infos.begin(), m_infos.end());
@@ -895,17 +897,7 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
             // TODO look for changing_table:location too
             return translatedBoolValue(m_element.tagValue("changing_table", "diaper"));
         case Gender:
-        {
-            QStringList l;
-            for (const auto &gender : gender_type_map) {
-                const auto v = m_element.tagValue(gender.keyName);
-                if (v.isEmpty() || v == "no") {
-                    continue;
-                }
-                l.push_back(gender.label.toString());
-            }
-            return QLocale().createSeparatedList(l);
-        }
+            return Localization::genderSegregation(m_element);
         case Wikipedia: return wikipediaUrl(m_element.tagValue(m_langs, "wikipedia", "brand:wikipedia", "species:wikipedia"));
         case Address: return QVariant::fromValue(OSMAddress(m_element));
         case Phone: return QString::fromUtf8(m_element.tagValue("contact:phone", "phone", "telephone", "operator:phone"));

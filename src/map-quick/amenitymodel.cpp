@@ -160,6 +160,18 @@ QVariant AmenityModel::data(const QModelIndex &index, int role) const
                 return c.alpha2();
             }
             return m_data.regionCode();
+        case ToiletDetailsRole:
+            return Localization::genderSegregation(entry.element);
+        case DetailsLabelRole:
+            switch (entry.group) {
+                case FoodGroup:
+                    return data(index, CuisineRole);
+                case ToiletGroup:
+                    return data(index, ToiletDetailsRole);
+                default:
+                    break;
+            }
+            break;
     }
 
     return {};
@@ -181,6 +193,8 @@ QHash<int, QByteArray> AmenityModel::roleNames() const
     r.insert(OpeningHoursRole, "openingHours");
     r.insert(TimeZoneRole, "timeZone");
     r.insert(RegionCodeRole, "regionCode");
+    r.insert(ToiletDetailsRole, "toiletDetails");
+    r.insert(DetailsLabelRole, "detailsLabel");
     return r;
 }
 

@@ -15,7 +15,7 @@ QQC2.ItemDelegate {
     required property string name
     required property string typeName
     required property string iconSource
-    required property string cuisine
+    required property string detailsLabel
     required property string fallbackName
     required property string openingHours
     required property point coordinate
@@ -66,10 +66,10 @@ QQC2.ItemDelegate {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.fillWidth: true
                 text: {
-                    if (root.cuisine && root.name === "")
-                        return root.cuisine;
-                    if (root.cuisine)
-                        return root.typeName + " (" + root.cuisine + ")";
+                    if (root.detailsLabel && root.name === "")
+                        return root.detailsLabel;
+                    if (root.detailsLabel)
+                        return i18n("%1 (%2)", root.typeName, root.detailsLabel);
                     return root.name === "" && root.fallbackName !== "" ? root.fallbackName : root.typeName;
                 }
                 elide: Text.ElideRight

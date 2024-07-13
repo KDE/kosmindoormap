@@ -9,6 +9,10 @@
 class QByteArray;
 class QString;
 
+namespace OSM {
+class Element;
+}
+
 namespace KOSMIndoorMap {
 
 /** Translations of various OSM tag values. */
@@ -36,6 +40,11 @@ QString amenityTypes(const QByteArray &value, Localization::TranslationOption op
 
 /** Translated values of the cuisine tag (does list splitting). */
 QString cuisineTypes(const QByteArray &value, Localization::TranslationOption opt = Localization::ReturnUnknownKey);
+
+/** Translated gender segregation information e.g. for toilets. */
+[[nodiscard]] QString genderSegregation(OSM::Element element);
+/** Checks whether @p element contains a known key for gender segregation information. */
+[[nodiscard]] bool hasGenderSegregrationKey(OSM::Element element);
 }
 
 }

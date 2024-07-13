@@ -6,6 +6,8 @@
 #include "localization.h"
 #include "localization_data.cpp"
 
+#include <KOSM/Element>
+
 using namespace KOSMIndoorMap;
 
 bool Localization::hasAmenityTypeTranslation(const char *value)
@@ -34,4 +36,27 @@ QString Localization::amenityTypes(const QByteArray &value, Localization::Transl
 QString Localization::cuisineTypes(const QByteArray &value, Localization::TranslationOption opt)
 {
     return translateValues(value, cuisine_map, opt);
+}
+
+QString Localization::genderSegregation(OSM::Element element)
+{
+    QStringList l;
+    for (const auto &gender : gender_type_map) {
+        const auto v = element.tagValue(gender.keyName);
+        if (v.isEmpty() || v == "no") {
+            continue;
+        }
+        l.push_back(gender.label.toString());
+    }
+    return QLocale().createSeparatedList(l);
+}
+
+bool Localization::hasGenderSegregrationKey(OSM::Element element)
+{
+    return std::any_of(element.tagsBegin(), element.tagsEnd(), [](const auto &tag) {
+        const auto it = std::lower_bound(std::begin(gender_type_map), std::end(gender_type_map), tag.key.name(), [](const auto &lhs, auto rhs) {
+            return std::strcmp(lhs.keyName, rhs) < 0;
+        });
+        return it != std::end(gender_type_map) && std::strcmp((*it).keyName, tag.key.name()) == 0;
+    });
 }

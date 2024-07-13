@@ -41,6 +41,8 @@ public:
         OpeningHoursRole, ///< opening hours expression
         TimeZoneRole, ///< IANA timezone id this amenity is in (relevant for opening hours interpretation)
         RegionCodeRole, ///< ISO 3166-1/2 code of the region this amenity is in (relevant for opening hours interpretation)
+        ToiletDetailsRole, ///< details information for the ToiletGroup
+        DetailsLabelRole, ///< section-dependent details label (e.g. CuisineRole or ToiletDetailsRole)
     };
     Q_ENUM(Role)
 

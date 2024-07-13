@@ -358,4 +358,12 @@ static constexpr const ValueMapEntry cuisine_map[] = {
 };
 static_assert(isSortedLookupTable(cuisine_map), "cuising map is not sorted!");
 
+// gender neutral/gender segregated facilities
+static constexpr const ValueMapEntry gender_type_map[] = {
+    { "female", kli18nc("OSM::gender_segregation", "female") },
+    { "male", kli18nc("OSM::gender_segregation", "male") },
+    { "unisex", kli18nc("OSM::gender_segregation", "unisex") },
+};
+static_assert(isSortedLookupTable(gender_type_map), "gender type map is not sorted!");
+
 }

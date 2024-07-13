@@ -12,10 +12,7 @@
 namespace KOSMIndoorMap {
 
 // diet types offered at restaurants
-struct {
-    const char *keyName;
-    const KLazyLocalizedString label;
-
+struct : public ValueMapEntry {
     constexpr inline OSMElementInformationModel::Key key() const { return OSMElementInformationModel::Diet; }
     constexpr inline OSMElementInformationModel::KeyCategory category() const { return OSMElementInformationModel::Main; }
 } static constexpr const diet_type_map[] = {
@@ -75,10 +72,7 @@ static constexpr const ValueMapEntry wheelchair_map[] = {
 static_assert(isSortedLookupTable(wheelchair_map), "wheelchair access map is not sorted!");
 
 // socket types for charging stations
-struct {
-    const char *keyName;
-    const KLazyLocalizedString label;
-
+struct : public ValueMapEntry {
     constexpr inline OSMElementInformationModel::Key key() const { return OSMElementInformationModel::Socket; }
     constexpr inline OSMElementInformationModel::KeyCategory category() const { return OSMElementInformationModel::Main; }
 } static constexpr const socket_type_map[] = {
@@ -95,10 +89,7 @@ struct {
 static_assert(isSortedLookupTable(socket_type_map), "socket type map is not sorted!");
 
 // charging station authentication methods
-struct {
-    const char *keyName;
-    const KLazyLocalizedString label;
-
+struct : public ValueMapEntry {
     constexpr inline OSMElementInformationModel::Key key() const { return OSMElementInformationModel::Authentication; }
     constexpr inline OSMElementInformationModel::KeyCategory category() const { return OSMElementInformationModel::Main; }
 } static constexpr const authentication_type_map[] = {
@@ -137,25 +128,8 @@ static constexpr const ValueMapEntry available_vehicles_map[] = {
     { "mx:realtime_available:car", kli18ncp("available rental vehicles", "%1 car", "%1 cars") },
 };
 
-// gender neutral/gender segregated facilities
-struct {
-    const char *keyName;
-    const KLazyLocalizedString label;
-
-    constexpr inline OSMElementInformationModel::Key key() const { return OSMElementInformationModel::Gender; }
-    constexpr inline OSMElementInformationModel::KeyCategory category() const { return OSMElementInformationModel::UnresolvedCategory; }
-} static constexpr const gender_type_map[] = {
-    { "female", kli18nc("OSM::gender_segregation", "female") },
-    { "male", kli18nc("OSM::gender_segregation", "male") },
-    { "unisex", kli18nc("OSM::gender_segregation", "unisex") },
-};
-static_assert(isSortedLookupTable(gender_type_map), "gender type map is not sorted!");
-
 // tactile writing variants
-struct {
-    const char *keyName;
-    const KLazyLocalizedString label;
-
+struct : public ValueMapEntry {
     constexpr inline OSMElementInformationModel::Key key() const { return OSMElementInformationModel::TactileWriting; }
     constexpr inline OSMElementInformationModel::KeyCategory category() const { return OSMElementInformationModel::Accessibility; }
 } static constexpr const tactile_writing_map[] = {
