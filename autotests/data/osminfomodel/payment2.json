@@ -1,0 +1,35 @@
+{
+    "category": "Public Transport Tickets",
+    "content": [
+        {
+            "categoryLabel": "Payment",
+            "keyLabel": "Cash",
+            "value": "yes"
+        },
+        {
+            "categoryLabel": "Payment",
+            "keyLabel": "Debit cards",
+            "value": "Girocard"
+        },
+        {
+            "categoryLabel": "Payment",
+            "keyLabel": "Credit cards",
+            "value": "Mastercard and Visa"
+        },
+        {
+            "categoryLabel": "Accessibility",
+            "keyLabel": "Wheelchair access",
+            "value": "yes (niedrige Anordung der Bedienelemente, zertifiziert nach TSI-PRM)"
+        },
+        {
+            "categoryLabel": "Operator",
+            "value": "Verkehrsbetriebe Karlsruhe GmbH"
+        },
+        {
+            "categoryLabel": "Operator",
+            "keyLabel": "Network",
+            "value": "Karlsruher Verkehrsverbund"
+        }
+    ],
+    "name": "Karlsruher Verkehrsverbund"
+}

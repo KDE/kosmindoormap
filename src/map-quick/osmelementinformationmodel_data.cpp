@@ -53,16 +53,17 @@ struct {
     { "payment:apple_pay", OSMElementInformationModel::PaymentDigital, kli18nc("OSM::payment_method", "Apple Pay") },
     { "payment:diners_club", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "Diners Club") },
     { "payment:discover_card", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "Discover Card") },
-    { "payment:jcb", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "JCB") },
     { "payment:girocard", OSMElementInformationModel::PaymentDebitCard, kli18nc("OSM::payment_method", "Girocard") },
     { "payment:google_pay", OSMElementInformationModel::PaymentDigital, kli18nc("OSM::payment_method", "Google Pay") },
+    { "payment:jcb", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "JCB") },
     { "payment:maestro", OSMElementInformationModel::PaymentDebitCard, kli18nc("OSM::payment_method", "Maestro") },
     { "payment:mastercard", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "Mastercard") },
     { "payment:unionpay", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "UnionPay") },
     { "payment:v_pay", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "V Pay") },
-    { "payment:vpay", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "V Pay") },
     { "payment:visa", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "Visa") },
+    { "payment:vpay", OSMElementInformationModel::PaymentCreditCard, kli18nc("OSM::payment_method", "V Pay") },
 };
+static_assert(isSortedLookupTable(payment_type_map), "payment details map is not sorted!");
 
 static constexpr const ValueMapEntry wheelchair_map[] = {
     { "limited", kli18nc("OSM::wheelchair_access", "limited") },

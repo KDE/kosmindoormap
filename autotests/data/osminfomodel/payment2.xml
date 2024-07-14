@@ -1,0 +1,34 @@
+<osm version="0.6" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+    <node id="1480609229" visible="true" version="12" lat="48.9943282" lon="8.3999514">
+        <tag k="amenity" v="vending_machine"/>
+        <tag k="brand" v="Karlsruher Verkehrsverbund"/>
+        <tag k="brand:wikidata" v="Q1733986"/>
+        <tag k="certified:tsi-prm" v="yes"/>
+        <tag k="check_date" v="2024-07-04"/>
+        <tag k="covered" v="yes"/>
+        <tag k="direction" v="340"/>
+        <tag k="height" v="2"/>
+        <tag k="indoor" v="no"/>
+        <tag k="lit" v="yes"/>
+        <tag k="manufacturer" v="ICA Traffic GmbH"/>
+        <tag k="model" v="DUALIS 2000 TSI"/>
+        <tag k="network" v="Karlsruher Verkehrsverbund"/>
+        <tag k="network:guid" v="DE-BW-KVV"/>
+        <tag k="network:short" v="KVV"/>
+        <tag k="network:wikidata" v="Q1733986"/>
+        <tag k="old_ref" v="1426"/>
+        <tag k="operator" v="Verkehrsbetriebe Karlsruhe GmbH"/>
+        <tag k="payment:coins" v="5c;10c;20c;50c;1€;2€"/>
+        <tag k="payment:ep_geldkarte" v="yes"/>
+        <tag k="payment:girocard" v="yes"/>
+        <tag k="payment:mastercard" v="yes"/>
+        <tag k="payment:notes" v="5€;10€;20€;50€"/>
+        <tag k="payment:others" v="no"/>
+        <tag k="payment:visa" v="yes"/>
+        <tag k="ref" v="6426"/>
+        <tag k="start_date" v="2015-11"/>
+        <tag k="vending" v="public_transport_tickets"/>
+        <tag k="wheelchair" v="yes"/>
+        <tag k="wheelchair:description:de" v="niedrige Anordung der Bedienelemente, zertifiziert nach TSI-PRM"/>
+    </node>
+</osm>
