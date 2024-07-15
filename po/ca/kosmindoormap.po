@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-14 00:38+0000\n"
+"POT-Creation-Date: 2024-07-15 00:38+0000\n"
 "PO-Revision-Date: 2024-06-30 08:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2012,18 +2012,18 @@ msgstr "Discover Card"
 
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::payment_method"
-msgid "JCB"
-msgstr "JCB"
-
-#: map-quick/osmelementinformationmodel_data.cpp:57
-msgctxt "OSM::payment_method"
 msgid "Girocard"
 msgstr "Girocard"
 
-#: map-quick/osmelementinformationmodel_data.cpp:58
+#: map-quick/osmelementinformationmodel_data.cpp:57
 msgctxt "OSM::payment_method"
 msgid "Google Pay"
 msgstr "Google Pay"
+
+#: map-quick/osmelementinformationmodel_data.cpp:58
+msgctxt "OSM::payment_method"
+msgid "JCB"
+msgstr "JCB"
 
 #: map-quick/osmelementinformationmodel_data.cpp:59
 msgctxt "OSM::payment_method"
@@ -2041,157 +2041,157 @@ msgid "UnionPay"
 msgstr "UnionPay"
 
 #: map-quick/osmelementinformationmodel_data.cpp:62
-#: map-quick/osmelementinformationmodel_data.cpp:63
+#: map-quick/osmelementinformationmodel_data.cpp:64
 msgctxt "OSM::payment_method"
 msgid "V Pay"
 msgstr "V Pay"
 
-#: map-quick/osmelementinformationmodel_data.cpp:64
+#: map-quick/osmelementinformationmodel_data.cpp:63
 msgctxt "OSM::payment_method"
 msgid "Visa"
 msgstr "Visa"
 
-#: map-quick/osmelementinformationmodel_data.cpp:68
+#: map-quick/osmelementinformationmodel_data.cpp:69
 msgctxt "OSM::wheelchair_access"
 msgid "limited"
 msgstr "limitat"
 
-#: map-quick/osmelementinformationmodel_data.cpp:69
+#: map-quick/osmelementinformationmodel_data.cpp:70
 msgctxt "OSM::wheelchair_access"
 msgid "no"
 msgstr "no"
 
-#: map-quick/osmelementinformationmodel_data.cpp:70
+#: map-quick/osmelementinformationmodel_data.cpp:71
 msgctxt "OSM::wheelchair_access"
 msgid "yes"
 msgstr "sí"
 
-#: map-quick/osmelementinformationmodel_data.cpp:79
+#: map-quick/osmelementinformationmodel_data.cpp:80
 msgctxt "OSM::charging_station_socket"
 msgid "Chademo"
 msgstr "Chademo"
 
-#: map-quick/osmelementinformationmodel_data.cpp:80
+#: map-quick/osmelementinformationmodel_data.cpp:81
 msgctxt "OSM::charging_station_socket"
 msgid "Schuko"
 msgstr "Schuko"
 
-#: map-quick/osmelementinformationmodel_data.cpp:81
+#: map-quick/osmelementinformationmodel_data.cpp:82
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla"
 msgstr "Tesla"
 
-#: map-quick/osmelementinformationmodel_data.cpp:82
+#: map-quick/osmelementinformationmodel_data.cpp:83
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla Supercharger"
 msgstr "Tesla Supercharger"
 
-#: map-quick/osmelementinformationmodel_data.cpp:83
+#: map-quick/osmelementinformationmodel_data.cpp:84
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla Supercharger CCS"
 msgstr "Tesla Supercharger CCS"
 
-#: map-quick/osmelementinformationmodel_data.cpp:84
+#: map-quick/osmelementinformationmodel_data.cpp:85
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2"
 msgstr "Tipus 2"
 
-#: map-quick/osmelementinformationmodel_data.cpp:85
+#: map-quick/osmelementinformationmodel_data.cpp:86
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2 cable"
 msgstr "Tipus 2 cable"
 
-#: map-quick/osmelementinformationmodel_data.cpp:86
+#: map-quick/osmelementinformationmodel_data.cpp:87
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2 CCS"
 msgstr "Tipus 2 CCS"
 
-#: map-quick/osmelementinformationmodel_data.cpp:87
+#: map-quick/osmelementinformationmodel_data.cpp:88
 msgctxt "OSM::charging_station_socket"
 msgid "Type E"
 msgstr "Tipus E"
 
-#: map-quick/osmelementinformationmodel_data.cpp:96
+#: map-quick/osmelementinformationmodel_data.cpp:97
 msgctxt "OSM::charging_station_authentication"
 msgid "app"
 msgstr "app"
 
-#: map-quick/osmelementinformationmodel_data.cpp:97
+#: map-quick/osmelementinformationmodel_data.cpp:98
 msgctxt "OSM::charging_station_authentication"
 msgid "membership card"
 msgstr "targeta d'afiliació"
 
-#: map-quick/osmelementinformationmodel_data.cpp:98
+#: map-quick/osmelementinformationmodel_data.cpp:99
 msgctxt "OSM::charging_station_authentication"
 msgid "NFC"
 msgstr "NFC"
 
-#: map-quick/osmelementinformationmodel_data.cpp:99
+#: map-quick/osmelementinformationmodel_data.cpp:100
 msgctxt "OSM::charging_station_authentication"
 msgid "none"
 msgstr "sense"
 
-#: map-quick/osmelementinformationmodel_data.cpp:100
+#: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::charging_station_authentication"
 msgid "phone call"
 msgstr "trucada telefònica"
 
-#: map-quick/osmelementinformationmodel_data.cpp:101
+#: map-quick/osmelementinformationmodel_data.cpp:102
 msgctxt "OSM::charging_station_authentication"
 msgid "SMS"
 msgstr "SMS"
 
-#: map-quick/osmelementinformationmodel_data.cpp:108
+#: map-quick/osmelementinformationmodel_data.cpp:109
 msgctxt "OSM::bicycle_parking"
 msgid "anchors"
 msgstr "àncores"
 
-#: map-quick/osmelementinformationmodel_data.cpp:109
+#: map-quick/osmelementinformationmodel_data.cpp:110
 msgctxt "OSM::bicycle_parking"
 msgid "bollard"
 msgstr "pilona"
 
-#: map-quick/osmelementinformationmodel_data.cpp:110
+#: map-quick/osmelementinformationmodel_data.cpp:111
 msgctxt "OSM::bicycle_parking"
 msgid "building"
 msgstr "construcció"
 
-#: map-quick/osmelementinformationmodel_data.cpp:111
+#: map-quick/osmelementinformationmodel_data.cpp:112
 msgctxt "OSM::bicycle_parking"
 msgid "ground slots"
 msgstr "ranures a terra"
 
-#: map-quick/osmelementinformationmodel_data.cpp:112
+#: map-quick/osmelementinformationmodel_data.cpp:113
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
 msgstr "caselles"
 
-#: map-quick/osmelementinformationmodel_data.cpp:113
+#: map-quick/osmelementinformationmodel_data.cpp:114
 msgctxt "OSM::bicycle_parking"
 msgid "racks"
 msgstr "bastidors"
 
-#: map-quick/osmelementinformationmodel_data.cpp:114
+#: map-quick/osmelementinformationmodel_data.cpp:115
 msgctxt "OSM::bicycle_parking"
 msgid "shed"
 msgstr "cobert"
 
-#: map-quick/osmelementinformationmodel_data.cpp:115
+#: map-quick/osmelementinformationmodel_data.cpp:116
 msgctxt "OSM::bicycle_parking"
 msgid "stands"
 msgstr "ancoratges"
 
-#: map-quick/osmelementinformationmodel_data.cpp:116
+#: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "OSM::bicycle_parking"
 msgid "wall loops"
 msgstr "ganxo de paret"
 
-#: map-quick/osmelementinformationmodel_data.cpp:117
+#: map-quick/osmelementinformationmodel_data.cpp:118
 msgctxt "OSM::bicycle_parking"
 msgid "wide stands"
 msgstr "ancoratges amples"
 
-#: map-quick/osmelementinformationmodel_data.cpp:124
+#: map-quick/osmelementinformationmodel_data.cpp:125
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 bike"
@@ -2199,7 +2199,7 @@ msgid_plural "%1 bikes"
 msgstr[0] "%1 bicicleta"
 msgstr[1] "%1 bicicletes"
 
-#: map-quick/osmelementinformationmodel_data.cpp:125
+#: map-quick/osmelementinformationmodel_data.cpp:126
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 pedelec"
@@ -2207,7 +2207,7 @@ msgid_plural "%1 pedelecs"
 msgstr[0] "%1 bicicleta de pedaleig assistit"
 msgstr[1] "%1 bicicletes de pedaleig assistit"
 
-#: map-quick/osmelementinformationmodel_data.cpp:126
+#: map-quick/osmelementinformationmodel_data.cpp:127
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
@@ -2215,7 +2215,7 @@ msgid_plural "%1 kick scooters"
 msgstr[0] "%1 patinet"
 msgstr[1] "%1 patinets"
 
-#: map-quick/osmelementinformationmodel_data.cpp:127
+#: map-quick/osmelementinformationmodel_data.cpp:128
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 moped"
@@ -2223,7 +2223,7 @@ msgid_plural "%1 mopeds"
 msgstr[0] "%1 ciclomotor"
 msgstr[1] "%1 ciclomotors"
 
-#: map-quick/osmelementinformationmodel_data.cpp:128
+#: map-quick/osmelementinformationmodel_data.cpp:129
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 car"
@@ -2231,17 +2231,17 @@ msgid_plural "%1 cars"
 msgstr[0] "%1 cotxe"
 msgstr[1] "%1 cotxes"
 
-#: map-quick/osmelementinformationmodel_data.cpp:136
+#: map-quick/osmelementinformationmodel_data.cpp:137
 msgctxt "tactile writing"
 msgid "braille"
 msgstr "braille"
 
-#: map-quick/osmelementinformationmodel_data.cpp:137
+#: map-quick/osmelementinformationmodel_data.cpp:138
 msgctxt "tactile writing"
 msgid "embossed printed letters"
 msgstr "lletres impreses amb relleu"
 
-#: map-quick/osmelementinformationmodel_data.cpp:138
+#: map-quick/osmelementinformationmodel_data.cpp:139
 msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "lletres impreses gravades"
