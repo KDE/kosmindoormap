@@ -69,12 +69,7 @@ int RoomModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    if (m_rooms.empty() && !m_data.isEmpty()) {
-        // we assume that this is expensive but almost never will result in an empty result
-        // and if it does nevertheless, it's a sparsely populated tile where this is cheap
-        const_cast<RoomModel*>(this)->populateModel();
-    }
-
+    ensurePopulated();
     return (int)m_rooms.size();
 }
 
@@ -166,6 +161,15 @@ int RoomModel::buildingCount() const
 bool RoomModel::isEmpty() const
 {
     return rowCount() == 0;
+}
+
+void RoomModel::ensurePopulated() const
+{
+    if (m_rooms.empty() && !m_data.isEmpty()) {
+        // we assume that this is expensive but almost never will result in an empty result
+        // and if it does nevertheless, it's a sparsely populated tile where this is cheap
+        const_cast<RoomModel*>(this)->populateModel();
+    }
 }
 
 void RoomModel::populateModel()
@@ -286,6 +290,23 @@ void RoomModel::populateModel()
     qCDebug(Log) << m_buildings.size() << "buildings found";
     qCDebug(Log) << m_rooms.size() << "rooms found";
     Q_EMIT populated();
+}
+
+int RoomModel::findRoom(const QString &name) const
+{
+    if (name.isEmpty()) {
+        return -1;
+    }
+
+    ensurePopulated();
+    for (auto it = m_rooms.begin(); it != m_rooms.end(); ++it) {
+        // TODO match room numbers, space-ignoring fuzzy match, unambiguous substring matching
+        if (QUtf8StringView((*it).element.tagValue("name")).compare(name, Qt::CaseInsensitive) == 0) {
+            return (int)std::distance(m_rooms.begin(), it);
+        }
+    }
+
+    return -1;
 }
 
 #include "moc_roommodel.cpp"

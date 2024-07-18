@@ -55,6 +55,9 @@ public:
     [[nodiscard]] int buildingCount() const;
     [[nodiscard]] bool isEmpty() const;
 
+    /** Tries to identify the given room name or number and returns the row index if found. */
+    Q_INVOKABLE [[nodiscard]] int findRoom(const QString &name) const;
+
 Q_SIGNALS:
     void mapDataChanged();
     void populated();
@@ -79,6 +82,7 @@ private:
         int level;
     };
 
+    void ensurePopulated() const;
     void populateModel();
 
     MapData m_data;
