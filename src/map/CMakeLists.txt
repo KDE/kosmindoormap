@@ -33,6 +33,7 @@ if (NOT BUILD_TOOLS_ONLY)
         content/equipmentmodel.cpp
         content/floorlevelmodel.cpp
         content/gatemodel.cpp
+        content/osmconditionalexpression.cpp
         content/platform.cpp
         content/platformfinder.cpp
         content/platformmodel.cpp
