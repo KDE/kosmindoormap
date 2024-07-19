@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-15 00:38+0000\n"
+"POT-Creation-Date: 2024-07-19 00:38+0000\n"
 "PO-Revision-Date: 2024-02-11 01:01+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2239,14 +2239,14 @@ msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "음각 문자"
 
-#: map-quick/roommodel.cpp:128
+#: map-quick/roommodel.cpp:123
 #, fuzzy, kde-format
 #| msgctxt "OSM::bicycle_parking"
 #| msgid "ground slots"
 msgid "Ground floor"
 msgstr "지상 슬롯"
 
-#: map-quick/roommodel.cpp:130
+#: map-quick/roommodel.cpp:125
 #, kde-format
 msgid "Floor %1"
 msgstr ""

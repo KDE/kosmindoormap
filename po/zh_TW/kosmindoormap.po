@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-15 00:38+0000\n"
+"POT-Creation-Date: 2024-07-19 00:38+0000\n"
 "PO-Revision-Date: 2024-04-19 02:38+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2237,12 +2237,12 @@ msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr ""
 
-#: map-quick/roommodel.cpp:128
+#: map-quick/roommodel.cpp:123
 #, kde-format
 msgid "Ground floor"
 msgstr ""
 
-#: map-quick/roommodel.cpp:130
+#: map-quick/roommodel.cpp:125
 #, kde-format
 msgid "Floor %1"
 msgstr ""

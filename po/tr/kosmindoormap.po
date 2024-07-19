@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-15 00:38+0000\n"
+"POT-Creation-Date: 2024-07-19 00:38+0000\n"
 "PO-Revision-Date: 2024-06-30 18:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2224,12 +2224,12 @@ msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "oymalı baskı mektup"
 
-#: map-quick/roommodel.cpp:128
+#: map-quick/roommodel.cpp:123
 #, kde-format
 msgid "Ground floor"
 msgstr "Zemin Kat"
 
-#: map-quick/roommodel.cpp:130
+#: map-quick/roommodel.cpp:125
 #, kde-format
 msgid "Floor %1"
 msgstr "%1. Kat"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-15 00:38+0000\n"
+"POT-Creation-Date: 2024-07-19 00:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2219,12 +2219,12 @@ msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr ""
 
-#: map-quick/roommodel.cpp:128
+#: map-quick/roommodel.cpp:123
 #, kde-format
 msgid "Ground floor"
 msgstr ""
 
-#: map-quick/roommodel.cpp:130
+#: map-quick/roommodel.cpp:125
 #, kde-format
 msgid "Floor %1"
 msgstr ""
