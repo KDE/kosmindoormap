@@ -29,13 +29,29 @@ public:
     void setMapData(const MapData &mapData);
     void setTimeRange(const QDateTime &begin, const QDateTime &end);
 
-    bool isClosed(OSM::Element elem, const QByteArray &oh);
+    /** @p oh evaluates to closed for the entire selected time range. */
+    [[nodiscard]] bool isEntirelyClosedInRange(OSM::Element elem, const QByteArray &oh);
+
+    /** @p oh is active at the current time (clamped to the selected time range). */
+    [[nodiscard]] bool isAtCurrentTime(OSM::Element elem, const QByteArray &oh);
 
 private:
+    /** Current time clamped to selected time range. */
+    [[nodiscard]] QDateTime currentDateTime() const;
+
+    enum Result {
+        UnknownResult = 0,
+        HasEntireRangeResult = 1,
+        EntirelyClosedInTimeRange = 2,
+        HasCurrentTimeResult = 4,
+        IsAtCurrentTime = 8,
+    };
+    Q_DECLARE_FLAGS(Results, Result)
+
     struct Entry {
         OSM::Id elementId;
         QByteArray oh;
-        bool closed;
+        Results results;
 
         [[nodiscard]] bool operator<(const Entry &other) const;
     };

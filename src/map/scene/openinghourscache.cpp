@@ -52,15 +52,16 @@ void OpeningHoursCache::setTimeRange(const QDateTime &begin, const QDateTime &en
     m_cacheEntries.clear();
 }
 
-bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
+bool OpeningHoursCache::isEntirelyClosedInRange(OSM::Element elem, const QByteArray &oh)
 {
-    Entry entry{elem.id(), oh, false};
+    Entry entry{elem.id(), oh, UnknownResult};
     const auto it = std::lower_bound(m_cacheEntries.begin(), m_cacheEntries.end(), entry);
     if (it != m_cacheEntries.end() && (*it).elementId == elem.id() && (*it).oh == oh) {
-        return (*it).closed;
+        if ((*it).results & HasEntireRangeResult) {
+            return (*it).results & EntirelyClosedInTimeRange;
+        }
+        entry.results = (*it).results;
     }
-
-    bool closed = false;
 
     KOpeningHours::OpeningHours expr(oh, KOpeningHours::OpeningHours::IntervalMode);
     expr.setLocation(elem.center().latF(), elem.center().lonF());
@@ -77,8 +78,67 @@ bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
         if (expr.error() != KOpeningHours::OpeningHours::NoError) {
             qCDebug(Log) << "opening hours expression runtime error:" << expr.error() << oh << i << elem.url();
         }
-        closed = entry.closed = i.state() == KOpeningHours::Interval::Closed;
+        if (i.state() == KOpeningHours::Interval::Closed) {
+            entry.results |= EntirelyClosedInTimeRange;
+        }
     }
-    m_cacheEntries.insert(it, std::move(entry));
+    entry.results |= HasEntireRangeResult;
+    const bool closed = entry.results & EntirelyClosedInTimeRange;
+
+    if (it != m_cacheEntries.end() && (*it).elementId == elem.id() && (*it).oh == oh) {
+        *it = std::move(entry);
+    } else {
+        m_cacheEntries.insert(it, std::move(entry));
+    }
     return closed;
+}
+
+bool OpeningHoursCache::isAtCurrentTime(OSM::Element elem, const QByteArray &oh)
+{
+    Entry entry{elem.id(), oh, UnknownResult};
+    const auto it = std::lower_bound(m_cacheEntries.begin(), m_cacheEntries.end(), entry);
+    if (it != m_cacheEntries.end() && (*it).elementId == elem.id() && (*it).oh == oh) {
+        if ((*it).results & HasCurrentTimeResult) {
+            return (*it).results & IsAtCurrentTime;
+        }
+        entry.results = (*it).results;
+    }
+
+    KOpeningHours::OpeningHours expr(oh, KOpeningHours::OpeningHours::IntervalMode);
+    expr.setLocation(elem.center().latF(), elem.center().lonF());
+    expr.setRegion(m_mapData.regionCode());
+    expr.setTimeZone(m_mapData.timeZone());
+
+    if (expr.error() != KOpeningHours::OpeningHours::NoError) {
+        qCDebug(Log) << "opening hours expression error:" << expr.error() << oh << elem.url();
+    } else {
+        const auto i = expr.interval(currentDateTime());
+        if (i.state() == KOpeningHours::Interval::Open) {
+            entry.results |= IsAtCurrentTime;
+        }
+    }
+
+    entry.results |= HasCurrentTimeResult;
+    const bool open = entry.results & IsAtCurrentTime;
+
+    if (it != m_cacheEntries.end() && (*it).elementId == elem.id() && (*it).oh == oh) {
+        *it = std::move(entry);
+    } else {
+        m_cacheEntries.insert(it, std::move(entry));
+    }
+    return open;
+}
+
+QDateTime OpeningHoursCache::currentDateTime() const
+{
+    if (!m_begin.isValid() && !m_end.isValid()) {
+        return QDateTime::currentDateTime();
+    }
+    if (!m_begin.isValid()) {
+        return std::min(m_end.addSecs(-1), QDateTime::currentDateTime());
+    }
+    if (!m_end.isValid()) {
+        return std::max(m_begin, QDateTime::currentDateTime());
+    }
+    return std::clamp(QDateTime::currentDateTime(), m_begin, m_end.addSecs(-1));
 }
