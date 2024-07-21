@@ -93,7 +93,7 @@ bool MapCSSCondition::matches(const MapCSSState &state) const
             if (!tagIsSet || (*tagIt).value.isEmpty() || !state.openingHours) {
                 return m_op == IsNotClosed;
             }
-            const auto closed = state.openingHours->isClosed(state.element, (*tagIt).value);
+            const auto closed = state.openingHours->isEntirelyClosedInRange(state.element, (*tagIt).value);
             return m_op == IsClosed ? closed : !closed;
         }
     }
