@@ -11,6 +11,9 @@
 #include "mapcssstate_p.h"
 #include "logging.h"
 
+#include "content/osmconditionalexpression_p.h"
+#include "content/osmconditionalexpressioncontext_p.h"
+
 #include <QIODevice>
 
 #include <cstdint>
@@ -36,6 +39,7 @@ struct {
     const char *name;
     MapCSSTerm::Operation op;
 } static constexpr const function_name_map[] = {
+    { "KOSM_conditional", MapCSSTerm::KOSM_Conditional },
     { "any", MapCSSTerm::Any },
     { "boolean", MapCSSTerm::BooleanCast },
     { "concat", MapCSSTerm::Concatenate },
@@ -108,6 +112,8 @@ struct {
     // list functions
     // data/style state access functions
     { 1, 1 },
+    { 1, 1 },
+    // our own extensions
     { 1, 1 },
 };
 
@@ -243,6 +249,16 @@ MapCSSValue MapCSSTerm::evaluate(const MapCSSExpressionContext &context) const
         }
         case ReadTag:
             return context.state.element.tagValue(m_children[0]->evaluate(context).asString().constData());
+        case KOSM_Conditional:
+        {
+            OSMConditionalExpression expr; // TODO cache those
+            expr.parse(m_children[0]->evaluate(context).asString());
+
+            OSMConditionalExpressionContext condContext;
+            condContext.element = context.state.element;
+            condContext.openingHoursCache = context.state.openingHours;
+            return expr.evaluate(condContext);
+        }
     }
 
     return {};

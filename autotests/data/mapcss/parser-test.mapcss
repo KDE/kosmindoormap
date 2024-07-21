@@ -182,3 +182,8 @@ line[highway]:hover { color: "red"; }
     opacity: eval(tag('population')/100000);
     set width_in_metres=eval(tag('lanes')*3);
 }
+
+// custom extensions for condiational tag evaluation
+* [kde:akademy:room_type:conditional] {
+    set kde:akademy:room_type = eval(KOSM_conditional(tag("kde:akademy:room_type:conditional")));
+}
