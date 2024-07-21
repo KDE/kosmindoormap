@@ -14,6 +14,14 @@
 
 using namespace KOSMIndoorMap;
 
+bool OpeningHoursCache::Entry::operator<(const Entry &other) const
+{
+    if (elementId == other.elementId) {
+        return oh < other.oh;
+    }
+    return elementId < other.elementId;
+}
+
 OpeningHoursCache::OpeningHoursCache()
 {
     setTimeRange({}, {});
@@ -46,11 +54,9 @@ void OpeningHoursCache::setTimeRange(const QDateTime &begin, const QDateTime &en
 
 bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
 {
-    const auto key = elem.id();
-    const auto it = std::lower_bound(m_cacheEntries.begin(), m_cacheEntries.end(), key, [](auto lhs, auto rhs) {
-        return lhs.key < rhs;
-    });
-    if (it != m_cacheEntries.end() && (*it).key == key) {
+    Entry entry{elem.id(), oh, false};
+    const auto it = std::lower_bound(m_cacheEntries.begin(), m_cacheEntries.end(), entry);
+    if (it != m_cacheEntries.end() && (*it).elementId == elem.id() && (*it).oh == oh) {
         return (*it).closed;
     }
 
@@ -71,8 +77,8 @@ bool OpeningHoursCache::isClosed(OSM::Element elem, const QByteArray &oh)
         if (expr.error() != KOpeningHours::OpeningHours::NoError) {
             qCDebug(Log) << "opening hours expression runtime error:" << expr.error() << oh << i << elem.url();
         }
-        closed = i.state() == KOpeningHours::Interval::Closed;
+        closed = entry.closed = i.state() == KOpeningHours::Interval::Closed;
     }
-    m_cacheEntries.insert(it, {key, closed});
+    m_cacheEntries.insert(it, std::move(entry));
     return closed;
 }
