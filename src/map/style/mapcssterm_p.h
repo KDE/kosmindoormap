@@ -74,6 +74,9 @@ public:
         // functions accessing element or style state
         ReadProperty,
         ReadTag,
+
+        // our own extensions
+        KOSM_Conditional,
     };
 
     explicit MapCSSTerm(Operation op = Operation::Unknown);
