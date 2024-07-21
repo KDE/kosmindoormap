@@ -33,9 +33,13 @@ public:
 
 private:
     struct Entry {
-        OSM::Id key;
+        OSM::Id elementId;
+        QByteArray oh;
         bool closed;
+
+        [[nodiscard]] bool operator<(const Entry &other) const;
     };
+
     std::vector<Entry> m_cacheEntries;
 
     QDateTime m_begin;
