@@ -248,7 +248,10 @@ MapCSSValue MapCSSTerm::evaluate(const MapCSSExpressionContext &context) const
             return decl->stringValue().toUtf8(); // TODO support other property types
         }
         case ReadTag:
-            return context.state.element.tagValue(m_children[0]->evaluate(context).asString().constData());
+        {
+            const auto v = context.result.resolvedTagValue(m_children[0]->evaluate(context).asString().constData(), context.state);
+            return v ? *v : MapCSSValue();
+        }
         case KOSM_Conditional:
         {
             OSMConditionalExpression expr; // TODO cache those
