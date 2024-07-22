@@ -32,7 +32,7 @@ public:
     ~MapCSSRule();
 
     /** Perform tag key resolution. */
-    void compile(const OSM::DataSet &dataSet);
+    void compile(OSM::DataSet &dataSet);
 
     /** Rule evaluation, @see MapCSSStyle. */
     void evaluate(const MapCSSState &state, MapCSSResult &result) const;

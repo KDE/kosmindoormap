@@ -18,7 +18,7 @@ using namespace KOSMIndoorMap;
 MapCSSRule::MapCSSRule() = default;
 MapCSSRule::~MapCSSRule() = default;
 
-void MapCSSRule::compile(const OSM::DataSet &dataSet)
+void MapCSSRule::compile(OSM::DataSet &dataSet)
 {
     m_selector->compile(dataSet);
     for (const auto &decl : m_declarations) {

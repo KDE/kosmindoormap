@@ -30,7 +30,7 @@ bool MapCSSStyle::isEmpty() const
     return d->m_rules.empty();
 }
 
-void MapCSSStyle::compile(const OSM::DataSet &dataSet)
+void MapCSSStyle::compile(OSM::DataSet &dataSet)
 {
     d->m_areaKey = dataSet.tagKey("area");
     d->m_typeKey = dataSet.tagKey("type");

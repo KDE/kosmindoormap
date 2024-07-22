@@ -47,7 +47,7 @@ public:
     /** Optimizes style sheet rules for application against @p dataSet.
      *  This does resolve tag keys and is therefore mandatory when changing the data set.
      */
-    void compile(const OSM::DataSet &dataSet);
+    void compile(OSM::DataSet &dataSet);
 
     /** Initializes the evaluation state.
      *  Call this on a MapCSSState instance for each element being evaluated.
