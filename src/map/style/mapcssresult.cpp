@@ -6,6 +6,9 @@
 
 #include "mapcssresult.h"
 #include "mapcssdeclaration_p.h"
+#include "mapcssexpressioncontext_p.h"
+#include "mapcssstate_p.h"
+#include "mapcssvalue_p.h"
 
 #include <osm/datatypes.h>
 
@@ -14,11 +17,25 @@
 using namespace KOSMIndoorMap;
 
 namespace KOSMIndoorMap {
+struct MapCSSResultLayerTag {
+    OSM::TagKey key;
+    QByteArray value;
+    const MapCSSDeclaration *expression = nullptr;
+
+    [[nodiscard]] inline bool operator<(OSM::TagKey rhs) const
+    {
+        return key < rhs;
+    }
+};
+
 class MapCSSResultLayerPrivate {
 public:
+    void setTag(OSM::TagKey key, QByteArray value);
+    void setTag(OSM::TagKey key, const MapCSSDeclaration *expression);
+
     std::vector<const MapCSSDeclaration*> m_declarations;
     std::vector<ClassSelectorKey> m_classes;
-    std::vector<OSM::Tag> m_tags;
+    std::vector<MapCSSResultLayerTag> m_tags;
     LayerSelectorKey m_layer;
     int m_flags = 0;
 };
@@ -118,18 +135,85 @@ QByteArray MapCSSResultLayer::tagValue(OSM::TagKey key) const
     return {};
 }
 
+std::optional<QByteArray> MapCSSResultLayer::resolvedTagValue(OSM::TagKey key, const MapCSSState &state) const
+{
+    if (const auto it = std::lower_bound(d->m_tags.begin(), d->m_tags.end(), key); it != d->m_tags.end() && (*it).key == key) {
+        if ((*it).expression) {
+            MapCSSExpressionContext context{ .state = state, .result = *this };
+            auto r = (*it).expression->evaluateExpression(context).asString();
+            return r.isEmpty() ? std::optional<QByteArray>() : r;
+        }
+        return (*it).value;
+    }
+    const auto tagEnd = state.element.tagsEnd();
+    if (const auto it = std::lower_bound(state.element.tagsBegin(), tagEnd, key); it != tagEnd && (*it).key == key) {
+        return (*it).value;
+    }
+    return {};
+}
+
+std::optional<QByteArray> MapCSSResultLayer::resolvedTagValue(const char *key, const MapCSSState &state) const
+{
+    // NOTE: m_tags is not sorted by lexicographic order but my TagKey order!
+    if (const auto it = std::find_if(d->m_tags.begin(), d->m_tags.end(), [key](const auto &tag) { return std::strcmp(tag.key.name(), key) == 0; }); it != d->m_tags.end()) {
+        if ((*it).expression) {
+            MapCSSExpressionContext context{ .state = state, .result = *this };
+            auto v = (*it).expression->evaluateExpression(context).asString();
+            return v.isEmpty() ? std::optional<QByteArray>() : v;
+        }
+        return (*it).value;
+    }
+    auto v = state.element.tagValue(key);
+    return v.isEmpty() ? std::optional<QByteArray>() : v;
+}
+
 void MapCSSResultLayer::setLayerSelector(LayerSelectorKey layer)
 {
     d->m_layer = layer;
 }
 
-void MapCSSResultLayer::setTag(OSM::Tag &&tag)
+void MapCSSResultLayerPrivate::setTag(OSM::TagKey key, QByteArray value)
 {
-    const auto it = std::lower_bound(d->m_tags.begin(), d->m_tags.end(), tag);
-    if (it == d->m_tags.end() || (*it).key != tag.key) {
-        d->m_tags.insert(it, std::move(tag));
+    const auto it = std::lower_bound(m_tags.begin(), m_tags.end(), key);
+    if (it == m_tags.end() || (*it).key != key) {
+        m_tags.insert(it, {.key = key, .value = std::move(value), .expression = nullptr });
     } else {
-        (*it) = std::move(tag);
+        (*it).value = std::move(value);
+        (*it).expression = nullptr;
+    }
+}
+
+void MapCSSResultLayerPrivate::setTag(OSM::TagKey key, const MapCSSDeclaration *expression)
+{
+    const auto it = std::lower_bound(m_tags.begin(), m_tags.end(), key);
+    if (it == m_tags.end() || (*it).key != key) {
+        m_tags.insert(it, {.key = key, .value = {}, .expression = expression});
+    } else {
+        (*it).value.clear();
+        (*it).expression = expression;
+    }
+}
+
+void MapCSSResultLayer::applyDeclarations(const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations)
+{
+    for (const auto &decl : declarations) {
+        switch (decl->type()) {
+            case MapCSSDeclaration::PropertyDeclaration:
+                addDeclaration(decl.get());
+                break;
+            case MapCSSDeclaration::ClassDeclaration:
+                addClass(decl->classSelectorKey());
+                break;
+            case MapCSSDeclaration::TagDeclaration:
+                if (decl->hasExpression()) {
+                    d->setTag(decl->tagKey(), decl.get());
+                } else if (!std::isnan(decl->doubleValue())) {
+                    d->setTag(decl->tagKey(), QByteArray::number(decl->doubleValue()));
+                } else {
+                    d->setTag(decl->tagKey(), decl->stringValue().toUtf8());
+                }
+                break;
+        }
     }
 }
 
@@ -198,26 +282,4 @@ const MapCSSResultLayer& MapCSSResult::operator[](LayerSelectorKey layer) const
         d->m_inactivePool.emplace_back();
     }
     return d->m_inactivePool.back();
-}
-
-void MapCSSResult::applyDeclarations(LayerSelectorKey layer, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations)
-{
-    auto &result = (*this)[layer];
-    for (const auto &decl : declarations) {
-        switch (decl->type()) {
-            case MapCSSDeclaration::PropertyDeclaration:
-                result.addDeclaration(decl.get());
-                break;
-            case MapCSSDeclaration::ClassDeclaration:
-                result.addClass(decl->classSelectorKey());
-                break;
-            case MapCSSDeclaration::TagDeclaration:
-                if (!std::isnan(decl->doubleValue())) {
-                    result.setTag(OSM::Tag{decl->tagKey(), QByteArray::number(decl->doubleValue())});
-                } else {
-                    result.setTag(OSM::Tag{decl->tagKey(), decl->stringValue().toUtf8()});
-                }
-                break;
-        }
-    }
 }

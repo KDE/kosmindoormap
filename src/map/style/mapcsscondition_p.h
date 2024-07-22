@@ -20,6 +20,7 @@ class QIODevice;
 
 namespace KOSMIndoorMap {
 
+class MapCSSResultLayer;
 class MapCSSState;
 
 /** Selector condition. */
@@ -35,7 +36,7 @@ public:
     /** Resolve tag keys. */
     void compile(const OSM::DataSet &dataSet);
     /** Condition matches the given evaluation state. */
-    bool matches(const MapCSSState &state) const;
+    bool matches(const MapCSSState &state, const MapCSSResultLayer &result) const;
     /** Condition matches the given state for a canvas element. */
     bool matchesCanvas(const MapCSSState &state) const;
 

@@ -5,6 +5,7 @@
 */
 
 #include "mapcsscondition_p.h"
+#include "mapcssresult.h"
 #include "mapcssstate_p.h"
 
 #include <QDebug>
@@ -56,7 +57,7 @@ void MapCSSCondition::compile(const OSM::DataSet &dataSet)
     }
 }
 
-bool MapCSSCondition::matches(const MapCSSState &state) const
+bool MapCSSCondition::matches(const MapCSSState &state, const MapCSSResultLayer &result) const
 {
     if (m_tagKey.isNull()) {
         // if we couldn't compile the tag, it doesn't exist and thus can never be set
@@ -65,9 +66,8 @@ bool MapCSSCondition::matches(const MapCSSState &state) const
 
     // this method is such a hot path that even the ref/deref in QByteArray for OSM::Element::tagValue matters
     // so we do tag lookup manually here
-    const auto tagEnd = state.element.tagsEnd();
-    const auto tagIt = std::lower_bound(state.element.tagsBegin(), tagEnd, m_tagKey);
-    const auto tagIsSet = (tagIt != tagEnd && (*tagIt).key == m_tagKey);
+    const auto tagValue = result.resolvedTagValue(m_tagKey, state);
+    const auto tagIsSet = tagValue.has_value();
     switch (m_op) {
         case KeySet:
             return tagIsSet;
@@ -75,25 +75,25 @@ bool MapCSSCondition::matches(const MapCSSState &state) const
             return !tagIsSet;
         case Equal:
             if (std::isnan(m_numericValue)) {
-                return !tagIsSet ? false : (*tagIt).value == m_value;
+                return !tagIsSet ? false : *tagValue == m_value;
             }
-            return !tagIsSet ? false : toNumber((*tagIt).value) == m_numericValue;
+            return !tagIsSet ? false : toNumber(*tagValue) == m_numericValue;
         case NotEqual:
             if (std::isnan(m_numericValue)) {
-                return !tagIsSet ? true : (*tagIt).value != m_value;
+                return !tagIsSet ? true : *tagValue != m_value;
             }
-            return !tagIsSet ? true : toNumber((*tagIt).value) != m_numericValue;
-        case LessThan: return !tagIsSet ? false : toNumber((*tagIt).value) < m_numericValue;
-        case GreaterThan: return !tagIsSet ? false : toNumber((*tagIt).value) > m_numericValue;
-        case LessOrEqual: return !tagIsSet ? false : toNumber((*tagIt).value) <= m_numericValue;
-        case GreaterOrEqual: return !tagIsSet ? false : toNumber((*tagIt).value) >= m_numericValue;
+            return !tagIsSet ? true : toNumber(*tagValue) != m_numericValue;
+        case LessThan: return !tagIsSet ? false : toNumber(*tagValue) < m_numericValue;
+        case GreaterThan: return !tagIsSet ? false : toNumber(*tagValue) > m_numericValue;
+        case LessOrEqual: return !tagIsSet ? false : toNumber(*tagValue) <= m_numericValue;
+        case GreaterOrEqual: return !tagIsSet ? false : toNumber(*tagValue) >= m_numericValue;
         case IsClosed:
         case IsNotClosed:
         {
-            if (!tagIsSet || (*tagIt).value.isEmpty() || !state.openingHours) {
+            if (!tagIsSet || (*tagValue).isEmpty() || !state.openingHours) {
                 return m_op == IsNotClosed;
             }
-            const auto closed = state.openingHours->isEntirelyClosedInRange(state.element, (*tagIt).value);
+            const auto closed = state.openingHours->isEntirelyClosedInRange(state.element, *tagValue);
             return m_op == IsClosed ? closed : !closed;
         }
     }
