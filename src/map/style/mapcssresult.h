@@ -14,6 +14,7 @@
 #include <qcompilerdetection.h>
 
 #include <memory>
+#include <optional>
 #include <vector>
 
 class QByteArray;
@@ -28,6 +29,7 @@ namespace KOSMIndoorMap {
 class MapCSSDeclaration;
 enum class MapCSSProperty;
 class MapCSSRule;
+class MapCSSState;
 
 class MapCSSResult;
 class MapCSSResultLayerPrivate;
@@ -63,7 +65,12 @@ public:
     [[nodiscard]] LayerSelectorKey layerSelector() const;
 
     /** Tag lookup for tags overridden by the style sheet. */
-    [[nodiscard]] QByteArray tagValue(OSM::TagKey key) const;
+    [[nodiscard]] [[deprecated("use resolvedTagValue")]] QByteArray tagValue(OSM::TagKey key) const;
+
+    /** Returns the tag value set by preceding declarations, via MapCSS expressions or in the source data. */
+    [[nodiscard]] std::optional<QByteArray> resolvedTagValue(OSM::TagKey key, const MapCSSState &state) const;
+    /** Slower version of the above for unresolved tag keys. */
+    [[nodiscard]] std::optional<QByteArray> resolvedTagValue(const char *key, const MapCSSState &state) const;
 
     /** Check whether this result layer has class @p cls set. */
     [[nodiscard]] bool hasClass(ClassSelectorKey cls) const;
@@ -71,11 +78,14 @@ public:
 private:
     friend class MapCSSResult;
     friend class MapCSSRule;
+    friend class MapCSSBasicSelector;
 
     Q_DECL_HIDDEN void addDeclaration(const MapCSSDeclaration *decl);
     Q_DECL_HIDDEN void addClass(ClassSelectorKey cls);
     Q_DECL_HIDDEN void setLayerSelector(LayerSelectorKey layer);
-    Q_DECL_HIDDEN void setTag(OSM::Tag &&tag);
+
+    /** Apply @p declarations for @p layer to the result. */
+    Q_DECL_HIDDEN void applyDeclarations(const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations);
 
     std::unique_ptr<MapCSSResultLayerPrivate> d;
 };
@@ -109,10 +119,6 @@ public:
     [[nodiscard]] MapCSSResultLayer& operator[](LayerSelectorKey layer);
 
 private:
-    friend class MapCSSBasicSelector;
-    /** Apply @p declarations for @p layer to the result. */
-    Q_DECL_HIDDEN void applyDeclarations(LayerSelectorKey layer, const std::vector<std::unique_ptr<MapCSSDeclaration>> &declarations);
-
     std::unique_ptr<MapCSSResultPrivate> d;
 };
 

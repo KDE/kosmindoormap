@@ -53,16 +53,17 @@ bool MapCSSBasicSelector::matches(const MapCSSState &state, MapCSSResult &result
         return false;
     }
 
-    if (!m_class.isNull() && !result[m_layer].hasClass(m_class)) {
-        return false;
-    }
-
     if (m_elementState && (state.state & m_elementState) == 0) {
         return false;
     }
 
-    if (std::all_of(conditions.begin(), conditions.end(), [&state](const auto &cond) { return cond->matches(state); })) {
-        result.applyDeclarations(m_layer, declarations);
+    auto &resultLayer = result[m_layer];
+    if (!m_class.isNull() && !resultLayer.hasClass(m_class)) {
+        return false;
+    }
+
+    if (std::all_of(conditions.begin(), conditions.end(), [&state, &resultLayer](const auto &cond) { return cond->matches(state, resultLayer); })) {
+        resultLayer.applyDeclarations(declarations);
         return true;
     }
     return false;
