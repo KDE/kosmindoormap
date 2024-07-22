@@ -114,7 +114,7 @@ public:
     /** Evaluate the expression in this declaration. */
     [[nodiscard]] MapCSSValue evaluateExpression(const MapCSSExpressionContext &context) const;
 
-    void compile(const OSM::DataSet &dataSet);
+    void compile(OSM::DataSet &dataSet);
     void write(QIODevice *out) const;
 
     [[nodiscard]] static MapCSSProperty propertyFromName(const char *name, std::size_t len);

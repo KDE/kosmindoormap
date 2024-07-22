@@ -357,12 +357,11 @@ void MapCSSDeclaration::setClassSelectorKey(ClassSelectorKey key)
     m_class = key;
 }
 
-void MapCSSDeclaration::compile(const OSM::DataSet &dataSet)
+void MapCSSDeclaration::compile(OSM::DataSet &dataSet)
 {
     // TODO resolve tag key if m_identValue is one
     if (m_type == TagDeclaration) {
-        // TODO handle the case that the tag isn't actually available in dataSet
-        m_tagKey = dataSet.tagKey(m_identValue.constData());
+        m_tagKey = dataSet.makeTagKey(m_identValue.constData());
     }
 
     if (m_evalExpression.isValid()) {
