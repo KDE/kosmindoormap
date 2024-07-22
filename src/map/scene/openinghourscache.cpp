@@ -33,7 +33,7 @@ void OpeningHoursCache::setMapData(const MapData &mapData)
 void OpeningHoursCache::setTimeRange(const QDateTime &begin, const QDateTime &end)
 {
     const auto actualBegin = begin.isValid() ? begin : QDateTime::currentDateTime();
-    const auto actualEnd = (end.isValid() && end > m_begin) ? end : actualBegin.addYears(1);
+    const auto actualEnd = (end.isValid() && end > actualBegin) ? end : actualBegin.addYears(1);
 
     if (actualBegin == m_begin && actualEnd == m_end) {
         return;
