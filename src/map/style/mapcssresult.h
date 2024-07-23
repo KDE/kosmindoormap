@@ -64,9 +64,6 @@ public:
     /** The layer selector for this result. */
     [[nodiscard]] LayerSelectorKey layerSelector() const;
 
-    /** Tag lookup for tags overridden by the style sheet. */
-    [[nodiscard]] [[deprecated("use resolvedTagValue")]] QByteArray tagValue(OSM::TagKey key) const;
-
     /** Returns the tag value set by preceding declarations, via MapCSS expressions or in the source data. */
     [[nodiscard]] std::optional<QByteArray> resolvedTagValue(OSM::TagKey key, const MapCSSState &state) const;
     /** Slower version of the above for unresolved tag keys. */

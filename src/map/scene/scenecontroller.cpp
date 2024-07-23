@@ -313,7 +313,7 @@ void SceneController::updateElement(const MapCSSState &state, int level, SceneGr
             item->textureBrush.setStyle(Qt::NoBrush);
         }
 
-        addItem(sg, state.element, level, result, std::move(baseItem));
+        addItem(sg, state, level, result, std::move(baseItem));
     } else if (result.hasLineProperties()) {
         auto baseItem = sg.findOrCreatePayload<PolylineItem>(state.element, level, result.layerSelector());
         auto item = static_cast<PolylineItem*>(baseItem.get());
@@ -335,7 +335,7 @@ void SceneController::updateElement(const MapCSSState &state, int level, SceneGr
         finalizePen(item->casingPen, casingOpacity);
 
         d->m_labelPlacementPath = item->path;
-        addItem(sg, state.element, level, result, std::move(baseItem));
+        addItem(sg, state, level, result, std::move(baseItem));
     }
 
     if (result.hasLabelProperties()) {
@@ -548,7 +548,7 @@ void SceneController::updateElement(const MapCSSState &state, int level, SceneGr
             }
 
             if (!item->icon.isNull() || !item->text.text().isEmpty()) {
-                addItem(sg, state.element, level, result, std::move(baseItem));
+                addItem(sg, state, level, result, std::move(baseItem));
             }
         }
     }
@@ -733,23 +733,20 @@ void SceneController::finalizePen(QPen &pen, double opacity) const
     }
 }
 
-void SceneController::addItem(SceneGraph &sg, OSM::Element e, int level, const MapCSSResultLayer &result, std::unique_ptr<SceneGraphItemPayload> &&payload) const
+void SceneController::addItem(SceneGraph &sg, const MapCSSState &state, int level, const MapCSSResultLayer &result, std::unique_ptr<SceneGraphItemPayload> &&payload) const
 {
     SceneGraphItem item;
-    item.element = e;
+    item.element = state.element;
     item.layerSelector = result.layerSelector();
     item.level = level;
     item.payload = std::move(payload);
 
     // get the OSM layer, if set
     if (!d->m_overlay) {
-        auto layerStr = result.tagValue(d->m_layerTag);
-        if (layerStr.isNull()) {
-            layerStr = e.tagValue(d->m_layerTag);
-        }
-        if (!layerStr.isEmpty()) {
+        const auto layerStr = result.resolvedTagValue(d->m_layerTag, state);
+        if (layerStr && !(*layerStr).isEmpty()) {
             bool success = false;
-            const auto layer = layerStr.toInt(&success);
+            const auto layer = (*layerStr).toInt(&success);
             if (success) {
 
                 // ### Ignore layer information when it matches the level
@@ -765,7 +762,7 @@ void SceneController::addItem(SceneGraph &sg, OSM::Element e, int level, const M
                     item.layer = layer;
                 }
             } else {
-                qCWarning(Log) << "Invalid layer:" << e.url() << layerStr;
+                qCWarning(Log) << "Invalid layer:" << state.element.url() << *layerStr;
             }
         }
     } else {
