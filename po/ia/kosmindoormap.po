@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 #
-# giovanni <g.sora@tiscali.it>, 2024.
+# SPDX-FileCopyrightText: 2024 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-19 00:38+0000\n"
-"PO-Revision-Date: 2024-04-25 18:49+0200\n"
+"PO-Revision-Date: 2024-07-22 11:57+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: app/main.cpp:68
 #, kde-format
@@ -32,13 +32,13 @@ msgstr ""
 #, kde-format
 msgctxt "amenity category"
 msgid "Shops"
-msgstr ""
+msgstr "Botecas"
 
 #: map-quick/amenitymodel.cpp:93
 #, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
-msgstr ""
+msgstr "Toilettes"
 
 #: map-quick/amenitymodel.cpp:95
 #, kde-format
@@ -71,7 +71,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:20
 msgctxt "OSM::amenity/shop"
 msgid "Alcohol"
-msgstr ""
+msgstr "Alcohol"
 
 #: map-quick/localization_data.cpp:21
 msgctxt "OSM::shop"
@@ -81,7 +81,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:22
 msgctxt "OSM::amenity/shop"
 msgid "Apartment"
-msgstr ""
+msgstr "Appartamento"
 
 #: map-quick/localization_data.cpp:23
 msgctxt "OSM::tourism"
@@ -116,7 +116,7 @@ msgstr "ATM"
 #: map-quick/localization_data.cpp:29
 msgctxt "OSM::amenity/shop"
 msgid "Attraction"
-msgstr ""
+msgstr "Attraction"
 
 #: map-quick/localization_data.cpp:30
 msgctxt "OSM::room"
@@ -131,7 +131,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:32
 msgctxt "OSM::amenity/shop"
 msgid "Bag"
-msgstr ""
+msgstr "Bursa"
 
 #: map-quick/localization_data.cpp:33
 msgctxt "OSM::amenity"
@@ -141,7 +141,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:34
 msgctxt "OSM::amenity/shop"
 msgid "Bakery"
-msgstr ""
+msgstr "Paneteria"
 
 #: map-quick/localization_data.cpp:35
 msgctxt "OSM::amenity/shop"
@@ -161,7 +161,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:38
 msgctxt "OSM::amenity/shop"
 msgid "Bed"
-msgstr ""
+msgstr "Lecto"
 
 #: map-quick/localization_data.cpp:39
 msgctxt "OSM::amenity"
@@ -206,7 +206,7 @@ msgstr "Libros"
 #: map-quick/localization_data.cpp:47
 msgctxt "OSM::amenity/shop"
 msgid "Boutique"
-msgstr ""
+msgstr "Boutique"
 
 #: map-quick/localization_data.cpp:48
 msgctxt "OSM::leisure"
@@ -256,7 +256,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:57
 msgctxt "OSM::historic"
 msgid "Castle"
-msgstr ""
+msgstr "Castello"
 
 #: map-quick/localization_data.cpp:58
 msgctxt "OSM::amenity/shop"
@@ -271,7 +271,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:60
 msgctxt "OSM::shop"
 msgid "Cheese"
-msgstr ""
+msgstr "Caseo"
 
 #: map-quick/localization_data.cpp:61
 msgctxt "OSM::amenity/shop"
@@ -842,7 +842,7 @@ msgstr ""
 
 #: map-quick/localization_data.cpp:182
 msgid "Playground"
-msgstr ""
+msgstr "Parco de amusamento"
 
 #: map-quick/localization_data.cpp:183
 msgctxt "OSM::amenity/shop"
@@ -1047,7 +1047,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:223 map-quick/localization_data.cpp:224
 msgctxt "OSM::amenity/shop"
 msgid "Toilets"
-msgstr ""
+msgstr "Toilettes"
 
 #: map-quick/localization_data.cpp:225
 msgctxt "OSM::amenity/shop"
@@ -1113,7 +1113,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "Aqua"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
@@ -1685,7 +1685,7 @@ msgstr "Pagamento"
 #: map-quick/osmelementinformationmodel.cpp:541
 #, kde-format
 msgid "Toilets"
-msgstr ""
+msgstr "Toilettes"
 
 #: map-quick/osmelementinformationmodel.cpp:542
 #, kde-format
@@ -1884,7 +1884,7 @@ msgstr ""
 #, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: map-quick/osmelementinformationmodel.cpp:790
 #, kde-format
@@ -1911,7 +1911,7 @@ msgstr "%1 kW"
 #: map-quick/osmelementinformationmodel.cpp:856
 #, kde-format
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: map-quick/osmelementinformationmodel.cpp:915
 #: map-quick/osmelementinformationmodel.cpp:1103
