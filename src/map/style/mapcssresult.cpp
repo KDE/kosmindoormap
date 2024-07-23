@@ -126,15 +126,6 @@ LayerSelectorKey MapCSSResultLayer::layerSelector() const
     return d->m_layer;
 }
 
-QByteArray MapCSSResultLayer::tagValue(OSM::TagKey key) const
-{
-    const auto it = std::lower_bound(d->m_tags.begin(), d->m_tags.end(), key);
-    if (it != d->m_tags.end() && (*it).key == key) {
-        return (*it).value;
-    }
-    return {};
-}
-
 std::optional<QByteArray> MapCSSResultLayer::resolvedTagValue(OSM::TagKey key, const MapCSSState &state) const
 {
     if (const auto it = std::lower_bound(d->m_tags.begin(), d->m_tags.end(), key); it != d->m_tags.end() && (*it).key == key) {

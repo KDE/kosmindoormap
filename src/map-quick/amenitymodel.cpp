@@ -231,8 +231,11 @@ void AmenityModel::populateModel()
                 continue; // hidden element
             }
 
-            const auto group = res.tagValue(layerKey);
-            const auto groupIt = std::find_if(std::begin(group_map), std::end(group_map), [&group](const auto &m) { return std::strcmp(m.groupName, group.constData()) == 0; });
+            const auto group = res.resolvedTagValue(layerKey, filterState);
+            if (!group) {
+                continue;
+            }
+            const auto groupIt = std::find_if(std::begin(group_map), std::end(group_map), [&group](const auto &m) { return std::strcmp(m.groupName, (*group).constData()) == 0; });
             if (groupIt == std::end(group_map)) {
                 continue; // no group assigned
             }
