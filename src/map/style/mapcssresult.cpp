@@ -11,6 +11,7 @@
 #include "mapcssvalue_p.h"
 
 #include <osm/datatypes.h>
+#include <osm/languages.h>
 
 #include <algorithm>
 
@@ -155,6 +156,22 @@ std::optional<QByteArray> MapCSSResultLayer::resolvedTagValue(const char *key, c
         return (*it).value;
     }
     auto v = state.element.tagValue(key);
+    return v.isEmpty() ? std::optional<QByteArray>() : v;
+}
+
+std::optional<QByteArray> MapCSSResultLayer::resolvedTagValue(const OSM::Languages &languages, const char *key, const MapCSSState &state) const
+{
+    // NOTE: m_tags is not sorted by lexicographic order but my TagKey order!
+    // TODO: multi-lingual expressions?
+    if (const auto it = std::find_if(d->m_tags.begin(), d->m_tags.end(), [key](const auto &tag) { return std::strcmp(tag.key.name(), key) == 0; }); it != d->m_tags.end()) {
+        if ((*it).expression) {
+            MapCSSExpressionContext context{ .state = state, .result = *this };
+            auto v = (*it).expression->evaluateExpression(context).asString();
+            return v.isEmpty() ? std::optional<QByteArray>() : v;
+        }
+        return (*it).value;
+    }
+    auto v = state.element.tagValue(languages, key);
     return v.isEmpty() ? std::optional<QByteArray>() : v;
 }
 

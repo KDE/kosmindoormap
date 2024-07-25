@@ -9,6 +9,10 @@
  * Note: Zoom levels are not set for this.
  */
 
+* [!name][name:conditional] {
+    set name = eval(KOSM_conditional(tag("name:conditional")));
+}
+
 // any named or numbered room
 *[room][name],
 *[room][ref],

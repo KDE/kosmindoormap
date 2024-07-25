@@ -3,7 +3,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "../src/map/scene/openinghourscache.cpp"
+#include "../src/map/scene/openinghourscache_p.h"
 
 #include <osm/datatypes.h>
 #include <osm/io.h>
@@ -12,6 +12,7 @@
 #include <QTest>
 
 using namespace Qt::Literals;
+using namespace KOSMIndoorMap;
 
 class OpeningHoursCacheTest : public QObject
 {
