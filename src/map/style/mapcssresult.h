@@ -20,6 +20,7 @@
 class QByteArray;
 
 namespace OSM {
+class Languages;
 class Tag;
 class TagKey;
 }
@@ -68,6 +69,7 @@ public:
     [[nodiscard]] std::optional<QByteArray> resolvedTagValue(OSM::TagKey key, const MapCSSState &state) const;
     /** Slower version of the above for unresolved tag keys. */
     [[nodiscard]] std::optional<QByteArray> resolvedTagValue(const char *key, const MapCSSState &state) const;
+    [[nodiscard]] std::optional<QByteArray> resolvedTagValue(const OSM::Languages &languages, const char *key, const MapCSSState &state) const;
 
     /** Check whether this result layer has class @p cls set. */
     [[nodiscard]] bool hasClass(ClassSelectorKey cls) const;

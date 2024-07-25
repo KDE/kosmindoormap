@@ -7,6 +7,8 @@
 #ifndef KOSMINDOORMAP_OPENINGHOURSCACHE_P_H
 #define KOSMINDOORMAP_OPENINGHOURSCACHE_P_H
 
+#include "kosmindoormap_export.h"
+
 #include <KOSMIndoorMap/MapData>
 
 #include <KOSM/Element>
@@ -18,7 +20,7 @@
 namespace KOSMIndoorMap {
 
 /** Opening hours expression evaluation cache for the currently displayed time range. */
-class OpeningHoursCache
+class KOSMINDOORMAP_EXPORT OpeningHoursCache
 {
 public:
     OpeningHoursCache();

@@ -12,6 +12,7 @@
 #include <KOSM/Element>
 
 #include <QAbstractListModel>
+#include <QDateTime>
 #include <QPolygonF>
 
 namespace KOSMIndoorMap {
@@ -27,6 +28,12 @@ class RoomModel : public QAbstractListModel
      *  @note Binding to this will disable lazy model population.
      */
     Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY mapDataChanged)
+
+    /** Time range for which to show the model.
+     *  When set this is used to evaluate time-dependent content.
+     */
+    Q_PROPERTY(QDateTime beginTime MEMBER m_beginTime NOTIFY timeChanged)
+    Q_PROPERTY(QDateTime endTime MEMBER m_endTime NOTIFY timeChanged)
 
 public:
     explicit RoomModel(QObject *parent = nullptr);
@@ -61,6 +68,7 @@ public:
 Q_SIGNALS:
     void mapDataChanged();
     void populated();
+    void timeChanged();
 
 private:
     struct Level {
@@ -80,6 +88,7 @@ private:
         OSM::Element buildingElement;
         OSM::Element levelElement;
         int level;
+        QString name;
     };
 
     void ensurePopulated() const;
@@ -87,6 +96,9 @@ private:
 
     MapData m_data;
     MapCSSStyle m_style;
+
+    QDateTime m_beginTime;
+    QDateTime m_endTime;
 
     std::vector<Building> m_buildings;
     std::vector<Room> m_rooms;

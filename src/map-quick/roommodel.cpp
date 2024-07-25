@@ -28,6 +28,12 @@ RoomModel::RoomModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_langs(OSM::Languages::fromQLocale(QLocale()))
 {
+    connect(this, &RoomModel::timeChanged, this, [this]() {
+        beginResetModel();
+        m_rooms.clear();
+        m_buildings.clear();
+        endResetModel();
+    });
 }
 
 RoomModel::~RoomModel() = default;
@@ -83,7 +89,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     switch (role) {
         case NameRole:
             // TODO better name/number handling - separate roles?
-            return QString::fromUtf8(room.element.tagValue(m_langs, "name"));
+            return room.name;
         case NumberRole:
             return QString::fromUtf8(room.element.tagValue("ref"));
         case TypeNameRole:
@@ -219,6 +225,10 @@ void RoomModel::populateModel()
 
     // find all rooms
     MapCSSResult filterResult;
+    OpeningHoursCache ohCache;
+    ohCache.setMapData(mapData());
+    ohCache.setTimeRange(m_beginTime, m_endTime);
+
     for (auto it = m_data.levelMap().begin(); it != m_data.levelMap().end(); ++it) {
         for (const auto &e : (*it).second) {
             if (e.type() == OSM::Type::Node || !OSM::contains(m_data.boundingBox(), e.center())) {
@@ -227,6 +237,7 @@ void RoomModel::populateModel()
 
             MapCSSState filterState;
             filterState.element = e;
+            filterState.openingHours = &ohCache;
             m_style.initializeState(filterState);
             m_style.evaluate(filterState, filterResult);
 
@@ -258,6 +269,10 @@ void RoomModel::populateModel()
                 }
             }
 
+            const auto name = filterResult[{}].resolvedTagValue(m_langs, "name", filterState);
+            if (name) {
+                room.name = QString::fromUtf8(*name);
+            }
             m_rooms.push_back(std::move(room));
         }
     }
@@ -301,7 +316,7 @@ int RoomModel::findRoom(const QString &name) const
     ensurePopulated();
     for (auto it = m_rooms.begin(); it != m_rooms.end(); ++it) {
         // TODO match room numbers, space-ignoring fuzzy match, unambiguous substring matching
-        if (QUtf8StringView((*it).element.tagValue("name")).compare(name, Qt::CaseInsensitive) == 0) {
+        if ((*it).name.compare(name, Qt::CaseInsensitive) == 0) {
             return (int)std::distance(m_rooms.begin(), it);
         }
     }
