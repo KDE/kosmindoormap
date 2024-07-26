@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:38+0000\n"
+"POT-Creation-Date: 2024-07-26 00:38+0000\n"
 "PO-Revision-Date: 2024-06-30 07:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2225,12 +2225,12 @@ msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "ამოკვეთილი დაბეჭდილი სიმბოლოები"
 
-#: map-quick/roommodel.cpp:123
+#: map-quick/roommodel.cpp:129
 #, kde-format
 msgid "Ground floor"
 msgstr "მიწის სართული"
 
-#: map-quick/roommodel.cpp:125
+#: map-quick/roommodel.cpp:131
 #, kde-format
 msgid "Floor %1"
 msgstr "სართული %1"
