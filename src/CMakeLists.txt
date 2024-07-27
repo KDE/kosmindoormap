@@ -9,6 +9,8 @@ if (NOT BUILD_TOOLS_ONLY)
     add_subdirectory(routing)
 endif()
 if (TARGET Qt::Quick)
+    include(ECMQmlModule)
+
     add_subdirectory(editor)
     add_subdirectory(wikidata)
     add_subdirectory(map-quick)
