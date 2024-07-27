@@ -29,7 +29,6 @@ include(KDECMakeSettings)
 include(GenerateExportHeader)
 include(ECMDeprecationSettings)
 include(ECMAddAndroidApk)
-include(ECMQmlModule)
 
 ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     VERSION_HEADER kosmindoormap_version.h
