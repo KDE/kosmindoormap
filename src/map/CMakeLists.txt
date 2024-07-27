@@ -11,6 +11,10 @@ target_sources(KOSMIndoorMap PRIVATE
     loader/maploader.cpp
     loader/marblegeometryassembler.cpp
     loader/tilecache.cpp
+
+    network/networkaccessmanagerfactory.cpp
+    network/useragent.cpp
+
 )
 if (NOT BUILD_TOOLS_ONLY)
     flex_target(mapcssscanner
@@ -37,9 +41,6 @@ if (NOT BUILD_TOOLS_ONLY)
         content/platform.cpp
         content/platformfinder.cpp
         content/platformmodel.cpp
-
-        network/networkaccessmanagerfactory.cpp
-        network/useragent.cpp
 
         renderer/hitdetector.cpp
         renderer/painterrenderer.cpp
