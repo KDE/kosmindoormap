@@ -36,7 +36,7 @@
             "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kpublictransport.git", "branch": "master" } ],
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kpublictransport.git", "branch": "release/24.08" } ],
             "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories5" ]
         },
         {
@@ -44,7 +44,7 @@
             "config-opts": [ "-DBUILD_TESTING=OFF", "-DBUILD_WITH_QT6=ON" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kopeninghours.git", "branch": "master" } ],
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kopeninghours.git", "branch": "release/24.08" } ],
             "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories5" ]
         },
         {
