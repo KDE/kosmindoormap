@@ -257,6 +257,7 @@ Kirigami.ApplicationWindow {
 
             width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
             height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
+            padding: 0
 
             contentItem: ListView {
                 model: platformModel
