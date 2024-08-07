@@ -22,7 +22,7 @@ Item {
 
     implicitHeight: img.implicitHeight + root.topMargin + root.bottomMargin
     implicitWidth: img.implicitWidth
-    height: img.height + root.topMargin + root.bottomMargin
+    height: img.status === Image.Ready ? img.height + root.topMargin + root.bottomMargin : 0
 
     Image {
         id: img
