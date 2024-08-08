@@ -65,7 +65,10 @@ else ()
     target_link_libraries(kosmindoormap-app PRIVATE
         Qt::Widgets
     )
-    set_target_properties(kosmindoormap-app PROPERTIES OUTPUT_NAME "kosmindoormap")
+    if (NOT WIN32)
+        # on Windows (thanks to case-insensitive file systems) this clashes with the KOSMIndoorMap library...
+        set_target_properties(kosmindoormap-app PROPERTIES OUTPUT_NAME "kosmindoormap")
+    endif()
 endif()
 
 if (BUILD_STANDALONE_APP)
