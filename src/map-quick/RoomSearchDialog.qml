@@ -13,7 +13,7 @@ Kirigami.SearchDialog {
     id: root
 
     /** Room model instance providing the content for this dialog. */
-    property var roomModel
+    property RoomModel roomModel
 
     /** Emitted when an entry of this dialog as been selected. */
     signal roomSelected(room: var)

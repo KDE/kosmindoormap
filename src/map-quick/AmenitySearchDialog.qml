@@ -13,7 +13,7 @@ import org.kde.kosmindoormap
 Kirigami.SearchDialog {
     id: root
 
-    property var amenityModel: null
+    property AmenityModel amenityModel: null
 
     searchFieldPlaceholderText: i18nd("kosmindoormap", "Search amenity…")
 
