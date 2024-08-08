@@ -91,7 +91,7 @@ Kirigami.Dialog {
                 id: headerSeparator
                 width: parent.width
                 anchors.bottom: parent.bottom
-                visible: contentControl.contentHeight > contentControl.implicitHeight
+                visible: contentItem.contentHeight > contentItem.implicitHeight
             }
         }
     }

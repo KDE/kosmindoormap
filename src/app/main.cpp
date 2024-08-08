@@ -74,6 +74,6 @@ int main(int argc, char **argv)
     l10nContext->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
     engine.rootContext()->setContextObject(l10nContext);
 
-    engine.load(QStringLiteral("qrc:/indoormap.qml"));
+    engine.loadFromModule("org.kde.kosmindoormap.app", "Main");
     return app.exec();
 }

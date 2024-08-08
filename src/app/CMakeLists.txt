@@ -3,7 +3,23 @@
 
 add_executable(kosmindoormap-app
     main.cpp
-    qml.qrc
+)
+
+ecm_add_qml_module(kosmindoormap-app URI "org.kde.kosmindoormap.app"
+    QML_FILES
+        AttributionPage.qml
+        ExampleLocationModel.qml
+        IndoorMapInfoSheet.qml
+        IndoorMapPage.qml
+        Main.qml
+        RoutingProfileSheet.qml
+        SelectLocationSheet.qml
+    DEPENDENCIES
+        "org.kde.kpublictransport"
+        "org.kde.kosmindoormap"
+        "org.kde.kosmindoormap.kpublictransport"
+        "org.kde.kosmindoorrouting"
+        "org.kde.osm.editorcontroller"
 )
 
 target_include_directories(kosmindoormap-app PRIVATE ${CMAKE_BINARY_DIR})
