@@ -25,3 +25,8 @@ ecm_add_test(osmelementinfomodeltest.cpp LINK_LIBRARIES Qt::Test KOSMIndoorMapQu
 ecm_add_test(amenitymodeltest.cpp LINK_LIBRARIES Qt::Test KOSMIndoorMapQuick)
 ecm_add_test(openinghourscachetest.cpp LINK_LIBRARIES Qt::Test KOSMIndoorMapQuick KOpeningHours)
 ecm_add_test(osmconditionalexpressiontest.cpp LINK_LIBRARIES Qt::Test KOSMIndoorMapQuick KOpeningHours)
+
+# verify QML code
+if (TARGET kosmindoormap-app)
+    add_test(NAME kosmindoormap-self-test COMMAND kosmindoormap-app --self-test)
+endif()
