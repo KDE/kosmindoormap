@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:40+0000\n"
-"PO-Revision-Date: 2024-04-19 02:38+0900\n"
+"PO-Revision-Date: 2024-08-18 00:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -419,7 +419,7 @@ msgstr "醫生"
 #: map-quick/localization_data.cpp:90
 msgctxt "OSM::amenity/shop"
 msgid "Hardware Store"
-msgstr ""
+msgstr "五金行"
 
 #: map-quick/localization_data.cpp:91
 msgctxt "OSM::amenity/shop"
@@ -714,7 +714,7 @@ msgstr "醫療用品"
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "會議室"
 
 #: map-quick/localization_data.cpp:154
 msgctxt "OSM::historic"
@@ -844,7 +844,7 @@ msgstr "藥局"
 #: map-quick/localization_data.cpp:179
 msgctxt "OSM::amenity/shop"
 msgid "Photo"
-msgstr ""
+msgstr "相片"
 
 #: map-quick/localization_data.cpp:180
 msgctxt "OSM::healthcare"
@@ -854,7 +854,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:181
 msgctxt "OSM::amenity/shop"
 msgid "Place of Worship"
-msgstr ""
+msgstr "宗教"
 
 #: map-quick/localization_data.cpp:182
 msgid "Playground"
@@ -980,7 +980,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:206
 msgctxt "OSM::amenity/shop"
 msgid "Souvenirs"
-msgstr ""
+msgstr "紀念品"
 
 #: map-quick/localization_data.cpp:207
 msgctxt "OSM::amenity/shop"
@@ -1964,7 +1964,7 @@ msgstr ""
 #: map-quick/osmelementinformationmodel_data.cpp:20
 msgctxt "OSM::diet_type"
 msgid "halal"
-msgstr ""
+msgstr "清真"
 
 #: map-quick/osmelementinformationmodel_data.cpp:21
 msgctxt "OSM::diet_type"
@@ -2240,9 +2240,9 @@ msgstr ""
 #: map-quick/roommodel.cpp:129
 #, kde-format
 msgid "Ground floor"
-msgstr ""
+msgstr "地面層"
 
 #: map-quick/roommodel.cpp:131
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "%1 樓"
