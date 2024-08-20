@@ -19,5 +19,6 @@ endif()
 target_link_libraries(kosmindoorroutingquickplugin PRIVATE
     KOSMIndoorRouting
 )
+target_include_directories(kosmindoorroutingquickplugin PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../map/content;${CMAKE_CURRENT_SOURCE_DIR}/../map/loader;${CMAKE_CURRENT_SOURCE_DIR}/../map/scene>")
 
 ecm_finalize_qml_module(kosmindoorroutingquickplugin)

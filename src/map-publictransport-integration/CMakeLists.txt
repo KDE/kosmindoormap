@@ -9,6 +9,7 @@ target_sources(kosmindoormap_kpublictransport_integration_plugin PRIVATE
     locationqueryoverlayproxymodel.cpp
     realtimeequipmentmodel.cpp
 )
+target_include_directories(kosmindoormap_kpublictransport_integration_plugin PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../map/content;${CMAKE_CURRENT_SOURCE_DIR}/../map/loader;${CMAKE_CURRENT_SOURCE_DIR}/../map/scene>")
 target_link_libraries(kosmindoormap_kpublictransport_integration_plugin PRIVATE
     Qt::Qml
     KOSMIndoorMap

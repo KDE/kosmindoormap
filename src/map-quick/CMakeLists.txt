@@ -64,6 +64,7 @@ target_sources(kosmindoormapquickplugin PRIVATE
     kosmindoormapquickplugin.cpp
     types.h
 )
+target_include_directories(kosmindoormapquickplugin PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../map/content;${CMAKE_CURRENT_SOURCE_DIR}/../map/loader;${CMAKE_CURRENT_SOURCE_DIR}/../map/scene>")
 target_link_libraries(kosmindoormapquickplugin PRIVATE
     KOSMIndoorMapQuick
 )
