@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-27 02:33+0000\n"
-"PO-Revision-Date: 2024-07-01 11:17+0200\n"
+"PO-Revision-Date: 2024-08-16 14:04+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1177,7 +1177,7 @@ msgstr "Bavarois"
 #: map-quick/localization_data.cpp:261
 msgctxt "OSM::cuisine"
 msgid "Beef Bowl"
-msgstr "Beef Bowl"
+msgstr "Bol de bœuf"
 
 #: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
@@ -1327,7 +1327,7 @@ msgstr "Frites"
 #: map-quick/localization_data.cpp:292
 msgctxt "OSM::cuisine"
 msgid "Georigan"
-msgstr "Georgien"
+msgstr "Géorgien"
 
 #: map-quick/localization_data.cpp:293
 msgctxt "OSM::cuisine"
@@ -1357,7 +1357,7 @@ msgstr "Hawaïen"
 #: map-quick/localization_data.cpp:298 map-quick/localization_data.cpp:299
 msgctxt "OSM::cuisine"
 msgid "Hot Dog"
-msgstr "Hot-dog"
+msgstr "Hotdog"
 
 #: map-quick/localization_data.cpp:300
 msgctxt "OSM::cuisine"
