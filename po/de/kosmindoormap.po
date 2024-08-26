@@ -1,27 +1,28 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2024 Alois Spitzbart <spitz234@hotmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-27 02:33+0000\n"
-"PO-Revision-Date: 2023-07-09 00:53+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-de@kde.org>\n"
+"PO-Revision-Date: 2024-05-20 13:45+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"Language-Team: de\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: app/main.cpp:68
 #, kde-format
 msgid "KDE OSM Indoor Map"
-msgstr ""
+msgstr "KDE OSM Innenraumkarte"
 
 #: map-quick/amenitymodel.cpp:89
 #, kde-format
@@ -38,8 +39,7 @@ msgid "Shops"
 msgstr "Laden"
 
 #: map-quick/amenitymodel.cpp:93
-#, fuzzy, kde-format
-#| msgid "Toilets"
+#, kde-format
 msgctxt "amenity category"
 msgid "Toilets"
 msgstr "Toiletten"
@@ -138,7 +138,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:32
 msgctxt "OSM::amenity/shop"
 msgid "Bag"
-msgstr ""
+msgstr "Tasche"
 
 #: map-quick/localization_data.cpp:33
 msgctxt "OSM::amenity"
@@ -309,7 +309,7 @@ msgstr "Kino"
 #: map-quick/localization_data.cpp:64
 msgctxt "OSM::historic"
 msgid "Citywall"
-msgstr ""
+msgstr "Stadtmauer"
 
 #: map-quick/localization_data.cpp:65 map-quick/localization_data.cpp:66
 msgctxt "OSM::room"
@@ -434,9 +434,6 @@ msgid "Department Store"
 msgstr "Warenhaus"
 
 #: map-quick/localization_data.cpp:88 map-quick/localization_data.cpp:89
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Doctor"
 msgctxt "OSM::healthcare"
 msgid "Doctor"
 msgstr "Arzt"
@@ -646,7 +643,7 @@ msgstr "Schnellimbiss"
 #: map-quick/localization_data.cpp:125
 msgctxt "OSM::amenity/shop"
 msgid "Hearing Aids"
-msgstr ""
+msgstr "Hörgeräte"
 
 #: map-quick/localization_data.cpp:126
 msgctxt "OSM::shop"
@@ -730,9 +727,6 @@ msgstr "Bibliothek"
 
 #: map-quick/localization_data.cpp:143 map-quick/localization_data.cpp:144
 #: map-quick/localization_data.cpp:149
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Locker"
 msgctxt "OSM::amenity"
 msgid "Locker"
 msgstr "Schließfach"
@@ -744,9 +738,6 @@ msgstr "Schlüsseldienst"
 
 #: map-quick/localization_data.cpp:146 map-quick/localization_data.cpp:147
 #: map-quick/localization_data.cpp:148
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Lost & Found"
 msgctxt "OSM::amenity"
 msgid "Lost & Found"
 msgstr "Fundbüro"
@@ -754,7 +745,7 @@ msgstr "Fundbüro"
 #: map-quick/localization_data.cpp:150
 msgctxt "OSM::amenity/shop"
 msgid "Mall"
-msgstr ""
+msgstr "Einkaufszentrum"
 
 #: map-quick/localization_data.cpp:151
 msgctxt "OSM::amenity"
@@ -764,7 +755,7 @@ msgstr "Marktplatz"
 #: map-quick/localization_data.cpp:152
 msgctxt "OSM::amenity/shop"
 msgid "Medical Supply"
-msgstr ""
+msgstr "Sanitätshaus"
 
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::room"
@@ -784,7 +775,7 @@ msgstr "Mobiltelefon"
 #: map-quick/localization_data.cpp:156
 msgctxt "OSM::amenity/shop"
 msgid "Money Transfer"
-msgstr ""
+msgstr "Geldtransfer"
 
 #: map-quick/localization_data.cpp:157
 msgctxt "OSM::historic"
@@ -857,12 +848,12 @@ msgstr ""
 #: map-quick/localization_data.cpp:170
 msgctxt "OSM::amenity/shop"
 msgid "Outdoor"
-msgstr ""
+msgstr "Freiluftaktivitäten"
 
 #: map-quick/localization_data.cpp:171
 msgctxt "OSM::amenity/shop"
 msgid "Paint"
-msgstr ""
+msgstr "Malerbedarf"
 
 #: map-quick/localization_data.cpp:172
 msgctxt "outdoor recreational area"
@@ -882,7 +873,7 @@ msgstr "Parkscheine"
 #: map-quick/localization_data.cpp:175
 msgctxt "OSM::amenity/shop"
 msgid "Pastry"
-msgstr ""
+msgstr "Konditorei"
 
 #: map-quick/localization_data.cpp:176
 msgctxt "OSM::amenity/shop"
@@ -892,7 +883,7 @@ msgstr "Parfümerie"
 #: map-quick/localization_data.cpp:177
 msgctxt "OSM::amenity/shop"
 msgid "Pet"
-msgstr ""
+msgstr "Zoofachgeschäft"
 
 #: map-quick/localization_data.cpp:178
 msgctxt "OSM::amenity/shop"
@@ -951,7 +942,7 @@ msgstr "Kneipe"
 #: map-quick/localization_data.cpp:189
 msgctxt "OSM::amenity/shop"
 msgid "Public Transport Tickets"
-msgstr ""
+msgstr "Fahrkartenschalter"
 
 #: map-quick/localization_data.cpp:190 map-quick/localization_data.cpp:227
 msgctxt "OSM::building"
@@ -1019,9 +1010,6 @@ msgid "Shoe Repair"
 msgstr ""
 
 #: map-quick/localization_data.cpp:202
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Shoes"
 msgctxt "OSM::shop"
 msgid "Shoes"
 msgstr "Schuhe"
@@ -1336,9 +1324,6 @@ msgid "Chinese"
 msgstr "Chinesisch"
 
 #: map-quick/localization_data.cpp:274
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Coffee"
 msgctxt "OSM::cuisine"
 msgid "Coffee"
 msgstr "Kaffee"
@@ -1346,7 +1331,7 @@ msgstr "Kaffee"
 #: map-quick/localization_data.cpp:275
 msgctxt "OSM::cuisine"
 msgid "Coffee Shop"
-msgstr ""
+msgstr "Kaffeehaus"
 
 #: map-quick/localization_data.cpp:276
 msgctxt "OSM::cuisine"
@@ -1394,9 +1379,6 @@ msgid "Falafel"
 msgstr "Falafel"
 
 #: map-quick/localization_data.cpp:286
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fast Food"
 msgctxt "OSM::cuisine"
 msgid "Fast Food"
 msgstr "Schnellimbiss"
@@ -1707,9 +1689,6 @@ msgid "Tapas"
 msgstr "Tapas"
 
 #: map-quick/localization_data.cpp:349
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Tea"
 msgctxt "OSM::cuisine"
 msgid "Tea"
 msgstr "Tee"
@@ -1821,12 +1800,12 @@ msgstr "Parken"
 #: map-quick/osmelementinformationmodel.cpp:544
 #, kde-format
 msgid "Operator"
-msgstr ""
+msgstr "Betreiber"
 
 #: map-quick/osmelementinformationmodel.cpp:592
 #, kde-format
 msgid "Formerly"
-msgstr ""
+msgstr "Vormals"
 
 #: map-quick/osmelementinformationmodel.cpp:593
 #, kde-format
@@ -1952,7 +1931,7 @@ msgstr "Digital"
 #: map-quick/osmelementinformationmodel.cpp:619
 #, kde-format
 msgid "Debit cards"
-msgstr ""
+msgstr "Debitkarten"
 
 #: map-quick/osmelementinformationmodel.cpp:620
 #, kde-format
@@ -2002,8 +1981,7 @@ msgid "Remaining range"
 msgstr ""
 
 #: map-quick/osmelementinformationmodel.cpp:700
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -2249,7 +2227,7 @@ msgstr "Anker"
 #: map-quick/osmelementinformationmodel_data.cpp:110
 msgctxt "OSM::bicycle_parking"
 msgid "bollard"
-msgstr ""
+msgstr "Poller"
 
 #: map-quick/osmelementinformationmodel_data.cpp:111
 msgctxt "OSM::bicycle_parking"
@@ -2259,12 +2237,12 @@ msgstr "Gebäude"
 #: map-quick/osmelementinformationmodel_data.cpp:112
 msgctxt "OSM::bicycle_parking"
 msgid "ground slots"
-msgstr ""
+msgstr "Bodenschlitz"
 
 #: map-quick/osmelementinformationmodel_data.cpp:113
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
-msgstr ""
+msgstr "Schließfächer"
 
 #: map-quick/osmelementinformationmodel_data.cpp:114
 msgctxt "OSM::bicycle_parking"
