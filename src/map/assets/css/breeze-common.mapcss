@@ -565,6 +565,25 @@ node|z20-[highway=bus_stop]
     text: name;
 }
 
+area|z20-[public_transport=platform][bus=yes],
+way|z20-[public_transport=platform][bus=yes]
+{
+    text-color: #fcfcfc;
+    shield-color: #1d99f3;
+    shield-casing-color: #fcfcfc;
+    shield-casing-width: 1;
+}
+area|z20-[public_transport=platform][bus=yes][ref],
+way|z20-[public_transport=platform][bus=yes][ref]
+{
+    text: ref;
+}
+area|z20-[public_transport=platform][bus=yes][local_ref],
+way|z20-[public_transport=platform][bus=yes][local_ref]
+{
+    text: local_ref;
+}
+
 area[railway=platform],
 area[public_transport=platform],
 way[public_transport=platform]
