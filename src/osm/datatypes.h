@@ -27,7 +27,7 @@ class DataSet;
 class Member;
 
 /** OSM element identifier. */
-typedef int64_t Id;
+using Id = int64_t;
 
 /** Coordinate, stored as 1e7 * degree to avoid floating point precision issues,
  *  and offset to unsigned values to make the z-order curve work.
@@ -219,6 +219,7 @@ public:
     }
 
     [[nodiscard]] constexpr inline bool operator<(const Node &other) const { return id < other.id; }
+    [[nodiscard]] constexpr inline bool operator<(Id other) const { return id < other; };
 
     [[nodiscard]] QString url() const;
 
@@ -246,11 +247,12 @@ public:
         return *this;
     }
 
-    constexpr inline bool operator<(const Way &other) const { return id < other.id; }
+    [[nodiscard]] constexpr inline bool operator<(const Way &other) const { return id < other.id; }
+    [[nodiscard]] constexpr inline bool operator<(Id other) const { return id < other; };
 
-    bool isClosed() const;
+    [[nodiscard]] bool isClosed() const;
 
-    QString url() const;
+    [[nodiscard]] QString url() const;
 
     Id id;
     mutable BoundingBox bbox;
@@ -330,6 +332,7 @@ public:
     }
 
     [[nodiscard]] constexpr inline bool operator<(const Relation &other) const { return id < other.id; }
+    [[nodiscard]] constexpr inline bool operator<(Id other) const { return id < other; };
 
     [[nodiscard]] QString url() const;
 
@@ -501,12 +504,6 @@ inline void removeTag(Elem &elem, TagKey key)
     if (it != elem.tags.end() && (*it).key == key) {
         elem.tags.erase(it);
     }
-}
-
-template <typename Elem>
-[[nodiscard]] inline bool operator<(const Elem &elem, Id id)
-{
-    return elem.id < id;
 }
 
 }
