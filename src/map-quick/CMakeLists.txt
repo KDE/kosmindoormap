@@ -59,6 +59,7 @@ ecm_add_qml_module(kosmindoormapquickplugin
         "QtQuick.Layouts"
         "org.kde.kirigami"
         "org.kde.kopeninghours"
+        "org.kde.contacts"
 )
 target_sources(kosmindoormapquickplugin PRIVATE
     kosmindoormapquickplugin.cpp
