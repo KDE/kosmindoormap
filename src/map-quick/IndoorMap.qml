@@ -7,7 +7,6 @@
 pragma ValueTypeBehavior: Addressable
 
 import QtQuick
-import QtQuick.Layouts
 import org.kde.kosmindoormap
 import QtQuick.Controls as QQC2
 
@@ -110,7 +109,7 @@ Item {
                     modifiers: tapHandler.point.modifiers,
                 } as mapPointerEvent;
                 if (!ev.element.isNull) {
-                    elementPicked(ev.element);
+                    mapRoot.elementPicked(ev.element);
                 }
                 mapRoot.tapped(ev);
             }
@@ -123,7 +122,7 @@ Item {
                     modifiers: tapHandler.point.modifiers,
                 } as mapPointerEvent;
                 if (!ev.element.isNull) {
-                    elementLongPressed(ev.element);
+                    mapRoot.elementLongPressed(ev.element);
                 }
                 mapRoot.longPressed(ev);
             }

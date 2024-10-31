@@ -20,7 +20,7 @@ class MapPointerEvent
     QML_ELEMENT
     QML_VALUE_TYPE(mapPointerEvent)
     QML_STRUCTURED_VALUE
-    Q_PROPERTY(OSMElement element MEMBER m_element)
+    Q_PROPERTY(KOSMIndoorMap::OSMElement element MEMBER m_element)
     Q_PROPERTY(QPointF geoPosition MEMBER m_geoPos)
     Q_PROPERTY(QPointF screenPosition MEMBER m_screenPos)
     Q_PROPERTY(Qt::MouseButton button MEMBER m_button)
