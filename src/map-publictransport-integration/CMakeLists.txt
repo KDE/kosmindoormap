@@ -4,6 +4,8 @@
 ecm_add_qml_module(kosmindoormap_kpublictransport_integration_plugin
     URI "org.kde.kosmindoormap.kpublictransport"
     GENERATE_PLUGIN_SOURCE
+    DEPENDENCIES
+        "org.kde.kosmindoormap"
 )
 target_sources(kosmindoormap_kpublictransport_integration_plugin PRIVATE
     locationqueryoverlayproxymodel.cpp
