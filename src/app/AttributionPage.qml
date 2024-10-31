@@ -5,31 +5,33 @@
 */
 
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kpublictransport as KPublicTransport
 
 Kirigami.ScrollablePage {
     id: root
     title: i18nc("@title:page", "Data Sources")
 
-    required property var publicTransportManager
+    required property KPublicTransport.Manager publicTransportManager
 
     Component {
         id: attributionDelegate
         QQC2.ItemDelegate {
+            id: delegate
+            required property KPublicTransport.attribution modelData
             width: ListView.view.width
-            onClicked: Qt.openUrlExternally(modelData.url)
+            onClicked: Qt.openUrlExternally(delegate.modelData.url)
             contentItem: Kirigami.TitleSubtitle {
-                title: modelData.name
-                subtitle: (modelData.license.length > 0 || modelData.licenseUrl.length > 0) ? i18n("License: <a href=\"%1\">%2</a>", modelData.licenseUrl, modelData.license.length > 0 ? modelData.license : modelData.licenseUrl) : i18n("License: Other")
+                title: delegate.modelData.name
+                subtitle: (delegate.modelData.license.length > 0 || delegate.modelData.licenseUrl.length > 0) ? i18n("License: <a href=\"%1\">%2</a>", delegate.modelData.licenseUrl, delegate.modelData.license.length > 0 ? delegate.modelData.license : delegate.modelData.licenseUrl) : i18n("License: Other")
                 onLinkActivated: link => Qt.openUrlExternally(link)
             }
         }
     }
 
     ListView {
-        model: publicTransportManager.attributions
+        model: root.publicTransportManager.attributions
         delegate: attributionDelegate
     }
 }
