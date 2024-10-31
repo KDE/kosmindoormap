@@ -27,16 +27,44 @@ struct EquipmentModelForeign {
     QML_FOREIGN(KOSMIndoorMap::EquipmentModel)
 };
 
+struct FloorLevelModelForeign {
+    Q_GADGET
+    QML_NAMED_ELEMENT(FloorLevelModel)
+    QML_FOREIGN(KOSMIndoorMap::FloorLevelModel)
+    QML_UNCREATABLE("only provided via C++ API")
+};
+
 struct GateModelForeign {
     Q_GADGET
     QML_NAMED_ELEMENT(GateModel)
     QML_FOREIGN(KOSMIndoorMap::GateModel)
 };
 
+struct MapDataForeign {
+    Q_GADGET
+    QML_FOREIGN(KOSMIndoorMap::MapData)
+    QML_VALUE_TYPE(mapData)
+    QML_UNCREATABLE("only provided via C++ API")
+};
+
+struct MapLoaderForeign {
+    Q_GADGET
+    QML_NAMED_ELEMENT(MapLoader)
+    QML_FOREIGN(KOSMIndoorMap::MapLoader)
+    QML_UNCREATABLE("only provided via C++ API")
+};
+
 struct PlatformModelForeign {
     Q_GADGET
     QML_NAMED_ELEMENT(PlatformModel)
     QML_FOREIGN(KOSMIndoorMap::PlatformModel)
+};
+
+struct ViewForeign {
+    Q_GADGET
+    QML_NAMED_ELEMENT(View)
+    QML_FOREIGN(KOSMIndoorMap::View)
+    QML_UNCREATABLE("only provided via C++ API")
 };
 
 
@@ -63,6 +91,13 @@ struct MapItemForeign {
     Q_GADGET
     QML_NAMED_ELEMENT(MapItemImpl)
     QML_FOREIGN(KOSMIndoorMap::MapItem)
+};
+
+struct OSMElementForeign {
+    Q_GADGET
+    QML_NAMED_ELEMENT(osmElement)
+    QML_FOREIGN(KOSMIndoorMap::OSMElement)
+    QML_UNCREATABLE("only provided via C++ API")
 };
 
 struct OSMElementInformationModelForeign {
