@@ -14,3 +14,4 @@ heaptrack.*
 *.fail
 /compile_commands.json
 /.cache
+.qmlls.ini
