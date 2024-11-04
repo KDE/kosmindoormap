@@ -21,12 +21,13 @@ if (NOT BUILD_TOOLS_ONLY)
         style/mapcsslexer.l
         ${CMAKE_CURRENT_BINARY_DIR}/mapcsslexer.cpp
         DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/mapcssscanner.h
-        COMPILE_FLAGS "--nounistd"
+        COMPILE_FLAGS "--nounistd --noline"
     )
     bison_target(mapcssparser
         style/mapcssparser.y
         ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_impl.cpp
         DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/mapcssparser_impl.h
+        COMPILE_FLAGS "--no-lines"
     )
     add_flex_bison_dependency(mapcssscanner mapcssparser)
     set_source_files_properties(${BISON_mapcssparser_OUTPUTS} ${FLEX_mapcssscanner_OUTPUTS} PROPERTIES SKIP_AUTOMOC ON)
