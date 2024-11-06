@@ -12,7 +12,7 @@ import org.kde.kosmindoorrouting
 Kirigami.Dialog {
     id: root
 
-    property var routingProfile
+    property routingProfile routingProfile
     signal applyRoutingProfile()
 
     title: i18n("Configure Routing Profile")

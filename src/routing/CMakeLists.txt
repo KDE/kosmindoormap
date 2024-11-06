@@ -45,6 +45,8 @@ else()
     target_compile_definitions(KOSMIndoorRouting PRIVATE HAVE_RECAST=0)
 endif()
 
+qt_extract_metatypes(KOSMIndoorRouting)
+
 ecm_generate_headers(KOSMIndoorRouting_FORWARDING_HEADERS
     HEADER_NAMES
         NavMesh
