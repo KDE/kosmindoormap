@@ -179,7 +179,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Configure routing...")
                 icon.name: "settings-configure"
-                visible: routingController.isAvailable
+                visible: routingController.available
                 onTriggered: {
                     routingSheet.routingProfile = routingController.profile;
                     routingSheet.open();
