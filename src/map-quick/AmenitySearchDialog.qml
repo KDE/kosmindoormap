@@ -46,7 +46,7 @@ Kirigami.SearchDialog {
     section {
         property: "groupName"
         delegate: Kirigami.ListSectionHeader {
-            label: section
+            text: section
             width: ListView.view.width
         }
     }

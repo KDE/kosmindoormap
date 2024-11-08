@@ -13,7 +13,7 @@ Kirigami.Dialog {
     id: root
 
     /** Instance of a FloorLevelChangeModel. */
-    property alias model: listView.model
+    property FloorLevelChangeModel model
 
     /** Emitted when a floor level has been selected. */
     signal floorLevelSelected(level: int)
@@ -26,23 +26,29 @@ Kirigami.Dialog {
     contentItem: ListView {
         id: listView
         clip: true
+        model: root.model
         keyNavigationEnabled: true
 
         delegate: QQC2.ItemDelegate {
+            id: delegateRoot
+            required property string name
+            required property int floorLevel
+            required property bool isCurrentFloor
+
             width: ListView.view.width
             contentItem: Kirigami.TitleSubtitle {
-                title: model.display
-                font.bold: model.isCurrentFloor
+                title: delegateRoot.name
+                font.bold: delegateRoot.isCurrentFloor
             }
             onClicked: {
                 root.close();
-                root.floorLevelSelected(model.floorLevel);
+                root.floorLevelSelected(delegateRoot.floorLevel);
             }
             Keys.onPressed: (event) => {
                 if (event.key === Qt.Key_Enter || event.key == Qt.Key_Return) {
                     event.accepted = true;
                     root.close();
-                    root.floorLevelSelected(model.floorLevel);
+                    root.floorLevelSelected(delegateRoot.floorLevel);
                 }
             }
         }

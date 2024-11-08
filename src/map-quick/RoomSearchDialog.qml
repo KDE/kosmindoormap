@@ -30,33 +30,39 @@ Kirigami.SearchDialog {
 
     delegate: QQC2.ItemDelegate {
         id: item
-        required property QtObject model
+        required property string name
+        required property string number
+        required property string typeName
+        required property string levelLongName
+        required property int level
+        required property osmElement element
+
         width: ListView.view.width
         contentItem: Kirigami.TitleSubtitle {
             title: {
-                if (model.name === "")
-                    return model.number;
-                if (model.number === "")
-                    return model.name;
-                return i18nd("kosmindoormap", "%1 (%2)", model.name, model.number);
+                if (item.name === "")
+                    return item.number;
+                if (item.number === "")
+                    return item.name;
+                return i18nd("kosmindoormap", "%1 (%2)", item.name, item.number);
             }
             subtitle: {
                 if (root.roomModel.buildingCount === 1)
-                    return model.typeName;
-                if (model.typeName === "")
-                    return model.levelLongName;
-                return i18nd("kosmindoormap", "%1 (%2)", model.typeName, model.levelLongName);
+                    return item.typeName;
+                if (item.typeName === "")
+                    return item.levelLongName;
+                return i18nd("kosmindoormap", "%1 (%2)", item.typeName, item.levelLongName);
             }
         }
         onClicked: {
-            root.roomSelected({ element: item.model.element, level: item.model.level });
+            root.roomSelected({ element: item.element, level: item.level });
             root.accept();
         }
 
         Keys.onPressed: (event) => {
             if (event.key === Qt.Key_Enter || event.key == Qt.Key_Return) {
                 event.accepted = true;
-                root.roomSelected({ element: item.model.element, level: item.model.level });
+                root.roomSelected({ element: item.element, level: item.level });
                 root.accept();
             }
         }
@@ -64,7 +70,7 @@ Kirigami.SearchDialog {
 
     section.property: root.roomModel.buildingCount !== 1 ? "buildingName" : "levelLongName"
     section.delegate: Kirigami.ListSectionHeader {
-        label: section
+        text: section
         width: ListView.view.width
     }
 

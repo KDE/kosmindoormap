@@ -7,6 +7,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kosmindoormap
 
 /** OSM element info dialog delegate for graphically displaying link entries. */
 RowLayout {
@@ -30,8 +31,8 @@ RowLayout {
     QQC2.Label {
         Layout.fillWidth: true
         text: "<a href=\"" + root.url + "\">" + root.value + "</a>"
-        color: (row && row.category == OSMElementInformationModel.DebugCategory) ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-        onLinkActivated: Qt.openUrlExternally(link)
+        color: root.category == OSMElementInformationModel.DebugCategory ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
+        onLinkActivated: (link) => { Qt.openUrlExternally(link); }
         wrapMode: Text.WordWrap
     }
 }

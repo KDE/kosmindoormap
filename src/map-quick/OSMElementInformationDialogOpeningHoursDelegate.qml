@@ -7,7 +7,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
-import org.kde.kopeninghours
+import org.kde.kopeninghours as OH
 
 /** OSM element info dialog delegate for graphically displaying opening hours. */
 ColumnLayout {
@@ -26,25 +26,25 @@ ColumnLayout {
 
     // internal
     readonly property var oh: {
-        var v = OpeningHoursParser.parse(root.openingHours);
+        let v = OH.OpeningHoursParser.parse(root.openingHours);
         v.region = root.regionCode;
         v.timeZone = root.timeZoneId;
         v.setLocation(root.latitude, root.longitude);
-        if (v.error != OpeningHours.NoError && root.openingHours !== "") {
+        if (v.error != OH.OpeningHours.NoError && root.openingHours !== "") {
             console.log("Opening hours parsing error:", v.error, root.regionCode, root.timeZoneId)
         }
         return v;
     }
 
     QQC2.Label {
-        property var currentInterval: root.oh.interval(new Date())
+        property OH.interval currentInterval: root.oh.interval(new Date())
 
         id: currentState
         text: intervalModel.currentState // TODO we could update this every minute
         color: {
             switch (currentInterval.state) {
-                case Interval.Open: return Kirigami.Theme.positiveTextColor;
-                case Interval.Closed: return Kirigami.Theme.negativeTextColor;
+                case OH.Interval.Open: return Kirigami.Theme.positiveTextColor;
+                case OH.Interval.Closed: return Kirigami.Theme.negativeTextColor;
                 default: return Kirigami.Theme.textColor;
             }
         }
@@ -60,22 +60,22 @@ ColumnLayout {
             Row {
                 id: row
                 QQC2.Label {
-                    text: dayData.shortDayName
+                    text: delegateRoot.dayData.shortDayName
                     width: delegateRoot.ListView.view.labelWidth + Kirigami.Units.smallSpacing
                     Component.onCompleted: delegateRoot.ListView.view.labelWidth = Math.max(delegateRoot.ListView.view.labelWidth, implicitWidth)
-                    font.bold: dayData.isToday
+                    font.bold: delegateRoot.dayData.isToday
                 }
                 Repeater {
-                    model: dayData.intervals
+                    model: delegateRoot.dayData.intervals
                     Rectangle {
                         id: intervalBox
-                        property var interval: modelData
-                        property var closeColor: Kirigami.Theme.negativeBackgroundColor;
+                        property OH.interval interval: modelData
+                        property color closeColor: Kirigami.Theme.negativeBackgroundColor;
                         color: {
                             switch (interval.state) {
-                                case Interval.Open: return Kirigami.Theme.positiveBackgroundColor;
-                                case Interval.Closed: return intervalBox.closeColor;
-                                case Interval.Unknown: return Kirigami.Theme.neutralBackgroundColor;
+                                case OH.Interval.Open: return Kirigami.Theme.positiveBackgroundColor;
+                                case OH.Interval.Closed: return intervalBox.closeColor;
+                                case OH.Interval.Unknown: return Kirigami.Theme.neutralBackgroundColor;
                             }
                             return "transparent";
                         }
@@ -87,13 +87,13 @@ ColumnLayout {
                         gradient: Gradient {
                             orientation: Gradient.Horizontal
                             GradientStop { position: 0.0; color: intervalBox.color }
-                            GradientStop { position: (interval.end - interval.begin) / (interval.estimatedEnd - interval.begin); color: intervalBox.color }
-                            GradientStop { position: 1.0; color: interval.hasOpenEndTime ? intervalBox.closeColor : intervalBox.color }
+                            GradientStop { position: (intervalBox.interval.end - intervalBox.interval.begin) / (intervalBox.interval.estimatedEnd - intervalBox.interval.begin); color: intervalBox.color }
+                            GradientStop { position: 1.0; color: intervalBox.interval.hasOpenEndTime ? intervalBox.closeColor : intervalBox.color }
                         }
 
                         QQC2.Label {
                             id: commentLabel
-                            text: interval.comment
+                            text: intervalBox.interval.comment
                             anchors.centerIn: parent
                             visible: commentLabel.implicitWidth < intervalBox.width
                             font.italic: true
@@ -103,7 +103,7 @@ ColumnLayout {
             }
             Rectangle {
                 id: nowMarker
-                property double position: (Date.now() - dayData.dayBegin) / (24 * 60 * 60 * 1000)
+                property double position: (Date.now() - delegateRoot.dayData.dayBegin) / (24 * 60 * 60 * 1000)
                 visible: position >= 0.0 && position < 1.0
                 color: Kirigami.Theme.textColor
                 width: 2
@@ -114,7 +114,7 @@ ColumnLayout {
         }
     }
 
-    IntervalModel {
+    OH.IntervalModel {
         id: intervalModel
         openingHours: root.oh
         // TODO we could use the layover time here, if available and in the future
@@ -131,7 +131,7 @@ ColumnLayout {
         width: parent.width
         height: contentHeight
         boundsBehavior: Flickable.StopAtBounds
-        visible: root.oh.error == OpeningHours.NoError
+        visible: root.oh.error == OH.OpeningHours.NoError
         model: intervalModel
         delegate: intervalDelegate
         property int labelWidth: 0
@@ -140,11 +140,11 @@ ColumnLayout {
         header: Row {
             id: intervalHeader
             property int colCount: (intervalView.width - Kirigami.Units.smallSpacing - intervalView.labelWidth) / fm.advanceWidth(intervalModel.formatTimeColumnHeader(12, 59)) < 8 ? 4 : 8
-            property int itemWidth: (intervalHeader.ListView.view.width -  intervalHeader.ListView.view.labelWidth - Kirigami.Units.smallSpacing) / colCount
+            property int itemWidth: (intervalHeader.ListView.view.width - intervalHeader.ListView.view.labelWidth - Kirigami.Units.smallSpacing) / colCount
             x: intervalHeader.ListView.view.labelWidth + Kirigami.Units.smallSpacing + intervalHeader.itemWidth/2
             Repeater {
                 // TODO we might need to use less when space constrained horizontally
-                model: colCount - 1
+                model: intervalHeader.colCount - 1
                 QQC2.Label {
                     text: intervalModel.formatTimeColumnHeader((modelData + 1) * 24/colCount, 0)
                     width: intervalHeader.itemWidth

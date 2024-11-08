@@ -54,6 +54,7 @@ public:
     ~FloorLevelChangeModel();
 
     enum Roles {
+        NameRole = Qt::DisplayRole,
         FloorLevelRole = Qt::UserRole,
         CurrentFloorRole,
     };

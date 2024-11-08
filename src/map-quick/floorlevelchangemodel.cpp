@@ -50,6 +50,7 @@ QVariant FloorLevelChangeModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> FloorLevelChangeModel::roleNames() const
 {
     auto n = QAbstractListModel::roleNames();
+    n.insert(NameRole, "name");
     n.insert(FloorLevelRole, "floorLevel");
     n.insert(CurrentFloorRole, "isCurrentFloor");
     return n;

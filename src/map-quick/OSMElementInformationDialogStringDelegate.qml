@@ -7,6 +7,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kosmindoormap
 
 /** OSM element info dialog delegate for graphically displaying textual entries. */
 RowLayout {

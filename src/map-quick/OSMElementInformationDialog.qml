@@ -169,6 +169,7 @@ Kirigami.Dialog {
 
         section.property: "categoryLabel"
         section.delegate: Kirigami.Heading {
+            required property string section
             x: Kirigami.Units.largeSpacing
             level: 4
             text: section
