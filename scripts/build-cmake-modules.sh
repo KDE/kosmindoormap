@@ -5,7 +5,7 @@ set -e
 set -x
 
 PROTOBUF_VERSION=21.x
-KF_VERSION="v6.4.0"
+KF_VERSION="v6.8.0"
 GEAR_VERSION="master"
 
 function build_cmake_module() {
