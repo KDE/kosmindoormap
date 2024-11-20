@@ -10,6 +10,7 @@
 #include <QLineF>
 #include <QPainterPath>
 #include <QPolygonF>
+#include <QRectF>
 
 #include <cmath>
 
@@ -162,4 +163,30 @@ double SceneGeometry::distanceToLine(const QLineF &line, QPointF p)
     const auto intersection = line.p1() + r * (line.p2() - line.p1());
     return QLineF(intersection, p).length();
 
+}
+
+bool SceneGeometry::polygonContainsRect(const QPolygonF &polygon, const QRectF &rect)
+{
+    if (!polygon.boundingRect().contains(rect) || polygon.size() < 5 || rect.isEmpty()) {
+        return false;
+    }
+
+    if (!polygon.containsPoint(rect.topLeft(), Qt::OddEvenFill)) {
+        return false;
+    }
+
+    std::array<QLineF, 4> rectLines = { QLineF{ rect.topLeft(), rect.topRight() },
+                                        QLineF{ rect.topRight(), rect.bottomRight() },
+                                        QLineF{ rect.bottomRight(), rect.bottomLeft() },
+                                        QLineF{ rect.bottomLeft(), rect.topLeft() } };
+    for (auto it = std::next(polygon.begin()); it != polygon.end(); ++it) {
+        QLineF line(*std::prev(it), *it);
+        for (const auto rectLine : rectLines) {
+            if (line.intersects(rectLine) == QLineF::BoundedIntersection) {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }

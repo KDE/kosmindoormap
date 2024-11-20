@@ -373,6 +373,7 @@ void SceneController::updateElement(const MapCSSState &state, int level, SceneGr
             double shieldOpacity = 1.0;
             bool forceCenterPosition = false;
             bool forceLinePosition = false;
+            bool textRequireFit = false;
             IconData iconData;
             for (auto decl : result.declarations()) {
                 applyGenericStyle(decl, item);
@@ -462,6 +463,9 @@ void SceneController::updateElement(const MapCSSState &state, int level, SceneGr
                     case MapCSSProperty::IconAllowTextOverlap:
                         item->allowTextOverlap = decl->boolValue();
                         break;
+                    case MapCSSProperty::TextRequireFit:
+                        textRequireFit = true;
+                        break;
                     default:
                         break;
                 }
@@ -537,6 +541,15 @@ void SceneController::updateElement(const MapCSSState &state, int level, SceneGr
                     const auto screenP2 = d->m_view->mapSceneToScreen(sceneP2);
                     const auto screenLen = screenP2.x() - screenP1.x();
                     if (screenLen < item->text.size().width()) {
+                        item->text = {};
+                    }
+                } else if (result.hasAreaProperties() && textRequireFit && d->m_labelPlacementPath.size() >= 5 && item->angle == 0.0) {
+                    const auto textSize = item->textOutputSize();
+                    QRectF sceneTextRect;
+                    sceneTextRect.setWidth(d->m_view->mapScreenDistanceToSceneDistance(textSize.width()));
+                    sceneTextRect.setHeight(d->m_view->mapScreenDistanceToSceneDistance(textSize.height()));
+                    sceneTextRect.moveCenter(item->pos); // TODO consider icon and offset
+                    if (!SceneGeometry::polygonContainsRect(d->m_labelPlacementPath, sceneTextRect)) {
                         item->text = {};
                     }
                 }

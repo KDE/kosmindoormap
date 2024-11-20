@@ -71,6 +71,7 @@ struct {
     { "text-offset", MapCSSProperty::TextOffset, MapCSSDeclaration::NoFlag },
     { "text-opacity", MapCSSProperty::TextOpacity, MapCSSDeclaration::NoFlag },
     { "text-position", MapCSSProperty::TextPosition, MapCSSDeclaration::NoFlag },
+    { "text-require-fit", MapCSSProperty::TextRequireFit, MapCSSDeclaration::NoFlag }, // custom extension
     { "text-transform", MapCSSProperty::TextTransform, MapCSSDeclaration::NoFlag },
     { "width", MapCSSProperty::Width, MapCSSDeclaration::LineProperty },
     { "z-index", MapCSSProperty::ZIndex, MapCSSDeclaration::NoFlag },

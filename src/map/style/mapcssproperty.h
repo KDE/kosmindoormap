@@ -64,6 +64,7 @@ enum class MapCSSProperty {
     Text, /// label content
     TextHaloColor, /// text halo color
     TextHaloRadius, /// text halo radius
+    TextRequireFit, /// text has to fit into its associated geometry (custom extension)
 
     // shield properties (casing > frame > shield > text)
     ShieldColor, /// shield color

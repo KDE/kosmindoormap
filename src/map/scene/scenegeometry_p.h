@@ -13,6 +13,7 @@ class QLineF;
 class QPainterPath;
 class QPointF;
 class QPolygonF;
+class QRectF;
 
 namespace KOSMIndoorMap {
 
@@ -43,6 +44,9 @@ namespace SceneGeometry
 
     /** Computes the distance of the given line to the given point. */
     KOSMINDOORMAP_EXPORT double distanceToLine(const QLineF &line, QPointF p);
+
+    /** Checks whether a given rectangle is inside a polygon. */
+    [[nodiscard]] bool polygonContainsRect(const QPolygonF &polygon, const QRectF &rect);
 }
 
 }
