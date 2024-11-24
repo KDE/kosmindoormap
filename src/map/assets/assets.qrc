@@ -7,6 +7,7 @@
         <file>css/breeze-common.mapcss</file>
         <file>css/breeze-dark.mapcss</file>
         <file>css/breeze-light.mapcss</file>
+        <file>css/carto-landcover.mapcss</file>
         <file>css/diagnostic.mapcss</file>
         <file>css/input-filter.mapcss</file>
         <file>css/platform-overlay.mapcss</file>
@@ -199,19 +200,37 @@
         <file>icons/windmill.svg</file>
 
         <file>textures/allotments.svg</file>
+        <file>textures/arete-mid.svg</file>
+        <file>textures/arete2.svg</file>
         <file>textures/beach.png</file>
+        <file>textures/beach_coarse.png</file>
+        <file>textures/cliff.svg</file>
+        <file>textures/cliff2.svg</file>
+        <file>textures/danger_red_hatch.svg</file>
+        <file>textures/dog_park.svg</file>
         <file>textures/embankment.svg</file>
+        <file>textures/flowerbed_mid_zoom.svg</file>
+        <file>textures/flowerbed_high_zoom.svg</file>
+        <file>textures/grave_yard_christian.svg</file>
         <file>textures/grave_yard_generic.svg</file>
+        <file>textures/grave_yard_jewish.svg</file>
+        <file>textures/grave_yard_muslim.svg</file>
+        <file>textures/grey_vertical_hatch.svg</file>
         <file>textures/intermittent_water.svg</file>
         <file>textures/leaftype_broadleaved.svg</file>
         <file>textures/leaftype_leafless.svg</file>
         <file>textures/leaftype_mixed.svg</file>
         <file>textures/leaftype_needleleaved.svg</file>
         <file>textures/leaftype_unknown.svg</file>
+        <file>textures/military_red_hatch.svg</file>
         <file>textures/orchard.svg</file>
         <file>textures/plant_nursery.svg</file>
         <file>textures/quarry.svg</file>
+        <file>textures/reef.png</file>
+        <file>textures/ridge-mid.svg</file>
+        <file>textures/ridge2.svg</file>
         <file>textures/rock_overlay.png</file>
+        <file>textures/scree_overlay.png</file>
         <file>textures/scrub.png</file>
         <file>textures/vineyard.svg</file>
         <file>textures/wetland.png</file>
