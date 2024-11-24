@@ -598,10 +598,12 @@ way[public_transport=platform]
  *  keep before amenities/shops, as those can occur on the same element and should override the static element styles
  */
 line[barrier],
-line[indoor=wall],
-line[man_made=embankment]
+line[indoor=wall]
 {
     width: 0.25m;
+}
+line[man_made=embankment] {
+    image: url("embankment.svg");
 }
 
 line[barrier=fence],

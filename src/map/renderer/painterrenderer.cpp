@@ -337,9 +337,26 @@ void PainterRenderer::renderPolyline(PolylineItem *item, SceneGraphItemPayload::
 {
     if (phase == SceneGraphItemPayload::StrokePhase) {
         auto p = item->pen;
-        p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
-        m_painter->setPen(p);
-        m_painter->drawPolyline(item->path);
+        if (p.brush().style() == Qt::TexturePattern) {
+            m_painter->save();
+            const auto wt = m_painter->transform();
+            m_painter->resetTransform();
+            p.setWidthF(mapToScreenWidth(item->pen.widthF(), item->penWidthUnit));
+            auto b = p.brush();
+            Q_ASSERT(item->path.size() > 1);
+            for (auto it = item->path.constBegin(); it != std::prev(item->path.constEnd()); ++it) {
+                QLineF line(wt.map(*it), wt.map(*std::next(it)));
+                b.setTransform(QTransform().translate(wt.map(*it).x(), wt.map(*it).y()).rotate(-line.angle()).translate(0.0, -p.widthF() / 2.0));
+                p.setBrush(b);
+                m_painter->setPen(p);
+                m_painter->drawLine(line);
+            }
+            m_painter->restore();
+        } else {
+            p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit));
+            m_painter->setPen(p);
+            m_painter->drawPolyline(item->path);
+        }
     } else {
         auto p = item->casingPen;
         p.setWidthF(mapToSceneWidth(item->pen.widthF(), item->penWidthUnit) + mapToSceneWidth(item->casingPen.widthF(), item->casingPenWidthUnit));
@@ -486,6 +503,18 @@ double PainterRenderer::mapToSceneWidth(double width, Unit unit) const
             return m_view->mapScreenDistanceToSceneDistance(width);
         case Unit::Meter:
             return m_view->mapMetersToScene(width);
+    }
+
+    return width;
+}
+
+double PainterRenderer::mapToScreenWidth(double width, Unit unit) const
+{
+    switch (unit) {
+        case Unit::Pixel:
+            return width * m_view->deviceTransform().m11();
+        case Unit::Meter:
+            return m_view->mapMetersToScreen(width);
     }
 
     return width;

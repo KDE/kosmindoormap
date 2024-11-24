@@ -50,6 +50,7 @@ private:
     void renderPolygonCasing(PolygonBaseItem *item, const T &geom);
 
     [[nodiscard]] double mapToSceneWidth(double width, Unit unit) const;
+    [[nodiscard]] double mapToScreenWidth(double width, Unit unit) const;
     // inverse view transformation with translation applied
     // needed for textured brushes
     [[nodiscard]] QTransform brushTransform() const;

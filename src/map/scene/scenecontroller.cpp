@@ -651,6 +651,10 @@ void SceneController::applyPenStyle(OSM::Element e, const MapCSSDeclaration *dec
         case MapCSSProperty::Opacity:
             opacity = decl->doubleValue();
             break;
+        case MapCSSProperty::Image:
+            pen.setBrush(d->m_textureCache.image(decl->stringValue()));
+            unit = Unit::Pixel; // TODO scalable line textures aren't implemented yet
+            break;
         default:
             break;
     }
@@ -732,6 +736,10 @@ void SceneController::finalizePen(QPen &pen, double opacity) const
         auto c = pen.color();
         c.setAlphaF(c.alphaF() * opacity);
         pen.setColor(c);
+    }
+
+    if (pen.brush().style() == Qt::TexturePattern && pen.widthF() == 0.0) {
+        pen.setWidthF(pen.brush().textureImage().height() / pen.brush().textureImage().devicePixelRatio());
     }
 
     if (pen.color().alphaF() == 0.0 || pen.widthF() == 0.0) {
