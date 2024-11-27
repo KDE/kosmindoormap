@@ -1,0 +1,202 @@
+/*
+    SPDX-FileCopyrightText: https://github.com/gravitystorm/openstreetmap-carto/
+    SPDX-FileCopyrightText: 2023 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: CC0-1.0
+*/
+
+// @waterway-text-repeat-distance: 200;
+
+area|z5-[natural=glacier] {
+    set .glacier;
+    width: 1.0px;
+}
+area|z10-[natural=glacier] {
+    dashes: 4,2;
+    width: 1.5px;
+}
+
+// TODO seasonal=no?
+area[place=sea],
+area[waterway=dock][intermittent!=yes],
+area[landuse=basin][intermittent!=yes],
+area[natural=water][intermittent!=yes],
+area[landuse=reservoir][intermittent!=yes],
+area[waterway=riverbank][intermittent!=yes] {
+    set .water;
+}
+area[waterway=dock][intermittent=yes],
+area[waterway=dock][seasonal][seasonal!=no],
+area[landuse=basin][intermittent=yes],
+area[landuse=basin][seasonal][seasonal!=no],
+area[natural=water][intermittent=yes],
+area[natural=water][seasonal][seasonal!=no],
+area[landuse=reservoir][intermittent=yes],
+area[landuse=reservoir][seasonal][seasonal!=no],
+area[waterway=riverbank][intermittent=yes],
+area[waterway=riverbank][seasonal][seasonal!=no] {
+    fill-image: url("intermittent_water.svg");
+}
+
+line|z12- [waterway=canal][!tunnel],
+line|z12- [waterway=canal][tunnel=no],
+line|z12- [waterway=river][!tunnel],
+line|z12- [waterway=river][tunnel=no] {
+    set .water;
+    width: 3m;
+    linecap: round;
+    linejoin: round;
+}
+
+
+// TODO make colors externally customizable
+line|z12- [waterway=canal][tunnel][tunnel!=no],
+line|z12- [waterway=river][tunnel][tunnel!=no] {
+    width: 2.5m;
+    linecap: none;
+    linejoin: miter;
+    color: #f3f7f7;
+    casing-dashes: 1,0.5;
+    casing-width: 4px;
+    casing-color: #aad3df;
+}
+
+// TODO seasonal!=no?
+line|z12- [waterway=canal][intermittent=yes],
+line|z12- [waterway=river][intermittent=yes] {
+    dashes: 1,0.75;
+    linecap: none;
+}
+
+// TODO this overpaints water areas e.g https://www.openstreetmap.org/way/145439465#map=17/52.230452/11.696269
+line|z12- [waterway=canal][bridge][bridge!=no],
+line|z12- [waterway=river][bridge][bridge!=no] {
+    set .bridge;
+    casing-width: 2px;
+}
+
+// TODO Carto has this only for non-intermittent ones starting at z14, intermittent only from z15
+line|z14-[waterway=stream][!tunnel],
+line|z14-[waterway=stream][tunnel=no],
+line|z14-[waterway=ditch][!tunnel],
+line|z14-[waterway=ditch][tunnel=no],
+line|z14-[waterway=drain][!tunnel],
+line|z14-[waterway=drain][tunnel=no] {
+    set .water;
+    width: 1m;
+    linejoin: round;
+}
+
+line|z14-[waterway=stream][tunnel][tunnel!=no],
+line|z14-[waterway=ditch][tunnel][tunnel!=no],
+line|z14-[waterway=drain][tunnel][tunnel!=no] {
+    width: 1m;
+    linecap: none;
+    linejoin: miter;
+    color: #f3f7f7;
+    casing-dashes: 1,0.5;
+    casing-width: 4px;
+    casing-color: #aad3df;
+    set layer=0;
+}
+
+// TODO seasonal!=no?
+line|z15-[waterway=stream][intermittent=yes][!tunnel],
+line|z15-[waterway=stream][intermittent=yes][tunnel=no],
+line|z15-[waterway=ditch][intermittent=yes][!tunnel],
+line|z15-[waterway=ditch][intermittent=yes][tunnel=no],
+line|z15-[waterway=drain][intermittent=yes][!tunnel],
+line|z15-[waterway=drain][intermittent=yes][tunnel=no] {
+    dashes: 1,0.75;
+    linecap: none;
+}
+
+line|z14-[waterway=stream],
+line|z14-[waterway=ditch],
+line|z14-[waterway=drain] {
+    set .bridge;
+    casing-width: 2px;
+}
+
+// water line texts
+line|z13- [waterway=river],
+line|z13- [waterway=canal],
+line|z15- [waterway=ditch],
+line|z15- [waterway=drain],
+line|z15- [waterway=stream] {
+    text: name;
+    font-size: 8pt;
+    font-style: italic;
+    text-position: line;
+    text-halo-radius: 1px;
+    text-halo-color: #fff;
+    // TODO text-repeat-distance: @waterway-text-repeat-distance;
+}
+
+line|z15-20 [waterway=ditch],
+line|z15-20 [waterway=drain],
+line|z15-20 [waterway=stream] {
+    text-offset: -10px;
+}
+
+line|z17- [lock=yes][lock_name] {
+    text: lock_name;
+}
+
+/*#water-lines-text {
+  [lock = 'yes'][zoom >= 17] {
+      text-name: "[lock_name]";
+      text-face-name: @oblique-fonts;
+      text-placement: line;
+      text-fill: @water-text;
+      text-spacing: 400;
+      text-size: 10;
+      text-halo-radius: @standard-halo-radius;
+      text-halo-fill: @standard-halo-fill;
+  }
+
+  [lock != 'yes'][int_tunnel != 'yes'] {
+    [waterway = 'river'][zoom >= 13] {
+      text-name: "[name]";
+      text-size: 10;
+      text-face-name: @oblique-fonts;
+      text-fill: @water-text;
+      text-halo-radius: @standard-halo-radius;
+      text-halo-fill: @standard-halo-fill;
+      text-spacing: 400;
+      text-placement: line;
+      text-repeat-distance: @waterway-text-repeat-distance;
+      [zoom >= 14] { text-size: 12; }
+    }
+
+    [natural = 'bay'][zoom >= 14],
+  [natural = 'strait'][zoom >= 14] {
+    text-name: "[name]";
+    text-size: 10;
+    text-face-name: @oblique-fonts;
+    text-fill: @water-text;
+    text-halo-radius: @standard-halo-radius;
+    text-halo-fill: @standard-halo-fill;
+    text-max-char-angle-delta: 15;
+    text-spacing: 400;
+    text-placement: line;
+    [zoom >= 15] {
+      text-size: 12;
+    }
+  }
+}*/
+
+// water area texts
+area|z5-[natural=water],
+area|z5-[landuse=reservoir],
+area|z5-[landuse=basin],
+area|z5-[waterway=dock],
+area|z5-[natural=strait],
+area|z5-[natural=bay] {
+    text: name;
+    text-require-fit: true;
+    font-size: 8pt;
+    font-style: italic;
+    text-halo-radius: 1;
+    text-halo-color: rgba(1,1,1,0.6);
+    max-width: 80px;
+}

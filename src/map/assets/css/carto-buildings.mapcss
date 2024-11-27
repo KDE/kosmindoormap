@@ -1,0 +1,60 @@
+/*
+    SPDX-FileCopyrightText: https://github.com/gravitystorm/openstreetmap-carto/
+    SPDX-FileCopyrightText: 2023 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: CC0-1.0
+*/
+
+area|z14-[building][building!=no] {
+    set .building;
+    width: 0.75px;
+}
+area|z14-[building][building!=no][amenity=place_of_worship],
+area|z14-[building][building!=no][aeroway=terminal],
+area|z14-[building][building!=no][building=train_station],
+area|z14-[building][building!=no][public_transport=station] {
+    set .major_building;
+}
+
+area|z12-[man_made=bridge] { set .bridge; }
+
+node|z18-[entrance]::entrance {
+    set .entrance_normal;
+    icon-image: "rect";
+    icon-width: 5px;
+    icon-height: 5px;
+    icon-opacity: 0.0;
+    icon-allow-icon-overlap: true;
+    icon-allow-text-overlap: true;
+}
+node|z18-[entrance=main]::entrance {
+    set .entrance_normal;
+    icon-image: "square";
+    icon-width: 5px;
+    icon-height: 5px;
+    icon-opacity: 1.0;
+}
+node|z19-[entrance=yes]::entrance,
+node|z19-[entrance=main]::entrance,
+node|z19-[entrance=home]::entrance,
+node|z19-[entrance=service]::entrance,
+node|z19-[entrance=staircase]::entrance {
+    icon-opacity: 1.0;
+    icon-width: 6px;
+    icon-height: 6px;
+}
+node|z19-[entrance=service]::entrance { icon-image: "corners"; }
+
+node|z19-[entrance][access=yes]::entrance,
+node|z19-[entrance][access=permissive]::entrance {
+    set .entrance_permissive;
+}
+node|z19-[entrance][access=no]::entrance {
+    set .entrance_normal;
+    icon-image: "rectdiag";
+}
+node|z20-[entrance]::entrance {
+    icon-width: 8px;
+    icon-height: 8px;
+}
+
+node|z18-[entrance][indoor][indoor!=no]::entrance { icon-opacity: 0.0; }
