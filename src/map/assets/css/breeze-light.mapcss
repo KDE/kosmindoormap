@@ -7,6 +7,14 @@
 /** Light theme stylesheet */
 @import url("breeze-common.mapcss");
 
+//BEGIN carto adjustments
+area.parking {
+    fill-color: #f8f7f6;
+    color: #a57979; // saturate(darken(@parking, 40%), 20%)
+}
+
+//END carto adjustments
+
 canvas {
     fill-color: #fcfcfc;
     text-color: #31363b;
@@ -15,11 +23,6 @@ canvas[level>0] { fill-color: #eff7ff; }
 canvas[level<0] { fill-color: #fffaef; }
 
 /** Generic outdoor stuff */
-area[amenity=parking],
-area[amenity=bicycle_parking]
-{
-    fill-color: #f8f7f6;
-}
 area[building],
 area[man_made=bridge],
 area[man_made=pier],

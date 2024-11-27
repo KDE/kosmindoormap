@@ -12,14 +12,18 @@ canvas {
     text-color: #eff0f1;
 }
 
-area[natural=bare_rock] { fill-opacity: 0.4; }
+//BEGIN carto adjustments
+area.bare_ground { fill-opacity: 0.4; }
+
+area.parking {
+    fill-color: #232629;
+    color: #a57979; // saturate(darken(@parking, 40%), 20%)
+}
+area.parking_space { color: #cab4b4; } // mix(@parking-outline, @parking, 50%);
+
+//END carto adjustments
 
 /** Generic outdoor stuff */
-area[amenity=parking],
-area[amenity=bicycle_parking]
-{
-    fill-color: #232629;
-}
 area[building],
 area[man_made=bridge],
 area[man_made=pier],

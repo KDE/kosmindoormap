@@ -40,130 +40,9 @@ area[natural=water][intermittent=yes]
     icon-color: #2980b9;
 }
 
-area[leisure=miniature_golf],
-area[leisure=park],
-area[leisure=pitch],
-area[leisure=playground],
-area[landuse=farmland],
-area[landuse=grass],
-area[landuse=recreation_ground],
-area[landuse=village_green],
-area[landuse=meadow],
-area[natural=grassland],
-area[natural=heath],
-area[surface=grass]
-{
-    fill-color: #1027ae60;
-    z-index: -999;
-}
-area[landuse=cemetery]
-{
-    fill-color: #1027ae60;
-    fill-opacity: 0.4;
-    fill-image: url("grave_yard_generic.svg");
-    z-index: -999;
-}
-area[leisure=garden]
-{
-    fill-color: #1027ae60;
-    fill-opacity: 0.6;
-    fill-image: url("plant_nursery.svg");
-    z-index: -999;
-}
-area[landuse=plant_nursery]
-{
-    fill-color: #1027ae60;
-    z-index: -999;
-    fill-opacity: 0.5;
-    fill-image: url("plant_nursery.svg");
-}
-
-line[natural=tree_row]
-{
-    color:  #1027ae60;
-    width: 2m;
-    linecap: round;
-}
-
-area[landuse=forest],
-area[natural=wood]
-{
-    fill-color: #1027ae60;
-    z-index: -999;
-    fill-opacity: 0.5;
-    fill-image: url("leaftype_unknown.svg");
-}
-area[landuse=forest][leaf_type=broadleaved],
-area[natural=wood][leaf_type=broadleaved]
-{
-    fill-image: url("leaftype_broadleaved.svg");
-}
-area[landuse=forest][leaf_type=leafless],
-area[natural=wood][leaf_type=leafless]
-{
-    fill-image: url("leaftype_leafless.svg");
-}
-area[landuse=forest][leaf_type=needleleaved],
-area[natural=wood][leaf_type=needleleaved]
-{
-    fill-image: url("leaftype_needleleaved.svg");
-}
-area[landuse=forest][leaf_type=mixed],
-area[natural=wood][leaf_type=mixed]
-{
-    fill-image: url("leaftype_mixed.svg");
-}
-
-area[landuse=orchard]
-{
-    fill-color: #1027ae60;
-    z-index: -999;
-    fill-opacity: 0.5;
-    fill-image: url("orchard.svg");
-}
-area[landuse=vineyard]
-{
-    fill-color: #1027ae60;
-    z-index: -999;
-    fill-opacity: 0.5;
-    fill-image: url("vineyard.svg");
-}
-
-area[natural=scrub]
-{
-    fill-color: #1027ae60;
-    z-index: -999;
-    fill-opacity: 0.5;
-    fill-image: url("scrub.png");
-}
-
-area[landuse=allotments]
-{
-    fill-color: #1027ae60;
-    z-index: -999;
-    fill-opacity: 0.5;
-    fill-image: url("allotments.svg");
-}
-
-area[natural=beach],
-area[natural=sand]
-{
-    fill-color: #20fdbc4b;
-    z-index: -999;
-}
+/*
 area[natural=beach][surface=sand] { fill-image: url("beach.png"); }
 
-area[natural=rock]
-{
-    fill-color: #20bdc3c7;
-    z-index: -999;
-}
-area[natural=bare_rock]
-{
-    fill-color: #20bdc3c7;
-    fill-image: url("rock_overlay.png");
-    z-index: -999;
-}
 area[landuse=quarry]
 {
     fill-color: #20bdc3c7;
@@ -193,8 +72,151 @@ area[natural=wetland][wetland=wet_meadow]
 }
 area[natural=wetland][wetland=mangrove] { fill-image: url("wetland_mangrove.png"); }
 area[natural=wetland][wetland=reedbed] { fill-image: url("wetland_reed.png"); }
-area[natural=wetland][wetland=swamp] { fill-image: url("wetland_swamp.png"); }
+area[natural=wetland][wetland=swamp] { fill-image: url("wetland_swamp.png"); }*/
 
+@import url("carto-landcover.mapcss") carto_landcover;
+
+*.carto_landcover { z-index: -999; }
+
+//BEGIN Carto color definitions
+
+// --- vegetation ---
+area.grass { fill-color: #1027ae60; }
+area[landuse=flowerbed] { fill-opacity: 0.5; }
+
+line.cutline { color: #1027ae60; }
+area.scrub {
+    fill-color: #1027ae60;
+    fill-opacity: 0.5;
+}
+area.forest {
+    fill-color: #1027ae60;
+    text-color: #46673b;
+}
+area.park { fill-color: #1027ae60; }
+area.allotments {
+    fill-color: #1027ae60;
+    fill-opacity: 0.5;
+    color: #cadfc1; // desaturate(darken(@allotments, 10%), 10%)
+}
+area.orchard {
+    fill-color: #1027ae60;
+    fill-opacity: 0.5;
+}
+
+/*line.hedge { color: #1027ae60; }
+line.tree { color: #1027ae60; } // darken(@forest, 10%)
+node.tree { icon-color: #27ae60; }*/
+
+line.cliff { text-color: #999; }
+
+// --- base landuses ---
+/*area.residential {
+    fill-color: #e0dfdf;
+    color: #b9b9b9;
+}
+area.retail {
+    fill-color: #ffd6d1;
+    color: #d99c95;
+}
+area.commercial {
+    fill-color: #f2dad9;
+    color: #d1b2b0;
+}
+area.industrial,
+area.railway,
+area.wastewater_plant,
+area.water_works {
+    fill-color:#ebdbe8;
+    color: #c6b3c3;
+}
+area.works { color: #c6b3c3; }*/
+area.farmland {
+    fill-color: #1027ae60;
+    color: #c7c9ae;
+}
+/*area.farmyard {
+    fill-color: #f5dcba;
+    color: #d1b48c;
+}*/
+
+// --- Transport ----
+// TODO
+/*area.transportation_area {
+    fill-color: #e9e7e2;
+    color: #ae9a66; // saturate(darken(@transportation-area, 40%), 20%)
+}
+area.apron { fill-color: #dadae0; }
+area.garages { fill-color: #dfddce; }*/
+area.parking_space { color: #cab4b4; } // mix(@parking-outline, @parking, 50%);
+/*area.rest_area { fill-color: #efc8c8; }*/
+
+// --- Other ----
+area.bare_ground { fill-color: #20bdc3c7; }
+area.campsite,
+area.golf_course {
+    fill-color: #1027ae60;
+    color: #60a00f; // saturate(darken(@campsite, 60%), 30%)
+}
+area.cemetery {
+    fill-color: #1027ae60;
+    fill-opacity: 0.4;
+}
+// area.construction { fill-color: #c7c7b4; }
+area.heath { fill-color: #1027ae60; }
+area.mud { fill-color: rgba(0.79,0.69,0.6,0.3); }
+/*area.place_of_worship {
+    fill-color: #d0d0d0;
+    color: #929292; // darken(@place_of_worship, 30%)
+}*/
+/*area.leisure,
+area.stadium {
+    fill-color: #cbfacf; // lighten(@park, 5%);
+    color: #10a51d; // darken(@leisure, 60%);
+}*/
+/*area.power {
+    fill-color: #e3ccdf; // darken(@industrial, 5%)
+    color: #bea8ba; // darken(@industrial-line, 5%)
+}*/
+area.sand { fill-color: #20fdbc4b; }
+/*area.societal_amenities {
+    fill-color: #ffffe5;
+    color: #ffff3c; // darken(@societal_amenities, 35%)
+}
+area.tourism {
+    color: #660033;
+    text-color: #660033;
+}
+node.tourism { text-color: #660033; }*/
+area.quarry {
+    fill-color: #20bdc3c7;
+    color: #b2afaf; // darken(@quarry, 10%)
+}
+// area.military { color: #f55; }
+area.beach { fill-color: #20fdbc4b; }
+
+line.barrier { color: #444; }
+line.city_wall { color: #7c7c7c; }
+
+// --- Sports ---
+area.pitch,
+area.tack {
+    fill-color: #1027ae60;
+    color: #9ac8b6; // desaturate(darken(@pitch, 20%), 10%)
+}
+/*area.ice_rink {
+    fill-color: #ddecec; // @glacier
+    color: #46cd99; // saturate(darken(@pitch, 30%), 20%)
+}*/
+
+//END Carto definitions
+
+line[natural=tree_row]
+{
+    color:  #1027ae60;
+    width: 2m;
+    linecap: round;
+}
 node|z19-[natural=tree]
 {
     icon-image: "tree";
