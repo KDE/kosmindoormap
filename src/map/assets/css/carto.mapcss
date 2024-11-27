@@ -1,0 +1,346 @@
+/*
+    SPDX-FileCopyrightText: https://github.com/gravitystorm/openstreetmap-carto/
+    SPDX-FileCopyrightText: 2023 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: CC0-1.0
+
+    Adaption of the OpenStreetMap Carto style to MapCSS.
+    This is far from complete, and limited by the differences between CartoCSS and MapCSS
+    as well as the capabilities of the rendering engines.
+
+    Parts of this are also used as a foundation for the Breeze styles,
+    which can require a different structuring than used by the Carto style
+*/
+
+canvas {
+    fill-color: #f2efe9; // land-color
+}
+
+@import url("carto-landcover.mapcss");
+@import url("carto-water.mapcss");
+@import url("carto-roads.mapcss");
+@import url("carto-power.mapcss");
+@import url("carto-buildings.mapcss");
+@import url("carto-stations.mapcss");
+@import url("carto-amenity-points.mapcss");
+@import url("carto-aerialways.mapcss");
+
+// landcover colors
+
+// --- Parks, woods, other green things ---
+area.grass { fill-color: #cdebb0; }
+line.cutline { color: #cdebb0; }
+area.scrub { fill-color: #c8d7ab; }
+area.forest {
+    fill-color: #add19e;
+    text-color: #46673b;
+}
+area.park { fill-color: #c8facc; }
+area.allotments {
+    fill-color: #c9e1bf;
+    color: #cadfc1; // desaturate(darken(@allotments, 10%), 10%)
+}
+area.orchard { fill-color: #aedfa3; }
+line.hedge { color: #add19e; }
+line.tree { color: #98c585; } // darken(@forest, 10%)
+node.tree { icon-color: #98c585; }
+
+line.cliff { text-color: #999; }
+
+// --- "Base" landuses ---
+
+area.residential {
+    fill-color: #e0dfdf;
+    color: #b9b9b9;
+}
+area.retail {
+    fill-color: #ffd6d1;
+    color: #d99c95;
+}
+area.commercial {
+    fill-color: #f2dad9;
+    color: #d1b2b0;
+}
+area.industrial,
+area.railway,
+area.wastewater_plant,
+area.water_works {
+    fill-color:#ebdbe8;
+    color: #c6b3c3;
+}
+area.works { color: #c6b3c3; }
+area.farmland {
+    fill-color: #eef0d5;
+    color: #c7c9ae;
+}
+area.farmyard {
+    fill-color: #f5dcba;
+    color: #d1b48c;
+}
+
+// --- Transport ----
+
+area.transportation_area {
+    fill-color: #e9e7e2;
+    color: #ae9a66; // saturate(darken(@transportation-area, 40%), 20%)
+}
+area.apron { fill-color: #dadae0; }
+area.garages { fill-color: #dfddce; }
+area.parking {
+    fill-color: #eeeeee;
+    color: #a57979; // saturate(darken(@parking, 40%), 20%)
+}
+area.parking_space { color: #cab4b4; } // mix(@parking-outline, @parking, 50%);
+area.rest_area { fill-color: #efc8c8; }
+
+// --- Other ----
+
+area.bare_ground { fill-color: #eee5dc; }
+area.campsite,
+area.golf_course {
+    fill-color: #def6c0;
+    color: #60a00f; // saturate(darken(@campsite, 60%), 30%)
+}
+area.cemetery { fill-color: #aacbaf; }
+area.construction { fill-color: #c7c7b4; }
+area.heath { fill-color: #d6d99f; }
+area.mud { fill-color: rgba(0.79,0.69,0.6,0.3); }
+area.place_of_worship {
+    fill-color: #d0d0d0;
+    color: #929292; // darken(@place_of_worship, 30%)
+}
+area.leisure,
+area.stadium {
+    fill-color: #cbfacf; // lighten(@park, 5%);
+    color: #10a51d; // darken(@leisure, 60%);
+}
+area.power {
+    fill-color: #e3ccdf; // darken(@industrial, 5%)
+    color: #bea8ba; // darken(@industrial-line, 5%)
+}
+area.sand { fill-color: #f5e9c6; }
+area.societal_amenities {
+    fill-color: #ffffe5;
+    color: #ffff3c; // darken(@societal_amenities, 35%)
+}
+area.tourism {
+    color: #660033;
+    text-color: #660033;
+}
+node.tourism { text-color: #660033; }
+area.quarry {
+    fill-color: #c5c3c3;
+    color: #b2afaf; // darken(@quarry, 10%)
+}
+area.military { color: #f55; }
+area.beach { fill-color: #fff1ba; }
+
+line.barrier { color: #444; }
+line.city_wall { color: #7c7c7c; }
+
+// --- Sports ---
+
+area.pitch,
+area.tack {
+    fill-color: #aae0cb;
+    color: #9ac8b6; // desaturate(darken(@pitch, 20%), 10%)
+}
+area.ice_rink {
+    fill-color: #ddecec; // @glacier
+    color: #46cd99; // saturate(darken(@pitch, 30%), 20%)
+}
+
+// water colors
+area.water {
+    fill-color: #aad3df;
+    text-color: #4d80b3;
+}
+line.water {
+    color: #aad3df;
+    text-color: #4d80b3;
+}
+area.swimming_pool {
+    fill-color: #aad3df;
+    color: #6abdd5; // saturate(darken(@water-color, 20%), 20%);
+    text-color: #576ddf;
+}
+
+area.glacier {
+    fill-color: #ddecec;
+    color: #9cf;
+}
+
+// power colors
+line.power_line { color: #888; }
+node.power_pole { icon-color: #928f8f; }
+
+// road colors
+line.motorway {
+    color: #e892a2;
+    casing-color: #dc2a67;
+    shield-color: #eccdd1;
+    shield-frame-color: #d39da5;
+    text-color: #620728;
+}
+line.motorway_tunnel { color: #f1bec7; } // lighten(@motorway-fill, 10%) - documented as 10% but actually 40% observed??
+
+line.trunk {
+    color: #f9b29c;
+    casing-color: #c84e2f;
+    shield-color: #f4d7ce;
+    shield-frame-color: #d9a999;
+    text-color: #5f1c0c;
+}
+line.trunk_tunnel { color: #fcd7cc; } // lighten(@trunk-fill, 10%)
+
+line.primary {
+    color: #fcd6a4;
+    casing-color: #a06b00;
+    shield-color: #f6e4cf;
+    shield-frame-color: #d4b894;
+    text-color: #503000;
+}
+line.primary_tunnel { color: #feecd5; } // lighten(@primary-fill, 10%)
+
+line.secondary {
+    color: #f7fabf;
+    casing-color: #707d05;
+    shield-color: #f1f2d6;
+    shield-frame-color: #c7c99b;
+    text-color: #364000;
+}
+line.secondary_tunnel { color: #fafcd7; } // lighten(@secondary-fill, 5%)
+
+line.tertiary {
+    color: #ffffff;
+    casing-color: #8f8f8f;
+    shield-color: #f1f1f1;
+    shield-frame-color: #c6c6c6;
+    text-color: #3b3b3b;
+}
+line.tertiary_tunnel { color: #ffffff; } // lighten(@tertiary-fill, 5%)
+
+line.highway_residential,
+line.service {
+    color: #ffffff;
+    casing-color: #bbb;
+    text-color: #000;
+}
+line.highway_residential_tunnel { color: #f2f2f2; } // darken(@residential-fill, 5%)
+
+line.living_street {
+    color: #ededed;
+    casing-color: #bbb; // @residential-casing;
+    text-color: #000;
+}
+// line.living_street_tunnel { color: TODO; } //lighten(@living-street-fill, 3%)
+
+line.pedestrian {
+    color: #dddde8;
+    casing-color: #999;
+    text-color: #000;
+}
+area.pedestrian {
+    fill-color: #dddde8;
+    casing-color: #999;
+    text-color: #000;
+}
+
+line.road {
+    color: #ddd;
+    casing-color: #bbb; // @residential-casing
+    text-color: #000;
+}
+// TODO tunnel variant
+
+line.raceway {
+    color: #ffc0cb;
+    text-color: #000;
+}
+
+node.junction_text { text-color: #960000; }
+
+line.track {
+    color: #996600;
+    casing-color: #ffffff;
+}
+
+line.cycleway {
+    color: #0000ff;
+    casing-color: #ffffff;
+}
+line.footway {
+    color: #fa8072;
+    casing-color: #ffffff;
+}
+
+line.platform {
+    color: #bbbbbb;
+    casing-color: #808080;
+}
+area.platform {
+    fill-color: #bbbbbb;
+}
+
+line.bridge { casing-color: #000000; }
+line.bridge::bridge { casing-color: #000000; }
+
+// building colors
+area.building {
+    fill-color: #d9d0c9;
+    color: #bfb0a4; //darken(@building-fill, 15%)
+}
+area.major_building {
+    fill-color: #c4b6ab; // darken(@building-fill, 10%)
+    color: #a99585; // darken(@building-major-fill, 15%)
+}
+area.bridge { fill-color: #B8B8B8; }
+
+node.entrance_normal::entrance { icon-color: #bfb0a4; } // @building-line
+node.entrance_permissive::entrance { icon-color: #a99585; } // darken(@building-line, 15%)
+
+// stations colors
+node.station {
+    icon-color: #7981b0;
+    text-color: #4957ad; // darken(saturate(@station-color, 15%), 10%)
+}
+
+// amenity points colors
+*.amenity,
+*.public_service,
+*.culture,
+*.memorial {
+    icon-color: #734a08;
+    text-color: #734a08;
+}
+*.gastronomy {
+    icon-color: #C77400;
+    text-color: #bd6e00; // darken(@gastronomy-icon, 5%)
+}
+*.transportation,
+*.accommodation {
+    icon-color: #0092da;
+    text-color: #0066ff;
+}
+*.man_made { icon-color: #666666; }
+*.health { icon-color: #BF0000; }
+*.shop {
+    icon-color: #ac39ac;
+    text-color: #939;
+}
+*.religious {
+    icon-color: #000000;
+    text-color: #000033;
+}
+*.leisure_icon {
+    icon-color: #0c8416; // @leisure-green: darken(@park, 60%)
+    text-color: #0c8416;
+}
+*.office {
+    icon-color: #4863A0;
+    text-color: #4863A0;
+}
+
+*.restricted_access {
+    icon-opacity: 0.33;
+    text-opacity: 0.33;
+}

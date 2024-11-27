@@ -1,0 +1,89 @@
+/*
+    SPDX-FileCopyrightText: https://github.com/gravitystorm/openstreetmap-carto/
+    SPDX-FileCopyrightText: 2023 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: CC0-1.0
+*/
+
+
+// #stations layer
+node|z18- [railway=subway_entrance] {
+    set .transportation;
+    icon-image: "entrance";
+}
+node|z19- [railway=subway_entrance] {
+    text: ref;
+    font-size: 8pt;
+    text-halo-radius: 1.5px;
+    text-halo-color: #fff;
+}
+
+node|z12- [railway=station] {
+    set .station;
+    icon-image: "square";
+    icon-width: 6px;
+    icon-height: 6px;
+}
+node|z14- [railway=station] {
+    text: name;
+    font-size: 8pt;
+    font-weight: bold;
+    text-halo-radius: 1.5px;
+    text-halo-color: #fff;
+}
+
+/*  [railway = 'station'][zoom >= 12] {
+    marker-file: url('symbols/square.svg');
+    marker-fill: @station-color;
+    marker-clip: false;
+    [station != 'subway'] {
+      marker-width: 4;
+    }
+    [zoom >= 13][station != 'subway'],
+    [zoom >= 14][station = 'subway'] {
+      marker-width: 6;
+    }
+    [zoom >= 14][station !='subway'],
+    [zoom >=15] {
+      text-name: "[name]";
+      text-face-name: @bold-fonts;
+      text-size: 10;
+      text-fill: @station-text;
+      text-dy: 9;
+      text-halo-radius: @standard-halo-radius * 1.5;
+      text-halo-fill: @standard-halo-fill;
+      text-wrap-width: 30; // 3 em
+      text-line-spacing: -1.5; // -0.15 em
+    }
+    [zoom >= 15][station != 'subway'],
+    [zoom >= 16] {
+      marker-width: 9;
+      text-size: 11;
+      text-wrap-width: 33; // 3 em
+      text-line-spacing: -1.65; // -0.15 em
+      text-dy: 10;
+    }
+  }*/
+
+node|z13- [railway=halt],
+node|z14- [railway=tram_stop],
+node|z13- [aerialway=station] {
+    set .station;
+    icon-image: "square";
+    icon-width: 4px;
+    icon-height: 4px;
+}
+node|z15- [railway=halt],
+node|z15- [railway=tram_stop],
+node|z15- [aerialway=station] {
+    icon-width: 6px;
+    icon-height: 6px;
+}
+node|z15- [railway=halt],
+node|z16- [railway=tram_stop],
+node|z15- [aerialway=station] {
+    text: name;
+    font-size: 8pt;
+    text-halo-radius: 1.5px;
+    text-halo-color: #fff;
+    max-width: 80px;
+}

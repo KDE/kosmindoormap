@@ -7,7 +7,15 @@
         <file>css/breeze-common.mapcss</file>
         <file>css/breeze-dark.mapcss</file>
         <file>css/breeze-light.mapcss</file>
+        <file>css/carto.mapcss</file>
+        <file>css/carto-aerialways.mapcss</file>
+        <file>css/carto-amenity-points.mapcss</file>
+        <file>css/carto-buildings.mapcss</file>
         <file>css/carto-landcover.mapcss</file>
+        <file>css/carto-power.mapcss</file>
+        <file>css/carto-roads.mapcss</file>
+        <file>css/carto-stations.mapcss</file>
+        <file>css/carto-water.mapcss</file>
         <file>css/diagnostic.mapcss</file>
         <file>css/input-filter.mapcss</file>
         <file>css/platform-overlay.mapcss</file>
@@ -26,8 +34,10 @@
         <file>icons/bank.svg</file>
         <file>icons/bar.svg</file>
         <file>icons/bbq.svg</file>
+        <file>icons/beach_resort.svg</file>
         <file>icons/beauty.svg</file>
         <file>icons/bed.svg</file>
+        <file>icons/bell_tower.svg</file>
         <file>icons/bench.svg</file>
         <file>icons/beverages.svg</file>
         <file>icons/bicycle.svg</file>
@@ -39,10 +49,15 @@
         <file>icons/boat_rental.svg</file>
         <file>icons/bookmaker.svg</file>
         <file>icons/bowling_alley.svg</file>
+        <file>icons/buddhist.svg</file>
+        <file>icons/bunker.svg</file>
         <file>icons/bureau_de_change.svg</file>
+        <file>icons/bus_station.svg</file>
         <file>icons/bus_stop.svg</file>
+        <file>icons/bust.svg</file>
         <file>icons/butcher.svg</file>
         <file>icons/cafe.svg</file>
+        <file>icons/camp_site.svg</file>
         <file>icons/car.svg</file>
         <file>icons/car_parts.svg</file>
         <file>icons/car_rental.svg</file>
@@ -56,18 +71,23 @@
         <file>icons/castle.svg</file>
         <file>icons/charity.svg</file>
         <file>icons/chemist.svg</file>
+        <file>icons/chimney.svg</file>
+        <file>icons/christian.svg</file>
         <file>icons/cinema.svg</file>
         <file>icons/circle.svg</file>
         <file>icons/city_gate.svg</file>
         <file>icons/clothes.svg</file>
         <file>icons/coffee.svg</file>
+        <file>icons/communications_tower.svg</file>
         <file>icons/computer.svg</file>
         <file>icons/community_centre.svg</file>
         <file>icons/confectionery.svg</file>
         <file>icons/consulate.svg</file>
         <file>icons/convenience.svg</file>
         <file>icons/copyshop.svg</file>
+        <file>icons/corners.svg</file>
         <file>icons/courthouse.svg</file>
+        <file>icons/crane.svg</file>
         <file>icons/dairy.svg</file>
         <file>icons/deli.svg</file>
         <file>icons/dentist.svg</file>
@@ -80,6 +100,7 @@
         <file>icons/embassy.svg</file>
         <file>icons/emergency_phone.svg</file>
         <file>icons/entrance.svg</file>
+        <file>icons/excrement_bags.svg</file>
         <file>icons/fabric.svg</file>
         <file>icons/fast_food.svg</file>
         <file>icons/ferry_terminal.svg</file>
@@ -87,6 +108,7 @@
         <file>icons/firepit.svg</file>
         <file>icons/fitness_centre.svg</file>
         <file>icons/florist.svg</file>
+        <file>icons/fort.svg</file>
         <file>icons/fountain.svg</file>
         <file>icons/fuel.svg</file>
         <file>icons/furniture.svg</file>
@@ -98,6 +120,7 @@
         <file>icons/guidepost.svg</file>
         <file>icons/hairdresser.svg</file>
         <file>icons/hifi.svg</file>
+        <file>icons/hindu.svg</file>
         <file>icons/hospital.svg</file>
         <file>icons/hostel.svg</file>
         <file>icons/hotel.svg</file>
@@ -107,6 +130,7 @@
         <file>icons/interior_decoration.svg</file>
         <file>icons/internet_cafe.svg</file>
         <file>icons/jewelry.svg</file>
+        <file>icons/jewish.svg</file>
         <file>icons/laundry.svg</file>
         <file>icons/library.svg</file>
         <file>icons/lift_gate.svg</file>
@@ -121,15 +145,18 @@
         <file>icons/miniature_golf.svg</file>
         <file>icons/mobile_phone.svg</file>
         <file>icons/monument.svg</file>
+        <file>icons/motel.svg</file>
         <file>icons/motorcycle.svg</file>
         <file>icons/motorcycle_parking.svg</file>
         <file>icons/motorcycle_rental.svg</file>
         <file>icons/museum.svg</file>
         <file>icons/music.svg</file>
         <file>icons/musical_instrument.svg</file>
+        <file>icons/muslim.svg</file>
         <file>icons/newsagent.svg</file>
         <file>icons/nightclub.svg</file>
         <file>icons/restaurant.svg</file>
+        <file>icons/obelisk.svg</file>
         <file>icons/office.svg</file>
         <file>icons/optician.svg</file>
         <file>icons/outdoor.svg</file>
@@ -143,41 +170,53 @@
         <file>icons/photo.svg</file>
         <file>icons/picnic_site.svg</file>
         <file>icons/place_of_worship.svg</file>
+        <file>icons/plaque.svg</file>
         <file>icons/playground.svg</file>
         <file>icons/police.svg</file>
         <file>icons/post_box.svg</file>
         <file>icons/post_office.svg</file>
+        <file>icons/power_tower_small.svg</file>
+        <file>icons/power_tower.svg</file>
         <file>icons/prison.svg</file>
         <file>icons/pub.svg</file>
         <file>icons/public_bath.svg</file>
         <file>icons/public_bookcase.svg</file>
         <file>icons/public_transport_tickets.svg</file>
         <file>icons/rect.svg</file>
+        <file>icons/rectdiag.svg</file>
         <file>icons/recycling.svg</file>
         <file>icons/sauna.svg</file>
         <file>icons/scooter_rental.svg</file>
         <file>icons/seafood.svg</file>
         <file>icons/second_hand.svg</file>
         <file>icons/shelter.svg</file>
+        <file>icons/shinto.svg</file>
         <file>icons/shoes.svg</file>
         <file>icons/shower.svg</file>
+        <file>icons/sikh.svg</file>
+        <file>icons/slipway.svg</file>
         <file>icons/social_facility.svg</file>
         <file>icons/sports.svg</file>
         <file>icons/square.svg</file>
         <file>icons/stairs.svg</file>
         <file>icons/stationery.svg</file>
         <file>icons/statue.svg</file>
+        <file>icons/stone.svg</file>
         <file>icons/storage_tank.svg</file>
         <file>icons/supermarket.svg</file>
+        <file>icons/taoist.svg</file>
         <file>icons/taxi.svg</file>
         <file>icons/tea.svg</file>
         <file>icons/telephone.svg</file>
+        <file>icons/telescope_dish.svg</file>
+        <file>icons/telescope_dome.svg</file>
         <file>icons/terminal.svg</file>
         <file>icons/theatre.svg</file>
         <file>icons/ticket.svg</file>
         <file>icons/tobacco.svg</file>
         <file>icons/toilets.svg</file>
         <file>icons/toll_booth.svg</file>
+        <file>icons/tower_cantilever_communication.svg</file>
         <file>icons/tower_defensive.svg</file>
         <file>icons/townhall.svg</file>
         <file>icons/toys.svg</file>
