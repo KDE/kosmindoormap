@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
-# Tommi Nieminen <translator@legisign.org>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:39+0000\n"
-"PO-Revision-Date: 2023-09-27 18:38+0300\n"
+"PO-Revision-Date: 2024-10-28 21:18+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: app/main.cpp:70
 #, kde-format
@@ -50,7 +50,7 @@ msgstr "Terveydenhoito"
 #, kde-format
 msgctxt "amenity category"
 msgid "Amenities"
-msgstr ""
+msgstr "Palvelut"
 
 #: map-quick/amenitymodel.cpp:99
 #, kde-format
@@ -104,12 +104,9 @@ msgid "Arts Center"
 msgstr "Taidekeskus"
 
 #: map-quick/localization_data.cpp:27
-#, fuzzy
-#| msgctxt "transport network"
-#| msgid "Network"
 msgctxt "OSM::amenity/shop"
 msgid "Artwork"
-msgstr "Verkko"
+msgstr "Taide"
 
 #: map-quick/localization_data.cpp:28
 msgctxt "OSM::amenity/shop"
@@ -122,12 +119,9 @@ msgid "Attraction"
 msgstr "Nähtävyys"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "Akvaario"
+msgstr "Auditorio"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -137,7 +131,7 @@ msgstr "Vauvatarvikkeet"
 #: map-quick/localization_data.cpp:32
 msgctxt "OSM::amenity/shop"
 msgid "Bag"
-msgstr ""
+msgstr "Laukkukauppa"
 
 #: map-quick/localization_data.cpp:33
 msgctxt "OSM::amenity"
@@ -195,11 +189,9 @@ msgid "Bicycle Rental"
 msgstr "Pyörävuokraus"
 
 #: map-quick/localization_data.cpp:44
-#, fuzzy
-#| msgid "Bicycle parking"
 msgctxt "OSM::amenity"
 msgid "Bicycle Repair Station"
-msgstr "Pyöräpysäköinti"
+msgstr "Polkupyöräkorjaus"
 
 #: map-quick/localization_data.cpp:45
 msgctxt "OSM::amenity"
@@ -332,12 +324,9 @@ msgid "Computer"
 msgstr "Tietokone"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "Tietokone"
+msgstr "Tietokoneluokka"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -345,12 +334,9 @@ msgid "Confectionery"
 msgstr "Makeiset"
 
 #: map-quick/localization_data.cpp:74
-#, fuzzy
-#| msgctxt "OSM::amenity"
-#| msgid "Conference Center"
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr "Konferenssikeskus"
+msgstr "Konferenssisali"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
@@ -383,11 +369,9 @@ msgid "Court House"
 msgstr "Oikeustalo"
 
 #: map-quick/localization_data.cpp:81 map-quick/localization_data.cpp:82
-#, fuzzy
-#| msgid "Women parking spaces"
 msgctxt "OSM::amenity"
 msgid "Coworking Space"
-msgstr "Naisten pysäköinti"
+msgstr "Työtila"
 
 #: map-quick/localization_data.cpp:83
 msgctxt "OSM::shop"
@@ -395,12 +379,9 @@ msgid "Art and Craft Supplies"
 msgstr "Taidetarvike"
 
 #: map-quick/localization_data.cpp:84
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fountain"
 msgctxt "OSM::shop"
 msgid "Curtains"
-msgstr "Lähde"
+msgstr "Verhot"
 
 #: map-quick/localization_data.cpp:85
 msgctxt "OSM::amenity/shop"
@@ -433,12 +414,9 @@ msgid "Drinking Water"
 msgstr "Juomavesi"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "Ruoka ja juoma"
+msgstr "Juomat"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -446,12 +424,9 @@ msgid "Dry Cleaning"
 msgstr "Kuivapesu"
 
 #: map-quick/localization_data.cpp:94
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Electronics"
 msgctxt "OSM::shop"
 msgid "Electrical"
-msgstr "Elektroniikka"
+msgstr "Sähkölaitteet"
 
 #: map-quick/localization_data.cpp:95
 msgctxt "OSM::amenity/shop"
@@ -509,12 +484,9 @@ msgid "Fitness Center"
 msgstr "Kuntosali"
 
 #: map-quick/localization_data.cpp:106
-#, fuzzy
-#| msgctxt "OSM::building"
-#| msgid "Train Station"
 msgctxt "OSM::leisure"
 msgid "Fitness Station"
-msgstr "Rautatieasema"
+msgstr "Kuntokeskus"
 
 #: map-quick/localization_data.cpp:107
 msgctxt "OSM::amenity/shop"
@@ -602,12 +574,9 @@ msgid "Hardware"
 msgstr "Rautakauppa"
 
 #: map-quick/localization_data.cpp:124
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Fast Food"
 msgctxt "OSM::shop"
 msgid "Health Food"
-msgstr "Pikaruoka"
+msgstr "Terveysruoka"
 
 #: map-quick/localization_data.cpp:125
 msgctxt "OSM::amenity/shop"
@@ -677,7 +646,7 @@ msgstr "Keittiö"
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "Laboratorio"
 
 #: map-quick/localization_data.cpp:139
 msgctxt "OSM::amenity/shop"
@@ -729,7 +698,7 @@ msgstr "Apteekki"
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "Kokoushuone"
 
 #: map-quick/localization_data.cpp:154
 msgctxt "OSM::historic"
@@ -916,11 +885,9 @@ msgid "Train Station"
 msgstr "Rautatieasema"
 
 #: map-quick/localization_data.cpp:191
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "Kuvaus"
+msgstr "Vastaanotto"
 
 #: map-quick/localization_data.cpp:192
 msgctxt "OSM::amenity/shop"
@@ -960,12 +927,12 @@ msgstr "Meren antimia"
 #: map-quick/localization_data.cpp:199
 msgctxt "OSM::shop"
 msgid "Second Hand"
-msgstr ""
+msgstr "Käytetyn tavaran liike"
 
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "Seminaarihuone"
 
 #: map-quick/localization_data.cpp:201
 msgctxt "OSM::shop"
@@ -1025,7 +992,7 @@ msgstr "Supermarket"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "Makeiskauppa"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1055,7 +1022,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:218
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "Terassi"
 
 #: map-quick/localization_data.cpp:219
 msgctxt "OSM::amenity/shop"
@@ -1110,7 +1077,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "Myyntiautomaatti"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1217,7 +1184,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
 msgid "Bolivian"
-msgstr ""
+msgstr "Bolivialainen"
 
 #: map-quick/localization_data.cpp:263
 msgctxt "OSM::cuisine"
@@ -1232,12 +1199,12 @@ msgstr "Aamiainen"
 #: map-quick/localization_data.cpp:265
 msgctxt "OSM::cuisine"
 msgid "British"
-msgstr ""
+msgstr "Brittiläinen"
 
 #: map-quick/localization_data.cpp:266
 msgctxt "OSM::cuisine"
 msgid "Brunch"
-msgstr ""
+msgstr "Brunssi"
 
 #: map-quick/localization_data.cpp:267
 msgctxt "OSM::cuisine"
@@ -1247,7 +1214,7 @@ msgstr "Kuplatee"
 #: map-quick/localization_data.cpp:268
 msgctxt "OSM::cuisine"
 msgid "Buffet"
-msgstr ""
+msgstr "Puhvetti"
 
 #: map-quick/localization_data.cpp:269
 msgctxt "OSM::cuisine"
@@ -1262,7 +1229,7 @@ msgstr "Leivonnainen"
 #: map-quick/localization_data.cpp:271
 msgctxt "OSM::cuisine"
 msgid "Caribbean"
-msgstr ""
+msgstr "Karibialainen"
 
 #: map-quick/localization_data.cpp:272
 msgctxt "OSM::cuisine"
@@ -1292,12 +1259,12 @@ msgstr "Keksit"
 #: map-quick/localization_data.cpp:277
 msgctxt "OSM::cuisine"
 msgid "Crêpe"
-msgstr ""
+msgstr "Crêpe"
 
 #: map-quick/localization_data.cpp:278
 msgctxt "OSM::cuisine"
 msgid "Curry"
-msgstr ""
+msgstr "Curry"
 
 #: map-quick/localization_data.cpp:279
 msgctxt "OSM::cuisine"
@@ -1337,7 +1304,7 @@ msgstr "Pikaruoka"
 #: map-quick/localization_data.cpp:287
 msgctxt "OSM::cuisine"
 msgid "Filipino"
-msgstr ""
+msgstr "Filippiiniläinen"
 
 #: map-quick/localization_data.cpp:288
 msgctxt "OSM::cuisine"
@@ -1362,7 +1329,7 @@ msgstr "Ranskalaiset"
 #: map-quick/localization_data.cpp:292
 msgctxt "OSM::cuisine"
 msgid "Georigan"
-msgstr ""
+msgstr "Georgialainen"
 
 #: map-quick/localization_data.cpp:293
 msgctxt "OSM::cuisine"
@@ -1462,7 +1429,7 @@ msgstr "Paikallinen"
 #: map-quick/localization_data.cpp:313
 msgctxt "OSM::cuisine"
 msgid "Malaysian"
-msgstr ""
+msgstr "Malesialainen"
 
 #: map-quick/localization_data.cpp:314
 msgctxt "OSM::cuisine"
@@ -1580,12 +1547,9 @@ msgid "Seafood"
 msgstr "Meren antimia"
 
 #: map-quick/localization_data.cpp:339
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Pharmacy"
 msgctxt "OSM::cuisine"
 msgid "Shawarma"
-msgstr "Apteekki"
+msgstr "Shawarma"
 
 #: map-quick/localization_data.cpp:340
 msgctxt "OSM::cuisine"
@@ -1618,12 +1582,9 @@ msgid "Tacos"
 msgstr "Tacot"
 
 #: map-quick/localization_data.cpp:347
-#, fuzzy
-#| msgctxt "OSM::cuisine"
-#| msgid "Japanese"
 msgctxt "OSM::cuisine"
 msgid "Taiwanese"
-msgstr "Japanilainen"
+msgstr "Taiwanilainen"
 
 #: map-quick/localization_data.cpp:348
 msgctxt "OSM::cuisine"
@@ -1643,7 +1604,7 @@ msgstr "Teehuone"
 #: map-quick/localization_data.cpp:351
 msgctxt "OSM::cuisine"
 msgid "Tex-Mex"
-msgstr ""
+msgstr "Texmex"
 
 #: map-quick/localization_data.cpp:352
 msgctxt "OSM::cuisine"
@@ -2271,7 +2232,7 @@ msgstr ""
 #: map-quick/roommodel.cpp:131
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "%1. kerros"
 
 #~ msgctxt "OSM::cuisine"
 #~ msgid "BBQ"
