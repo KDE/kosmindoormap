@@ -29,7 +29,7 @@ way[waterway][tunnel=culvert],
 way[waterway=canal][tunnel=yes],
 way[waterway=drain][tunnel=yes]
 {
-    opacity: 0;
+    opacity: 0.5;
 }
 
 // underground power lines
