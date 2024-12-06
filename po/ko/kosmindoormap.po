@@ -345,7 +345,7 @@ msgstr "회의실"
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
 msgid "Conference Center"
-msgstr "콘퍼런스 센터"
+msgstr "컨퍼런스 센터"
 
 #: map-quick/localization_data.cpp:76
 msgctxt "OSM::diplomatic"
