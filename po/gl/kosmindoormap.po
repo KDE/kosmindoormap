@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 02:30+0000\n"
-"PO-Revision-Date: 2024-08-22 10:36+0200\n"
+"PO-Revision-Date: 2024-12-13 23:21+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: app/main.cpp:70
 #, kde-format
@@ -418,6 +418,7 @@ msgctxt "OSM::vending"
 msgid "Drinks"
 msgstr "Bebidas"
 
+# skip-rule: trasno-clean
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
 msgid "Dry Cleaning"
@@ -461,7 +462,7 @@ msgstr "Moda"
 #: map-quick/localization_data.cpp:101
 msgctxt "OSM::shop"
 msgid "Fashion Accessories"
-msgstr "Complementos de moda"
+msgstr "Accesorios de moda"
 
 #: map-quick/localization_data.cpp:102
 msgctxt "OSM::amenity/shop"
