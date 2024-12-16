@@ -1,0 +1,2236 @@
+# Hindi translations for kosmindoormap package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kosmindoormap package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kosmindoormap\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-09 00:39+0000\n"
+"PO-Revision-Date: 2024-12-15 19:34+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#: app/main.cpp:70
+#, kde-format
+msgid "KDE OSM Indoor Map"
+msgstr "केडीई ओएसएम इंडोर मानचित्र"
+
+#: map-quick/amenitymodel.cpp:89
+#, kde-format
+msgctxt "amenity category"
+msgid "Food & Drinks"
+msgstr "भोजन और पेय"
+
+#: map-quick/amenitymodel.cpp:91
+#, kde-format
+msgctxt "amenity category"
+msgid "Shops"
+msgstr "दुकानें"
+
+#: map-quick/amenitymodel.cpp:93
+#, kde-format
+msgctxt "amenity category"
+msgid "Toilets"
+msgstr "प्रसाधन"
+
+#: map-quick/amenitymodel.cpp:95
+#, kde-format
+msgctxt "amenity category"
+msgid "Healthcare"
+msgstr "स्वास्थ्य देखभाल"
+
+#: map-quick/amenitymodel.cpp:97
+#, kde-format
+msgctxt "amenity category"
+msgid "Amenities"
+msgstr "सुविधाएं"
+
+#: map-quick/amenitymodel.cpp:99
+#, kde-format
+msgctxt "amenity category"
+msgid "Accommodations"
+msgstr "आवास"
+
+#: map-quick/floorlevelchangemodel.cpp:225
+#, kde-format
+msgid "Elevator"
+msgstr "लिफ़्ट"
+
+#: map-quick/floorlevelchangemodel.cpp:232
+#, kde-format
+msgid "Staircase"
+msgstr "सीढ़ी"
+
+#: map-quick/localization_data.cpp:20
+msgctxt "OSM::amenity/shop"
+msgid "Alcohol"
+msgstr "शराब"
+
+#: map-quick/localization_data.cpp:21
+msgctxt "OSM::shop"
+msgid "Antiques"
+msgstr "प्राचीन"
+
+#: map-quick/localization_data.cpp:22
+msgctxt "OSM::amenity/shop"
+msgid "Apartment"
+msgstr "अपार्टमेंट"
+
+#: map-quick/localization_data.cpp:23
+msgctxt "OSM::tourism"
+msgid "Aquarium"
+msgstr "मछलीघर"
+
+#: map-quick/localization_data.cpp:24
+msgctxt "OSM::historic"
+msgid "Archaeological Site"
+msgstr "पुरातात्विक स्थल"
+
+#: map-quick/localization_data.cpp:25
+msgctxt "OSM::shop"
+msgid "Art"
+msgstr "कला"
+
+#: map-quick/localization_data.cpp:26
+msgctxt "OSM::amenity/shop"
+msgid "Arts Center"
+msgstr "कला केंद्र"
+
+#: map-quick/localization_data.cpp:27
+msgctxt "OSM::amenity/shop"
+msgid "Artwork"
+msgstr "कलाकृति"
+
+#: map-quick/localization_data.cpp:28
+msgctxt "OSM::amenity/shop"
+msgid "ATM"
+msgstr "एटीएम"
+
+#: map-quick/localization_data.cpp:29
+msgctxt "OSM::amenity/shop"
+msgid "Attraction"
+msgstr "आकर्षण"
+
+#: map-quick/localization_data.cpp:30
+msgctxt "OSM::room"
+msgid "Auditorium"
+msgstr "सभागार"
+
+#: map-quick/localization_data.cpp:31
+msgctxt "OSM::shop"
+msgid "Baby Goods"
+msgstr "शिशु सामान"
+
+#: map-quick/localization_data.cpp:32
+msgctxt "OSM::amenity/shop"
+msgid "Bag"
+msgstr "थैला"
+
+#: map-quick/localization_data.cpp:33
+msgctxt "OSM::amenity"
+msgid "Baggage Claim"
+msgstr "सामान का दावा"
+
+#: map-quick/localization_data.cpp:34
+msgctxt "OSM::amenity/shop"
+msgid "Bakery"
+msgstr "बेकरी"
+
+#: map-quick/localization_data.cpp:35
+msgctxt "OSM::amenity/shop"
+msgid "Bank"
+msgstr "किनारा"
+
+#: map-quick/localization_data.cpp:36
+msgctxt "OSM::amenity/shop"
+msgid "Bar"
+msgstr "छड़"
+
+#: map-quick/localization_data.cpp:37
+msgctxt "OSM::amenity/shop"
+msgid "Beauty"
+msgstr "सुंदरता"
+
+#: map-quick/localization_data.cpp:38
+msgctxt "OSM::amenity/shop"
+msgid "Bed"
+msgstr "बिस्तर"
+
+#: map-quick/localization_data.cpp:39
+msgctxt "OSM::amenity"
+msgid "Bench"
+msgstr "बेंच"
+
+#: map-quick/localization_data.cpp:40
+msgctxt "OSM::amenity/shop"
+msgid "Beverages"
+msgstr "पेय"
+
+#: map-quick/localization_data.cpp:41
+msgctxt "OSM::amenity/shop"
+msgid "Bicycle"
+msgstr "साइकिल"
+
+#: map-quick/localization_data.cpp:42
+msgctxt "OSM::amenity/shop"
+msgid "Bicycle Parking"
+msgstr "साइकिल पार्किंग"
+
+#: map-quick/localization_data.cpp:43
+msgctxt "OSM::amenity/shop"
+msgid "Bicycle Rental"
+msgstr "साइकिल किराये पर लेना"
+
+#: map-quick/localization_data.cpp:44
+msgctxt "OSM::amenity"
+msgid "Bicycle Repair Station"
+msgstr "साइकिल मरम्मत स्टेशन"
+
+#: map-quick/localization_data.cpp:45
+msgctxt "OSM::amenity"
+msgid "Beer Garden"
+msgstr "भालू बगीचा"
+
+#: map-quick/localization_data.cpp:46
+msgctxt "OSM::amenity/shop"
+msgid "Books"
+msgstr "पुस्तकें"
+
+#: map-quick/localization_data.cpp:47
+msgctxt "OSM::amenity/shop"
+msgid "Boutique"
+msgstr "बूटिक"
+
+#: map-quick/localization_data.cpp:48
+msgctxt "OSM::leisure"
+msgid "Bowling Alley"
+msgstr "बोलिंग एले"
+
+#: map-quick/localization_data.cpp:49
+msgctxt "OSM::amenity/shop"
+msgid "Bureau de Change"
+msgstr "ब्यूरो डे चेंज"
+
+#: map-quick/localization_data.cpp:50
+msgctxt "OSM::amenity/shop"
+msgid "Butcher"
+msgstr "कसाई"
+
+#: map-quick/localization_data.cpp:51
+msgctxt "OSM::amenity/shop"
+msgid "Cafe"
+msgstr "कैफ़े"
+
+#: map-quick/localization_data.cpp:52
+msgctxt "OSM::amenity/shop"
+msgid "Car"
+msgstr "कार"
+
+#: map-quick/localization_data.cpp:53
+msgctxt "OSM::amenity/shop"
+msgid "Car Rental"
+msgstr "किराए पर कार लेना"
+
+#: map-quick/localization_data.cpp:54
+msgctxt "OSM::shop"
+msgid "Car Repair"
+msgstr "कार दुरुस्ती"
+
+#: map-quick/localization_data.cpp:55
+msgctxt "OSM::amenity/shop"
+msgid "Car Sharing"
+msgstr "कार शेयरिंग"
+
+#: map-quick/localization_data.cpp:56
+msgctxt "OSM::amenity"
+msgid "Car Wash"
+msgstr "कार धुलाई"
+
+#: map-quick/localization_data.cpp:57
+msgctxt "OSM::historic"
+msgid "Castle"
+msgstr "किला"
+
+#: map-quick/localization_data.cpp:58
+msgctxt "OSM::amenity/shop"
+msgid "Charging Station"
+msgstr "चार्जिंग स्टेशन"
+
+#: map-quick/localization_data.cpp:59
+msgctxt "OSM::shop"
+msgid "Charity Shop"
+msgstr "चैरिटी शॉप"
+
+#: map-quick/localization_data.cpp:60
+msgctxt "OSM::shop"
+msgid "Cheese"
+msgstr "पनीर"
+
+#: map-quick/localization_data.cpp:61
+msgctxt "OSM::amenity/shop"
+msgid "Chemist"
+msgstr "रसायनज्ञ"
+
+#: map-quick/localization_data.cpp:62
+msgctxt "OSM::amenity/shop"
+msgid "Chocolate"
+msgstr "चॉकलेट"
+
+#: map-quick/localization_data.cpp:63
+msgctxt "OSM::amenity/shop"
+msgid "Cinema"
+msgstr "सिनेमा"
+
+#: map-quick/localization_data.cpp:64
+msgctxt "OSM::historic"
+msgid "Citywall"
+msgstr "शहर की दीवार"
+
+#: map-quick/localization_data.cpp:65 map-quick/localization_data.cpp:66
+msgctxt "OSM::room"
+msgid "Classroom"
+msgstr "कक्षा"
+
+#: map-quick/localization_data.cpp:67
+msgctxt "OSM::healthcare"
+msgid "Clinic"
+msgstr "क्लिनिक"
+
+#: map-quick/localization_data.cpp:68
+msgctxt "OSM::amenity/shop"
+msgid "Clothes"
+msgstr "कपड़े"
+
+#: map-quick/localization_data.cpp:69
+msgctxt "OSM::amenity/shop"
+msgid "Coffee"
+msgstr "कॉफी"
+
+#: map-quick/localization_data.cpp:70
+msgctxt "OSM::amenity"
+msgid "Community Center"
+msgstr "सामुदायिक केंद्र"
+
+#: map-quick/localization_data.cpp:71
+msgctxt "OSM::amenity/shop"
+msgid "Computer"
+msgstr "कंप्यूटर"
+
+#: map-quick/localization_data.cpp:72
+msgctxt "OSM::room"
+msgid "Computer Lab"
+msgstr "कंप्यूटर लैब"
+
+#: map-quick/localization_data.cpp:73
+msgctxt "OSM::amenity/shop"
+msgid "Confectionery"
+msgstr "हलवाई की दुकान"
+
+#: map-quick/localization_data.cpp:74
+msgctxt "OSM::room"
+msgid "Conference Room"
+msgstr "सम्मेलन कक्ष"
+
+#: map-quick/localization_data.cpp:75
+msgctxt "OSM::amenity"
+msgid "Conference Center"
+msgstr "सम्मेलन केंद्र"
+
+#: map-quick/localization_data.cpp:76
+msgctxt "OSM::diplomatic"
+msgid "Consulate"
+msgstr "वाणिज्य दूतावास"
+
+#: map-quick/localization_data.cpp:77
+msgctxt "OSM::amenity/shop"
+msgid "Convenience Store"
+msgstr "सुविधा स्टोर"
+
+#: map-quick/localization_data.cpp:78
+msgctxt "OSM::amenity/shop"
+msgid "Copy Shop"
+msgstr "कॉपी की दुकान"
+
+#: map-quick/localization_data.cpp:79
+msgctxt "OSM::amenity/shop"
+msgid "Cosmetics"
+msgstr "प्रसाधन सामग्री"
+
+#: map-quick/localization_data.cpp:80
+msgctxt "OSM::amenity/shop"
+msgid "Court House"
+msgstr "कोर्ट हाउस"
+
+#: map-quick/localization_data.cpp:81 map-quick/localization_data.cpp:82
+msgctxt "OSM::amenity"
+msgid "Coworking Space"
+msgstr "सहकार्य स्थान"
+
+#: map-quick/localization_data.cpp:83
+msgctxt "OSM::shop"
+msgid "Art and Craft Supplies"
+msgstr "कला और शिल्प सामग्री"
+
+#: map-quick/localization_data.cpp:84
+msgctxt "OSM::shop"
+msgid "Curtains"
+msgstr "पर्दे"
+
+#: map-quick/localization_data.cpp:85
+msgctxt "OSM::amenity/shop"
+msgid "Deli"
+msgstr "डेली"
+
+#: map-quick/localization_data.cpp:86
+msgctxt "OSM::healthcare"
+msgid "Dentist"
+msgstr "दाँतों का डॉक्टर"
+
+#: map-quick/localization_data.cpp:87
+msgctxt "OSM::amenity/shop"
+msgid "Department Store"
+msgstr "डिपार्टमेंट स्टोर"
+
+#: map-quick/localization_data.cpp:88 map-quick/localization_data.cpp:89
+msgctxt "OSM::healthcare"
+msgid "Doctor"
+msgstr "चिकित्सक"
+
+#: map-quick/localization_data.cpp:90
+msgctxt "OSM::amenity/shop"
+msgid "Hardware Store"
+msgstr "लौह वस्तुओं की दुकान"
+
+#: map-quick/localization_data.cpp:91
+msgctxt "OSM::amenity/shop"
+msgid "Drinking Water"
+msgstr "पेय जल"
+
+#: map-quick/localization_data.cpp:92
+msgctxt "OSM::vending"
+msgid "Drinks"
+msgstr "पेय"
+
+#: map-quick/localization_data.cpp:93
+msgctxt "OSM::amenity/shop"
+msgid "Dry Cleaning"
+msgstr "शुष्क सफाई"
+
+#: map-quick/localization_data.cpp:94
+msgctxt "OSM::shop"
+msgid "Electrical"
+msgstr "विद्युतीय"
+
+#: map-quick/localization_data.cpp:95
+msgctxt "OSM::amenity/shop"
+msgid "Electronics"
+msgstr "इलेक्ट्रानिक्स"
+
+#: map-quick/localization_data.cpp:96
+msgctxt "OSM::diplomatic"
+msgid "Embassy"
+msgstr "दूतावास"
+
+#: map-quick/localization_data.cpp:97
+msgctxt "OSM::amenity"
+msgid "Events Venue"
+msgstr "आयोजन स्थल"
+
+#: map-quick/localization_data.cpp:98
+msgctxt "OSM::amenity"
+msgid "Exhibition Hall"
+msgstr "प्रदर्शनी कक्ष"
+
+#: map-quick/localization_data.cpp:99
+msgctxt "OSM::shop"
+msgid "Fabric"
+msgstr "कपड़ा"
+
+#: map-quick/localization_data.cpp:100
+msgctxt "OSM::amenity/shop"
+msgid "Fashion"
+msgstr "पहनावा"
+
+#: map-quick/localization_data.cpp:101
+msgctxt "OSM::shop"
+msgid "Fashion Accessories"
+msgstr "फैशन सहायक उपकरण"
+
+#: map-quick/localization_data.cpp:102
+msgctxt "OSM::amenity/shop"
+msgid "Fast Food"
+msgstr "फास्ट फूड"
+
+#: map-quick/localization_data.cpp:103
+msgctxt "OSM::amenity/shop"
+msgid "Ferry Terminal"
+msgstr "फेरी टर्मिनल"
+
+#: map-quick/localization_data.cpp:104
+msgctxt "OSM::amenity"
+msgid "Fire Station"
+msgstr "अग्निशमन केंद्र"
+
+#: map-quick/localization_data.cpp:105
+msgctxt "OSM::leisure"
+msgid "Fitness Center"
+msgstr "फिटनेस सेंटर"
+
+#: map-quick/localization_data.cpp:106
+msgctxt "OSM::leisure"
+msgid "Fitness Station"
+msgstr "फिटनेस स्टेशन"
+
+#: map-quick/localization_data.cpp:107
+msgctxt "OSM::amenity/shop"
+msgid "Florist"
+msgstr "फूलवाला"
+
+#: map-quick/localization_data.cpp:108
+msgctxt "OSM::shop"
+msgid "Food"
+msgstr "खाना"
+
+#: map-quick/localization_data.cpp:109
+msgctxt "OSM::amenity/shop"
+msgid "Food Court"
+msgstr "फूड कोर्ट"
+
+#: map-quick/localization_data.cpp:110
+msgctxt "OSM::amenity/shop"
+msgid "Fountain"
+msgstr "फव्वारा"
+
+#: map-quick/localization_data.cpp:111
+msgctxt "OSM::amenity"
+msgid "Gas Station"
+msgstr "गैस स्टेशन"
+
+#: map-quick/localization_data.cpp:112
+msgctxt "OSM::amenity/shop"
+msgid "Furniture"
+msgstr "फर्नीचर"
+
+#: map-quick/localization_data.cpp:113
+msgctxt "OSM::amenity/shop"
+msgid "Gallery"
+msgstr "गैलरी"
+
+#: map-quick/localization_data.cpp:114
+msgctxt "OSM::shop"
+msgid "Games"
+msgstr "खेल"
+
+#: map-quick/localization_data.cpp:115
+msgctxt "OSM::amenity/shop"
+msgid "Garden"
+msgstr "बगीचा"
+
+#: map-quick/localization_data.cpp:116
+msgctxt "OSM::amenity/shop"
+msgid "Garden Center"
+msgstr "गार्डन का केंद्र"
+
+#: map-quick/localization_data.cpp:117
+msgctxt "OSM::amenity/shop"
+msgid "Gift Shop"
+msgstr "उपहार की वस्तुओं की दुकान"
+
+#: map-quick/localization_data.cpp:118
+msgctxt "OSM::leisure"
+msgid "Golf Course"
+msgstr "गोल्फ कोर्स"
+
+#: map-quick/localization_data.cpp:119
+msgctxt "OSM::office"
+msgid "Government"
+msgstr "सरकार"
+
+#: map-quick/localization_data.cpp:120
+msgctxt "OSM::amenity/shop"
+msgid "Greengrocer"
+msgstr "फल बेचनेवाला"
+
+#: map-quick/localization_data.cpp:121
+msgctxt "OSM::amenity/shop"
+msgid "Guest House"
+msgstr "गेस्ट हाउस"
+
+#: map-quick/localization_data.cpp:122
+msgctxt "OSM::amenity/shop"
+msgid "Hairdresser"
+msgstr "नाई"
+
+#: map-quick/localization_data.cpp:123
+msgctxt "OSM::shop"
+msgid "Hardware"
+msgstr "हार्डवेयर"
+
+#: map-quick/localization_data.cpp:124
+msgctxt "OSM::shop"
+msgid "Health Food"
+msgstr "स्वास्थ्य भोजन"
+
+#: map-quick/localization_data.cpp:125
+msgctxt "OSM::amenity/shop"
+msgid "Hearing Aids"
+msgstr "कान की मशीन"
+
+#: map-quick/localization_data.cpp:126
+msgctxt "OSM::shop"
+msgid "Hi-fi"
+msgstr "हाई-फाई"
+
+#: map-quick/localization_data.cpp:127
+msgctxt "OSM::amenity/shop"
+msgid "Hospital"
+msgstr "अस्पताल"
+
+#: map-quick/localization_data.cpp:128
+msgctxt "OSM::amenity/shop"
+msgid "Hostel"
+msgstr "छात्रावास"
+
+#: map-quick/localization_data.cpp:129
+msgctxt "OSM::amenity/shop"
+msgid "Hotel"
+msgstr "होटल"
+
+#: map-quick/localization_data.cpp:130
+msgctxt "OSM::amenity/shop"
+msgid "Houseware"
+msgstr "houseware"
+
+#: map-quick/localization_data.cpp:131
+msgctxt "OSM::amenity/shop"
+msgid "Ice Cream"
+msgstr "आइसक्रीम"
+
+#: map-quick/localization_data.cpp:132
+msgctxt "OSM::amenity/shop"
+msgid "Information"
+msgstr "जानकारी"
+
+#: map-quick/localization_data.cpp:133
+msgctxt "OSM::amenity/shop"
+msgid "Interior Decoration"
+msgstr "भीतरी सजावट"
+
+#: map-quick/localization_data.cpp:134
+msgctxt "OSM::amenity/shop"
+msgid "Internet Cafe"
+msgstr "इंटरनेट कैफे"
+
+#: map-quick/localization_data.cpp:135
+msgctxt "OSM::amenity/shop"
+msgid "Jewelry"
+msgstr "जेवर"
+
+#: map-quick/localization_data.cpp:136
+msgctxt "OSM::amenity/shop"
+msgid "Kiosk"
+msgstr "कीओस्क"
+
+#: map-quick/localization_data.cpp:137
+msgctxt "OSM::room"
+msgid "Kitchen"
+msgstr "रसोईघर"
+
+#: map-quick/localization_data.cpp:138
+msgctxt "OSM::room"
+msgid "Laboratory"
+msgstr "प्रयोगशाला"
+
+#: map-quick/localization_data.cpp:139
+msgctxt "OSM::amenity/shop"
+msgid "Laundry"
+msgstr "धोने लायक कपड़े"
+
+#: map-quick/localization_data.cpp:140 map-quick/localization_data.cpp:141
+msgctxt "OSM::room"
+msgid "Lecture Hall"
+msgstr "लेक्चर हॉल"
+
+#: map-quick/localization_data.cpp:142
+msgctxt "OSM::amenity/shop"
+msgid "Library"
+msgstr "पुस्तकालय"
+
+#: map-quick/localization_data.cpp:143 map-quick/localization_data.cpp:144
+#: map-quick/localization_data.cpp:149
+msgctxt "OSM::amenity"
+msgid "Locker"
+msgstr "लॉकर"
+
+#: map-quick/localization_data.cpp:145
+msgctxt "OSM::amenity/shop"
+msgid "Locksmith"
+msgstr "मरम्मत करनेवाला"
+
+#: map-quick/localization_data.cpp:146 map-quick/localization_data.cpp:147
+#: map-quick/localization_data.cpp:148
+msgctxt "OSM::amenity"
+msgid "Lost & Found"
+msgstr "खोया पाया"
+
+#: map-quick/localization_data.cpp:150
+msgctxt "OSM::amenity/shop"
+msgid "Mall"
+msgstr "मॉल"
+
+#: map-quick/localization_data.cpp:151
+msgctxt "OSM::amenity"
+msgid "Marketplace"
+msgstr "बाजार"
+
+#: map-quick/localization_data.cpp:152
+msgctxt "OSM::amenity/shop"
+msgid "Medical Supply"
+msgstr "चिकित्सा की आपूर्ति"
+
+#: map-quick/localization_data.cpp:153
+msgctxt "OSM::room"
+msgid "Meeting Room"
+msgstr "बैठक का कमरा"
+
+#: map-quick/localization_data.cpp:154
+msgctxt "OSM::historic"
+msgid "Memorial"
+msgstr "शहीद स्मारक"
+
+#: map-quick/localization_data.cpp:155
+msgctxt "OSM::amenity/shop"
+msgid "Mobile Phone"
+msgstr "चल दूरभाष"
+
+#: map-quick/localization_data.cpp:156
+msgctxt "OSM::amenity/shop"
+msgid "Money Transfer"
+msgstr "मनी ट्रांसफर"
+
+#: map-quick/localization_data.cpp:157
+msgctxt "OSM::historic"
+msgid "Monument"
+msgstr "स्मारक"
+
+#: map-quick/localization_data.cpp:158
+msgctxt "OSM::shop"
+msgid "Motorcycle"
+msgstr "मोटरसाइकिल"
+
+#: map-quick/localization_data.cpp:159
+msgctxt "OSM::amenity/shop"
+msgid "Motorcycle Parking"
+msgstr "मोटरसाइकिल पार्किंग"
+
+#: map-quick/localization_data.cpp:160
+msgctxt "OSM::amenity/shop"
+msgid "Motorcycle Rental"
+msgstr "मोटरसाइकिल किराये पर लेना"
+
+#: map-quick/localization_data.cpp:161
+msgctxt "OSM::amenity/shop"
+msgid "Museum"
+msgstr "संग्रहालय"
+
+#: map-quick/localization_data.cpp:162
+msgctxt "OSM::amenity/shop"
+msgid "Music"
+msgstr "संगीत"
+
+#: map-quick/localization_data.cpp:163
+msgctxt "OSM::amenity/shop"
+msgid "Musical Instruments"
+msgstr "संगीत वाद्ययंत्र"
+
+#: map-quick/localization_data.cpp:164
+msgctxt "OSM::amenity/shop"
+msgid "Newsagent"
+msgstr "newsagent"
+
+#: map-quick/localization_data.cpp:165
+msgctxt "OSM::amenity"
+msgid "Nightclub"
+msgstr "नाइट क्लब"
+
+#: map-quick/localization_data.cpp:166
+msgctxt "OSM::shop"
+msgid "Nutrition Supplements"
+msgstr "पोषण अनुपूरक"
+
+#: map-quick/localization_data.cpp:167
+msgctxt "OSM::amenity/shop"
+msgid "Office"
+msgstr "कार्यालय"
+
+#: map-quick/localization_data.cpp:168
+msgctxt "OSM::amenity/shop"
+msgid "Optician"
+msgstr "प्रकाशविज्ञानशास्री"
+
+#: map-quick/localization_data.cpp:169
+msgctxt "OSM::healthcare"
+msgid "Optometrist"
+msgstr "ऑप्टोमेट्रिस्ट"
+
+#: map-quick/localization_data.cpp:170
+msgctxt "OSM::amenity/shop"
+msgid "Outdoor"
+msgstr "आउटडोर"
+
+#: map-quick/localization_data.cpp:171
+msgctxt "OSM::amenity/shop"
+msgid "Paint"
+msgstr "रँगना"
+
+#: map-quick/localization_data.cpp:172
+msgctxt "outdoor recreational area"
+msgid "Park"
+msgstr "पार्क"
+
+#: map-quick/localization_data.cpp:173
+msgctxt "OSM::amenity/shop"
+msgid "Parking"
+msgstr "पार्किंग"
+
+#: map-quick/localization_data.cpp:174
+msgctxt "OSM::amenity/shop"
+msgid "Parking Tickets"
+msgstr "पार्किंग के टिकिट"
+
+#: map-quick/localization_data.cpp:175
+msgctxt "OSM::amenity/shop"
+msgid "Pastry"
+msgstr "पेस्ट्री"
+
+#: map-quick/localization_data.cpp:176
+msgctxt "OSM::amenity/shop"
+msgid "Perfumery"
+msgstr "गंध-द्रव्य"
+
+#: map-quick/localization_data.cpp:177
+msgctxt "OSM::amenity/shop"
+msgid "Pet"
+msgstr "पालतू"
+
+#: map-quick/localization_data.cpp:178
+msgctxt "OSM::amenity/shop"
+msgid "Pharmacy"
+msgstr "फार्मेसी"
+
+#: map-quick/localization_data.cpp:179
+msgctxt "OSM::amenity/shop"
+msgid "Photo"
+msgstr "तस्वीर"
+
+#: map-quick/localization_data.cpp:180
+msgctxt "OSM::healthcare"
+msgid "Physiotherapist"
+msgstr "फ़िज़ियोथेरेपिस्ट"
+
+#: map-quick/localization_data.cpp:181
+msgctxt "OSM::amenity/shop"
+msgid "Place of Worship"
+msgstr "पूजा का स्थान"
+
+#: map-quick/localization_data.cpp:182
+msgid "Playground"
+msgstr "खेल का मैदान"
+
+#: map-quick/localization_data.cpp:183
+msgctxt "OSM::amenity/shop"
+msgid "Police"
+msgstr "पुलिस"
+
+#: map-quick/localization_data.cpp:184
+msgctxt "OSM::amenity/shop"
+msgid "Post Box"
+msgstr "पोस्ट बॉक्स"
+
+#: map-quick/localization_data.cpp:185
+msgctxt "OSM::amenity/shop"
+msgid "Post Office"
+msgstr "पोस्ट ऑफ़िस"
+
+#: map-quick/localization_data.cpp:186
+msgctxt "OSM::shop"
+msgid "Potery"
+msgstr "spawns"
+
+#: map-quick/localization_data.cpp:187
+msgctxt "OSM::healthcare"
+msgid "Psychotherapist"
+msgstr "मनोचिकित्सक"
+
+#: map-quick/localization_data.cpp:188
+msgctxt "OSM::amenity/shop"
+msgid "Pub"
+msgstr "पब"
+
+#: map-quick/localization_data.cpp:189
+msgctxt "OSM::amenity/shop"
+msgid "Public Transport Tickets"
+msgstr "सार्वजनिक परिवहन टिकट"
+
+#: map-quick/localization_data.cpp:190 map-quick/localization_data.cpp:227
+msgctxt "OSM::building"
+msgid "Train Station"
+msgstr "रेलवे स्टेशन"
+
+#: map-quick/localization_data.cpp:191
+msgctxt "place to welcome guests, e.g. in a hotel"
+msgid "Reception"
+msgstr "स्वागत"
+
+#: map-quick/localization_data.cpp:192
+msgctxt "OSM::amenity/shop"
+msgid "Recycling"
+msgstr "पुनर्चक्रण"
+
+#: map-quick/localization_data.cpp:193
+msgctxt "OSM::amenity"
+msgid "Research Institute"
+msgstr "शोध संस्था"
+
+#: map-quick/localization_data.cpp:194
+msgctxt "OSM::amenity/shop"
+msgid "Restaurant"
+msgstr "रेस्टोरेंट"
+
+#: map-quick/localization_data.cpp:195
+msgctxt "OSM::amenity"
+msgid "Sauna"
+msgstr "सॉना"
+
+#: map-quick/localization_data.cpp:196
+msgctxt "OSM::amenity/shop"
+msgid "School"
+msgstr "विद्यालय"
+
+#: map-quick/localization_data.cpp:197
+msgctxt "OSM::amenity/shop"
+msgid "Kick Scooter Rental"
+msgstr "किक स्कूटर किराये पर लें"
+
+#: map-quick/localization_data.cpp:198
+msgctxt "OSM::amenity/shop"
+msgid "Seafood"
+msgstr "समुद्री भोजन"
+
+#: map-quick/localization_data.cpp:199
+msgctxt "OSM::shop"
+msgid "Second Hand"
+msgstr "सेकंड हैंड"
+
+#: map-quick/localization_data.cpp:200
+msgctxt "OSM::room"
+msgid "Seminar Room"
+msgstr "सम्मेलन कमरा"
+
+#: map-quick/localization_data.cpp:201
+msgctxt "OSM::shop"
+msgid "Shoe Repair"
+msgstr "जूते की मरम्मत"
+
+#: map-quick/localization_data.cpp:202
+msgctxt "OSM::shop"
+msgid "Shoes"
+msgstr "जूते"
+
+#: map-quick/localization_data.cpp:203
+msgctxt "OSM::amenity/shop"
+msgid "Shop"
+msgstr "दुकान"
+
+#: map-quick/localization_data.cpp:204
+msgctxt "OSM::amenity"
+msgid "Shower"
+msgstr "फव्वारा"
+
+#: map-quick/localization_data.cpp:205
+msgctxt "OSM::amenity/shop"
+msgid "Social Facility"
+msgstr "सामाजिक सुविधा"
+
+#: map-quick/localization_data.cpp:206
+msgctxt "OSM::amenity/shop"
+msgid "Souvenirs"
+msgstr "स्मृति चिन्ह"
+
+#: map-quick/localization_data.cpp:207
+msgctxt "OSM::amenity/shop"
+msgid "Sports"
+msgstr "खेल"
+
+#: map-quick/localization_data.cpp:208
+msgctxt "OSM::amenity"
+msgid "Sports Center"
+msgstr "खेल केंद्र"
+
+#: map-quick/localization_data.cpp:209
+msgctxt "OSM::amenity"
+msgid "Sports Hall"
+msgstr "खेल हॉल"
+
+#: map-quick/localization_data.cpp:210
+msgctxt "OSM::amenity/shop"
+msgid "Stationery"
+msgstr "लेखन सामग्री"
+
+#: map-quick/localization_data.cpp:211
+msgctxt "OSM::amenity/shop"
+msgid "Supermarket"
+msgstr "सुपरमार्केट"
+
+#: map-quick/localization_data.cpp:212
+msgctxt "OSM::vending"
+msgid "Sweets"
+msgstr "मिठाई"
+
+#: map-quick/localization_data.cpp:213
+msgctxt "OSM::amenity/shop"
+msgid "Tailor"
+msgstr "दर्जी"
+
+#: map-quick/localization_data.cpp:214
+msgctxt "OSM::amenity/shop"
+msgid "Tattoo"
+msgstr "टटू"
+
+#: map-quick/localization_data.cpp:215
+msgctxt "OSM::amenity/shop"
+msgid "Taxi"
+msgstr "टैक्सी"
+
+#: map-quick/localization_data.cpp:216
+msgctxt "OSM::amenity/shop"
+msgid "Tea"
+msgstr "चाय"
+
+#: map-quick/localization_data.cpp:217
+msgctxt "OSM::shop"
+msgid "Telecommunication"
+msgstr "दूरसंचार"
+
+#: map-quick/localization_data.cpp:218
+msgctxt "OSM::room"
+msgid "Terrace"
+msgstr "छत"
+
+#: map-quick/localization_data.cpp:219
+msgctxt "OSM::amenity/shop"
+msgid "Theatre"
+msgstr "थिएटर"
+
+#: map-quick/localization_data.cpp:220
+msgctxt "OSM::tourism"
+msgid "Theme Park"
+msgstr "थीम पार्क"
+
+#: map-quick/localization_data.cpp:221
+msgctxt "OSM::amenity/shop"
+msgid "Tickets"
+msgstr "टिकट"
+
+#: map-quick/localization_data.cpp:222
+msgctxt "OSM::amenity/shop"
+msgid "Tobacco"
+msgstr "तंबाकू"
+
+#: map-quick/localization_data.cpp:223 map-quick/localization_data.cpp:224
+msgctxt "OSM::amenity/shop"
+msgid "Toilets"
+msgstr "प्रसाधन"
+
+#: map-quick/localization_data.cpp:225
+msgctxt "OSM::amenity/shop"
+msgid "Town Hall"
+msgstr "टाउन हॉल"
+
+#: map-quick/localization_data.cpp:226
+msgctxt "OSM::amenity/shop"
+msgid "Toys"
+msgstr "खिलौने"
+
+#: map-quick/localization_data.cpp:228 map-quick/localization_data.cpp:229
+msgctxt "OSM::amenity/shop"
+msgid "Travel Agency"
+msgstr "ट्रैवल एजेंसी"
+
+#: map-quick/localization_data.cpp:230
+msgctxt "OSM::amenity/shop"
+msgid "University"
+msgstr "विश्वविद्यालय"
+
+#: map-quick/localization_data.cpp:231
+msgctxt "OSM::amenity/shop"
+msgid "Variety Store"
+msgstr "वैरायटी स्टोर"
+
+#: map-quick/localization_data.cpp:232
+msgctxt "OSM::amenity"
+msgid "Vending Machine"
+msgstr "व्यापारिक मशीन"
+
+#: map-quick/localization_data.cpp:233
+msgctxt "OSM::amenity"
+msgid "Veterinary"
+msgstr "पशुचिकित्सा"
+
+#: map-quick/localization_data.cpp:234
+msgctxt "OSM::amenity/shop"
+msgid "Video Games"
+msgstr "वीडियो गेम"
+
+#: map-quick/localization_data.cpp:235
+msgctxt "OSM::tourism"
+msgid "Viewpoint"
+msgstr "दृष्टिकोण"
+
+#: map-quick/localization_data.cpp:236 map-quick/localization_data.cpp:237
+#: map-quick/localization_data.cpp:238
+msgctxt "OSM::amenity/shop"
+msgid "Waiting Area"
+msgstr "इंतज़ार क्षेत्र"
+
+#: map-quick/localization_data.cpp:239
+msgctxt "OSM::amenity"
+msgid "Waste Basket"
+msgstr "कचरा टोकरी"
+
+#: map-quick/localization_data.cpp:240
+msgctxt "OSM::shop"
+msgid "Watches"
+msgstr "घड़ियाँ"
+
+#: map-quick/localization_data.cpp:241
+msgctxt "OSM::vending"
+msgid "Water"
+msgstr "पानी"
+
+#: map-quick/localization_data.cpp:242
+msgctxt "OSM::amenity/shop"
+msgid "Wine"
+msgstr "शराब"
+
+#: map-quick/localization_data.cpp:243
+msgctxt "OSM::tourism"
+msgid "Zoo"
+msgstr "अच्छा"
+
+#: map-quick/localization_data.cpp:249
+msgctxt "OSM::cuisine"
+msgid "African"
+msgstr "अफ़्रीकी"
+
+#: map-quick/localization_data.cpp:250
+msgctxt "OSM::cuisine"
+msgid "American"
+msgstr "अमेरिकी"
+
+#: map-quick/localization_data.cpp:251
+msgctxt "OSM::cuisine"
+msgid "Arab"
+msgstr "अरब"
+
+#: map-quick/localization_data.cpp:252
+msgctxt "OSM::cuisine"
+msgid "Argentinian"
+msgstr "अर्जेंटीना"
+
+#: map-quick/localization_data.cpp:253
+msgctxt "OSM::cuisine"
+msgid "Asian"
+msgstr "एशियाई"
+
+#: map-quick/localization_data.cpp:254
+msgctxt "OSM::cuisine"
+msgid "Austrian"
+msgstr "ऑस्ट्रिया"
+
+#: map-quick/localization_data.cpp:255
+msgctxt "OSM::cuisine"
+msgid "Bagel"
+msgstr "बैगल"
+
+#: map-quick/localization_data.cpp:256
+msgctxt "OSM::cuisine"
+msgid "Balkan"
+msgstr "बलकानी"
+
+#: map-quick/localization_data.cpp:257 map-quick/localization_data.cpp:258
+#: map-quick/localization_data.cpp:260
+msgctxt "OSM::cuisine"
+msgid "Barbecue"
+msgstr "बारबेक्यू"
+
+#: map-quick/localization_data.cpp:259
+msgctxt "OSM::cuisine"
+msgid "Bavarian"
+msgstr "बवेरियन"
+
+#: map-quick/localization_data.cpp:261
+msgctxt "OSM::cuisine"
+msgid "Beef Bowl"
+msgstr "बीफ बाउल"
+
+#: map-quick/localization_data.cpp:262
+msgctxt "OSM::cuisine"
+msgid "Bolivian"
+msgstr "बोलीविया"
+
+#: map-quick/localization_data.cpp:263
+msgctxt "OSM::cuisine"
+msgid "Brazilian"
+msgstr "ब्राजील"
+
+#: map-quick/localization_data.cpp:264
+msgctxt "OSM::cuisine"
+msgid "Breakfast"
+msgstr "नाश्ता"
+
+#: map-quick/localization_data.cpp:265
+msgctxt "OSM::cuisine"
+msgid "British"
+msgstr "ब्रीटैन का"
+
+#: map-quick/localization_data.cpp:266
+msgctxt "OSM::cuisine"
+msgid "Brunch"
+msgstr "ब्रंच"
+
+#: map-quick/localization_data.cpp:267
+msgctxt "OSM::cuisine"
+msgid "Bubble Tea"
+msgstr "बुलबुला चाय"
+
+#: map-quick/localization_data.cpp:268
+msgctxt "OSM::cuisine"
+msgid "Buffet"
+msgstr "बुफ़े"
+
+#: map-quick/localization_data.cpp:269
+msgctxt "OSM::cuisine"
+msgid "Burger"
+msgstr "बर्गर"
+
+#: map-quick/localization_data.cpp:270
+msgctxt "OSM::cuisine"
+msgid "Cake"
+msgstr "केक"
+
+#: map-quick/localization_data.cpp:271
+msgctxt "OSM::cuisine"
+msgid "Caribbean"
+msgstr "कैरेबियन"
+
+#: map-quick/localization_data.cpp:272
+msgctxt "OSM::cuisine"
+msgid "Chicken"
+msgstr "मुर्गा"
+
+#: map-quick/localization_data.cpp:273
+msgctxt "OSM::cuisine"
+msgid "Chinese"
+msgstr "चीनी"
+
+#: map-quick/localization_data.cpp:274
+msgctxt "OSM::cuisine"
+msgid "Coffee"
+msgstr "कॉफी"
+
+#: map-quick/localization_data.cpp:275
+msgctxt "OSM::cuisine"
+msgid "Coffee Shop"
+msgstr "कॉफी की दुकान"
+
+#: map-quick/localization_data.cpp:276
+msgctxt "OSM::cuisine"
+msgid "Cookies"
+msgstr "कुकीज़"
+
+#: map-quick/localization_data.cpp:277
+msgctxt "OSM::cuisine"
+msgid "Crêpe"
+msgstr "पैनकेक"
+
+#: map-quick/localization_data.cpp:278
+msgctxt "OSM::cuisine"
+msgid "Curry"
+msgstr "करी"
+
+#: map-quick/localization_data.cpp:279
+msgctxt "OSM::cuisine"
+msgid "Czech"
+msgstr "चेक"
+
+#: map-quick/localization_data.cpp:280
+msgctxt "OSM::cuisine"
+msgid "Dessert"
+msgstr "मिठाई"
+
+#: map-quick/localization_data.cpp:281
+msgctxt "OSM::cuisine"
+msgid "Donut"
+msgstr "डोनट"
+
+#: map-quick/localization_data.cpp:282 map-quick/localization_data.cpp:283
+msgctxt "OSM::cuisine"
+msgid "Dumplings"
+msgstr "पकौड़े"
+
+#: map-quick/localization_data.cpp:284
+msgctxt "OSM::cuisine"
+msgid "Ethiopian"
+msgstr "इथियोपियाई"
+
+#: map-quick/localization_data.cpp:285
+msgctxt "OSM::cuisine"
+msgid "Falafel"
+msgstr "फ़लाफ़ेल"
+
+#: map-quick/localization_data.cpp:286
+msgctxt "OSM::cuisine"
+msgid "Fast Food"
+msgstr "फास्ट फूड"
+
+#: map-quick/localization_data.cpp:287
+msgctxt "OSM::cuisine"
+msgid "Filipino"
+msgstr "filipino"
+
+#: map-quick/localization_data.cpp:288
+msgctxt "OSM::cuisine"
+msgid "Fish"
+msgstr "मछली"
+
+#: map-quick/localization_data.cpp:289
+msgctxt "OSM::cuisine"
+msgid "Fish & Chips"
+msgstr "मछली और चिप्स"
+
+#: map-quick/localization_data.cpp:290
+msgctxt "OSM::cuisine"
+msgid "French"
+msgstr "फ्रेंच"
+
+#: map-quick/localization_data.cpp:291
+msgctxt "OSM::cuisine"
+msgid "Fries"
+msgstr "आलू"
+
+#: map-quick/localization_data.cpp:292
+msgctxt "OSM::cuisine"
+msgid "Georigan"
+msgstr "जियोरीगन"
+
+#: map-quick/localization_data.cpp:293
+msgctxt "OSM::cuisine"
+msgid "German"
+msgstr "जर्मन"
+
+#: map-quick/localization_data.cpp:294
+msgctxt "OSM::cuisine"
+msgid "Greek"
+msgstr "यूनानी"
+
+#: map-quick/localization_data.cpp:295
+msgctxt "OSM::cuisine"
+msgid "Grill"
+msgstr "ग्रिल"
+
+#: map-quick/localization_data.cpp:296
+msgctxt "OSM::cuisine"
+msgid "Gyros"
+msgstr "जायरोस"
+
+#: map-quick/localization_data.cpp:297
+msgctxt "OSM::cuisine"
+msgid "Hawaiian"
+msgstr "हवाई"
+
+#: map-quick/localization_data.cpp:298 map-quick/localization_data.cpp:299
+msgctxt "OSM::cuisine"
+msgid "Hot Dog"
+msgstr "हॉट डॉग"
+
+#: map-quick/localization_data.cpp:300
+msgctxt "OSM::cuisine"
+msgid "Ice Cream"
+msgstr "आइसक्रीम"
+
+#: map-quick/localization_data.cpp:301
+msgctxt "OSM::cuisine"
+msgid "Indian"
+msgstr "भारतीय"
+
+#: map-quick/localization_data.cpp:302
+msgctxt "OSM::cuisine"
+msgid "Indonesian"
+msgstr "इन्डोनेशियाई"
+
+#: map-quick/localization_data.cpp:303
+msgctxt "OSM::cuisine"
+msgid "International"
+msgstr "अंतरराष्ट्रीय"
+
+#: map-quick/localization_data.cpp:304
+msgctxt "OSM::cuisine"
+msgid "Irish"
+msgstr "आयरिश"
+
+#: map-quick/localization_data.cpp:305
+msgctxt "OSM::cuisine"
+msgid "Italian"
+msgstr "इतालवी"
+
+#: map-quick/localization_data.cpp:306 map-quick/localization_data.cpp:327
+msgctxt "OSM::cuisine"
+msgid "Pizza"
+msgstr "पिज़्ज़ा"
+
+#: map-quick/localization_data.cpp:307
+msgctxt "OSM::cuisine"
+msgid "Japanese"
+msgstr "जापानी"
+
+#: map-quick/localization_data.cpp:308
+msgctxt "OSM::cuisine"
+msgid "Juice"
+msgstr "रस"
+
+#: map-quick/localization_data.cpp:309
+msgctxt "OSM::cuisine"
+msgid "Kebab"
+msgstr "कबाब"
+
+#: map-quick/localization_data.cpp:310
+msgctxt "OSM::cuisine"
+msgid "Korean"
+msgstr "कोरियाई"
+
+#: map-quick/localization_data.cpp:311
+msgctxt "OSM::cuisine"
+msgid "Lebanese"
+msgstr "लेबनान"
+
+#: map-quick/localization_data.cpp:312
+msgctxt "OSM::cuisine"
+msgid "Local"
+msgstr "स्थानीय"
+
+#: map-quick/localization_data.cpp:313
+msgctxt "OSM::cuisine"
+msgid "Malaysian"
+msgstr "मलेशियाई"
+
+#: map-quick/localization_data.cpp:314
+msgctxt "OSM::cuisine"
+msgid "Meat"
+msgstr "मांस"
+
+#: map-quick/localization_data.cpp:315
+msgctxt "OSM::cuisine"
+msgid "Mediterranean"
+msgstr "आभ्यंतरिक"
+
+#: map-quick/localization_data.cpp:316
+msgctxt "OSM::cuisine"
+msgid "Mexican"
+msgstr "मैक्सिकन"
+
+#: map-quick/localization_data.cpp:317
+msgctxt "OSM::cuisine"
+msgid "Moroccan"
+msgstr "मोरक्को"
+
+#: map-quick/localization_data.cpp:318
+msgctxt "OSM::cuisine"
+msgid "Nepalese"
+msgstr "नेपाली"
+
+#: map-quick/localization_data.cpp:319 map-quick/localization_data.cpp:320
+msgctxt "OSM::cuisine"
+msgid "Noodle"
+msgstr "सिर"
+
+#: map-quick/localization_data.cpp:321
+msgctxt "OSM::cuisine"
+msgid "Pakistani"
+msgstr "पाकिस्तानी"
+
+#: map-quick/localization_data.cpp:322
+msgctxt "OSM::cuisine"
+msgid "Pancake"
+msgstr "पैनकेक"
+
+#: map-quick/localization_data.cpp:323
+msgctxt "OSM::cuisine"
+msgid "Pasta"
+msgstr "पास्ता"
+
+#: map-quick/localization_data.cpp:324
+msgctxt "OSM::cuisine"
+msgid "Pastry"
+msgstr "पेस्ट्री"
+
+#: map-quick/localization_data.cpp:325
+msgctxt "OSM::cuisine"
+msgid "Persian"
+msgstr "फ़ारसी"
+
+#: map-quick/localization_data.cpp:326
+msgctxt "OSM::cuisine"
+msgid "Peruvian"
+msgstr "पेरू"
+
+#: map-quick/localization_data.cpp:328
+msgctxt "OSM::cuisine"
+msgid "Poke"
+msgstr "झांकना"
+
+#: map-quick/localization_data.cpp:329
+msgctxt "OSM::cuisine"
+msgid "Polish"
+msgstr "पोलिश"
+
+#: map-quick/localization_data.cpp:330
+msgctxt "OSM::cuisine"
+msgid "Portuguese"
+msgstr "पुर्तगाली"
+
+#: map-quick/localization_data.cpp:331
+msgctxt "OSM::cuisine"
+msgid "Pretzel"
+msgstr "एक प्रकार की रोटी"
+
+#: map-quick/localization_data.cpp:332
+msgctxt "OSM::cuisine"
+msgid "Ramen"
+msgstr "रेमन"
+
+#: map-quick/localization_data.cpp:333
+msgctxt "OSM::cuisine"
+msgid "Regional"
+msgstr "क्षेत्रीय"
+
+#: map-quick/localization_data.cpp:334
+msgctxt "OSM::cuisine"
+msgid "Russian"
+msgstr "रूसी"
+
+#: map-quick/localization_data.cpp:335
+msgctxt "OSM::cuisine"
+msgid "Salad"
+msgstr "सलाद"
+
+#: map-quick/localization_data.cpp:336
+msgctxt "OSM::cuisine"
+msgid "Sandwich"
+msgstr "सैंडविच"
+
+#: map-quick/localization_data.cpp:337
+msgctxt "OSM::cuisine"
+msgid "Sausage"
+msgstr "सॉसेज"
+
+#: map-quick/localization_data.cpp:338
+msgctxt "OSM::cuisine"
+msgid "Seafood"
+msgstr "समुद्री भोजन"
+
+#: map-quick/localization_data.cpp:339
+msgctxt "OSM::cuisine"
+msgid "Shawarma"
+msgstr "Shawarma"
+
+#: map-quick/localization_data.cpp:340
+msgctxt "OSM::cuisine"
+msgid "Soup"
+msgstr "शोरबा"
+
+#: map-quick/localization_data.cpp:341
+msgctxt "OSM::cuisine"
+msgid "Spanish"
+msgstr "स्पैनिश"
+
+#: map-quick/localization_data.cpp:342 map-quick/localization_data.cpp:343
+msgctxt "OSM::cuisine"
+msgid "Steak"
+msgstr "माँस का कबाब"
+
+#: map-quick/localization_data.cpp:344
+msgctxt "OSM::cuisine"
+msgid "Sushi"
+msgstr "सुशी"
+
+#: map-quick/localization_data.cpp:345
+msgctxt "OSM::cuisine"
+msgid "Syrian"
+msgstr "सीरिया"
+
+#: map-quick/localization_data.cpp:346
+msgctxt "OSM::cuisine"
+msgid "Tacos"
+msgstr "tacos"
+
+#: map-quick/localization_data.cpp:347
+msgctxt "OSM::cuisine"
+msgid "Taiwanese"
+msgstr "ताइवानी"
+
+#: map-quick/localization_data.cpp:348
+msgctxt "OSM::cuisine"
+msgid "Tapas"
+msgstr "तपस"
+
+#: map-quick/localization_data.cpp:349
+msgctxt "OSM::cuisine"
+msgid "Tea"
+msgstr "चाय"
+
+#: map-quick/localization_data.cpp:350
+msgctxt "OSM::cuisine"
+msgid "Teahouse"
+msgstr "चायख़ाना"
+
+#: map-quick/localization_data.cpp:351
+msgctxt "OSM::cuisine"
+msgid "Tex-Mex"
+msgstr "टेक्स-मेक्स"
+
+#: map-quick/localization_data.cpp:352
+msgctxt "OSM::cuisine"
+msgid "Thai"
+msgstr "थाई"
+
+#: map-quick/localization_data.cpp:353
+msgctxt "OSM::cuisine"
+msgid "Turkish"
+msgstr "तुर्की"
+
+#: map-quick/localization_data.cpp:354
+msgctxt "OSM::cuisine"
+msgid "Vegetarian"
+msgstr "शाकाहारी"
+
+#: map-quick/localization_data.cpp:355
+msgctxt "OSM::cuisine"
+msgid "Vietnamese"
+msgstr "वियतनामी"
+
+#: map-quick/localization_data.cpp:356
+msgctxt "OSM::cuisine"
+msgid "Waffles"
+msgstr "वफ़ल"
+
+#: map-quick/localization_data.cpp:357
+msgctxt "OSM::cuisine"
+msgid "Chicken Wings"
+msgstr "चिकन विंग्स"
+
+#: map-quick/localization_data.cpp:363
+msgctxt "OSM::gender_segregation"
+msgid "female"
+msgstr "महिला"
+
+#: map-quick/localization_data.cpp:364
+msgctxt "OSM::gender_segregation"
+msgid "male"
+msgstr "पुरुष"
+
+#: map-quick/localization_data.cpp:365
+msgctxt "OSM::gender_segregation"
+msgid "unisex"
+msgstr "उभयलिंगी"
+
+#: map-quick/osmelementinformationmodel.cpp:27
+#, kde-format
+msgid "%1m"
+msgstr "%1मि"
+
+#: map-quick/osmelementinformationmodel.cpp:30
+#: map-quick/osmelementinformationmodel.cpp:32
+#, kde-format
+msgid "%1km"
+msgstr "%1 किमी"
+
+#: map-quick/osmelementinformationmodel.cpp:148
+#, kde-format
+msgid "Wikipedia"
+msgstr "विकिपीडिया"
+
+#: map-quick/osmelementinformationmodel.cpp:538
+#, kde-format
+msgid "Opening Hours"
+msgstr "खुलने का समय"
+
+#: map-quick/osmelementinformationmodel.cpp:539
+#, kde-format
+msgid "Contact"
+msgstr "संपर्क"
+
+#: map-quick/osmelementinformationmodel.cpp:540
+#, kde-format
+msgid "Payment"
+msgstr "भुगतान"
+
+#: map-quick/osmelementinformationmodel.cpp:541
+#, kde-format
+msgid "Toilets"
+msgstr "प्रसाधन"
+
+#: map-quick/osmelementinformationmodel.cpp:542
+#, kde-format
+msgid "Accessibility"
+msgstr "सरल उपयोग"
+
+#: map-quick/osmelementinformationmodel.cpp:543
+#, kde-format
+msgid "Parking"
+msgstr "पार्किंग"
+
+#: map-quick/osmelementinformationmodel.cpp:544
+#, kde-format
+msgid "Operator"
+msgstr "ऑपरेटर"
+
+#: map-quick/osmelementinformationmodel.cpp:592
+#, kde-format
+msgid "Formerly"
+msgstr "पूर्व"
+
+#: map-quick/osmelementinformationmodel.cpp:593
+#, kde-format
+msgid "Description"
+msgstr "विवरण"
+
+#: map-quick/osmelementinformationmodel.cpp:594
+#, kde-format
+msgid "Routes"
+msgstr "मार्गों"
+
+#: map-quick/osmelementinformationmodel.cpp:595
+#, kde-format
+msgid "Cuisine"
+msgstr "भोजन"
+
+#: map-quick/osmelementinformationmodel.cpp:596
+#, kde-format
+msgid "Diet"
+msgstr "आहार"
+
+#: map-quick/osmelementinformationmodel.cpp:597
+#, kde-format
+msgid "Takeaway"
+msgstr "ले लेना"
+
+#: map-quick/osmelementinformationmodel.cpp:598
+#, kde-format
+msgctxt "electrical power socket"
+msgid "Socket"
+msgstr "सॉकेट"
+
+#: map-quick/osmelementinformationmodel.cpp:600
+#, kde-format
+msgid "Available vehicles"
+msgstr "उपलब्ध वाहन"
+
+#: map-quick/osmelementinformationmodel.cpp:601
+#, kde-format
+msgid "Fee"
+msgstr "शुल्क"
+
+#: map-quick/osmelementinformationmodel.cpp:602
+#, kde-format
+msgid "Authentication"
+msgstr "प्रमाणीकरण"
+
+#: map-quick/osmelementinformationmodel.cpp:603
+#, kde-format
+msgid "Bicycle parking"
+msgstr "साइकिल पार्किंग"
+
+#: map-quick/osmelementinformationmodel.cpp:604
+#, kde-format
+msgid "Capacity"
+msgstr "क्षमता"
+
+#: map-quick/osmelementinformationmodel.cpp:605
+#, kde-format
+msgid "Disabled parking spaces"
+msgstr "विकलांगों के लिए पार्किंग स्थान"
+
+#: map-quick/osmelementinformationmodel.cpp:606
+#, kde-format
+msgid "Women parking spaces"
+msgstr "महिलाओं के लिए पार्किंग स्थल"
+
+#: map-quick/osmelementinformationmodel.cpp:607
+#, kde-format
+msgid "Parent parking spaces"
+msgstr "माता-पिता के लिए पार्किंग स्थान"
+
+#: map-quick/osmelementinformationmodel.cpp:608
+#, kde-format
+msgid "Parking spaces for charging"
+msgstr "चार्जिंग के लिए पार्किंग स्थान"
+
+#: map-quick/osmelementinformationmodel.cpp:609
+#, kde-format
+msgid "Maximum stay"
+msgstr "अधिकतम प्रवास"
+
+#: map-quick/osmelementinformationmodel.cpp:610
+#, kde-format
+msgid "Diaper changing table"
+msgstr "डायपर बदलने की मेज"
+
+#: map-quick/osmelementinformationmodel.cpp:611
+#, kde-format
+msgid "Gender"
+msgstr "लिंग"
+
+#: map-quick/osmelementinformationmodel.cpp:613
+#, kde-format
+msgid "Address"
+msgstr "पता"
+
+#: map-quick/osmelementinformationmodel.cpp:614
+#, kde-format
+msgid "Phone"
+msgstr "फ़ोन"
+
+#: map-quick/osmelementinformationmodel.cpp:615
+#, kde-format
+msgid "Email"
+msgstr "ईमेल"
+
+#: map-quick/osmelementinformationmodel.cpp:616
+#, kde-format
+msgid "Website"
+msgstr "वेबसाइट"
+
+#: map-quick/osmelementinformationmodel.cpp:617
+#, kde-format
+msgid "Cash"
+msgstr "नकद"
+
+#: map-quick/osmelementinformationmodel.cpp:618
+#, kde-format
+msgid "Digital"
+msgstr "डिजिटल"
+
+#: map-quick/osmelementinformationmodel.cpp:619
+#, kde-format
+msgid "Debit cards"
+msgstr "डेबिट कार्ड"
+
+#: map-quick/osmelementinformationmodel.cpp:620
+#, kde-format
+msgid "Credit cards"
+msgstr "क्रेडिट कार्ड"
+
+#: map-quick/osmelementinformationmodel.cpp:621
+#, kde-format
+msgid "Stored value cards"
+msgstr "संग्रहीत मूल्य कार्ड"
+
+#: map-quick/osmelementinformationmodel.cpp:622
+#, kde-format
+msgid "Wheelchair access"
+msgstr "पहियेदार कुर्सी का उपयोग"
+
+#: map-quick/osmelementinformationmodel.cpp:623
+#, kde-format
+msgid "Wheelchair lift"
+msgstr "व्हीलचेयर लिफ्ट"
+
+#: map-quick/osmelementinformationmodel.cpp:624
+#, kde-format
+msgid "Central key"
+msgstr "केंद्रीय कुंजी"
+
+#: map-quick/osmelementinformationmodel.cpp:625
+#, kde-format
+msgid "Speech output"
+msgstr "भाषण आउटपुट"
+
+#: map-quick/osmelementinformationmodel.cpp:626
+#, kde-format
+msgid "Tactile writing"
+msgstr "स्पर्शनीय लेखन"
+
+#: map-quick/osmelementinformationmodel.cpp:628
+#, kde-format
+msgctxt "transport network"
+msgid "Network"
+msgstr "नेटवर्क"
+
+#: map-quick/osmelementinformationmodel.cpp:630
+#, kde-format
+msgctxt "remaining travel range of a battery powered vehicle"
+msgid "Remaining range"
+msgstr "शेष सीमा"
+
+#: map-quick/osmelementinformationmodel.cpp:700
+#, kde-format
+msgctxt "local name (transliterated name)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: map-quick/osmelementinformationmodel.cpp:790
+#, kde-format
+msgid "only %1"
+msgstr "केवल %1"
+
+#: map-quick/osmelementinformationmodel.cpp:792
+#, kde-format
+msgid "no %1"
+msgstr "नहीं %1"
+
+#: map-quick/osmelementinformationmodel.cpp:817
+#, kde-format
+msgctxt "electrical current/Ampere value"
+msgid "%1 A"
+msgstr "%1 ए"
+
+#: map-quick/osmelementinformationmodel.cpp:825
+#, kde-format
+msgctxt "electrical power/kilowatt value"
+msgid "%1 kW"
+msgstr "%1 किलोवाट"
+
+#: map-quick/osmelementinformationmodel.cpp:856
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: map-quick/osmelementinformationmodel.cpp:915
+#: map-quick/osmelementinformationmodel.cpp:1103
+#, kde-format
+msgid "yes"
+msgstr "हाँ"
+
+#: map-quick/osmelementinformationmodel.cpp:918
+#, kde-format
+msgctxt "payment option"
+msgid "coins only"
+msgstr "केवल सिक्के"
+
+#: map-quick/osmelementinformationmodel.cpp:921
+#, kde-format
+msgctxt "payment option"
+msgid "notes only"
+msgstr "केवल नोट्स"
+
+#: map-quick/osmelementinformationmodel.cpp:923
+#: map-quick/osmelementinformationmodel.cpp:974
+#: map-quick/osmelementinformationmodel.cpp:1106
+#, kde-format
+msgid "no"
+msgstr "नहीं"
+
+#: map-quick/osmelementinformationmodel_data.cpp:19
+msgctxt "OSM::diet_type"
+msgid "gluten free"
+msgstr "ग्लूटेन मुक्त"
+
+#: map-quick/osmelementinformationmodel_data.cpp:20
+msgctxt "OSM::diet_type"
+msgid "halal"
+msgstr "हलाल"
+
+#: map-quick/osmelementinformationmodel_data.cpp:21
+msgctxt "OSM::diet_type"
+msgid "kosher"
+msgstr "कोषेर"
+
+#: map-quick/osmelementinformationmodel_data.cpp:22
+msgctxt "OSM::diet_type"
+msgid "lactose free"
+msgstr "लैक्टोज़ मुक्त"
+
+#: map-quick/osmelementinformationmodel_data.cpp:23
+msgctxt "OSM::diet_type"
+msgid "vegan"
+msgstr "शाकाहारी"
+
+#: map-quick/osmelementinformationmodel_data.cpp:24
+msgctxt "OSM::diet_type"
+msgid "vegetarian"
+msgstr "शाकाहारी"
+
+#: map-quick/osmelementinformationmodel_data.cpp:52
+msgctxt "OSM::payment_method"
+msgid "American Express"
+msgstr "अमेरिकन एक्सप्रेस"
+
+#: map-quick/osmelementinformationmodel_data.cpp:53
+msgctxt "OSM::payment_method"
+msgid "Apple Pay"
+msgstr "एप्पल पे"
+
+#: map-quick/osmelementinformationmodel_data.cpp:54
+msgctxt "OSM::payment_method"
+msgid "Diners Club"
+msgstr "डायनर्स क्लब"
+
+#: map-quick/osmelementinformationmodel_data.cpp:55
+msgctxt "OSM::payment_method"
+msgid "Discover Card"
+msgstr "डिस्कवर कार्ड"
+
+#: map-quick/osmelementinformationmodel_data.cpp:56
+msgctxt "OSM::payment_method"
+msgid "Girocard"
+msgstr "जिरोकार्ड"
+
+#: map-quick/osmelementinformationmodel_data.cpp:57
+msgctxt "OSM::payment_method"
+msgid "Google Pay"
+msgstr "गूगल पे"
+
+#: map-quick/osmelementinformationmodel_data.cpp:58
+msgctxt "OSM::payment_method"
+msgid "JCB"
+msgstr "जेसीबी"
+
+#: map-quick/osmelementinformationmodel_data.cpp:59
+msgctxt "OSM::payment_method"
+msgid "Maestro"
+msgstr "कलाकार"
+
+#: map-quick/osmelementinformationmodel_data.cpp:60
+msgctxt "OSM::payment_method"
+msgid "Mastercard"
+msgstr "मास्टर कार्ड"
+
+#: map-quick/osmelementinformationmodel_data.cpp:61
+msgctxt "OSM::payment_method"
+msgid "UnionPay"
+msgstr "यूनियनपे"
+
+#: map-quick/osmelementinformationmodel_data.cpp:62
+#: map-quick/osmelementinformationmodel_data.cpp:64
+msgctxt "OSM::payment_method"
+msgid "V Pay"
+msgstr "वी पे"
+
+#: map-quick/osmelementinformationmodel_data.cpp:63
+msgctxt "OSM::payment_method"
+msgid "Visa"
+msgstr "वीज़ा"
+
+#: map-quick/osmelementinformationmodel_data.cpp:69
+msgctxt "OSM::wheelchair_access"
+msgid "limited"
+msgstr "सीमित"
+
+#: map-quick/osmelementinformationmodel_data.cpp:70
+msgctxt "OSM::wheelchair_access"
+msgid "no"
+msgstr "नहीं"
+
+#: map-quick/osmelementinformationmodel_data.cpp:71
+msgctxt "OSM::wheelchair_access"
+msgid "yes"
+msgstr "हाँ"
+
+#: map-quick/osmelementinformationmodel_data.cpp:80
+msgctxt "OSM::charging_station_socket"
+msgid "Chademo"
+msgstr "चैडेमो"
+
+#: map-quick/osmelementinformationmodel_data.cpp:81
+msgctxt "OSM::charging_station_socket"
+msgid "Schuko"
+msgstr "शुको"
+
+#: map-quick/osmelementinformationmodel_data.cpp:82
+msgctxt "OSM::charging_station_socket"
+msgid "Tesla"
+msgstr "टेस्ला"
+
+#: map-quick/osmelementinformationmodel_data.cpp:83
+msgctxt "OSM::charging_station_socket"
+msgid "Tesla Supercharger"
+msgstr "टेस्ला सुपरचार्जर"
+
+#: map-quick/osmelementinformationmodel_data.cpp:84
+msgctxt "OSM::charging_station_socket"
+msgid "Tesla Supercharger CCS"
+msgstr "टेस्ला सुपरचार्जर सीसीएस"
+
+#: map-quick/osmelementinformationmodel_data.cpp:85
+msgctxt "OSM::charging_station_socket"
+msgid "Type 2"
+msgstr "प्रकार 2"
+
+#: map-quick/osmelementinformationmodel_data.cpp:86
+msgctxt "OSM::charging_station_socket"
+msgid "Type 2 cable"
+msgstr "टाइप 2 केबल"
+
+#: map-quick/osmelementinformationmodel_data.cpp:87
+msgctxt "OSM::charging_station_socket"
+msgid "Type 2 CCS"
+msgstr "टाइप 2 सीसीएस"
+
+#: map-quick/osmelementinformationmodel_data.cpp:88
+msgctxt "OSM::charging_station_socket"
+msgid "Type E"
+msgstr "प्रकार ई"
+
+#: map-quick/osmelementinformationmodel_data.cpp:97
+msgctxt "OSM::charging_station_authentication"
+msgid "app"
+msgstr "अनुप्रयोग"
+
+#: map-quick/osmelementinformationmodel_data.cpp:98
+msgctxt "OSM::charging_station_authentication"
+msgid "membership card"
+msgstr "सदस्यता कार्ड"
+
+#: map-quick/osmelementinformationmodel_data.cpp:99
+msgctxt "OSM::charging_station_authentication"
+msgid "NFC"
+msgstr "एनएफसी"
+
+#: map-quick/osmelementinformationmodel_data.cpp:100
+msgctxt "OSM::charging_station_authentication"
+msgid "none"
+msgstr "कोई नहीं"
+
+#: map-quick/osmelementinformationmodel_data.cpp:101
+msgctxt "OSM::charging_station_authentication"
+msgid "phone call"
+msgstr "फोन कॉल"
+
+#: map-quick/osmelementinformationmodel_data.cpp:102
+msgctxt "OSM::charging_station_authentication"
+msgid "SMS"
+msgstr "एसएमएस"
+
+#: map-quick/osmelementinformationmodel_data.cpp:109
+msgctxt "OSM::bicycle_parking"
+msgid "anchors"
+msgstr "एंकर"
+
+#: map-quick/osmelementinformationmodel_data.cpp:110
+msgctxt "OSM::bicycle_parking"
+msgid "bollard"
+msgstr "bollard"
+
+#: map-quick/osmelementinformationmodel_data.cpp:111
+msgctxt "OSM::bicycle_parking"
+msgid "building"
+msgstr "इमारत"
+
+#: map-quick/osmelementinformationmodel_data.cpp:112
+msgctxt "OSM::bicycle_parking"
+msgid "ground slots"
+msgstr "ग्राउंड स्लॉट"
+
+#: map-quick/osmelementinformationmodel_data.cpp:113
+msgctxt "OSM::bicycle_parking"
+msgid "lockers"
+msgstr "लाकर्स"
+
+#: map-quick/osmelementinformationmodel_data.cpp:114
+msgctxt "OSM::bicycle_parking"
+msgid "racks"
+msgstr "रैक"
+
+#: map-quick/osmelementinformationmodel_data.cpp:115
+msgctxt "OSM::bicycle_parking"
+msgid "shed"
+msgstr "ओसारा"
+
+#: map-quick/osmelementinformationmodel_data.cpp:116
+msgctxt "OSM::bicycle_parking"
+msgid "stands"
+msgstr "खड़ा"
+
+#: map-quick/osmelementinformationmodel_data.cpp:117
+msgctxt "OSM::bicycle_parking"
+msgid "wall loops"
+msgstr "दीवार लूप"
+
+#: map-quick/osmelementinformationmodel_data.cpp:118
+msgctxt "OSM::bicycle_parking"
+msgid "wide stands"
+msgstr "विस्तृत स्टैंड"
+
+#: map-quick/osmelementinformationmodel_data.cpp:125
+#, kde-format
+msgctxt "available rental vehicles"
+msgid "%1 bike"
+msgid_plural "%1 bikes"
+msgstr[0] "%1 बाइक"
+msgstr[1] "%1 बाइक"
+
+#: map-quick/osmelementinformationmodel_data.cpp:126
+#, kde-format
+msgctxt "available rental vehicles"
+msgid "%1 pedelec"
+msgid_plural "%1 pedelecs"
+msgstr[0] "%1 पेडेलेक"
+msgstr[1] "%1 पेडेलेक"
+
+#: map-quick/osmelementinformationmodel_data.cpp:127
+#, kde-format
+msgctxt "available rental vehicles"
+msgid "%1 kick scooter"
+msgid_plural "%1 kick scooters"
+msgstr[0] "%1 किक स्कूटर"
+msgstr[1] "%1 किक स्कूटर"
+
+#: map-quick/osmelementinformationmodel_data.cpp:128
+#, kde-format
+msgctxt "available rental vehicles"
+msgid "%1 moped"
+msgid_plural "%1 mopeds"
+msgstr[0] "%1 मोपेड"
+msgstr[1] "%1 मोपेड"
+
+#: map-quick/osmelementinformationmodel_data.cpp:129
+#, kde-format
+msgctxt "available rental vehicles"
+msgid "%1 car"
+msgid_plural "%1 cars"
+msgstr[0] "%1 कारें"
+msgstr[1] "%1 कारें"
+
+#: map-quick/osmelementinformationmodel_data.cpp:137
+msgctxt "tactile writing"
+msgid "braille"
+msgstr "ब्रेल"
+
+#: map-quick/osmelementinformationmodel_data.cpp:138
+msgctxt "tactile writing"
+msgid "embossed printed letters"
+msgstr "उभरे हुए मुद्रित अक्षर"
+
+#: map-quick/osmelementinformationmodel_data.cpp:139
+msgctxt "tactile writing"
+msgid "engraved printed letters"
+msgstr "उत्कीर्ण मुद्रित अक्षर"
+
+#: map-quick/roommodel.cpp:129
+#, kde-format
+msgid "Ground floor"
+msgstr "भूतल"
+
+#: map-quick/roommodel.cpp:131
+#, kde-format
+msgid "Floor %1"
+msgstr "तल %1"
