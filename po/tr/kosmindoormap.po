@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 02:30+0000\n"
-"PO-Revision-Date: 2024-06-30 18:04+0300\n"
+"PO-Revision-Date: 2025-01-04 15:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: app/main.cpp:70
 #, kde-format
@@ -917,7 +917,7 @@ msgstr "Okul"
 #: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
 msgid "Kick Scooter Rental"
-msgstr "Mobilet Kiralama"
+msgstr "Ayaklı Kaykay Kiralama"
 
 #: map-quick/localization_data.cpp:198
 msgctxt "OSM::amenity/shop"
@@ -2190,8 +2190,8 @@ msgstr[1] "%1 elektrikli bisiklet"
 msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
 msgid_plural "%1 kick scooters"
-msgstr[0] "%1 mobilet"
-msgstr[1] "%1 mobilet"
+msgstr[0] "%1 ayaklı kaykay"
+msgstr[1] "%1 ayaklı kaykay"
 
 #: map-quick/osmelementinformationmodel_data.cpp:128
 #, kde-format
