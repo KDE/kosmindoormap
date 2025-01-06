@@ -11,6 +11,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Dialogs as Dialogs
 import org.kde.kirigami as Kirigami
 import org.kde.kpublictransport as PublicTransport
+import org.kde.kpublictransport.ui as PublicTransport
 import org.kde.kosmindoormap
 import org.kde.kosmindoormap.kpublictransport
 import org.kde.kosmindoorrouting
@@ -216,10 +217,9 @@ Kirigami.ApplicationWindow {
                     Repeater {
                         model: platform.lines
                         delegate: Row {
-                            Kirigami.Icon {
+                            PublicTransport.TransportIcon {
                                 id: icon
-                                height: Kirigami.Units.iconSizes.small
-                                width: implicitWidth
+                                iconHeight: Kirigami.Units.iconSizes.small
                                 visible: source != ""
                                 source: {
                                     switch (platform.mode) {
