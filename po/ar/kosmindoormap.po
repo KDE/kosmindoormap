@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
+# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:39+0000\n"
-"PO-Revision-Date: 2024-02-25 22:10+0400\n"
+"PO-Revision-Date: 2025-01-09 17:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: app/main.cpp:70
 #, kde-format
@@ -101,7 +102,7 @@ msgstr "فن"
 #: map-quick/localization_data.cpp:26
 msgctxt "OSM::amenity/shop"
 msgid "Arts Center"
-msgstr ""
+msgstr "مركز للفنون"
 
 #: map-quick/localization_data.cpp:27
 msgctxt "OSM::amenity/shop"
@@ -119,12 +120,9 @@ msgid "Attraction"
 msgstr "تجاذب"
 
 #: map-quick/localization_data.cpp:30
-#, fuzzy
-#| msgctxt "OSM::tourism"
-#| msgid "Aquarium"
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr "حوض سمك"
+msgstr "قاعة استماع"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -327,12 +325,9 @@ msgid "Computer"
 msgstr "حاسوب"
 
 #: map-quick/localization_data.cpp:72
-#, fuzzy
-#| msgctxt "OSM::amenity/shop"
-#| msgid "Computer"
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "حاسوب"
+msgstr "مختبر حاسب آلي"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
@@ -655,7 +650,7 @@ msgstr "‎‎مطبخ‎‎"
 #: map-quick/localization_data.cpp:138
 msgctxt "OSM::room"
 msgid "Laboratory"
-msgstr ""
+msgstr "مختبر"
 
 #: map-quick/localization_data.cpp:139
 msgctxt "OSM::amenity/shop"
@@ -983,12 +978,12 @@ msgstr "رياضة"
 #: map-quick/localization_data.cpp:208
 msgctxt "OSM::amenity"
 msgid "Sports Center"
-msgstr ""
+msgstr "مجمع رياضي"
 
 #: map-quick/localization_data.cpp:209
 msgctxt "OSM::amenity"
 msgid "Sports Hall"
-msgstr ""
+msgstr "صالة رياضية"
 
 #: map-quick/localization_data.cpp:210
 msgctxt "OSM::amenity/shop"
@@ -1003,7 +998,7 @@ msgstr "سوبر ماركت"
 #: map-quick/localization_data.cpp:212
 msgctxt "OSM::vending"
 msgid "Sweets"
-msgstr ""
+msgstr "حلويات"
 
 #: map-quick/localization_data.cpp:213
 msgctxt "OSM::amenity/shop"
@@ -1033,7 +1028,7 @@ msgstr "اتصال عن بعد"
 #: map-quick/localization_data.cpp:218
 msgctxt "OSM::room"
 msgid "Terrace"
-msgstr ""
+msgstr "مطل"
 
 #: map-quick/localization_data.cpp:219
 msgctxt "OSM::amenity/shop"
@@ -1048,7 +1043,7 @@ msgstr "حديقه"
 #: map-quick/localization_data.cpp:221
 msgctxt "OSM::amenity/shop"
 msgid "Tickets"
-msgstr ""
+msgstr "تذاكر"
 
 #: map-quick/localization_data.cpp:222
 msgctxt "OSM::amenity/shop"
@@ -1088,7 +1083,7 @@ msgstr "متجر متنوع"
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
 msgid "Vending Machine"
-msgstr ""
+msgstr "آلة البيع الذاتي"
 
 #: map-quick/localization_data.cpp:233
 msgctxt "OSM::amenity"
@@ -1124,7 +1119,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "ماء"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
@@ -1825,7 +1820,7 @@ msgid "Email"
 msgstr "البريد الإلكترونيّ"
 
 #: map-quick/osmelementinformationmodel.cpp:616
-#, fuzzy, kde-format
+#, kde-format
 msgid "Website"
 msgstr "موقع الوبّ"
 
@@ -2041,7 +2036,6 @@ msgid "Visa"
 msgstr "فيزا"
 
 #: map-quick/osmelementinformationmodel_data.cpp:69
-#, fuzzy
 msgctxt "OSM::wheelchair_access"
 msgid "limited"
 msgstr "محدود"
@@ -2261,9 +2255,9 @@ msgstr ""
 #: map-quick/roommodel.cpp:129
 #, kde-format
 msgid "Ground floor"
-msgstr ""
+msgstr "الطابق الأرضي"
 
 #: map-quick/roommodel.cpp:131
 #, kde-format
 msgid "Floor %1"
-msgstr ""
+msgstr "الطابق %1"
