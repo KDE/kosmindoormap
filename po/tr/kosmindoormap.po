@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:39+0000\n"
-"PO-Revision-Date: 2025-01-04 15:55+0300\n"
+"PO-Revision-Date: 2025-01-11 17:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1929,7 +1929,7 @@ msgstr "yalnızca madeni para"
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
-msgstr "yalnızca kağıt para"
+msgstr "yalnızca kâğıt para"
 
 #: map-quick/osmelementinformationmodel.cpp:923
 #: map-quick/osmelementinformationmodel.cpp:974
