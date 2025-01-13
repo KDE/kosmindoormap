@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:39+0000\n"
-"PO-Revision-Date: 2025-01-09 17:21+0400\n"
+"PO-Revision-Date: 2025-01-12 21:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: app/main.cpp:70
 #, kde-format
 msgid "KDE OSM Indoor Map"
-msgstr ""
+msgstr "خريطة الشارع المفتوحة داخلية لكيدي"
 
 #: map-quick/amenitymodel.cpp:89
 #, kde-format
@@ -292,7 +292,7 @@ msgstr "سينما"
 #: map-quick/localization_data.cpp:64
 msgctxt "OSM::historic"
 msgid "Citywall"
-msgstr ""
+msgstr "سور المدينة"
 
 #: map-quick/localization_data.cpp:65 map-quick/localization_data.cpp:66
 msgctxt "OSM::room"
@@ -337,12 +337,12 @@ msgstr "حلويات"
 #: map-quick/localization_data.cpp:74
 msgctxt "OSM::room"
 msgid "Conference Room"
-msgstr ""
+msgstr "قاعة مؤتمرات"
 
 #: map-quick/localization_data.cpp:75
 msgctxt "OSM::amenity"
 msgid "Conference Center"
-msgstr ""
+msgstr "مركز مؤتمرات"
 
 #: map-quick/localization_data.cpp:76
 msgctxt "OSM::diplomatic"
@@ -352,7 +352,7 @@ msgstr "قنصلية"
 #: map-quick/localization_data.cpp:77
 msgctxt "OSM::amenity/shop"
 msgid "Convenience Store"
-msgstr ""
+msgstr "متجر صغير"
 
 #: map-quick/localization_data.cpp:78
 msgctxt "OSM::amenity/shop"
@@ -372,12 +372,12 @@ msgstr "مجمع محاكم"
 #: map-quick/localization_data.cpp:81 map-quick/localization_data.cpp:82
 msgctxt "OSM::amenity"
 msgid "Coworking Space"
-msgstr ""
+msgstr "مساحة عمل مشترك"
 
 #: map-quick/localization_data.cpp:83
 msgctxt "OSM::shop"
 msgid "Art and Craft Supplies"
-msgstr ""
+msgstr "لوازم الفنون والحرف"
 
 #: map-quick/localization_data.cpp:84
 msgctxt "OSM::shop"
@@ -415,12 +415,9 @@ msgid "Drinking Water"
 msgstr "مياه شرب"
 
 #: map-quick/localization_data.cpp:92
-#, fuzzy
-#| msgctxt "amenity category"
-#| msgid "Food & Drinks"
 msgctxt "OSM::vending"
 msgid "Drinks"
-msgstr "طعام وشراب"
+msgstr "شراب"
 
 #: map-quick/localization_data.cpp:93
 msgctxt "OSM::amenity/shop"
@@ -445,7 +442,7 @@ msgstr "سفارة"
 #: map-quick/localization_data.cpp:97
 msgctxt "OSM::amenity"
 msgid "Events Venue"
-msgstr ""
+msgstr "مكان أحداث"
 
 #: map-quick/localization_data.cpp:98
 msgctxt "OSM::amenity"
@@ -475,7 +472,7 @@ msgstr "وجبات سريعة"
 #: map-quick/localization_data.cpp:103
 msgctxt "OSM::amenity/shop"
 msgid "Ferry Terminal"
-msgstr ""
+msgstr "محطة عبارات"
 
 #: map-quick/localization_data.cpp:104
 msgctxt "OSM::amenity"
@@ -590,7 +587,7 @@ msgstr "مساعدات سمع"
 #: map-quick/localization_data.cpp:126
 msgctxt "OSM::shop"
 msgid "Hi-fi"
-msgstr ""
+msgstr "هاي فاي"
 
 #: map-quick/localization_data.cpp:127
 msgctxt "OSM::amenity/shop"
@@ -702,7 +699,7 @@ msgstr "إمدادات طبية"
 #: map-quick/localization_data.cpp:153
 msgctxt "OSM::room"
 msgid "Meeting Room"
-msgstr ""
+msgstr "غرفة اجتماعات"
 
 #: map-quick/localization_data.cpp:154
 msgctxt "OSM::historic"
@@ -807,7 +804,7 @@ msgstr "موقف سيارات"
 #: map-quick/localization_data.cpp:174
 msgctxt "OSM::amenity/shop"
 msgid "Parking Tickets"
-msgstr ""
+msgstr "تذاكر وقوف السيارات"
 
 #: map-quick/localization_data.cpp:175
 msgctxt "OSM::amenity/shop"
@@ -889,11 +886,9 @@ msgid "Train Station"
 msgstr "محطة القطار"
 
 #: map-quick/localization_data.cpp:191
-#, fuzzy
-#| msgid "Description"
 msgctxt "place to welcome guests, e.g. in a hotel"
 msgid "Reception"
-msgstr "الوصف"
+msgstr "استقبال"
 
 #: map-quick/localization_data.cpp:192
 msgctxt "OSM::amenity/shop"
@@ -923,7 +918,7 @@ msgstr "مدرسية"
 #: map-quick/localization_data.cpp:197
 msgctxt "OSM::amenity/shop"
 msgid "Kick Scooter Rental"
-msgstr ""
+msgstr "تأجير سكوتر ركلة"
 
 #: map-quick/localization_data.cpp:198
 msgctxt "OSM::amenity/shop"
@@ -938,7 +933,7 @@ msgstr "مستعمل"
 #: map-quick/localization_data.cpp:200
 msgctxt "OSM::room"
 msgid "Seminar Room"
-msgstr ""
+msgstr "قاعة ندوات"
 
 #: map-quick/localization_data.cpp:201
 msgctxt "OSM::shop"
@@ -968,7 +963,7 @@ msgstr "مرفق اجتماعي"
 #: map-quick/localization_data.cpp:206
 msgctxt "OSM::amenity/shop"
 msgid "Souvenirs"
-msgstr ""
+msgstr "هدايا تذكارية"
 
 #: map-quick/localization_data.cpp:207
 msgctxt "OSM::amenity/shop"
@@ -1098,13 +1093,13 @@ msgstr "ألعاب فيديو"
 #: map-quick/localization_data.cpp:235
 msgctxt "OSM::tourism"
 msgid "Viewpoint"
-msgstr ""
+msgstr "مُطَلّ"
 
 #: map-quick/localization_data.cpp:236 map-quick/localization_data.cpp:237
 #: map-quick/localization_data.cpp:238
 msgctxt "OSM::amenity/shop"
 msgid "Waiting Area"
-msgstr ""
+msgstr "منطقة انتظار"
 
 #: map-quick/localization_data.cpp:239
 msgctxt "OSM::amenity"
@@ -1114,7 +1109,7 @@ msgstr "سلة مهملات"
 #: map-quick/localization_data.cpp:240
 msgctxt "OSM::shop"
 msgid "Watches"
-msgstr ""
+msgstr "ساعات"
 
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
@@ -1290,7 +1285,7 @@ msgstr "فطيرة"
 #: map-quick/localization_data.cpp:282 map-quick/localization_data.cpp:283
 msgctxt "OSM::cuisine"
 msgid "Dumplings"
-msgstr ""
+msgstr "زلابية"
 
 #: map-quick/localization_data.cpp:284
 msgctxt "OSM::cuisine"
@@ -1320,7 +1315,7 @@ msgstr "سمك"
 #: map-quick/localization_data.cpp:289
 msgctxt "OSM::cuisine"
 msgid "Fish & Chips"
-msgstr ""
+msgstr "سمك ورقائق"
 
 #: map-quick/localization_data.cpp:290
 msgctxt "OSM::cuisine"
@@ -1610,7 +1605,7 @@ msgstr "بيت الشاي"
 #: map-quick/localization_data.cpp:351
 msgctxt "OSM::cuisine"
 msgid "Tex-Mex"
-msgstr ""
+msgstr "تكس-مكسيكي"
 
 #: map-quick/localization_data.cpp:352
 msgctxt "OSM::cuisine"
@@ -1635,12 +1630,12 @@ msgstr "فيتنامية"
 #: map-quick/localization_data.cpp:356
 msgctxt "OSM::cuisine"
 msgid "Waffles"
-msgstr ""
+msgstr "وافلز"
 
 #: map-quick/localization_data.cpp:357
 msgctxt "OSM::cuisine"
 msgid "Chicken Wings"
-msgstr ""
+msgstr "أجنحة دجاج"
 
 #: map-quick/localization_data.cpp:363
 msgctxt "OSM::gender_segregation"
@@ -1655,7 +1650,7 @@ msgstr "ذكر"
 #: map-quick/localization_data.cpp:365
 msgctxt "OSM::gender_segregation"
 msgid "unisex"
-msgstr ""
+msgstr "مختلط"
 
 #: map-quick/osmelementinformationmodel.cpp:27
 #, kde-format
@@ -1711,7 +1706,7 @@ msgstr "المشغل"
 #: map-quick/osmelementinformationmodel.cpp:592
 #, kde-format
 msgid "Formerly"
-msgstr ""
+msgstr "سابقا"
 
 #: map-quick/osmelementinformationmodel.cpp:593
 #, kde-format
@@ -1772,22 +1767,22 @@ msgstr "السعة"
 #: map-quick/osmelementinformationmodel.cpp:605
 #, kde-format
 msgid "Disabled parking spaces"
-msgstr ""
+msgstr "مساحة وقوف للمعاقين"
 
 #: map-quick/osmelementinformationmodel.cpp:606
 #, kde-format
 msgid "Women parking spaces"
-msgstr ""
+msgstr "مساحة وقوف للنساء"
 
 #: map-quick/osmelementinformationmodel.cpp:607
 #, kde-format
 msgid "Parent parking spaces"
-msgstr ""
+msgstr "مساحة وقوف للآباء"
 
 #: map-quick/osmelementinformationmodel.cpp:608
 #, kde-format
 msgid "Parking spaces for charging"
-msgstr ""
+msgstr "مساحة وقوف للتعبئة"
 
 #: map-quick/osmelementinformationmodel.cpp:609
 #, kde-format
@@ -1847,17 +1842,17 @@ msgstr "بطاقات ائتمانية"
 #: map-quick/osmelementinformationmodel.cpp:621
 #, kde-format
 msgid "Stored value cards"
-msgstr ""
+msgstr "بطاقات القيمة المخزنة"
 
 #: map-quick/osmelementinformationmodel.cpp:622
 #, kde-format
 msgid "Wheelchair access"
-msgstr ""
+msgstr "مدخل كرسي متحرك"
 
 #: map-quick/osmelementinformationmodel.cpp:623
 #, kde-format
 msgid "Wheelchair lift"
-msgstr ""
+msgstr "مصعد كرسي متحرك"
 
 #: map-quick/osmelementinformationmodel.cpp:624
 #, kde-format
@@ -1867,12 +1862,12 @@ msgstr "مفتاح مركزي"
 #: map-quick/osmelementinformationmodel.cpp:625
 #, kde-format
 msgid "Speech output"
-msgstr ""
+msgstr "مخرج للكلام"
 
 #: map-quick/osmelementinformationmodel.cpp:626
 #, kde-format
 msgid "Tactile writing"
-msgstr ""
+msgstr "كتابة باللمس"
 
 #: map-quick/osmelementinformationmodel.cpp:628
 #, kde-format
@@ -1884,7 +1879,7 @@ msgstr "شبكة"
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
-msgstr ""
+msgstr "المدى الباقي"
 
 #: map-quick/osmelementinformationmodel.cpp:700
 #, kde-format
@@ -1895,7 +1890,7 @@ msgstr "%1 (%2)"
 #: map-quick/osmelementinformationmodel.cpp:790
 #, kde-format
 msgid "only %1"
-msgstr ""
+msgstr "فقط %1"
 
 #: map-quick/osmelementinformationmodel.cpp:792
 #, kde-format
@@ -1929,13 +1924,13 @@ msgstr "نعم"
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
-msgstr ""
+msgstr "العملات المعدنية فقط"
 
 #: map-quick/osmelementinformationmodel.cpp:921
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
-msgstr ""
+msgstr "العملات الورقية فقط"
 
 #: map-quick/osmelementinformationmodel.cpp:923
 #: map-quick/osmelementinformationmodel.cpp:974
@@ -1947,7 +1942,7 @@ msgstr "لا"
 #: map-quick/osmelementinformationmodel_data.cpp:19
 msgctxt "OSM::diet_type"
 msgid "gluten free"
-msgstr ""
+msgstr "خالي من الغلوتين"
 
 #: map-quick/osmelementinformationmodel_data.cpp:20
 msgctxt "OSM::diet_type"
@@ -1957,17 +1952,17 @@ msgstr "حلال"
 #: map-quick/osmelementinformationmodel_data.cpp:21
 msgctxt "OSM::diet_type"
 msgid "kosher"
-msgstr ""
+msgstr "كوشير"
 
 #: map-quick/osmelementinformationmodel_data.cpp:22
 msgctxt "OSM::diet_type"
 msgid "lactose free"
-msgstr ""
+msgstr "خالي من اللاكتوز"
 
 #: map-quick/osmelementinformationmodel_data.cpp:23
 msgctxt "OSM::diet_type"
 msgid "vegan"
-msgstr ""
+msgstr "نباتي"
 
 #: map-quick/osmelementinformationmodel_data.cpp:24
 msgctxt "OSM::diet_type"
@@ -1987,12 +1982,12 @@ msgstr "أبل باي"
 #: map-quick/osmelementinformationmodel_data.cpp:54
 msgctxt "OSM::payment_method"
 msgid "Diners Club"
-msgstr ""
+msgstr "داينرز كلوب"
 
 #: map-quick/osmelementinformationmodel_data.cpp:55
 msgctxt "OSM::payment_method"
 msgid "Discover Card"
-msgstr ""
+msgstr "ديسكفور كارد"
 
 #: map-quick/osmelementinformationmodel_data.cpp:56
 msgctxt "OSM::payment_method"
@@ -2028,7 +2023,7 @@ msgstr "يونيون باي"
 #: map-quick/osmelementinformationmodel_data.cpp:64
 msgctxt "OSM::payment_method"
 msgid "V Pay"
-msgstr ""
+msgstr "دفع في"
 
 #: map-quick/osmelementinformationmodel_data.cpp:63
 msgctxt "OSM::payment_method"
@@ -2058,7 +2053,7 @@ msgstr "شاديمو"
 #: map-quick/osmelementinformationmodel_data.cpp:81
 msgctxt "OSM::charging_station_socket"
 msgid "Schuko"
-msgstr ""
+msgstr "شوكو"
 
 #: map-quick/osmelementinformationmodel_data.cpp:82
 msgctxt "OSM::charging_station_socket"
@@ -2068,12 +2063,12 @@ msgstr "تسلا"
 #: map-quick/osmelementinformationmodel_data.cpp:83
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla Supercharger"
-msgstr ""
+msgstr "شاحن تسلا فائق الشحن"
 
 #: map-quick/osmelementinformationmodel_data.cpp:84
 msgctxt "OSM::charging_station_socket"
 msgid "Tesla Supercharger CCS"
-msgstr ""
+msgstr "نظام الشحن المشترك لشاحن تسلا فائق الشحن المشترك"
 
 #: map-quick/osmelementinformationmodel_data.cpp:85
 msgctxt "OSM::charging_station_socket"
@@ -2083,28 +2078,27 @@ msgstr "النوع 2"
 #: map-quick/osmelementinformationmodel_data.cpp:86
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2 cable"
-msgstr ""
+msgstr "كابل من النوع 2"
 
 #: map-quick/osmelementinformationmodel_data.cpp:87
 msgctxt "OSM::charging_station_socket"
 msgid "Type 2 CCS"
-msgstr ""
+msgstr "نظام الشحن المدمج من النوع 2"
 
 #: map-quick/osmelementinformationmodel_data.cpp:88
 msgctxt "OSM::charging_station_socket"
 msgid "Type E"
-msgstr ""
+msgstr "النوع E"
 
 #: map-quick/osmelementinformationmodel_data.cpp:97
-#, fuzzy
 msgctxt "OSM::charging_station_authentication"
 msgid "app"
-msgstr "آب"
+msgstr "تطبيق"
 
 #: map-quick/osmelementinformationmodel_data.cpp:98
 msgctxt "OSM::charging_station_authentication"
 msgid "membership card"
-msgstr ""
+msgstr "بطاقة عضوية"
 
 #: map-quick/osmelementinformationmodel_data.cpp:99
 msgctxt "OSM::charging_station_authentication"
@@ -2119,15 +2113,14 @@ msgstr "لا يوجد"
 #: map-quick/osmelementinformationmodel_data.cpp:101
 msgctxt "OSM::charging_station_authentication"
 msgid "phone call"
-msgstr ""
+msgstr "اتصال هاتفي"
 
 #: map-quick/osmelementinformationmodel_data.cpp:102
 msgctxt "OSM::charging_station_authentication"
 msgid "SMS"
-msgstr "اس ام اس"
+msgstr "رسائل نصية"
 
 #: map-quick/osmelementinformationmodel_data.cpp:109
-#, fuzzy
 msgctxt "OSM::bicycle_parking"
 msgid "anchors"
 msgstr "مرابط"
@@ -2135,7 +2128,7 @@ msgstr "مرابط"
 #: map-quick/osmelementinformationmodel_data.cpp:110
 msgctxt "OSM::bicycle_parking"
 msgid "bollard"
-msgstr ""
+msgstr "مربط"
 
 #: map-quick/osmelementinformationmodel_data.cpp:111
 msgctxt "OSM::bicycle_parking"
@@ -2145,17 +2138,17 @@ msgstr "مبنى"
 #: map-quick/osmelementinformationmodel_data.cpp:112
 msgctxt "OSM::bicycle_parking"
 msgid "ground slots"
-msgstr ""
+msgstr "فتحات أرضية"
 
 #: map-quick/osmelementinformationmodel_data.cpp:113
 msgctxt "OSM::bicycle_parking"
 msgid "lockers"
-msgstr ""
+msgstr "خزائن"
 
 #: map-quick/osmelementinformationmodel_data.cpp:114
 msgctxt "OSM::bicycle_parking"
 msgid "racks"
-msgstr ""
+msgstr "رفوف"
 
 #: map-quick/osmelementinformationmodel_data.cpp:115
 msgctxt "OSM::bicycle_parking"
@@ -2165,77 +2158,77 @@ msgstr "سقيفة"
 #: map-quick/osmelementinformationmodel_data.cpp:116
 msgctxt "OSM::bicycle_parking"
 msgid "stands"
-msgstr ""
+msgstr "حوامل"
 
 #: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "OSM::bicycle_parking"
 msgid "wall loops"
-msgstr ""
+msgstr "حلقات حائطية"
 
 #: map-quick/osmelementinformationmodel_data.cpp:118
 msgctxt "OSM::bicycle_parking"
 msgid "wide stands"
-msgstr ""
+msgstr "حوامل واسعة"
 
 #: map-quick/osmelementinformationmodel_data.cpp:125
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 bike"
 msgid_plural "%1 bikes"
-msgstr[0] "دراجة هوائية"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد دراجة هوائية"
+msgstr[1] "درجة هوائية واحدة"
+msgstr[2] "درجتان هوائيتان"
+msgstr[3] "%1 دراجات هوائية"
+msgstr[4] "%1 دراجة هوائية"
+msgstr[5] "%1 دراجة هوائية"
 
 #: map-quick/osmelementinformationmodel_data.cpp:126
 #, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 pedelec"
 msgid_plural "%1 pedelecs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أي دراجة"
+msgstr[1] "دارجة شبه كهربائية واحدة"
+msgstr[2] "دراجتان شبه كهربائية"
+msgstr[3] "%1 دراجات شبه كهربائية"
+msgstr[4] "%1 دراجة شبه كهربائية"
+msgstr[5] "%1 دراجة شبه كهربائية"
 
 #: map-quick/osmelementinformationmodel_data.cpp:127
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 kick scooter"
 msgid_plural "%1 kick scooters"
-msgstr[0] "سكوتر ركل"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد سكوتر ركل"
+msgstr[1] "سكوتر ركل واحد"
+msgstr[2] "اثنين سكوتر ركل"
+msgstr[3] "%1 سكوتر ركل"
+msgstr[4] "%1 سكوتر ركل"
+msgstr[5] "%1 سكوتر ركل"
 
 #: map-quick/osmelementinformationmodel_data.cpp:128
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 moped"
 msgid_plural "%1 mopeds"
-msgstr[0] "دراجة نارية صغيرة"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد دراجة"
+msgstr[1] "دراجة واحدة"
+msgstr[2] "دراجتان"
+msgstr[3] "%1 دراجات"
+msgstr[4] "%1 دراجة"
+msgstr[5] "%1 دراجة"
 
 #: map-quick/osmelementinformationmodel_data.cpp:129
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "available rental vehicles"
 msgid "%1 car"
 msgid_plural "%1 cars"
-msgstr[0] "السيارة"
-msgstr[1] "السّيّارات"
-msgstr[2] "السّيّارات"
-msgstr[3] "السّيّارات"
-msgstr[4] "السّيّارات"
-msgstr[5] "السّيّارات"
+msgstr[0] "لا يوجد سيارات"
+msgstr[1] "سيارة واحدة"
+msgstr[2] "سيارتان"
+msgstr[3] "%1 سيارات"
+msgstr[4] "%1 سيارة"
+msgstr[5] "%1 سيارة"
 
 #: map-quick/osmelementinformationmodel_data.cpp:137
 msgctxt "tactile writing"
@@ -2245,12 +2238,12 @@ msgstr "برايل"
 #: map-quick/osmelementinformationmodel_data.cpp:138
 msgctxt "tactile writing"
 msgid "embossed printed letters"
-msgstr ""
+msgstr "حروف مطبوعة منقوشة"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 msgctxt "tactile writing"
 msgid "engraved printed letters"
-msgstr ""
+msgstr "حروف مطبوعة محفورة"
 
 #: map-quick/roommodel.cpp:129
 #, kde-format
