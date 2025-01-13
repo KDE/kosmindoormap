@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KDE OSM Indoor Map
+Name[ar]=خريطة الشارع المفتوحة داخلية لكيدي
 Name[ca]=Mapa d'interiors d'OSM de KDE
 Name[ca@valencia]=Mapa d'interiors d'OSM de KDE
 Name[en_GB]=KDE OSM Indoor Map
@@ -28,6 +29,7 @@ Name[x-test]=xxKDE OSM Indoor Mapxx
 Name[zh_CN]=KDE OSM 室内地图
 Name[zh_TW]=KDE OSM 室內地圖
 GenericName=OSM Indoor Map
+GenericName[ar]=خريطة الشارع المفتوحة داخلية
 GenericName[ca]=Mapa d'interiors d'OSM
 GenericName[ca@valencia]=Mapa d'interiors d'OSM
 GenericName[en_GB]=OSM Indoor Map
@@ -59,6 +61,7 @@ Exec=kosmindoormap
 Icon=go-home
 Type=Application
 Comment=OSM indoor map demo application
+Comment[ar]=تطبيق عرض الخرائط الداخلية لمشروع خريطة الشارع المفتوح
 Comment[ca]=Aplicació de demostració de mapa d'interiors d'OSM
 Comment[ca@valencia]=Aplicació de demostració de mapa d'interiors d'OSM
 Comment[en_GB]=OSM indoor map demo application
