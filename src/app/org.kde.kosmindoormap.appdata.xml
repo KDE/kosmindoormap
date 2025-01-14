@@ -10,6 +10,7 @@
   <content_rating type="oars-1.1"/>
   <developer_name translate="no">KDE</developer_name>
   <name>KDE OSM Indoor Map</name>
+  <name xml:lang="ar">خريطة الشارع المفتوحة داخلية لكيدي</name>
   <name xml:lang="ca">Mapes d'interiors OSM del KDE</name>
   <name xml:lang="ca-valencia">Mapes d'interiors OSM de KDE</name>
   <name xml:lang="en-GB">KDE OSM Indoor Map</name>
@@ -39,6 +40,7 @@
   <name xml:lang="zh-CN">KDE OSM 室内地图</name>
   <name xml:lang="zh-TW">KDE OSM 室內地圖</name>
   <summary>OSM indoor map demo application</summary>
+  <summary xml:lang="ar">تطبيق عرض الخرائط الداخلية لمشروع خريطة الشارع المفتوح</summary>
   <summary xml:lang="ca">Aplicació de demostració de mapes OSM d'interiors</summary>
   <summary xml:lang="ca-valencia">Aplicació de demostració de mapes OSM d'interiors</summary>
   <summary xml:lang="en-GB">OSM indoor map demo application</summary>
@@ -69,6 +71,7 @@
   <summary xml:lang="zh-TW">OSM 室內地圖範例應用程式</summary>
   <description>
     <p>Demo application for KDE's OSM indoor map component.</p>
+    <p xml:lang="ar">تطبيق تجريبي لمكون الخريطة الداخلية لخريطة الشارع المفتوح في كيدي.</p>
     <p xml:lang="ca">Aplicació de demostració per al component de mapes OSM d'interiors del KDE.</p>
     <p xml:lang="ca-valencia">Aplicació de demostració per al component de mapes OSM d'interiors de KDE.</p>
     <p xml:lang="en-GB">Demo application for KDE's OSM indoor map component.</p>
