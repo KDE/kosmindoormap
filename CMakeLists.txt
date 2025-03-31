@@ -45,7 +45,12 @@ if (NOT USE_KPUBLICTRANSPORT AND NOT BUILD_STANDALONE_APP)
 endif()
 
 if (NOT BUILD_TOOLS_ONLY)
-    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Gui Quick)
+
+    if (Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0")
+        find_package(Qt6GuiPrivate ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+    endif()
+
     find_package(KF6 REQUIRED COMPONENTS I18n)
     find_package(KPublicTransport)
     set_package_properties(KPublicTransport PROPERTIES TYPE ${KPublicTransport_DEPENDENCY_TYPE} PURPOSE "Integration of public transport realtime data.")
