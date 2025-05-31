@@ -110,6 +110,7 @@ void MapLoader::loadForCoordinate(double lat, double lon)
 
 void MapLoader::loadForCoordinate(double lat, double lon, const QDateTime &ttl)
 {
+    d->m_tileCache.cancelPending();
     d->m_ttl = ttl;
     d->m_tileBbox = {};
     d->m_targetBbox = {};
@@ -128,6 +129,7 @@ void MapLoader::loadForCoordinate(double lat, double lon, const QDateTime &ttl)
 
 void MapLoader::loadForBoundingBox(OSM::BoundingBox box)
 {
+    d->m_tileCache.cancelPending();
     d->m_ttl = {};
     d->m_tileBbox = box;
     d->m_targetBbox = box;
@@ -153,6 +155,7 @@ void MapLoader::loadForBoundingBox(double minLat, double minLon, double maxLat, 
 
 void MapLoader::loadForTile(Tile tile)
 {
+    d->m_tileCache.cancelPending();
     d->m_ttl = {};
     d->m_tileBbox = tile.boundingBox();
     d->m_targetBbox = {};
