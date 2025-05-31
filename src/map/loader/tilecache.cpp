@@ -94,7 +94,7 @@ TileCache::~TileCache() = default;
 QString TileCache::cachedTile(const Tile &tile) const
 {
     auto p = cachePath(tile);
-    if (QFile::exists(p)) {
+    if (QFileInfo info(p); info.exists() && p.size() > 0) {
         return p;
     }
     return {};
@@ -188,7 +188,7 @@ void TileCache::downloadFinished(QNetworkReply* reply, const Tile &tile)
     reply->deleteLater();
     m_output.close();
 
-    if (reply->error() != QNetworkReply::NoError) {
+    if (reply->error() != QNetworkReply::NoError || m_output.size() == 0) {
         qCWarning(Log) << reply->errorString() << reply->url();
         m_output.remove();
         if (reply->error() == QNetworkReply::SslHandshakeFailedError) {
