@@ -23,6 +23,7 @@
 
 #include <cmath>
 
+using namespace Qt::Literals;
 using namespace KOSMIndoorMap;
 
 enum {
@@ -90,16 +91,16 @@ TileCache::TileCache(const NetworkAccessManagerFactory &namFactory, QObject *par
 
 TileCache::~TileCache() = default;
 
-QString TileCache::cachedTile(Tile tile) const
+QString TileCache::cachedTile(const Tile &tile) const
 {
-    const auto p = cachePath(tile);
+    auto p = cachePath(tile);
     if (QFile::exists(p)) {
         return p;
     }
     return {};
 }
 
-void TileCache::ensureCached(Tile tile)
+void TileCache::ensureCached(const Tile &tile)
 {
     const auto t = cachedTile(tile);
     if (t.isEmpty()) {
@@ -112,26 +113,26 @@ void TileCache::ensureCached(Tile tile)
     }
 }
 
-void TileCache::downloadTile(Tile tile)
+void TileCache::downloadTile(const Tile &tile)
 {
     m_pendingDownloads.push_back(tile);
     downloadNext();
 }
 
-QString TileCache::cachePath(Tile tile) const
+QString TileCache::cachePath(const Tile &tile) const
 {
     QString base;
     if (!qEnvironmentVariableIsSet("KOSMINDOORMAP_CACHE_PATH")) {
         base = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation)
-            + QLatin1String("/org.kde.osm/vectorosm/");
+            + "/org.kde.osm/vectorosm/"_L1;
     } else {
         base = qEnvironmentVariable("KOSMINDOORMAP_CACHE_PATH");
     }
 
     return base
-        + QString::number(tile.z) + QLatin1Char('/')
-        + QString::number(tile.x) + QLatin1Char('/')
-        + QString::number(tile.y) + QLatin1String(".o5m");
+        + QString::number(tile.z) + '/'_L1
+        + QString::number(tile.x) + '/'_L1
+        + QString::number(tile.y) + ".o5m"_L1;
 }
 
 void TileCache::downloadNext()
@@ -145,7 +146,7 @@ void TileCache::downloadNext()
 
     QFileInfo fi(cachePath(tile));
     QDir().mkpath(fi.absolutePath());
-    m_output.setFileName(fi.absoluteFilePath() + QLatin1String(".part"));
+    m_output.setFileName(fi.absoluteFilePath() + ".part"_L1);
     if (!m_output.open(QFile::WriteOnly)) {
         qCWarning(Log) << m_output.fileName() << m_output.errorString();
         return;
@@ -155,14 +156,14 @@ void TileCache::downloadNext()
     if (qEnvironmentVariableIsSet("KOSMINDOORMAP_TILESERVER")) {
         url = QUrl(qEnvironmentVariable("KOSMINDOORMAP_TILESERVER"));
     } else {
-        url.setScheme(QStringLiteral("https"));
-        url.setHost(QStringLiteral("maps.kde.org"));
-        url.setPath(QStringLiteral("/earth/vectorosm/v1/"));
+        url.setScheme(u"https"_s);
+        url.setHost(u"maps.kde.org"_s);
+        url.setPath(u"/earth/vectorosm/v1/"_s);
     }
 
-    url.setPath(url.path() + QString::number(tile.z) + QLatin1Char('/')
-        + QString::number(tile.x) + QLatin1Char('/')
-        + QString::number(tile.y) + QLatin1String(".o5m"));
+    url.setPath(url.path() + QString::number(tile.z) + '/'_L1
+        + QString::number(tile.x) + '/'_L1
+        + QString::number(tile.y) + ".o5m"_L1);
 
     QNetworkRequest req(url);
     req.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
@@ -182,7 +183,7 @@ void TileCache::dataReceived(QNetworkReply *reply)
     m_output.write(reply->read(reply->bytesAvailable()));
 }
 
-void TileCache::downloadFinished(QNetworkReply* reply, Tile tile)
+void TileCache::downloadFinished(QNetworkReply* reply, const Tile &tile)
 {
     reply->deleteLater();
     m_output.close();
@@ -196,7 +197,7 @@ void TileCache::downloadFinished(QNetworkReply* reply, Tile tile)
             errorStrings.reserve(sslErrors.size());
             std::transform(sslErrors.begin(), sslErrors.end(), std::back_inserter(errorStrings), [](const auto &e) { return e.errorString(); });
             qCWarning(Log) << errorStrings;
-            Q_EMIT tileError(tile, reply->errorString() + QLatin1String(" (") + errorStrings.join(QLatin1String(", ")) + QLatin1Char(')'));
+            Q_EMIT tileError(tile, reply->errorString() + " ("_L1 + errorStrings.join(", "_L1) + ')'_L1);
         } else {
             Q_EMIT tileError(tile, reply->errorString());
         }
@@ -218,7 +219,7 @@ void TileCache::downloadFinished(QNetworkReply* reply, Tile tile)
 
 int TileCache::pendingDownloads() const
 {
-    return m_pendingDownloads.size() + (m_output.isOpen() ? 1 : 0);
+    return (int)m_pendingDownloads.size() + (m_output.isOpen() ? 1 : 0);
 }
 
 void TileCache::cancelPending()
@@ -246,7 +247,7 @@ static void expireRecursive(const QString &path)
 }
 void TileCache::expire()
 {
-    const QString base = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/org.kde.osm/vectorosm/");
+    const QString base = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/org.kde.osm/vectorosm/"_L1;
     expireRecursive(base);
 }
 

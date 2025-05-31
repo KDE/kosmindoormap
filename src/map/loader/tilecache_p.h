@@ -38,14 +38,14 @@ public:
     explicit inline Tile(uint32_t _x, uint32_t _y, uint8_t _z)
         : x(_x) , y(_y) , z(_z) {}
 
-    static Tile fromCoordinate(double lat, double lon, uint8_t z);
+    [[nodiscard]] static Tile fromCoordinate(double lat, double lon, uint8_t z);
 
-    OSM::Coordinate topLeft() const;
-    OSM::BoundingBox boundingBox() const;
+    [[nodiscard]] OSM::Coordinate topLeft() const;
+    [[nodiscard]] OSM::BoundingBox boundingBox() const;
 
     // move up and down the z hierarchy for the same location
-    Tile topLeftAtZ(uint8_t z) const;
-    Tile bottomRightAtZ(uint8_t z) const;
+    [[nodiscard]] Tile topLeftAtZ(uint8_t z) const;
+    [[nodiscard]] Tile bottomRightAtZ(uint8_t z) const;
 
     uint32_t x = 0;
     uint32_t y = 0;
@@ -62,16 +62,16 @@ public:
     ~TileCache();
 
     /** Returns the path to the cached content of @p tile, if present locally. */
-    QString cachedTile(Tile tile) const;
+    [[nodiscard]] QString cachedTile(const Tile &tile) const;
 
     /** Ensure @p tile is locally cached. */
-    void ensureCached(Tile tile);
+    void ensureCached(const Tile &tile);
 
     /** Triggers the download of tile @p tile. */
-    void downloadTile(Tile tile);
+    void downloadTile(const Tile &tile);
 
     /** Number of pending downloads. */
-    int pendingDownloads() const;
+    [[nodiscard]] int pendingDownloads() const;
 
     /** Cancel all pending downloads. */
     void cancelPending();
@@ -80,14 +80,14 @@ public:
     void expire();
 
 Q_SIGNALS:
-    void tileLoaded(Tile tile);
-    void tileError(Tile tile, const QString &errorMessage);
+    void tileLoaded(const Tile &tile);
+    void tileError(const Tile &tile, const QString &errorMessage);
 
 private:
-    QString cachePath(Tile tile) const;
+    [[nodiscard]] QString cachePath(const Tile &tile) const;
     void downloadNext();
     void dataReceived(QNetworkReply *reply);
-    void downloadFinished(QNetworkReply *reply, Tile tile);
+    void downloadFinished(QNetworkReply *reply, const Tile &tile);
     void updateTtl(const QString &filePath, const QDateTime &ttl);
 
     NetworkAccessManagerFactory m_nam;
