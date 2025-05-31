@@ -173,9 +173,11 @@ void TileCache::downloadNext()
     req.setAttribute(QNetworkRequest::CacheSaveControlAttribute,  false);
     req.setHeader(QNetworkRequest::UserAgentHeader, KOSMIndoorMap::userAgent());
     auto reply = m_nam()->get(req);
+    reply->setParent(this);
     connect(reply, &QNetworkReply::readyRead, this, [this, reply]() { dataReceived(reply); });
     connect(reply, &QNetworkReply::finished, this, [this, reply, tile]() { downloadFinished(reply, tile); });
     connect(reply, &QNetworkReply::sslErrors, this, [reply](const auto &sslErrors) { reply->setProperty("_ssl_errors", QVariant::fromValue(sslErrors)); });
+    m_currentReply = reply;
 }
 
 void TileCache::dataReceived(QNetworkReply *reply)
@@ -186,6 +188,7 @@ void TileCache::dataReceived(QNetworkReply *reply)
 void TileCache::downloadFinished(QNetworkReply* reply, const Tile &tile)
 {
     reply->deleteLater();
+    m_currentReply = {};
     m_output.close();
 
     if (reply->error() != QNetworkReply::NoError || m_output.size() == 0) {
@@ -225,6 +228,11 @@ int TileCache::pendingDownloads() const
 void TileCache::cancelPending()
 {
     m_pendingDownloads.clear();
+    delete m_currentReply.get();
+    if (m_output.isOpen()) {
+        m_output.close();
+        m_output.remove();
+    }
 }
 
 static void expireRecursive(const QString &path)

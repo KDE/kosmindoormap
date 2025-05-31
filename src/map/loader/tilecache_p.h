@@ -13,6 +13,7 @@
 
 #include <QDateTime>
 #include <QFile>
+#include <QPointer>
 #include <QObject>
 
 #include <deque>
@@ -91,6 +92,7 @@ private:
     void updateTtl(const QString &filePath, const QDateTime &ttl);
 
     NetworkAccessManagerFactory m_nam;
+    QPointer<QNetworkReply> m_currentReply;
     QFile m_output;
     std::deque<Tile> m_pendingDownloads;
 };
