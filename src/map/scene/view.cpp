@@ -322,6 +322,13 @@ void View::centerOnGeoCoordinate(QPointF geoCoord)
     updateViewport();
 }
 
+void View::centerOn(QPointF geoCoord, int floorLevel, double zoomLevel)
+{
+    setLevel(floorLevel);
+    setZoomLevel(zoomLevel, QPointF(screenWidth() / 2.0, screenHeight() / 2.0));
+    centerOnGeoCoordinate(geoCoord);
+}
+
 void View::updateViewport()
 {
     // ### this fails for distances above 180° due to OSM::distance wrapping around

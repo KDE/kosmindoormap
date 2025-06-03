@@ -132,8 +132,16 @@ public:
     QTransform deviceTransform() const;
     void setDeviceTransform(const QTransform &t);
 
-    /** Center the view on the given geo-coordinate. */
+    /** Center the view on the given geo-coordinate, but leave floor level and zoom unchanged. */
     Q_INVOKABLE void centerOnGeoCoordinate(QPointF geoCoord);
+
+    /** Center on @p geoCoord on @p floorLevel with @p zoomLevel.
+     *  This is a convenience method equivalent of calling setLevel, setZoomLevel on the view center
+     *  and centerOnGeoCoordinate, in that order.
+     *
+     *  @since 25.08
+     */
+    Q_INVOKABLE void centerOn(QPointF geoCoord, int floorLevel, double zoomLevel);
 
     /** Time range that is displayed.
      *  This matters for example when opening hours are considered for styling.
@@ -165,7 +173,7 @@ private:
     QRectF m_bbox;
     QRectF m_viewport;
     QSize m_screenSize;
-    QTransform m_deviceTransform = {};
+    QTransform m_deviceTransform;
     int m_level = 0;
 
     // cached values

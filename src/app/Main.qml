@@ -242,9 +242,7 @@ Kirigami.ApplicationWindow {
                 }
                 highlighted: false
                 onClicked: {
-                    page.map.view.floorLevel = model.level
-                    page.map.view.centerOnGeoCoordinate(model.coordinate);
-                    page.map.view.setZoomLevel(19, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
+                    page.map.view.centerOn(model.coordinate, model.level, 19);
                     platformSheet.close()
                 }
             }
@@ -303,9 +301,7 @@ Kirigami.ApplicationWindow {
                         title: model.display
                     }
                     onClicked: {
-                        page.map.view.floorLevel = model.level
-                        page.map.view.centerOnGeoCoordinate(model.coordinate);
-                        page.map.view.setZoomLevel(18, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
+                        page.map.view.centerOn(model.coordinate, model.level, 18);
                         gateSheet.close();
                     }
                 }
@@ -321,9 +317,7 @@ Kirigami.ApplicationWindow {
             id: amenitySheet
             amenityModel: amenityModel
             onAmenitySelected: (amenity) => {
-                page.map.view.floorLevel = amenity.level;
-                page.map.view.setZoomLevel(21, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
-                page.map.view.centerOnGeoCoordinate(amenity.element.center);
+                page.map.view.centerOn(amenity.element.center, amenity.level, 21);
                 console.log(amenity.element.url);
             }
         }
@@ -337,9 +331,7 @@ Kirigami.ApplicationWindow {
             id: roomSheet
             roomModel: roomModel
             onRoomSelected: (room) => {
-                page.map.view.floorLevel = room.level;
-                page.map.view.setZoomLevel(21, Qt.point(page.map.width / 2.0, page.map.height/ 2.0));
-                page.map.view.centerOnGeoCoordinate(room.element.center);
+                page.map.view.centerOn(room.element.center, room.level, 21);
                 console.log(room.element.url);
             }
         }
