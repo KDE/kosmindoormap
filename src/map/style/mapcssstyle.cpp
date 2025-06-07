@@ -22,6 +22,7 @@ using namespace KOSMIndoorMap;
 // - keep value lists alphabetically sorted
 // - follow rules linked on https://wiki.openstreetmap.org/wiki/Area
 static constexpr inline const char* way_rule_highway_values[] = {
+    "elevator",
     "platform",
     "rest_area",
     "services"
@@ -54,6 +55,8 @@ static constexpr inline const char* way_rule_natural_values[] = {
 MapCSSStylePrivate::MapCSSStylePrivate()
     : m_wayTypeRules({
         { OSM::TagKey{}, "building", MapCSSObjectType::Area, {}},
+        { OSM::TagKey{}, "building:levels", MapCSSObjectType::Area, {}},
+        { OSM::TagKey{}, "building:part", MapCSSObjectType::Area, {}},
         { OSM::TagKey{}, "highway", MapCSSObjectType::Area, std::span<const char* const>{way_rule_highway_values}},
         { OSM::TagKey{}, "natural", MapCSSObjectType::Area, std::span<const char* const>{way_rule_natural_values}},
     })
