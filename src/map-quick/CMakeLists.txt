@@ -40,6 +40,7 @@ ecm_add_qml_module(kosmindoormapquickplugin
         AmenitySearchDialog.qml
         FloorLevelSelector.qml
         IndoorMap.qml
+        IndoorMapView.qml
         IndoorMapAttributionLabel.qml
         IndoorMapScale.qml
         OSMElementInformationDialog.qml
@@ -58,6 +59,7 @@ ecm_add_qml_module(kosmindoormapquickplugin
         "QtQuick.Controls"
         "QtQuick.Layouts"
         "org.kde.kirigami"
+        "org.kde.kirigamiaddons.components"
         "org.kde.kopeninghours"
         "org.kde.contacts"
 )

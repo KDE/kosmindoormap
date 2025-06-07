@@ -15,7 +15,7 @@ Kirigami.Page {
     title: map.floorLevels.hasName(map.view.floorLevel) && isNaN(parseInt(map.floorLevels.name(map.view.floorLevel))) ? map.floorLevels.name(map.view.floorLevel) : ("Floor " + map.floorLevels.name(map.view.floorLevel));
     property point coordinate
     property alias map: map
-    property alias debug: infoModel.debug
+    property alias debug: map.elementInfoModel.debug
     property alias mapHoverEnabled: hoverHandler.enabled
     property RoutingController routingController
 
@@ -28,61 +28,20 @@ Kirigami.Page {
     // TODO in theory we could make this conditional to having panned the map all the way to the right
     Kirigami.ColumnView.preventStealing: true
 
-    actions: [
-        Kirigami.Action {
-            icon.name: "go-down-symbolic"
-            enabled: map.floorLevels.hasFloorLevelBelow(map.view.floorLevel)
-            onTriggered: map.view.floorLevel = map.floorLevels.floorLevelBelow(map.view.floorLevel)
-            shortcut: "PgDown"
-        },
-        Kirigami.Action {
-            icon.name: "go-up-symbolic"
-            enabled: map.floorLevels.hasFloorLevelAbove(map.view.floorLevel)
-            onTriggered: map.view.floorLevel = map.floorLevels.floorLevelAbove(map.view.floorLevel)
-            shortcut: "PgUp"
-        }
-    ]
-
-    OSMElementInformationModel {
-        id: infoModel
-        allowOnlineContent: true
-        debug: true
-    }
-
-    IndoorMapInfoSheet {
-        id: elementDetailsSheet
-        model: infoModel
-        regionCode: page.map.mapData.regionCode
-        timeZone: page.map.mapData.timeZone
-    }
-
-    FloorLevelChangeModel {
-        id: floorLevelChangeModel
-        currentFloorLevel: map.view.floorLevel
-        floorLevelModel: map.floorLevels
-    }
-
-    FloorLevelSelector {
-        id: elevatorSheet
-        model: floorLevelChangeModel
-        onFloorLevelSelected: (level) => { map.view.floorLevel = level; }
-    }
-
-    IndoorMap {
+    IndoorMapView {
         id: map
         anchors.fill: parent
         hoveredElement: map.elementAt(map.mapEventPointToScreen(hoverHandler.point))
 
-        IndoorMapScale {
-            map: map
-            anchors.left: map.left
-            anchors.bottom: map.bottom
-            width: 0.3 * map.width
+        elementInfoModel {
+            allowOnlineContent: true
+            debug: true
         }
 
-        IndoorMapAttributionLabel {
-            anchors.right: map.right
-            anchors.bottom: map.bottom
+        elementInfoDialog: IndoorMapInfoSheet {
+            model: map.elementInfoModel
+            regionCode: map.mapData.regionCode
+            timeZone: map.mapData.timeZone
         }
 
         QQC2.Menu {
@@ -106,48 +65,18 @@ Kirigami.Page {
             }
             QQC2.MenuItem {
                 id: contextMenuInfoAction
-                // enabled: !ev.element.isNull && (infoModel.name !== "" || infoModel.debug)
+                // enabled: !ev.element.isNull && (map.elementInfoModel.name !== "" || map.elementInfoModel.debug)
                 text: i18n("Show information")
                 icon.name: "documentinfo"
-                onTriggered: elementDetailsSheet.open()
+                onTriggered: map.elementInfoDialog.open()
             }
         }
 
         function showContextMenu(ev) {
-            infoModel.element = ev.element;
-            contextMenuInfoAction.enabled = !ev.element.isNull && (infoModel.name !== "" || infoModel.debug);
+            map.elementInfoModel.element = ev.element;
+            contextMenuInfoAction.enabled = !ev.element.isNull && (map.elementInfoModel.name !== "" || map.elementInfoModel.debug);
             contextMenu.ev = ev;
             contextMenu.popup(map, ev.screenPosition);
-        }
-
-        onTapped: (ev) => {
-            // left click on element: floor level change if applicable, otherwise info dialog
-            // (button === is finger on touch screen)
-            if (!ev.element.isNull && (ev.button === Qt.LeftButton || ev.button === 0)) {
-                floorLevelChangeModel.element = ev.element;
-                if (floorLevelChangeModel.hasSingleLevelChange) {
-                    showPassiveNotification("Switched to floor " + floorLevelChangeModel.destinationLevelName, "short");
-                    map.view.floorLevel = floorLevelChangeModel.destinationLevel;
-                    return;
-                } else if (floorLevelChangeModel.hasMultipleLevelChanges) {
-                    elevatorSheet.open();
-                    return;
-                }
-
-                infoModel.element = ev.element;
-                if (infoModel.name != "" || infoModel.debug) {
-                    elementDetailsSheet.open();
-                }
-            }
-
-            // right click: context menu, with info action if clicked on an element
-            if (ev.button === Qt.RightButton) {
-                showContextMenu(ev);
-            }
-        }
-
-        onLongPressed: (ev) => {
-            showContextMenu(ev);
         }
 
         HoverHandler {
