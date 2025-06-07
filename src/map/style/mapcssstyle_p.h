@@ -43,7 +43,7 @@ public:
         MapCSSObjectType type;
         std::span<const char* const> values;
     };
-    std::array<way_type_rule_t, 3> m_wayTypeRules;
+    std::array<way_type_rule_t, 5> m_wayTypeRules;
 
     inline static MapCSSStylePrivate* get(MapCSSStyle *style) { return style->d.get(); }
 };
