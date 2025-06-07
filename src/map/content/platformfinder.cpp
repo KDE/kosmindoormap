@@ -48,9 +48,25 @@ std::vector<Platform> PlatformFinder::find(const MapData &data)
                 continue;
             }
 
+            // free floating section signs
+            const auto elemPt = e.tagValue(m_tagKeys.public_transport);
+            if (elemPt == "platform_section_sign") {
+                const auto platformRef = e.tagValue(m_tagKeys.platform_ref);
+                const auto ref = e.tagValue("ref");
+                if (!platformRef.isEmpty() && !ref.isEmpty()) {
+                    Platform p;
+                    p.setLevel(levelForPlatform((*it).first, e));
+                    p.setName(QString::fromUtf8(platformRef));
+                    PlatformSection section;
+                    section.setName(QString::fromUtf8(ref));
+                    section.setPosition(e);
+                    p.setSections({section});
+                    m_floatingSections.push_back(std::move(p));
+                }
+            }
+
             // non-standard free-floating section signs
-            const auto platformRef = e.tagValue(m_tagKeys.platform_colon_ref);
-            if (!platformRef.isEmpty() && e.tagValue("pole") == "landmark_sign") {
+            if (const auto platformRef = e.tagValue(m_tagKeys.platform_colon_ref); !platformRef.isEmpty() && e.tagValue("pole") == "landmark_sign") {
                 const auto names = QString::fromUtf8(platformRef).split(QLatin1Char(';'));
                 for (const auto &name : names) {
                     Platform p;
