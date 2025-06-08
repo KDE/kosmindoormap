@@ -1,0 +1,106 @@
+1
+  position: 1407680837 1860918865
+  stop point: n215971279
+  edge: n215971279
+  area: w33170523
+  track: w370012160
+  level: 10
+  mode: Rail
+  lines: RB20
+2
+  position: 1407680298 1860918973
+  stop point: n215971391
+  edge: w1321588697
+  area: r5151598
+  track: w370012164
+  level: 10
+  mode: Rail
+  lines: RE1
+3
+  position: 1407679284 1860919489
+  stop point: n215971403
+  edge: w1321588698
+  area: r5151598
+  track: w370012162
+  level: 10
+  mode: Rail
+  lines: RB33|RE4|RE9
+6
+  position: 1407678063 1860919854
+  stop point: n215971430
+  edge: w35842509
+  area: r5151599
+  track: w35960137
+  level: 10
+  mode: Rail
+  sections:
+    name: A
+    position: n419076015
+    name: B
+    position: n419076014
+    name: C
+    position: n419076006
+    name: D
+    position: n419076004
+    name: E
+    position: n419076012
+7
+  position: 1407677264 1860920407
+  stop point: n215971464
+  edge: w35842512
+  area: r5151599
+  track: w31002483
+  level: 10
+  mode: Rail
+  lines: RB20|RE18
+  sections:
+    name: A
+    position: n419076019
+    name: B
+    position: n419076024
+    name: C
+    position: n419076026
+    name: D
+    position: n419076027
+    name: E
+    position: n419076028
+8
+  position: 1407676896 1860920416
+  stop point: n215971478
+  edge: w35842964
+  area: r5151597
+  track: w35960135
+  level: 10
+  mode: Rail
+  lines: RE4
+  sections:
+    name: A
+    position: n419104902
+    name: B
+    position: n419104899
+    name: C
+    position: n419104898
+    name: D
+    position: n419104895
+    name: E
+    position: n419104893
+9
+  position: 1407676169 1860920772
+  stop point: n215971485
+  edge: w35842973
+  area: r5151597
+  track: w35960139
+  level: 10
+  mode: Rail
+  lines: ES|ICE 79|NJ 425|S41
+  sections:
+    name: A
+    position: n419104906
+    name: B
+    position: n419104910
+    name: C
+    position: n419104912
+    name: D
+    position: n419104913
+    name: E
+    position: n419104916

@@ -1,0 +1,3887 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+ SPDX-FileCopyrightText: OpenStreetMap contributors
+ SPDX-License-Identifier: ODbL-1.0
+-->
+<osm version="0.6" generator="osmfilter 1.4.4">
+	<bounds minlat="50.7642593" minlon="6.0864258" maxlat="50.7694708" maxlon="6.0946655"/>
+	<node id="-70290480" lat="50.7675353" lon="6.0946655"/>
+	<node id="-70290461" lat="50.7674832" lon="6.0946655"/>
+	<node id="-70290459" lat="50.7674696" lon="6.0946655"/>
+	<node id="-70290457" lat="50.7675904" lon="6.0946655"/>
+	<node id="-70290455" lat="50.7675635" lon="6.0946655"/>
+	<node id="-70290453" lat="50.7675225" lon="6.0946655"/>
+	<node id="-70287211" lat="50.7657358" lon="6.0864258"/>
+	<node id="-70287209" lat="50.7657357" lon="6.0864258"/>
+	<node id="-70287193" lat="50.7654112" lon="6.0864258"/>
+	<node id="-70287190" lat="50.765667" lon="6.0864258"/>
+	<node id="-70287187" lat="50.7656184" lon="6.0864258"/>
+	<node id="-70287179" lat="50.7653646" lon="6.0864258"/>
+	<node id="-70287174" lat="50.7651883" lon="6.0864258"/>
+	<node id="-70287172" lat="50.7649696" lon="6.0864258"/>
+	<node id="-70287162" lat="50.7658879" lon="6.0864258"/>
+	<node id="-70287154" lat="50.7644957" lon="6.0864258"/>
+	<node id="-70287152" lat="50.7659412" lon="6.0864258"/>
+	<node id="-70287149" lat="50.7644053" lon="6.0864258"/>
+	<node id="-70287145" lat="50.7651109" lon="6.0864258"/>
+	<node id="-70287143" lat="50.7649351" lon="6.0864258"/>
+	<node id="-70287141" lat="50.7644915" lon="6.0864258"/>
+	<node id="-70287139" lat="50.7654918" lon="6.0864258"/>
+	<node id="-70287136" lat="50.7655433" lon="6.0864258"/>
+	<node id="-70287134" lat="50.7655788" lon="6.0864258"/>
+	<node id="-70287132" lat="50.7655755" lon="6.0864258"/>
+	<node id="-70287118" lat="50.765715" lon="6.0864258"/>
+	<node id="-70287116" lat="50.7658234" lon="6.0864258"/>
+	<node id="-70287113" lat="50.7657828" lon="6.0864258"/>
+	<node id="-70286990" lat="50.7661448" lon="6.0864258"/>
+	<node id="-70286958" lat="50.7660435" lon="6.0864258"/>
+	<node id="-70286956" lat="50.7660922" lon="6.0864258"/>
+	<node id="26445832" lat="50.7675851" lon="6.0944187">
+		<tag k="ref" v="04W26"/>
+	</node>
+	<node id="26445835" lat="50.7664552" lon="6.0881596"/>
+	<node id="28465593" lat="50.7661304" lon="6.0876582">
+		<tag k="ref" v="04W51"/>
+	</node>
+	<node id="130153728" lat="50.7685747" lon="6.0946156">
+		<tag k="name" v="Normaluhr"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1049:2:2"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H2"/>
+	</node>
+	<node id="150638026" lat="50.7682213" lon="6.091905">
+		<tag k="railway" v="buffer_stop"/>
+	</node>
+	<node id="150638028" lat="50.7681968" lon="6.0923091"/>
+	<node id="150638032" lat="50.7679817" lon="6.093325">
+		<tag k="ref" v="04W32"/>
+	</node>
+	<node id="150638034" lat="50.7676393" lon="6.0945234"/>
+	<node id="150638038" lat="50.7680897" lon="6.0927332">
+		<tag k="ref" v="04P1"/>
+	</node>
+	<node id="150638057" lat="50.7678228" lon="6.0938667">
+		<tag k="ref" v="04W13"/>
+	</node>
+	<node id="150638064" lat="50.767958" lon="6.0933037"/>
+	<node id="150638067" lat="50.7680183" lon="6.0929304"/>
+	<node id="150638074" lat="50.7679665" lon="6.0925002">
+		<tag k="mapillary" v="243783834100915"/>
+	</node>
+	<node id="150638078" lat="50.7679475" lon="6.0929068"/>
+	<node id="150638079" lat="50.7678977" lon="6.0932853"/>
+	<node id="150638081" lat="50.767815" lon="6.0936439"/>
+	<node id="150638083" lat="50.7677292" lon="6.0939958">
+		<tag k="ref" v="04P3"/>
+		<tag k="mapillary" v="305984414297285"/>
+	</node>
+	<node id="150638084" lat="50.7676538" lon="6.0943001">
+		<tag k="ref" v="04W28"/>
+	</node>
+	<node id="150638088" lat="50.7676239" lon="6.0934412">
+		<tag k="railway" v="buffer_stop"/>
+	</node>
+	<node id="150638091" lat="50.7675743" lon="6.0939739">
+		<tag k="railway" v="milestone"/>
+		<tag k="mapillary" v="894982741348389"/>
+	</node>
+	<node id="150638092" lat="50.7675046" lon="6.0944415"/>
+	<node id="150638098" lat="50.7676709" lon="6.0924998"/>
+	<node id="150638100" lat="50.7676919" lon="6.0928595"/>
+	<node id="150638106" lat="50.7676592" lon="6.0935891"/>
+	<node id="150638109" lat="50.7676162" lon="6.0940093">
+		<tag k="ref" v="04W27"/>
+	</node>
+	<node id="150638111" lat="50.7675373" lon="6.0944444">
+		<tag k="ref" v="04W25"/>
+	</node>
+	<node id="150638115" lat="50.7677423" lon="6.0924991"/>
+	<node id="150638117" lat="50.7677471" lon="6.0928173"/>
+	<node id="150638119" lat="50.7677749" lon="6.0936279"/>
+	<node id="150638123" lat="50.7676841" lon="6.0935968"/>
+	<node id="150638127" lat="50.767782" lon="6.0925014"/>
+	<node id="150638130" lat="50.7677806" lon="6.0930458"/>
+	<node id="150638132" lat="50.7677685" lon="6.0932332"/>
+	<node id="150638133" lat="50.7677432" lon="6.0934799">
+		<tag k="ref" v="04W30"/>
+	</node>
+	<node id="150638136" lat="50.7676815" lon="6.0938627">
+		<tag k="ref" v="04W29"/>
+	</node>
+	<node id="150638146" lat="50.7679231" lon="6.0925076"/>
+	<node id="150638148" lat="50.7679039" lon="6.092905"/>
+	<node id="150638150" lat="50.7678554" lon="6.0932618"/>
+	<node id="150638153" lat="50.767678" lon="6.0940258"/>
+	<node id="150638159" lat="50.7678883" lon="6.0924984"/>
+	<node id="150638161" lat="50.7678693" lon="6.0928923"/>
+	<node id="150638163" lat="50.7678224" lon="6.0932586"/>
+	<node id="150638164" lat="50.7677381" lon="6.0936329"/>
+	<node id="150638169" lat="50.7678469" lon="6.0924947"/>
+	<node id="150638171" lat="50.767828" lon="6.0929283"/>
+	<node id="150638175" lat="50.7677895" lon="6.093246"/>
+	<node id="150638223" lat="50.7679211" lon="6.0923662"/>
+	<node id="150638225" lat="50.7677304" lon="6.0901898"/>
+	<node id="150638229" lat="50.7675832" lon="6.0897709"/>
+	<node id="150638232" lat="50.7673325" lon="6.0892999"/>
+	<node id="150638234" lat="50.767017" lon="6.0888001">
+		<tag k="ref" v="04W44"/>
+		<tag k="railway:turnout_side" v="left"/>
+	</node>
+	<node id="150638240" lat="50.7665001" lon="6.0879081">
+		<tag k="ref" v="208"/>
+	</node>
+	<node id="150638241" lat="50.7675906" lon="6.089986"/>
+	<node id="150638244" lat="50.76748" lon="6.0897016"/>
+	<node id="150638247" lat="50.7673154" lon="6.0893286"/>
+	<node id="150638253" lat="50.7665738" lon="6.088223">
+		<tag k="ref" v="04W48"/>
+	</node>
+	<node id="150638258" lat="50.7675566" lon="6.0902063"/>
+	<node id="150638261" lat="50.7672521" lon="6.0893936"/>
+	<node id="150638263" lat="50.7670075" lon="6.0889137"/>
+	<node id="150638265" lat="50.766729" lon="6.088472">
+		<tag k="ref" v="04W46"/>
+	</node>
+	<node id="150638267" lat="50.7667124" lon="6.0885328">
+		<tag k="ref" v="04W45"/>
+	</node>
+	<node id="150638269" lat="50.7670107" lon="6.0890056">
+		<tag k="ref" v="04W43"/>
+	</node>
+	<node id="150638270" lat="50.7672101" lon="6.0894111"/>
+	<node id="150638275" lat="50.7674346" lon="6.0899705"/>
+	<node id="150638277" lat="50.767465" lon="6.0901881"/>
+	<node id="150638280" lat="50.7673369" lon="6.089818"/>
+	<node id="150638281" lat="50.7671945" lon="6.0894723"/>
+	<node id="150638284" lat="50.7669507" lon="6.0889807"/>
+	<node id="150638288" lat="50.7673589" lon="6.0902906"/>
+	<node id="150638290" lat="50.7672352" lon="6.0899213"/>
+	<node id="150638292" lat="50.7670958" lon="6.0895937"/>
+	<node id="150638315" lat="50.766859" lon="6.0891219"/>
+	<node id="150638318" lat="50.7666177" lon="6.088666"/>
+	<node id="150638319" lat="50.7663915" lon="6.0883372"/>
+	<node id="150638322" lat="50.7663007" lon="6.0882189"/>
+	<node id="150638324" lat="50.7674309" lon="6.0902202"/>
+	<node id="150638326" lat="50.7673004" lon="6.0898378"/>
+	<node id="150638332" lat="50.7666743" lon="6.0885704"/>
+	<node id="150638334" lat="50.766437" lon="6.0882481"/>
+	<node id="150638339" lat="50.767317" lon="6.0903014">
+		<tag k="ref" v="04VW1zu8"/>
+	</node>
+	<node id="150638342" lat="50.7671985" lon="6.0899537"/>
+	<node id="150638343" lat="50.7670586" lon="6.0896203"/>
+	<node id="150638346" lat="50.7668277" lon="6.0891605"/>
+	<node id="150638347" lat="50.7665894" lon="6.0887068"/>
+	<node id="150638349" lat="50.7663644" lon="6.0883807"/>
+	<node id="150638351" lat="50.7662582" lon="6.0882487"/>
+	<node id="150638353" lat="50.7672382" lon="6.0903827"/>
+	<node id="150638354" lat="50.7671274" lon="6.0900293"/>
+	<node id="150638357" lat="50.7669958" lon="6.089711"/>
+	<node id="150638360" lat="50.76676" lon="6.0892419"/>
+	<node id="150638361" lat="50.7665278" lon="6.0888047"/>
+	<node id="150638367" lat="50.7662124" lon="6.0883297"/>
+	<node id="196170093" lat="50.7658033" lon="6.0899399">
+		<tag k="name" v="Burtscheid Hauptstraße"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1171:2:2"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H2"/>
+	</node>
+	<node id="213148315" lat="50.7663849" lon="6.0876275"/>
+	<node id="213148327" lat="50.7663426" lon="6.0875024">
+		<tag k="ref" v="209"/>
+	</node>
+	<node id="213148338" lat="50.7662584" lon="6.0871912">
+		<tag k="ref" v="210"/>
+	</node>
+	<node id="213148352" lat="50.7661496" lon="6.086462"/>
+	<node id="213148373" lat="50.7663569" lon="6.0876223"/>
+	<node id="213148383" lat="50.7662649" lon="6.0874042"/>
+	<node id="213148391" lat="50.7661412" lon="6.0870273"/>
+	<node id="213148399" lat="50.7660441" lon="6.0866727"/>
+	<node id="213148406" lat="50.7660069" lon="6.0864539">
+		<tag k="railway" v="buffer_stop"/>
+	</node>
+	<node id="213148414" lat="50.7661817" lon="6.0870095"/>
+	<node id="213148423" lat="50.7660874" lon="6.0866575"/>
+	<node id="213148447" lat="50.7661268" lon="6.0866208"/>
+	<node id="213148545" lat="50.7663595" lon="6.0878787">
+		<tag k="ref" v="04W101"/>
+	</node>
+	<node id="213148563" lat="50.7661848" lon="6.0875022">
+		<tag k="ref" v="04W103"/>
+	</node>
+	<node id="213148575" lat="50.7660801" lon="6.08718">
+		<tag k="ref" v="04W106"/>
+	</node>
+	<node id="213148588" lat="50.765957" lon="6.0867493"/>
+	<node id="213148616" lat="50.7659737" lon="6.0866738"/>
+	<node id="213204419" lat="50.7658286" lon="6.0864493"/>
+	<node id="213204423" lat="50.7659078" lon="6.0867462"/>
+	<node id="213204435" lat="50.7660036" lon="6.0870386">
+		<tag k="ref" v="107"/>
+	</node>
+	<node id="213204436" lat="50.7658697" lon="6.0866948"/>
+	<node id="213204444" lat="50.7657851" lon="6.0864347"/>
+	<node id="213204478" lat="50.7662076" lon="6.0876078">
+		<tag k="ref" v="04W102"/>
+	</node>
+	<node id="213204479" lat="50.7660216" lon="6.0872079">
+		<tag k="ref" v="04W104"/>
+	</node>
+	<node id="213204483" lat="50.765833" lon="6.0867276">
+		<tag k="ref" v="04W111"/>
+	</node>
+	<node id="213204487" lat="50.7657681" lon="6.086536"/>
+	<node id="213204490" lat="50.765736" lon="6.0864266">
+		<tag k="ref" v="04W112"/>
+	</node>
+	<node id="213204581" lat="50.7657268" lon="6.0864559"/>
+	<node id="215800202" lat="50.7660567" lon="6.0873402">
+		<tag k="ref" v="04W105"/>
+	</node>
+	<node id="215800299" lat="50.7658954" lon="6.0870516">
+		<tag k="ref" v="04W108"/>
+	</node>
+	<node id="215800312" lat="50.7657593" lon="6.0867717"/>
+	<node id="215800318" lat="50.7656858" lon="6.0865981"/>
+	<node id="215800556" lat="50.7657894" lon="6.0867232"/>
+	<node id="215800560" lat="50.7656731" lon="6.0864428"/>
+	<node id="215971279" lat="50.7680837" lon="6.0918865">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="1"/>
+		<tag k="railway" v="stop"/>
+		<tag k="uic_ref" v="8015345"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="train" v="yes"/>
+		<tag k="local_ref" v="1"/>
+	</node>
+	<node id="215971391" lat="50.7680298" lon="6.0918973">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="2"/>
+		<tag k="railway" v="stop"/>
+		<tag k="uic_ref" v="8015345"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="train" v="yes"/>
+		<tag k="local_ref" v="2"/>
+	</node>
+	<node id="215971403" lat="50.7679284" lon="6.0919489">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="3"/>
+		<tag k="railway" v="stop"/>
+		<tag k="uic_ref" v="8015345"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="train" v="yes"/>
+		<tag k="local_ref" v="3"/>
+	</node>
+	<node id="215971405" lat="50.7678866" lon="6.0919677">
+		<tag k="odbl" v="clean"/>
+	</node>
+	<node id="215971416" lat="50.7678457" lon="6.091979"/>
+	<node id="215971430" lat="50.7678063" lon="6.0919854">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="6"/>
+		<tag k="railway" v="stop"/>
+		<tag k="uic_ref" v="8015345"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="train" v="yes"/>
+		<tag k="local_ref" v="6"/>
+	</node>
+	<node id="215971464" lat="50.7677264" lon="6.0920407">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="7"/>
+		<tag k="railway" v="stop"/>
+		<tag k="uic_ref" v="8015345"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="train" v="yes"/>
+		<tag k="local_ref" v="7"/>
+	</node>
+	<node id="215971478" lat="50.7676896" lon="6.0920416">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="8"/>
+		<tag k="railway" v="stop"/>
+		<tag k="uic_ref" v="8015345"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="train" v="yes"/>
+		<tag k="local_ref" v="8"/>
+	</node>
+	<node id="215971485" lat="50.7676169" lon="6.0920772">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="9"/>
+		<tag k="railway" v="stop"/>
+		<tag k="uic_ref" v="8015345"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="train" v="yes"/>
+		<tag k="local_ref" v="9"/>
+	</node>
+	<node id="216009029" lat="50.7657468" lon="6.0868739"/>
+	<node id="216009041" lat="50.765614" lon="6.0866476"/>
+	<node id="216009111" lat="50.7657306" lon="6.086756">
+		<tag k="ref" v="04W109"/>
+	</node>
+	<node id="216009277" lat="50.7656037" lon="6.0864924">
+		<tag k="ref" v="04W113"/>
+	</node>
+	<node id="218223640" lat="50.7656626" lon="6.0869219"/>
+	<node id="218269493" lat="50.7662912" lon="6.0879666">
+		<tag k="ref" v="04W50"/>
+	</node>
+	<node id="218269514" lat="50.7657843" lon="6.0872156">
+		<tag k="ref" v="04W52"/>
+	</node>
+	<node id="218269528" lat="50.7656339" lon="6.0869664"/>
+	<node id="218269538" lat="50.7654745" lon="6.0866698"/>
+	<node id="218269593" lat="50.766008" lon="6.0876671">
+		<tag k="ref" v="04W53"/>
+	</node>
+	<node id="218269611" lat="50.7655969" lon="6.0872099">
+		<tag k="ref" v="04W57"/>
+	</node>
+	<node id="218269621" lat="50.7653956" lon="6.0868982"/>
+	<node id="218269629" lat="50.7652546" lon="6.0865986"/>
+	<node id="218450707" lat="50.7660316" lon="6.0881054"/>
+	<node id="218450713" lat="50.7660739" lon="6.0880418">
+		<tag k="mapillary" v="194057989215488"/>
+	</node>
+	<node id="218450723" lat="50.7661086" lon="6.0880017"/>
+	<node id="218450740" lat="50.7660966" lon="6.0878588">
+		<tag k="ref" v="04N6"/>
+		<tag k="mapillary" v="1123842218121685"/>
+	</node>
+	<node id="218450746" lat="50.7659828" lon="6.0877308">
+		<tag k="ref" v="04W54"/>
+	</node>
+	<node id="218450756" lat="50.7656159" lon="6.0873265">
+		<tag k="ref" v="04W56"/>
+	</node>
+	<node id="218450766" lat="50.7654638" lon="6.0871629"/>
+	<node id="218450775" lat="50.7651619" lon="6.0867826">
+		<tag k="ref" v="04W67"/>
+	</node>
+	<node id="218450782" lat="50.7649779" lon="6.0864452"/>
+	<node id="218450973" lat="50.7658866" lon="6.0879288"/>
+	<node id="218450983" lat="50.7657224" lon="6.0877248">
+		<tag k="ref" v="04W62"/>
+		<tag k="railway:maxspeed:diverging" v="50"/>
+		<tag k="railway:maxspeed:straight" v="60"/>
+		<tag k="railway:turnout_side" v="left"/>
+	</node>
+	<node id="218450991" lat="50.7652793" lon="6.0872777"/>
+	<node id="218451001" lat="50.7649976" lon="6.0869865"/>
+	<node id="218451012" lat="50.7648087" lon="6.0867994"/>
+	<node id="218451020" lat="50.7644448" lon="6.0864583">
+		<tag k="ref" v="04W74"/>
+	</node>
+	<node id="218451276" lat="50.7654095" lon="6.0869507"/>
+	<node id="218451296" lat="50.7652075" lon="6.0866275"/>
+	<node id="218451693" lat="50.7649572" lon="6.0864674"/>
+	<node id="218451756" lat="50.7660242" lon="6.0879832">
+		<tag k="ref" v="04W61"/>
+	</node>
+	<node id="218451762" lat="50.7656219" lon="6.0875446"/>
+	<node id="218451780" lat="50.7652808" lon="6.0871983">
+		<tag k="ref" v="04W65"/>
+	</node>
+	<node id="218451796" lat="50.7650731" lon="6.0869871">
+		<tag k="ref" v="04W71"/>
+	</node>
+	<node id="218451802" lat="50.764811" lon="6.0867664"/>
+	<node id="218451815" lat="50.7659623" lon="6.0878419">
+		<tag k="ref" v="04N7"/>
+		<tag k="mapillary" v="4548567888504858"/>
+	</node>
+	<node id="218451824" lat="50.7657515" lon="6.0876133">
+		<tag k="ref" v="04W63"/>
+	</node>
+	<node id="218451834" lat="50.7653126" lon="6.0871396"/>
+	<node id="218451852" lat="50.7651461" lon="6.0869836"/>
+	<node id="218451866" lat="50.7649472" lon="6.0868047">
+		<tag k="ref" v="04W72"/>
+	</node>
+	<node id="218451880" lat="50.7654358" lon="6.0871783">
+		<tag k="ref" v="K64"/>
+		<tag k="railway" v="railway_crossing"/>
+	</node>
+	<node id="218451916" lat="50.7651391" lon="6.0869371"/>
+	<node id="218476827" lat="50.7657907" lon="6.0874771">
+		<tag k="ref" v="K55"/>
+		<tag k="railway" v="railway_crossing"/>
+	</node>
+	<node id="219480510" lat="50.7670467" lon="6.0888883"/>
+	<node id="219480636" lat="50.767031" lon="6.088914"/>
+	<node id="219480648" lat="50.7672636" lon="6.0893882"/>
+	<node id="219480664" lat="50.767338" lon="6.0895529"/>
+	<node id="219480674" lat="50.7674926" lon="6.0899592"/>
+	<node id="219480687" lat="50.7676449" lon="6.0904639"/>
+	<node id="219480694" lat="50.7679408" lon="6.0919442"/>
+	<node id="219480707" lat="50.7679826" lon="6.0923212"/>
+	<node id="219480717" lat="50.7679836" lon="6.0925066"/>
+	<node id="219480736" lat="50.7679655" lon="6.0929125"/>
+	<node id="219480751" lat="50.7679149" lon="6.0933047"/>
+	<node id="219480764" lat="50.7678379" lon="6.0936579"/>
+	<node id="219480785" lat="50.7677579" lon="6.0939656"/>
+	<node id="219480802" lat="50.7677771" lon="6.0939819"/>
+	<node id="219480821" lat="50.7678628" lon="6.0936764"/>
+	<node id="219480831" lat="50.7679471" lon="6.0933105"/>
+	<node id="219480837" lat="50.76801" lon="6.0929207"/>
+	<node id="219480861" lat="50.7680391" lon="6.0924971"/>
+	<node id="219480877" lat="50.7680373" lon="6.0923154"/>
+	<node id="219480891" lat="50.7680115" lon="6.0919036"/>
+	<node id="219480911" lat="50.7677096" lon="6.0904254"/>
+	<node id="219480919" lat="50.7675745" lon="6.0900033"/>
+	<node id="219480932" lat="50.7674658" lon="6.0897129"/>
+	<node id="219480954" lat="50.7673024" lon="6.0893405"/>
+	<node id="219513401" lat="50.7659817" lon="6.0877638"/>
+	<node id="219513412" lat="50.7659627" lon="6.0878078"/>
+	<node id="219513424" lat="50.7661374" lon="6.0879992"/>
+	<node id="219513433" lat="50.7663151" lon="6.0882031"/>
+	<node id="219513441" lat="50.7664046" lon="6.0883114"/>
+	<node id="219513452" lat="50.7666308" lon="6.0886513"/>
+	<node id="219513461" lat="50.7668725" lon="6.0891078"/>
+	<node id="219513476" lat="50.7671112" lon="6.0895814"/>
+	<node id="219513484" lat="50.7672448" lon="6.0899101"/>
+	<node id="219513501" lat="50.7673677" lon="6.0902781"/>
+	<node id="219513623" lat="50.7674392" lon="6.0905377"/>
+	<node id="219513634" lat="50.7677382" lon="6.0920238"/>
+	<node id="219513644" lat="50.7677871" lon="6.0923509"/>
+	<node id="219513656" lat="50.7678047" lon="6.0927766"/>
+	<node id="219513667" lat="50.767821" lon="6.0927774"/>
+	<node id="219513680" lat="50.76783" lon="6.0924999"/>
+	<node id="219513689" lat="50.7678294" lon="6.0923535"/>
+	<node id="219513700" lat="50.7677917" lon="6.0919902"/>
+	<node id="219513711" lat="50.7674956" lon="6.0905061"/>
+	<node id="219513723" lat="50.7674183" lon="6.0902337"/>
+	<node id="219513731" lat="50.7672942" lon="6.0898711"/>
+	<node id="219513740" lat="50.7671525" lon="6.0895294"/>
+	<node id="219513754" lat="50.7669143" lon="6.0890501"/>
+	<node id="219513772" lat="50.766665" lon="6.0885899"/>
+	<node id="219513785" lat="50.7664306" lon="6.0882666"/>
+	<node id="219513797" lat="50.7663479" lon="6.0881714"/>
+	<node id="219513809" lat="50.7661541" lon="6.0879528"/>
+	<node id="219513815" lat="50.7660145" lon="6.0880043"/>
+	<node id="219513832" lat="50.765999" lon="6.0880426"/>
+	<node id="219513856" lat="50.766227" lon="6.0883128"/>
+	<node id="219513864" lat="50.7663355" lon="6.0884663"/>
+	<node id="219513877" lat="50.7665464" lon="6.0887851"/>
+	<node id="219513891" lat="50.7667726" lon="6.0892292"/>
+	<node id="219513896" lat="50.7670074" lon="6.0897027"/>
+	<node id="219513898" lat="50.7671376" lon="6.0900125"/>
+	<node id="219513903" lat="50.7672498" lon="6.0903753"/>
+	<node id="219513922" lat="50.7673187" lon="6.0906253"/>
+	<node id="219513937" lat="50.76763" lon="6.0920685"/>
+	<node id="219513949" lat="50.7676818" lon="6.0924058"/>
+	<node id="219513969" lat="50.7677013" lon="6.0928344"/>
+	<node id="219513977" lat="50.7677" lon="6.0931228"/>
+	<node id="219513990" lat="50.7677223" lon="6.0931235"/>
+	<node id="219513998" lat="50.7677323" lon="6.0928635"/>
+	<node id="219514010" lat="50.7677307" lon="6.092516"/>
+	<node id="219514015" lat="50.7677225" lon="6.0923831"/>
+	<node id="219514026" lat="50.767676" lon="6.0920456"/>
+	<node id="219514038" lat="50.7673818" lon="6.0905999"/>
+	<node id="219514051" lat="50.767303" lon="6.0903086"/>
+	<node id="219514055" lat="50.767183" lon="6.0899689"/>
+	<node id="219514065" lat="50.7670477" lon="6.0896453"/>
+	<node id="219514082" lat="50.7668142" lon="6.0891763"/>
+	<node id="219514092" lat="50.7665741" lon="6.0887322"/>
+	<node id="219514103" lat="50.7663577" lon="6.0884046"/>
+	<node id="219514112" lat="50.7662541" lon="6.0882749"/>
+	<node id="259571767" lat="50.7674465" lon="6.0937524">
+		<tag k="name" v="Kapitelstraße"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1179:1:1"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H1"/>
+	</node>
+	<node id="271458043" lat="50.7687104" lon="6.0903377">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1007:2:2"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H2"/>
+	</node>
+	<node id="271458085" lat="50.7687391" lon="6.0905602">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1007:1:1"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H1"/>
+	</node>
+	<node id="271458371" lat="50.7684363" lon="6.0910527">
+		<tag k="amenity" v="taxi"/>
+	</node>
+	<node id="301623196" lat="50.7687119" lon="6.093845">
+		<tag k="name" v="Normaluhr"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1049:3:3"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H3"/>
+	</node>
+	<node id="363993755" lat="50.7676011" lon="6.0880094">
+		<tag k="amenity" v="car_sharing"/>
+		<tag k="name" v="Bahnhof"/>
+		<tag k="phone" v="+49 241 4091190"/>
+	</node>
+	<node id="375610108" lat="50.7681121" lon="6.092717"/>
+	<node id="375610112" lat="50.7681331" lon="6.092284"/>
+	<node id="375610113" lat="50.7681086" lon="6.0918807"/>
+	<node id="375610114" lat="50.7678101" lon="6.090399"/>
+	<node id="375610119" lat="50.7678639" lon="6.0903707"/>
+	<node id="375610120" lat="50.7681562" lon="6.0925556"/>
+	<node id="419075987" lat="50.7681261" lon="6.0925273"/>
+	<node id="419075988" lat="50.7681081" lon="6.0925231"/>
+	<node id="419075989" lat="50.7681732" lon="6.0920306"/>
+	<node id="419075990" lat="50.7681597" lon="6.0918585"/>
+	<node id="419075991" lat="50.7678396" lon="6.0903828"/>
+	<node id="419076004" lat="50.7674025" lon="6.0902559">
+		<tag k="ref" v="D"/>
+		<tag k="platform_ref" v="6"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076006" lat="50.767493" lon="6.090575">
+		<tag k="ref" v="C"/>
+		<tag k="platform_ref" v="6"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076012" lat="50.767279" lon="6.0898816">
+		<tag k="ref" v="E"/>
+		<tag k="platform_ref" v="6"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076014" lat="50.7676677" lon="6.0914059">
+		<tag k="ref" v="B"/>
+		<tag k="platform_ref" v="6"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076015" lat="50.7678139" lon="6.0922899">
+		<tag k="ref" v="A"/>
+		<tag k="platform_ref" v="6"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076019" lat="50.7677895" lon="6.0922953">
+		<tag k="ref" v="A"/>
+		<tag k="platform_ref" v="7"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076024" lat="50.7676229" lon="6.0914238">
+		<tag k="ref" v="B"/>
+		<tag k="platform_ref" v="7"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076026" lat="50.7674633" lon="6.0905914">
+		<tag k="ref" v="C"/>
+		<tag k="platform_ref" v="7"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076027" lat="50.7673763" lon="6.0902708">
+		<tag k="ref" v="D"/>
+		<tag k="platform_ref" v="7"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419076028" lat="50.7672514" lon="6.0899002">
+		<tag k="ref" v="E"/>
+		<tag k="platform_ref" v="7"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104893" lat="50.7671657" lon="6.0899877">
+		<tag k="ref" v="E"/>
+		<tag k="platform_ref" v="8"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104895" lat="50.7672861" lon="6.0903368">
+		<tag k="ref" v="D"/>
+		<tag k="platform_ref" v="8"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104898" lat="50.7673677" lon="6.0906279">
+		<tag k="ref" v="C"/>
+		<tag k="platform_ref" v="8"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104899" lat="50.7675516" lon="6.0914697">
+		<tag k="ref" v="B"/>
+		<tag k="platform_ref" v="8"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104902" lat="50.7677046" lon="6.0923365">
+		<tag k="ref" v="A"/>
+		<tag k="platform_ref" v="8"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104906" lat="50.7676844" lon="6.092343">
+		<tag k="ref" v="A"/>
+		<tag k="platform_ref" v="9"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104910" lat="50.7675103" lon="6.0914867">
+		<tag k="ref" v="B"/>
+		<tag k="platform_ref" v="9"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104912" lat="50.7673386" lon="6.0906443">
+		<tag k="ref" v="C"/>
+		<tag k="platform_ref" v="9"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104913" lat="50.7672603" lon="6.0903617">
+		<tag k="ref" v="D"/>
+		<tag k="platform_ref" v="9"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419104916" lat="50.7671417" lon="6.0900087">
+		<tag k="ref" v="E"/>
+		<tag k="platform_ref" v="9"/>
+		<tag k="public_transport" v="platform_section_sign"/>
+	</node>
+	<node id="419108897" lat="50.7689802" lon="6.0903219"/>
+	<node id="419108909" lat="50.7686287" lon="6.0905252">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="kerb" v="raised"/>
+		<tag k="bus" v="yes"/>
+		<tag k="passenger_information_display:speech_output" v="yes"/>
+		<tag k="kerb:approach_aid" v="yes"/>
+		<tag k="route_ref:TECL" v="14"/>
+		<tag k="zone:TEC" v="5349"/>
+		<tag k="passenger_information_display" v="yes"/>
+		<tag k="ref:TECL" v="LaAhaup2"/>
+		<tag k="departures_board" v="realtime"/>
+		<tag k="ref:IFOPT" v="de:05334:1007:1:1"/>
+		<tag k="check_date:shelter" v="2024-03-03"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="yes"/>
+		<tag k="local_ref" v="H1"/>
+	</node>
+	<node id="419108911" lat="50.7688462" lon="6.0903789">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="kerb" v="raised"/>
+		<tag k="bus" v="yes"/>
+		<tag k="passenger_information_display:speech_output" v="yes"/>
+		<tag k="kerb:approach_aid" v="yes"/>
+		<tag k="route_ref:TECL" v="14"/>
+		<tag k="zone:TEC" v="5349"/>
+		<tag k="passenger_information_display" v="yes"/>
+		<tag k="ref:TECL" v="LaAhaup1"/>
+		<tag k="ref:IFOPT" v="de:05334:1007:2:2"/>
+		<tag k="check_date:shelter" v="2024-03-03"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="yes"/>
+		<tag k="local_ref" v="H2"/>
+	</node>
+	<node id="420343557" lat="50.7675465" lon="6.0904679">
+		<tag k="ref" v="04VW2p5"/>
+		<tag k="mapillary" v="935663143940562"/>
+	</node>
+	<node id="420343558" lat="50.7675016" lon="6.090174"/>
+	<node id="420343559" lat="50.7675077" lon="6.0904838">
+		<tag k="ref" v="04VW2p6"/>
+		<tag k="mapillary" v="935663143940562"/>
+	</node>
+	<node id="420603125" lat="50.7678373" lon="6.0928294">
+		<tag k="ref" v="04P6"/>
+		<tag k="mapillary" v="375597857037685"/>
+	</node>
+	<node id="420603128" lat="50.767875" lon="6.0928343">
+		<tag k="ref" v="04P5"/>
+	</node>
+	<node id="420603130" lat="50.767912" lon="6.0927879">
+		<tag k="ref" v="04P4"/>
+		<tag k="mapillary" v="1116551355494535"/>
+	</node>
+	<node id="420603132" lat="50.7679577" lon="6.0928031">
+		<tag k="ref" v="04VW1p3"/>
+		<tag k="mapillary" v="512672103243297"/>
+	</node>
+	<node id="420603134" lat="50.7677237" lon="6.0932641">
+		<tag k="ref" v="04P8"/>
+		<tag k="mapillary" v="311436253901855"/>
+	</node>
+	<node id="420603137" lat="50.7676828" lon="6.0931673">
+		<tag k="ref" v="04P9"/>
+		<tag k="mapillary" v="311436253901855"/>
+	</node>
+	<node id="420603139" lat="50.7677871" lon="6.0927996">
+		<tag k="ref" v="04P7"/>
+		<tag k="mapillary" v="134189455303254"/>
+	</node>
+	<node id="420603141" lat="50.7674159" lon="6.0894356"/>
+	<node id="420603143" lat="50.767393" lon="6.089494">
+		<tag k="ref" v="04ZR2"/>
+	</node>
+	<node id="420603147" lat="50.7670382" lon="6.0892598">
+		<tag k="ref" v="04VWn6"/>
+	</node>
+	<node id="595757964" lat="50.7685394" lon="6.090004">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1007:3:3"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="yes"/>
+		<tag k="local_ref" v="H3"/>
+	</node>
+	<node id="595757968" lat="50.7687122" lon="6.0898625">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="bus" v="yes"/>
+		<tag k="check_date:shelter" v="2024-03-03"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="no"/>
+		<tag k="local_ref" v="H4"/>
+	</node>
+	<node id="595757974" lat="50.7688169" lon="6.0939503">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Normaluhr"/>
+		<tag k="bus" v="yes"/>
+		<tag k="route_ref:TECL" v="14"/>
+		<tag k="network:wikidata" v="Q3512078"/>
+		<tag k="network:wikipedia" v="fr:TEC Liège-Verviers"/>
+		<tag k="zone:TEC" v="5349"/>
+		<tag k="ref:TECL" v="LaAnorm1"/>
+		<tag k="ref:IFOPT" v="de:05334:1049:3:3"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="no"/>
+		<tag k="local_ref" v="H3"/>
+	</node>
+	<node id="595757977" lat="50.7684422" lon="6.0945022">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Normaluhr"/>
+		<tag k="bus" v="yes"/>
+		<tag k="network:short" v="AVV"/>
+		<tag k="network:wikidata" v="Q300763"/>
+		<tag k="network:wikipedia" v="de:Aachener Verkehrsverbund"/>
+		<tag k="ref:IFOPT" v="de:05334:1049:2:2"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="yes"/>
+		<tag k="local_ref" v="H2"/>
+	</node>
+	<node id="597286578" lat="50.7680077" lon="6.089225">
+		<tag k="amenity" v="parking"/>
+		<tag k="name" v="Hauptbahnhof"/>
+		<tag k="capacity" v="718"/>
+		<tag k="fee" v="yes"/>
+		<tag k="parking" v="underground"/>
+		<tag k="access" v="yes"/>
+	</node>
+	<node id="929302326" lat="50.7679612" lon="6.0896479"/>
+	<node id="929302328" lat="50.767938" lon="6.0895305"/>
+	<node id="929302341" lat="50.7679755" lon="6.0897126"/>
+	<node id="929302346" lat="50.7679566" lon="6.089621"/>
+	<node id="929302347" lat="50.7682463" lon="6.0893713"/>
+	<node id="930331180" lat="50.768294" lon="6.0896023"/>
+	<node id="930331192" lat="50.7680602" lon="6.0897227">
+		<tag k="access" v="private"/>
+		<tag k="barrier" v="gate"/>
+	</node>
+	<node id="934711322" lat="50.7680508" lon="6.0912643"/>
+	<node id="934711323" lat="50.7683494" lon="6.0914188"/>
+	<node id="934711336" lat="50.7683459" lon="6.0914018"/>
+	<node id="934711339" lat="50.7678692" lon="6.0903936"/>
+	<node id="1465620035" lat="50.7681786" lon="6.0922795"/>
+	<node id="1558428201" lat="50.7651865" lon="6.0868223">
+		<tag k="ref" v="04W66"/>
+	</node>
+	<node id="1558428204" lat="50.7665913" lon="6.0883402"/>
+	<node id="2012731711" lat="50.7684466" lon="6.0895519">
+		<tag k="amenity" v="bicycle_parking"/>
+		<tag k="capacity" v="44"/>
+		<tag k="bicycle_parking" v="stands"/>
+		<tag k="fee" v="no"/>
+		<tag k="access" v="yes"/>
+	</node>
+	<node id="2318438531" lat="50.766649" lon="6.0881885"/>
+	<node id="2318438535" lat="50.7670877" lon="6.0889126">
+		<tag k="ref" v="04W42"/>
+	</node>
+	<node id="2318438537" lat="50.767182" lon="6.0891183"/>
+	<node id="2318438539" lat="50.7672076" lon="6.0891007"/>
+	<node id="2318438541" lat="50.7673817" lon="6.089509"/>
+	<node id="2318438543" lat="50.7674165" lon="6.0895481"/>
+	<node id="2318438548" lat="50.7674137" lon="6.0897419"/>
+	<node id="2318438550" lat="50.7675081" lon="6.0896112"/>
+	<node id="2318438554" lat="50.7676666" lon="6.0899899">
+		<tag k="ref" v="04VW3p1"/>
+	</node>
+	<node id="2614715766" lat="50.7683291" lon="6.0922246">
+		<tag k="amenity" v="car_sharing"/>
+		<tag k="name" v="Bhf-Wettersäule"/>
+		<tag k="phone" v="+49 241 4091190"/>
+		<tag k="capacity" v="1"/>
+	</node>
+	<node id="2955139620" lat="50.7655539" lon="6.0895759">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Burtscheid Hauptstraße"/>
+		<tag k="bus" v="yes"/>
+		<tag k="route_ref:TECL" v="14"/>
+		<tag k="network:wikidata" v="Q3512078"/>
+		<tag k="network:wikipedia" v="fr:TEC Liège-Verviers"/>
+		<tag k="zone:TEC" v="5349"/>
+		<tag k="ref:TECL" v="LaAburt1"/>
+		<tag k="ref:IFOPT" v="de:05334:1171:1:1"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="no"/>
+		<tag k="local_ref" v="H1"/>
+	</node>
+	<node id="2955139621" lat="50.7658322" lon="6.0899098">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Burtscheid Hauptstraße"/>
+		<tag k="bus" v="yes"/>
+		<tag k="route_ref:TECL" v="14"/>
+		<tag k="network:wikidata" v="Q3512078"/>
+		<tag k="network:wikipedia" v="fr:TEC Liège-Verviers"/>
+		<tag k="zone:TEC" v="5349"/>
+		<tag k="ref:TECL" v="LaAburt2"/>
+		<tag k="ref:IFOPT" v="de:05334:1171:2:2"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="no"/>
+		<tag k="local_ref" v="H2"/>
+	</node>
+	<node id="2955139733" lat="50.7673812" lon="6.0937024">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Kapitelstraße"/>
+		<tag k="bus" v="yes"/>
+		<tag k="route_ref:TECL" v="14"/>
+		<tag k="network:wikidata" v="Q3512078"/>
+		<tag k="network:wikipedia" v="fr:TEC Liège-Verviers"/>
+		<tag k="zone:TEC" v="5349"/>
+		<tag k="ref:TECL" v="LaAkapi1"/>
+		<tag k="ref:IFOPT" v="de:05334:1179:1:1"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="no"/>
+		<tag k="local_ref" v="H1"/>
+	</node>
+	<node id="2955139734" lat="50.7675318" lon="6.0935903">
+		<tag k="highway" v="bus_stop"/>
+		<tag k="name" v="Kapitelstraße"/>
+		<tag k="bus" v="yes"/>
+		<tag k="route_ref:TECL" v="14"/>
+		<tag k="network:wikidata" v="Q3512078"/>
+		<tag k="network:wikipedia" v="fr:TEC Liège-Verviers"/>
+		<tag k="zone:TEC" v="5349"/>
+		<tag k="ref:TECL" v="LaAkapi2"/>
+		<tag k="ref:IFOPT" v="de:05334:1179:2:2"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="no"/>
+		<tag k="local_ref" v="H2"/>
+	</node>
+	<node id="2969468604" lat="50.7654932" lon="6.0866018"/>
+	<node id="2969468606" lat="50.7671457" lon="6.0892252"/>
+	<node id="2969468607" lat="50.7673656" lon="6.0896602">
+		<tag k="ref" v="04W41"/>
+	</node>
+	<node id="3070631211" lat="50.7677663" lon="6.0913818">
+		<tag k="addr:city" v="Aachen"/>
+		<tag k="addr:country" v="DE"/>
+		<tag k="addr:postcode" v="52064"/>
+		<tag k="addr:street" v="Bahnhofstraße"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="addr:housenumber" v="2a"/>
+		<tag k="official_name" v="Aachen Hbf"/>
+		<tag k="departures_board:speech_output" v="no"/>
+		<tag k="start_date" v="1905"/>
+		<tag k="ref:station" v="1"/>
+		<tag k="uic_name" v="Aachen Hbf"/>
+		<tag k="railway" v="station"/>
+		<tag k="departures_board" v="realtime"/>
+		<tag k="uic_ref" v="8015345"/>
+		<tag k="public_transport" v="station"/>
+		<tag k="railway:ref" v="KA"/>
+		<tag k="railway:station_category" v="2"/>
+		<tag k="iata" v="XHJ"/>
+	</node>
+	<node id="3218812599" lat="50.7660435" lon="6.0876196"/>
+	<node id="3218812601" lat="50.766834" lon="6.0888478"/>
+	<node id="3417385547" lat="50.7674816" lon="6.0935742">
+		<tag k="name" v="Kapitelstraße"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1179:2:2"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H2"/>
+	</node>
+	<node id="3417446390" lat="50.7658376" lon="6.0900101">
+		<tag k="name" v="Burtscheid Hauptstraße"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1171:1:1"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H1"/>
+	</node>
+	<node id="3510132179" lat="50.7664405" lon="6.0886235"/>
+	<node id="3510132180" lat="50.7664684" lon="6.0885602"/>
+	<node id="3510132181" lat="50.7664787" lon="6.0885389"/>
+	<node id="3510132182" lat="50.766507" lon="6.0884941"/>
+	<node id="3510132183" lat="50.7665163" lon="6.088473"/>
+	<node id="3510132185" lat="50.7665481" lon="6.0884182"/>
+	<node id="3510132186" lat="50.7666904" lon="6.088795"/>
+	<node id="3510132187" lat="50.7666934" lon="6.0889385"/>
+	<node id="3510132188" lat="50.7667238" lon="6.0889576">
+		<tag k="ref" v="04VW2zu8"/>
+	</node>
+	<node id="3510132189" lat="50.7667863" lon="6.0884322"/>
+	<node id="3510132190" lat="50.7667551" lon="6.0888782"/>
+	<node id="3510132191" lat="50.7667686" lon="6.0884696"/>
+	<node id="3510132192" lat="50.7668188" lon="6.0888617"/>
+	<node id="3510137393" lat="50.7668578" lon="6.0885809"/>
+	<node id="3510137394" lat="50.7672874" lon="6.0895889"/>
+	<node id="3510137395" lat="50.7673726" lon="6.0900436"/>
+	<node id="3510137396" lat="50.7674032" lon="6.0900016"/>
+	<node id="3510137398" lat="50.7674894" lon="6.0899933"/>
+	<node id="3510137401" lat="50.7675803" lon="6.0902321"/>
+	<node id="3510137403" lat="50.767694" lon="6.0926662"/>
+	<node id="3510137404" lat="50.7677347" lon="6.0926845"/>
+	<node id="3510137405" lat="50.767742" lon="6.0929972"/>
+	<node id="3510137406" lat="50.767747" lon="6.092674"/>
+	<node id="3510137407" lat="50.7677573" lon="6.0934097"/>
+	<node id="3510137408" lat="50.7677837" lon="6.0934428"/>
+	<node id="3510137409" lat="50.7677976" lon="6.0924924"/>
+	<node id="3510137410" lat="50.7678146" lon="6.0930614"/>
+	<node id="3510137412" lat="50.7678162" lon="6.0934531"/>
+	<node id="3510137413" lat="50.7678446" lon="6.0926634"/>
+	<node id="3510137414" lat="50.7678516" lon="6.0930742"/>
+	<node id="3510137415" lat="50.7678593" lon="6.0934612"/>
+	<node id="3510137417" lat="50.7678799" lon="6.0934766"/>
+	<node id="3510137419" lat="50.7678863" lon="6.0926698"/>
+	<node id="3510137420" lat="50.767883" lon="6.093081"/>
+	<node id="3510137427" lat="50.7679193" lon="6.0926532"/>
+	<node id="3510137429" lat="50.7679279" lon="6.0930832"/>
+	<node id="3510137430" lat="50.7679446" lon="6.0931068"/>
+	<node id="3510137433" lat="50.7679644" lon="6.092676"/>
+	<node id="3510137436" lat="50.7679778" lon="6.0927089"/>
+	<node id="3510137441" lat="50.7679891" lon="6.0931319"/>
+	<node id="3510137443" lat="50.7680286" lon="6.0927064"/>
+	<node id="3510137444" lat="50.7680309" lon="6.0931238"/>
+	<node id="3510137445" lat="50.7680615" lon="6.0930611"/>
+	<node id="3510137446" lat="50.7680676" lon="6.0929163"/>
+	<node id="3510137449" lat="50.7681269" lon="6.09272"/>
+	<node id="3510137450" lat="50.7681378" lon="6.0911032"/>
+	<node id="3510137451" lat="50.7681328" lon="6.092696"/>
+	<node id="3510137452" lat="50.7681445" lon="6.0910284"/>
+	<node id="3510137453" lat="50.7681581" lon="6.0910925"/>
+	<node id="3510137455" lat="50.7681767" lon="6.0925162"/>
+	<node id="3510137457" lat="50.768209" lon="6.0909949"/>
+	<node id="3510137459" lat="50.7682182" lon="6.0914874"/>
+	<node id="3510137462" lat="50.7682792" lon="6.0913287"/>
+	<node id="3510137465" lat="50.7683255" lon="6.0913043"/>
+	<node id="3510268253" lat="50.7675532" lon="6.09111"/>
+	<node id="3510268260" lat="50.7676101" lon="6.0910808"/>
+	<node id="3510268263" lat="50.7676217" lon="6.09139"/>
+	<node id="3510268271" lat="50.7676348" lon="6.0915061"/>
+	<node id="3510268277" lat="50.7676549" lon="6.0913725"/>
+	<node id="3510268281" lat="50.7676911" lon="6.0914765"/>
+	<node id="3510321762" lat="50.7677512" lon="6.0909991"/>
+	<node id="3510321764" lat="50.7677965" lon="6.0911055"/>
+	<node id="3510321768" lat="50.7678306" lon="6.0913928"/>
+	<node id="3510321769" lat="50.7678215" lon="6.0909622"/>
+	<node id="3510321772" lat="50.7678279" lon="6.0910885"/>
+	<node id="3510321773" lat="50.7678323" lon="6.0912713"/>
+	<node id="3510321785" lat="50.7678648" lon="6.0912529"/>
+	<node id="3510321787" lat="50.7679033" lon="6.0913531"/>
+	<node id="3510476904" lat="50.7674367" lon="6.0911714"/>
+	<node id="3510476907" lat="50.767471" lon="6.0912816"/>
+	<node id="3510476913" lat="50.7674907" lon="6.0911434"/>
+	<node id="3510476915" lat="50.7675017" lon="6.0912657"/>
+	<node id="3510476916" lat="50.7675075" lon="6.0914554"/>
+	<node id="3510476919" lat="50.7675235" lon="6.0915684"/>
+	<node id="3510476923" lat="50.7675393" lon="6.0914374"/>
+	<node id="3510476927" lat="50.7675723" lon="6.0915417"/>
+	<node id="3525159550" lat="50.7679821" lon="6.0912172"/>
+	<node id="3525159553" lat="50.7680157" lon="6.0910993"/>
+	<node id="3658095665" lat="50.7675817" lon="6.0904543">
+		<tag k="ref" v="04VWp4"/>
+		<tag k="mapillary" v="211773333765962"/>
+	</node>
+	<node id="3658095666" lat="50.7676075" lon="6.090035">
+		<tag k="ref" v="04VW3p2"/>
+	</node>
+	<node id="3658095667" lat="50.7676091" lon="6.0920387">
+		<tag k="ref" v="04ZU9"/>
+	</node>
+	<node id="3658095668" lat="50.7676193" lon="6.090428">
+		<tag k="ref" v="04VW2p3"/>
+		<tag k="mapillary" v="211773333765962"/>
+	</node>
+	<node id="3658095669" lat="50.7676831" lon="6.0920095">
+		<tag k="ref" v="04ZU8"/>
+	</node>
+	<node id="3658095670" lat="50.7677159" lon="6.0901445">
+		<tag k="ref" v="04ZR1"/>
+		<tag k="mapillary" v="1116551355494535"/>
+	</node>
+	<node id="3658095671" lat="50.767799" lon="6.0907777">
+		<tag k="ref" v="04VW1zr2"/>
+	</node>
+	<node id="3658095672" lat="50.7678619" lon="6.0907497">
+		<tag k="ref" v="04VW1zr1"/>
+	</node>
+	<node id="3658095673" lat="50.7679096" lon="6.0928287">
+		<tag k="ref" v="04VW2zr4"/>
+	</node>
+	<node id="3658095674" lat="50.7680277" lon="6.0928419">
+		<tag k="ref" v="04P2"/>
+	</node>
+	<node id="3658095675" lat="50.7680532" lon="6.0922562">
+		<tag k="ref" v="04VW2zr2"/>
+		<tag k="mapillary" v="1730725010444266"/>
+	</node>
+	<node id="3658095676" lat="50.7680543" lon="6.0924026">
+		<tag k="ref" v="04VW1p2"/>
+	</node>
+	<node id="3658095677" lat="50.7681263" lon="6.092789">
+		<tag k="railway" v="derail"/>
+		<tag k="railway:derail" v="wedge"/>
+	</node>
+	<node id="3658095678" lat="50.7681119" lon="6.0923555">
+		<tag k="ref" v="04VW1p1"/>
+		<tag k="mapillary" v="259195032617615"/>
+	</node>
+	<node id="3671243792" lat="50.7680348" lon="6.0911887"/>
+	<node id="3737413650" lat="50.7676594" lon="6.0923546"/>
+	<node id="3737413651" lat="50.767921" lon="6.0923071"/>
+	<node id="3737413652" lat="50.7677316" lon="6.0923412"/>
+	<node id="3737413653" lat="50.7678413" lon="6.0923215"/>
+	<node id="3737413654" lat="50.7675186" lon="6.09053"/>
+	<node id="3737413655" lat="50.7675562" lon="6.0905097"/>
+	<node id="3737413656" lat="50.7676291" lon="6.0904705"/>
+	<node id="3737413657" lat="50.7681122" lon="6.0922779"/>
+	<node id="3737413658" lat="50.7675916" lon="6.0904909"/>
+	<node id="3737413659" lat="50.7678825" lon="6.092314"/>
+	<node id="3737413660" lat="50.7679647" lon="6.0922996"/>
+	<node id="3737413661" lat="50.7673096" lon="6.0906407"/>
+	<node id="3737413662" lat="50.7674352" lon="6.0905734"/>
+	<node id="3737413663" lat="50.7680546" lon="6.0922847"/>
+	<node id="3737413664" lat="50.7673968" lon="6.0905929"/>
+	<node id="3737413665" lat="50.7677689" lon="6.0923356"/>
+	<node id="3737413666" lat="50.7677275" lon="6.0904195"/>
+	<node id="3737413667" lat="50.7677873" lon="6.090389"/>
+	<node id="3954122864" lat="50.7675882" lon="6.0912149"/>
+	<node id="3954122865" lat="50.7676189" lon="6.0911979"/>
+	<node id="4034985339" lat="50.7686313" lon="6.0898865">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="bus" v="yes"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H4"/>
+	</node>
+	<node id="4034985340" lat="50.7686458" lon="6.0899651">
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="bus" v="yes"/>
+		<tag k="ref:IFOPT" v="de:05334:1007:3:3"/>
+		<tag k="public_transport" v="stop_position"/>
+		<tag k="local_ref" v="H3"/>
+	</node>
+	<node id="4083992933" lat="50.767738" lon="6.0939558">
+		<tag k="mapillary" v="305984414297285"/>
+	</node>
+	<node id="4083992934" lat="50.7677677" lon="6.0940758">
+		<tag k="railway" v="milestone"/>
+		<tag k="mapillary" v="305984414297285"/>
+	</node>
+	<node id="4083992935" lat="50.7678467" lon="6.0935119">
+		<tag k="mapillary" v="814241819521899"/>
+	</node>
+	<node id="4083992936" lat="50.7679045" lon="6.0935461">
+		<tag k="mapillary" v="814241819521899"/>
+	</node>
+	<node id="4083992937" lat="50.7679613" lon="6.0922393">
+		<tag k="ref" v="04L203X"/>
+	</node>
+	<node id="4083992938" lat="50.7679636" lon="6.0922752">
+		<tag k="mapillary" v="1730725010444266"/>
+	</node>
+	<node id="4083992939" lat="50.7680386" lon="6.0927152">
+		<tag k="mapillary" v="278524063939559"/>
+	</node>
+	<node id="4083992940" lat="50.7680537" lon="6.0922671">
+		<tag k="mapillary" v="1730725010444266"/>
+	</node>
+	<node id="4083992941" lat="50.768139" lon="6.0927255">
+		<tag k="ref" v="04L110Y"/>
+		<tag k="mapillary" v="303525614549659"/>
+	</node>
+	<node id="4084971766" lat="50.7660684" lon="6.0880353">
+		<tag k="ref" v="04N8"/>
+	</node>
+	<node id="4084971767" lat="50.7662647" lon="6.0872215">
+		<tag k="mapillary" v="957611425039588"/>
+	</node>
+	<node id="4084971768" lat="50.7667256" lon="6.0883281">
+		<tag k="mapillary" v="1237692929967237"/>
+	</node>
+	<node id="4085176402" lat="50.7663924" lon="6.0885836">
+		<tag k="ref" v="04VW2zu9"/>
+		<tag k="mapillary" v="808769743391266"/>
+	</node>
+	<node id="4085176403" lat="50.7664801" lon="6.0884576"/>
+	<node id="4085176404" lat="50.7665264" lon="6.0883696"/>
+	<node id="4085176405" lat="50.7670715" lon="6.0895453">
+		<tag k="ref" v="04VW3p7"/>
+	</node>
+	<node id="4085176406" lat="50.7671441" lon="6.0898147"/>
+	<node id="4085176407" lat="50.7671419" lon="6.0894721">
+		<tag k="ref" v="04VW3p6"/>
+		<tag k="mapillary" v="947699662664096"/>
+	</node>
+	<node id="4085176408" lat="50.7672042" lon="6.0902671">
+		<tag k="mapillary" v="295905572137371"/>
+	</node>
+	<node id="4085176409" lat="50.7672843" lon="6.0901959">
+		<tag k="mapillary" v="295905572137371"/>
+	</node>
+	<node id="4085176410" lat="50.7673034" lon="6.090255">
+		<tag k="ref" v="04VW2n8"/>
+		<tag k="mapillary" v="218422559648782"/>
+	</node>
+	<node id="4085176411" lat="50.7673217" lon="6.0901699">
+		<tag k="mapillary" v="1359278764438813"/>
+	</node>
+	<node id="4085176412" lat="50.7673276" lon="6.0901894">
+		<tag k="ref" v="04VW2p7"/>
+		<tag k="mapillary" v="295905572137371"/>
+	</node>
+	<node id="4085176413" lat="50.7673453" lon="6.0902419">
+		<tag k="mapillary" v="218422559648782"/>
+	</node>
+	<node id="4085176414" lat="50.767394" lon="6.0901083">
+		<tag k="mapillary" v="1359278764438813"/>
+	</node>
+	<node id="4086362396" lat="50.7679569" lon="6.0921827">
+		<tag k="ref" v="04L103Y"/>
+	</node>
+	<node id="4088324728" lat="50.76555" lon="6.0871463">
+		<tag k="ref" v="04W58"/>
+	</node>
+	<node id="4089711984" lat="50.7671402" lon="6.089157"/>
+	<node id="4089711985" lat="50.7671582" lon="6.089163"/>
+	<node id="4089711988" lat="50.7676669" lon="6.0944332">
+		<tag k="ref" v="04LW23Y"/>
+	</node>
+	<node id="4089713991" lat="50.7680278" lon="6.0920934"/>
+	<node id="4089713992" lat="50.7680341" lon="6.0916081"/>
+	<node id="4089713993" lat="50.7680587" lon="6.0915943"/>
+	<node id="4089713994" lat="50.7680465" lon="6.0920842"/>
+	<node id="4089713995" lat="50.7680984" lon="6.0920426"/>
+	<node id="4089713996" lat="50.7681231" lon="6.0920381"/>
+	<node id="4224014241" lat="50.7674094" lon="6.0897758">
+		<tag k="ref" v="04ZR3"/>
+	</node>
+	<node id="4235193537" lat="50.7660008" lon="6.0880687">
+		<tag k="ref" v="04N9"/>
+	</node>
+	<node id="4235193538" lat="50.7672083" lon="6.0902801">
+		<tag k="ref" v="04VW1zu9"/>
+	</node>
+	<node id="4240866583" lat="50.7657576" lon="6.0870814">
+		<tag k="ref" v="04VW2n24"/>
+	</node>
+	<node id="4240866585" lat="50.7662453" lon="6.0876707"/>
+	<node id="4254222738" lat="50.7677759" lon="6.0910052"/>
+	<node id="4254222739" lat="50.7678861" lon="6.0913531"/>
+	<node id="4254222740" lat="50.7676588" lon="6.0914774"/>
+	<node id="4254222743" lat="50.7674495" lon="6.0911777"/>
+	<node id="4254222744" lat="50.7678533" lon="6.0913711"/>
+	<node id="4254222746" lat="50.7675683" lon="6.0911154"/>
+	<node id="4254222747" lat="50.7677923" lon="6.0909968"/>
+	<node id="4254222748" lat="50.7675985" lon="6.0910994"/>
+	<node id="4254222751" lat="50.7674959" lon="6.0914423"/>
+	<node id="4254222753" lat="50.7676663" lon="6.091353"/>
+	<node id="4254222755" lat="50.7678045" lon="6.0912674"/>
+	<node id="4254222756" lat="50.7674802" lon="6.0911618"/>
+	<node id="4254222757" lat="50.7676752" lon="6.0914688"/>
+	<node id="4254222758" lat="50.7678075" lon="6.090989"/>
+	<node id="4254222760" lat="50.7676419" lon="6.0914862"/>
+	<node id="4254222765" lat="50.7674655" lon="6.0911694"/>
+	<node id="4254222767" lat="50.7675596" lon="6.0915316"/>
+	<node id="4254222769" lat="50.7675277" lon="6.0915491"/>
+	<node id="4254222779" lat="50.7678768" lon="6.0912306"/>
+	<node id="4254222780" lat="50.7676094" lon="6.0913823"/>
+	<node id="4254222781" lat="50.767582" lon="6.0911082"/>
+	<node id="4254222784" lat="50.7678131" lon="6.0910965"/>
+	<node id="4254222785" lat="50.7675466" lon="6.091416"/>
+	<node id="4257785234" lat="50.7680336" lon="6.0911834"/>
+	<node id="4257785237" lat="50.7680302" lon="6.0911671"/>
+	<node id="4257785239" lat="50.768224" lon="6.0914844"/>
+	<node id="4257785242" lat="50.7680261" lon="6.0911481"/>
+	<node id="4257785243" lat="50.7680891" lon="6.0914551"/>
+	<node id="4284142110" lat="50.7648263" lon="6.0867404"/>
+	<node id="4395428605" lat="50.7656767" lon="6.0870434">
+		<tag k="ref" v="04VW3n25"/>
+	</node>
+	<node id="4395428606" lat="50.7673746" lon="6.0898075">
+		<tag k="ref" v="04ZR4"/>
+	</node>
+	<node id="4395428607" lat="50.7674205" lon="6.0898058"/>
+	<node id="4426156079" lat="50.7669156" lon="6.0893387">
+		<tag k="ref" v="04VW1n8"/>
+	</node>
+	<node id="4426156082" lat="50.7680507" lon="6.0921924"/>
+	<node id="4433291770" lat="50.7673677" lon="6.0901889">
+		<tag k="railway" v="key_switch"/>
+		<tag k="railway:key_switch:electricity" v="yes"/>
+	</node>
+	<node id="4438221648" lat="50.7660732" lon="6.0881567"/>
+	<node id="4438221649" lat="50.7666264" lon="6.0889826"/>
+	<node id="4438221650" lat="50.7666912" lon="6.0891018">
+		<tag k="railway" v="milestone"/>
+	</node>
+	<node id="4438221651" lat="50.7671668" lon="6.0901409"/>
+	<node id="4438221652" lat="50.7672839" lon="6.090537"/>
+	<node id="4438221653" lat="50.7673504" lon="6.0908317"/>
+	<node id="4492206149" lat="50.7657574" lon="6.0871694">
+		<tag k="railway" v="milestone"/>
+	</node>
+	<node id="4492206150" lat="50.7652625" lon="6.0867279">
+		<tag k="ref" v="04L126Y"/>
+	</node>
+	<node id="4525857965" lat="50.7676974" lon="6.0912237">
+		<tag k="ref" v="04VW1p5"/>
+	</node>
+	<node id="4525857966" lat="50.765822" lon="6.0871839">
+		<tag k="ref" v="04L124Y"/>
+	</node>
+	<node id="4728745119" lat="50.7676153" lon="6.0920694">
+		<tag k="ref" v="04VW2p9"/>
+	</node>
+	<node id="4806357298" lat="50.7690076" lon="6.0902839"/>
+	<node id="4806357299" lat="50.7676044" lon="6.0937037"/>
+	<node id="4806357300" lat="50.7681682" lon="6.0924302"/>
+	<node id="4806357305" lat="50.7651974" lon="6.0864531"/>
+	<node id="4806357306" lat="50.7653236" lon="6.0867568"/>
+	<node id="4806357307" lat="50.7650666" lon="6.0866225"/>
+	<node id="4806357308" lat="50.7650495" lon="6.086611"/>
+	<node id="5249057421" lat="50.7681804" lon="6.0910102">
+		<tag k="level" v="0"/>
+		<tag k="door" v="yes"/>
+	</node>
+	<node id="5290623995" lat="50.7662007" lon="6.0868715"/>
+	<node id="5290623996" lat="50.7663682" lon="6.0867951"/>
+	<node id="5290623997" lat="50.7662968" lon="6.0868648"/>
+	<node id="5290623998" lat="50.7663755" lon="6.0870661"/>
+	<node id="5290623999" lat="50.7664468" lon="6.0869964"/>
+	<node id="5290624001" lat="50.7660141" lon="6.0868965"/>
+	<node id="5290624003" lat="50.7659851" lon="6.0874754"/>
+	<node id="5290624005" lat="50.7680926" lon="6.0929404"/>
+	<node id="5290624006" lat="50.7676266" lon="6.0933624"/>
+	<node id="5290624627" lat="50.7675295" lon="6.0942766">
+		<tag k="railway" v="derail"/>
+		<tag k="railway:derail" v="wedge"/>
+	</node>
+	<node id="5290624628" lat="50.7675416" lon="6.0941947">
+		<tag k="ref" v="04L111Y"/>
+	</node>
+	<node id="5292016138" lat="50.766855" lon="6.0887888"/>
+	<node id="5292016139" lat="50.7670535" lon="6.0891817">
+		<tag k="ref" v="04L305X"/>
+	</node>
+	<node id="5292016140" lat="50.7652255" lon="6.0870601">
+		<tag k="ref" v="04LW63Y"/>
+	</node>
+	<node id="5292016141" lat="50.7654104" lon="6.0872371"/>
+	<node id="5292016142" lat="50.7652518" lon="6.0870185">
+		<tag k="ref" v="04LK64Y"/>
+	</node>
+	<node id="5292016143" lat="50.7653307" lon="6.0870816"/>
+	<node id="5292016144" lat="50.7653604" lon="6.0870467"/>
+	<node id="5296629338" lat="50.7662247" lon="6.0870152"/>
+	<node id="5296629339" lat="50.7662922" lon="6.0873263"/>
+	<node id="5296629340" lat="50.7662585" lon="6.0876747"/>
+	<node id="5296629341" lat="50.7664625" lon="6.0880489"/>
+	<node id="6242200178" lat="50.7681596" lon="6.0912069"/>
+	<node id="6242292854" lat="50.7681124" lon="6.0915753"/>
+	<node id="6684312516" lat="50.7680589" lon="6.0902977"/>
+	<node id="6684312517" lat="50.7680754" lon="6.0902889"/>
+	<node id="6684312518" lat="50.7679512" lon="6.0897067"/>
+	<node id="6684312519" lat="50.7679348" lon="6.0897154"/>
+	<node id="6684312520" lat="50.7679413" lon="6.0899608"/>
+	<node id="6684312521" lat="50.7679238" lon="6.08997"/>
+	<node id="6684312522" lat="50.7678714" lon="6.0897221"/>
+	<node id="6684312523" lat="50.7678889" lon="6.0897129"/>
+	<node id="6684312524" lat="50.7680205" lon="6.0903412"/>
+	<node id="6684312525" lat="50.7680034" lon="6.0903504"/>
+	<node id="6684312526" lat="50.7679721" lon="6.0902047"/>
+	<node id="6684312527" lat="50.7679893" lon="6.0901955"/>
+	<node id="6694566401" lat="50.7683449" lon="6.091944">
+		<tag k="amenity" v="bicycle_parking"/>
+		<tag k="capacity" v="8"/>
+		<tag k="bicycle_parking" v="stands"/>
+	</node>
+	<node id="6695269193" lat="50.7685158" lon="6.0911401">
+		<tag k="amenity" v="bicycle_parking"/>
+		<tag k="capacity" v="10"/>
+		<tag k="bicycle_parking" v="stands"/>
+		<tag k="check_date:capacity" v="2024-03-08"/>
+	</node>
+	<node id="7040969144" lat="50.7676045" lon="6.0945016"/>
+	<node id="7040969145" lat="50.7675931" lon="6.0944952"/>
+	<node id="7040969146" lat="50.7675689" lon="6.0944802"/>
+	<node id="8095502731" lat="50.7680302" lon="6.0897382"/>
+	<node id="8095502732" lat="50.7680201" lon="6.0896896"/>
+	<node id="8095502734" lat="50.7682393" lon="6.0896305"/>
+	<node id="10303027904" lat="50.7658755" lon="6.0866313"/>
+	<node id="10303027905" lat="50.7659646" lon="6.0869337"/>
+	<node id="10303027906" lat="50.765937" lon="6.0868499"/>
+	<node id="10303027907" lat="50.765919" lon="6.0868234"/>
+	<node id="10303027908" lat="50.7658318" lon="6.0865884"/>
+	<node id="10303045909" lat="50.7658121" lon="6.0869052"/>
+	<node id="10303045910" lat="50.7658182" lon="6.0868989"/>
+	<node id="10303045911" lat="50.7655873" lon="6.0867872"/>
+	<node id="10303045912" lat="50.7656814" lon="6.0867671"/>
+	<node id="10303045913" lat="50.7655521" lon="6.0868207"/>
+	<node id="10303045914" lat="50.7658104" lon="6.0874554"/>
+	<node id="10303045915" lat="50.7663789" lon="6.0880636"/>
+	<node id="10303045916" lat="50.7668022" lon="6.0886"/>
+	<node id="10303045917" lat="50.7668736" lon="6.0887365"/>
+	<node id="10303045918" lat="50.7674678" lon="6.0895308"/>
+	<node id="10303045919" lat="50.7672617" lon="6.08922"/>
+	<node id="10303045920" lat="50.7672044" lon="6.0891154"/>
+	<node id="10303045921" lat="50.7672706" lon="6.0891992"/>
+	<node id="10303045922" lat="50.7673372" lon="6.0897105"/>
+	<node id="10303045923" lat="50.7673105" lon="6.0895328"/>
+	<node id="10303045924" lat="50.7673094" lon="6.0895241"/>
+	<node id="10303045925" lat="50.7672674" lon="6.0894402"/>
+	<node id="10303045926" lat="50.767207" lon="6.0893263"/>
+	<node id="10303045927" lat="50.767165" lon="6.08975"/>
+	<node id="10303045928" lat="50.7673586" lon="6.0904478"/>
+	<node id="10303045929" lat="50.7672411" lon="6.0900716"/>
+	<node id="10303045930" lat="50.7674672" lon="6.0907179"/>
+	<node id="10303045931" lat="50.7674742" lon="6.0906945"/>
+	<node id="10303045932" lat="50.7675242" lon="6.0906311"/>
+	<node id="10303045933" lat="50.7674699" lon="6.0903495"/>
+	<node id="10303045934" lat="50.7675806" lon="6.0906231"/>
+	<node id="10303045935" lat="50.7675085" lon="6.0903307"/>
+	<node id="10303045936" lat="50.7678686" lon="6.0916229"/>
+	<node id="10303045937" lat="50.76789" lon="6.0916661"/>
+	<node id="10303045938" lat="50.7679439" lon="6.0920655"/>
+	<node id="10303045939" lat="50.7676572" lon="6.0906001"/>
+	<node id="10303045940" lat="50.767595" lon="6.0903385"/>
+	<node id="10303045941" lat="50.7678088" lon="6.0904877"/>
+	<node id="10303045942" lat="50.7677577" lon="6.0905473"/>
+	<node id="10303045943" lat="50.7676989" lon="6.0903197"/>
+	<node id="10303045944" lat="50.7676663" lon="6.0902154"/>
+	<node id="10303045945" lat="50.7675361" lon="6.0898392"/>
+	<node id="11860856333" lat="50.7650228" lon="6.0865411"/>
+	<node id="11860856344" lat="50.7651509" lon="6.0865176"/>
+	<node id="11860856345" lat="50.7653316" lon="6.0868415"/>
+	<node id="11860856346" lat="50.7656995" lon="6.087333"/>
+	<node id="11860856347" lat="50.7654015" lon="6.086513"/>
+	<node id="11860856348" lat="50.7659728" lon="6.0874229"/>
+	<node id="11860856349" lat="50.7659889" lon="6.0872298"/>
+	<node id="11860856350" lat="50.766433" lon="6.0877528"/>
+	<node id="11860856351" lat="50.7661289" lon="6.0868281"/>
+	<node id="11860856352" lat="50.7660661" lon="6.0865485"/>
+	<node id="11860856353" lat="50.7659936" lon="6.0867865"/>
+	<node id="11860856354" lat="50.7659584" lon="6.0865579"/>
+	<node id="11860856355" lat="50.7659266" lon="6.0866276"/>
+	<node id="11860856356" lat="50.765899" lon="6.0864915"/>
+	<node id="11860856357" lat="50.7660443" lon="6.0870387"/>
+	<node id="11860856358" lat="50.7661249" lon="6.087332"/>
+	<node id="11860856359" lat="50.7661412" lon="6.0874796"/>
+	<node id="11860856360" lat="50.7660808" lon="6.0873478"/>
+	<node id="11860856361" lat="50.7662194" lon="6.0875868"/>
+	<node id="11860856364" lat="50.7656272" lon="6.086671">
+		<tag k="railway" v="crossing"/>
+	</node>
+	<node id="11860856365" lat="50.7656582" lon="6.0866282">
+		<tag k="railway" v="crossing"/>
+	</node>
+	<node id="11860856366" lat="50.7656651" lon="6.0866199">
+		<tag k="railway" v="crossing"/>
+	</node>
+	<node id="11860856367" lat="50.7656852" lon="6.0865965">
+		<tag k="railway" v="crossing"/>
+	</node>
+	<node id="11860856368" lat="50.7657194" lon="6.0865608">
+		<tag k="railway" v="crossing"/>
+	</node>
+	<node id="11860866469" lat="50.7657543" lon="6.0865262">
+		<tag k="railway" v="crossing"/>
+	</node>
+	<node id="11860866470" lat="50.7657628" lon="6.0865181">
+		<tag k="railway" v="crossing"/>
+	</node>
+	<node id="11860866471" lat="50.7658013" lon="6.0864882">
+		<tag k="railway" v="crossing"/>
+	</node>
+	<node id="11860866473" lat="50.765919" lon="6.0871232"/>
+	<node id="11860866474" lat="50.765842" lon="6.0870145"/>
+	<node id="11860866475" lat="50.7659347" lon="6.0869991"/>
+	<node id="11860866476" lat="50.7659669" lon="6.0870876"/>
+	<node id="11860866477" lat="50.7659168" lon="6.0869803"/>
+	<node id="11860866478" lat="50.7658473" lon="6.0868489"/>
+	<node id="11860866479" lat="50.7657298" lon="6.0865874"/>
+	<node id="11860866480" lat="50.7656233" lon="6.0864399"/>
+	<node id="11860866485" lat="50.7655496" lon="6.0865324"/>
+	<node id="12229372747" lat="50.7673092" lon="6.090639">
+		<tag k="ref" v="04VW1n9"/>
+	</node>
+	<node id="12229372748" lat="50.7676595" lon="6.0923558">
+		<tag k="ref" v="04VW1p9"/>
+	</node>
+	<node id="12582357683" lat="50.7675341" lon="6.0944588"/>
+	<node id="12582357688" lat="50.7675978" lon="6.0941965"/>
+	<node id="12582357689" lat="50.7676434" lon="6.0940136"/>
+	<way id="4964404">
+		<nd ref="26445832"/>
+		<nd ref="150638153"/>
+		<nd ref="150638119"/>
+		<nd ref="3510137412"/>
+		<nd ref="150638150"/>
+		<nd ref="3510137420"/>
+		<nd ref="150638148"/>
+		<nd ref="3658095673"/>
+		<nd ref="420603130"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="4980641">
+		<nd ref="3737413658"/>
+		<nd ref="3658095665"/>
+		<nd ref="420343558"/>
+		<nd ref="150638275"/>
+		<nd ref="4395428606"/>
+		<nd ref="10303045922"/>
+		<nd ref="3510137394"/>
+		<nd ref="150638270"/>
+		<nd ref="150638269"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="4"/>
+	</way>
+	<way id="15223868">
+		<nd ref="150638032"/>
+		<nd ref="3510137444"/>
+		<nd ref="3510137446"/>
+		<nd ref="150638038"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="15223869">
+		<nd ref="150638057"/>
+		<nd ref="4083992936"/>
+		<nd ref="150638064"/>
+		<nd ref="3510137441"/>
+		<nd ref="150638067"/>
+		<nd ref="3658095674"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="15223871">
+		<nd ref="5290624628"/>
+		<nd ref="150638091"/>
+		<nd ref="4806357299"/>
+		<nd ref="150638088"/>
+		<nd ref="5290624006"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="11"/>
+	</way>
+	<way id="15223872">
+		<nd ref="3737413650"/>
+		<nd ref="12229372748"/>
+		<nd ref="150638098"/>
+		<nd ref="150638100"/>
+		<nd ref="420603137"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="9"/>
+	</way>
+	<way id="15223875">
+		<nd ref="150638136"/>
+		<nd ref="12582357689"/>
+		<nd ref="12582357688"/>
+		<nd ref="150638111"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="15223876">
+		<nd ref="12582357683"/>
+		<nd ref="-70290461"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="bridge" v="yes"/>
+	</way>
+	<way id="15223877">
+		<nd ref="150638267"/>
+		<nd ref="5292016138"/>
+		<nd ref="150638284"/>
+		<nd ref="5292016139"/>
+		<nd ref="150638281"/>
+		<nd ref="150638280"/>
+		<nd ref="3510137396"/>
+		<nd ref="150638277"/>
+		<nd ref="10303045935"/>
+		<nd ref="420343557"/>
+		<nd ref="3737413655"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="5"/>
+	</way>
+	<way id="15223881">
+		<nd ref="2969468607"/>
+		<nd ref="10303045923"/>
+		<nd ref="10303045925"/>
+		<nd ref="10303045926"/>
+		<nd ref="2969468606"/>
+		<nd ref="150638269"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="15223884">
+		<nd ref="-70290457"/>
+		<nd ref="150638034"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="bridge" v="yes"/>
+	</way>
+	<way id="15223885">
+		<nd ref="-70290455"/>
+		<nd ref="7040969144"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="bridge" v="yes"/>
+	</way>
+	<way id="15223886">
+		<nd ref="-70290459"/>
+		<nd ref="150638092"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="bridge" v="yes"/>
+	</way>
+	<way id="15709907">
+		<nd ref="-70290480"/>
+		<nd ref="7040969145"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="bridge" v="yes"/>
+	</way>
+	<way id="20153022">
+		<nd ref="150638240"/>
+		<nd ref="213148373"/>
+		<nd ref="213148383"/>
+		<nd ref="213148391"/>
+		<nd ref="213148399"/>
+		<nd ref="213148406"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="34"/>
+	</way>
+	<way id="20153024">
+		<nd ref="213148327"/>
+		<nd ref="213148414"/>
+		<nd ref="11860856351"/>
+		<nd ref="213148423"/>
+		<nd ref="11860856352"/>
+		<nd ref="-70286958"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="33"/>
+	</way>
+	<way id="20153025">
+		<nd ref="213148338"/>
+		<nd ref="213148447"/>
+		<nd ref="-70286956"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="32"/>
+	</way>
+	<way id="20153029">
+		<nd ref="213148575"/>
+		<nd ref="11860856357"/>
+		<nd ref="5290624001"/>
+		<nd ref="11860856353"/>
+		<nd ref="213148616"/>
+		<nd ref="11860856354"/>
+		<nd ref="-70287152"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="35"/>
+	</way>
+	<way id="20162087">
+		<nd ref="213148563"/>
+		<nd ref="213204435"/>
+		<nd ref="10303027905"/>
+		<nd ref="10303027906"/>
+		<nd ref="213204423"/>
+		<nd ref="10303027904"/>
+		<nd ref="213204419"/>
+		<nd ref="-70287116"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="37"/>
+	</way>
+	<way id="20162088">
+		<nd ref="213204435"/>
+		<nd ref="10303027907"/>
+		<nd ref="213204436"/>
+		<nd ref="10303027908"/>
+		<nd ref="11860866471"/>
+		<nd ref="213204444"/>
+		<nd ref="-70287113"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="50"/>
+	</way>
+	<way id="20162090">
+		<nd ref="213204490"/>
+		<nd ref="-70287211"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="51"/>
+	</way>
+	<way id="20162094">
+		<nd ref="213204490"/>
+		<nd ref="-70287209"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="52"/>
+	</way>
+	<way id="20162100">
+		<nd ref="213204483"/>
+		<nd ref="11860866469"/>
+		<nd ref="213204581"/>
+		<nd ref="-70287118"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="54"/>
+	</way>
+	<way id="20325109">
+		<nd ref="215800299"/>
+		<nd ref="10303045910"/>
+		<nd ref="215800312"/>
+		<nd ref="215800318"/>
+		<nd ref="11860856367"/>
+		<nd ref="11860866480"/>
+		<nd ref="-70287187"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="56"/>
+	</way>
+	<way id="20325111">
+		<nd ref="213204479"/>
+		<nd ref="11860866476"/>
+		<nd ref="11860866477"/>
+		<nd ref="11860866478"/>
+		<nd ref="215800556"/>
+		<nd ref="11860866479"/>
+		<nd ref="11860856368"/>
+		<nd ref="215800560"/>
+		<nd ref="-70287190"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="55"/>
+	</way>
+	<way id="20335194">
+		<nd ref="215800202"/>
+		<nd ref="11860856349"/>
+		<nd ref="11860866473"/>
+		<nd ref="11860866474"/>
+		<nd ref="216009029"/>
+		<nd ref="10303045912"/>
+		<nd ref="11860856364"/>
+		<nd ref="216009041"/>
+		<nd ref="11860866485"/>
+		<nd ref="-70287139"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="61"/>
+	</way>
+	<way id="20335196">
+		<nd ref="216009111"/>
+		<nd ref="11860856365"/>
+		<nd ref="-70287136"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="60"/>
+	</way>
+	<way id="20335197">
+		<nd ref="216009111"/>
+		<nd ref="11860856366"/>
+		<nd ref="216009277"/>
+		<nd ref="-70287134"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="57"/>
+	</way>
+	<way id="20335202">
+		<nd ref="216009277"/>
+		<nd ref="-70287132"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="59"/>
+	</way>
+	<way id="20445289">
+		<nd ref="218269514"/>
+		<nd ref="3218812599"/>
+		<nd ref="218269493"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="20445290">
+		<nd ref="218269514"/>
+		<nd ref="5290624003"/>
+		<nd ref="28465593"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="crossover"/>
+	</way>
+	<way id="20445292">
+		<nd ref="218269611"/>
+		<nd ref="11860856346"/>
+		<nd ref="10303045914"/>
+		<nd ref="218269593"/>
+		<nd ref="218269493"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="20452363">
+		<nd ref="218451020"/>
+		<nd ref="218451802"/>
+		<nd ref="218451796"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="20452365">
+		<nd ref="218451824"/>
+		<nd ref="5292016141"/>
+		<nd ref="218451834"/>
+		<nd ref="5292016140"/>
+		<nd ref="218451852"/>
+		<nd ref="218451866"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="20452371">
+		<nd ref="4492206150"/>
+		<nd ref="218451296"/>
+		<nd ref="11860856344"/>
+		<nd ref="-70287145"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="26"/>
+	</way>
+	<way id="20452373">
+		<nd ref="218450775"/>
+		<nd ref="4806357308"/>
+		<nd ref="218451693"/>
+		<nd ref="-70287143"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="29"/>
+	</way>
+	<way id="20452374">
+		<nd ref="218451756"/>
+		<nd ref="218451824"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="crossover"/>
+	</way>
+	<way id="20452375">
+		<nd ref="218450756"/>
+		<nd ref="218451880"/>
+		<nd ref="5292016143"/>
+		<nd ref="5292016142"/>
+		<nd ref="218451916"/>
+		<nd ref="218451866"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:crocodile" v="yes"/>
+	</way>
+	<way id="20452376">
+		<nd ref="218451796"/>
+		<nd ref="4284142110"/>
+		<nd ref="-70287141"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="crossover"/>
+	</way>
+	<way id="20453342">
+		<nd ref="218269611"/>
+		<nd ref="218476827"/>
+		<nd ref="218450746"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="20453343">
+		<nd ref="218450756"/>
+		<nd ref="218476827"/>
+		<nd ref="218269593"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="20506283">
+		<nd ref="219513856"/>
+		<nd ref="219513832"/>
+		<nd ref="219513815"/>
+		<nd ref="219514112"/>
+		<nd ref="219514103"/>
+		<nd ref="3510132180"/>
+		<nd ref="219514092"/>
+		<nd ref="3510132187"/>
+		<nd ref="219514082"/>
+		<nd ref="219514065"/>
+		<nd ref="219514055"/>
+		<nd ref="219514051"/>
+		<nd ref="219514038"/>
+		<nd ref="3510476913"/>
+		<nd ref="4254222785"/>
+		<nd ref="3510476927"/>
+		<nd ref="219514026"/>
+		<nd ref="219514015"/>
+		<nd ref="219514010"/>
+		<nd ref="3510137404"/>
+		<nd ref="219513998"/>
+		<nd ref="219513990"/>
+		<nd ref="219513977"/>
+		<nd ref="219513969"/>
+		<nd ref="3510137403"/>
+		<nd ref="219513949"/>
+		<nd ref="219513937"/>
+		<nd ref="3510476919"/>
+		<nd ref="4254222751"/>
+		<nd ref="3510476904"/>
+		<nd ref="219513922"/>
+		<nd ref="219513903"/>
+		<nd ref="219513898"/>
+		<nd ref="219513896"/>
+		<nd ref="219513891"/>
+		<nd ref="219513877"/>
+		<nd ref="3510132179"/>
+		<nd ref="219513864"/>
+		<nd ref="219513856"/>
+	</way>
+	<way id="27654401">
+		<nd ref="3737413666"/>
+		<nd ref="10303045943"/>
+		<nd ref="10303045944"/>
+		<nd ref="3658095666"/>
+		<nd ref="150638241"/>
+		<nd ref="10303045945"/>
+		<nd ref="150638244"/>
+		<nd ref="2318438543"/>
+		<nd ref="420603143"/>
+		<nd ref="150638247"/>
+		<nd ref="10303045919"/>
+		<nd ref="10303045920"/>
+		<nd ref="2318438535"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="2"/>
+	</way>
+	<way id="27654402">
+		<nd ref="150638034"/>
+		<nd ref="4089711988"/>
+		<nd ref="4083992934"/>
+		<nd ref="150638057"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="31001944">
+		<nd ref="150638057"/>
+		<nd ref="150638032"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="31001945">
+		<nd ref="150638234"/>
+		<nd ref="3510132189"/>
+		<nd ref="4084971768"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="31001946">
+		<nd ref="150638234"/>
+		<nd ref="3510137393"/>
+		<nd ref="3510132191"/>
+		<nd ref="150638253"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="31001948">
+		<nd ref="213148575"/>
+		<nd ref="213148588"/>
+		<nd ref="11860856355"/>
+		<nd ref="11860856356"/>
+		<nd ref="-70287162"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="36"/>
+	</way>
+	<way id="31001949">
+		<nd ref="28465593"/>
+		<nd ref="150638253"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="31001952">
+		<nd ref="3737413656"/>
+		<nd ref="3658095668"/>
+		<nd ref="10303045940"/>
+		<nd ref="150638258"/>
+		<nd ref="3510137398"/>
+		<nd ref="4395428607"/>
+		<nd ref="4224014241"/>
+		<nd ref="2969468607"/>
+		<nd ref="10303045924"/>
+		<nd ref="150638261"/>
+		<nd ref="4089711984"/>
+		<nd ref="150638263"/>
+		<nd ref="150638265"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="3"/>
+	</way>
+	<way id="31001953">
+		<nd ref="150638253"/>
+		<nd ref="5296629341"/>
+		<nd ref="213148545"/>
+		<nd ref="5296629340"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="31002483">
+		<nd ref="3737413665"/>
+		<nd ref="215971464"/>
+		<nd ref="10303045930"/>
+		<nd ref="3737413662"/>
+		<tag k="ref" v="2600"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="7"/>
+	</way>
+	<way id="32346413">
+		<nd ref="-70287149"/>
+		<nd ref="218451020"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:crocodile" v="yes"/>
+	</way>
+	<way id="33170523">
+		<nd ref="934711339"/>
+		<nd ref="3525159553"/>
+		<nd ref="4257785242"/>
+		<nd ref="4257785237"/>
+		<nd ref="4257785234"/>
+		<nd ref="3671243792"/>
+		<nd ref="934711322"/>
+		<nd ref="4257785243"/>
+		<nd ref="6242292854"/>
+		<nd ref="419075990"/>
+		<nd ref="419075989"/>
+		<nd ref="1465620035"/>
+		<nd ref="4806357300"/>
+		<nd ref="375610120"/>
+		<nd ref="3510137451"/>
+		<nd ref="3510137449"/>
+		<nd ref="375610108"/>
+		<nd ref="419075987"/>
+		<nd ref="375610112"/>
+		<nd ref="4089713996"/>
+		<nd ref="375610113"/>
+		<nd ref="4089713993"/>
+		<nd ref="3525159550"/>
+		<nd ref="375610114"/>
+		<nd ref="419075991"/>
+		<nd ref="375610119"/>
+		<nd ref="934711339"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="1"/>
+		<tag k="level" v="1"/>
+		<tag k="surface" v="paving_stones"/>
+		<tag k="railway" v="platform"/>
+		<tag k="height" v="0.76"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="yes"/>
+		<tag k="train" v="yes"/>
+		<tag k="area" v="yes"/>
+	</way>
+	<way id="35842509">
+		<nd ref="219513401"/>
+		<nd ref="219513809"/>
+		<nd ref="219513797"/>
+		<nd ref="219513785"/>
+		<nd ref="3510132185"/>
+		<nd ref="219513772"/>
+		<nd ref="3510132192"/>
+		<nd ref="219513754"/>
+		<nd ref="219513740"/>
+		<nd ref="219513731"/>
+		<nd ref="219513723"/>
+		<nd ref="219513711"/>
+		<nd ref="10303045932"/>
+		<nd ref="3510268260"/>
+		<nd ref="4254222753"/>
+		<nd ref="3510268281"/>
+		<nd ref="219513700"/>
+		<nd ref="219513689"/>
+		<nd ref="219513680"/>
+		<nd ref="219513667"/>
+		<tag k="ref" v="6"/>
+		<tag k="railway" v="platform_edge"/>
+	</way>
+	<way id="35842512">
+		<nd ref="219513412"/>
+		<nd ref="219513424"/>
+		<nd ref="219513433"/>
+		<nd ref="219513441"/>
+		<nd ref="3510132183"/>
+		<nd ref="219513452"/>
+		<nd ref="3510132190"/>
+		<nd ref="219513461"/>
+		<nd ref="219513476"/>
+		<nd ref="219513484"/>
+		<nd ref="219513501"/>
+		<nd ref="219513623"/>
+		<nd ref="10303045931"/>
+		<nd ref="3510268253"/>
+		<nd ref="4254222780"/>
+		<nd ref="3510268271"/>
+		<nd ref="219513634"/>
+		<nd ref="219513644"/>
+		<nd ref="3510137409"/>
+		<nd ref="219513656"/>
+		<tag k="ref" v="7"/>
+		<tag k="railway" v="platform_edge"/>
+	</way>
+	<way id="35842964">
+		<nd ref="219513815"/>
+		<nd ref="219514112"/>
+		<nd ref="219514103"/>
+		<nd ref="3510132180"/>
+		<nd ref="219514092"/>
+		<nd ref="3510132187"/>
+		<nd ref="219514082"/>
+		<nd ref="219514065"/>
+		<nd ref="219514055"/>
+		<nd ref="219514051"/>
+		<nd ref="219514038"/>
+		<nd ref="3510476913"/>
+		<nd ref="4254222785"/>
+		<nd ref="3510476927"/>
+		<nd ref="219514026"/>
+		<nd ref="219514015"/>
+		<nd ref="219514010"/>
+		<nd ref="3510137404"/>
+		<nd ref="219513998"/>
+		<nd ref="219513990"/>
+		<tag k="ref" v="8"/>
+		<tag k="railway" v="platform_edge"/>
+	</way>
+	<way id="35842973">
+		<nd ref="219513832"/>
+		<nd ref="219513856"/>
+		<nd ref="219513864"/>
+		<nd ref="3510132179"/>
+		<nd ref="219513877"/>
+		<nd ref="219513891"/>
+		<nd ref="219513896"/>
+		<nd ref="219513898"/>
+		<nd ref="219513903"/>
+		<nd ref="219513922"/>
+		<nd ref="3510476904"/>
+		<nd ref="4254222751"/>
+		<nd ref="3510476919"/>
+		<nd ref="219513937"/>
+		<nd ref="219513949"/>
+		<nd ref="3510137403"/>
+		<nd ref="219513969"/>
+		<nd ref="219513977"/>
+		<tag k="ref" v="9"/>
+		<tag k="railway" v="platform_edge"/>
+	</way>
+	<way id="35943785">
+		<nd ref="3737413654"/>
+		<nd ref="420343559"/>
+		<nd ref="10303045933"/>
+		<nd ref="150638324"/>
+		<nd ref="4085176414"/>
+		<nd ref="3510137395"/>
+		<nd ref="150638326"/>
+		<nd ref="4085176407"/>
+		<nd ref="420603147"/>
+		<nd ref="3218812601"/>
+		<nd ref="150638332"/>
+		<nd ref="4085176404"/>
+		<nd ref="150638334"/>
+		<nd ref="218450740"/>
+		<nd ref="218450746"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="6"/>
+		<tag k="railway:crocodile" v="yes"/>
+	</way>
+	<way id="35943786">
+		<nd ref="218450707"/>
+		<nd ref="4438221648"/>
+		<nd ref="150638367"/>
+		<nd ref="4085176402"/>
+		<nd ref="150638361"/>
+		<nd ref="4438221649"/>
+		<nd ref="4438221650"/>
+		<nd ref="150638360"/>
+		<nd ref="150638357"/>
+		<nd ref="150638354"/>
+		<nd ref="4438221651"/>
+		<nd ref="4085176408"/>
+		<nd ref="4235193538"/>
+		<nd ref="150638353"/>
+		<nd ref="4438221652"/>
+		<nd ref="12229372747"/>
+		<nd ref="3737413661"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="9"/>
+	</way>
+	<way id="35943787">
+		<nd ref="218450713"/>
+		<nd ref="150638351"/>
+		<nd ref="150638349"/>
+		<nd ref="3510132181"/>
+		<nd ref="150638347"/>
+		<nd ref="3510132188"/>
+		<nd ref="150638346"/>
+		<nd ref="4426156079"/>
+		<nd ref="150638343"/>
+		<nd ref="4085176406"/>
+		<nd ref="150638342"/>
+		<nd ref="10303045929"/>
+		<nd ref="4085176409"/>
+		<nd ref="4085176410"/>
+		<nd ref="150638339"/>
+		<nd ref="10303045928"/>
+		<nd ref="3737413664"/>
+		<tag k="ref" v="2600"/>
+		<tag k="level" v="1"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="8"/>
+	</way>
+	<way id="35943790">
+		<nd ref="3737413662"/>
+		<nd ref="150638288"/>
+		<nd ref="4085176413"/>
+		<nd ref="4085176412"/>
+		<nd ref="4085176411"/>
+		<nd ref="150638290"/>
+		<nd ref="10303045927"/>
+		<nd ref="150638292"/>
+		<nd ref="4085176405"/>
+		<nd ref="150638315"/>
+		<nd ref="3510132186"/>
+		<nd ref="150638318"/>
+		<nd ref="3510132182"/>
+		<nd ref="4085176403"/>
+		<nd ref="150638319"/>
+		<nd ref="150638322"/>
+		<nd ref="218450723"/>
+		<nd ref="218451815"/>
+		<tag k="ref" v="2600"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="7"/>
+	</way>
+	<way id="35960124">
+		<nd ref="3737413667"/>
+		<nd ref="150638225"/>
+		<nd ref="3658095670"/>
+		<nd ref="2318438554"/>
+		<nd ref="150638229"/>
+		<nd ref="2318438550"/>
+		<nd ref="10303045918"/>
+		<nd ref="420603141"/>
+		<nd ref="150638232"/>
+		<nd ref="10303045921"/>
+		<nd ref="2318438539"/>
+		<nd ref="2318438535"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="1"/>
+	</way>
+	<way id="35960127">
+		<nd ref="150638083"/>
+		<nd ref="4083992933"/>
+		<nd ref="150638081"/>
+		<nd ref="4083992935"/>
+		<nd ref="3510137415"/>
+		<nd ref="150638079"/>
+		<nd ref="3510137429"/>
+		<nd ref="150638078"/>
+		<nd ref="420603132"/>
+		<nd ref="3510137433"/>
+		<nd ref="150638074"/>
+		<nd ref="3737413660"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="3"/>
+	</way>
+	<way id="35960129">
+		<nd ref="420603128"/>
+		<nd ref="150638161"/>
+		<nd ref="3510137414"/>
+		<nd ref="150638163"/>
+		<nd ref="3510137408"/>
+		<nd ref="150638164"/>
+		<nd ref="150638136"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="35960130">
+		<nd ref="150638133"/>
+		<nd ref="3510137407"/>
+		<nd ref="150638175"/>
+		<nd ref="3510137410"/>
+		<nd ref="150638171"/>
+		<nd ref="420603125"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="35960131">
+		<nd ref="150638136"/>
+		<nd ref="150638133"/>
+		<nd ref="150638132"/>
+		<nd ref="150638130"/>
+		<nd ref="420603139"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="35960133">
+		<nd ref="3737413652"/>
+		<nd ref="150638115"/>
+		<nd ref="3510137406"/>
+		<nd ref="150638117"/>
+		<nd ref="3510137405"/>
+		<nd ref="420603134"/>
+		<tag k="ref" v="2600"/>
+		<tag k="level" v="1"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="8"/>
+	</way>
+	<way id="35960135">
+		<nd ref="3737413664"/>
+		<nd ref="3658095669"/>
+		<nd ref="215971478"/>
+		<nd ref="3737413652"/>
+		<tag k="ref" v="2600"/>
+		<tag k="level" v="1"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="8"/>
+	</way>
+	<way id="35960137">
+		<nd ref="3737413653"/>
+		<nd ref="215971430"/>
+		<nd ref="3737413654"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="6"/>
+	</way>
+	<way id="35960138">
+		<nd ref="3737413655"/>
+		<nd ref="10303045934"/>
+		<nd ref="4525857965"/>
+		<nd ref="215971416"/>
+		<nd ref="3737413659"/>
+		<tag k="ref" v="2550"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="5"/>
+	</way>
+	<way id="35960139">
+		<nd ref="3737413661"/>
+		<nd ref="4438221653"/>
+		<nd ref="3658095667"/>
+		<nd ref="4728745119"/>
+		<nd ref="215971485"/>
+		<nd ref="3737413650"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="9"/>
+	</way>
+	<way id="36002769">
+		<nd ref="-70290453"/>
+		<nd ref="7040969146"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="bridge" v="yes"/>
+	</way>
+	<way id="38358532">
+		<nd ref="-70287179"/>
+		<nd ref="11860856347"/>
+		<nd ref="218269538"/>
+		<nd ref="10303045913"/>
+		<nd ref="218269528"/>
+		<nd ref="4395428605"/>
+		<nd ref="4492206149"/>
+		<nd ref="218269514"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="40021449">
+		<nd ref="219480954"/>
+		<nd ref="2318438541"/>
+		<nd ref="219480932"/>
+		<nd ref="219480919"/>
+		<nd ref="219480911"/>
+		<nd ref="3510321769"/>
+		<nd ref="4254222779"/>
+		<nd ref="3510321787"/>
+		<nd ref="219480891"/>
+		<nd ref="4089713991"/>
+		<nd ref="219480877"/>
+		<nd ref="219480861"/>
+		<nd ref="3510137443"/>
+		<nd ref="219480837"/>
+		<nd ref="219480831"/>
+		<nd ref="219480821"/>
+		<nd ref="219480802"/>
+		<nd ref="219480785"/>
+		<nd ref="219480764"/>
+		<nd ref="3510137417"/>
+		<nd ref="219480751"/>
+		<nd ref="3510137430"/>
+		<nd ref="219480736"/>
+		<nd ref="3510137436"/>
+		<nd ref="219480717"/>
+		<nd ref="219480707"/>
+		<nd ref="219480694"/>
+		<nd ref="10303045937"/>
+		<nd ref="3510321768"/>
+		<nd ref="4254222755"/>
+		<nd ref="3510321762"/>
+		<nd ref="219480687"/>
+		<nd ref="3510137401"/>
+		<nd ref="219480674"/>
+		<nd ref="2318438548"/>
+		<nd ref="219480664"/>
+		<nd ref="219480648"/>
+		<nd ref="4089711985"/>
+		<nd ref="219480636"/>
+		<nd ref="219480510"/>
+		<nd ref="2318438537"/>
+		<nd ref="219480954"/>
+	</way>
+	<way id="40021451">
+		<nd ref="219513740"/>
+		<nd ref="219513731"/>
+		<nd ref="219513723"/>
+		<nd ref="219513711"/>
+		<nd ref="10303045932"/>
+		<nd ref="3510268260"/>
+		<nd ref="4254222753"/>
+		<nd ref="3510268281"/>
+		<nd ref="219513700"/>
+		<nd ref="219513689"/>
+		<nd ref="219513680"/>
+		<nd ref="219513667"/>
+		<nd ref="219513656"/>
+		<nd ref="3510137409"/>
+		<nd ref="219513644"/>
+		<nd ref="219513634"/>
+		<nd ref="3510268271"/>
+		<nd ref="4254222780"/>
+		<nd ref="3510268253"/>
+		<nd ref="10303045931"/>
+		<nd ref="219513623"/>
+		<nd ref="219513501"/>
+		<nd ref="219513484"/>
+		<nd ref="219513476"/>
+		<nd ref="219513461"/>
+		<nd ref="3510132190"/>
+		<nd ref="219513452"/>
+		<nd ref="3510132183"/>
+		<nd ref="219513441"/>
+		<nd ref="219513433"/>
+		<nd ref="219513424"/>
+		<nd ref="219513412"/>
+		<nd ref="219513401"/>
+		<nd ref="219513809"/>
+		<nd ref="219513797"/>
+		<nd ref="219513785"/>
+		<nd ref="3510132185"/>
+		<nd ref="219513772"/>
+		<nd ref="3510132192"/>
+		<nd ref="219513754"/>
+		<nd ref="219513740"/>
+	</way>
+	<way id="40953250">
+		<nd ref="150638109"/>
+		<nd ref="150638111"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="63093852">
+		<nd ref="150638032"/>
+		<nd ref="3510137445"/>
+		<nd ref="5290624005"/>
+		<nd ref="3658095677"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="79638849">
+		<nd ref="929302341"/>
+		<nd ref="929302326"/>
+		<nd ref="929302346"/>
+		<nd ref="929302328"/>
+		<nd ref="929302347"/>
+		<nd ref="930331180"/>
+		<nd ref="8095502734"/>
+		<nd ref="930331192"/>
+		<nd ref="8095502731"/>
+		<nd ref="8095502732"/>
+		<nd ref="929302341"/>
+		<tag k="amenity" v="parking"/>
+		<tag k="fee" v="yes"/>
+		<tag k="parking" v="surface"/>
+		<tag k="access" v="yes"/>
+		<tag k="park_ride" v="no"/>
+		<tag k="supervised" v="yes"/>
+	</way>
+	<way id="132613071">
+		<nd ref="28465593"/>
+		<nd ref="11860856348"/>
+		<nd ref="4525857966"/>
+		<nd ref="4240866583"/>
+		<nd ref="218223640"/>
+		<nd ref="10303045911"/>
+		<nd ref="2969468604"/>
+		<nd ref="-70287193"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="24"/>
+	</way>
+	<way id="141565021">
+		<nd ref="218451824"/>
+		<nd ref="218451815"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="usage" v="main"/>
+		<tag k="tracks" v="1"/>
+	</way>
+	<way id="141565022">
+		<nd ref="218451824"/>
+		<nd ref="218451880"/>
+		<nd ref="1558428201"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="141565023">
+		<nd ref="218269611"/>
+		<nd ref="4088324728"/>
+		<nd ref="218269621"/>
+		<nd ref="4806357306"/>
+		<nd ref="218269629"/>
+		<nd ref="4806357305"/>
+		<nd ref="-70287174"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="70A"/>
+	</way>
+	<way id="141876881">
+		<nd ref="-70287172"/>
+		<nd ref="218450782"/>
+		<nd ref="11860856333"/>
+		<nd ref="4806357307"/>
+		<nd ref="218450775"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="28"/>
+	</way>
+	<way id="141876882">
+		<nd ref="26445832"/>
+		<nd ref="150638136"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="141876885">
+		<nd ref="218450775"/>
+		<nd ref="1558428201"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="142409839">
+		<nd ref="218269493"/>
+		<nd ref="10303045915"/>
+		<nd ref="26445835"/>
+		<nd ref="1558428204"/>
+		<nd ref="150638267"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="4"/>
+	</way>
+	<way id="142409844">
+		<nd ref="1558428201"/>
+		<nd ref="5292016144"/>
+		<nd ref="218450766"/>
+		<nd ref="218450756"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="222900200">
+		<nd ref="2318438535"/>
+		<nd ref="150638234"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="293356689">
+		<nd ref="218450983"/>
+		<nd ref="218450973"/>
+		<nd ref="4235193537"/>
+		<nd ref="218450707"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="294591998">
+		<nd ref="218451780"/>
+		<nd ref="218451762"/>
+		<nd ref="218451756"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="344274976">
+		<nd ref="3510137457"/>
+		<nd ref="3510137462"/>
+		<nd ref="3510137465"/>
+		<nd ref="934711336"/>
+		<nd ref="934711323"/>
+		<nd ref="4257785239"/>
+		<nd ref="3510137459"/>
+		<nd ref="6242200178"/>
+		<nd ref="3510137450"/>
+		<nd ref="3510137453"/>
+		<nd ref="3510137452"/>
+		<nd ref="5249057421"/>
+		<nd ref="3510137457"/>
+		<tag k="opening_hours" v="Mo-Fr 06:00-21:00; Sa 07:00-20:00; Su,PH 08:00-20:00"/>
+		<tag k="addr:city" v="Aachen"/>
+		<tag k="addr:postcode" v="52064"/>
+		<tag k="addr:street" v="Bahnhofplatz"/>
+		<tag k="name" v="DB Reisezentrum"/>
+		<tag k="addr:housenumber" v="2a"/>
+		<tag k="shop" v="ticket"/>
+		<tag k="check_date:opening_hours" v="2024-11-03"/>
+		<tag k="level" v="0"/>
+		<tag k="information" v="office"/>
+		<tag k="tourism" v="information"/>
+		<tag k="network:wikidata" v="Q300763"/>
+		<tag k="brand" v="Deutsche Bahn"/>
+		<tag k="brand:wikidata" v="Q9322"/>
+		<tag k="public_transport" v="service_center"/>
+		<tag k="information:public_transport" v="yes"/>
+		<tag k="tickets:public_transport" v="yes"/>
+		<tag k="hearing_loop" v="yes"/>
+	</way>
+	<way id="344274977">
+		<nd ref="150638240"/>
+		<nd ref="11860856350"/>
+		<nd ref="213148315"/>
+		<nd ref="213148327"/>
+		<nd ref="5296629339"/>
+		<nd ref="4084971767"/>
+		<nd ref="213148338"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="345892288">
+		<nd ref="3510268277"/>
+		<nd ref="4254222757"/>
+		<nd ref="4254222740"/>
+		<nd ref="4254222760"/>
+		<nd ref="3510268263"/>
+		<nd ref="3510268277"/>
+	</way>
+	<way id="345892289">
+		<nd ref="4254222756"/>
+		<nd ref="3510476915"/>
+		<nd ref="3510476907"/>
+		<nd ref="4254222743"/>
+		<nd ref="4254222765"/>
+		<nd ref="4254222756"/>
+	</way>
+	<way id="345892290">
+		<nd ref="3510321785"/>
+		<nd ref="4254222739"/>
+		<nd ref="4254222744"/>
+		<nd ref="3510321773"/>
+		<nd ref="3510321785"/>
+	</way>
+	<way id="345892291">
+		<nd ref="4254222767"/>
+		<nd ref="4254222769"/>
+		<nd ref="3510476916"/>
+		<nd ref="3510476923"/>
+		<nd ref="4254222767"/>
+	</way>
+	<way id="345892292">
+		<nd ref="4254222758"/>
+		<nd ref="3510321772"/>
+		<nd ref="4254222784"/>
+		<nd ref="3510321764"/>
+		<nd ref="4254222738"/>
+		<nd ref="4254222747"/>
+		<nd ref="4254222758"/>
+	</way>
+	<way id="345892293">
+		<nd ref="3954122864"/>
+		<nd ref="4254222746"/>
+		<nd ref="4254222781"/>
+		<nd ref="4254222748"/>
+		<nd ref="3954122865"/>
+		<nd ref="3954122864"/>
+	</way>
+	<way id="361731986">
+		<nd ref="4806357298"/>
+		<nd ref="419108897"/>
+		<tag k="highway" v="steps"/>
+		<tag k="surface" v="paving_stones"/>
+		<tag k="incline" v="up"/>
+		<tag k="ramp" v="no"/>
+		<tag k="step_count" v="2"/>
+		<tag k="handrail" v="no"/>
+		<tag k="platform_lift" v="no"/>
+	</way>
+	<way id="370012160">
+		<nd ref="3737413657"/>
+		<nd ref="4089713995"/>
+		<nd ref="215971279"/>
+		<nd ref="4089713992"/>
+		<nd ref="3658095672"/>
+		<nd ref="10303045941"/>
+		<nd ref="3737413667"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="1"/>
+	</way>
+	<way id="370012162">
+		<nd ref="3737413660"/>
+		<nd ref="4083992938"/>
+		<nd ref="4083992937"/>
+		<nd ref="4086362396"/>
+		<nd ref="10303045938"/>
+		<nd ref="215971403"/>
+		<nd ref="10303045936"/>
+		<nd ref="10303045939"/>
+		<nd ref="3737413656"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="3"/>
+	</way>
+	<way id="370012163">
+		<nd ref="3737413651"/>
+		<nd ref="215971405"/>
+		<nd ref="3737413658"/>
+		<tag k="ref" v="2550"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="4"/>
+	</way>
+	<way id="370012164">
+		<nd ref="3737413663"/>
+		<nd ref="4083992940"/>
+		<nd ref="3658095675"/>
+		<nd ref="4426156082"/>
+		<nd ref="4089713994"/>
+		<nd ref="215971391"/>
+		<nd ref="3658095671"/>
+		<nd ref="10303045942"/>
+		<nd ref="3737413666"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="2"/>
+	</way>
+	<way id="406780620">
+		<nd ref="213148563"/>
+		<nd ref="11860856358"/>
+		<nd ref="213148575"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="406780621">
+		<nd ref="213148338"/>
+		<nd ref="5296629338"/>
+		<nd ref="5290623995"/>
+		<nd ref="213148352"/>
+		<nd ref="-70286990"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="31"/>
+	</way>
+	<way id="407177547">
+		<nd ref="215800299"/>
+		<nd ref="10303045909"/>
+		<nd ref="216009111"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="407177550">
+		<nd ref="213204478"/>
+		<nd ref="215800202"/>
+		<nd ref="215800299"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="407177553">
+		<nd ref="4240866585"/>
+		<nd ref="213204478"/>
+		<nd ref="11860856359"/>
+		<nd ref="11860856360"/>
+		<nd ref="213204479"/>
+		<nd ref="11860866475"/>
+		<nd ref="213204483"/>
+		<nd ref="213204487"/>
+		<nd ref="11860866470"/>
+		<nd ref="213204490"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="424035257">
+		<nd ref="218451020"/>
+		<nd ref="218451012"/>
+		<nd ref="218451001"/>
+		<nd ref="218450991"/>
+		<nd ref="218450983"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="428450838">
+		<nd ref="150638265"/>
+		<nd ref="150638253"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="428450841">
+		<nd ref="150638269"/>
+		<nd ref="150638267"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="crossover"/>
+	</way>
+	<way id="428450842">
+		<nd ref="150638269"/>
+		<nd ref="10303045917"/>
+		<nd ref="10303045916"/>
+		<nd ref="150638265"/>
+		<tag k="ref" v="2550"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="428450843">
+		<nd ref="218451780"/>
+		<nd ref="218450983"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="passenger_lines" v="2"/>
+	</way>
+	<way id="430958722">
+		<nd ref="218451756"/>
+		<nd ref="4084971766"/>
+		<nd ref="218450713"/>
+		<tag k="ref" v="2600"/>
+		<tag k="level" v="1"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="446011522">
+		<nd ref="218450756"/>
+		<nd ref="218450746"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:crocodile" v="yes"/>
+	</way>
+	<way id="446011523">
+		<nd ref="-70287154"/>
+		<nd ref="218451866"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:crocodile" v="yes"/>
+	</way>
+	<way id="547530842">
+		<nd ref="5290623999"/>
+		<nd ref="5290623998"/>
+		<nd ref="5290623997"/>
+		<nd ref="5290623996"/>
+		<nd ref="5290623999"/>
+		<tag k="name" v="ESTW-A Aachen"/>
+		<tag k="railway" v="signal_box"/>
+	</way>
+	<way id="547530843">
+		<nd ref="150638084"/>
+		<nd ref="150638083"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="547530844">
+		<nd ref="3658095674"/>
+		<nd ref="4083992939"/>
+		<nd ref="3658095676"/>
+		<nd ref="3737413663"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="2"/>
+	</way>
+	<way id="547530845">
+		<nd ref="150638038"/>
+		<nd ref="419075988"/>
+		<nd ref="3658095678"/>
+		<nd ref="3737413657"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="1"/>
+	</way>
+	<way id="547530846">
+		<nd ref="4083992941"/>
+		<nd ref="3510137455"/>
+		<nd ref="150638028"/>
+		<nd ref="150638026"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="10"/>
+	</way>
+	<way id="547530847">
+		<nd ref="420603130"/>
+		<nd ref="3510137427"/>
+		<nd ref="150638146"/>
+		<nd ref="150638223"/>
+		<nd ref="3737413651"/>
+		<tag k="ref" v="2550"/>
+		<tag k="level" v="1"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="4"/>
+	</way>
+	<way id="547530848">
+		<nd ref="3737413659"/>
+		<nd ref="150638159"/>
+		<nd ref="3510137419"/>
+		<nd ref="420603128"/>
+		<tag k="ref" v="2550"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="5"/>
+	</way>
+	<way id="547530849">
+		<nd ref="420603125"/>
+		<nd ref="3510137413"/>
+		<nd ref="150638169"/>
+		<nd ref="3737413653"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="service" v="siding"/>
+		<tag k="railway:track_ref" v="6"/>
+	</way>
+	<way id="547530850">
+		<nd ref="420603139"/>
+		<nd ref="150638127"/>
+		<nd ref="3737413665"/>
+		<tag k="ref" v="2600"/>
+		<tag k="level" v="1"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="usage" v="main"/>
+		<tag k="railway:track_ref" v="7"/>
+	</way>
+	<way id="547530851">
+		<nd ref="420603134"/>
+		<nd ref="150638123"/>
+		<nd ref="150638109"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="547530852">
+		<nd ref="420603137"/>
+		<nd ref="150638106"/>
+		<nd ref="150638109"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="547530853">
+		<nd ref="150638092"/>
+		<nd ref="5290624627"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="547712198">
+		<nd ref="218451796"/>
+		<nd ref="218451780"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="railway:tbl" v="1+"/>
+		<tag k="passenger_lines" v="2"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="711022449">
+		<nd ref="6684312516"/>
+		<nd ref="6684312517"/>
+		<nd ref="6684312518"/>
+		<nd ref="6684312519"/>
+		<nd ref="6684312516"/>
+		<tag k="amenity" v="bicycle_parking"/>
+		<tag k="capacity" v="72"/>
+		<tag k="bicycle_parking" v="stands"/>
+		<tag k="fee" v="no"/>
+		<tag k="access" v="yes"/>
+	</way>
+	<way id="711022450">
+		<nd ref="6684312520"/>
+		<nd ref="6684312521"/>
+		<nd ref="6684312522"/>
+		<nd ref="6684312523"/>
+		<nd ref="6684312520"/>
+		<tag k="disused:amenity" v="bicycle_parking"/>
+		<tag k="capacity" v="32"/>
+		<tag k="bicycle_parking" v="stands"/>
+		<tag k="fee" v="no"/>
+		<tag k="access" v="yes"/>
+	</way>
+	<way id="711022451">
+		<nd ref="6684312526"/>
+		<nd ref="6684312527"/>
+		<nd ref="6684312524"/>
+		<nd ref="6684312525"/>
+		<nd ref="6684312526"/>
+		<tag k="amenity" v="bicycle_parking"/>
+		<tag k="capacity" v="14"/>
+		<tag k="bicycle_parking" v="stands"/>
+		<tag k="fee" v="no"/>
+		<tag k="access" v="yes"/>
+	</way>
+	<way id="734175537">
+		<nd ref="3658095677"/>
+		<nd ref="4083992941"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="734175538">
+		<nd ref="5290624627"/>
+		<nd ref="5290624628"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="734175539">
+		<nd ref="4084971768"/>
+		<nd ref="2318438531"/>
+		<nd ref="150638240"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="734175540">
+		<nd ref="5296629340"/>
+		<nd ref="11860856361"/>
+		<nd ref="213148563"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="734175541">
+		<nd ref="213148545"/>
+		<nd ref="4240866585"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+	</way>
+	<way id="734175544">
+		<nd ref="4088324728"/>
+		<nd ref="218451276"/>
+		<nd ref="11860856345"/>
+		<nd ref="4492206150"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="yard"/>
+		<tag k="railway:track_ref" v="26"/>
+	</way>
+	<way id="753583262">
+		<nd ref="7040969144"/>
+		<nd ref="150638084"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="753583263">
+		<nd ref="7040969145"/>
+		<nd ref="150638084"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="service" v="siding"/>
+	</way>
+	<way id="753583264">
+		<nd ref="7040969146"/>
+		<nd ref="26445832"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<way id="1321588697">
+		<nd ref="219480510"/>
+		<nd ref="2318438537"/>
+		<nd ref="219480954"/>
+		<nd ref="2318438541"/>
+		<nd ref="219480932"/>
+		<nd ref="219480919"/>
+		<nd ref="219480911"/>
+		<nd ref="3510321769"/>
+		<nd ref="4254222779"/>
+		<nd ref="3510321787"/>
+		<nd ref="219480891"/>
+		<nd ref="4089713991"/>
+		<nd ref="219480877"/>
+		<nd ref="219480861"/>
+		<nd ref="3510137443"/>
+		<nd ref="219480837"/>
+		<nd ref="219480831"/>
+		<nd ref="219480821"/>
+		<nd ref="219480802"/>
+		<tag k="ref" v="2"/>
+		<tag k="railway" v="platform_edge"/>
+	</way>
+	<way id="1321588698">
+		<nd ref="219480636"/>
+		<nd ref="4089711985"/>
+		<nd ref="219480648"/>
+		<nd ref="219480664"/>
+		<nd ref="2318438548"/>
+		<nd ref="219480674"/>
+		<nd ref="3510137401"/>
+		<nd ref="219480687"/>
+		<nd ref="3510321762"/>
+		<nd ref="4254222755"/>
+		<nd ref="3510321768"/>
+		<nd ref="10303045937"/>
+		<nd ref="219480694"/>
+		<nd ref="219480707"/>
+		<nd ref="219480717"/>
+		<nd ref="3510137436"/>
+		<nd ref="219480736"/>
+		<nd ref="3510137430"/>
+		<nd ref="219480751"/>
+		<nd ref="3510137417"/>
+		<nd ref="219480764"/>
+		<nd ref="219480785"/>
+		<tag k="ref" v="3"/>
+		<tag k="railway" v="platform_edge"/>
+	</way>
+	<way id="1359347290">
+		<nd ref="150638111"/>
+		<nd ref="12582357683"/>
+		<tag k="ref" v="2600"/>
+		<tag k="railway:traffic_mode" v="mixed"/>
+		<tag k="railway" v="rail"/>
+		<tag k="usage" v="main"/>
+	</way>
+	<relation id="157595">
+		<member type="node" ref="577389057" role="platform"/>
+		<member type="node" ref="259571768" role="stop"/>
+		<member type="node" ref="2690548494" role="stop"/>
+		<member type="node" ref="130153728" role="stop"/>
+		<member type="node" ref="3422228311" role="platform"/>
+		<member type="node" ref="595757974" role="platform"/>
+		<member type="node" ref="338836634" role="stop"/>
+		<member type="node" ref="338836635" role="stop"/>
+		<member type="node" ref="3422228312" role="platform"/>
+		<member type="node" ref="595757977" role="platform"/>
+		<member type="node" ref="301623196" role="stop"/>
+		<member type="node" ref="4154271910" role="platform"/>
+		<tag k="type" v="public_transport"/>
+		<tag k="name" v="Normaluhr"/>
+		<tag k="public_transport" v="stop_area"/>
+	</relation>
+	<relation id="164195">
+		<member type="node" ref="215971485" role="stop"/>
+		<member type="way" ref="33170523" role="platform"/>
+		<member type="node" ref="215971403" role="stop"/>
+		<member type="node" ref="3070631211" role=""/>
+		<member type="node" ref="215971391" role="stop"/>
+		<member type="node" ref="215971478" role="stop"/>
+		<member type="node" ref="215971430" role="stop"/>
+		<member type="node" ref="215971464" role="stop"/>
+		<member type="node" ref="215971279" role="stop"/>
+		<tag k="type" v="public_transport"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="railway" v="facility"/>
+		<tag k="uic_ref" v="8000001"/>
+		<tag k="public_transport" v="stop_area"/>
+		<tag k="train" v="yes"/>
+		<tag k="check_date:service_times:wheelchair" v="2024-05-06"/>
+		<tag k="service_times:wheelchair" v="06:15-22:30"/>
+	</relation>
+	<relation id="1190145">
+		<member type="node" ref="595757964" role="platform"/>
+		<member type="node" ref="271458043" role="stop"/>
+		<member type="node" ref="419108909" role="platform"/>
+		<member type="node" ref="419108911" role="platform"/>
+		<member type="node" ref="595757968" role="platform"/>
+		<member type="node" ref="271458085" role="stop"/>
+		<member type="node" ref="4034985339" role="stop"/>
+		<member type="node" ref="4034985340" role="stop"/>
+		<tag k="type" v="public_transport"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="bus" v="yes"/>
+		<tag k="public_transport" v="stop_area"/>
+	</relation>
+	<relation id="1190146">
+		<member type="node" ref="2012731711" role=""/>
+		<member type="way" ref="711022451" role=""/>
+		<member type="way" ref="711022450" role=""/>
+		<member type="way" ref="79638849" role=""/>
+		<member type="way" ref="344274976" role="service_center"/>
+		<member type="node" ref="292108982" role=""/>
+		<member type="node" ref="6695269193" role=""/>
+		<member type="node" ref="363993755" role=""/>
+		<member type="node" ref="271458371" role=""/>
+		<member type="node" ref="597286578" role=""/>
+		<member type="node" ref="6694566401" role=""/>
+		<member type="node" ref="2614715766" role=""/>
+		<member type="way" ref="711022449" role=""/>
+		<tag k="type" v="public_transport"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="public_transport" v="stop_area_group"/>
+	</relation>
+	<relation id="1200277">
+		<member type="way" ref="31001949" role=""/>
+		<member type="node" ref="215971403" role="stop"/>
+		<member type="way" ref="20445290" role=""/>
+		<member type="way" ref="38358532" role=""/>
+		<member type="way" ref="31001952" role=""/>
+		<member type="way" ref="370012162" role=""/>
+		<member type="way" ref="428450838" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RB33: Heinsberg =&#62; Aachen"/>
+		<tag k="ref" v="RB33"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Aachen"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Heinsberg"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="1296458">
+		<member type="way" ref="31001949" role=""/>
+		<member type="node" ref="215971403" role="stop"/>
+		<member type="way" ref="20445290" role=""/>
+		<member type="way" ref="38358532" role=""/>
+		<member type="way" ref="31001952" role=""/>
+		<member type="way" ref="370012162" role=""/>
+		<member type="way" ref="428450838" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RE4: Dortmund =&#62; Aachen"/>
+		<tag k="ref" v="RE4"/>
+		<tag k="fee" v="yes"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Aachen"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Dortmund"/>
+		<tag k="service" v="regional"/>
+		<tag k="dog" v="yes"/>
+	</relation>
+	<relation id="1398522">
+		<member type="way" ref="15223872" role=""/>
+		<member type="way" ref="37893035" role=""/>
+		<member type="way" ref="452421981" role=""/>
+		<member type="way" ref="15223876" role=""/>
+		<member type="way" ref="293356689" role=""/>
+		<member type="node" ref="215971485" role="stop"/>
+		<member type="way" ref="547530852" role=""/>
+		<member type="way" ref="452421982" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="446011847" role=""/>
+		<member type="way" ref="15223883" role=""/>
+		<member type="way" ref="11189366" role=""/>
+		<member type="way" ref="547712198" role=""/>
+		<member type="way" ref="428450840" role=""/>
+		<member type="way" ref="428450843" role=""/>
+		<member type="way" ref="446011525" role=""/>
+		<member type="way" ref="35960139" role=""/>
+		<member type="way" ref="40953250" role=""/>
+		<member type="way" ref="35943786" role=""/>
+		<member type="way" ref="315750109" role=""/>
+		<member type="way" ref="98353761" role=""/>
+		<member type="way" ref="20452376" role=""/>
+		<member type="way" ref="1359347290" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="ICE 79: Bruxelles-Midi → Frankfurt"/>
+		<tag k="ref" v="ICE 79"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Frankfurt Hbf"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="network:wikidata" v="Q129172"/>
+		<tag k="from" v="Bruxelles-Midi"/>
+		<tag k="network:wikipedia" v="de:Intercity-Express"/>
+		<tag k="service" v="high_speed"/>
+		<tag k="passenger" v="international"/>
+	</relation>
+	<relation id="1796988">
+		<member type="node" ref="215971485" role="stop"/>
+		<member type="way" ref="32346413" role=""/>
+		<member type="way" ref="35960139" role=""/>
+		<member type="way" ref="424035257" role=""/>
+		<member type="way" ref="35943786" role=""/>
+		<member type="way" ref="293356689" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="S41: Aachen =&#62; Liège-Saint-Lambert"/>
+		<tag k="ref" v="S41"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Liège-Saint-Lambert"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Aachen"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="1918041">
+		<member type="way" ref="15223875" role=""/>
+		<member type="way" ref="37893035" role=""/>
+		<member type="way" ref="452421981" role=""/>
+		<member type="way" ref="547530850" role=""/>
+		<member type="way" ref="15223876" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="452421982" role=""/>
+		<member type="way" ref="15223883" role=""/>
+		<member type="way" ref="141876881" role=""/>
+		<member type="way" ref="11189366" role=""/>
+		<member type="way" ref="141876885" role=""/>
+		<member type="way" ref="35960131" role=""/>
+		<member type="way" ref="428450840" role=""/>
+		<member type="node" ref="215971464" role="stop"/>
+		<member type="way" ref="141565021" role=""/>
+		<member type="way" ref="141565022" role=""/>
+		<member type="way" ref="315750109" role=""/>
+		<member type="way" ref="98353761" role=""/>
+		<member type="way" ref="35943790" role=""/>
+		<member type="way" ref="31002483" role=""/>
+		<member type="way" ref="1359347290" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RB20: Stolberg Hbf =&#62; Alsdorf-Annapark =&#62; Aachen Hbf =&#62; Stolberg Altstadt"/>
+		<tag k="ref" v="RB20"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Stolberg Altstadt"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Stolberg Hbf"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="1918043">
+		<member type="way" ref="132613071" role=""/>
+		<member type="way" ref="98353739" role=""/>
+		<member type="way" ref="37893036" role=""/>
+		<member type="way" ref="452421983" role=""/>
+		<member type="way" ref="452421984" role=""/>
+		<member type="way" ref="35960124" role=""/>
+		<member type="way" ref="27654402" role=""/>
+		<member type="way" ref="15223884" role=""/>
+		<member type="way" ref="31001944" role=""/>
+		<member type="way" ref="452286057" role=""/>
+		<member type="way" ref="31001946" role=""/>
+		<member type="way" ref="31001949" role=""/>
+		<member type="way" ref="33170523" role="platform"/>
+		<member type="node" ref="215971279" role="stop"/>
+		<member type="way" ref="370012160" role=""/>
+		<member type="way" ref="36002766" role=""/>
+		<member type="way" ref="222900200" role=""/>
+		<member type="way" ref="36002768" role=""/>
+		<member type="way" ref="36002770" role=""/>
+		<member type="way" ref="294591999" role=""/>
+		<member type="way" ref="15223868" role=""/>
+		<member type="way" ref="547530845" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RB20: Stolberg Altstadt =&#62; Aachen Hbf =&#62; Alsdorf-Annapark =&#62; Stolberg Hbf"/>
+		<tag k="ref" v="RB20"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Stolberg Hbf"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Stolberg Altstadt"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="1988243">
+		<member type="way" ref="98353739" role=""/>
+		<member type="way" ref="294591999" role=""/>
+		<member type="way" ref="36002770" role=""/>
+		<member type="way" ref="452286057" role=""/>
+		<member type="way" ref="37893036" role=""/>
+		<member type="node" ref="215971391" role="stop"/>
+		<member type="way" ref="370012164" role=""/>
+		<member type="way" ref="27654402" role=""/>
+		<member type="way" ref="15223884" role=""/>
+		<member type="way" ref="15223869" role=""/>
+		<member type="way" ref="452421983" role=""/>
+		<member type="way" ref="547530844" role=""/>
+		<member type="way" ref="36002766" role=""/>
+		<member type="way" ref="452421984" role=""/>
+		<member type="way" ref="36002768" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RE1: Hamm (Westf) =&#62; Aachen Hbf"/>
+		<tag k="ref" v="RE1"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Aachen Hbf"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Hamm (Westf)"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="1988246">
+		<member type="way" ref="11189366" role=""/>
+		<member type="way" ref="37893036" role=""/>
+		<member type="way" ref="98353761" role=""/>
+		<member type="node" ref="215971391" role="stop"/>
+		<member type="way" ref="370012164" role=""/>
+		<member type="way" ref="428450839" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="27654402" role=""/>
+		<member type="way" ref="15223869" role=""/>
+		<member type="way" ref="15223884" role=""/>
+		<member type="way" ref="428450840" role=""/>
+		<member type="way" ref="452421981" role=""/>
+		<member type="way" ref="547530844" role=""/>
+		<member type="way" ref="452421983" role=""/>
+		<member type="way" ref="315750109" role=""/>
+		<member type="way" ref="36002768" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RE1: Aachen Hbf =&#62; Hamm (Westf)"/>
+		<tag k="ref" v="RE1"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Hamm (Westf)"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Aachen Hbf"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="1988255">
+		<member type="way" ref="98353739" role=""/>
+		<member type="way" ref="294591999" role=""/>
+		<member type="way" ref="36002770" role=""/>
+		<member type="way" ref="452286057" role=""/>
+		<member type="node" ref="215971403" role="stop"/>
+		<member type="way" ref="37893036" role=""/>
+		<member type="way" ref="753583262" role=""/>
+		<member type="way" ref="370012162" role=""/>
+		<member type="way" ref="35960127" role=""/>
+		<member type="way" ref="15223885" role=""/>
+		<member type="way" ref="547530843" role=""/>
+		<member type="way" ref="452421983" role=""/>
+		<member type="way" ref="36002766" role=""/>
+		<member type="way" ref="452421984" role=""/>
+		<member type="way" ref="36002768" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RE9: Siegen =&#62; Aachen"/>
+		<tag k="ref" v="RE9"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Aachen Hauptbahnhof"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Siegen Hbf"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="1988258">
+		<member type="way" ref="37893035" role=""/>
+		<member type="way" ref="11189366" role=""/>
+		<member type="way" ref="15709907" role=""/>
+		<member type="node" ref="215971403" role="stop"/>
+		<member type="way" ref="753583263" role=""/>
+		<member type="way" ref="98353761" role=""/>
+		<member type="way" ref="370012162" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="35960127" role=""/>
+		<member type="way" ref="547530843" role=""/>
+		<member type="way" ref="428450840" role=""/>
+		<member type="way" ref="452421981" role=""/>
+		<member type="way" ref="315750109" role=""/>
+		<member type="way" ref="452421982" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RE9: Aachen =&#62; Siegen"/>
+		<tag k="ref" v="RE9"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Siegen Hbf"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Aachen Hauptbahnhof"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="1998602">
+		<member type="way" ref="35960135" role=""/>
+		<member type="way" ref="141876885" role=""/>
+		<member type="way" ref="430958722" role=""/>
+		<member type="way" ref="141565022" role=""/>
+		<member type="way" ref="35943787" role=""/>
+		<member type="node" ref="215971478" role="stop"/>
+		<member type="way" ref="141876881" role=""/>
+		<member type="way" ref="20452374" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RE4: Aachen =&#62; Dortmund"/>
+		<tag k="smoking" v="no"/>
+		<tag k="ref" v="RE4"/>
+		<tag k="fee" v="yes"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Dortmund"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Aachen"/>
+		<tag k="service" v="regional"/>
+		<tag k="dog" v="yes"/>
+	</relation>
+	<relation id="3545363">
+		<member type="way" ref="15223872" role=""/>
+		<member type="way" ref="37893035" role=""/>
+		<member type="way" ref="98353739" role=""/>
+		<member type="way" ref="15223876" role=""/>
+		<member type="way" ref="293356689" role=""/>
+		<member type="node" ref="215971485" role="stop"/>
+		<member type="way" ref="547530852" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="452421982" role=""/>
+		<member type="way" ref="452421984" role=""/>
+		<member type="way" ref="15223883" role=""/>
+		<member type="way" ref="424035257" role=""/>
+		<member type="way" ref="32346413" role=""/>
+		<member type="way" ref="452286057" role=""/>
+		<member type="way" ref="315750105" role=""/>
+		<member type="way" ref="35960139" role=""/>
+		<member type="way" ref="40953250" role=""/>
+		<member type="way" ref="35943786" role=""/>
+		<member type="way" ref="36002766" role=""/>
+		<member type="way" ref="294591997" role=""/>
+		<member type="way" ref="1359347290" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="ICE 79: Frankfurt → Bruxelles-Midi"/>
+		<tag k="ref" v="ICE 79"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Bruxelles-Midi"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="network:wikidata" v="Q129172"/>
+		<tag k="from" v="Frankfurt Hauptbahnhof"/>
+		<tag k="network:wikipedia" v="de:Intercity-Express"/>
+		<tag k="service" v="high_speed"/>
+		<tag k="passenger" v="international"/>
+	</relation>
+	<relation id="3839725">
+		<member type="way" ref="132613071" role=""/>
+		<member type="way" ref="98353739" role=""/>
+		<member type="way" ref="37893036" role=""/>
+		<member type="way" ref="452421983" role=""/>
+		<member type="way" ref="452421984" role=""/>
+		<member type="way" ref="35960124" role=""/>
+		<member type="way" ref="27654402" role=""/>
+		<member type="way" ref="15223884" role=""/>
+		<member type="way" ref="31001944" role=""/>
+		<member type="way" ref="452286057" role=""/>
+		<member type="way" ref="31001946" role=""/>
+		<member type="way" ref="31001949" role=""/>
+		<member type="way" ref="33170523" role="platform"/>
+		<member type="node" ref="215971279" role="stop"/>
+		<member type="way" ref="370012160" role=""/>
+		<member type="way" ref="36002766" role=""/>
+		<member type="way" ref="222900200" role=""/>
+		<member type="way" ref="36002768" role=""/>
+		<member type="way" ref="36002770" role=""/>
+		<member type="way" ref="294591999" role=""/>
+		<member type="way" ref="15223868" role=""/>
+		<member type="way" ref="547530845" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RB20: Düren =&#62; Aachen Hbf =&#62; Alsdorf-Annapark =&#62; Stolberg Hbf"/>
+		<tag k="ref" v="RB20"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Stolberg Hbf"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Düren"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="3839846">
+		<member type="way" ref="15223875" role=""/>
+		<member type="way" ref="37893035" role=""/>
+		<member type="way" ref="452421981" role=""/>
+		<member type="way" ref="547530850" role=""/>
+		<member type="way" ref="15223876" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="452421982" role=""/>
+		<member type="way" ref="15223883" role=""/>
+		<member type="way" ref="141876881" role=""/>
+		<member type="way" ref="11189366" role=""/>
+		<member type="way" ref="141876885" role=""/>
+		<member type="way" ref="35960131" role=""/>
+		<member type="way" ref="428450840" role=""/>
+		<member type="node" ref="215971464" role="stop"/>
+		<member type="way" ref="141565021" role=""/>
+		<member type="way" ref="141565022" role=""/>
+		<member type="way" ref="315750109" role=""/>
+		<member type="way" ref="98353761" role=""/>
+		<member type="way" ref="35943790" role=""/>
+		<member type="way" ref="31002483" role=""/>
+		<member type="way" ref="1359347290" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RB20: Stolberg Hbf =&#62; Alsdorf-Annapark =&#62; Aachen Hbf =&#62; Düren"/>
+		<tag k="ref" v="RB20"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Düren"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Stolberg Hbf"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="3842767">
+		<member type="way" ref="141876885" role=""/>
+		<member type="way" ref="141565021" role=""/>
+		<member type="way" ref="141565022" role=""/>
+		<member type="way" ref="31002483" role=""/>
+		<member type="way" ref="35943790" role=""/>
+		<member type="node" ref="215971464" role="stop"/>
+		<member type="way" ref="141876881" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RE18: Liège =&#62; Maastricht =&#62; Aachen"/>
+		<tag k="ref" v="RE18"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Aachen"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Liège"/>
+		<tag k="brand" v="RegioExpres;Regional Express"/>
+		<tag k="service" v="regional"/>
+		<tag k="ref:ProRail" v="18900"/>
+	</relation>
+	<relation id="3842768">
+		<member type="way" ref="141876885" role=""/>
+		<member type="way" ref="141565021" role=""/>
+		<member type="way" ref="141565022" role=""/>
+		<member type="way" ref="31002483" role=""/>
+		<member type="way" ref="35943790" role=""/>
+		<member type="node" ref="215971464" role="stop"/>
+		<member type="way" ref="141876881" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RE18: Aachen =&#62; Maastricht =&#62; Liège"/>
+		<tag k="ref" v="RE18"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Liège"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Aachen"/>
+		<tag k="brand" v="RegioExpres;Regional Express"/>
+		<tag k="service" v="regional"/>
+		<tag k="ref:ProRail" v="18900"/>
+	</relation>
+	<relation id="4217834">
+		<member type="way" ref="31001949" role=""/>
+		<member type="node" ref="215971403" role="stop"/>
+		<member type="way" ref="20445290" role=""/>
+		<member type="way" ref="38358532" role=""/>
+		<member type="way" ref="31001952" role=""/>
+		<member type="way" ref="370012162" role=""/>
+		<member type="way" ref="428450838" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RB33: Essen =&#62; Aachen"/>
+		<tag k="ref" v="RB33"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Aachen"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Essen"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="4217836">
+		<member type="way" ref="31001949" role=""/>
+		<member type="node" ref="215971403" role="stop"/>
+		<member type="way" ref="31001952" role=""/>
+		<member type="way" ref="370012162" role=""/>
+		<member type="way" ref="428450838" role=""/>
+		<member type="way" ref="132613071" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RB33: Aachen =&#62; Essen"/>
+		<tag k="ref" v="RB33"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Essen"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Aachen"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="4217837">
+		<member type="way" ref="31001949" role=""/>
+		<member type="node" ref="215971403" role="stop"/>
+		<member type="way" ref="31001952" role=""/>
+		<member type="way" ref="370012162" role=""/>
+		<member type="way" ref="428450838" role=""/>
+		<member type="way" ref="132613071" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="RB33: Aachen =&#62; Heinsberg"/>
+		<tag k="ref" v="RB33"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Heinsberg"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Aachen"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="5151597">
+		<member type="way" ref="20506283" role="outer"/>
+		<member type="way" ref="345892291" role="inner"/>
+		<member type="way" ref="345892289" role="inner"/>
+		<member type="way" ref="-70290212" role="outer"/>
+		<tag k="type" v="multipolygon"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="8;9"/>
+		<tag k="level" v="1"/>
+		<tag k="surface" v="paving_stones"/>
+		<tag k="railway" v="platform"/>
+		<tag k="height" v="0.76"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="yes"/>
+		<tag k="train" v="yes"/>
+	</relation>
+	<relation id="5151598">
+		<member type="way" ref="40021449" role="outer"/>
+		<member type="way" ref="-60509718" role="outer"/>
+		<member type="way" ref="345892292" role="inner"/>
+		<member type="way" ref="345892290" role="inner"/>
+		<tag k="type" v="multipolygon"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="2;3"/>
+		<tag k="level" v="1"/>
+		<tag k="surface" v="paving_stones"/>
+		<tag k="railway" v="platform"/>
+		<tag k="height" v="0.76"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="yes"/>
+		<tag k="train" v="yes"/>
+	</relation>
+	<relation id="5151599">
+		<member type="way" ref="40021451" role="outer"/>
+		<member type="way" ref="-60509724" role="outer"/>
+		<member type="way" ref="345892293" role="inner"/>
+		<member type="way" ref="345892288" role="inner"/>
+		<tag k="type" v="multipolygon"/>
+		<tag k="name" v="Aachen Hauptbahnhof"/>
+		<tag k="ref" v="6;7"/>
+		<tag k="level" v="1"/>
+		<tag k="surface" v="paving_stones"/>
+		<tag k="railway" v="platform"/>
+		<tag k="height" v="0.76"/>
+		<tag k="bin" v="yes"/>
+		<tag k="public_transport" v="platform"/>
+		<tag k="bench" v="yes"/>
+		<tag k="train" v="yes"/>
+	</relation>
+	<relation id="6124730">
+		<member type="way" ref="15223872" role=""/>
+		<member type="way" ref="37893035" role=""/>
+		<member type="way" ref="98353739" role=""/>
+		<member type="way" ref="15223876" role=""/>
+		<member type="way" ref="293356689" role=""/>
+		<member type="node" ref="215971485" role="stop"/>
+		<member type="way" ref="547530852" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="452421982" role=""/>
+		<member type="way" ref="452421984" role=""/>
+		<member type="way" ref="15223883" role=""/>
+		<member type="way" ref="424035257" role=""/>
+		<member type="way" ref="32346413" role=""/>
+		<member type="way" ref="452286057" role=""/>
+		<member type="way" ref="315750105" role=""/>
+		<member type="way" ref="35960139" role=""/>
+		<member type="way" ref="40953250" role=""/>
+		<member type="way" ref="35943786" role=""/>
+		<member type="way" ref="36002766" role=""/>
+		<member type="way" ref="294591997" role=""/>
+		<member type="way" ref="1359347290" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="Eurostar: Dortmund → Köln → Bruxelles → Paris"/>
+		<tag k="ref" v="ES"/>
+		<tag k="bicycle" v="no"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Paris - Gare du Nord"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="network:wikidata" v="Q156013"/>
+		<tag k="from" v="Dortmund"/>
+		<tag k="colour" v="#aa2135"/>
+		<tag k="service" v="international"/>
+		<tag k="passenger" v="international"/>
+		<tag k="headway" v="120"/>
+		<tag k="reservation" v="only"/>
+		<tag k="ref:circulation" v="9400"/>
+		<tag k="dining" v="yes"/>
+		<tag k="by_night" v="no"/>
+	</relation>
+	<relation id="6124731">
+		<member type="way" ref="15223872" role=""/>
+		<member type="way" ref="37893035" role=""/>
+		<member type="way" ref="452421981" role=""/>
+		<member type="way" ref="15223876" role=""/>
+		<member type="way" ref="293356689" role=""/>
+		<member type="node" ref="215971485" role="stop"/>
+		<member type="way" ref="547530852" role=""/>
+		<member type="way" ref="452421982" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="446011847" role=""/>
+		<member type="way" ref="15223883" role=""/>
+		<member type="way" ref="11189366" role=""/>
+		<member type="way" ref="547712198" role=""/>
+		<member type="way" ref="428450840" role=""/>
+		<member type="way" ref="428450843" role=""/>
+		<member type="way" ref="446011525" role=""/>
+		<member type="way" ref="35960139" role=""/>
+		<member type="way" ref="40953250" role=""/>
+		<member type="way" ref="35943786" role=""/>
+		<member type="way" ref="315750109" role=""/>
+		<member type="way" ref="98353761" role=""/>
+		<member type="way" ref="20452376" role=""/>
+		<member type="way" ref="1359347290" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="Eurostar: Paris → Bruxelles → Köln → Dortmund"/>
+		<tag k="ref" v="ES"/>
+		<tag k="bicycle" v="no"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Dortmund"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="network:wikidata" v="Q156013"/>
+		<tag k="from" v="Paris - Gare du Nord"/>
+		<tag k="colour" v="#aa2135"/>
+		<tag k="service" v="international"/>
+		<tag k="passenger" v="international"/>
+		<tag k="headway" v="120"/>
+		<tag k="reservation" v="only"/>
+		<tag k="ref:circulation" v="9400"/>
+		<tag k="dining" v="yes"/>
+		<tag k="by_night" v="no"/>
+	</relation>
+	<relation id="6755230">
+		<member type="node" ref="215971485" role="stop"/>
+		<member type="way" ref="446011525" role=""/>
+		<member type="way" ref="20452376" role=""/>
+		<member type="way" ref="35960139" role=""/>
+		<member type="way" ref="35943786" role=""/>
+		<member type="way" ref="547712198" role=""/>
+		<member type="way" ref="428450843" role=""/>
+		<member type="way" ref="293356689" role=""/>
+		<member type="way" ref="446011847" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="S41: Liège-Saint-Lambert =&#62; Aachen"/>
+		<tag k="ref" v="S41"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Aachen"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="from" v="Liège-Saint-Lambert"/>
+		<tag k="service" v="regional"/>
+	</relation>
+	<relation id="17654519">
+		<member type="way" ref="15223872" role=""/>
+		<member type="way" ref="37893035" role=""/>
+		<member type="way" ref="452421981" role=""/>
+		<member type="way" ref="15223876" role=""/>
+		<member type="way" ref="293356689" role=""/>
+		<member type="node" ref="215971485" role="stop"/>
+		<member type="way" ref="547530852" role=""/>
+		<member type="way" ref="452421982" role=""/>
+		<member type="way" ref="430932752" role=""/>
+		<member type="way" ref="446011847" role=""/>
+		<member type="way" ref="15223883" role=""/>
+		<member type="way" ref="11189366" role=""/>
+		<member type="way" ref="547712198" role=""/>
+		<member type="way" ref="428450840" role=""/>
+		<member type="way" ref="428450843" role=""/>
+		<member type="way" ref="446011525" role=""/>
+		<member type="way" ref="35960139" role=""/>
+		<member type="way" ref="40953250" role=""/>
+		<member type="way" ref="35943786" role=""/>
+		<member type="way" ref="315750109" role=""/>
+		<member type="way" ref="98353761" role=""/>
+		<member type="way" ref="20452376" role=""/>
+		<member type="way" ref="1359347290" role=""/>
+		<tag k="type" v="route"/>
+		<tag k="name" v="NJ 425: Bruxelles-Midi → Berlin Hbf (Tief)"/>
+		<tag k="ref" v="NJ 425"/>
+		<tag k="route" v="train"/>
+		<tag k="to" v="Berlin Hbf"/>
+		<tag k="public_transport:version" v="2"/>
+		<tag k="network:wikidata" v="Q28127371"/>
+		<tag k="from" v="Bruxelles-Midi"/>
+		<tag k="service" v="international"/>
+		<tag k="passenger" v="international"/>
+	</relation>
+</osm>

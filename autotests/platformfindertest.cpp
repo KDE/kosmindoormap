@@ -83,6 +83,8 @@ private Q_SLOTS:
         QTest::newRow("leipzig-central") << (SOURCE_DIR "/data/platforms/leipzig-central.osm") << (SOURCE_DIR "/data/platforms/leipzig-central.platforms");
         // multiple stop points per track, no edges, up to 4 split tracks
         QTest::newRow("hamburg-central") << (SOURCE_DIR "/data/platforms/hamburg-central.osm") << (SOURCE_DIR "/data/platforms/hamburg-central.platforms");
+        // free-floating standard-compliant section markers
+        QTest::newRow("aachen-central") << (SOURCE_DIR "/data/platforms/aachen-central.osm") << (SOURCE_DIR "/data/platforms/aachen-central.platforms");
     }
 
     void testPlatformFinder()
