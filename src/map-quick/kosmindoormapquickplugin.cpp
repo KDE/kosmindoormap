@@ -8,6 +8,7 @@
 
 #include "osmaddress.h"
 #include "osmelement.h"
+#include "platformutil.h"
 
 #include <KOSMIndoorMap/MapData>
 
@@ -24,6 +25,9 @@ void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
     qRegisterMetaType<OSMAddress>();
     qRegisterMetaType<OSMElement>();
 
+    qmlRegisterSingletonType("org.kde.kosmindoormap", 1, 0, "PlatformUtil", [](QQmlEngine*, QJSEngine *engine) -> QJSValue {
+        return engine->toScriptValue(KOSMIndoorMap::PlatformUtil());
+    });
 }
 
 #include "moc_kosmindoormapquickplugin.cpp"

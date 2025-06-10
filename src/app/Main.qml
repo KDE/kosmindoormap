@@ -263,13 +263,7 @@ Kirigami.ApplicationWindow {
 
                 section.property: "mode"
                 section.delegate: Kirigami.ListSectionHeader {
-                    label: switch(parseInt(section)) {
-                        case Platform.Rail: return "Railway";
-                        case Platform.Subway: return "Subway";
-                        case Platform.Tram: return "Tramway";
-                        case Platform.Bus: return "Bus";
-                        default: console.log(section, Platform.Rail); return section;
-                    }
+                    text: PlatformUtil.modeName(parseInt(section))
                     width: ListView.view.width
                 }
                 section.criteria: ViewSection.FullString

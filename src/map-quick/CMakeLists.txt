@@ -11,6 +11,7 @@ add_library(KOSMIndoorMapQuick STATIC
     osmaddress.cpp
     osmelement.cpp
     osmelementinformationmodel.cpp
+    platformutil.cpp
     roommodel.cpp
     roomsortfilterproxymodel.cpp
 )
