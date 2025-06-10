@@ -20,6 +20,19 @@
 
 #include <QQmlEngine>
 
+#define FOREIGN_ENUM_GADGET(Class) \
+class Class ## Derived: public KOSMIndoorMap::Class \
+{ \
+    Q_GADGET \
+}; \
+namespace Class ## DerivedForeign \
+{ \
+    Q_NAMESPACE \
+    QML_NAMED_ELEMENT(Class) \
+    QML_FOREIGN_NAMESPACE(Class ## Derived) \
+}
+
+
 // from base library
 struct EquipmentModelForeign {
     Q_GADGET
@@ -53,6 +66,13 @@ struct MapLoaderForeign {
     QML_FOREIGN(KOSMIndoorMap::MapLoader)
     QML_UNCREATABLE("only provided via C++ API")
 };
+
+struct PlatformForeign {
+    Q_GADGET
+    QML_VALUE_TYPE(platform)
+    QML_FOREIGN(KOSMIndoorMap::Platform)
+};
+FOREIGN_ENUM_GADGET(Platform)
 
 struct PlatformModelForeign {
     Q_GADGET

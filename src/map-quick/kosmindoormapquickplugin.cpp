@@ -10,7 +10,6 @@
 #include "osmelement.h"
 
 #include <KOSMIndoorMap/MapData>
-#include <KOSMIndoorMap/PlatformModel>
 
 #include <QQmlEngine>
 
@@ -24,10 +23,7 @@ void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
     qRegisterMetaType<MapData>();
     qRegisterMetaType<OSMAddress>();
     qRegisterMetaType<OSMElement>();
-    qRegisterMetaType<Platform>();
-    qRegisterMetaType<Platform::Mode>();
 
-    qmlRegisterUncreatableMetaObject(Platform::staticMetaObject, "org.kde.kosmindoormap", 1, 0, "Platform", {});
 }
 
 #include "moc_kosmindoormapquickplugin.cpp"
