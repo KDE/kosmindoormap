@@ -13,6 +13,7 @@ import org.kde.kosmindoormap as KOSMIndoorMap
  *  - attribution label
  *  - floor level navigation
  *  - element information dialog
+ *  - elevator/escalator model
  */
 KOSMIndoorMap.IndoorMap {
     id: root
@@ -39,6 +40,13 @@ KOSMIndoorMap.IndoorMap {
         timeZone: root.mapData.timeZone
     }
 
+    /** Elevator/escalator model.
+     *  Can be exchanged with KOSMIndoorMap.RealtimeEquipmentModel for elevator realtime data.
+     */
+    property KOSMIndoorMap.EquipmentModel equipmentModel: KOSMIndoorMap.EquipmentModel {
+        mapData: root.mapData
+    }
+
     /** Override to show a custom context menu on right click or long press. */
     function showContextMenu(ev: KOSMIndoorMap.mapPointerEvent) {
         root.elementInfoModel.element = ev.element;
@@ -59,6 +67,8 @@ KOSMIndoorMap.IndoorMap {
         anchors.right: root.right
         anchors.bottom: root.bottom
     }
+
+    overlaySources: [ root.equipmentModel ]
 
     onTapped: (ev) => {
         // left click on element: floor level change if applicable, otherwise info dialog

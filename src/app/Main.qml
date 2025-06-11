@@ -339,8 +339,7 @@ Kirigami.ApplicationWindow {
             mapData: page.map.mapData
         }
 
-        RealtimeEquipmentModel {
-            id: equipmentModel
+        map.equipmentModel: RealtimeEquipmentModel {
             mapData: page.map.mapData
             realtimeModel: locationModel.sourceModel
             onUpdate: routingController.searchRoute()
@@ -363,7 +362,7 @@ Kirigami.ApplicationWindow {
         RoutingController {
             id: routingController
             mapData: page.map.mapData
-            elevatorModel: equipmentModel
+            elevatorModel: page.map.equipmentModel
         }
         QQC2.BusyIndicator {
             anchors.top: parent.top
@@ -378,7 +377,7 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        map.overlaySources: [ gateModel, platformModel, locationModel, equipmentModel, routingController.routeOverlay ]
+        map.overlaySources: [ gateModel, platformModel, locationModel, map.equipmentModel, routingController.routeOverlay ]
         map.timeZone: "Europe/Berlin"
 
         header: RowLayout {
