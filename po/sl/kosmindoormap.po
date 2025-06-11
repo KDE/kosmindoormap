@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:39+0000\n"
+"POT-Creation-Date: 2025-06-11 00:41+0000\n"
 "PO-Revision-Date: 2024-06-30 11:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2236,6 +2236,42 @@ msgstr "reliefne tiskane črke"
 msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "vgravirane tiskane črke"
+
+#: map-quick/platformutil.cpp:15
+#, kde-format
+msgctxt "mode of transport"
+msgid "Railway"
+msgstr ""
+
+#: map-quick/platformutil.cpp:16
+#, kde-format
+msgctxt "mode of transport"
+msgid "Light Rail"
+msgstr ""
+
+#: map-quick/platformutil.cpp:17
+#, kde-format
+msgctxt "mode of transport"
+msgid "Subway"
+msgstr ""
+
+#: map-quick/platformutil.cpp:18
+#, kde-format
+msgctxt "mode of transport"
+msgid "Tram"
+msgstr ""
+
+#: map-quick/platformutil.cpp:19
+#, kde-format
+msgctxt "mode of transport"
+msgid "Monorail"
+msgstr ""
+
+#: map-quick/platformutil.cpp:20
+#, kde-format
+msgctxt "mode of transport"
+msgid "Bus"
+msgstr ""
 
 #: map-quick/roommodel.cpp:129
 #, kde-format

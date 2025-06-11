@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:39+0000\n"
+"POT-Creation-Date: 2025-06-11 00:41+0000\n"
 "PO-Revision-Date: 2023-07-03 00:52+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -2341,6 +2341,42 @@ msgstr "letras realçadas em relevo"
 msgctxt "tactile writing"
 msgid "engraved printed letters"
 msgstr "letras gravadas em relevo"
+
+#: map-quick/platformutil.cpp:15
+#, kde-format
+msgctxt "mode of transport"
+msgid "Railway"
+msgstr ""
+
+#: map-quick/platformutil.cpp:16
+#, kde-format
+msgctxt "mode of transport"
+msgid "Light Rail"
+msgstr ""
+
+#: map-quick/platformutil.cpp:17
+#, kde-format
+msgctxt "mode of transport"
+msgid "Subway"
+msgstr ""
+
+#: map-quick/platformutil.cpp:18
+#, kde-format
+msgctxt "mode of transport"
+msgid "Tram"
+msgstr ""
+
+#: map-quick/platformutil.cpp:19
+#, kde-format
+msgctxt "mode of transport"
+msgid "Monorail"
+msgstr ""
+
+#: map-quick/platformutil.cpp:20
+#, kde-format
+msgctxt "mode of transport"
+msgid "Bus"
+msgstr ""
 
 #: map-quick/roommodel.cpp:129
 #, fuzzy, kde-format
