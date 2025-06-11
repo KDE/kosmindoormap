@@ -43,6 +43,7 @@ private Q_SLOTS:
 
         // invalid but we have workarounds for this
         QTest::newRow("1,5") << "1,5" << LV{15};
+        QTest::newRow("0,-1") << "0,-1" << LV{0,-10};
     }
 
     void testLevelParse()
