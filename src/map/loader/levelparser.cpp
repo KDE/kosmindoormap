@@ -27,9 +27,15 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
     for (int i = 0; i < level.size(); ++i) {
         auto &c = level[i];
 
-        if (c == ',') { // fix decimal separator errors
+        if (c == ',') { // fix separator errors
             qCDebug(Log) << "syntax error in level tag:" << level << e.url();
-            c = '.';
+            // we assume ',' is meant as a decimal separator, as long as that's plausible
+            // TODO: multiple consecutive commas should also be treated as ; probably?
+            if (i < level.size() - 1 && !std::isdigit(static_cast<unsigned char>(level[i+1]))) {
+                c = ';';
+            } else {
+                c = '.';
+            }
         }
 
         if (std::isdigit(static_cast<unsigned char>(c)) || c == '.') {
