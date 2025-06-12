@@ -52,6 +52,7 @@ public:
         LinesRole,
         ArrivalPlatformRole,
         DeparturePlatformRole,
+        PlatformRole,
     };
     Q_ENUM(Role)
 

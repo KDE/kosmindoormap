@@ -21,6 +21,8 @@ class DataSet;
 class Element;
 }
 
+class QPointF;
+
 namespace KOSMIndoorMap {
 
 class PlatformSectionPrivate;
@@ -58,6 +60,11 @@ class KOSMINDOORMAP_EXPORT Platform {
     Q_PROPERTY(QString name READ name WRITE setName)
     Q_PROPERTY(Mode mode READ mode WRITE setMode)
     Q_PROPERTY(QString ifopt READ ifopt WRITE setIfopt)
+    Q_PROPERTY(int level READ level)
+    Q_PROPERTY(bool hasLevel READ hasLevel)
+    Q_PROPERTY(QPointF position READ positionPoint)
+    Q_PROPERTY(QStringList lines READ lines)
+
 public:
     explicit Platform();
     Platform(const Platform&);

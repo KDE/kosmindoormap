@@ -107,6 +107,8 @@ QVariant PlatformModel::data(const QModelIndex &index, int role) const
                 return index.row() == m_arrivalPlatformRow;
             case DeparturePlatformRole:
                 return index.row() == m_departurePlatformRow;
+            case PlatformRole:
+                return QVariant::fromValue(platform);
         }
     } else {
         const auto &platform = m_platforms[index.internalId()];

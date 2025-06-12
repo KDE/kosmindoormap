@@ -10,6 +10,7 @@
 #include <osm/geomath.h>
 #include <osm/pathutil.h>
 
+#include <QPointF>
 #include <QRegularExpression>
 
 #include <limits>
@@ -561,6 +562,11 @@ QString Platform::preferredName(const QString &lhs, const QString &rhs)
     }
 
     return lhs.size() <= rhs.size() ? lhs: rhs;
+}
+
+QPointF Platform::positionPoint() const
+{
+    return {position().lonF(), position().latF()};
 }
 
 #include "moc_platform.cpp"
