@@ -154,6 +154,7 @@ QHash<int, QByteArray> PlatformModel::roleNames() const
     n.insert(LinesRole, "lines");
     n.insert(ArrivalPlatformRole, "isArrivalPlatform");
     n.insert(DeparturePlatformRole, "isDeparturePlatform");
+    n.insert(PlatformRole, "platform");
     return n;
 }
 
