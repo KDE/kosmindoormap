@@ -1,15 +1,15 @@
 # Spanish translations for kosmindoormap.po package.
-# Copyright (C) 2020 This file is copyright:
+# Copyright (C) 2020-2025 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
-#
 # Automatically generated, 2020.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+#
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:41+0000\n"
-"PO-Revision-Date: 2024-06-30 17:26+0200\n"
+"PO-Revision-Date: 2025-06-11 16:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: app/main.cpp:70
 #, kde-format
@@ -2230,37 +2230,37 @@ msgstr "letras impresas grabadas"
 #, kde-format
 msgctxt "mode of transport"
 msgid "Railway"
-msgstr ""
+msgstr "Tren"
 
 #: map-quick/platformutil.cpp:16
 #, kde-format
 msgctxt "mode of transport"
 msgid "Light Rail"
-msgstr ""
+msgstr "Tren ligero"
 
 #: map-quick/platformutil.cpp:17
 #, kde-format
 msgctxt "mode of transport"
 msgid "Subway"
-msgstr ""
+msgstr "Metro"
 
 #: map-quick/platformutil.cpp:18
 #, kde-format
 msgctxt "mode of transport"
 msgid "Tram"
-msgstr ""
+msgstr "Tranvía"
 
 #: map-quick/platformutil.cpp:19
 #, kde-format
 msgctxt "mode of transport"
 msgid "Monorail"
-msgstr ""
+msgstr "Monorrail"
 
 #: map-quick/platformutil.cpp:20
 #, kde-format
 msgctxt "mode of transport"
 msgid "Bus"
-msgstr ""
+msgstr "Autobús"
 
 #: map-quick/roommodel.cpp:129
 #, kde-format
@@ -2271,7 +2271,3 @@ msgstr "Planta baja"
 #, kde-format
 msgid "Floor %1"
 msgstr "Planta %1"
-
-#~ msgctxt "OSM::cuisine"
-#~ msgid "BBQ"
-#~ msgstr "Barbacoa"

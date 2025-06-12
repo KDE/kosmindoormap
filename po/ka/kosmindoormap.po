@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:41+0000\n"
-"PO-Revision-Date: 2024-06-30 07:25+0200\n"
+"PO-Revision-Date: 2025-06-11 05:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.6\n"
 
 #: app/main.cpp:70
 #, kde-format
@@ -2229,37 +2229,37 @@ msgstr "ამოკვეთილი დაბეჭდილი სიმბ�
 #, kde-format
 msgctxt "mode of transport"
 msgid "Railway"
-msgstr ""
+msgstr "რკინიგზა"
 
 #: map-quick/platformutil.cpp:16
 #, kde-format
 msgctxt "mode of transport"
 msgid "Light Rail"
-msgstr ""
+msgstr "მსუბუქი რკინიგზა"
 
 #: map-quick/platformutil.cpp:17
 #, kde-format
 msgctxt "mode of transport"
 msgid "Subway"
-msgstr ""
+msgstr "მეტრო"
 
 #: map-quick/platformutil.cpp:18
 #, kde-format
 msgctxt "mode of transport"
 msgid "Tram"
-msgstr ""
+msgstr "ტრამვაი"
 
 #: map-quick/platformutil.cpp:19
 #, kde-format
 msgctxt "mode of transport"
 msgid "Monorail"
-msgstr ""
+msgstr "მონორელსი"
 
 #: map-quick/platformutil.cpp:20
 #, kde-format
 msgctxt "mode of transport"
 msgid "Bus"
-msgstr ""
+msgstr "ავტობუსი"
 
 #: map-quick/roommodel.cpp:129
 #, kde-format

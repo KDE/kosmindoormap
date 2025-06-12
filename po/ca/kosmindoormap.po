@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:41+0000\n"
-"PO-Revision-Date: 2025-05-31 18:51+0200\n"
+"PO-Revision-Date: 2025-06-11 08:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2250,37 +2250,37 @@ msgstr "lletres impreses gravades"
 #, kde-format
 msgctxt "mode of transport"
 msgid "Railway"
-msgstr ""
+msgstr "Ferrocarril"
 
 #: map-quick/platformutil.cpp:16
 #, kde-format
 msgctxt "mode of transport"
 msgid "Light Rail"
-msgstr ""
+msgstr "Ferrocarril lleuger"
 
 #: map-quick/platformutil.cpp:17
 #, kde-format
 msgctxt "mode of transport"
 msgid "Subway"
-msgstr ""
+msgstr "Metro"
 
 #: map-quick/platformutil.cpp:18
 #, kde-format
 msgctxt "mode of transport"
 msgid "Tram"
-msgstr ""
+msgstr "Tramvia"
 
 #: map-quick/platformutil.cpp:19
 #, kde-format
 msgctxt "mode of transport"
 msgid "Monorail"
-msgstr ""
+msgstr "Monorail"
 
 #: map-quick/platformutil.cpp:20
 #, kde-format
 msgctxt "mode of transport"
 msgid "Bus"
-msgstr ""
+msgstr "Autobús"
 
 #: map-quick/roommodel.cpp:129
 #, kde-format
