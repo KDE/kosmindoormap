@@ -39,10 +39,10 @@ public:
     explicit PlatformModel(QObject *parent = nullptr);
     ~PlatformModel();
 
-    MapData mapData() const;
+    [[nodiscard]] MapData mapData() const;
     void setMapData(const MapData &data);
 
-    bool isEmpty() const;
+    [[nodiscard]] bool isEmpty() const;
 
     enum Role {
         CoordinateRole = Qt::UserRole,
@@ -55,23 +55,23 @@ public:
     };
     Q_ENUM(Role)
 
-    int columnCount(const QModelIndex &parent = {}) const override;
-    int rowCount(const QModelIndex &parent = {}) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-    QModelIndex index(int row, int column, const QModelIndex &parent = {}) const override;
-    QModelIndex parent(const QModelIndex &child) const override;
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = {}) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] QModelIndex index(int row, int column, const QModelIndex &parent = {}) const override;
+    [[nodiscard]] QModelIndex parent(const QModelIndex &child) const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     /** Match arrival/departure platform against what we found in the map data. */
-    Platform arrivalPlatform() const;
+    [[nodiscard]] Platform arrivalPlatform() const;
     void setArrivalPlatform(const Platform &platform);
     Q_INVOKABLE [[deprecated("use arrivalPlatform property")]] void setArrivalPlatform(const QString &name, KOSMIndoorMap::Platform::Mode mode);
-    Platform departurePlatform() const;
+    [[nodiscard]] Platform departurePlatform() const;
     void setDeparturePlatform(const Platform &platform);
     Q_INVOKABLE [[deprecated("use departurePlatform property")]] void setDeparturePlatform(const QString &name, KOSMIndoorMap::Platform::Mode mode);
 
-    int arrivalPlatformRow() const;
-    int departurePlatformRow() const;
+    [[nodiscard]] int arrivalPlatformRow() const;
+    [[nodiscard]] int departurePlatformRow() const;
 
 Q_SIGNALS:
     void mapDataChanged();
@@ -81,12 +81,12 @@ Q_SIGNALS:
 
 private:
     void matchPlatforms();
-    int matchPlatform(const Platform &platform) const;
+    [[nodiscard]] int matchPlatform(const Platform &platform) const;
     void createLabels();
     void setPlatformTag(int idx, OSM::TagKey key, bool enabled);
 
-    QStringView effectiveArrivalSections() const;
-    QStringView effectiveDepartureSections() const;
+    [[nodiscard]] QStringView effectiveArrivalSections() const;
+    [[nodiscard]] QStringView effectiveDepartureSections() const;
     void applySectionSelection(int platformIdx, OSM::TagKey key, QStringView sections);
 
     std::vector<Platform> m_platforms;

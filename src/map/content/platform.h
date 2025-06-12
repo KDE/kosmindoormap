@@ -37,13 +37,13 @@ public:
     PlatformSection& operator=(PlatformSection&&);
 
     /** Platform section has enough data to work with. */
-    bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
     /** Platform section name. */
-    QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
     /** Platform section position. */
-    OSM::Element position() const;
+    [[nodiscard]] OSM::Element position() const;
     void setPosition(const OSM::Element &position);
 
 private:
@@ -67,41 +67,41 @@ public:
     Platform& operator=(Platform&&);
 
     /** Platform has enough data to work with. */
-    bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
     /** User-visible name of the platform. */
-    QString name() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
     /** Floor level. */
-    int level() const;
-    bool hasLevel() const;
+    [[nodiscard]] int level() const;
+    [[nodiscard]] bool hasLevel() const;
     void setLevel(int level);
 
     /** A singular position for this platform (typically the stop position).
      *  This can be useful for positining views or labels.
      */
-    OSM::Coordinate position() const;
-    OSM::Element stopPoint() const;
+    [[nodiscard]] OSM::Coordinate position() const;
+    [[nodiscard]] OSM::Element stopPoint() const;
     void setStopPoint(OSM::Element stop);
 
     /** The platform edge path. */
-    OSM::Element edge() const;
+    [[nodiscard]] OSM::Element edge() const;
     void setEdge(OSM::Element edge);
 
     /** The platform area.
      *  This is often shared between multiple tracks.
      */
-    OSM::Element area() const;
+    [[nodiscard]] OSM::Element area() const;
     void setArea(OSM::Element area);
 
     /** The (railway) track this platform is serving. */
-    const std::vector<OSM::Element>& track() const;
+    [[nodiscard]] const std::vector<OSM::Element>& track() const;
     void setTrack(std::vector<OSM::Element> &&track);
     std::vector<OSM::Element>&& takeTrack();
 
     /** Platform sections. */
-    const std::vector<PlatformSection>& sections() const;
+    [[nodiscard]] const std::vector<PlatformSection>& sections() const;
     void setSections(std::vector<PlatformSection> &&sections);
     std::vector<PlatformSection>&& takeSections();
 
@@ -116,15 +116,15 @@ public:
         Bus,
     };
     Q_ENUM(Mode)
-    Mode mode() const;
+    [[nodiscard]] Mode mode() const;
     void setMode(Mode mode);
 
     /** IFOPT identifier */
-    QString ifopt() const;
+    [[nodiscard]] QString ifopt() const;
     void setIfopt(const QString &ifopt);
 
     /** Names of public transport lines stopping at this platform. */
-    QStringList lines() const;
+    [[nodiscard]] QStringList lines() const;
     void setLines(QStringList &&lines);
     QStringList&& takeLines();
 
@@ -139,6 +139,7 @@ public:
     static QString preferredName(const QString &lhs, const QString &rhs);
 
 private:
+    [[nodiscard]] QPointF positionPoint() const;
     friend class PlatformPrivate;
     QExplicitlySharedDataPointer<PlatformPrivate> d;
 };
