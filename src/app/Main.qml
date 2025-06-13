@@ -207,69 +207,10 @@ Kirigami.ApplicationWindow {
             mapData: page.map.mapData
         }
 
-        Component {
-            id: platformDelegate
-            QQC2.ItemDelegate {
-                property var platform: model
-                width: ListView.view.width
-                contentItem: Row {
-                    QQC2.Label { text: platform.lines.length == 0 ? platform.display : (platform.display + " - "); }
-                    Repeater {
-                        model: platform.lines
-                        delegate: Row {
-                            PublicTransport.TransportIcon {
-                                id: icon
-                                iconHeight: Kirigami.Units.iconSizes.small
-                                visible: source != ""
-                                source: {
-                                    switch (platform.mode) {
-                                        case Platform.Rail:
-                                            return PublicTransport.LineMetaData.lookup(modelData, platform.coordinate.y, platform.coordinate.x, PublicTransport.Line.Train, true).logo;
-                                        case Platform.Tram:
-                                            return PublicTransport.LineMetaData.lookup(modelData, platform.coordinate.y, platform.coordinate.x, PublicTransport.Line.Tramway, true).logo;
-                                        case Platform.Subway:
-                                            return PublicTransport.LineMetaData.lookup(modelData, platform.coordinate.y, platform.coordinate.x, PublicTransport.Line.Metro, true).logo;
-                                    }
-                                    return "";
-                                }
-                            }
-                            QQC2.Label {
-                                text: modelData + " "
-                                visible: icon.source == ""
-                            }
-                        }
-                    }
-                }
-                highlighted: false
-                onClicked: {
-                    page.map.view.centerOn(model.coordinate, model.level, 19);
-                    platformSheet.close()
-                }
-            }
-        }
-
-        Kirigami.Dialog {
+        PlatformDialog {
             id: platformSheet
-
-            title: i18nc("@title", "Find Platform")
-
-            width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
-            height: Math.min(applicationWindow().height, Kirigami.Units.gridUnit * 32)
-
-            contentItem: ListView {
-                model: platformModel
-                clip: true
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 25
-
-                section.property: "mode"
-                section.delegate: Kirigami.ListSectionHeader {
-                    text: PlatformUtil.modeName(parseInt(section))
-                    width: ListView.view.width
-                }
-                section.criteria: ViewSection.FullString
-
-                delegate: platformDelegate
-            }
+            model: platformModel
+            onPlatformSelected: (platform) => { page.map.view.centerOn(platform.position, platform.level, 19); }
         }
 
         GateModel {
