@@ -1,0 +1,140 @@
+1
+  position: 1381748153 1963338769
+  stop point: n2213645030
+  edge: w302822087
+  area: r5466580
+  track: [w251901743 w903942469 ]
+  level: 0
+  mode: Rail
+  lines: S80
+2
+  position: 1381747126 1963339201
+  stop point: n1832184777
+  edge: w491649433
+  area: r5466580
+  track: [w596235399 w627408394 ]
+  level: 0
+  mode: Rail
+  lines: CJX9|REX1|REX3|S|S1|S2|S3|S4
+3
+  position: 1381746684 1963339387
+  stop point: n3070567741
+  edge: w491649432
+  area: r5466581
+  track: [w241569240 w627408393 ]
+  level: 0
+  mode: Rail
+  lines: CJX9|REX1|REX3|S|S2|S3|S4
+4
+  position: 1381745529 1963339872
+  stop point: n2094111998
+  edge: w302822106
+  area: r5466581
+  track: [w241569245 w627408295 ]
+  level: 0
+  mode: Rail
+  lines: NJ 457|RJ|S1|S80
+5
+  position: 1381745117 1963340045
+  stop point: n2213645024
+  edge: w51113353
+  area: r5466582
+  track: [w256196248 w547510554 ]
+  level: 0
+  mode: Rail
+  lines: EN 462|EN 40462|ICE 91|RJ|RJ90
+6
+  position: 1381743974 1963340527
+  stop point: n78346237
+  edge: w491649431
+  area: r5466582
+  track: [w547510555 w627408391 ]
+  level: 0
+  mode: Rail
+  lines: EC 150|EN 463|EN 40467|ICE 90|ICE 91|NJ 491|NJ 40421|RJ
+7
+  position: 1381743569 1963340696
+  stop point: n2375417330
+  edge: w302822102
+  area: r5466583
+  track: [w547510556 w627408173 ]
+  level: 0
+  mode: Rail
+  lines: REX6|S60
+8
+  position: 1381742424 1963341178
+  stop point: n2213645021
+  edge: w491649434
+  area: r5466583
+  track: [w547510557 w1305076603 ]
+  level: 0
+  mode: Rail
+  lines: REX6|S60
+1
+  position: 1381735244 1963315171
+  stop point: n2211901255
+  edge: n2211901255
+  area: r5466475
+  track: w9037608
+  level: -20
+  mode: Subway
+2
+  position: 1381735402 1963313111
+  stop point: n61688573
+  edge: n61688573
+  area: r5466475
+  track: w367444287
+  level: -20
+  mode: Subway
+B
+  position: 1381744887 1963309718
+  stop point: <null>
+  edge: <null>
+  area: w235162810
+  track: []
+  level: 0
+  mode: Tram
+B
+  position: 1381752810 1963348134
+  stop point: n1791331052
+  edge: n1791331052
+  area: w235162429
+  track: w51357331
+  level: 0
+  mode: Tram
+  lines: 62|WLB
+C
+  position: 1381744728 1963311036
+  stop point: n2208558408
+  edge: n2208558408
+  area: w235158827
+  track: w210832857
+  level: 0
+  mode: Tram
+  lines: 62|WLB
+Murlingengasse
+  position: 1381762661 1963360028
+  stop point: n2432439485
+  edge: n2432439485
+  area: w263515369
+  track: w235160909
+  level: 0
+  mode: Tram
+Schedifkaplatz
+  position: 1381732811 1963306048
+  stop point: n1378094307
+  edge: n1378094307
+  area: n1378094307
+  track: w141698485
+  level: 0
+  mode: Tram
+  lines: WLB
+Schedifkaplatz
+  position: 1381732552 1963305873
+  stop point: n1630528245
+  edge: n1630528245
+  area: n1630528245
+  track: w27990136
+  level: 0
+  mode: Tram
+  lines: WLB

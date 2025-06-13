@@ -267,9 +267,9 @@ struct {
     Platform::Mode mode;
 } static constexpr const mode_map[] = {
     { "rail", Platform::Rail },
-    { "light_rail", Platform::Rail }, // TODO consumer code can't handle LightRail yet
     { "subway", Platform::Subway },
     { "tram", Platform::Tram },
+    { "light_rail", Platform::Rail }, // TODO consumer code can't handle LightRail yet
     { "monorail", Platform::Tram }, // TODO consumer code can't handle Monorail yet
     { "bus", Platform::Bus },
 };
@@ -277,6 +277,10 @@ struct {
 Platform::Mode PlatformFinder::modeForElement(OSM::Element elem) const
 {
     const auto railway = elem.tagValue(m_tagKeys.railway);
+    if (railway == "tram_stop") {
+        return Platform::Tram;
+    }
+
     for (const auto &mode : mode_map) {
         const auto modeTag = elem.tagValue(mode.name);
         if (railway == mode.name || (!modeTag.isEmpty() && modeTag != "no")) {

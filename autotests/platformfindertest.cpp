@@ -85,6 +85,8 @@ private Q_SLOTS:
         QTest::newRow("hamburg-central") << (SOURCE_DIR "/data/platforms/hamburg-central.osm") << (SOURCE_DIR "/data/platforms/hamburg-central.platforms");
         // free-floating standard-compliant section markers
         QTest::newRow("aachen-central") << (SOURCE_DIR "/data/platforms/aachen-central.osm") << (SOURCE_DIR "/data/platforms/aachen-central.platforms");
+        // alternative tram tagging
+        QTest::newRow("wien-meidling") << (SOURCE_DIR "/data/platforms/wien-meidling.osm") << (SOURCE_DIR "/data/platforms/wien-meidling.platforms");
     }
 
     void testPlatformFinder()
