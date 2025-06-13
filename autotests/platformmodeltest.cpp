@@ -12,6 +12,7 @@
 #include <QAbstractItemModelTester>
 #include <QSignalSpy>
 
+using namespace Qt::Literals;
 using namespace KOSMIndoorMap;
 
 class PlatformModelTest : public QObject
@@ -94,6 +95,21 @@ private Q_SLOTS:
             QVERIFY(secElem.type() != OSM::Type::Null);
             QCOMPARE(secElem.tagValue("mx:arrival"), i >= 3 ? "1" : "0");
         }
+
+        // prefix stripping
+        p.setName(QStringLiteral("Pl. 5"));
+        model.setArrivalPlatform(p);
+        p.setName(QStringLiteral("Gl. 10 A-E"));
+        model.setDeparturePlatform(p);
+        QVERIFY(platformChangeSpy.wait());
+        QVERIFY(model.departurePlatformRow() >= 0);
+        idx = model.index(model.departurePlatformRow(), 0);
+        QVERIFY(idx.isValid());
+        QCOMPARE(idx.data(Qt::DisplayRole).toString(), "10"_L1);
+        QVERIFY(model.arrivalPlatformRow() >= 0);
+        idx = model.index(model.arrivalPlatformRow(), 0);
+        QVERIFY(idx.isValid());
+        QCOMPARE(idx.data(Qt::DisplayRole).toString(), "5"_L1);
 
         // non-matching platforms
         p.setName(QStringLiteral("13"));

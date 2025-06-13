@@ -12,6 +12,7 @@
 
 #include <limits>
 
+using namespace Qt::Literals;
 using namespace KOSMIndoorMap;
 
 static constexpr auto TOP_PARENT = std::numeric_limits<quintptr>::max();
@@ -232,14 +233,14 @@ void PlatformModel::matchPlatforms()
 
 static bool isPossiblySamePlatformName(const QString &name, const QString &platform)
 {
-    // <platform>\w?<section(s)>
+    // <platform>\s?<section(s)>
     if (name.size() > platform.size()) {
         QRegularExpression exp(QStringLiteral("(\\d+)\\s?[A-Z-]+"));
         const auto match = exp.match(name);
         return match.hasMatch() && match.captured(1) == platform;
     }
 
-    return false;
+    return name == platform;
 }
 
 int PlatformModel::matchPlatform(const Platform &platform) const
@@ -269,9 +270,18 @@ int PlatformModel::matchPlatform(const Platform &platform) const
     // fuzzy match
     // TODO this likely will need to handle more scenarios
     // TODO when we get section ranges here, we might want to use those as well?
+
+    // strip off leading abbreviation for "platform" or "track"
+    auto name = platform.name();
+    if (const auto idx = name.indexOf(". "_L1); idx > 0 && idx < name.size() - 2) {
+        if (std::all_of(name.cbegin(), name.cbegin() + idx, [](QChar c) { return c.isLetter(); }) && name[idx + 2].isDigit()) {
+            name = name.mid(idx + 2);
+        }
+    }
+
     i = 0;
     for (const auto &p : m_platforms) {
-        if (p.mode() == platform.mode() && isPossiblySamePlatformName(platform.name(), p.name())) {
+        if (p.mode() == platform.mode() && isPossiblySamePlatformName(name, p.name())) {
             return i;
         }
         ++i;
