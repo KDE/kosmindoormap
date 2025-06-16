@@ -59,6 +59,8 @@ class MapDataPrivate;
 class KOSMINDOORMAP_EXPORT MapData
 {
     Q_GADGET
+    Q_PROPERTY(bool isEmpty READ isEmpty)
+
     /** Center position of the bounding box for QML usage (longitude/latitude, in degree). */
     Q_PROPERTY(QPointF center READ center)
     /** Radius from the bounding box center encompassing the entire bounding box, in meters.
