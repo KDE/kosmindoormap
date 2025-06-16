@@ -281,7 +281,7 @@ static bool isPlausibleLevelName(const QByteArray &s)
     return !s.isEmpty() && !s.contains(';');
 }
 
-QString MapData::levelName(OSM::Element e)
+QString MapData::levelName(OSM::Element e) const
 {
     const auto n = e.tagValue(d->m_levelRefTag);
     if (isPlausibleLevelName(n)) {

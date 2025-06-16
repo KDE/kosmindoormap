@@ -30,19 +30,19 @@ public:
     explicit MapLevel(int level = 0);
     ~MapLevel();
 
-    bool operator<(const MapLevel &other) const;
-    bool operator==(const MapLevel &other) const;
+    [[nodiscard]] bool operator<(const MapLevel &other) const;
+    [[nodiscard]] bool operator==(const MapLevel &other) const;
 
-    bool hasName() const;
-    QString name() const;
+    [[nodiscard]] bool hasName() const;
+    [[nodiscard]] QString name() const;
     void setName(const QString &name);
 
-    bool isFullLevel() const;
+    [[nodiscard]] bool isFullLevel() const;
     /** In case this is not a full level, this returns the numeric values of the full levels above/below. */
-    int fullLevelBelow() const;
-    int fullLevelAbove() const;
+    [[nodiscard]] int fullLevelBelow() const;
+    [[nodiscard]] int fullLevelAbove() const;
 
-    int numericLevel() const;
+    [[nodiscard]] int numericLevel() const;
 
 private:
     int m_level = 0;
@@ -77,36 +77,36 @@ public:
     MapData& operator=(const MapData&);
     MapData& operator=(MapData&&);
 
-    bool isEmpty() const;
-    bool operator==(const MapData &other) const;
+    [[nodiscard]] bool isEmpty() const;
+    [[nodiscard]] bool operator==(const MapData &other) const;
 
-    const OSM::DataSet& dataSet() const;
-    OSM::DataSet& dataSet();
+    [[nodiscard]] const OSM::DataSet& dataSet() const;
+    [[nodiscard]] OSM::DataSet& dataSet();
     void setDataSet(OSM::DataSet &&dataSet);
 
-    OSM::BoundingBox boundingBox() const;
+    [[nodiscard]] OSM::BoundingBox boundingBox() const;
     void setBoundingBox(OSM::BoundingBox bbox);
 
-    const std::map<MapLevel, std::vector<OSM::Element>>& levelMap() const;
+    [[nodiscard]] const std::map<MapLevel, std::vector<OSM::Element>>& levelMap() const;
 
-    QPointF center() const;
-    float radius() const;
+    [[nodiscard]] QPointF center() const;
+    [[nodiscard]] float radius() const;
 
     /** ISO 3166-1/2 region or country code of the area covered by this map data. */
-    QString regionCode() const;
+    [[nodiscard]] QString regionCode() const;
     void setRegionCode(const QString &regionCode);
 
     /** Timezone the are covered by this map data is in. */
-    QTimeZone timeZone() const;
+    [[nodiscard]] QTimeZone timeZone() const;
     void setTimeZone(const QTimeZone &tz);
 
 private:
     void processElements();
     void addElement(int level, OSM::Element e, bool isDependentElement);
-    QString levelName(OSM::Element e);
+    [[nodiscard]] QString levelName(OSM::Element e) const;
     void filterLevels();
 
-    QString timeZoneId() const;
+    [[nodiscard]] QString timeZoneId() const;
 
     std::shared_ptr<MapDataPrivate> d;
 };
