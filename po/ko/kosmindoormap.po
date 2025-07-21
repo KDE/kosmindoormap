@@ -1,6 +1,6 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 #
 # https://translatewiki.net/wiki/Translating:OpenStreetMap 한국어 번역 참조.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:41+0000\n"
-"PO-Revision-Date: 2024-08-19 23:52+0200\n"
+"PO-Revision-Date: 2025-07-21 01:11+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: app/main.cpp:70
 #, kde-format
@@ -2229,37 +2229,37 @@ msgstr "음각 문자"
 #, kde-format
 msgctxt "mode of transport"
 msgid "Railway"
-msgstr ""
+msgstr "철도"
 
 #: map-quick/platformutil.cpp:16
 #, kde-format
 msgctxt "mode of transport"
 msgid "Light Rail"
-msgstr ""
+msgstr "경전철"
 
 #: map-quick/platformutil.cpp:17
 #, kde-format
 msgctxt "mode of transport"
 msgid "Subway"
-msgstr ""
+msgstr "도시 철도"
 
 #: map-quick/platformutil.cpp:18
 #, kde-format
 msgctxt "mode of transport"
 msgid "Tram"
-msgstr ""
+msgstr "노면 전차"
 
 #: map-quick/platformutil.cpp:19
 #, kde-format
 msgctxt "mode of transport"
 msgid "Monorail"
-msgstr ""
+msgstr "모노레일"
 
 #: map-quick/platformutil.cpp:20
 #, kde-format
 msgctxt "mode of transport"
 msgid "Bus"
-msgstr ""
+msgstr "버스"
 
 #: map-quick/roommodel.cpp:129
 #, kde-format
