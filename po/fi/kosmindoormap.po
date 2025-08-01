@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:41+0000\n"
-"PO-Revision-Date: 2024-10-28 21:18+0200\n"
+"PO-Revision-Date: 2025-07-20 11:17+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -778,12 +778,12 @@ msgstr "Optikko"
 #: map-quick/localization_data.cpp:169
 msgctxt "OSM::healthcare"
 msgid "Optometrist"
-msgstr ""
+msgstr "Optikko"
 
 #: map-quick/localization_data.cpp:170
 msgctxt "OSM::amenity/shop"
 msgid "Outdoor"
-msgstr ""
+msgstr "Ulkoilmamyymälä"
 
 #: map-quick/localization_data.cpp:171
 msgctxt "OSM::amenity/shop"
@@ -862,7 +862,7 @@ msgstr "Postitoimisto"
 #: map-quick/localization_data.cpp:186
 msgctxt "OSM::shop"
 msgid "Potery"
-msgstr ""
+msgstr "Keramiikka"
 
 #: map-quick/localization_data.cpp:187
 msgctxt "OSM::healthcare"
@@ -982,7 +982,7 @@ msgstr "Urheiluhalli"
 #: map-quick/localization_data.cpp:210
 msgctxt "OSM::amenity/shop"
 msgid "Stationery"
-msgstr ""
+msgstr "Paperikauppa"
 
 #: map-quick/localization_data.cpp:211
 msgctxt "OSM::amenity/shop"
@@ -1017,7 +1017,7 @@ msgstr "Tee"
 #: map-quick/localization_data.cpp:217
 msgctxt "OSM::shop"
 msgid "Telecommunication"
-msgstr ""
+msgstr "Puhelinmyymälä"
 
 #: map-quick/localization_data.cpp:218
 msgctxt "OSM::room"
@@ -1108,12 +1108,12 @@ msgstr "Jäteastia"
 #: map-quick/localization_data.cpp:240
 msgctxt "OSM::shop"
 msgid "Watches"
-msgstr ""
+msgstr "Kellokauppa"
 
 #: map-quick/localization_data.cpp:241
 msgctxt "OSM::vending"
 msgid "Water"
-msgstr ""
+msgstr "Vettä"
 
 #: map-quick/localization_data.cpp:242
 msgctxt "OSM::amenity/shop"
@@ -1163,13 +1163,13 @@ msgstr ""
 #: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
 msgid "Balkan"
-msgstr ""
+msgstr "Balkanilainen"
 
 #: map-quick/localization_data.cpp:257 map-quick/localization_data.cpp:258
 #: map-quick/localization_data.cpp:260
 msgctxt "OSM::cuisine"
 msgid "Barbecue"
-msgstr ""
+msgstr "Grilliruoka"
 
 #: map-quick/localization_data.cpp:259
 msgctxt "OSM::cuisine"
@@ -1179,7 +1179,7 @@ msgstr "Baijerilainen"
 #: map-quick/localization_data.cpp:261
 msgctxt "OSM::cuisine"
 msgid "Beef Bowl"
-msgstr ""
+msgstr "Lihakulho"
 
 #: map-quick/localization_data.cpp:262
 msgctxt "OSM::cuisine"
@@ -1491,10 +1491,11 @@ msgctxt "OSM::cuisine"
 msgid "Peruvian"
 msgstr "Perulainen"
 
+# Wikipedia: ”Poke on havaijilainen ruokalaji, jota syödään yleensä alkupalana tai pääruokana.” Voisi kai jättää kääntämättä, jos poke alkaa tulla tunnetuksi Suomessa.
 #: map-quick/localization_data.cpp:328
 msgctxt "OSM::cuisine"
 msgid "Poke"
-msgstr ""
+msgstr "Havaijilainen"
 
 #: map-quick/localization_data.cpp:329
 msgctxt "OSM::cuisine"
@@ -1720,7 +1721,7 @@ msgstr "Reitit"
 #: map-quick/osmelementinformationmodel.cpp:595
 #, kde-format
 msgid "Cuisine"
-msgstr ""
+msgstr "Ruokaravintola"
 
 #: map-quick/osmelementinformationmodel.cpp:596
 #, kde-format
@@ -1861,12 +1862,12 @@ msgstr "Yleisavain"
 #: map-quick/osmelementinformationmodel.cpp:625
 #, kde-format
 msgid "Speech output"
-msgstr ""
+msgstr "Puhesynteesi"
 
 #: map-quick/osmelementinformationmodel.cpp:626
 #, kde-format
 msgid "Tactile writing"
-msgstr ""
+msgstr "Pistekirjoitus"
 
 #: map-quick/osmelementinformationmodel.cpp:628
 #, kde-format
@@ -2228,42 +2229,42 @@ msgstr ""
 #, kde-format
 msgctxt "mode of transport"
 msgid "Railway"
-msgstr ""
+msgstr "Rautatie"
 
 #: map-quick/platformutil.cpp:16
 #, kde-format
 msgctxt "mode of transport"
 msgid "Light Rail"
-msgstr ""
+msgstr "Raitiotie"
 
 #: map-quick/platformutil.cpp:17
 #, kde-format
 msgctxt "mode of transport"
 msgid "Subway"
-msgstr ""
+msgstr "Metro"
 
 #: map-quick/platformutil.cpp:18
 #, kde-format
 msgctxt "mode of transport"
 msgid "Tram"
-msgstr ""
+msgstr "Raitiovaunu"
 
 #: map-quick/platformutil.cpp:19
 #, kde-format
 msgctxt "mode of transport"
 msgid "Monorail"
-msgstr ""
+msgstr "Yksiraiteinen rautatie"
 
 #: map-quick/platformutil.cpp:20
 #, kde-format
 msgctxt "mode of transport"
 msgid "Bus"
-msgstr ""
+msgstr "Linja-auto"
 
 #: map-quick/roommodel.cpp:129
 #, kde-format
 msgid "Ground floor"
-msgstr ""
+msgstr "Pohjakerros"
 
 #: map-quick/roommodel.cpp:131
 #, kde-format
