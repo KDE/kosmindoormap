@@ -112,7 +112,7 @@ msgstr "عمل فنّي"
 #: map-quick/localization_data.cpp:28
 msgctxt "OSM::amenity/shop"
 msgid "ATM"
-msgstr "آلة الصرف الآلي"
+msgstr "آلة الصرف الآليّ"
 
 #: map-quick/localization_data.cpp:29
 msgctxt "OSM::amenity/shop"
@@ -327,7 +327,7 @@ msgstr "حاسوب"
 #: map-quick/localization_data.cpp:72
 msgctxt "OSM::room"
 msgid "Computer Lab"
-msgstr "مختبر حاسب آلي"
+msgstr "مختبر حاسب آليّ"
 
 #: map-quick/localization_data.cpp:73
 msgctxt "OSM::amenity/shop"
