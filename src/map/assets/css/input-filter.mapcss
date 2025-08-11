@@ -12,6 +12,7 @@
 
 // nodes on their own aren't enough to produce a meaningful level
 node { opacity: 0.5; }
+node[amenity] { opacity: 1.0; }
 // just (underground) railway lines doesn't help either
 way[railway] { opacity: 0.5; }
 way[railway=platform] { opacity: 1.0; }
