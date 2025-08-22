@@ -3,6 +3,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import org.kde.kirigami as Kirigami
 import org.kde.kosmindoormap
@@ -28,16 +30,17 @@ Kirigami.SearchDialog {
 
     delegate: AmenityListDelegate {
         id: item
-        required property QtObject model
+        required property osmElement element
+        required property int level
         onClicked: {
-            root.amenitySelected({ element: item.model.element, level: item.model.level });
+            root.amenitySelected({ element: item.element, level: item.level });
             root.accept();
         }
 
         Keys.onPressed: (event) => {
             if (event.key === Qt.Key_Enter || event.key == Qt.Key_Return) {
                 event.accepted = true;
-                root.amenitySelected({ element: item.model.element, level: item.model.level });
+                root.amenitySelected({ element: item.element, level: item.level });
                 root.accept();
             }
         }
@@ -46,6 +49,7 @@ Kirigami.SearchDialog {
     section {
         property: "groupName"
         delegate: Kirigami.ListSectionHeader {
+            required property string section
             text: section
             width: ListView.view.width
         }
