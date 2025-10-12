@@ -1096,6 +1096,7 @@ node|z19- [amenity=drinking_water]
 
 /** Stairwells */
 area|z20-[indoor=area][stairs=yes],
+area|z20-[indoor=corridor][stairs=yes],
 area|z20-[indoor=room][stairs=yes]
 {
     icon-image: "stairs";
