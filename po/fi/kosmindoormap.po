@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 00:41+0000\n"
-"PO-Revision-Date: 2025-07-20 11:17+0300\n"
+"PO-Revision-Date: 2025-10-17 12:08+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: app/main.cpp:70
 #, kde-format
@@ -954,10 +954,11 @@ msgctxt "OSM::amenity"
 msgid "Shower"
 msgstr "Suihkutila"
 
+# Tälle ei taida olla mitään virallista suomennosta: sanan pitäisi kattaa huumeklinikat, kodittomien majoitus, vammaisten työpajat ja mahdollisesti jopa päiväkodit!
 #: map-quick/localization_data.cpp:205
 msgctxt "OSM::amenity/shop"
 msgid "Social Facility"
-msgstr ""
+msgstr "Sosiaalipalvelu"
 
 #: map-quick/localization_data.cpp:206
 msgctxt "OSM::amenity/shop"
@@ -1072,7 +1073,7 @@ msgstr "Yliopisto"
 #: map-quick/localization_data.cpp:231
 msgctxt "OSM::amenity/shop"
 msgid "Variety Store"
-msgstr ""
+msgstr "Halpakauppa"
 
 #: map-quick/localization_data.cpp:232
 msgctxt "OSM::amenity"
@@ -1158,7 +1159,7 @@ msgstr "Itävaltalainen"
 #: map-quick/localization_data.cpp:255
 msgctxt "OSM::cuisine"
 msgid "Bagel"
-msgstr ""
+msgstr "Bageleita"
 
 #: map-quick/localization_data.cpp:256
 msgctxt "OSM::cuisine"
@@ -2148,7 +2149,7 @@ msgstr "lokerikot"
 #: map-quick/osmelementinformationmodel_data.cpp:114
 msgctxt "OSM::bicycle_parking"
 msgid "racks"
-msgstr ""
+msgstr "seinätelineet"
 
 #: map-quick/osmelementinformationmodel_data.cpp:115
 msgctxt "OSM::bicycle_parking"
@@ -2158,17 +2159,17 @@ msgstr "vaja"
 #: map-quick/osmelementinformationmodel_data.cpp:116
 msgctxt "OSM::bicycle_parking"
 msgid "stands"
-msgstr ""
+msgstr "telineet"
 
 #: map-quick/osmelementinformationmodel_data.cpp:117
 msgctxt "OSM::bicycle_parking"
 msgid "wall loops"
-msgstr ""
+msgstr "seinäsilmukat"
 
 #: map-quick/osmelementinformationmodel_data.cpp:118
 msgctxt "OSM::bicycle_parking"
 msgid "wide stands"
-msgstr ""
+msgstr "leveät telineet"
 
 #: map-quick/osmelementinformationmodel_data.cpp:125
 #, kde-format
@@ -2218,12 +2219,12 @@ msgstr "pistekirjoitus"
 #: map-quick/osmelementinformationmodel_data.cpp:138
 msgctxt "tactile writing"
 msgid "embossed printed letters"
-msgstr ""
+msgstr "kohokuvioidut painetut kirjeet"
 
 #: map-quick/osmelementinformationmodel_data.cpp:139
 msgctxt "tactile writing"
 msgid "engraved printed letters"
-msgstr ""
+msgstr "kaiverretut painetut kirjeet"
 
 #: map-quick/platformutil.cpp:15
 #, kde-format
