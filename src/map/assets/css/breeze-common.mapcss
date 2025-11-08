@@ -729,17 +729,20 @@ node|z20-[vending=public_transport_tickets] {
 }
 
 // vehicle rental stations
-*|z18-[amenity=bicycle_rental] {
+*|z18-[amenity=bicycle_rental],
+*|z18-[amenity=car_rental] {
     icon-color: #3daee9;
     icon-image: amenity;
     text: ""; // suppress generic names messing up the layouting when we have realtime data (see below)
 }
-*|z18-[amenity=bicycle_rental][mx:realtime_available=0] {
+*|z18-[amenity=bicycle_rental][mx:realtime_available=0],
+*|z18-[amenity=car_rental][mx:realtime_available=0] {
     icon-color: #da4453;
     text: mx:realtime_available;
     text-color: #da4453;
 }
-*|z18-[amenity=bicycle_rental][mx:realtime_available>0] {
+*|z18-[amenity=bicycle_rental][mx:realtime_available>0],
+*|z18-[amenity=car_rental][mx:realtime_available>0] {
     icon-color: #27ae60;
     text: mx:realtime_available;
     text-color: #27ae60;
@@ -773,7 +776,6 @@ node|z19-[amenity=charging_station][access=private] { icon-color: #7f8c8d; }
 // other transportation-related elements
 *|z19-[amenity=boat_rental],
 *|z19-[amenity=bicycle_repair_station],
-*|z19-[amenity=car_rental],
 *|z19-[amenity=car_sharing],
 *|z18-[amenity=taxi]
 {
