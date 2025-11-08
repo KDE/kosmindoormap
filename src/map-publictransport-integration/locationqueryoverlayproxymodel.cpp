@@ -13,6 +13,8 @@
 #include <osm/element.h>
 #include <osm/geomath.h>
 
+#include <QMetaEnum>
+
 using namespace KOSMIndoorMap;
 using namespace KPublicTransport;
 
@@ -179,6 +181,26 @@ static void setTagIfMissing(OSM::Node &node, OSM::TagKey tag, const QString &val
     }
 }
 
+static void setAmenityTypeForVehicle(KPublicTransport::RentalVehicle::VehicleType vehicleType, OSM::TagKey key, OSM::Node &node)
+{
+    switch (vehicleType) {
+        case RentalVehicle::Unknown:
+        case RentalVehicle::Bicycle:
+        case RentalVehicle::Pedelec:
+            OSM::setTagValue(node, key, "bicycle_rental");
+            break;
+        case RentalVehicle::ElectricKickScooter:
+            OSM::setTagValue(node, key, "scooter_rental");
+            break;
+        case RentalVehicle::ElectricMoped:
+            OSM::setTagValue(node, key, "motorcycle_rental");
+            break;
+        case RentalVehicle::Car:
+            OSM::setTagValue(node, key, "car_rental");
+            break;
+    }
+}
+
 LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(int row) const
 {
     const auto idx = m_sourceModel->index(row, 0);
@@ -188,6 +210,7 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
     info.overlayNode.coordinate = OSM::Coordinate(loc.latitude(), loc.longitude());
 
     switch (loc.type()) {
+        case Location::Address:
         case Location::Place:
         case Location::Stop:
         case Location::CarpoolPickupDropoff:
@@ -209,7 +232,18 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
             }
 
             info.overlayNode.id = m_data.dataSet().nextInternalId();
-            OSM::setTagValue(info.overlayNode, m_tagKeys.amenity, "bicycle_rental");
+            const auto vehicleTypes = station.supportedVehicleTypes();
+            const auto me = QMetaEnum::fromType<KPublicTransport::RentalVehicle::VehicleType>();
+            for (auto i = 0; i < me.keyCount(); ++i) {
+                if (me.value(i) == 0) {
+                    continue;
+                }
+                if (me.value(i) & vehicleTypes) {
+                    setAmenityTypeForVehicle(static_cast<KPublicTransport::RentalVehicle::VehicleType>(me.value(i)), m_tagKeys.amenity, info.overlayNode);
+                    break;
+                }
+            }
+
             if (station.capacity() >= 0) {
                 OSM::setTagValue(info.overlayNode, m_tagKeys.capacity, QByteArray::number(station.capacity()));
             }
@@ -236,22 +270,7 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
 
             // free floating vehicles have no matching OSM element, so no point in searching for one
             info.overlayNode.id = m_data.dataSet().nextInternalId();
-            switch (vehicle.type()) {
-                case RentalVehicle::Unknown:
-                case RentalVehicle::Bicycle:
-                case RentalVehicle::Pedelec:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.vehicle, "bicycle_rental");
-                    break;
-                case RentalVehicle::ElectricKickScooter:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.vehicle, "scooter_rental");
-                    break;
-                case RentalVehicle::ElectricMoped:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.vehicle, "motorcycle_rental");
-                    break;
-                case RentalVehicle::Car:
-                    OSM::setTagValue(info.overlayNode, m_tagKeys.vehicle, "car_rental");
-                    break;
-            }
+            setAmenityTypeForVehicle(vehicle.type(), m_tagKeys.vehicle, info.overlayNode);
             OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
             setTagIfMissing(info.overlayNode, m_tagKeys.network, vehicle.network().name());
             if (vehicle.remainingRange() >= 0) {
