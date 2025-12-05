@@ -23,3 +23,8 @@ if (TARGET KOSMIndoorRouting)
     add_executable(navmesh-dump navmesh-dump.cpp)
     target_link_libraries(navmesh-dump KOSMIndoorRouting)
 endif()
+
+if (NOT BUILD_TOOLS_ONLY)
+    add_executable(reverse-geocode reverse-geocode.cpp)
+    target_link_libraries(reverse-geocode KOSMIndoorMap)
+endif()

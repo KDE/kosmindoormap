@@ -43,6 +43,8 @@ if (NOT BUILD_TOOLS_ONLY)
         content/platformfinder.cpp
         content/platformmodel.cpp
 
+        loader/reversegeocodingjob.cpp
+
         renderer/hitdetector.cpp
         renderer/painterrenderer.cpp
         renderer/stackblur.cpp
@@ -136,6 +138,7 @@ ecm_generate_headers(KOSMIndoorMap_Loader_FORWARDING_HEADERS
     HEADER_NAMES
         MapLoader
         MapData
+        ReverseGeocodingJob
     PREFIX KOSMIndoorMap
     REQUIRED_HEADERS KOSMIndoorMap_Loader_HEADERS
     RELATIVE loader
