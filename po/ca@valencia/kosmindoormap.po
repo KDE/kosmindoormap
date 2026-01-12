@@ -1354,7 +1354,7 @@ msgstr "Grega"
 #: map-quick/localization_data.cpp:295
 msgctxt "OSM::cuisine"
 msgid "Grill"
-msgstr "Graella"
+msgstr "Quadrícula"
 
 #: map-quick/localization_data.cpp:296
 msgctxt "OSM::cuisine"
