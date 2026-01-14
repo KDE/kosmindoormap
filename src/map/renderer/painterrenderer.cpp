@@ -33,6 +33,10 @@ void PainterRenderer::setPainter(QPainter *painter)
 
 void PainterRenderer::render(const SceneGraph &sg, View *view)
 {
+    if (view->viewport().isNull()) {
+        return;
+    }
+
     QElapsedTimer frameTimer;
     frameTimer.start();
 
