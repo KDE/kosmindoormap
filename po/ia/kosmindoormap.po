@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kosmindoormap package.
 #
-# SPDX-FileCopyrightText: 2024 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2024, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2024-07-22 11:57+0200\n"
+"PO-Revision-Date: 2026-01-22 12:15+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -121,7 +121,7 @@ msgstr "Attraction"
 #: map-quick/localization_data.cpp:30
 msgctxt "OSM::room"
 msgid "Auditorium"
-msgstr ""
+msgstr "Auditorium"
 
 #: map-quick/localization_data.cpp:31
 msgctxt "OSM::shop"
@@ -286,7 +286,7 @@ msgstr "Chocolate"
 #: map-quick/localization_data.cpp:63
 msgctxt "OSM::amenity/shop"
 msgid "Cinema"
-msgstr ""
+msgstr "Cinema"
 
 #: map-quick/localization_data.cpp:64
 msgctxt "OSM::historic"
@@ -456,7 +456,7 @@ msgstr ""
 #: map-quick/localization_data.cpp:100
 msgctxt "OSM::amenity/shop"
 msgid "Fashion"
-msgstr ""
+msgstr "Moda"
 
 #: map-quick/localization_data.cpp:101
 msgctxt "OSM::shop"
@@ -2258,7 +2258,7 @@ msgstr ""
 #, kde-format
 msgctxt "mode of transport"
 msgid "Bus"
-msgstr ""
+msgstr "Bus"
 
 #: map-quick/roommodel.cpp:129
 #, kde-format
