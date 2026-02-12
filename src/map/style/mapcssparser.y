@@ -483,10 +483,12 @@ EvalFunction:
     $$->m_op = MapCSSTerm::parseOperation($F.str, $F.len);
     if ($$->m_op == MapCSSTerm::Unknown) {
         qWarning() << "eval expression with unknown function:" << QByteArrayView($F.str, $F.len);
+        delete($$);
         YYABORT;
     }
     if (!$$->validChildCount()) {
         qWarning() << "wrong number of arguments for function:" << QByteArrayView($F.str, $F.len);
+        delete($$);
         YYABORT;
     }
   }
