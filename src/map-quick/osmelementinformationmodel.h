@@ -28,7 +28,7 @@ class OSMElementInformationModel : public QAbstractListModel
     Q_PROPERTY(QString name READ name NOTIFY elementChanged)
     Q_PROPERTY(QString category READ category NOTIFY elementChanged)
     Q_PROPERTY(bool allowOnlineContent MEMBER m_allowOnlineContent NOTIFY allowOnlineContentChanged)
-    Q_PROPERTY(bool debug MEMBER m_debug)
+    Q_PROPERTY(bool debug MEMBER m_debug NOTIFY debugChanged)
 
 public:
     explicit OSMElementInformationModel(QObject *parent = nullptr);
@@ -130,6 +130,7 @@ public:
 Q_SIGNALS:
     void elementChanged();
     void allowOnlineContentChanged();
+    void debugChanged();
 
 private:
     struct Info;
