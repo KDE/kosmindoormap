@@ -116,21 +116,26 @@ void RouteOverlay::setRoute(const Route &route)
         way.way()->bbox = bbox;
     }
 
+    const auto& [min, max] = std::ranges::minmax(m_routeWayFloorLevels);
+    m_minLevel = min;
+    m_maxLevel = max;
+    qDebug() <<m_minLevel <<m_maxLevel;
+
     Q_EMIT update();
 }
 
 void RouteOverlay::forEach(int floorLevel, const std::function<void(OSM::Element, int)> &func) const
 {
     for (std::size_t i = 0; i < m_routeWays.size(); ++i) {
-        if (floorLevel == m_routeWayFloorLevels[i]) {
+        if (includeLevel(m_routeWayFloorLevels[i], floorLevel)) {
             func(m_routeWays[i], floorLevel);
         }
     }
 
-    if (m_startNode && m_startLevel == floorLevel) {
+    if (m_startNode && includeLevel(m_startLevel, floorLevel)) {
         func(m_startNode, floorLevel);
     }
-    if (m_endNode && m_endLevel == floorLevel) {
+    if (m_endNode && includeLevel(m_endLevel, floorLevel)) {
         func(m_endNode, floorLevel);
     }
 }
@@ -144,6 +149,19 @@ void RouteOverlay::endSwap()
 const std::vector<OSM::Node>* RouteOverlay::transientNodes() const
 {
     return &m_transientNodes;
+}
+
+bool RouteOverlay::includeLevel(int elementLevel, int currentLevel) const
+{
+    switch (m_levelFilterMode) {
+        case CurrentLevel:
+            return elementLevel == currentLevel;
+        case LevelRange:
+            return currentLevel >= m_minLevel && currentLevel <= m_maxLevel;
+        case AllLevels:
+            return true;
+    }
+    return false;
 }
 
 #include "moc_routeoverlay.cpp"

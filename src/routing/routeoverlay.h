@@ -17,6 +17,8 @@ namespace KOSMIndoorRouting {
 class KOSMINDOORROUTING_EXPORT RouteOverlay : public KOSMIndoorMap::AbstractOverlaySource
 {
     Q_OBJECT
+    Q_PROPERTY(LevelFilterMode levelFilterMode MEMBER m_levelFilterMode)
+
 public:
     explicit RouteOverlay(QObject *parent = nullptr);
     ~RouteOverlay();
@@ -27,11 +29,20 @@ public:
     void setEnd(OSM::Coordinate c, int level);
     void setRoute(const Route &route);
 
+    enum LevelFilterMode {
+        CurrentLevel,
+        LevelRange,
+        AllLevels
+    };
+    Q_ENUM(LevelFilterMode)
+
     void forEach(int floorLevel, const std::function<void(OSM::Element, int)> &func) const override;
     void endSwap() override;
     [[nodiscard]] const std::vector<OSM::Node>* transientNodes() const override;
 
 private:
+    [[nodiscard]] bool includeLevel(int elementLevel, int currentLevel) const;
+
     KOSMIndoorMap::MapData m_data;
     OSM::TagKey m_levelKey;
     OSM::TagKey m_mxRouteKey;
@@ -44,10 +55,14 @@ private:
 
     int m_startLevel = 0;
     int m_endLevel = 0;
+    int m_minLevel = 0;
+    int m_maxLevel = 0;
     Route m_route;
 
     std::vector<OSM::UniqueElement> m_gc;
     std::vector<std::vector<OSM::Node>> m_transientNodesGC;
+
+    LevelFilterMode m_levelFilterMode = LevelRange;
 };
 
 }
