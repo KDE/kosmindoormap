@@ -33,6 +33,7 @@ public:
 
 private:
     KOSMIndoorMap::MapData m_data;
+    OSM::TagKey m_levelKey;
     OSM::TagKey m_mxRouteKey;
 
     OSM::UniqueElement m_startNode;

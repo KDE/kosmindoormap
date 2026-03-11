@@ -21,6 +21,7 @@ void RouteOverlay::setMapData(const KOSMIndoorMap::MapData &mapData)
         return;
     }
 
+    m_levelKey = m_data.dataSet().makeTagKey("level");
     m_mxRouteKey = m_data.dataSet().makeTagKey("mx:routing");
     Q_EMIT reset();
 }
@@ -35,6 +36,7 @@ void RouteOverlay::setStart(OSM::Coordinate c, int floorLevel)
         m_startNode.setId(m_data.dataSet().nextInternalId());
         m_startNode.node()->coordinate = c;
         m_startNode.setTagValue(m_mxRouteKey, "start");
+        m_startNode.setTagValue(m_levelKey, QByteArray::number((int)std::round(floorLevel/10)));
         m_startLevel = floorLevel;
     }
     Q_EMIT update();
@@ -50,6 +52,7 @@ void RouteOverlay::setEnd(OSM::Coordinate c, int floorLevel)
         m_endNode.setId(m_data.dataSet().nextInternalId());
         m_endNode.node()->coordinate = c;
         m_endNode.setTagValue(m_mxRouteKey, "end");
+        m_endNode.setTagValue(m_levelKey, QByteArray::number((int)std::round(floorLevel/10)));
         m_endLevel = floorLevel;
     }
     Q_EMIT update();
@@ -84,6 +87,7 @@ void RouteOverlay::setRoute(const Route &route)
             way = OSM::UniqueElement(new OSM::Way);
             way.setId(m_data.dataSet().nextInternalId());
             way.setTagValue(m_mxRouteKey, "route");
+            way.setTagValue(m_levelKey, QByteArray::number((int)std::round(prevLevel/10)));
         }
 
         OSM::Node node;
