@@ -40,6 +40,7 @@ struct {
     MapCSSTerm::Operation op;
 } static constexpr const function_name_map[] = {
     { "KOSM_conditional", MapCSSTerm::KOSM_Conditional },
+    { "KOSM_current_level", MapCSSTerm::KOSM_CurrentLevel },
     { "any", MapCSSTerm::Any },
     { "boolean", MapCSSTerm::BooleanCast },
     { "concat", MapCSSTerm::Concatenate },
@@ -115,6 +116,7 @@ struct {
     { 1, 1 },
     // our own extensions
     { 1, 1 },
+    { 0, 0 },
 };
 
 bool MapCSSTerm::validChildCount() const
@@ -262,6 +264,8 @@ MapCSSValue MapCSSTerm::evaluate(const MapCSSExpressionContext &context) const
             condContext.openingHoursCache = context.state.openingHours;
             return expr.evaluate(condContext);
         }
+        case KOSM_CurrentLevel:
+            return MapCSSValue(std::round(context.state.floorLevel / 10.0));
     }
 
     return {};

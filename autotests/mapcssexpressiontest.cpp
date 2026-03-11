@@ -220,6 +220,8 @@ private Q_SLOTS:
         QTest::newRow("four-arg-cond") << "cond(\"true\", 32, 31, 20)";
 
         QTest::newRow("chained comparators") << "23 < 42 < 100";
+
+        QTest::newRow("non-zero-arg") << "KOSM_current_level(15)";
     }
 
     void testInvalid()

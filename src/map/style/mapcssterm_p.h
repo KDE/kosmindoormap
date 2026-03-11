@@ -77,6 +77,7 @@ public:
 
         // our own extensions
         KOSM_Conditional,
+        KOSM_CurrentLevel,
     };
 
     explicit MapCSSTerm(Operation op = Operation::Unknown);
