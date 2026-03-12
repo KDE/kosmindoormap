@@ -1143,6 +1143,10 @@ line[highway=steps][conveying=reversible]
     casing-linecap: none;
 }
 
+line[mx:routing],
+node[mx:routing] {
+    set mx:route_level=eval(cond(tag('level') < KOSM_current_level(), 'below', cond(tag('level') == KOSM_current_level(), 'current', 'above')));
+}
 node[mx:routing=start]
 {
     icon-image: "circle";
@@ -1160,7 +1164,15 @@ node[mx:routing=end]
 line[mx:routing] {
     width: 3px;
     color: #f67400;
-    opacity: 0.5;
     linecap: round;
     linejoin: round;
+}
+node[mx:routing][mx:route_level!=current] {
+    icon-opacity: 0.3;
+}
+line[mx:routing][mx:route_level!=current] {
+    opacity: 0.3;
+}
+line[mx:routing][mx:route_level=above] {
+    dashes: 10,10;
 }
