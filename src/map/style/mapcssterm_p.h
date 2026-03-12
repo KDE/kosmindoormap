@@ -89,7 +89,7 @@ public:
     }
     ~MapCSSTerm();
 
-    [[nodiscard]] static Operation parseOperation(const char *str, std::size_t len);
+    [[nodiscard]] bool parseOperation(std::string_view str);
 
     /** Check whether the number of sub-terms matches this oepration. */
     [[nodiscard]] bool validChildCount() const;

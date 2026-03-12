@@ -58,15 +58,23 @@ struct {
     { "zmetric", MapCSSTerm::ZMetric },
 };
 
-MapCSSTerm::Operation MapCSSTerm::parseOperation(const char *str, std::size_t len)
+bool MapCSSTerm::parseOperation(std::string_view str)
 {
-    const auto it = std::lower_bound(std::begin(function_name_map), std::end(function_name_map), std::span(str, len), [](const auto &m, const auto &name) {
-        return std::strncmp(m.name, name.data(), name.size()) < 0;
+    m_op = Unknown;
+    const auto it = std::lower_bound(std::begin(function_name_map), std::end(function_name_map), str, [](const auto &m, const auto &name) {
+        return m.name < name;
     });
-    if (it != std::end(function_name_map) && std::strncmp((*it).name, str, len) == 0) {
-        return (*it).op;
+    if (it == std::end(function_name_map) || (*it).name != str) {
+        qWarning() << "eval expression with unknown function:" << str;
+        return false;
     }
-    return Unknown;
+    m_op = (*it).op;
+
+    if (!validChildCount()) {
+        qWarning() << "wrong number of arguments for function:" << str;
+        return false;
+    }
+    return true;
 }
 
 // ### sorted by operation

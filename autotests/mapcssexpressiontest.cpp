@@ -222,6 +222,7 @@ private Q_SLOTS:
         QTest::newRow("chained comparators") << "23 < 42 < 100";
 
         QTest::newRow("non-zero-arg") << "KOSM_current_level(15)";
+        QTest::newRow("function-prefix") << "KOSM_current()";
     }
 
     void testInvalid()

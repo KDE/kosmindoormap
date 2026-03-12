@@ -40,7 +40,7 @@ class MapCSSTerm;
 
 struct StringRef {
     const char *str;
-    int len;
+    std::size_t len;
 };
 
 struct ZoomRange {
@@ -480,28 +480,14 @@ EvalExpression:
 EvalFunction:
   T_IDENT[F] T_LPAREN EvalArguments[A] T_RPAREN {
     $$ = $A;
-    $$->m_op = MapCSSTerm::parseOperation($F.str, $F.len);
-    if ($$->m_op == MapCSSTerm::Unknown) {
-        qWarning() << "eval expression with unknown function:" << QByteArrayView($F.str, $F.len);
-        delete($$);
-        YYABORT;
-    }
-    if (!$$->validChildCount()) {
-        qWarning() << "wrong number of arguments for function:" << QByteArrayView($F.str, $F.len);
+    if (!$$->parseOperation({$F.str, $F.len})) {
         delete($$);
         YYABORT;
     }
   }
 | T_IDENT[F] T_LPAREN T_RPAREN {
     $$ = new MapCSSTerm;
-    $$->m_op = MapCSSTerm::parseOperation($F.str, $F.len);
-    if ($$->m_op == MapCSSTerm::Unknown) {
-        qWarning() << "eval expression with unknown function:" << QByteArrayView($F.str, $F.len);
-        delete($$);
-        YYABORT;
-    }
-    if (!$$->validChildCount()) {
-        qWarning() << "wrong number of arguments for function:" << QByteArrayView($F.str, $F.len);
+    if (!$$->parseOperation({$F.str, $F.len})) {
         delete($$);
         YYABORT;
     }
