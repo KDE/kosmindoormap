@@ -454,6 +454,10 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
             QTriangulatingStroker stroker;
             stroker.process(qtVectorPathForPath(path), pen, {}, {});
             qCDebug(Log) << "L" << elem.url() << stroker.vertexCount() << pen.widthF();
+            float yOffset = 0.0f;
+            if (const auto zIndex = res.declaration(KOSMIndoorMap::MapCSSProperty::ZIndex); zIndex) {
+                yOffset = (float)zIndex->doubleValue();
+            }
 
             for (int i = 0; i < stroker.vertexCount(); i += 2) {
                 auto l = floorLevel;
@@ -467,7 +471,7 @@ void NavMeshBuilderPrivate::processGeometry(OSM::Element elem, int floorLevel, c
                         l = QLineF(poly.at(0), p).length() < QLineF(poly.at(1), p).length() ? l1 : l2;
                     }
                 }
-                addVertex(*(stroker.vertices() + i), m_transform.mapHeightToNav(l), *(stroker.vertices() + i + 1));
+                addVertex(*(stroker.vertices() + i), m_transform.mapHeightToNav(l) + yOffset, *(stroker.vertices() + i + 1));
             }
             for (int i = 0; i < stroker.vertexCount() / 2 - 2; ++i) {
                 // GL_TRIANGLE_STRIP winding order

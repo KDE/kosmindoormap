@@ -179,6 +179,14 @@ node [door][exit=emergency] {
     opacity: 0.0;
 }
 
+// tactile paving
+line[tactile_paving][tactile_paving!=no]
+{
+    set .tactilePaving;
+    width: 2m;
+    z-index: 0.4;
+}
+
 // remove things with restricted access
 area[access=no],
 area[access=private],
