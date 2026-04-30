@@ -76,7 +76,8 @@ int main(int argc, char **argv)
     parser.process(app);
 
     QQmlApplicationEngine engine;
-    engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
+    NetworkAccessManagerFactory namFactory;
+    engine.setNetworkAccessManagerFactory(&namFactory);
     auto l10nContext = new KLocalizedContext(&engine);
     l10nContext->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
     engine.rootContext()->setContextObject(l10nContext);
