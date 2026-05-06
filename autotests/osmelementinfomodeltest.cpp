@@ -17,12 +17,14 @@
 #include <QProcess>
 #include <QTest>
 
+using namespace Qt::Literals;
 using namespace KOSMIndoorMap;
 
 void initLocale()
 {
     qputenv("LC_ALL", "en_US.utf-8");
     qputenv("TZ", "UTC");
+    QLocale::setDefault(QLocale(u"en_US"_s));
 }
 
 Q_CONSTRUCTOR_FUNCTION(initLocale)
