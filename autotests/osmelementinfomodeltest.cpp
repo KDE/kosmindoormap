@@ -90,7 +90,8 @@ private Q_SLOTS:
 
         QFile refFile(modelFile);
         QVERIFY(refFile.open(QFile::ReadOnly));
-        const auto refContent = QJsonDocument::fromJson(refFile.readAll()).object();
+        const auto refData = refFile.readAll();
+        const auto refContent = QJsonDocument::fromJson(refData).object();
         if (top != refContent) {
             QFile failFile(modelFile + QLatin1String(".fail"));
             QVERIFY(failFile.open(QFile::WriteOnly));
@@ -100,7 +101,13 @@ private Q_SLOTS:
             QProcess proc;
             proc.setProcessChannelMode(QProcess::ForwardedChannels);
             proc.start(QStringLiteral("diff"), {QStringLiteral("-u"), modelFile, failFile.fileName()});
-            QVERIFY(proc.waitForFinished());
+            if (!proc.waitForFinished()) {
+                // e.g. Windows CI has no diff
+                qDebug() << "Actual:";
+                qDebug().noquote() << QJsonDocument(top).toJson();
+                qDebug() << "Expected:";
+                qDebug().noquote() << refData;
+            }
         }
         QCOMPARE(top, refContent);
     }
