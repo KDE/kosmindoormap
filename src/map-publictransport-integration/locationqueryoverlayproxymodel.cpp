@@ -18,22 +18,9 @@
 using namespace KOSMIndoorMap;
 using namespace KPublicTransport;
 
-struct vehicle_type {
-    const char *tagName;
-    RentalVehicle::VehicleType vehicleType;
-};
-static constexpr const vehicle_type vehicle_type_map[] = {
-    { "mx:realtime_available:bike", RentalVehicle::Bicycle },
-    { "mx:realtime_available:pedelec", RentalVehicle::Pedelec },
-    { "mx:realtime_available:scooter", RentalVehicle::ElectricKickScooter },
-    { "mx:realtime_available:motorcycle", RentalVehicle::ElectricMoped },
-    { "mx:realtime_available:car", RentalVehicle::Car },
-};
-
 LocationQueryOverlayProxyModel::LocationQueryOverlayProxyModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    static_assert((sizeof(vehicle_type_map) / sizeof(vehicle_type)) == (sizeof(LocationQueryOverlayProxyModel::m_realtimeAvailableTagKeys) / sizeof(OSM::TagKey)));
 }
 
 LocationQueryOverlayProxyModel::~LocationQueryOverlayProxyModel() = default;
@@ -67,8 +54,8 @@ void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
     }
 
     int i = 0;
-    for (const auto &v : vehicle_type_map) {
-        m_realtimeAvailableTagKeys[i++] = m_data.dataSet().makeTagKey(v.tagName);
+    for (const auto &key : { "mx:realtime_available:bike", "mx:realtime_available:pedelec", "mx:realtime_available:scooter", "mx:realtime_available:motorcycle",  "mx:realtime_available:car" }) {
+        m_realtimeAvailableTagKeys[i++] = m_data.dataSet().makeTagKey(key);
     }
 
     initialize();
@@ -181,24 +168,50 @@ static void setTagIfMissing(OSM::Node &node, OSM::TagKey tag, const QString &val
     }
 }
 
-static void setAmenityTypeForVehicle(KPublicTransport::RentalVehicle::VehicleType vehicleType, OSM::TagKey key, OSM::Node &node)
+static void setAmenityTypeForVehicle(const KPublicTransport::RentalVehicleType &vehicleType, OSM::TagKey key, OSM::Node &node)
 {
-    switch (vehicleType) {
-        case RentalVehicle::Unknown:
-        case RentalVehicle::Bicycle:
-        case RentalVehicle::Pedelec:
+    switch (vehicleType.formFactor()) {
+        case RentalVehicleType::FormFactor::Undefined:
+        case RentalVehicleType::FormFactor::Bicycle:
+        case RentalVehicleType::FormFactor::CargoBicycle:
+        case RentalVehicleType::FormFactor::ScooterSeated: // ???
+        case RentalVehicleType::FormFactor::Other: // ???
             OSM::setTagValue(node, key, "bicycle_rental");
             break;
-        case RentalVehicle::ElectricKickScooter:
+        case RentalVehicleType::FormFactor::ScooterStanding:
             OSM::setTagValue(node, key, "scooter_rental");
             break;
-        case RentalVehicle::ElectricMoped:
+        case RentalVehicleType::FormFactor::Moped:
             OSM::setTagValue(node, key, "motorcycle_rental");
             break;
-        case RentalVehicle::Car:
+        case RentalVehicleType::FormFactor::Car:
             OSM::setTagValue(node, key, "car_rental");
             break;
     }
+}
+
+std::optional<LocationQueryOverlayProxyModel::RealtimeTag> LocationQueryOverlayProxyModel::realtimeTagType(const KPublicTransport::RentalVehicleType &vt)
+{
+    switch (vt.formFactor()) {
+        case RentalVehicleType::FormFactor::Bicycle:
+            if (vt.propulsionType() == RentalVehicleType::PropulsionType::Electric || vt.propulsionType() == RentalVehicleType::PropulsionType::ElectricAssist) {
+                return Pedelec;
+            }
+            return Bicycle;
+        case RentalVehicleType::FormFactor::CargoBicycle: // TODO
+            return Bicycle;
+        case RentalVehicleType::FormFactor::ScooterStanding:
+            return Scooter;
+        case RentalVehicleType::FormFactor::Moped:
+            return Motorcycle;
+        case RentalVehicleType::FormFactor::Car:
+            return Car;
+        case RentalVehicleType::FormFactor::ScooterSeated:
+        case RentalVehicleType::FormFactor::Other:
+        case RentalVehicleType::FormFactor::Undefined:
+            break;
+    }
+    return {};
 }
 
 LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(int row) const
@@ -232,16 +245,8 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
             }
 
             info.overlayNode.id = m_data.dataSet().nextInternalId();
-            const auto vehicleTypes = station.supportedVehicleTypes();
-            const auto me = QMetaEnum::fromType<KPublicTransport::RentalVehicle::VehicleType>();
-            for (auto i = 0; i < me.keyCount(); ++i) {
-                if (me.value(i) == 0) {
-                    continue;
-                }
-                if (me.value(i) & vehicleTypes) {
-                    setAmenityTypeForVehicle(static_cast<KPublicTransport::RentalVehicle::VehicleType>(me.value(i)), m_tagKeys.amenity, info.overlayNode);
-                    break;
-                }
+            if (const auto vehicleTypes = station.supportedVehicleTypes(); !vehicleTypes.empty()) {
+                setAmenityTypeForVehicle(vehicleTypes.at(0), m_tagKeys.amenity, info.overlayNode);
             }
 
             if (station.capacity() >= 0) {
@@ -254,14 +259,21 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
             setTagIfMissing(info.overlayNode, m_tagKeys.addr_city, loc.locality());
             setTagIfMissing(info.overlayNode, m_tagKeys.addr_postcode, loc.postalCode());
 
-            int i = 0;
-            for (const auto &v : vehicle_type_map) {
-                if (station.availableVehicles(v.vehicleType) > 0) {
-                    OSM::setTagValue(info.overlayNode, m_realtimeAvailableTagKeys[i], QByteArray::number(station.availableVehicles(v.vehicleType)));
+            std::map<RealtimeTag, int> availCounts;
+            for (const auto &vt : station.availableVehicleTypes()) {
+                const auto rtType = realtimeTagType(vt);
+                if (!rtType) {
+                    continue;
                 }
-                ++i;
+                const auto count = station.availableVehiclesByType(vt);
+                if (count > 0) {
+                    availCounts[*rtType] += count;
+                }
             }
+            for (auto it = availCounts.begin(); it != availCounts.end(); ++it) {
+                OSM::setTagValue(info.overlayNode, m_realtimeAvailableTagKeys[(*it).first], QByteArray::number((*it).second));
 
+            }
             break;
         }
         case Location::RentedVehicle:
@@ -270,7 +282,7 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
 
             // free floating vehicles have no matching OSM element, so no point in searching for one
             info.overlayNode.id = m_data.dataSet().nextInternalId();
-            setAmenityTypeForVehicle(vehicle.type(), m_tagKeys.vehicle, info.overlayNode);
+            setAmenityTypeForVehicle(vehicle.vehicleType(), m_tagKeys.vehicle, info.overlayNode);
             OSM::setTagValue(info.overlayNode, m_tagKeys.name, loc.name().toUtf8());
             setTagIfMissing(info.overlayNode, m_tagKeys.network, vehicle.network().name());
             if (vehicle.remainingRange() >= 0) {

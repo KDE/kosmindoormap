@@ -52,7 +52,7 @@ if (NOT BUILD_TOOLS_ONLY)
     endif()
 
     find_package(KF6 REQUIRED COMPONENTS I18n)
-    find_package(KPublicTransport)
+    find_package(KPublicTransport 26.07.71)
     set_package_properties(KPublicTransport PROPERTIES TYPE ${KPublicTransport_DEPENDENCY_TYPE} PURPOSE "Integration of public transport realtime data.")
     find_package(KOpeningHours)
     set_package_properties(KOpeningHours PROPERTIES TYPE REQUIRED PURPOSE "Highlight currently open amenities/shops/etc.")

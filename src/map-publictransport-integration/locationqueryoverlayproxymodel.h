@@ -12,6 +12,10 @@
 
 #include <KOSMIndoorMap/MapData>
 
+namespace KPublicTransport {
+class RentalVehicleType;
+};
+
 namespace OSM {
 class Element;
 class Node;
@@ -75,7 +79,17 @@ private:
         OSM::TagKey addr_city;
         OSM::TagKey addr_postcode;
     } m_tagKeys;
-    OSM::TagKey m_realtimeAvailableTagKeys[5];
+
+    enum RealtimeTag {
+        Bicycle,
+        Pedelec,
+        Scooter,
+        Motorcycle,
+        Car,
+        LAST_REALTIME_TAG
+    };
+    static std::optional<RealtimeTag> realtimeTagType(const KPublicTransport::RentalVehicleType &vt);
+    OSM::TagKey m_realtimeAvailableTagKeys[LAST_REALTIME_TAG];
 
     std::vector<Info> m_nodes;
     MapData m_data;
