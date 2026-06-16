@@ -288,6 +288,9 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
             if (vehicle.remainingRange() >= 0) {
                 OSM::setTagValue(info.overlayNode, m_tagKeys.remainingRange, QByteArray::number(vehicle.remainingRange()));
             }
+            if (const auto cap = vehicle.vehicleType().riderCapacity(); cap > 1 || (cap > 0 && vehicle.vehicleType().formFactor() == RentalVehicleType::FormFactor::Car)) {
+                OSM::setTagValue(info.overlayNode, m_tagKeys.capacity, QByteArray::number(vehicle.vehicleType().riderCapacity()));
+            }
             break;
         }
         case Location::Equipment:
