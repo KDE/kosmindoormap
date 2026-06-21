@@ -51,6 +51,7 @@ void LocationQueryOverlayProxyModel::setMapData(const MapData &data)
         m_tagKeys.addr_street = m_data.dataSet().makeTagKey("addr:street");
         m_tagKeys.addr_city = m_data.dataSet().makeTagKey("addr:city");
         m_tagKeys.addr_postcode = m_data.dataSet().makeTagKey("addr:postcode");
+        m_tagKeys.opening_hours = m_data.dataSet().makeTagKey("opening_hours");
     }
 
     int i = 0;
@@ -258,6 +259,9 @@ LocationQueryOverlayProxyModel::Info LocationQueryOverlayProxyModel::nodeForRow(
             setTagIfMissing(info.overlayNode, m_tagKeys.addr_street, loc.streetAddress());
             setTagIfMissing(info.overlayNode, m_tagKeys.addr_city, loc.locality());
             setTagIfMissing(info.overlayNode, m_tagKeys.addr_postcode, loc.postalCode());
+            if (!station.openingHours().isEmpty()) {
+                setTagIfMissing(info.overlayNode, m_tagKeys.opening_hours, station.openingHours());
+            }
 
             std::map<RealtimeTag, int> availCounts;
             for (const auto &vt : station.availableVehicleTypes()) {

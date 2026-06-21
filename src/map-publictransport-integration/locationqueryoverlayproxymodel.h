@@ -78,6 +78,7 @@ private:
         OSM::TagKey addr_street;
         OSM::TagKey addr_city;
         OSM::TagKey addr_postcode;
+        OSM::TagKey opening_hours;
     } m_tagKeys;
 
     enum RealtimeTag {
