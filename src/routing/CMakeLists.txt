@@ -45,7 +45,12 @@ else()
     target_compile_definitions(KOSMIndoorRouting PRIVATE HAVE_RECAST=0)
 endif()
 
-qt_extract_metatypes(KOSMIndoorRouting)
+qt_extract_metatypes(KOSMIndoorRouting OUTPUT_FILES METATYPES_FILE)
+get_filename_component(METATYPES_FILE_NAME ${METATYPES_FILE} NAME)
+target_sources(KOSMIndoorRouting INTERFACE $<INSTALL_INTERFACE:${KDE_INSTALL_QTMETATYPESDIR}/${METATYPES_FILE_NAME}>)
+if (KDE_INSTALL_QTMETATYPESDIR) # since 6.27
+    install(FILES ${METATYPES_FILE} DESTINATION ${KDE_INSTALL_QTMETATYPESDIR})
+endif()
 
 ecm_generate_headers(KOSMIndoorRouting_FORWARDING_HEADERS
     HEADER_NAMES

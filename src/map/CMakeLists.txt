@@ -77,7 +77,13 @@ if (NOT BUILD_TOOLS_ONLY)
         ${BISON_mapcssparser_OUTPUTS}
         ${FLEX_mapcssscanner_OUTPUTS}
     )
-    qt_extract_metatypes(KOSMIndoorMap)
+
+    qt_extract_metatypes(KOSMIndoorMap OUTPUT_FILES METATYPES_FILE)
+    get_filename_component(METATYPES_FILE_NAME ${METATYPES_FILE} NAME)
+    target_sources(KOSMIndoorMap INTERFACE $<INSTALL_INTERFACE:${KDE_INSTALL_QTMETATYPESDIR}/${METATYPES_FILE_NAME}>)
+    if (KDE_INSTALL_QTMETATYPESDIR) # since 6.27
+        install(FILES ${METATYPES_FILE} DESTINATION ${KDE_INSTALL_QTMETATYPESDIR})
+    endif()
 endif()
 
 ecm_qt_declare_logging_category(KOSMIndoorMap
