@@ -41,6 +41,15 @@ private Q_SLOTS:
         QTest::newRow("0;2-3;5") << "0;2-3;5" << LV{0,20,30,50};
         QTest::newRow("-1;0;1;2") << "-1;0;1;2" << LV{-10,0,10,20};
 
+        // test cases from the TUM level parser
+        QTest::newRow("5-3") << "5-3" << LV{30,40,50};
+        QTest::newRow("-3--5") << "-3--5" << LV{-50,-40,-30};
+        QTest::newRow("1;3-4;6") << "1;3-4;6" << LV{10,30,40,60};
+        // our parser doesn't do de-duplication
+        // QTest::newRow("3;1-4") << "3;1-4" << LV{10,20,30,40};
+        // QTest::newRow("3;2;3") << "3;2;3" << LV{20,30};
+        QTest::newRow(" 1 ; 2 ") << " 1 ; 2 " << LV{10,20};
+
         // invalid but we have workarounds for this
         QTest::newRow("1,5") << "1,5" << LV{15};
         QTest::newRow("0,-1") << "0,-1" << LV{0,-10};

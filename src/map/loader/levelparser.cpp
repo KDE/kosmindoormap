@@ -46,8 +46,11 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
         }
 
         if (c == ';') {
-            const int l = std::round(qstrtod(level.constData() + numStartIdx, nullptr, nullptr) * 10.0); // ### waiting for std::from_chars
-            if (rangeBegin <= l) {
+            auto l = (int)std::round(qstrtod(level.constData() + numStartIdx, nullptr, nullptr) * 10.0); // ### waiting for std::from_chars
+            if (rangeBegin < std::numeric_limits<int>::max()) {
+                if (l < rangeBegin) {
+                    std::swap(l, rangeBegin);
+                }
                 for (int j = rangeBegin; j <= l; j += 10) {
                     callback(j, e);
                 }
@@ -72,11 +75,15 @@ void LevelParser::parse(QByteArray &&level, OSM::Element e, const std::function<
     if (numStartIdx >= level.size() || numStartIdx < 0) {
         return;
     }
-    const int l = std::round(qstrtod(level.constData() + numStartIdx, nullptr, nullptr) * 10.0); // ### waiting for std::from_chars
-    if (rangeBegin <= l) {
+    auto l = (int)std::round(qstrtod(level.constData() + numStartIdx, nullptr, nullptr) * 10.0); // ### waiting for std::from_chars
+    if (rangeBegin < std::numeric_limits<int>::max()) {
+        if (l < rangeBegin) {
+            std::swap(l, rangeBegin);
+        }
         for (int j = rangeBegin; j <= l; j += 10) {
             callback(j, e);
         }
+        rangeBegin = std::numeric_limits<int>::max();
     } else {
         callback(l, e);
     }
