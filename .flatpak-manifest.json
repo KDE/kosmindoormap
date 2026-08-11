@@ -5,7 +5,9 @@
     "runtime-version": "6.11",
     "sdk": "org.kde.Sdk",
     "command": "kosmindoormap",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
         "--share=ipc",
@@ -17,19 +19,48 @@
     "modules": [
         {
             "name": "kpublictransport",
-            "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kpublictransport.git", "branch": "master" } ],
-            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories6" ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kpublictransport.git",
+                    "branch": "master"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/cmake",
+                "/mkspecs",
+                "/etc/xdg/*categories",
+                "/share/qlogging-categories6"
+            ]
         },
         {
             "name": "kopeninghours",
-            "config-opts": [ "-DBUILD_TESTING=OFF", "-DBUILD_WITH_QT6=ON" ],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF",
+                "-DBUILD_WITH_QT6=ON"
+            ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kopeninghours.git", "branch": "master" } ],
-            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories6" ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kopeninghours.git",
+                    "branch": "master"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/cmake",
+                "/mkspecs",
+                "/etc/xdg/*categories",
+                "/share/qlogging-categories6"
+            ]
         },
         {
             "name": "recast",
@@ -42,21 +73,39 @@
             ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "sources": [ { "type": "git", "url": "https://github.com/recastnavigation/recastnavigation", "branch": "main" } ],
-            "cleanup": [ "/include", "/lib" ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/recastnavigation/recastnavigation",
+                    "branch": "main"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib"
+            ]
         },
         {
             "name": "kosmindoormap",
             "buildsystem": "cmake-ninja",
             "builddir": true,
-            "config-opts": [ "-DBUILD_TESTING=OFF", "-DBUILD_STANDALONE_APP=ON" ],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF",
+                "-DBUILD_STANDALONE_APP=ON"
+            ],
             "sources": [
                 {
                     "type": "dir",
                     "path": "."
                 }
             ],
-            "cleanup": [ "/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories", "/share/qlogging-categories6" ]
+            "cleanup": [
+                "/include",
+                "/lib/cmake",
+                "/mkspecs",
+                "/etc/xdg/*categories",
+                "/share/qlogging-categories6"
+            ]
         }
     ]
 }
