@@ -33,12 +33,34 @@ class MapCSSResultLayerPrivate {
 public:
     void setTag(OSM::TagKey key, QByteArray value);
     void setTag(OSM::TagKey key, const MapCSSDeclaration *expression);
+    [[nodiscard]] bool isInExpression(OSM::TagKey key)
+    {
+        return std::ranges::find(m_expressionRecursionGuard, key) != m_expressionRecursionGuard.end();
+    }
 
     std::vector<const MapCSSDeclaration*> m_declarations;
     std::vector<ClassSelectorKey> m_classes;
     std::vector<MapCSSResultLayerTag> m_tags;
+    std::vector<OSM::TagKey> m_expressionRecursionGuard;
     LayerSelectorKey m_layer;
     int m_flags = 0;
+
+};
+
+class MapCSSRecursionGuard
+{
+public:
+    explicit MapCSSRecursionGuard(const std::unique_ptr<MapCSSResultLayerPrivate> &dd, OSM::TagKey key)
+        : d(dd.get())
+    {
+        d->m_expressionRecursionGuard.push_back(key);
+    }
+    ~MapCSSRecursionGuard()
+    {
+        d->m_expressionRecursionGuard.pop_back();
+    }
+private:
+    MapCSSResultLayerPrivate *d;
 };
 }
 
@@ -130,9 +152,11 @@ LayerSelectorKey MapCSSResultLayer::layerSelector() const
 std::optional<QByteArray> MapCSSResultLayer::resolvedTagValue(OSM::TagKey key, const MapCSSState &state) const
 {
     if (const auto it = std::lower_bound(d->m_tags.begin(), d->m_tags.end(), key); it != d->m_tags.end() && (*it).key == key) {
-        if ((*it).expression) {
+        if ((*it).expression && !d->isInExpression((*it).key)) {
+            MapCSSRecursionGuard guard(d, (*it).key);
             MapCSSExpressionContext context{ .state = state, .result = *this };
             auto r = (*it).expression->evaluateExpression(context).asString();
+            d->m_expressionRecursionGuard.pop_back();
             return r.isEmpty() ? std::optional<QByteArray>() : r;
         }
         return (*it).value;
@@ -148,7 +172,8 @@ std::optional<QByteArray> MapCSSResultLayer::resolvedTagValue(const char *key, c
 {
     // NOTE: m_tags is not sorted by lexicographic order but my TagKey order!
     if (const auto it = std::find_if(d->m_tags.begin(), d->m_tags.end(), [key](const auto &tag) { return std::strcmp(tag.key.name(), key) == 0; }); it != d->m_tags.end()) {
-        if ((*it).expression) {
+        if ((*it).expression && !d->isInExpression((*it).key)) {
+            MapCSSRecursionGuard guard(d, (*it).key);
             MapCSSExpressionContext context{ .state = state, .result = *this };
             auto v = (*it).expression->evaluateExpression(context).asString();
             return v.isEmpty() ? std::optional<QByteArray>() : v;
@@ -164,7 +189,8 @@ std::optional<QByteArray> MapCSSResultLayer::resolvedTagValue(const OSM::Languag
     // NOTE: m_tags is not sorted by lexicographic order but my TagKey order!
     // TODO: multi-lingual expressions?
     if (const auto it = std::find_if(d->m_tags.begin(), d->m_tags.end(), [key](const auto &tag) { return std::strcmp(tag.key.name(), key) == 0; }); it != d->m_tags.end()) {
-        if ((*it).expression) {
+        if ((*it).expression && !d->isInExpression((*it).key)) {
+            MapCSSRecursionGuard guard(d, (*it).key);
             MapCSSExpressionContext context{ .state = state, .result = *this };
             auto v = (*it).expression->evaluateExpression(context).asString();
             return v.isEmpty() ? std::optional<QByteArray>() : v;
