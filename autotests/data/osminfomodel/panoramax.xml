@@ -1,0 +1,12 @@
+<osm version="0.6" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+  <node id="1506892344">
+    <tag k="capacity" v="200"/>
+    <tag k="indoor" v="room"/>
+    <tag k="level" v="0;-1"/>
+    <tag k="name" v="Amphithéatre Caquot"/>
+    <tag k="name:etymology:wikidata" v="Q364292"/>
+    <tag k="panoramax" v="ade0b8be-4238-4dcd-a435-7d602d6d0141"/>
+    <tag k="ref" v="1"/>
+    <tag k="room" v="lecture_hall"/>
+  </node>
+</osm>

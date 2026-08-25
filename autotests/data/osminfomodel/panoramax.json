@@ -1,0 +1,14 @@
+{
+    "category": "Lecture Hall",
+    "content": [
+        {
+            "url": "https://api.panoramax.xyz##focus=pic&pic=ade0b8be-4238-4dcd-a435-7d602d6d0141",
+            "value": "https://api.panoramax.xyz/api/pictures/ade0b8be-4238-4dcd-a435-7d602d6d0141/sd.jpg"
+        },
+        {
+            "keyLabel": "Capacity",
+            "value": "200"
+        }
+    ],
+    "name": "Amphithéatre Caquot"
+}
