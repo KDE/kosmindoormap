@@ -446,7 +446,7 @@ void OSMElementInformationModel::resolveCategories()
                 }
                 break;
             case Capacity:
-                if (m_element.tagValue("amenity").endsWith("rental")) {
+                if (m_element.tagValue("amenity").endsWith("rental") || !m_element.tagValue("room").isEmpty()) {
                     info.category = Main;
                 } else {
                     info.category = Parking;
