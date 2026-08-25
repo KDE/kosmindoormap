@@ -239,6 +239,7 @@ static constexpr const KeyCategoryMapEntry simple_key_map[] = {
     M("operator:website", Website, Contact),
     M("operator:wikidata", Image, Main),
     M("operator:wikipedia", OperatorWikipedia, Operator),
+    M("panoramax", Image, Main),
     M("parking:fee", Fee, Parking),
     M("payment:cash", PaymentCash, Payment),
     M("payment:coins", PaymentCash, Payment),
@@ -367,6 +368,7 @@ void OSMElementInformationModel::resolveOnlineContent()
     const auto image = m_element.tagValue("image");
     const auto hasValidImage = image.contains("://commons.wikimedia.org/");
     const auto wdId = m_element.tagValue("wikidata", "species:wikidata", "genus:wikidata", "subject:wikidata", "operator:wikidata", "network:wikidata", "brand:wikidata");
+    const auto panoramaxUuid = m_element.tagValue("panoramax");
 
     // query Wikidata content
     if (!hasValidCommons && !hasValidImage && !wdId.isEmpty()) {
@@ -417,7 +419,7 @@ void OSMElementInformationModel::resolveOnlineContent()
         m_wikidataMgr.execute(query);
     }
 
-    if (!hasValidCommons && !hasValidImage && wdId.isEmpty()) {
+    if (!hasValidCommons && !hasValidImage && wdId.isEmpty() && panoramaxUuid.isEmpty()) {
         m_infos.erase(std::remove_if(m_infos.begin(), m_infos.end(), [](const auto &info) { return info.key == Image; }), m_infos.end());
     }
 }
@@ -758,7 +760,17 @@ QVariant OSMElementInformationModel::valueForKey(Info info) const
                 return wikimediaCommondRedirect(url.fileName());
             }
             const auto wdId = m_element.tagValue("wikidata", "species:wikidata", "genus:wikidata", "subject:wikidata", "operator:wikidata", "network:wikidata", "brand:wikidata");
-            return wikimediaCommondRedirect(m_wikidataImageMap.value(Wikidata::Q{wdId}));
+            if (!wdId.isEmpty()) {
+                return wikimediaCommondRedirect(m_wikidataImageMap.value(Wikidata::Q{wdId}));
+            }
+            if (const auto panoramaxUuid = m_element.tagValue("panoramax"); !panoramaxUuid.isEmpty()) {
+                QUrl url;
+                url.setScheme("https"_L1);
+                url.setHost("api.panoramax.xyz"_L1);
+                url.setPath("/api/pictures/"_L1 + QLatin1StringView(panoramaxUuid) + "/sd.jpg"_L1);
+                return url;
+            }
+            break;
         }
         case OldName:
         {
@@ -1008,6 +1020,13 @@ QVariant OSMElementInformationModel::urlify(const QVariant& v, OSMElementInforma
             }
             if (const auto wdId = m_element.tagValue("wikidata", "species:wikidata", "genus:wikidata", "subject:wikidata", "operator:wikidata", "network:wikidata", "brand:wikidata"); !wdId.isEmpty()) {
                 return QUrl(u"https://wikidata.org/wiki/" + QString::fromUtf8(wdId));
+            }
+            if (const auto panoramaxUuid = m_element.tagValue("panoramax"); !panoramaxUuid.isEmpty()) {
+                QUrl url;
+                url.setScheme("https"_L1);
+                url.setHost("api.panoramax.xyz"_L1);
+                url.setFragment("#focus=pic&pic="_L1 + QLatin1StringView(panoramaxUuid));
+                return url;
             }
             return {};
         }

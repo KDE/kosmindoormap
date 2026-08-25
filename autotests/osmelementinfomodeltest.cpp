@@ -67,6 +67,7 @@ private Q_SLOTS:
 
         OSMElementInformationModel model;
         QAbstractItemModelTester modelTest(&model);
+        model.setProperty("allowOnlineContent", true);
         model.setElement(OSMElement(OSM::Element(&dataSet.nodes[0])));
 
         QJsonObject top;

@@ -2,6 +2,9 @@
     "category": "Public Transport Tickets",
     "content": [
         {
+            "url": "https://wikidata.org/wiki/Q1733986"
+        },
+        {
             "categoryLabel": "Payment",
             "keyLabel": "Cash",
             "value": "yes"
