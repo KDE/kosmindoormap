@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kosmindoormap\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2026-08-26 00:45+0000\n"
 "PO-Revision-Date: 2024-12-25 19:35+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1669,273 +1669,273 @@ msgstr "%1कि.मी"
 msgid "Wikipedia"
 msgstr "विकिपीडिया"
 
-#: map-quick/osmelementinformationmodel.cpp:538
+#: map-quick/osmelementinformationmodel.cpp:540
 #, kde-format
 msgid "Opening Hours"
 msgstr "उद्घाटनसमयः"
 
-#: map-quick/osmelementinformationmodel.cpp:539
+#: map-quick/osmelementinformationmodel.cpp:541
 #, kde-format
 msgid "Contact"
 msgstr "संपर्कः"
 
-#: map-quick/osmelementinformationmodel.cpp:540
+#: map-quick/osmelementinformationmodel.cpp:542
 #, kde-format
 msgid "Payment"
 msgstr "वेतन"
 
-#: map-quick/osmelementinformationmodel.cpp:541
+#: map-quick/osmelementinformationmodel.cpp:543
 #, kde-format
 msgid "Toilets"
 msgstr "शौचालयाः"
 
-#: map-quick/osmelementinformationmodel.cpp:542
+#: map-quick/osmelementinformationmodel.cpp:544
 #, kde-format
 msgid "Accessibility"
 msgstr "सुलभता"
 
-#: map-quick/osmelementinformationmodel.cpp:543
+#: map-quick/osmelementinformationmodel.cpp:545
 #, kde-format
 msgid "Parking"
 msgstr "पार्किङ्ग"
 
-#: map-quick/osmelementinformationmodel.cpp:544
+#: map-quick/osmelementinformationmodel.cpp:546
 #, kde-format
 msgid "Operator"
 msgstr "संचालकः"
 
-#: map-quick/osmelementinformationmodel.cpp:592
+#: map-quick/osmelementinformationmodel.cpp:594
 #, kde-format
 msgid "Formerly"
 msgstr "पूर्वम्"
 
-#: map-quick/osmelementinformationmodel.cpp:593
+#: map-quick/osmelementinformationmodel.cpp:595
 #, kde-format
 msgid "Description"
 msgstr "वर्णनम्‌"
 
-#: map-quick/osmelementinformationmodel.cpp:594
+#: map-quick/osmelementinformationmodel.cpp:596
 #, kde-format
 msgid "Routes"
 msgstr "मार्गाः"
 
-#: map-quick/osmelementinformationmodel.cpp:595
+#: map-quick/osmelementinformationmodel.cpp:597
 #, kde-format
 msgid "Cuisine"
 msgstr "भोजनम्"
 
-#: map-quick/osmelementinformationmodel.cpp:596
+#: map-quick/osmelementinformationmodel.cpp:598
 #, kde-format
 msgid "Diet"
 msgstr "आहार"
 
-#: map-quick/osmelementinformationmodel.cpp:597
+#: map-quick/osmelementinformationmodel.cpp:599
 #, kde-format
 msgid "Takeaway"
 msgstr "हृ"
 
-#: map-quick/osmelementinformationmodel.cpp:598
+#: map-quick/osmelementinformationmodel.cpp:600
 #, kde-format
 msgctxt "electrical power socket"
 msgid "Socket"
 msgstr "सॉकेट"
 
-#: map-quick/osmelementinformationmodel.cpp:600
+#: map-quick/osmelementinformationmodel.cpp:602
 #, kde-format
 msgid "Available vehicles"
 msgstr "उपलब्धानि वाहनानि"
 
-#: map-quick/osmelementinformationmodel.cpp:601
+#: map-quick/osmelementinformationmodel.cpp:603
 #, kde-format
 msgid "Fee"
 msgstr "शुल्कः"
 
-#: map-quick/osmelementinformationmodel.cpp:602
+#: map-quick/osmelementinformationmodel.cpp:604
 #, kde-format
 msgid "Authentication"
 msgstr "प्रमाणीकरणम्"
 
-#: map-quick/osmelementinformationmodel.cpp:603
+#: map-quick/osmelementinformationmodel.cpp:605
 #, kde-format
 msgid "Bicycle parking"
 msgstr "सायकलपार्किङ्गम्"
 
-#: map-quick/osmelementinformationmodel.cpp:604
+#: map-quick/osmelementinformationmodel.cpp:606
 #, kde-format
 msgid "Capacity"
 msgstr "क्षमता"
 
-#: map-quick/osmelementinformationmodel.cpp:605
+#: map-quick/osmelementinformationmodel.cpp:607
 #, kde-format
 msgid "Disabled parking spaces"
 msgstr "विकलाङ्गानाम् पार्किङ्गस्थानानि"
 
-#: map-quick/osmelementinformationmodel.cpp:606
+#: map-quick/osmelementinformationmodel.cpp:608
 #, kde-format
 msgid "Women parking spaces"
 msgstr "महिलानां पार्किङ्गस्थानानि"
 
-#: map-quick/osmelementinformationmodel.cpp:607
+#: map-quick/osmelementinformationmodel.cpp:609
 #, kde-format
 msgid "Parent parking spaces"
 msgstr "मातापितृपार्किङ्गस्थानानि"
 
-#: map-quick/osmelementinformationmodel.cpp:608
+#: map-quick/osmelementinformationmodel.cpp:610
 #, kde-format
 msgid "Parking spaces for charging"
 msgstr "शुल्कं ग्रहीतुं पार्किङ्गस्थानानि"
 
-#: map-quick/osmelementinformationmodel.cpp:609
+#: map-quick/osmelementinformationmodel.cpp:611
 #, kde-format
 msgid "Maximum stay"
 msgstr "अधिकतमं वासः"
 
-#: map-quick/osmelementinformationmodel.cpp:610
+#: map-quick/osmelementinformationmodel.cpp:612
 #, kde-format
 msgid "Diaper changing table"
 msgstr "लंगोट परिवर्तनीय मेज"
 
-#: map-quick/osmelementinformationmodel.cpp:611
+#: map-quick/osmelementinformationmodel.cpp:613
 #, kde-format
 msgid "Gender"
 msgstr "लिंग"
 
-#: map-quick/osmelementinformationmodel.cpp:613
+#: map-quick/osmelementinformationmodel.cpp:615
 #, kde-format
 msgid "Address"
 msgstr "पत्रसङ्केतः"
 
-#: map-quick/osmelementinformationmodel.cpp:614
+#: map-quick/osmelementinformationmodel.cpp:616
 #, kde-format
 msgid "Phone"
 msgstr "फोनं"
 
-#: map-quick/osmelementinformationmodel.cpp:615
+#: map-quick/osmelementinformationmodel.cpp:617
 #, kde-format
 msgid "Email"
 msgstr "ईमेल"
 
-#: map-quick/osmelementinformationmodel.cpp:616
+#: map-quick/osmelementinformationmodel.cpp:618
 #, kde-format
 msgid "Website"
 msgstr "वेबसाइट्"
 
-#: map-quick/osmelementinformationmodel.cpp:617
+#: map-quick/osmelementinformationmodel.cpp:619
 #, kde-format
 msgid "Cash"
 msgstr "टङ्क"
 
-#: map-quick/osmelementinformationmodel.cpp:618
+#: map-quick/osmelementinformationmodel.cpp:620
 #, kde-format
 msgid "Digital"
 msgstr "डिजिटल"
 
-#: map-quick/osmelementinformationmodel.cpp:619
+#: map-quick/osmelementinformationmodel.cpp:621
 #, kde-format
 msgid "Debit cards"
 msgstr "डेबिट् कार्ड्स्"
 
-#: map-quick/osmelementinformationmodel.cpp:620
+#: map-quick/osmelementinformationmodel.cpp:622
 #, kde-format
 msgid "Credit cards"
 msgstr "क्रेडिट् कार्ड्स्"
 
-#: map-quick/osmelementinformationmodel.cpp:621
+#: map-quick/osmelementinformationmodel.cpp:623
 #, kde-format
 msgid "Stored value cards"
 msgstr "संगृहीतमूल्यकार्डाः"
 
-#: map-quick/osmelementinformationmodel.cpp:622
+#: map-quick/osmelementinformationmodel.cpp:624
 #, kde-format
 msgid "Wheelchair access"
 msgstr "चक्रचालकस्य प्रवेशः"
 
-#: map-quick/osmelementinformationmodel.cpp:623
+#: map-quick/osmelementinformationmodel.cpp:625
 #, kde-format
 msgid "Wheelchair lift"
 msgstr "व्हीलचेयर लिफ्ट"
 
-#: map-quick/osmelementinformationmodel.cpp:624
+#: map-quick/osmelementinformationmodel.cpp:626
 #, kde-format
 msgid "Central key"
 msgstr "केन्द्रीय कुञ्जी"
 
-#: map-quick/osmelementinformationmodel.cpp:625
+#: map-quick/osmelementinformationmodel.cpp:627
 #, kde-format
 msgid "Speech output"
 msgstr "वाक्निर्गमः"
 
-#: map-quick/osmelementinformationmodel.cpp:626
+#: map-quick/osmelementinformationmodel.cpp:628
 #, kde-format
 msgid "Tactile writing"
 msgstr "स्पर्शलेखन"
 
-#: map-quick/osmelementinformationmodel.cpp:628
+#: map-quick/osmelementinformationmodel.cpp:630
 #, kde-format
 msgctxt "transport network"
 msgid "Network"
 msgstr "जालकृति"
 
-#: map-quick/osmelementinformationmodel.cpp:630
+#: map-quick/osmelementinformationmodel.cpp:632
 #, kde-format
 msgctxt "remaining travel range of a battery powered vehicle"
 msgid "Remaining range"
 msgstr "शेष श्रेणी"
 
-#: map-quick/osmelementinformationmodel.cpp:700
+#: map-quick/osmelementinformationmodel.cpp:702
 #, kde-format
 msgctxt "local name (transliterated name)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:790
+#: map-quick/osmelementinformationmodel.cpp:802
 #, kde-format
 msgid "only %1"
 msgstr "केवलं %1"
 
-#: map-quick/osmelementinformationmodel.cpp:792
+#: map-quick/osmelementinformationmodel.cpp:804
 #, kde-format
 msgid "no %1"
 msgstr "न %1"
 
-#: map-quick/osmelementinformationmodel.cpp:817
+#: map-quick/osmelementinformationmodel.cpp:829
 #, kde-format
 msgctxt "electrical current/Ampere value"
 msgid "%1 A"
 msgstr "%1 क"
 
-#: map-quick/osmelementinformationmodel.cpp:825
+#: map-quick/osmelementinformationmodel.cpp:837
 #, kde-format
 msgctxt "electrical power/kilowatt value"
 msgid "%1 kW"
 msgstr "%1 किलोवाट"
 
-#: map-quick/osmelementinformationmodel.cpp:856
+#: map-quick/osmelementinformationmodel.cpp:868
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: map-quick/osmelementinformationmodel.cpp:915
-#: map-quick/osmelementinformationmodel.cpp:1103
+#: map-quick/osmelementinformationmodel.cpp:927
+#: map-quick/osmelementinformationmodel.cpp:1122
 #, kde-format
 msgid "yes"
 msgstr "आम्‌"
 
-#: map-quick/osmelementinformationmodel.cpp:918
+#: map-quick/osmelementinformationmodel.cpp:930
 #, kde-format
 msgctxt "payment option"
 msgid "coins only"
 msgstr "मुद्रामात्रम्"
 
-#: map-quick/osmelementinformationmodel.cpp:921
+#: map-quick/osmelementinformationmodel.cpp:933
 #, kde-format
 msgctxt "payment option"
 msgid "notes only"
 msgstr "केवलं टिप्पण्यानि"
 
-#: map-quick/osmelementinformationmodel.cpp:923
-#: map-quick/osmelementinformationmodel.cpp:974
-#: map-quick/osmelementinformationmodel.cpp:1106
+#: map-quick/osmelementinformationmodel.cpp:935
+#: map-quick/osmelementinformationmodel.cpp:986
+#: map-quick/osmelementinformationmodel.cpp:1125
 #, kde-format
 msgid "no"
 msgstr "नहि"
