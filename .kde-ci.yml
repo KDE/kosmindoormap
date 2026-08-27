@@ -4,17 +4,17 @@
 Dependencies:
 - 'on': ['Linux', 'FreeBSD', 'Windows', 'Android']
   'require':
-    'frameworks/extra-cmake-modules': '@latest-kf6'
-    'frameworks/ki18n': '@latest-kf6'
-    'frameworks/kirigami': '@latest-kf6'
-    'frameworks/kcontacts': '@latest-kf6'
+    'frameworks/extra-cmake-modules': 'Frameworks/6.24'
+    'frameworks/ki18n': 'Frameworks/6.24'
+    'frameworks/kirigami': 'Frameworks/6.24'
+    'frameworks/kcontacts': 'Frameworks/6.24'
     'libraries/kpublictransport': "@same"
     'libraries/kopeninghours': "@same"
-    'libraries/kirigami-addons': "@latest-kf6"
+    'libraries/kirigami-addons': "v1.11.0"
 
 - 'on': ['Linux', 'FreeBSD', 'Windows']
   'require':
-    'frameworks/kservice': '@latest-kf6'
+    'frameworks/kservice': 'Frameworks/6.24'
 
 Options:
   cmake-options: "-DBUILD_STANDALONE_APP=ON"
