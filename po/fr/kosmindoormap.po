@@ -756,7 +756,7 @@ msgstr "Marchand de journaux"
 #: map-quick/localization_data.cpp:165
 msgctxt "OSM::amenity"
 msgid "Nightclub"
-msgstr "Boîte de nuit"
+msgstr "Boite de nuit"
 
 #: map-quick/localization_data.cpp:166
 msgctxt "OSM::shop"
@@ -850,7 +850,7 @@ msgstr "Police"
 #: map-quick/localization_data.cpp:184
 msgctxt "OSM::amenity/shop"
 msgid "Post Box"
-msgstr "Boîte aux lettres"
+msgstr "Boite aux lettres"
 
 #: map-quick/localization_data.cpp:185
 msgctxt "OSM::amenity/shop"
