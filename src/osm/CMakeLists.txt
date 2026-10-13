@@ -67,4 +67,17 @@ install(FILES
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kosm
 )
 
+if(HAVE_INSTALLEDLIBRARYCHECK)
+    ecm_add_installed_library_check(KOSM
+        PACKAGE_NAME "KOSMIndoorMap"
+        NO_PACKAGE_TARGET_NAMESPACE
+    )
+
+    ecm_installed_library_check_include_strings(KOSM
+        HEADERS
+            ${KOSM_FORWARDING_HEADERS}
+        PREFIX KOSM
+    )
+endif()
+
 add_subdirectory(io)
