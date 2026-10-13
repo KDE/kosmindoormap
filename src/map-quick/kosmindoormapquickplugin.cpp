@@ -19,7 +19,7 @@ using namespace KOSMIndoorMap;
 void KOSMIndoorMapQuickPlugin::registerTypes(const char *uri)
 {
     Q_UNUSED(uri);
-    Q_INIT_RESOURCE(assets);
+    Q_INIT_RESOURCE(kosmindoormapquick_assets);
 
     qRegisterMetaType<MapData>();
     qRegisterMetaType<OSMAddress>();

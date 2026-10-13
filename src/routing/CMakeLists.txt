@@ -11,7 +11,7 @@ target_sources(KOSMIndoorRouting PRIVATE
     routingarea.cpp
     routingjob.cpp
     routingprofile.cpp
-    assets.qrc
+    kosmindoorrouting_assets.qrc
 )
 
 ecm_qt_declare_logging_category(KOSMIndoorRouting

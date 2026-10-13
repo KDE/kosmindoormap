@@ -21,7 +21,7 @@ void initLocale()
     qputenv("LC_ALL", "en_US.utf-8");
     qputenv("TZ", "UTC");
 
-    Q_INIT_RESOURCE(assets);
+    Q_INIT_RESOURCE(kosmindoormapquick_assets);
 }
 
 Q_CONSTRUCTOR_FUNCTION(initLocale)

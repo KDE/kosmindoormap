@@ -40,7 +40,7 @@ enum {
 inline void initResources()  // needs to be outside of a namespace
 {
 #if !BUILD_TOOLS_ONLY
-    Q_INIT_RESOURCE(assets);
+    Q_INIT_RESOURCE(kosmindoormap_assets);
 #endif
 }
 

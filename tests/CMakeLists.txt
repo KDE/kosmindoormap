@@ -4,7 +4,7 @@
 add_executable(overpassql-cli overpassql-cli.cpp)
 target_link_libraries(overpassql-cli KOSM)
 
-add_executable(indoormap indoormap.cpp ../src/map/assets/assets.qrc)
+add_executable(indoormap indoormap.cpp ../src/map/assets/kosmindoormap_assets.qrc)
 target_compile_definitions(indoormap PRIVATE -DSOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 target_link_libraries(indoormap PRIVATE KOSMIndoorMap Qt::Widgets)
 if (TARGET KOSM_pbfioplugin)

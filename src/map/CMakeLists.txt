@@ -33,7 +33,7 @@ if (NOT BUILD_TOOLS_ONLY)
     set_source_files_properties(${BISON_mapcssparser_OUTPUTS} ${FLEX_mapcssscanner_OUTPUTS} PROPERTIES SKIP_AUTOMOC ON)
 
     target_sources(KOSMIndoorMap PRIVATE
-        assets/assets.qrc
+        assets/kosmindoormap_assets.qrc
 
         content/equipmentmodel.cpp
         content/floorlevelmodel.cpp

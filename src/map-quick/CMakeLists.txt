@@ -4,7 +4,7 @@
 add_library(KOSMIndoorMapQuick STATIC
     amenitymodel.cpp
     amenitysortfilterproxymodel.cpp
-    assets.qrc
+    kosmindoormapquick_assets.qrc
     floorlevelchangemodel.cpp
     localization.cpp
     mapitem.cpp
