@@ -46,6 +46,12 @@ ecm_generate_headers(KOSM_FORWARDING_HEADERS
     PREFIX KOSM
     REQUIRED_HEADERS KOSM_HEADERS
 )
+# for internal installed helper stringpool.h manually create dummy forwading header with path matching the installed layout,
+# as needed during build by installed header from sibling library map/style/mapcsstypes.h
+file(CONFIGURE
+    OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/kosm/stringpool.h"
+    CONTENT "#include \"${CMAKE_CURRENT_SOURCE_DIR}/stringpool.h\" // IWYU pragma: export\n"
+)
 
 install(TARGETS KOSM EXPORT KOSMIndoorMapTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
