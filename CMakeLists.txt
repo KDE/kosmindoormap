@@ -29,6 +29,10 @@ include(KDECMakeSettings)
 include(GenerateExportHeader)
 include(ECMDeprecationSettings)
 include(ECMAddAndroidApk)
+if(${ECM_VERSION} VERSION_GREATER_EQUAL 6.30)
+    set(HAVE_INSTALLEDLIBRARYCHECK TRUE)
+    include(ECMInstalledLibraryCheck)
+endif()
 
 ecm_setup_version(PROJECT VARIABLE_PREFIX KOSMINDOORMAP
     VERSION_HEADER kosmindoormap_version.h
