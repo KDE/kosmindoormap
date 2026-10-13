@@ -67,7 +67,7 @@ struct MapLoaderForeign {
     QML_UNCREATABLE("only provided via C++ API")
 };
 
-struct PlatformForeign {
+struct OSMPlatformForeign {
     Q_GADGET
     QML_VALUE_TYPE(platform)
     QML_FOREIGN(KOSMIndoorMap::Platform)
