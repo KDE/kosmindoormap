@@ -7,7 +7,7 @@
 #ifndef KOSMINDOORMAP_MAPCSSTYPES_H
 #define KOSMINDOORMAP_MAPCSSTYPES_H
 
-#include <osm/stringpool.h>
+#include <kosm/stringpool.h>
 
 namespace KOSMIndoorMap {
 
