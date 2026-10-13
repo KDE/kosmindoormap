@@ -7,7 +7,7 @@
 #ifndef KOSMINDOORMAP_FLOORLEVELMODEL_H
 #define KOSMINDOORMAP_FLOORLEVELMODEL_H
 
-#include <kosmindoormap_export.h>
+#include "kosmindoormap_export.h"
 
 #include <QAbstractListModel>
 
