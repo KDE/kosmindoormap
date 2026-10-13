@@ -74,4 +74,7 @@ target_link_libraries(kosmindoormapquickplugin PRIVATE
     KOSMIndoorMapQuick
 )
 
-ecm_finalize_qml_module(kosmindoormapquickplugin)
+if (NOT BUILD_SHARED_LIBS)
+    install(TARGETS KOSMIndoorMapQuick EXPORT KOSMIndoorMapTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+endif()
+ecm_finalize_qml_module(kosmindoormapquickplugin EXPORT KOSMIndoorMapTargets)

@@ -32,6 +32,8 @@ ecm_qt_declare_logging_category(KOSMEditorController
 if (ANDROID)
     add_subdirectory(android)
     install(TARGETS KOSMEditorController ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+elseif (NOT BUILD_SHARED_LIBS)
+    install(TARGETS KOSMEditorController EXPORT KOSMIndoorMapTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 endif()
 
 ecm_add_qml_module(kosmeditorcontrollerplugin
@@ -45,4 +47,4 @@ target_link_libraries(kosmeditorcontrollerplugin PRIVATE
     KOSMEditorController
     Qt::Quick
 )
-ecm_finalize_qml_module(kosmeditorcontrollerplugin)
+ecm_finalize_qml_module(kosmeditorcontrollerplugin EXPORT KOSMIndoorMapTargets)

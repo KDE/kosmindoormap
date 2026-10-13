@@ -24,3 +24,7 @@ ecm_qt_declare_logging_category(KWikidata
     DESCRIPTION "KWikidata"
     EXPORT KWIKIDATA
 )
+
+if (NOT BUILD_SHARED_LIBS)
+    install(TARGETS KWikidata EXPORT KOSMIndoorMapTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+endif()

@@ -21,4 +21,4 @@ target_link_libraries(kosmindoorroutingquickplugin PRIVATE
     KOSMIndoorRouting
 )
 
-ecm_finalize_qml_module(kosmindoorroutingquickplugin)
+ecm_finalize_qml_module(kosmindoorroutingquickplugin EXPORT KOSMIndoorMapTargets)

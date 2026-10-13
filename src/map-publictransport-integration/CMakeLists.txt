@@ -20,4 +20,4 @@ target_link_libraries(kosmindoormap_kpublictransport_integration_plugin PRIVATE
     KOSMIndoorMap
     KPublicTransport
 )
-ecm_finalize_qml_module(kosmindoormap_kpublictransport_integration_plugin)
+ecm_finalize_qml_module(kosmindoormap_kpublictransport_integration_plugin EXPORT KOSMIndoorMapTargets)
