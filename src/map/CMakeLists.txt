@@ -209,3 +209,21 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kosmindoormap_export.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kosmindoormap
 )
+
+if(HAVE_INSTALLEDLIBRARYCHECK)
+    ecm_add_installed_library_check(KOSMIndoorMap
+        PACKAGE_NAME "KOSMIndoorMap"
+        NO_PACKAGE_TARGET_NAMESPACE
+    )
+
+    ecm_installed_library_check_include_strings(KOSMIndoorMap
+        HEADERS
+            ${KOSMIndoorMap_Content_FORWARDING_HEADERS}
+            ${KOSMIndoorMap_Loader_FORWARDING_HEADERS}
+            ${KOSMIndoorMap_Network_FORWARDING_HEADERS}
+            ${KOSMIndoorMap_Renderer_FORWARDING_HEADERS}
+            ${KOSMIndoorMap_Scene_FORWARDING_HEADERS}
+            ${KOSMIndoorMap_Style_FORWARDING_HEADERS}
+        PREFIX KOSMIndoorMap
+    )
+endif()
