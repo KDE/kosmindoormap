@@ -75,3 +75,16 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kosmindoorrouting_export.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kosmindoorrouting
 )
+
+if(HAVE_INSTALLEDLIBRARYCHECK)
+    ecm_add_installed_library_check(KOSMIndoorRouting
+        PACKAGE_NAME "KOSMIndoorMap"
+        NO_PACKAGE_TARGET_NAMESPACE
+    )
+
+    ecm_installed_library_check_include_strings(KOSMIndoorRouting
+        HEADERS
+            ${KOSMIndoorRouting_FORWARDING_HEADERS}
+        PREFIX KOSMIndoorRouting
+    )
+endif()
