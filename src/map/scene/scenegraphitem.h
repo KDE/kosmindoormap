@@ -9,7 +9,7 @@
 
 #include <KOSM/Element>
 
-#include <style/mapcsstypes.h>
+#include <kosmindoormap/mapcsstypes.h>
 
 #include <QBrush>
 #include <QColor>

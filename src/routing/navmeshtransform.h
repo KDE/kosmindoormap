@@ -8,7 +8,7 @@
 
 #include "kosmindoorrouting_export.h"
 
-#include <osm/datatypes.h>
+#include <kosm/datatypes.h>
 
 #include <QTransform>
 
