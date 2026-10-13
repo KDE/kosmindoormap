@@ -193,7 +193,6 @@ install(TARGETS KOSMIndoorMap EXPORT KOSMIndoorMapTargets ${KDE_INSTALL_TARGETS_
 install(FILES
     ${KOSMIndoorMap_Content_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Loader_FORWARDING_HEADERS}
-    ${KOSMIndoorMap_Loader_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Network_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Renderer_FORWARDING_HEADERS}
     ${KOSMIndoorMap_Scene_FORWARDING_HEADERS}
