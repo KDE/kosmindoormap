@@ -10,7 +10,7 @@ Dependencies:
     'frameworks/kcontacts': 'Frameworks/6.24'
     'libraries/kpublictransport': "@same"
     'libraries/kopeninghours': "@same"
-    'libraries/kirigami-addons': "v1.11.0"
+    'libraries/kirigami-addons': "stable/1.11"
 
 - 'on': ['Linux', 'FreeBSD', 'Windows']
   'require':
