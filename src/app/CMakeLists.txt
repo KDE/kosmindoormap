@@ -9,7 +9,6 @@ ecm_add_qml_module(kosmindoormap-app URI "org.kde.kosmindoormap.app"
     QML_FILES
         AttributionPage.qml
         ExampleLocationModel.qml
-        IndoorMapInfoSheet.qml
         IndoorMapPage.qml
         Main.qml
         RoutingProfileSheet.qml
